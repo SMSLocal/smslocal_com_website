@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --heading: #154989;
+  --primary: #3d68ff;
+  --primary-dark: #2748d6;
+  --secondary: #ff3d8a;
+  --accent: #00f5a0;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e5e7eb;
+  --gradient-brand: linear-gradient(128deg, #3d68ff 6%, #ff3d8a 88%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-heading: var(--heading);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-geist), sans-serif;
+  font-weight: 400;
+  /* relative tracking scales with heading size (≈ -3.1px on the 52px H1) */
+  letter-spacing: -0.06em;
+}
+
+.text-gradient-brand {
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* gradient heading text uses Instrument Serif 400 italic (scoped to headings) */
+:is(h1, h2, h3, h4, h5, h6) .text-gradient-brand,
+:is(h1, h2, h3, h4, h5, h6).text-gradient-brand {
+  font-family: var(--font-instrument), serif;
+  font-style: italic;
+  font-weight: 400;
+  /* room for the italic overhang so background-clip:text isn't cut off */
+  padding-right: 0.12em;
+  margin-right: -0.06em;
+}
+
+.bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.mask-radial-fade {
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 30%, black 40%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 30%, black 40%, transparent 78%);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes dot-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 22px 22px; }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slower 7.5s ease-in-out infinite;
+}
+
+.animate-dot-drift {
+  animation: dot-drift 24s linear infinite;
+}
+
+@keyframes pill-drop {
+  0% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  28% {
+    transform: translateY(0);
+  }
+  38% {
+    transform: translateY(-6px);
+  }
+  48% {
+    transform: translateY(0);
+  }
+  88% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
+}
+
+.animate-pill-drop {
+  animation: pill-drop 4.5s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+@keyframes typing-dot {
+  0%,
+  70%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  35% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+.animate-typing-dot {
+  animation: typing-dot 1.3s ease-in-out infinite;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+.animate-dash-flow {
+  animation: dash-flow 3s linear infinite;
+}
+
+@keyframes pill-fall {
+  /* fall from the top */
+  0% {
+    transform: translateY(-210px) rotate(var(--rot, 0deg));
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  /* land and settle (spring easing gives the bounce) */
+  15% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+    opacity: 1;
+  }
+  /* hold settled — ~6s pause */
+  95% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+    opacity: 1;
+  }
+  /* fade out in place (never moves back up while visible) */
+  99% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+    opacity: 0;
+  }
+  /* teleport back to the top while invisible, then fall again */
+  100% {
+    transform: translateY(-210px) rotate(var(--rot, 0deg));
+    opacity: 0;
+  }
+}
+
+.animate-pill-fall {
+  animation: pill-fall 7.5s cubic-bezier(0.34, 1.45, 0.5, 1) infinite both;
+}
+
+.bg-wave {
+  background-image: repeating-radial-gradient(
+    circle at 72% 16%,
+    rgba(100, 116, 139, 0.03) 0 1px,
+    transparent 1px 15px
+  );
+}
