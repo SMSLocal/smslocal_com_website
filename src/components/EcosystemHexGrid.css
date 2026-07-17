@@ -1,0 +1,75 @@
+.ehx-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.2rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.ehx-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ehx-hex {
+  width: 52px;
+  height: 52px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: rgba(109, 92, 231, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  transition: background 0.25s ease;
+}
+
+.ehx-item:hover .ehx-hex {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.ehx-hex-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  transition: color 0.25s ease;
+}
+
+.ehx-item:hover .ehx-hex-icon {
+  color: #fff;
+}
+
+.ehx-hex-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ehx-item h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.ehx-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 860px) {
+  .ehx-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ehx-grid {
+    grid-template-columns: 1fr;
+  }
+}

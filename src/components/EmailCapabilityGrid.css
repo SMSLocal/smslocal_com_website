@@ -1,0 +1,102 @@
+.emcap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+}
+
+@media (max-width: 860px) {
+  .emcap-grid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}
+
+.emcap-card {
+  text-align: left;
+}
+
+.emcap-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 0 0 5px rgba(109, 92, 231, 0.1);
+  transition: box-shadow 0.25s ease;
+}
+
+.emcap-card:hover .emcap-icon {
+  box-shadow: 0 0 0 7px rgba(109, 92, 231, 0.16);
+}
+
+.emcap-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.emcap-card p {
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.emcap-mock {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.emcap-template {
+  height: 50px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  margin-bottom: 0.6rem;
+}
+
+.emcap-code {
+  display: block;
+  background: var(--ink);
+  color: #d7e0f5;
+  font-size: 0.66rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 7px;
+  margin-bottom: 0.6rem;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+.emcap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--navy);
+  padding: 0.2rem 0;
+}
+
+.emcap-pill {
+  flex: none;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(109, 92, 231, 0.12);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.emcap-pill.alt {
+  color: var(--cyan);
+  background: rgba(236, 72, 153, 0.12);
+}
+
+.emcap-pill.success {
+  color: var(--success);
+  background: rgba(22, 163, 74, 0.12);
+}

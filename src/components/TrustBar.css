@@ -1,0 +1,50 @@
+.trust-bar {
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.trust-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.trust-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  flex: none;
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.trust-logo {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--navy);
+  opacity: 0.45;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.trust-logo:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  .trust-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .trust-logos {
+    gap: 1.25rem;
+  }
+}

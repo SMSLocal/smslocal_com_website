@@ -1,0 +1,175 @@
+.smock-window {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.smock-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.smock-header-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+}
+
+.smock-header-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.smock-header-label {
+  flex: 1;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.smock-header-badge {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.smock-body {
+  padding: 0;
+}
+
+.smock-check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+}
+
+.smock-check-circle {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 163, 74, 0.14);
+  color: var(--success);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.smock-live-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.18);
+}
+
+.smock-check-text {
+  flex: 1;
+  font-size: 0.72rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.smock-live-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.smock-message {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.smock-tag {
+  display: inline-block;
+  background: rgba(109, 92, 231, 0.12);
+  color: var(--blue);
+  font-weight: 700;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  margin: 0 0.15rem;
+}
+
+.smock-stats-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.smock-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0.5rem 0.4rem;
+}
+
+.smock-pill.blue {
+  background: rgba(109, 92, 231, 0.1);
+}
+
+.smock-pill.green {
+  background: rgba(22, 163, 74, 0.1);
+}
+
+.smock-pill strong {
+  font-size: 0.85rem;
+  color: var(--navy);
+}
+
+.smock-pill span {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.smock-bars-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  height: 60px;
+  margin-bottom: 0.6rem;
+}
+
+.smock-bar {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+}
+
+.smock-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
+.smock-char-count {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.smock-landed {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--success);
+}

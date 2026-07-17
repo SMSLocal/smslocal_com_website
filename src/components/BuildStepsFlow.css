@@ -1,0 +1,124 @@
+.bsf {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
+}
+
+.bsf-step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem 0;
+}
+
+.bsf-step:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.bsf-num {
+  flex: none;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: 130px;
+}
+
+.bsf-step--1 .bsf-num { background: linear-gradient(135deg, var(--teal), var(--blue)); -webkit-background-clip: text; background-clip: text; }
+.bsf-step--2 .bsf-num { background: linear-gradient(135deg, var(--coral), var(--cyan)); -webkit-background-clip: text; background-clip: text; }
+.bsf-step--3 .bsf-num { background: linear-gradient(135deg, var(--cyan), var(--blue)); -webkit-background-clip: text; background-clip: text; }
+
+.bsf-body {
+  flex: 1 1 auto;
+  padding-top: 0.6rem;
+}
+
+.bsf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+  margin-bottom: 0.8rem;
+}
+
+.bsf-step--1 .bsf-icon { background: rgba(20, 184, 166, 0.1); color: var(--teal); }
+.bsf-step--2 .bsf-icon { background: rgba(251, 113, 133, 0.1); color: var(--coral); }
+.bsf-step--3 .bsf-icon { background: rgba(236, 72, 153, 0.1); color: var(--cyan); }
+
+.bsf-icon svg { width: 15px; height: 15px; }
+
+.bsf-body h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+}
+
+.bsf-body p {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 460px;
+}
+
+.bsf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bsf-chip {
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(109, 92, 231, 0.08);
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.bsf-step--1 .bsf-chip { background: rgba(20, 184, 166, 0.1); color: var(--teal); }
+.bsf-step--2 .bsf-chip { background: rgba(251, 113, 133, 0.1); color: var(--coral); }
+.bsf-step--3 .bsf-chip { background: rgba(236, 72, 153, 0.1); color: var(--cyan); }
+
+.bsf-mark {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(109, 92, 231, 0.08), rgba(236, 72, 153, 0.08));
+  color: var(--blue);
+}
+
+.bsf-step--1 .bsf-mark { background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(109, 92, 231, 0.08)); color: var(--teal); }
+.bsf-step--2 .bsf-mark { background: linear-gradient(135deg, rgba(251, 113, 133, 0.08), rgba(236, 72, 153, 0.08)); color: var(--coral); }
+.bsf-step--3 .bsf-mark { background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(109, 92, 231, 0.08)); color: var(--cyan); }
+
+.bsf-mark svg { width: 42px; height: 42px; }
+
+@media (max-width: 900px) {
+  .bsf-mark { display: none; }
+}
+
+@media (max-width: 640px) {
+  .bsf-step {
+    gap: 1rem;
+  }
+  .bsf-num {
+    font-size: 3rem;
+    width: 70px;
+  }
+}

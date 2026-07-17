@@ -1,0 +1,141 @@
+.fmx-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.6rem;
+  height: 400px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.fmx-strip {
+  position: relative;
+  flex: 0 0 64px;
+  border-radius: 18px;
+  background: rgba(109, 92, 231, 0.06);
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex-basis 0.45s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+}
+
+.fmx-strip.is-open {
+  flex: 1 1 420px;
+  background: rgba(109, 92, 231, 0.09);
+}
+
+.fmx-num {
+  position: absolute;
+  top: 1.3rem;
+  left: 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  z-index: 1;
+}
+
+/* Collapsed vertical label */
+.fmx-label {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  transform: translateX(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.fmx-strip.is-open .fmx-label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Expanded content */
+.fmx-content {
+  position: absolute;
+  inset: 0;
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.fmx-strip.is-open .fmx-content {
+  opacity: 1;
+}
+
+.fmx-content-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px -14px rgba(16, 35, 63, 0.3);
+}
+
+.fmx-content-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.fmx-content h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.fmx-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 340px;
+}
+
+@media (max-width: 900px) {
+  .fmx-row {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .fmx-strip {
+    flex: 1 1 100%;
+    height: 90px;
+  }
+
+  .fmx-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    left: 3.4rem;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .fmx-strip.is-open {
+    height: auto;
+    min-height: 160px;
+  }
+
+  .fmx-content {
+    position: static;
+    padding: 3.4rem 1.4rem 1.4rem;
+  }
+
+  .fmx-content h3 {
+    white-space: normal;
+  }
+}

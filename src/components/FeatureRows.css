@@ -1,0 +1,72 @@
+.frw-container {
+  max-width: 760px;
+}
+
+.frw-list {
+  margin-top: 3rem;
+}
+
+.frw-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.frw-list .frw-row:last-child {
+  border-bottom: none;
+}
+
+.frw-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.frw-row--1 .frw-icon { background: rgba(20, 184, 166, 0.1); color: var(--teal); }
+.frw-row--2 .frw-icon { background: rgba(251, 113, 133, 0.12); color: var(--coral); }
+.frw-row--3 .frw-icon { background: rgba(236, 72, 153, 0.1); color: var(--cyan); }
+
+.frw-icon svg { width: 21px; height: 21px; }
+
+.frw-row:hover .frw-icon {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  transform: scale(1.06);
+}
+
+.frw-row--1:hover .frw-icon { background: linear-gradient(135deg, var(--teal), var(--blue)); }
+.frw-row--2:hover .frw-icon { background: linear-gradient(135deg, var(--coral), var(--cyan)); }
+.frw-row--3:hover .frw-icon { background: linear-gradient(135deg, var(--cyan), var(--blue)); }
+
+.frw-copy {
+  padding-top: 0.4rem;
+}
+
+.frw-copy h3 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.frw-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .frw-row { gap: 1rem; padding: 1.4rem 0; }
+  .frw-icon { width: 42px; height: 42px; }
+  .frw-icon svg { width: 18px; height: 18px; }
+}

@@ -1,0 +1,133 @@
+.sdf {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.sdf-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.sdf-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--success);
+}
+
+.sdf-live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: sdfBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes sdfBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+.sdf-head-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.sdf-head-title::before {
+  content: '·';
+  margin-right: 0.6rem;
+  color: var(--border);
+}
+
+.sdf-ticker {
+  display: flex;
+  flex-direction: column;
+}
+
+.sdf-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.sdf-ticker .sdf-row:first-child {
+  border-top: none;
+}
+
+.sdf-row-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.sdf-row-label {
+  flex: 1 1 auto;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.sdf-trend {
+  font-size: 0.72rem;
+  font-weight: 700;
+  align-self: center;
+}
+
+.sdf-trend--up { color: var(--success); }
+.sdf-trend--flat { color: var(--text-secondary); }
+
+.sdf-spark {
+  width: 52px;
+  height: 18px;
+  flex: none;
+  align-self: center;
+}
+
+.sdf-spark polyline {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sdf-baseline {
+  height: 2px;
+  border-radius: 999px;
+  background: var(--border);
+  margin-top: 0.4rem;
+  overflow: hidden;
+}
+
+.sdf-baseline span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  animation: sdfBaseline 3.5s ease-in-out infinite;
+}
+
+@keyframes sdfBaseline {
+  0% { width: 0%; }
+  60%, 100% { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .sdf { max-width: 320px; }
+  .sdf-row-value { font-size: 1.1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sdf-live i, .sdf-baseline span {
+    animation: none;
+  }
+  .sdf-baseline span { width: 100%; }
+}

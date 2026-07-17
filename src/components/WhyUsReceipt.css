@@ -1,0 +1,48 @@
+.wre-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.wre-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.wre-list .wre-row:last-child {
+  border-bottom: none;
+}
+
+.wre-text h3 {
+  margin: 0 0 0.35rem;
+  color: var(--navy);
+  font-size: 1.02rem;
+}
+
+.wre-text p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.wre-check {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+}
+
+@media (max-width: 560px) {
+  .wre-row {
+    align-items: flex-start;
+  }
+}

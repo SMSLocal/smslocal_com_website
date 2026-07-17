@@ -1,0 +1,69 @@
+.wcd-row {
+  display: flex;
+  align-items: stretch;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.wcd-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.wcd-divider {
+  flex: none;
+  width: 1px;
+  background: var(--border);
+}
+
+.wcd-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  text-align: left;
+}
+
+.wcd-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+}
+
+.wcd-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.wcd-item h3 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.wcd-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .wcd-row {
+    flex-direction: column;
+    gap: 1.8rem;
+    max-width: 420px;
+  }
+
+  .wcd-divider {
+    display: none;
+  }
+}

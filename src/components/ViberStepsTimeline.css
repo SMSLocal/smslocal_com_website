@@ -1,0 +1,59 @@
+.vst-list {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.vst-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 1.3rem;
+  padding-bottom: 2.2rem;
+}
+
+.vst-item:last-child {
+  padding-bottom: 0;
+}
+
+.vst-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 19px;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, var(--border) 0 6px, transparent 6px 12px);
+}
+
+.vst-dot {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8rem;
+  box-shadow: 0 10px 22px -10px rgba(109, 92, 231, 0.5);
+}
+
+.vst-text {
+  padding-top: 0.4rem;
+}
+
+.vst-text h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.vst-text p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}

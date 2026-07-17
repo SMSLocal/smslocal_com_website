@@ -1,0 +1,57 @@
+.wuz-list {
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wuz-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  column-gap: 1.2rem;
+  row-gap: 0.35rem;
+  padding: 1.1rem 1.4rem;
+}
+
+.wuz-row--tint {
+  background: rgba(109, 92, 231, 0.05);
+}
+
+.wuz-icon {
+  grid-row: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+}
+
+.wuz-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.wuz-row h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1rem;
+  align-self: end;
+}
+
+.wuz-row p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .wuz-row {
+    grid-template-columns: 40px 1fr;
+    padding: 1rem;
+  }
+}

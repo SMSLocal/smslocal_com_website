@@ -1,0 +1,186 @@
+.bcast {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Status pill */
+.bcast-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px -16px rgba(16, 35, 63, 0.28);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.bcast-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+/* Message preview card */
+.bcast-msg {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 14px 32px -22px rgba(16, 35, 63, 0.3);
+}
+
+.bcast-msg-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+}
+
+.bcast-msg-head strong {
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+
+.bcast-sent {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.bcast-msg-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--navy);
+}
+
+.bcast-msg-text mark {
+  background: rgba(236, 72, 153, 0.15);
+  color: var(--cyan);
+  padding: 0 0.2rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+/* Live progress */
+.bcast-progress {
+  width: 100%;
+}
+
+.bcast-progress-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.74rem;
+  margin-bottom: 0.5rem;
+}
+
+.bcast-progress-head span {
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.bcast-progress-head strong {
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.bcast-track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.bcast-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+/* Stat chips */
+.bcast-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.bcast-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.65rem 0.4rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.bcast-stat strong {
+  font-size: 1rem;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.bcast-stat span {
+  font-size: 0.62rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+/* AI reply */
+.bcast-reply {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(109, 92, 231, 0.08), rgba(236, 72, 153, 0.06));
+  border: 1px solid rgba(109, 92, 231, 0.15);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bcast-reply.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bcast-reply-tag {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 0.35rem;
+}
+
+.bcast-reply p {
+  margin: 0 0 0.3rem;
+  font-size: 0.8rem;
+  color: var(--navy);
+  line-height: 1.45;
+}
+
+.bcast-reply-meta {
+  font-size: 0.66rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bcast-reply { transition: none; }
+}

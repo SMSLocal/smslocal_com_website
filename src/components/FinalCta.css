@@ -1,0 +1,117 @@
+.final-cta {
+  padding: 4rem 0 3.5rem;
+}
+
+.final-cta-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 3.5rem 2rem;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(109, 92, 231, 0.14), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.14), transparent 45%),
+    linear-gradient(180deg, #fbfbff, #f4f6fb);
+}
+
+.final-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+}
+
+.final-cta-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.final-cta-divider {
+  color: var(--border);
+}
+
+.final-cta-title {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.final-cta-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.final-cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.final-cta-actions .btn-primary {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+.final-cta-actions .btn-primary:hover {
+  background: var(--ink);
+}
+
+.final-cta-trust {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.9rem 1.75rem;
+  margin: -1.75rem auto 0;
+  width: fit-content;
+  position: relative;
+  box-shadow: 0 12px 24px -16px rgba(16, 35, 63, 0.2);
+}
+
+.final-cta-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.final-cta-trust-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+@media (max-width: 720px) {
+  .final-cta-title {
+    font-size: 2rem;
+  }
+
+  .final-cta-card {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .final-cta-trust {
+    border-radius: 16px;
+  }
+}

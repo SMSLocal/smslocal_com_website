@@ -1,0 +1,64 @@
+.eal-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.eal-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0 1.1rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+}
+
+.eal-list .eal-row:last-child {
+  border-bottom: none;
+}
+
+.eal-bar {
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 0;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background 0.2s ease;
+}
+
+.eal-row:hover .eal-bar {
+  background: linear-gradient(180deg, var(--blue), var(--cyan));
+}
+
+.eal-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+}
+
+.eal-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.eal-text h3 {
+  margin: 0 0 0.3rem;
+  color: var(--navy);
+  font-size: 0.98rem;
+}
+
+.eal-text p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}

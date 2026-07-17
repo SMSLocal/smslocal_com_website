@@ -1,0 +1,126 @@
+.tpc {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.tpc-arrow {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  cursor: pointer;
+  box-shadow: 0 10px 24px -16px rgba(16, 35, 63, 0.3);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tpc-arrow:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.tpc-cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  align-items: stretch;
+}
+
+.tpc-card {
+  border-radius: 18px;
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.tpc-tint-a { background: rgba(109, 92, 231, 0.07); }
+.tpc-tint-b { background: rgba(0, 174, 239, 0.08); }
+.tpc-tint-c { background: rgba(20, 184, 166, 0.08); }
+
+.tpc-card.is-center {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 24px 48px -22px rgba(16, 35, 63, 0.28);
+  z-index: 1;
+}
+
+.tpc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: #fff;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 16px -10px rgba(16, 35, 63, 0.25);
+}
+
+.tpc-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tpc-card h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.02rem;
+}
+
+.tpc-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
+/* Dots */
+.tpc-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 2rem;
+}
+
+.tpc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, width 0.25s ease;
+}
+
+.tpc-dot.is-active {
+  width: 22px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+@media (max-width: 860px) {
+  .tpc-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .tpc-card:nth-child(1),
+  .tpc-card:nth-child(3) {
+    display: none;
+  }
+
+  .tpc-card.is-center {
+    transform: none;
+  }
+}

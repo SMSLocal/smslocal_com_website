@@ -1,0 +1,139 @@
+.lncap-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lncap-showrow {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.lncap-showrow--a {
+  flex-direction: row;
+}
+
+.lncap-showrow--b {
+  flex-direction: row-reverse;
+}
+
+.lncap-mockwrap {
+  flex: none;
+  width: 260px;
+}
+
+.lncap-text {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.lncap-showrow--b .lncap-text {
+  text-align: right;
+}
+
+.lncap-num {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.lncap-text h3 {
+  margin: 0 0 0.6rem;
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+.lncap-text p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.lncap-showrow--b .lncap-text p {
+  margin-left: auto;
+}
+
+.lncap-mock {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 14px 32px -20px rgba(16, 35, 63, 0.28);
+}
+
+.lncap-flex-media {
+  height: 56px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  margin-bottom: 0.6rem;
+}
+
+.lncap-mock strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.lncap-mock p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.lncap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--navy);
+  padding: 0.4rem 0;
+}
+
+.lncap-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.lncap-channel {
+  flex: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(109, 92, 231, 0.1);
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 720px) {
+  .lncap-showrow,
+  .lncap-showrow--b {
+    flex-direction: column;
+    gap: 1.6rem;
+    text-align: center;
+  }
+
+  .lncap-mockwrap {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .lncap-text,
+  .lncap-showrow--b .lncap-text {
+    text-align: center;
+  }
+
+  .lncap-text p,
+  .lncap-showrow--b .lncap-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

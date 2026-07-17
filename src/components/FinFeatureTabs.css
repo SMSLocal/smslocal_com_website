@@ -1,0 +1,141 @@
+.fft {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) 1fr;
+  gap: 3.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.fft-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.fft-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 0;
+  border: none;
+  background: none;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.fft-tab:first-child {
+  padding-top: 0;
+}
+
+.fft-tab:last-child {
+  border-bottom: none;
+}
+
+.fft-tab-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+
+.fft-tab.is-active .fft-tab-title {
+  color: var(--navy);
+}
+
+.fft-tab-track {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.fft-tab-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  animation: fftFill 4s linear forwards;
+}
+
+@keyframes fftFill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Detail panel */
+.fft-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fftFade 0.4s ease both;
+  padding-top: 0.2rem;
+}
+
+@keyframes fftFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fft-panel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 20px 40px -16px rgba(109, 92, 231, 0.5);
+  margin-bottom: 1.3rem;
+}
+
+.fft-panel-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.fft-panel h3 {
+  margin: 0 0 0.7rem;
+  color: var(--navy);
+  font-size: 1.4rem;
+}
+
+.fft-panel p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 440px;
+}
+
+@media (max-width: 720px) {
+  .fft {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .fft-tab {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .fft-tab-track {
+    width: 60px;
+    flex: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fft-tab-fill,
+  .fft-panel {
+    animation: none;
+  }
+  .fft-tab-fill { width: 100%; }
+  .fft-panel { opacity: 1; transform: none; }
+}

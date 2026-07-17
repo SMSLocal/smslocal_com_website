@@ -1,0 +1,219 @@
+.vcmock-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow:
+    0 24px 48px -16px rgba(109, 92, 231, 0.25),
+    0 8px 20px -10px rgba(236, 72, 153, 0.18);
+  overflow: hidden;
+}
+
+.vcmock-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.vcmock-mic-icon {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  animation: vcmockMicPulse 2s ease-in-out infinite;
+}
+
+@keyframes vcmockMicPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(109, 92, 231, 0.5); }
+  50% { box-shadow: 0 0 0 6px rgba(109, 92, 231, 0); }
+}
+
+.vcmock-mic-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.vcmock-header-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.vcmock-header-text strong {
+  font-size: 0.82rem;
+  color: var(--navy);
+}
+
+.vcmock-header-text span {
+  font-size: 0.62rem;
+  color: var(--text-secondary);
+}
+
+/* Live audio waveform */
+.vcmock-wave {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.vcmock-wave i {
+  display: block;
+  width: 2.5px;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--blue), var(--cyan));
+  transform: scaleY(0.3);
+  transform-origin: center;
+  animation: vcmockWave 1s ease-in-out infinite;
+}
+
+.vcmock-wave i:nth-child(2) { animation-delay: 0.15s; }
+.vcmock-wave i:nth-child(3) { animation-delay: 0.3s; }
+.vcmock-wave i:nth-child(4) { animation-delay: 0.45s; }
+.vcmock-wave i:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes vcmockWave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.vcmock-timer {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--success);
+  font-variant-numeric: tabular-nums;
+}
+
+.vcmock-rec {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  animation: vcmockBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes vcmockBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+/* Transcript (fixed height so the card never resizes) */
+.vcmock-transcript {
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  height: 300px;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.vcmock-line {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  animation: vcmockLineIn 0.4s ease both;
+}
+
+@keyframes vcmockLineIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vcmock-speaker {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+
+.vcmock-line.agent .vcmock-speaker {
+  color: var(--blue);
+}
+
+.vcmock-line p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--navy);
+  background: var(--bg-subtle);
+  border-radius: 10px;
+  padding: 0.5rem 0.7rem;
+}
+
+.vcmock-line.agent p {
+  background: linear-gradient(135deg, rgba(109, 92, 231, 0.08), rgba(236, 72, 153, 0.06));
+}
+
+.vcmock-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.vcmock-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.vcmock-tag svg {
+  width: 11px;
+  height: 11px;
+}
+
+.vcmock-tag.sentiment {
+  color: var(--success);
+  background: rgba(22, 163, 74, 0.12);
+}
+
+.vcmock-tag.lang {
+  color: var(--blue);
+  background: rgba(109, 92, 231, 0.1);
+}
+
+.vcmock-tag.live {
+  color: var(--cyan);
+  background: rgba(236, 72, 153, 0.1);
+}
+
+.vcmock-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: vcmockBlink 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vcmock-mic-icon,
+  .vcmock-wave i,
+  .vcmock-rec,
+  .vcmock-line,
+  .vcmock-live-dot {
+    animation: none;
+  }
+  .vcmock-wave i { transform: scaleY(0.7); }
+}

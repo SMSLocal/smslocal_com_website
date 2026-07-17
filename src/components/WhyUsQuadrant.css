@@ -1,0 +1,98 @@
+.wuq {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 3.5rem;
+}
+
+/* Plus-shaped divider through the middle */
+.wuq::before,
+.wuq::after {
+  content: '';
+  position: absolute;
+  background: var(--border);
+}
+
+.wuq::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-0.5px);
+}
+
+.wuq::after {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-0.5px);
+}
+
+.wuq-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 2.5rem 3rem;
+}
+
+.wuq-item--0 { padding-left: 0; padding-top: 0; }
+.wuq-item--1 { padding-right: 0; padding-top: 0; }
+.wuq-item--2 { padding-left: 0; padding-bottom: 0; }
+.wuq-item--3 { padding-right: 0; padding-bottom: 0; }
+
+.wuq-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 14px 26px -14px rgba(109, 92, 231, 0.5);
+}
+
+.wuq-item--1 .wuq-icon { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 14px 26px -14px rgba(20, 184, 166, 0.5); }
+.wuq-item--2 .wuq-icon { background: linear-gradient(135deg, var(--coral), var(--cyan)); box-shadow: 0 14px 26px -14px rgba(251, 113, 133, 0.5); }
+.wuq-item--3 .wuq-icon { background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 14px 26px -14px rgba(236, 72, 153, 0.5); }
+
+.wuq-icon svg { width: 20px; height: 20px; }
+
+.wuq-copy h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+.wuq-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  .wuq {
+    grid-template-columns: 1fr;
+  }
+  .wuq::before,
+  .wuq::after {
+    display: none;
+  }
+  .wuq-item,
+  .wuq-item--0,
+  .wuq-item--1,
+  .wuq-item--2,
+  .wuq-item--3 {
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .wuq-item:first-child,
+  .wuq-item--0 {
+    padding-top: 0;
+    border-top: none;
+  }
+}

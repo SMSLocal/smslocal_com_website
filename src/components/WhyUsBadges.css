@@ -1,0 +1,55 @@
+.wub-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.75rem 2.25rem;
+  margin-top: 3.5rem;
+}
+
+.wub-item {
+  flex: 0 1 240px;
+  width: 240px;
+  text-align: center;
+}
+
+.wub-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 76px;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  clip-path: polygon(0% 0%, 100% 0%, 100% 68%, 50% 100%, 0% 68%);
+  box-shadow: 0 16px 28px -16px rgba(109, 92, 231, 0.5);
+  transition: transform 0.25s ease;
+}
+
+.wub-item--1 .wub-badge { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 16px 28px -16px rgba(20, 184, 166, 0.5); }
+.wub-item--2 .wub-badge { background: linear-gradient(135deg, var(--coral), var(--cyan)); box-shadow: 0 16px 28px -16px rgba(251, 113, 133, 0.5); }
+.wub-item--3 .wub-badge { background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 16px 28px -16px rgba(236, 72, 153, 0.5); }
+
+.wub-item:hover .wub-badge {
+  transform: translateY(-4px);
+}
+
+.wub-badge svg { width: 22px; height: 22px; margin-bottom: 8px; }
+
+.wub-item h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.06rem;
+  letter-spacing: -0.01em;
+}
+
+.wub-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .wub-item { width: 100%; flex-basis: 100%; }
+}

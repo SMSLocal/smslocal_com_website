@@ -1,0 +1,74 @@
+.fvi-container {
+  max-width: 820px;
+}
+
+.fvi-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.fvi-row {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.fvi-list .fvi-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.fvi-index {
+  flex: none;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fvi-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+}
+
+.fvi-row--1 .fvi-icon { background: rgba(20, 184, 166, 0.1); color: var(--teal); }
+.fvi-row--2 .fvi-icon { background: rgba(251, 113, 133, 0.12); color: var(--coral); }
+.fvi-row--3 .fvi-icon { background: rgba(236, 72, 153, 0.1); color: var(--cyan); }
+
+.fvi-icon svg { width: 22px; height: 22px; }
+
+.fvi-copy h3 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.fvi-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+@media (max-width: 640px) {
+  .fvi-row { gap: 1rem; padding: 1.5rem 0; }
+  .fvi-index { display: none; }
+  .fvi-icon { width: 44px; height: 44px; }
+}

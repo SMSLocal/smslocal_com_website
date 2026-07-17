@@ -1,0 +1,91 @@
+.ecr-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.ecr-line {
+  position: absolute;
+  top: 9px;
+  left: calc(12.5% - 1px);
+  right: calc(12.5% - 1px);
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--border) 0 6px, transparent 6px 12px);
+  z-index: 0;
+}
+
+.ecr-item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ecr-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 0 5px var(--bg-subtle);
+  margin-bottom: 1.1rem;
+}
+
+.ecr-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+  margin-bottom: 1rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ecr-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.ecr-item:hover .ecr-icon {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.ecr-item h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 0.98rem;
+}
+
+.ecr-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 860px) {
+  .ecr-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem 1.6rem;
+  }
+
+  .ecr-line {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecr-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,209 @@
+.home-steps-section {
+  background: var(--bg-subtle);
+  padding: 4rem 0 4.5rem;
+}
+
+.home-steps-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+}
+
+.home-steps-row::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(16.66% + 20px);
+  right: calc(16.66% + 20px);
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border) 0 8px,
+    transparent 8px 16px
+  );
+  z-index: 0;
+}
+
+.home-step-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2.25rem 1.5rem 1.75rem;
+  box-shadow: 0 12px 30px -18px rgba(16, 35, 63, 0.25);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.home-step-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.accent-blue::before {
+  background: radial-gradient(circle at 100% 0%, rgba(109, 92, 231, 0.1), transparent 60%);
+}
+
+.accent-cyan::before {
+  background: radial-gradient(circle at 100% 0%, rgba(236, 72, 153, 0.1), transparent 60%);
+}
+
+.accent-teal::before {
+  background: radial-gradient(circle at 100% 0%, rgba(20, 184, 166, 0.12), transparent 60%);
+}
+
+.home-step-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.accent-blue .home-step-badge { background: var(--blue); }
+.accent-cyan .home-step-badge { background: var(--cyan); }
+.accent-teal .home-step-badge { background: var(--teal); }
+
+.home-step-ghost {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--border);
+  opacity: 0.6;
+  line-height: 1;
+  z-index: 0;
+}
+
+.step-mock {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mock-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.mock-input {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.82rem;
+  color: #9aa3b2;
+}
+
+.mock-btn {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.mock-note {
+  font-size: 0.72rem;
+  color: var(--success);
+}
+
+.mock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.mock-row-icon {
+  flex: none;
+}
+
+.mock-row-label {
+  flex: 1;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.mock-row-status {
+  color: var(--success);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.mock-bubble {
+  max-width: 85%;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 10px;
+}
+
+.mock-bubble.user {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--navy);
+}
+
+.mock-bubble.bot {
+  align-self: flex-end;
+  background: var(--blue);
+  color: #fff;
+}
+
+.home-step-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.75rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.home-step-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .home-steps-row {
+    grid-template-columns: 1fr;
+  }
+
+  .home-steps-row::before {
+    display: none;
+  }
+}

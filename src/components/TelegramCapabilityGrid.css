@@ -1,0 +1,145 @@
+.tgcap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+}
+
+@media (max-width: 860px) {
+  .tgcap-grid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}
+
+.tgcap-card {
+  position: relative;
+  text-align: left;
+  padding-bottom: 1.6rem;
+}
+
+.tgcap-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transition: width 0.25s ease;
+}
+
+.tgcap-card:hover::after {
+  width: 100%;
+}
+
+.tgcap-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+  margin-bottom: 1.1rem;
+}
+
+.tgcap-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.tgcap-card p {
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.tgcap-mock {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.tgcap-bubble {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.74rem;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.tgcap-key-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+
+.tgcap-key {
+  text-align: center;
+  background: #fff;
+  border: 1px solid rgba(109, 92, 231, 0.35);
+  color: var(--blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.4rem 0;
+  border-radius: 7px;
+}
+
+.tgcap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.76rem;
+  color: var(--navy);
+  padding: 0.3rem 0;
+}
+
+.tgcap-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.tgcap-pill {
+  flex: none;
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(109, 92, 231, 0.12);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.tgcap-status {
+  flex: none;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.tgcap-status.bot {
+  background: rgba(109, 92, 231, 0.12);
+  color: var(--blue);
+}
+
+.tgcap-status.human {
+  background: rgba(236, 72, 153, 0.12);
+  color: var(--cyan);
+}
+
+.tgcap-footer {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--success);
+}

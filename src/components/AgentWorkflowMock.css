@@ -1,0 +1,316 @@
+.awf-card {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Header */
+.awf-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.3rem;
+}
+
+.awf-logo {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.awf-logo svg { width: 15px; height: 15px; }
+
+.awf-header-text { flex: 1; display: flex; flex-direction: column; }
+.awf-header-text strong { font-size: 0.82rem; color: var(--navy); }
+.awf-header-text span { font-size: 0.62rem; color: var(--text-secondary); }
+
+.awf-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.awf-live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: awfBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes awfBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* Stat tiles — plain, no background */
+.awf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px dashed var(--border);
+  margin-bottom: 1.2rem;
+}
+
+.awf-stat {
+  min-width: 0;
+}
+
+.awf-stat-label {
+  display: block;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.awf-stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+}
+
+.awf-stat-row strong { font-size: 0.8rem; color: var(--navy); white-space: nowrap; }
+
+.awf-spark { flex: none; }
+
+@media (max-width: 420px) {
+  .awf-spark { display: none; }
+}
+
+.awf-spark polyline {
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  animation: awfDraw 2.6s ease-in-out infinite;
+}
+
+@keyframes awfDraw {
+  0% { stroke-dashoffset: 90; }
+  45%, 100% { stroke-dashoffset: 0; }
+}
+
+/* Workflow flow */
+.awf-flow-wrap {
+  margin-bottom: 1.4rem;
+}
+
+.awf-flow-title {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.55rem;
+}
+
+.awf-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.awf-flow-track {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: var(--border);
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+.awf-pulse {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px 2px rgba(236, 72, 153, 0.6);
+  transform: translate(-50%, -50%);
+  animation: awfPulseRun 4.4s ease-in-out infinite;
+}
+
+@keyframes awfPulseRun {
+  0% { left: 0; opacity: 0; }
+  6% { opacity: 1; }
+  85% { left: 100%; opacity: 1; }
+  92%, 100% { left: 100%; opacity: 0; }
+}
+
+.awf-node {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.35rem;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 4px 10px -6px rgba(16, 35, 63, 0.25);
+  animation: awfNodeActive 4.4s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.5s);
+}
+
+.awf-node.accent {
+  border-color: rgba(236, 72, 153, 0.4);
+  background: linear-gradient(135deg, rgba(109, 92, 231, 0.08), rgba(236, 72, 153, 0.08));
+  color: var(--blue);
+}
+
+@keyframes awfNodeActive {
+  0%, 8%, 40%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 10px -6px rgba(16, 35, 63, 0.25);
+  }
+  14% {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 18px -6px rgba(109, 92, 231, 0.5);
+  }
+}
+
+/* Agent panel — plain, no background */
+.awf-agent {
+}
+
+.awf-agent-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+}
+
+.awf-agent-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.awf-agent-name svg { width: 13px; height: 13px; color: var(--blue); }
+
+.awf-conf-label { font-size: 0.62rem; color: var(--text-secondary); }
+.awf-conf-label b { color: var(--success); }
+
+.awf-tools { display: flex; flex-direction: column; }
+
+.awf-tool {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  animation: awfToolIn 4.4s ease both infinite;
+  animation-delay: calc(var(--t) * 0.55s + 0.4s);
+}
+
+.awf-tools .awf-tool:last-child {
+  border-bottom: none;
+}
+
+@keyframes awfToolIn {
+  0%, 100% { opacity: 0.55; }
+  12%, 90% { opacity: 1; }
+}
+
+.awf-tool-icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+}
+
+.awf-tool-icon svg { width: 12px; height: 12px; }
+
+.awf-tool-label { flex: 1; font-size: 0.68rem; font-weight: 600; color: var(--navy); }
+
+.awf-toggle {
+  flex: none;
+  width: 26px;
+  height: 15px;
+  border-radius: 999px;
+  background: var(--border);
+  position: relative;
+  animation: awfToggleOn 4.4s ease both infinite;
+  animation-delay: calc(var(--t) * 0.55s + 0.4s);
+}
+
+.awf-toggle i {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  animation: awfKnobOn 4.4s ease both infinite;
+  animation-delay: calc(var(--t) * 0.55s + 0.4s);
+}
+
+@keyframes awfToggleOn {
+  0%, 8% { background: var(--border); }
+  16%, 90% { background: var(--success); }
+  100% { background: var(--border); }
+}
+
+@keyframes awfKnobOn {
+  0%, 8% { left: 2px; }
+  16%, 90% { left: 13px; }
+  100% { left: 2px; }
+}
+
+.awf-conf-bar {
+  margin-top: 0.6rem;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.awf-conf-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  animation: awfConfFill 4.4s ease-in-out infinite;
+}
+
+@keyframes awfConfFill {
+  0%, 8% { width: 8%; }
+  55%, 90% { width: 88%; }
+  100% { width: 8%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .awf-live i, .awf-spark polyline, .awf-pulse, .awf-node,
+  .awf-tool, .awf-toggle, .awf-toggle i, .awf-conf-bar span {
+    animation: none;
+  }
+  .awf-spark polyline { stroke-dashoffset: 0; }
+  .awf-toggle { background: var(--success); }
+  .awf-toggle i { left: 13px; }
+  .awf-conf-bar span { width: 88%; }
+}

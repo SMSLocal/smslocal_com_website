@@ -1,0 +1,45 @@
+.esq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.esq-col {
+  text-align: left;
+}
+
+.esq-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 1.1rem;
+}
+
+.esq-col h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.esq-col p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 780px) {
+  .esq-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}

@@ -1,0 +1,69 @@
+.indchips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 1.4rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.indchip {
+  flex: 0 1 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.indchip-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 1.1rem 0.4rem 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.indchip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.indchip-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.indchip:hover .indchip-pill {
+  border-color: transparent;
+  box-shadow: 0 16px 32px -18px rgba(109, 92, 231, 0.45);
+  transform: translateY(-3px);
+}
+
+.indchip-desc {
+  margin: 0;
+  max-width: 220px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .indchip {
+    flex: 0 1 100%;
+  }
+}

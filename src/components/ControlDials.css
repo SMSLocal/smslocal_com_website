@@ -1,0 +1,82 @@
+.cdial-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+  margin-top: 3rem;
+}
+
+.cdial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cdial {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 1.25rem;
+}
+
+.cdial-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.cdial-track {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 4;
+}
+
+.cdial-arc {
+  fill: none;
+  stroke: url(#cdial-grad);
+  stroke: var(--blue);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.cdial-item:nth-child(2) .cdial-arc { stroke: var(--teal); }
+.cdial-item:nth-child(3) .cdial-arc { stroke: var(--coral); }
+.cdial-item:nth-child(4) .cdial-arc { stroke: var(--cyan); }
+
+.cdial-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+}
+
+.cdial-item h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.cdial-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  max-width: 230px;
+}
+
+@media (max-width: 860px) {
+  .cdial-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.75rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cdial-row {
+    grid-template-columns: 1fr;
+  }
+}

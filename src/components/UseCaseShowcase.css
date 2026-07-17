@@ -1,0 +1,143 @@
+.ucs {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+/* Featured use case */
+.ucs-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ucs-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.ucs-feature h3 {
+  margin: 0 0 0.7rem;
+  color: var(--navy);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.ucs-feature p {
+  margin: 0 0 1.2rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.ucs-feature-link {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.ucs-feature-link:hover {
+  text-decoration: underline;
+}
+
+/* Compact list of the rest */
+.ucs-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.ucs-row {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  transition: padding-left 0.2s ease;
+}
+
+.ucs-list .ucs-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.ucs-row:hover {
+  padding-left: 0.4rem;
+}
+
+.ucs-row-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ucs-row:hover .ucs-row-icon {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.ucs-row-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ucs-row-copy h4 {
+  margin: 0 0 0.3rem;
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.ucs-row-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.ucs-row-link {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ucs-row:hover .ucs-row-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 860px) {
+  .ucs {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .ucs-feature p { max-width: none; }
+}
+
+@media (max-width: 520px) {
+  .ucs-row { gap: 0.85rem; }
+  .ucs-row-copy p { display: none; }
+}

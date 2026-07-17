@@ -1,0 +1,53 @@
+.asb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.asb-col {
+  position: relative;
+  text-align: left;
+  padding: 1.4rem 1.3rem 0 1.3rem;
+}
+
+.asb-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-top: 2px solid var(--blue);
+  border-left: 2px solid var(--blue);
+  border-radius: 6px 0 0 0;
+}
+
+.asb-num {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.9rem;
+}
+
+.asb-col h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.asb-col p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 780px) {
+  .asb-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}

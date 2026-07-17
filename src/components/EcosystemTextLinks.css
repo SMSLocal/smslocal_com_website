@@ -1,0 +1,50 @@
+.etl-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4rem 3rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.etl-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.etl-item h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.etl-arrow {
+  color: var(--blue);
+  transition: transform 0.2s ease;
+}
+
+.etl-item:hover .etl-arrow {
+  transform: translateX(4px);
+}
+
+.etl-item:hover h3 {
+  color: var(--blue);
+}
+
+.etl-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .etl-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,55 @@
+.cn-stack {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+.cn-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.cn-num {
+  flex: none;
+  min-width: 70px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.cn-body {
+  padding-top: 0.35rem;
+}
+
+.cn-body h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.cn-body p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+@media (max-width: 560px) {
+  .cn-row {
+    gap: 1rem;
+  }
+
+  .cn-num {
+    min-width: 50px;
+    font-size: 1.9rem;
+  }
+}

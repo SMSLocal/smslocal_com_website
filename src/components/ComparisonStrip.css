@@ -1,0 +1,61 @@
+.cps-inner {
+  max-width: 880px;
+}
+
+.cps-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.cps-pair {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.cps-before {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  text-decoration-color: rgba(84, 89, 95, 0.4);
+  opacity: 0.75;
+}
+
+.cps-arrow {
+  font-size: 0.9rem;
+  color: var(--border);
+}
+
+.cps-after {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.cps-after-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+  flex: none;
+}
+
+.cps-after-ic svg { width: 10px; height: 10px; }
+
+@media (max-width: 720px) {
+  .cps-row {
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+}

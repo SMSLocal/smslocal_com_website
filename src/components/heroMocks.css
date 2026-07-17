@@ -1,0 +1,246 @@
+.hmock-card {
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow:
+    0 24px 48px -16px rgba(109, 92, 231, 0.25),
+    0 8px 20px -10px rgba(236, 72, 153, 0.18);
+  padding: 1.5rem;
+}
+
+.hmock-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.9rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.hmock-head.light {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.hmock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  flex: none;
+}
+
+.hmock-dot.green {
+  background: var(--success);
+}
+
+.hmock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  color: var(--navy);
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.hmock-row:last-child {
+  border-bottom: none;
+}
+
+.hmock-check {
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Progress (Bulk SMS) */
+.hmock-progress-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #e6ebf5;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+
+.hmock-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+/* Code (SMS API) */
+.hmock-code {
+  background: var(--ink);
+  border-color: var(--ink);
+  padding: 0;
+  overflow: hidden;
+}
+
+.hmock-code-head {
+  display: flex;
+  gap: 6px;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hmock-code-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.hmock-code-dot.red { background: #ff5f57; }
+.hmock-code-dot.yellow { background: #febc2e; }
+.hmock-code-dot.green { background: #28c840; }
+
+.hmock-code-body {
+  margin: 0;
+  padding: 1rem 1.25rem 1.25rem;
+  color: #a7f3d0;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Phone (OTP) */
+.hmock-phone {
+  max-width: 260px;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.hmock-phone-notch {
+  width: 60px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  margin: 0 auto 1.25rem;
+}
+
+.hmock-phone-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+}
+
+.hmock-otp-boxes {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.hmock-otp-box {
+  width: 34px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--bg-subtle);
+}
+
+.hmock-verified {
+  font-size: 0.8rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* Chat (WhatsApp) */
+.hmock-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hmock-bubble {
+  max-width: 85%;
+  font-size: 0.85rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  line-height: 1.4;
+}
+
+.hmock-bubble.user {
+  align-self: flex-start;
+  background: var(--bg-subtle);
+  color: var(--navy);
+}
+
+.hmock-bubble.bot {
+  align-self: flex-end;
+  background: var(--blue);
+  color: #fff;
+}
+
+/* Flow (Chatbot builder) */
+.hmock-flow-node {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--navy);
+  text-align: center;
+}
+
+.hmock-flow-node.start {
+  background: rgba(109, 92, 231, 0.1);
+  border-color: transparent;
+}
+
+.hmock-flow-node.accent {
+  background: rgba(236, 72, 153, 0.1);
+  border-color: transparent;
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.hmock-flow-line {
+  width: 2px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+/* Dark (Voice) */
+.hmock-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.hmock-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 1rem;
+}
+
+.hmock-wave span {
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--blue), var(--cyan));
+}
+
+.hmock-transcript {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .hmock-card {
+    max-width: 340px;
+  }
+}

@@ -1,0 +1,75 @@
+.eig-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.6rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.eig-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.eig-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(109, 92, 231, 0.1);
+  color: var(--blue);
+  margin-bottom: 1.1rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.eig-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.eig-item:hover .eig-icon {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.eig-item h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.02rem;
+}
+
+.eig-item p {
+  margin: 0 0 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.eig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.eig-arrow {
+  transition: transform 0.2s ease;
+}
+
+.eig-item:hover .eig-arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 560px) {
+  .eig-grid {
+    grid-template-columns: 1fr;
+  }
+}

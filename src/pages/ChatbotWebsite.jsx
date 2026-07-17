@@ -1,0 +1,96 @@
+import Seo from '../components/Seo.jsx'
+import { Hero, NarrativeCompare, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { IconBolt, IconUsers, IconCalendar, IconChat } from '../components/icons.jsx'
+import WebsiteConversationFloat from '../components/WebsiteConversationFloat.jsx'
+import FeatureRows from '../components/FeatureRows.jsx'
+
+const FEATURES = [
+  { icon: <IconBolt />, title: 'Instant AI answers', desc: 'Sub-second responses to pricing, feature and policy questions, pulled straight from your own content.' },
+  { icon: <IconUsers />, title: 'Smart lead capture', desc: 'Greets visitors, asks the right qualifying questions, and collects name, email and intent inside the chat.' },
+  { icon: <IconCalendar />, title: 'Appointment booking', desc: 'Checks availability and books demos or calls right in the conversation — no back-and-forth email.' },
+  { icon: <IconChat />, title: 'Seamless human handoff', desc: 'Passes complex chats to a live agent with the full history attached, so nobody repeats themselves.' },
+]
+
+const STEPS = [
+  { title: 'Connect your content', desc: 'Point it at your help center, docs or a website URL and it learns your answers in minutes.' },
+  { title: 'Set your rules', desc: 'Decide when it answers, when it captures a lead, and when to hand off to your team.' },
+  { title: 'Go live and improve', desc: 'Publish the widget, then watch resolution and lead-capture rates and refine over time.' },
+]
+
+const TESTIMONIALS = [
+  { quote: 'We added the widget to our site in ten minutes and it was answering real questions by lunch.', name: 'Fatima Al-Sayed', role: 'Support Lead' },
+  { quote: 'Overnight and weekend inquiries used to just wait until Monday. Now most get answered instantly.', name: 'Jonas Weber', role: 'Ecommerce Founder' },
+  { quote: 'The handoff to our support inbox keeps the whole conversation attached — nobody repeats themselves.', name: 'Grace Adeyemi', role: 'Customer Experience Manager' },
+]
+
+const FAQS = [
+  { q: 'How do I add the chatbot to my website?', a: 'Paste a single script snippet into your site — no rebuild or developer sprint required. It works on any platform, including WordPress, Webflow, Shopify, React or plain HTML.' },
+  { q: 'Can the bot answer questions from my help docs?', a: 'Yes, point it at your help center, upload documents or paste a URL and it learns to answer common questions automatically — in your own tone and policies.' },
+  { q: 'Can it capture leads and book appointments?', a: 'Yes. It qualifies visitors inside the chat and collects their details, and can check availability to book demos or calls without any back-and-forth.' },
+  { q: 'What happens when the bot can\'t help?', a: 'The conversation hands off to your live support inbox with the full chat history attached, so the customer never repeats themselves.' },
+  { q: 'Does it work in languages other than English?', a: 'Yes, the bot can detect and respond in the visitor\'s language automatically.' },
+  { q: 'Is visitor data kept secure?', a: 'Yes. Conversations are encrypted in transit and at rest, with role-based access so only the right people on your team can view them.' },
+]
+
+function ChatbotWebsite() {
+  return (
+    <>
+      <Seo
+        title="AI Website Chatbot for Support & Sales"
+        description="Add an AI chatbot to your website in minutes. Answer FAQs, capture leads and hand off to live agents — 24/7, no coding required."
+        keywords={['AI chatbot for website', 'embed chatbot on website', 'live chat chatbot', 'website chatbot for business']}
+      />
+
+      <Hero
+        eyebrow="Website Chatbot"
+        title="An AI chatbot for your website, live in minutes"
+        subtitle="Answer FAQs, capture leads and hand off to live agents — 24/7, with a single script snippet and no code required."
+        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        visual={<WebsiteConversationFloat />}
+      />
+
+      <NarrativeCompare
+        variant="convert"
+        eyebrow="The problem"
+        heading={<>A chatbot that only pops up isn't actually helping anyone.</>}
+        paragraphs={[
+          "Most website chat widgets are built to be seen, not to be useful — a bubble in the corner that opens to a form, or a script that only handles the three questions it was trained on.",
+          'So visitors close it, and the same "where do I find pricing" question gets typed into a contact form instead — landing in a queue for a human to answer hours later.',
+          <>A website chatbot should actually <strong>read your help content and answer from it</strong>, resolving the question before the visitor ever considers leaving.</>,
+        ]}
+        leftLabel="Chat widget"
+        leftItems={[
+          'Answers three pre-written questions, nothing else',
+          'Falls back to a contact form quickly',
+          'No memory of your actual help docs',
+          'Same generic greeting for every visitor',
+        ]}
+        rightLabel="Website chatbot, trained on your content"
+        rightItems={[
+          'Answers pulled directly from your help center',
+          'Escalates to a human only when it should',
+          'Learns your docs without manual setup',
+          'Captures a qualified lead when it can\'t resolve',
+        ]}
+        alt
+      />
+
+      <FeatureRows eyebrow="Features" title={<>Everything a website bot needs</>} items={FEATURES} />
+
+      <HowItWorks title={<>Live on your site in three steps</>} steps={STEPS} alt variant="divided" />
+
+      <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} />
+
+      <FAQ title={<>Website chatbot — frequently asked questions</>} items={FAQS} alt />
+
+      <CTABanner
+        title="Add a chatbot to your website today"
+        subtitle="One snippet, live in minutes — no developer required."
+        cta={{ label: 'Start Free', href: '/contact' }}
+      />
+    </>
+  )
+}
+
+export default ChatbotWebsite

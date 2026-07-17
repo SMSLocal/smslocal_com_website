@@ -1,0 +1,83 @@
+.docs-object-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem;
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.docs-code {
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  overflow-x: auto;
+  box-shadow: 0 24px 46px -24px rgba(16, 35, 63, 0.5);
+}
+
+.docs-code pre {
+  margin: 0;
+}
+
+.docs-code code {
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: #e2e8f0;
+  white-space: pre;
+}
+
+.docs-k { color: #7dd3fc; }
+.docs-s { color: #4ade80; }
+.docs-n { color: #c084fc; }
+
+.docs-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.docs-field {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.9rem;
+}
+
+.docs-field:last-child {
+  border-bottom: none;
+}
+
+.docs-field-top {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-bottom: 0.2rem;
+}
+
+.docs-field-name {
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.docs-field-type {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--blue);
+  background: rgba(109, 92, 231, 0.1);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+.docs-field p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+@media (max-width: 760px) {
+  .docs-object-wrap {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,82 @@
+.css-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.css-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  border-left: 1px solid var(--border);
+}
+
+.css-col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.css-col:last-child {
+  padding-right: 0;
+}
+
+.css-num {
+  position: absolute;
+  top: -0.6rem;
+  right: 1.6rem;
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--blue);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.css-col:first-child .css-num {
+  right: 1.4rem;
+}
+
+.css-caption {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+
+.css-caption h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.css-caption p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.css-visual {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 860px) {
+  .css-grid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+    max-width: 420px;
+  }
+
+  .css-col {
+    border-left: none;
+    padding: 0;
+  }
+
+  .css-num {
+    top: -0.4rem;
+    right: 0;
+  }
+}

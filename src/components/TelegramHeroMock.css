@@ -1,0 +1,166 @@
+.tgmock {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Status pill */
+.tgmock-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px -16px rgba(16, 35, 63, 0.28);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.tgmock-tag-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.tgmock-tag-icon svg {
+  width: 10px;
+  height: 10px;
+}
+
+.tgmock-tag svg {
+  width: 12px;
+  height: 12px;
+  color: var(--blue);
+}
+
+/* Thread */
+.tgmock-thread {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 220px;
+  justify-content: flex-end;
+}
+
+.tgmock-msg { display: flex; flex-direction: column; }
+.tgmock-in { align-items: flex-end; }
+.tgmock-out { align-items: flex-start; }
+
+.tgmock-pop {
+  animation: tgmockPop 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--md, 0s);
+}
+
+@keyframes tgmockPop {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.tgmock-bubble {
+  max-width: 82%;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  border-radius: 16px;
+}
+
+.tgmock-in .tgmock-bubble {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.tgmock-out .tgmock-bubble {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 8px 20px -16px rgba(16, 35, 63, 0.3);
+}
+
+.tgmock-typing { display: inline-flex; gap: 4px; align-items: center; }
+.tgmock-typing i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: tgmockBlink 1.1s ease-in-out infinite;
+}
+.tgmock-typing i:nth-child(2) { animation-delay: 0.16s; }
+.tgmock-typing i:nth-child(3) { animation-delay: 0.32s; }
+
+@keyframes tgmockBlink {
+  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* Inline keyboard */
+.tgmock-keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  width: 100%;
+  margin-top: 0.15rem;
+}
+
+.tgmock-key {
+  text-align: center;
+  background: #fff;
+  border: 1px solid rgba(109, 92, 231, 0.3);
+  color: var(--blue);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.tgmock-key.is-tapped {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-color: transparent;
+  color: #fff;
+}
+
+/* Footer */
+.tgmock-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tgmock-input {
+  flex: 1;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+}
+
+.tgmock-commands {
+  flex: none;
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tgmock-pop, .tgmock-typing i { animation: none; }
+}

@@ -1,0 +1,55 @@
+.tsc-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tsc-col {
+  flex: 1;
+  text-align: left;
+}
+
+.tsc-col--1 {
+  margin-top: 2.6rem;
+}
+
+.tsc-col--2 {
+  margin-top: 5.2rem;
+}
+
+.tsc-num {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.8rem;
+}
+
+.tsc-col h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+}
+
+.tsc-col p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 780px) {
+  .tsc-grid {
+    flex-direction: column;
+    gap: 2.2rem;
+    max-width: 420px;
+  }
+
+  .tsc-col--1,
+  .tsc-col--2 {
+    margin-top: 0;
+  }
+}

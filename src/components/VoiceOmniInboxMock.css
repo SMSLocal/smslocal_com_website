@@ -1,0 +1,135 @@
+.voim {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.voim-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+
+.voim-item {
+  position: relative;
+  padding: 0 1.5rem;
+  border-left: 1px solid var(--border);
+  text-align: left;
+}
+
+.voim-item:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.voim-item:last-child {
+  padding-right: 0;
+}
+
+.voim-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 0.9rem;
+}
+
+.voim-ic svg {
+  width: 18px;
+  height: 18px;
+}
+
+.voim-ic--voice { background: rgba(109, 92, 231, 0.12); color: var(--blue); }
+.voim-ic--wa { background: rgba(236, 72, 153, 0.12); color: var(--cyan); }
+.voim-ic--sms { background: rgba(251, 113, 133, 0.14); color: var(--coral); }
+.voim-ic--email { background: rgba(16, 35, 63, 0.08); color: var(--navy); }
+
+.voim-item-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.voim-item-head strong {
+  font-size: 0.92rem;
+  color: var(--navy);
+}
+
+.voim-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(109, 92, 231, 0.1);
+  padding: 0.18rem 0.48rem;
+  border-radius: 999px;
+}
+
+.voim-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+/* Drop line — each channel feeds down toward the merge point */
+.voim-drop {
+  position: absolute;
+  left: 1.5rem;
+  bottom: -2.4rem;
+  width: 1px;
+  height: 2.4rem;
+  background: linear-gradient(180deg, var(--border), transparent);
+}
+
+.voim-item:first-child .voim-drop {
+  left: 0;
+}
+
+.voim-merge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.voim-merge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 0 5px rgba(109, 92, 231, 0.12);
+}
+
+@media (max-width: 720px) {
+  .voim-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 0;
+  }
+  .voim-item {
+    border-left: none;
+    padding: 0 0 1.6rem;
+  }
+  .voim-item:nth-child(odd) {
+    padding-right: 1.2rem;
+  }
+  .voim-item:nth-child(even) {
+    padding-left: 1.2rem;
+    border-left: 1px solid var(--border);
+  }
+  .voim-drop {
+    display: none;
+  }
+  .voim-merge {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,448 @@
+.dash-wrap {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.dash-window {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 60px -20px rgba(0, 46, 86, 0.22);
+  overflow: hidden;
+  animation: dashFadeUp 0.7s ease both;
+}
+
+@keyframes dashFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dash-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.dash-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dash-dot-red { background: #ff5f57; }
+.dash-dot-yellow { background: #febc2e; }
+.dash-dot-green { background: #28c840; }
+
+.dash-url {
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.dash-live {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.dash-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: dashPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dashPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+
+.dash-body {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+}
+
+.dash-sidebar {
+  background: var(--bg-subtle);
+  border-right: 1px solid var(--border);
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-brand {
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+}
+
+.dash-nav-item span svg {
+  width: 15px;
+  height: 15px;
+}
+
+.dash-nav-item.active span svg {
+  color: var(--blue);
+}
+
+.dash-nav-item.active {
+  background: #fff;
+  color: var(--navy);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 46, 86, 0.1);
+}
+
+.dash-credit {
+  margin-top: auto;
+  background: rgba(0, 125, 232, 0.08);
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.78rem;
+}
+
+.dash-credit strong {
+  color: var(--navy);
+}
+
+.dash-credit span {
+  color: var(--text-secondary);
+}
+
+.dash-main {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.dash-main h4 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dash-main h4 span {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.dash-stat {
+  background: var(--bg-subtle);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dash-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.dash-stat strong {
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.dash-stat-delta {
+  font-size: 0.68rem;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.dash-campaign {
+  background: var(--bg-subtle);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.dash-campaign-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.dash-campaign-head strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+
+.dash-campaign-head span {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.dash-pill {
+  background: rgba(0, 125, 232, 0.12);
+  color: var(--blue);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.dash-progress-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #e6ebf5;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+
+.dash-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dash-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.dash-activity h5 {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  color: var(--navy);
+}
+
+.dash-activity-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border);
+  opacity: 0;
+  animation: dashSlideIn 0.5s ease forwards;
+}
+
+.dash-activity-item:last-child {
+  border-bottom: none;
+}
+
+@keyframes dashSlideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.dash-activity-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex: none;
+}
+
+.dash-activity-time {
+  margin-left: auto;
+  font-size: 0.68rem;
+  color: #9aa3b2;
+}
+
+/* Floating chat widget */
+.dash-chat {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 250px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px -16px rgba(0, 46, 86, 0.28);
+  transform: rotate(-2deg);
+  animation: dashFadeUp 0.7s ease 0.2s both, dashFloat 5s ease-in-out 1s infinite;
+  overflow: hidden;
+}
+
+@keyframes dashFloat {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(-2deg) translateY(-10px); }
+}
+
+.dash-chat-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dash-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dash-chat-avatar svg {
+  width: 16px;
+  height: 16px;
+}
+
+.dash-chat-head strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--navy);
+}
+
+.dash-chat-head span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.dash-chat-online {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.dash-chat-body {
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 150px;
+}
+
+.dash-bubble {
+  max-width: 85%;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  padding: 0.5rem 0.7rem;
+  border-radius: 12px;
+  opacity: 0;
+  animation: dashBubbleIn 0.4s ease forwards;
+}
+
+@keyframes dashBubbleIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dash-bubble.user {
+  align-self: flex-end;
+  background: var(--blue);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.dash-bubble.bot {
+  align-self: flex-start;
+  background: var(--bg-subtle);
+  color: #1a1a1a;
+  border-bottom-left-radius: 4px;
+}
+
+.dash-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 3px;
+  background: var(--bg-subtle);
+  padding: 0.5rem 0.7rem;
+  border-radius: 12px;
+  border-bottom-left-radius: 4px;
+  opacity: 0;
+  animation: dashBubbleIn 0.4s ease forwards;
+}
+
+.dash-typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #9aa3b2;
+  animation: dashTypingBounce 1.2s ease-in-out infinite;
+}
+
+.dash-typing span:nth-child(2) { animation-delay: 0.15s; }
+.dash-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes dashTypingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.dash-chat-input {
+  margin: 0 0.9rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.72rem;
+  color: #9aa3b2;
+}
+
+@media (max-width: 860px) {
+  .dash-chat {
+    position: static;
+    width: 100%;
+    transform: none;
+    margin-top: 1.5rem;
+    animation: dashFadeUp 0.7s ease 0.2s both;
+  }
+}
+
+@media (max-width: 640px) {
+  .dash-body {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-sidebar {
+    display: none;
+  }
+
+  .dash-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

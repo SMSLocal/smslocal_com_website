@@ -1,0 +1,106 @@
+.agwmock-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow:
+    0 24px 48px -16px rgba(109, 92, 231, 0.25),
+    0 8px 20px -10px rgba(236, 72, 153, 0.18);
+  overflow: hidden;
+}
+
+.agwmock-header {
+  padding: 0.9rem 1rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.agwmock-goal-label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--blue);
+  margin-bottom: 0.3rem;
+}
+
+.agwmock-goal {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.agwmock-actions {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.agwmock-action-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--navy);
+}
+
+.agwmock-check {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(22, 163, 74, 0.14);
+  color: var(--success);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.agwmock-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 1rem 0.85rem;
+}
+
+.agwmock-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--navy);
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+.agwmock-tool svg {
+  width: 12px;
+  height: 12px;
+  color: var(--blue);
+}
+
+.agwmock-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.agwmock-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+}

@@ -1,0 +1,61 @@
+.ebi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ebi-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ebi-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.ebi-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.ebi-item:hover .ebi-icon {
+  transform: translateY(-3px);
+  color: var(--cyan);
+}
+
+.ebi-item h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.ebi-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 860px) {
+  .ebi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ebi-grid {
+    grid-template-columns: 1fr;
+  }
+}

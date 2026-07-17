@@ -1,0 +1,152 @@
+.fspot {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+/* Expanded active feature */
+.fspot-main {
+  text-align: left;
+  animation: fspotIn 0.4s ease;
+}
+
+@keyframes fspotIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fspot-main-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 18px 34px -16px rgba(109, 92, 231, 0.5);
+}
+
+.fspot-main-icon--1 { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 18px 34px -16px rgba(20, 184, 166, 0.5); }
+.fspot-main-icon--2 { background: linear-gradient(135deg, var(--coral), var(--cyan)); box-shadow: 0 18px 34px -16px rgba(251, 113, 133, 0.5); }
+.fspot-main-icon--3 { background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 18px 34px -16px rgba(236, 72, 153, 0.5); }
+
+.fspot-main-icon svg { width: 26px; height: 26px; }
+
+.fspot-main h3 {
+  margin: 0 0 0.8rem;
+  color: var(--navy);
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+}
+
+.fspot-main p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 420px;
+}
+
+/* Tab list */
+.fspot-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.fspot-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 0.4rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font: inherit;
+}
+
+.fspot-tabs .fspot-tab:last-child {
+  border-bottom: none;
+}
+
+.fspot-tab-icon {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(109, 92, 231, 0.08);
+  color: var(--blue);
+  opacity: 0.55;
+  transition: opacity 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.fspot-tab-icon--1 { background: rgba(20, 184, 166, 0.1); color: var(--teal); }
+.fspot-tab-icon--2 { background: rgba(251, 113, 133, 0.1); color: var(--coral); }
+.fspot-tab-icon--3 { background: rgba(236, 72, 153, 0.1); color: var(--cyan); }
+
+.fspot-tab-icon svg { width: 15px; height: 15px; }
+
+.fspot-tab-label {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+
+.fspot-tab:hover .fspot-tab-icon,
+.fspot-tab--active .fspot-tab-icon {
+  opacity: 1;
+}
+
+.fspot-tab--active .fspot-tab-label {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.fspot-tab-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0.4rem;
+  right: 0.4rem;
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.fspot-tab-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--blue);
+  animation-name: fspotProgress;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes fspotProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@media (max-width: 780px) {
+  .fspot {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .fspot-main p { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fspot-main, .fspot-tab-progress-fill { animation: none; }
+}

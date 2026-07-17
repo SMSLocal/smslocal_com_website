@@ -1,0 +1,65 @@
+.ssg-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.75rem 2.25rem;
+  margin-top: 3.5rem;
+}
+
+.ssg-step {
+  flex: 0 1 260px;
+  width: 260px;
+  text-align: center;
+}
+
+.ssg-meter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 44px;
+  margin-bottom: 1.1rem;
+}
+
+.ssg-bar {
+  width: 8px;
+  border-radius: 3px;
+  background: var(--border);
+  transition: background 0.3s ease;
+}
+
+.ssg-bar--on {
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+}
+
+.ssg-step--1 .ssg-bar--on { background: linear-gradient(180deg, var(--blue), var(--teal)); }
+.ssg-step--2 .ssg-bar--on { background: linear-gradient(180deg, var(--cyan), var(--coral)); }
+.ssg-step--3 .ssg-bar--on { background: linear-gradient(180deg, var(--blue), var(--cyan)); }
+
+.ssg-num {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.ssg-step h3 {
+  margin: 0 0 0.55rem;
+  color: var(--navy);
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+
+.ssg-step p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .ssg-step { max-width: none; flex-basis: 100%; }
+}

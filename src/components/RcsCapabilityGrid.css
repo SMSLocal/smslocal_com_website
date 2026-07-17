@@ -1,0 +1,205 @@
+.rcap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.2rem;
+}
+
+@media (max-width: 860px) {
+  .rcap-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+.rcap-card {
+  position: relative;
+  text-align: left;
+  padding-top: 1.4rem;
+  border-top: 2px solid var(--border);
+  transition: border-color 0.25s ease;
+}
+
+.rcap-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.rcap-card:hover::before {
+  transform: scaleX(1);
+}
+
+.rcap-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  color: var(--blue);
+  margin-bottom: 1.1rem;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.rcap-card:hover .rcap-icon {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-color: transparent;
+  color: #fff;
+}
+
+.rcap-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.08rem;
+}
+
+.rcap-card p {
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.rcap-mock {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+/* Brand mini mock */
+.rcap-sender-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.rcap-sender-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.rcap-sender-row strong {
+  font-size: 0.8rem;
+  color: var(--navy);
+}
+
+.rcap-sender-tick {
+  color: var(--blue);
+  font-size: 0.7rem;
+}
+
+.rcap-tag-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.rcap-tag-row.wrap {
+  flex-wrap: wrap;
+}
+
+.rcap-tag {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+.rcap-tag.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+/* Actions mini mock */
+.rcap-bubble {
+  margin: 0 0 0.65rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.72rem;
+  color: var(--navy);
+}
+
+/* Fallback mini mock */
+.rcap-fallback-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--navy);
+  padding: 0.35rem 0;
+}
+
+.rcap-pill {
+  font-size: 0.64rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.rcap-pill.rich {
+  background: rgba(109, 92, 231, 0.14);
+  color: var(--blue);
+}
+
+.rcap-pill.sms {
+  background: rgba(20, 184, 166, 0.14);
+  color: var(--teal);
+}
+
+.rcap-fallback-footer {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+/* AI mini mock */
+.rcap-inbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  color: var(--navy);
+  padding: 0.3rem 0;
+}
+
+.rcap-inbox-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.rcap-status {
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.rcap-status.answered {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+}
+
+.rcap-status.handoff {
+  background: rgba(236, 72, 153, 0.14);
+  color: var(--cyan);
+}
