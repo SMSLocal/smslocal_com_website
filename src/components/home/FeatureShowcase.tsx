@@ -31,11 +31,11 @@ const NODES = [
 
 // orthogonal, circuit-style dashed connectors
 const CONNECTORS = [
-  { x1: 13, y1: 50, x2: 87, y2: 50, stroke: "rgba(61,104,255,0.3)" }, // horizontal spine
+  { x1: 13, y1: 50, x2: 87, y2: 50, stroke: "rgba(21,73,137,0.3)" }, // horizontal spine
   { x1: 28, y1: 22, x2: 28, y2: 50, stroke: "rgba(255,61,138,0.28)" }, // top-left down
-  { x1: 72, y1: 22, x2: 72, y2: 50, stroke: "rgba(61,104,255,0.3)" }, // top-right down
+  { x1: 72, y1: 22, x2: 72, y2: 50, stroke: "rgba(21,73,137,0.3)" }, // top-right down
   { x1: 28, y1: 50, x2: 28, y2: 78, stroke: "rgba(255,61,138,0.28)" }, // bottom-left up
-  { x1: 72, y1: 50, x2: 72, y2: 78, stroke: "rgba(61,104,255,0.3)" }, // bottom-right up
+  { x1: 72, y1: 50, x2: 72, y2: 78, stroke: "rgba(21,73,137,0.3)" }, // bottom-right up
 ];
 
 const PILL_TONES: Record<string, string> = {
@@ -329,7 +329,7 @@ export default function FeatureShowcase() {
               className="absolute inset-0 opacity-40"
               style={{
                 backgroundImage:
-                  "linear-gradient(135deg, #3d68ff, #7c6ee0 55%, #ff3d8a)",
+                  "linear-gradient(135deg, #154989, #7c6ee0 55%, #ff3d8a)",
                 maskImage: "url('/world-map-full.svg')",
                 WebkitMaskImage: "url('/world-map-full.svg')",
                 maskSize: "108% auto",

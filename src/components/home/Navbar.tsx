@@ -1,27 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
+  { label: "Products", hasDropdown: true },
   { label: "Solutions", hasDropdown: true },
   { label: "Developers", hasDropdown: true },
   { label: "Pricing", href: "#pricing" },
-  { label: "Blog", href: "#" },
   { label: "Resources", hasDropdown: true },
-  { label: "Support", href: "#" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-2 text-xl font-bold">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-            S
-          </span>
+          {/* alt is empty on purpose — the adjacent wordmark names the link */}
+          <Image
+            src="/smslocal-icon.png"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8"
+            priority
+          />
           <span>
             SMS<span className="text-primary">Local</span>
           </span>
@@ -67,7 +73,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background px-6 py-4 lg:hidden">
+        <div className="border-t border-border bg-white px-6 py-4 lg:hidden">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <a

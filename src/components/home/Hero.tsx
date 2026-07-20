@@ -1,14 +1,15 @@
-import { Wand2, BarChart3 } from "lucide-react";
+import DropText from "./DropText";
+import HeroScenes from "./HeroScenes";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-30 bg-[#f6f8fc]" />
+      <div className="absolute inset-0 -z-30 bg-[#fbfcfe]" />
       <div
         className="pointer-events-none absolute inset-0 -z-20"
         style={{
           backgroundImage:
-            "radial-gradient(60% 50% at 50% -10%, rgba(61,104,255,0.14), transparent 60%)",
+            "radial-gradient(60% 50% at 50% -10%, rgba(21,73,137,0.09), transparent 60%)",
         }}
       />
       <div className="pointer-events-none absolute left-1/2 top-0 -z-20 h-[380px] w-[640px] -translate-x-1/2 rounded-full bg-secondary/10 opacity-40 blur-3xl" />
@@ -17,7 +18,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute left-[6%] top-[18%] -z-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-[10%] right-[6%] -z-10 h-48 w-48 rounded-full bg-accent/15 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-2 lg:pb-20 lg:pt-12">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em]">
             <span className="text-primary">Powering</span>{" "}
@@ -26,10 +27,16 @@ export default function Hero() {
             </span>
           </p>
 
-          <h1 className="mt-6 text-4xl font-medium leading-tight tracking-tight text-black sm:text-5xl lg:text-[3.25rem]">
-            Our Online <span className="text-gradient-brand">Bulk SMS</span>{" "}
-            Portal
-          </h1>
+          <DropText
+            as="h1"
+            className="mt-6 text-4xl font-medium leading-tight tracking-tight text-heading sm:text-5xl lg:text-[3.25rem]"
+            segments={[
+              { text: "One Platform for" },
+              { text: "Bulk SMS", className: "text-gradient-brand" },
+              { br: true },
+              { text: "at Scale" },
+            ]}
+          />
 
           <p className="mt-6 max-w-xl text-lg text-muted-foreground">
             Launch SMS campaigns, alerts, and promotions in seconds. Simply
@@ -57,68 +64,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-md">
-          <div className="rounded-2xl border border-border bg-white p-4 shadow-xl shadow-foreground/5">
-            <div className="flex items-center gap-2 border-b border-border pb-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-              <span className="h-2.5 w-2.5 rounded-full bg-secondary" />
-              <span className="h-2.5 w-2.5 rounded-full bg-accent" />
-              <span className="ml-2 text-xs font-medium text-muted-foreground">
-                SMSLocal · Live Chat
-              </span>
-            </div>
-
-            <div className="mt-4 flex flex-col gap-3 text-sm">
-              <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-muted px-4 py-2.5 text-foreground">
-                Hello Sarah! Your order has been shipped and will arrive
-                tomorrow between 2-4pm.
-                <div className="mt-1 text-[10px] text-muted-foreground">
-                  11:43 AM
-                </div>
-              </div>
-              <div className="ml-auto max-w-[85%] rounded-2xl rounded-br-sm bg-gradient-brand px-4 py-2.5 text-white">
-                That&apos;s great! Is it possible to change the delivery to
-                after 5pm?
-                <div className="mt-1 text-[10px] text-white/70">
-                  11:45 AM
-                </div>
-              </div>
-              <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-muted px-4 py-2.5 text-foreground">
-                No problem! I&apos;ve updated your delivery window to 5-7pm
-                tomorrow.
-                <div className="mt-1 text-[10px] text-muted-foreground">
-                  11:46 AM
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -right-6 top-4 hidden w-48 rounded-xl border border-border bg-white p-3 shadow-lg sm:block">
-            <div className="flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-accent/15 text-accent">
-                <Wand2 className="h-4 w-4" />
-              </span>
-              <span className="text-xs font-semibold">Campaign Builder</span>
-            </div>
-            <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
-              Design personalized journeys with drag-and-drop automation.
-            </p>
-          </div>
-
-          <div className="absolute -bottom-16 -left-8 hidden w-48 rounded-xl border border-border bg-white p-3 shadow-lg sm:block">
-            <div className="flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-secondary/15 text-secondary">
-                <BarChart3 className="h-4 w-4" />
-              </span>
-              <span className="text-xs font-semibold">
-                Real-time Analytics
-              </span>
-            </div>
-            <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
-              Track delivery rates and engagement metrics.
-            </p>
-          </div>
-        </div>
+        <HeroScenes />
       </div>
     </section>
   );

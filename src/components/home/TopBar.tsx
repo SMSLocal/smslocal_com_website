@@ -8,7 +8,7 @@ import {
 
 export default function TopBar() {
   return (
-    <div className="hidden border-b border-border bg-white sm:block">
+    <div className="hidden border-b border-border bg-primary/10 sm:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 text-sm text-foreground">
         <p>
           Create a Trial Account and Enjoy Free SMS —{" "}

@@ -47,7 +47,18 @@ const PLANS = [
 
 export default function PricingTeaser() {
   return (
-    <section id="pricing" className="mx-auto max-w-7xl px-6 py-20">
+    <section id="pricing" className="relative overflow-hidden bg-white py-20">
+      {/* white section with a soft gradient glow in the center */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-10 h-[360px] w-[600px] max-w-[90vw] -translate-x-1/2"
+        style={{
+          background:
+            "radial-gradient(42% 55% at 40% 42%, rgba(21,73,137,0.22), rgba(21,73,137,0) 70%), radial-gradient(42% 55% at 62% 56%, rgba(255,61,138,0.2), rgba(255,61,138,0) 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6">
       <SectionHeading
         badge="Affordable Plans"
         title="Choose The Plan"
@@ -56,15 +67,9 @@ export default function PricingTeaser() {
       />
 
       <div className="mt-14 grid gap-6 lg:grid-cols-3">
-        {PLANS.map((plan) => (
-          <div
-            key={plan.name}
-            className={
-              plan.popular
-                ? "relative rounded-2xl border-2 border-primary bg-white p-8 shadow-xl shadow-primary/10 lg:-translate-y-3"
-                : "rounded-2xl border border-border bg-white p-8"
-            }
-          >
+        {PLANS.map((plan) => {
+          const body = (
+            <>
             <div className="flex items-center gap-2">
               <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary-dark">
                 {plan.name}
@@ -123,13 +128,44 @@ export default function PricingTeaser() {
                 Choose This Plan
               </a>
             )}
-          </div>
-        ))}
+            </>
+          );
+
+          return plan.popular ? (
+            <div
+              key={plan.name}
+              className="relative rounded-2xl p-1 shadow-xl shadow-primary/10 lg:-translate-y-3"
+              style={{
+                border: "1.5px solid transparent",
+                background:
+                  "linear-gradient(#fff,#fff) padding-box, linear-gradient(128deg,#4f5bd5 3%,#ec4899 52%,rgba(236,72,153,0) 90%) border-box",
+              }}
+            >
+              <div
+                className="h-full rounded-[10.5px] p-8"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(21,73,137,0.06), rgba(255,61,138,0.045) 26%, rgba(255,255,255,0) 52%), #fff",
+                }}
+              >
+                {body}
+              </div>
+            </div>
+          ) : (
+            <div
+              key={plan.name}
+              className="rounded-2xl border border-border/70 bg-muted/50 p-8"
+            >
+              {body}
+            </div>
+          );
+        })}
       </div>
 
       <p className="mt-6 text-center text-xs text-muted-foreground">
         Create free trial account · No credit card required
       </p>
+      </div>
     </section>
   );
 }

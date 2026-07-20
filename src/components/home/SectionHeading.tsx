@@ -1,4 +1,5 @@
 import { type LucideIcon, Sparkles } from "lucide-react";
+import DropText from "./DropText";
 
 export default function SectionHeading({
   icon: Icon = Sparkles,
@@ -23,9 +24,15 @@ export default function SectionHeading({
         <Icon className="h-3.5 w-3.5" />
         {badge}
       </span>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-        {title} {highlight && <span className="text-gradient-brand">{highlight}</span>}
-      </h2>
+      <DropText
+        as="h2"
+        className="mt-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl"
+        segments={
+          highlight
+            ? [{ text: title }, { text: highlight, className: "text-gradient-brand" }]
+            : [{ text: title }]
+        }
+      />
       {description && (
         <p className="mt-4 text-muted-foreground">{description}</p>
       )}

@@ -4,14 +4,24 @@
   --background: #f8fafc;
   --foreground: #0f172a;
   --heading: #154989;
-  --primary: #3d68ff;
-  --primary-dark: #2748d6;
+  --primary: #154989;
+  --primary-dark: #113a6e;
   --secondary: #ff3d8a;
   --accent: #00f5a0;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e5e7eb;
-  --gradient-brand: linear-gradient(128deg, #3d68ff 6%, #ff3d8a 88%);
+  /* Highlight gradient: indigo -> pink, purple falls out of the blend.
+     Independent of --primary, which stays navy for solid UI.
+     The endpoints are tokens so gradient tiles (from-brand-start/to-brand-end)
+     and --gradient-brand can never drift apart. */
+  --brand-start: #4f5bd5;
+  --brand-end: #ec4899;
+  --gradient-brand: linear-gradient(
+    128deg,
+    var(--brand-start) 30%,
+    var(--brand-end) 90%
+  );
 }
 
 @theme inline {
@@ -21,6 +31,8 @@
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
+  --color-brand-start: var(--brand-start);
+  --color-brand-end: var(--brand-end);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
@@ -64,7 +76,10 @@ h6 {
   margin-right: -0.06em;
 }
 
-.bg-gradient-brand {
+/* Declared as @utility, not a plain class, so variants compose — a plain
+   `.bg-gradient-brand {}` emits no `hover:` rule, which silently left
+   `hover:bg-gradient-brand hover:text-white` as white-on-white. */
+@utility bg-gradient-brand {
   background-image: var(--gradient-brand);
 }
 
@@ -150,6 +165,461 @@ h6 {
   animation: pulse-soft 2.4s ease-in-out infinite;
 }
 
+@keyframes wave-bar {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.animate-wave-bar {
+  transform-origin: bottom;
+  animation: wave-bar 1.2s ease-in-out infinite;
+}
+
+/* cross-fading scene player (4 scenes, 3s each, 12s loop) */
+@keyframes scene {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  4% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  22% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  26% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+.animate-scene {
+  animation: scene 12s ease-in-out infinite both;
+}
+
+/* cross-fading scene player (5 scenes, 3.2s each, 16s loop) */
+@keyframes scene5 {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  3% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  17% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+.animate-scene-5 {
+  animation: scene5 16s ease-in-out infinite both;
+}
+
+/* ---- hero scene micro-animations ---- */
+
+/* recipient dots lighting up in a sweeping wave (bulk send) */
+@keyframes dot-fill {
+  0%,
+  72%,
+  100% {
+    opacity: 0.16;
+    transform: scale(0.7);
+  }
+  18%,
+  56% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-dot-fill {
+  animation: dot-fill 2.6s ease-in-out infinite both;
+}
+
+/* The handset + orbit + bubbles are shared by scenes 1 and 2, so they must sit
+   perfectly still while only the pop-ups and chat bubbles swap over. This spans
+   both scenes' slots (0.48s -> 6.4s of the 16s loop) instead of fading per
+   scene the way `scene5` does. */
+@keyframes stage-1-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  3% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  37% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+.animate-stage-1-2 {
+  animation: stage-1-2 16s ease-in-out infinite both;
+}
+
+/* Scene pop: an element pops OUT as its scene arrives and pops back IN as the
+   scene hands over to the next one.
+   Runs on the same 16s clock as `scene5` on purpose — a shorter period (like
+   bubble-in's 4.8s) drifts against the carousel and makes elements vanish
+   mid-scene. Set animation-delay to (sceneIndex * 3.2s + a small stagger). */
+@keyframes scene-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  4% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  6.5% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  18% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  21% {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+}
+.animate-scene-pop {
+  animation: scene-pop 16s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both;
+}
+
+/* Same 16s scene clock as `scene-pop`, but opacity only — for things that
+   shouldn't scale, like connector lines spanning the whole stage. */
+@keyframes scene-fade {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  18% {
+    opacity: 1;
+  }
+  21% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-scene-fade {
+  animation: scene-fade 16s ease-in-out infinite both;
+}
+
+/* Line reveal locked to the 16s scene clock.
+
+   This is a left-to-right WIPE, not a stroke-dash draw. Dash-based drawing was
+   unreliable here: a single-value dasharray repeats (len on, len off), so any
+   path longer than the dash re-inked its tail and an arrowhead appeared before
+   the line had reached it. A wipe has no such wrap-around, and because these
+   curves advance monotonically in x it reads identically to drawing — with the
+   arrowhead at the far right guaranteed to land last.
+
+   Apply `animate-scene-wipe` to a <rect> inside a <clipPath>, and clip the
+   path with it. */
+@keyframes scene-wipe {
+  0%,
+  3% {
+    transform: scaleX(0);
+  }
+  11%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+.animate-scene-wipe {
+  transform-origin: left;
+  animation: scene-wipe 16s ease-out infinite both;
+}
+
+@keyframes scene-bar {
+  0%,
+  5% {
+    transform: scaleX(0);
+  }
+  17%,
+  100% {
+    transform: scaleX(1);
+  }
+}
+.animate-scene-bar {
+  transform-origin: left;
+  animation: scene-bar 16s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both;
+}
+
+/* chat bubbles / stats popping in, then holding */
+@keyframes bubble-in {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.94);
+  }
+  10%,
+  92% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-bubble-in {
+  animation: bubble-in 4.8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both;
+}
+
+/* a pulse travelling down the automation flow */
+@keyframes flow-travel {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+.animate-flow-travel {
+  animation: flow-travel 3.2s ease-in-out infinite;
+}
+
+/* flow node activating as the pulse passes */
+@keyframes node-active {
+  0%,
+  100% {
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+    border-color: var(--border);
+  }
+  50% {
+    box-shadow: 0 6px 18px rgba(21, 73, 137, 0.28);
+    border-color: rgba(21, 73, 137, 0.55);
+  }
+}
+.animate-node-active {
+  animation: node-active 3.2s ease-in-out infinite;
+}
+
+/* code lines revealing one after another */
+@keyframes code-line {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  12%,
+  90% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-code-line {
+  animation: code-line 4.8s ease-out infinite both;
+}
+
+/* pulse travelling left→right along the automation canvas */
+@keyframes flow-travel-x {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+.animate-flow-travel-x {
+  animation: flow-travel-x 3.4s ease-in-out infinite;
+}
+
+/* carrier breakdown bars filling from the left */
+@keyframes bar-fill-x {
+  0%,
+  100% {
+    transform: scaleX(0);
+  }
+  28%,
+  82% {
+    transform: scaleX(1);
+  }
+}
+.animate-bar-fill-x {
+  transform-origin: left;
+  animation: bar-fill-x 3.6s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both;
+}
+
+/* trend line drawing itself */
+@keyframes draw-line {
+  0%,
+  100% {
+    stroke-dashoffset: 200;
+  }
+  32%,
+  86% {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-draw-line {
+  stroke-dasharray: 200;
+  animation: draw-line 3.6s ease-in-out infinite both;
+}
+
+/* cursor dragging a node onto the canvas */
+@keyframes cursor-drag {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  35%,
+  65% {
+    transform: translate(38px, -22px);
+  }
+}
+.animate-cursor-drag {
+  animation: cursor-drag 3.4s ease-in-out infinite;
+}
+
+/* analytics bars growing from the baseline */
+@keyframes bar-grow {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  45%,
+  70% {
+    transform: scaleY(1);
+  }
+}
+.animate-bar-grow {
+  transform-origin: bottom;
+  animation: bar-grow 2.8s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both;
+}
+
+@keyframes step-dot {
+  0%,
+  26%,
+  100% {
+    opacity: 0.25;
+    width: 6px;
+  }
+  5%,
+  21% {
+    opacity: 1;
+    width: 22px;
+  }
+}
+
+.animate-step-dot {
+  animation: step-dot 12s ease-in-out infinite both;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 32s linear infinite;
+}
+
+.animate-spin-slow-rev {
+  animation: spin-slow 26s linear infinite reverse;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.1s step-end infinite;
+}
+
+@keyframes send-progress {
+  0% {
+    width: 6%;
+  }
+  60% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-send-progress {
+  animation: send-progress 3s ease-out infinite;
+}
+
+@keyframes node-pulse {
+  0%,
+  14%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 22px -8px rgba(21, 73, 137, 0.45);
+  }
+  6% {
+    transform: scale(1.14);
+    box-shadow: 0 0 28px 4px rgba(124, 110, 224, 0.65);
+  }
+}
+
+.animate-node-pulse {
+  animation: node-pulse 8s ease-in-out infinite;
+}
+
 @keyframes typing-dot {
   0%,
   70%,
@@ -183,21 +653,21 @@ h6 {
     transform: translateY(-210px) rotate(var(--rot, 0deg));
     opacity: 0;
   }
-  3% {
+  5% {
     opacity: 1;
   }
   /* land and settle (spring easing gives the bounce) */
-  15% {
+  25% {
     transform: translateY(0) rotate(var(--rot, 0deg));
     opacity: 1;
   }
-  /* hold settled — ~6s pause */
-  95% {
+  /* hold settled — 3s pause (25%–91.7% of the 4.5s cycle) */
+  91.7% {
     transform: translateY(0) rotate(var(--rot, 0deg));
     opacity: 1;
   }
   /* fade out in place (never moves back up while visible) */
-  99% {
+  98.3% {
     transform: translateY(0) rotate(var(--rot, 0deg));
     opacity: 0;
   }
@@ -209,7 +679,7 @@ h6 {
 }
 
 .animate-pill-fall {
-  animation: pill-fall 7.5s cubic-bezier(0.34, 1.45, 0.5, 1) infinite both;
+  animation: pill-fall 4.5s cubic-bezier(0.34, 1.45, 0.5, 1) infinite both;
 }
 
 .bg-wave {

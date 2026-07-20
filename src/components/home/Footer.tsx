@@ -4,6 +4,8 @@ import {
   LinkedinIcon,
   YoutubeIcon,
 } from "./SocialIcons";
+import Image from "next/image";
+import NightBackdrop from "./NightBackdrop";
 
 const COLUMNS = [
   {
@@ -26,14 +28,20 @@ const COLUMNS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-foreground text-white">
-      <div className="mx-auto max-w-7xl px-6 py-14">
+    <footer className="relative overflow-hidden border-t border-border bg-foreground text-white">
+      <NightBackdrop />
+      <div className="relative mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           <div>
             <a href="#" className="flex items-center gap-2 text-xl font-bold">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
-                S
-              </span>
+              {/* alt is empty on purpose — the adjacent wordmark names the link */}
+              <Image
+                src="/smslocal-icon.png"
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               SMSLocal
             </a>
             <p className="mt-4 max-w-xs text-sm text-white/60">
