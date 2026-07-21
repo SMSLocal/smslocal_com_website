@@ -18,19 +18,17 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2 text-xl font-bold">
-          {/* alt is empty on purpose — the adjacent wordmark names the link */}
+        {/* The supplied logo is a wordmark, so it replaces the old icon plus
+            text lockup — alt carries the name now that no text sits beside it. */}
+        <a href="#" className="flex items-center">
           <Image
-            src="/smslocal-icon.png"
-            alt=""
-            width={32}
-            height={32}
-            className="h-8 w-8"
+            src="/smslocal-logo-v2.svg"
+            alt="SMSLocal"
+            width={4536}
+            height={900}
+            className="h-8 w-auto"
             priority
           />
-          <span>
-            SMS<span className="text-primary">Local</span>
-          </span>
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">

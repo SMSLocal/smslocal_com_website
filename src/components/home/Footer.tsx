@@ -33,16 +33,16 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           <div>
-            <a href="#" className="flex items-center gap-2 text-xl font-bold">
-              {/* alt is empty on purpose — the adjacent wordmark names the link */}
+            {/* Knocked out to solid white. The logo's own indigo drops to 1.67
+                contrast on this background — parts of it would disappear. */}
+            <a href="#" className="flex items-center">
               <Image
-                src="/smslocal-icon.png"
-                alt=""
-                width={32}
-                height={32}
-                className="h-8 w-8"
+                src="/smslocal-logo-v2.svg"
+                alt="SMSLocal"
+                width={4536}
+                height={900}
+                className="h-8 w-auto brightness-0 invert"
               />
-              SMSLocal
             </a>
             <p className="mt-4 max-w-xs text-sm text-white/60">
               Launch SMS campaigns, alerts, and promotions in seconds — no
