@@ -49,10 +49,13 @@ export default function CTABanner() {
             </p>
           </Reveal>
 
-          <Reveal delay={460} className="mt-10 flex flex-wrap justify-center gap-3">
+          <Reveal
+            delay={460}
+            className="mt-10 flex flex-wrap justify-center gap-3"
+          >
             <a
               href="#signup"
-              className="group inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-start/30 transition hover:shadow-xl hover:shadow-brand-start/40"
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-white transition hover:opacity-90"
             >
               Create Free Trial Account
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />

@@ -1,4 +1,5 @@
 import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 import {
   Users2,
   Hotel,
@@ -110,17 +111,18 @@ export default function Audiences() {
             />
 
             <div className="relative flex flex-wrap justify-center gap-4 sm:gap-5">
-              {AUDIENCES.map(({ icon: Icon, title, role, tint }) => (
-                <span
-                  key={title}
-                  title={`${title} — ${role}`}
-                  className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-white shadow-lg shadow-slate-900/[0.07] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-start/15"
-                >
-                  <Icon className={`h-7 w-7 ${tint}`} strokeWidth={1.75} />
-                  <span className="sr-only">
-                    {title} — {role}
+              {AUDIENCES.map(({ icon: Icon, title, role, tint }, i) => (
+                <Reveal key={title} delay={i * 60}>
+                  <span
+                    title={`${title} — ${role}`}
+                    className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-white shadow-lg shadow-slate-900/[0.07] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-start/15"
+                  >
+                    <Icon className={`h-7 w-7 ${tint}`} strokeWidth={1.75} />
+                    <span className="sr-only">
+                      {title} — {role}
+                    </span>
                   </span>
-                </span>
+                </Reveal>
               ))}
             </div>
           </div>

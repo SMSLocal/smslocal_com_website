@@ -13,6 +13,7 @@ import {
   Grip,
   type LucideIcon,
 } from "lucide-react";
+import Reveal from "./Reveal";
 
 type Badge = {
   icon: LucideIcon;
@@ -107,128 +108,147 @@ export default function OutcomesShowcase() {
           container while the right column stayed flush — so the block read as
           narrower than the header. A translate moves it as a unit, preserving
           every badge/card relationship. */}
-      <div className="relative min-h-[460px] lg:origin-right lg:scale-[1.11]">
-        {BADGES.map(({ icon: Icon, cls, size, pos, z = "z-20" }, i) => (
-          <span
-            key={i}
-            className={`absolute ${z} flex items-center justify-center rounded-full shadow-lg ${size} ${cls} ${pos}`}
-          >
-            <Icon className="h-[45%] w-[45%]" strokeWidth={2} />
-          </span>
-        ))}
-
-        {/* campaign card */}
-        <div className="relative z-0 ml-auto w-[72%] overflow-hidden rounded-2xl border border-border bg-white shadow-2xl">
-          {/* header */}
-          <div className="flex items-center justify-between border-b border-border px-4 py-3">
-            <div className="flex items-center gap-2.5">
-              <Grip className="h-5 w-5 text-slate-400" />
-              <div className="leading-tight">
-                <p className="text-sm font-semibold tracking-tight text-foreground">
-                  SMSLocal Campaigns
-                </p>
-                <p className="text-[10px] text-muted-foreground">
-                  Global • Bulk SMS • Instant
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              className="flex items-center gap-1 rounded-full bg-slate-900 px-4 py-1.5 text-xs font-semibold text-white"
+      {/* Revealed as one unit — the badge cluster and card are positioned
+          relative to each other, so staggering them would pull the
+          composition apart. The scale stays on the inner div; Reveal only
+          animates the wrapper, so the two transforms don't fight. */}
+      <Reveal className="min-w-0">
+        <div className="relative min-h-[460px] lg:origin-right lg:scale-[1.11]">
+          {BADGES.map(({ icon: Icon, cls, size, pos, z = "z-20" }, i) => (
+            <span
+              key={i}
+              className={`absolute ${z} flex items-center justify-center rounded-full shadow-lg ${size} ${cls} ${pos}`}
             >
-              Send Now <ArrowRight className="h-3 w-3" />
-            </button>
-          </div>
+              <Icon className="h-[45%] w-[45%]" strokeWidth={2} />
+            </span>
+          ))}
 
-          {/* body */}
-          <div className="grid grid-cols-[1.5fr_1fr] gap-5 p-5">
-            <div className="space-y-6">
-              <div>
-                <p className="text-xl font-semibold tracking-tight text-foreground">
-                  Flash Sale Blast
-                </p>
-                <div className="mt-3 flex gap-2">
-                  <span className="h-2 w-16 rounded-full bg-slate-200" />
-                  <span className="h-2 w-10 rounded-full bg-slate-200" />
-                  <span className="h-2 w-12 rounded-full bg-slate-200" />
+          {/* campaign card */}
+          <div className="relative z-0 ml-auto w-[72%] overflow-hidden rounded-2xl border border-border bg-white shadow-2xl">
+            {/* header */}
+            <div className="flex items-center justify-between border-b border-border px-4 py-3">
+              <div className="flex items-center gap-2.5">
+                <Grip className="h-5 w-5 text-slate-400" />
+                <div className="leading-tight">
+                  <p className="text-sm font-semibold tracking-tight text-foreground">
+                    SMSLocal Campaigns
+                  </p>
+                  <p className="text-[10px] text-muted-foreground">
+                    Global • Bulk SMS • Instant
+                  </p>
                 </div>
               </div>
+              <button
+                type="button"
+                className="flex items-center gap-1 rounded-full bg-slate-900 px-4 py-1.5 text-xs font-semibold text-white"
+              >
+                Send Now <ArrowRight className="h-3 w-3" />
+              </button>
+            </div>
 
-              {CARD_SECTIONS.map(({ label, widths }) => (
-                <div key={label}>
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-                    {label}
+            {/* body */}
+            <div className="grid grid-cols-[1.5fr_1fr] gap-5 p-5">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-xl font-semibold tracking-tight text-foreground">
+                    Flash Sale Blast
                   </p>
-                  <div className="mt-2.5 space-y-2">
-                    {widths.map((w, i) => (
+                  <div className="mt-3 flex gap-2">
+                    <span className="h-2 w-16 rounded-full bg-slate-200" />
+                    <span className="h-2 w-10 rounded-full bg-slate-200" />
+                    <span className="h-2 w-12 rounded-full bg-slate-200" />
+                  </div>
+                </div>
+
+                {CARD_SECTIONS.map(({ label, widths }) => (
+                  <div key={label}>
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+                      {label}
+                    </p>
+                    <div className="mt-2.5 space-y-2">
+                      {widths.map((w, i) => (
+                        <span
+                          key={i}
+                          className={`block h-2 rounded-full bg-slate-200 ${w}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="rounded-xl border border-border p-3.5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-brand text-white">
+                    <Send className="h-4 w-4" />
+                  </span>
+                  <p className="mt-3 text-xs font-semibold text-foreground">
+                    Northside Coffee
+                  </p>
+                  <div className="mt-2.5 space-y-1.5">
+                    <span className="block h-1.5 w-full rounded-full bg-slate-200" />
+                    <span className="block h-1.5 w-2/3 rounded-full bg-slate-200" />
+                  </div>
+                  <button
+                    type="button"
+                    aria-label="Deliver"
+                    className="mt-4 h-7 w-full rounded-full bg-primary"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex -space-x-1.5">
+                    {[0, 1, 2, 3].map((n) => (
                       <span
-                        key={i}
-                        className={`block h-2 rounded-full bg-slate-200 ${w}`}
+                        key={n}
+                        className="h-6 w-6 rounded-full border-2 border-white bg-slate-300"
                       />
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <div className="rounded-xl border border-border p-3.5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-brand text-white">
-                  <Send className="h-4 w-4" />
-                </span>
-                <p className="mt-3 text-xs font-semibold text-foreground">
-                  Northside Coffee
-                </p>
-                <div className="mt-2.5 space-y-1.5">
-                  <span className="block h-1.5 w-full rounded-full bg-slate-200" />
-                  <span className="block h-1.5 w-2/3 rounded-full bg-slate-200" />
-                </div>
-                <button
-                  type="button"
-                  aria-label="Deliver"
-                  className="mt-4 h-7 w-full rounded-full bg-primary"
-                />
-              </div>
-
-              <div>
-                <div className="flex -space-x-1.5">
-                  {[0, 1, 2, 3].map((n) => (
-                    <span
-                      key={n}
-                      className="h-6 w-6 rounded-full border-2 border-white bg-slate-300"
-                    />
-                  ))}
-                </div>
-                <div className="mt-3 space-y-1.5">
-                  <span className="block h-1.5 w-full rounded-full bg-slate-200" />
-                  <span className="block h-1.5 w-3/4 rounded-full bg-slate-200" />
+                  <div className="mt-3 space-y-1.5">
+                    <span className="block h-1.5 w-full rounded-full bg-slate-200" />
+                    <span className="block h-1.5 w-3/4 rounded-full bg-slate-200" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </Reveal>
 
-      {/* RIGHT — heading + CTAs */}
-      <div>
-        <span className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-primary">
-          <Clock className="h-4 w-4" />
-          Driving Business Outcomes
-        </span>
-        <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
-          Reach more customers{" "}
-          <span className="text-gradient-brand">with a single click.</span>
-        </h3>
-        <p className="mt-5 max-w-md text-muted-foreground">
-          Send your campaign to every carrier and region through SMSLocal&apos;s
-          messaging platform — without the manual work.
-        </p>
-        <div className="mt-8 flex items-center gap-5">
+      {/* RIGHT — heading + CTAs, each element on its own beat */}
+      <div className="min-w-0">
+        <Reveal delay={120}>
+          <span className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-primary">
+            <Clock className="h-4 w-4" />
+            Driving Business Outcomes
+          </span>
+        </Reveal>
+        <Reveal delay={200}>
+          <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+            Reach more customers{" "}
+            <span className="text-gradient-brand">with a single click.</span>
+          </h3>
+        </Reveal>
+        <Reveal delay={280}>
+          <p className="mt-5 max-w-md text-muted-foreground">
+            Send your campaign to every carrier and region through
+            SMSLocal&apos;s messaging platform — without the manual work.
+          </p>
+        </Reveal>
+        <Reveal delay={360} className="mt-8 flex items-center gap-5">
+          {/* Gradient ring around a white fill — the same light-bordered
+              primary the Hero and navbar use. It belongs on light sections
+              like this one; on the dark CTA band it flattened into a white
+              block, which is why that one stays filled. */}
           <a
             href="#signup"
-            className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="rounded-full bg-gradient-brand p-[1.5px] transition hover:shadow-md hover:shadow-secondary/25"
           >
-            Start sending <ArrowRight className="h-4 w-4" />
+            <span className="flex items-center gap-1.5 rounded-full bg-white px-6 py-3 text-sm font-semibold">
+              <span className="text-gradient-brand">Start sending</span>
+              <ArrowRight className="h-4 w-4 text-brand-end" />
+            </span>
           </a>
           <a
             href="#how"
@@ -236,7 +256,7 @@ export default function OutcomesShowcase() {
           >
             See how it works
           </a>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

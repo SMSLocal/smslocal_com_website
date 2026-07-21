@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import DropText from "./DropText";
+import Reveal from "./Reveal";
 import OutcomesShowcase from "./OutcomesShowcase";
 
 type Feature = {
@@ -281,11 +282,16 @@ function FeatureSlider() {
               ref={i === 0 ? cardRef : undefined}
               className="w-full shrink-0 sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
             >
-              {/* highlight the middle card of whatever is in view */}
-              <FeatureCard
-                feature={f}
-                highlighted={i === index + Math.floor((perView - 1) / 2)}
-              />
+              {/* Reveal sits inside the sized cell, not around it — the track
+                  measures this cell's width via cardRef to compute the slide
+                  step, and Reveal doesn't forward refs. */}
+              <Reveal delay={i * 90}>
+                {/* highlight the middle card of whatever is in view */}
+                <FeatureCard
+                  feature={f}
+                  highlighted={i === index + Math.floor((perView - 1) / 2)}
+                />
+              </Reveal>
             </div>
           ))}
         </div>
@@ -310,7 +316,10 @@ export default function PlatformFeatures() {
               className="mt-5 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[2.75rem]"
               segments={[
                 { text: "Explore The Features That Make" },
-                { text: "Messaging Seamless", className: "text-gradient-brand" },
+                {
+                  text: "Messaging Seamless",
+                  className: "text-gradient-brand",
+                },
               ]}
             />
           </div>

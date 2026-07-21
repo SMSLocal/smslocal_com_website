@@ -1,5 +1,6 @@
 import { UserPlus, Upload, Rocket, BarChart3, Check, Send } from "lucide-react";
 import DropText from "./DropText";
+import Reveal from "./Reveal";
 import NightBackdrop from "./NightBackdrop";
 
 const STEPS = [
@@ -79,19 +80,17 @@ function SceneBody({ id }: { id: number }) {
   if (id === 1) {
     return (
       <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-        {["CSV uploaded", "CRM synced", "Groups created"].map(
-          (t, i) => (
-            <span
-              key={t}
-              className="animate-float-slow"
-              style={{ animationDelay: `${i * 0.35}s` }}
-            >
-              <Pill tone="accent">
-                <Check className="h-3 w-3" strokeWidth={3} /> {t}
-              </Pill>
-            </span>
-          ),
-        )}
+        {["CSV uploaded", "CRM synced", "Groups created"].map((t, i) => (
+          <span
+            key={t}
+            className="animate-float-slow"
+            style={{ animationDelay: `${i * 0.35}s` }}
+          >
+            <Pill tone="accent">
+              <Check className="h-3 w-3" strokeWidth={3} /> {t}
+            </Pill>
+          </span>
+        ))}
       </div>
     );
   }
@@ -172,7 +171,9 @@ export default function ProcessSteps() {
                   </span>
                 </div>
 
-                <p className="mt-6 text-2xl font-semibold text-white">{title}</p>
+                <p className="mt-6 text-2xl font-semibold text-white">
+                  {title}
+                </p>
 
                 <SceneBody id={i} />
               </div>
@@ -199,8 +200,9 @@ export default function ProcessSteps() {
 
             <div className="mt-8 space-y-5">
               {STEPS.map(({ title, desc }, i) => (
-                <div
+                <Reveal
                   key={title}
+                  delay={i * 90}
                   className={i > 0 ? "border-t border-white/10 pt-5" : ""}
                 >
                   <div className="flex items-center gap-2">
@@ -210,7 +212,7 @@ export default function ProcessSteps() {
                     <p className="font-semibold text-white">{title}</p>
                   </div>
                   <p className="mt-1 text-sm text-white/55">{desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

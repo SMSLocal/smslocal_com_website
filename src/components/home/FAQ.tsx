@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MessageCircleQuestion, Plus, Minus } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const FAQS = [
   {
@@ -44,58 +45,81 @@ export default function FAQ() {
       />
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.4fr]">
-        <div className="relative hidden overflow-hidden rounded-3xl bg-gradient-brand p-8 text-white lg:flex lg:flex-col lg:justify-between">
-          <div className="bg-dot-grid mask-radial-fade pointer-events-none absolute inset-0 opacity-20" />
-          <MessageCircleQuestion className="h-10 w-10" />
-          <div className="relative">
-            <p className="text-2xl font-semibold leading-snug">
-              Still have questions about SMSLocal?
-            </p>
-            <p className="mt-3 text-sm text-white/80">
-              Our support team responds within minutes — every day of the
-              week.
-            </p>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary-dark transition hover:bg-muted"
-            >
-              Contact Us
-            </a>
+        {/* Tinted, not near-white: the page behind this sits at 248,250,252,
+            so a muted fill composited to within ~2 per channel of it and the
+            card vanished. This carries a real lavender→pink wash.
+            Revealed as one unit — it's a single visual block, so staggering
+            its innards would fight the list's stagger beside it. */}
+        <Reveal className="hidden lg:block">
+          <div
+            className="relative flex h-full overflow-hidden rounded-3xl border border-brand-start/20 p-8 flex-col justify-between"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, rgba(79,91,213,0.16), rgba(236,72,153,0.11))",
+            }}
+          >
+            {/* The dot grid is dark ink, so on a light card it carries at full
+              strength — it was dialled down to 20% only to survive the
+              gradient it used to sit on. */}
+            <div className="bg-dot-grid mask-radial-fade pointer-events-none absolute inset-0 opacity-70" />
+            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-brand-start shadow-sm">
+              <MessageCircleQuestion className="h-6 w-6" />
+            </span>
+            <div className="relative">
+              <p className="text-2xl leading-snug font-semibold text-heading">
+                Still have questions about SMSLocal?
+              </p>
+              {/* Darker than muted-foreground: the tinted card lifts the
+                background luminance, which drops muted text under AA. */}
+              <p className="mt-3 text-sm text-foreground/70">
+                Our support team responds within minutes — every day of the
+                week.
+              </p>
+              <a
+                href="#contact"
+                className="mt-6 inline-flex rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-start/25 transition hover:shadow-xl hover:shadow-brand-start/35"
+              >
+                Contact Us
+              </a>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="space-y-3">
+          {/* Each row fades up on its own, 70ms apart, so the list assembles
+              top-to-bottom instead of appearing all at once. */}
           {FAQS.map(({ q, a }, i) => {
             const open = openIndex === i;
             return (
-              <div
-                key={q}
-                className={
-                  open
-                    ? "rounded-2xl border border-primary/30 bg-muted/60 px-6 py-5"
-                    : "rounded-2xl border border-border bg-white px-6 py-5"
-                }
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(open ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 text-left font-medium text-foreground"
+              <Reveal key={q} delay={i * 70}>
+                <div
+                  className={
+                    open
+                      ? "rounded-2xl border border-primary/30 bg-muted/60 px-6 py-5"
+                      : "rounded-2xl border border-border bg-white px-6 py-5"
+                  }
                 >
-                  {q}
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary/30 text-primary">
-                    {open ? (
-                      <Minus className="h-3.5 w-3.5" />
-                    ) : (
-                      <Plus className="h-3.5 w-3.5" />
-                    )}
-                  </span>
-                </button>
-                {open && (
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {a}
-                  </p>
-                )}
-              </div>
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(open ? -1 : i)}
+                    className="flex w-full items-center justify-between gap-4 text-left font-medium text-foreground"
+                  >
+                    {q}
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary/30 text-primary">
+                      {open ? (
+                        <Minus className="h-3.5 w-3.5" />
+                      ) : (
+                        <Plus className="h-3.5 w-3.5" />
+                      )}
+                    </span>
+                  </button>
+                  {open && (
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {a}
+                    </p>
+                  )}
+                </div>
+              </Reveal>
             );
           })}
         </div>

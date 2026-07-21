@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Star, ArrowLeft, ArrowRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const TESTIMONIALS = [
   {
@@ -145,7 +146,7 @@ export default function Testimonials() {
             />
 
             {/* Arrows with a progress rail between them, per the reference. */}
-            <div className="mt-10 flex items-center gap-5">
+            <div className="mt-6 flex items-center gap-5">
               <button
                 type="button"
                 onClick={() => go(index - 1)}
@@ -188,7 +189,10 @@ export default function Testimonials() {
             {/* At this size the glyph's ink renders above its own line box, so
                 the offset is tuned to where the ink actually lands (measured),
                 not to the box. Retune if the display face or size changes. */}
-            <span aria-hidden className="relative z-10 -mb-[104px] block text-right">
+            <span
+              aria-hidden
+              className="relative z-10 -mb-[104px] block text-right"
+            >
               <span className="inline-block font-serif text-[11rem] leading-[0.28] text-heading/15 select-none">
                 &rdquo;
               </span>
@@ -203,48 +207,58 @@ export default function Testimonials() {
               onBlurCapture={() => setPaused(false)}
               className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-14 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
-              {TESTIMONIALS.map(({ quote, name, role, tint }) => (
+              {TESTIMONIALS.map(({ quote, name, role, tint }, i) => (
                 <figure
                   key={name}
                   className="w-full shrink-0 snap-start sm:w-[calc(50%-0.75rem)]"
                 >
-                  <div className="relative rounded-2xl border border-border bg-muted/60 p-7">
-                    <blockquote className="text-[15px] leading-relaxed text-foreground/80">
-                      {quote}
-                    </blockquote>
+                  {/* Reveal nested inside the sized cell — the track measures
+                      cell widths to compute its paging step. */}
+                  <Reveal delay={i * 90}>
+                    {/* Opaque fill, not bg-muted/60: the tail below is a child
+                        of this card, so a translucent tail let the card's own
+                        bottom border show through the diamond and the two
+                        translucent fills stacked into a darker patch. */}
+                    <div className="relative rounded-2xl border border-border bg-muted p-7">
+                      <blockquote className="text-[15px] leading-relaxed text-foreground/80">
+                        {quote}
+                      </blockquote>
 
-                    <div className="mt-5 flex gap-1">
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <Star
-                          key={i}
-                          className="h-4 w-4 fill-amber-400 text-amber-400"
-                        />
-                      ))}
+                      <div className="mt-5 flex gap-1">
+                        {Array.from({ length: 5 }, (_, i) => (
+                          <Star
+                            key={i}
+                            className="h-4 w-4 fill-amber-400 text-amber-400"
+                          />
+                        ))}
+                      </div>
+
+                      {/* Speech-bubble tail, bottom-left — centred over the
+                        avatar below so it points at the speaker. Opaque, so it
+                        masks the card border it sits on. */}
+                      <span
+                        aria-hidden
+                        className="absolute -bottom-[8.5px] left-9 h-4 w-4 rotate-45 border-r border-b border-border bg-muted"
+                      />
                     </div>
 
-                    {/* Speech-bubble tail, bottom-left. */}
-                    <span
-                      aria-hidden
-                      className="absolute -bottom-2 left-9 h-4 w-4 rotate-45 border-r border-b border-border bg-muted/60"
-                    />
-                  </div>
-
-                  {/* Author straddles the card's lower edge. */}
-                  <figcaption className="mt-4 flex items-center gap-3 pl-7">
-                    <span
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-white ${tint}`}
-                    >
-                      {initials(name)}
-                    </span>
-                    <span>
-                      <span className="block text-sm font-semibold text-heading">
-                        {name}
+                    {/* Author straddles the card's lower edge. */}
+                    <figcaption className="mt-6 flex items-center gap-3 pl-7">
+                      <span
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-white ${tint}`}
+                      >
+                        {initials(name)}
                       </span>
-                      <span className="block text-xs text-muted-foreground">
-                        {role}
+                      <span>
+                        <span className="block text-sm font-semibold text-heading">
+                          {name}
+                        </span>
+                        <span className="block text-xs text-muted-foreground">
+                          {role}
+                        </span>
                       </span>
-                    </span>
-                  </figcaption>
+                    </figcaption>
+                  </Reveal>
                 </figure>
               ))}
             </div>

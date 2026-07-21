@@ -49,7 +49,9 @@ export default function Hero() {
               href="#signup"
               className="group rounded-full bg-gradient-brand p-[1.5px] shadow-lg shadow-primary/20 transition hover:shadow-xl hover:shadow-secondary/25"
             >
-              <span className="flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold transition group-hover:bg-muted">
+              {/* Fill stays white on hover — the lift comes from the outer
+                  anchor's shadow, not a background swap. */}
+              <span className="flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold">
                 <span className="text-gradient-brand">
                   Create Free Trial Account
                 </span>

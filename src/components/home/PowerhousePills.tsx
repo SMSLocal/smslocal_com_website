@@ -81,7 +81,7 @@ export default function PowerhousePills() {
   return (
     <div
       ref={ref}
-      className="bg-wave relative flex min-h-[340px] flex-col overflow-hidden rounded-3xl border border-border bg-white p-8"
+      className="bg-wave relative flex h-full min-h-[340px] flex-col overflow-hidden rounded-3xl border border-border bg-white p-8"
     >
       <div>
         <p className="text-2xl font-semibold tracking-tight text-foreground">
