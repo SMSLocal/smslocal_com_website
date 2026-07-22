@@ -113,7 +113,25 @@ export default function OutcomesShowcase() {
           composition apart. The scale stays on the inner div; Reveal only
           animates the wrapper, so the two transforms don't fight. */}
       <Reveal className="min-w-0">
-        <div className="relative min-h-[460px] lg:origin-right lg:scale-[1.11]">
+        {/* Below sm the stage is pinned to 560px and scaled down, exactly as the
+            hero scenes are. The badges are placed by percentage but sized in
+            fixed pixels, and the card is w-[72%]: in a 327px column that left a
+            235px card whose inner two-column grid collapsed, while the 44-80px
+            badges swamped it and the composition ran 36px off-screen. Laying
+            out at 560px keeps the badge-to-card proportions the design assumes.
+            sm+ is untouched, including the lg 1.11x header alignment.
+            470px specifically: the card's inner grid keeps shrinking with the
+            stage down to about there, then its right panel hits an 87px content
+            floor and the layout distorts. 470 is the narrowest faithful width,
+            so it buys the largest legible text (12.5px vs 10.5px at 560).
+            -my compensates the layout height a transform does not shrink.
+            -translate-x centres the artwork rather than its box: inside the
+            470px stage the ink runs 47->470, since the leftmost badge sits at
+            left-[10%] while the card ends flush at 100%. That 47px of dead
+            space on the left alone pushed the composition 17px right of the
+            column centre. Translate resolves in parent coordinates, so the
+            17px is not multiplied by the scale. */}
+        <div className="relative -my-[69px] min-h-[460px] w-[470px] origin-left -translate-x-[17px] scale-[0.7] sm:my-0 sm:w-full sm:translate-x-0 sm:origin-center sm:scale-100 lg:origin-right lg:scale-[1.11]">
           {BADGES.map(({ icon: Icon, cls, size, pos, z = "z-20" }, i) => (
             <span
               key={i}
@@ -150,7 +168,7 @@ export default function OutcomesShowcase() {
             <div className="grid grid-cols-[1.5fr_1fr] gap-5 p-5">
               <div className="space-y-6">
                 <div>
-                  <p className="text-xl font-semibold tracking-tight text-foreground">
+                  <p className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                     Flash Sale Blast
                   </p>
                   <div className="mt-3 flex gap-2">
@@ -225,7 +243,7 @@ export default function OutcomesShowcase() {
           </span>
         </Reveal>
         <Reveal delay={200}>
-          <h3 className="mt-4 text-3xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+          <h3 className="mt-4 text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
             Reach more customers{" "}
             <span className="text-gradient-brand">with a single click.</span>
           </h3>
@@ -252,7 +270,7 @@ export default function OutcomesShowcase() {
           </a>
           <a
             href="#how"
-            className="text-sm font-semibold text-foreground transition hover:text-primary"
+            className="inline-block py-1.5 text-sm font-semibold text-foreground transition hover:text-primary"
           >
             See how it works
           </a>

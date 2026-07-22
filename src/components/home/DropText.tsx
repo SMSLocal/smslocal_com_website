@@ -69,7 +69,10 @@ export default function DropText({
   return (
     <Tag ref={ref} className={className}>
       {segments.map((seg, si) => {
-        if (seg.br) return <br key={si} />;
+        // className on a break lets callers make it responsive — e.g. a break
+        // that only applies below sm, so the same heading can wrap at a
+        // different word on narrow screens.
+        if (seg.br) return <br key={si} className={seg.className} />;
         const words = (seg.text ?? "").split(" ");
         return (
           <span key={si}>
@@ -93,7 +96,10 @@ export default function DropText({
                 </span>
               );
             })}
-            {si < segments.length - 1 && !segments[si + 1]?.br ? " " : ""}
+            {/* Space is emitted even before a break. A trailing space collapses
+                at a line end, but it is essential when the break is hidden at a
+                breakpoint — otherwise the two segments run together. */}
+            {si < segments.length - 1 ? " " : ""}
           </span>
         );
       })}

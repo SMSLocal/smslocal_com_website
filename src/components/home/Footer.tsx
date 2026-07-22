@@ -10,11 +10,21 @@ import NightBackdrop from "./NightBackdrop";
 const COLUMNS = [
   {
     title: "Product",
-    links: ["Mass texting", "SMS marketing", "Two-way messaging", "API & Developers"],
+    links: [
+      "Mass texting",
+      "SMS marketing",
+      "Two-way messaging",
+      "API & Developers",
+    ],
   },
   {
     title: "Solutions",
-    links: ["Sales & Marketing", "Appointment reminders", "School & campus", "Alerts & notifications"],
+    links: [
+      "Sales & Marketing",
+      "Appointment reminders",
+      "School & campus",
+      "Alerts & notifications",
+    ],
   },
   {
     title: "Resources",
@@ -45,20 +55,37 @@ export default function Footer() {
               />
             </a>
             <p className="mt-4 max-w-xs text-sm text-white/60">
-              Launch SMS campaigns, alerts, and promotions in seconds — no
-              apps, no coding, no integration needed.
+              Launch SMS campaigns, alerts, and promotions in seconds — no apps,
+              no coding, no integration needed.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="text-white/60 hover:text-primary">
+            {/* h-11 w-11 hit areas with -m-2.5 so the icons sit where they did */}
+            <div className="mt-5 flex items-center gap-8">
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="-m-2.5 flex h-11 w-11 items-center justify-center text-white/60 hover:text-primary"
+              >
                 <FacebookIcon className="h-4 w-4" />
               </a>
-              <a href="#" aria-label="Instagram" className="text-white/60 hover:text-primary">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="-m-2.5 flex h-11 w-11 items-center justify-center text-white/60 hover:text-primary"
+              >
                 <InstagramIcon className="h-4 w-4" />
               </a>
-              <a href="#" aria-label="YouTube" className="text-white/60 hover:text-primary">
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="-m-2.5 flex h-11 w-11 items-center justify-center text-white/60 hover:text-primary"
+              >
                 <YoutubeIcon className="h-4 w-4" />
               </a>
-              <a href="#" aria-label="LinkedIn" className="text-white/60 hover:text-primary">
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="-m-2.5 flex h-11 w-11 items-center justify-center text-white/60 hover:text-primary"
+              >
                 <LinkedinIcon className="h-4 w-4" />
               </a>
             </div>
@@ -67,10 +94,16 @@ export default function Footer() {
           {COLUMNS.map((col) => (
             <div key={col.title}>
               <h4 className="text-sm font-semibold text-white">{col.title}</h4>
-              <ul className="mt-4 space-y-2.5">
+              {/* inline-block + py-1 lifts each link from an 18px tap target to
+                  26px, clearing the 24px WCAG 2.5.8 minimum. The row spacing
+                  tightens to compensate, so the column height barely moves. */}
+              <ul className="mt-3 space-y-0.5">
                 {col.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-sm text-white/60 hover:text-primary">
+                    <a
+                      href="#"
+                      className="inline-block py-1 text-sm text-white/60 hover:text-primary"
+                    >
                       {link}
                     </a>
                   </li>
@@ -81,11 +114,20 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} SMSLocal. All rights reserved.
+          </p>
+          {/* py-1 clears the 24px WCAG 2.5.8 tap minimum */}
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary">Terms</a>
-            <a href="#" className="hover:text-primary">Privacy</a>
-            <a href="#" className="hover:text-primary">Cookies</a>
+            <a href="#" className="inline-block py-1 hover:text-primary">
+              Terms
+            </a>
+            <a href="#" className="inline-block py-1 hover:text-primary">
+              Privacy
+            </a>
+            <a href="#" className="inline-block py-1 hover:text-primary">
+              Cookies
+            </a>
           </div>
         </div>
       </div>

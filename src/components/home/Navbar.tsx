@@ -61,9 +61,14 @@ export default function Navbar() {
           </a>
         </div>
 
+        {/* -mr-2.5 keeps the icon aligned to the container edge while the
+            button itself carries a full 44px touch target. */}
         <button
-          className="p-2 lg:hidden"
+          type="button"
+          className="-mr-2.5 flex h-11 w-11 items-center justify-center lg:hidden"
           aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -71,7 +76,10 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-white px-6 py-4 lg:hidden">
+        <div
+          id="mobile-menu"
+          className="border-t border-border bg-white px-6 py-4 lg:hidden"
+        >
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <a

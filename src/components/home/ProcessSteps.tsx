@@ -140,18 +140,22 @@ export default function ProcessSteps() {
 
         <div className="relative grid items-center gap-12 lg:grid-cols-2">
           {/* LEFT — floating live step scenes, no box */}
-          <div className="relative flex min-h-[400px] items-center justify-center">
+          <div className="relative flex min-h-[340px] items-center justify-center sm:min-h-[400px]">
+            {/* Orbit sizes step down below sm. At their desktop size the outer
+                ring is 400px inside a 327px card, so it overran by 37px each
+                side and the card's overflow-hidden sliced the dashed circle
+                into two arcs. Sizes keep the original 400/288/256 ratio. */}
             {/* pulsing core glow */}
-            <div className="pointer-events-none absolute h-64 w-64 opacity-30">
+            <div className="pointer-events-none absolute h-44 w-44 opacity-30 sm:h-64 sm:w-64">
               <div className="animate-pulse-soft h-full w-full rounded-full bg-gradient-brand blur-3xl" />
             </div>
 
             {/* orbiting dashed rings */}
-            <div className="animate-spin-slow pointer-events-none absolute h-[25rem] w-[25rem]">
+            <div className="animate-spin-slow pointer-events-none absolute h-[17rem] w-[17rem] sm:h-[25rem] sm:w-[25rem]">
               <div className="absolute inset-0 rounded-full border border-dashed border-white/30" />
               <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 rounded-full bg-primary shadow-lg shadow-primary/50" />
             </div>
-            <div className="animate-spin-slow-rev pointer-events-none absolute h-72 w-72">
+            <div className="animate-spin-slow-rev pointer-events-none absolute h-48 w-48 sm:h-72 sm:w-72">
               <div className="absolute inset-0 rounded-full border border-dashed border-white/20" />
               <span className="absolute right-0 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-secondary shadow-lg shadow-secondary/50" />
             </div>
@@ -163,15 +167,18 @@ export default function ProcessSteps() {
                 className="animate-scene absolute inset-0 flex flex-col items-center justify-center text-center"
                 style={{ animationDelay: `${i * 3}s` }}
               >
-                {/* glowing gradient icon */}
+                {/* Glowing gradient icon. The tile is a fixed 80px while the
+                    orbit around it shrinks on mobile, so it went from 28% of
+                    the inner ring on desktop to 42% and read oversized. 56px
+                    restores that ratio; the icon, radius and glow follow it. */}
                 <div className="relative">
-                  <div className="absolute -inset-4 rounded-[2rem] bg-gradient-brand opacity-70 blur-2xl" />
-                  <span className="relative flex h-20 w-20 items-center justify-center rounded-[1.5rem] bg-gradient-brand text-white shadow-2xl shadow-primary/40">
-                    <Icon className="h-9 w-9" strokeWidth={1.75} />
+                  <div className="absolute -inset-3 rounded-[1.5rem] bg-gradient-brand opacity-70 blur-2xl sm:-inset-4 sm:rounded-[2rem]" />
+                  <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-2xl shadow-primary/40 sm:h-20 sm:w-20 sm:rounded-[1.5rem]">
+                    <Icon className="h-6 w-6 sm:h-9 sm:w-9" strokeWidth={1.75} />
                   </span>
                 </div>
 
-                <p className="mt-6 text-2xl font-semibold text-white">
+                <p className="mt-6 text-xl font-semibold text-white sm:text-2xl">
                   {title}
                 </p>
 
@@ -187,7 +194,7 @@ export default function ProcessSteps() {
             </p>
             <DropText
               as="h2"
-              className="mt-4 text-3xl font-medium leading-tight text-white sm:text-4xl"
+              className="mt-4 text-[1.8rem] font-medium leading-tight text-white sm:text-4xl"
               segments={[
                 { text: "It's Easy To" },
                 { text: "Get Started", className: "text-gradient-brand" },

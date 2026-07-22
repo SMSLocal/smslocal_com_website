@@ -167,7 +167,8 @@ const API_CARDS = [
     pos: "left-[73.75%] top-[19%]", // centre (413,76) -> spans x 263-563
     active: true,
     bar: "",
-    shell: "bg-white shadow-xl shadow-primary/[0.12] ring-1 ring-brand-start/[0.16]",
+    shell:
+      "bg-white shadow-xl shadow-primary/[0.12] ring-1 ring-brand-start/[0.16]",
     chip: "bg-gradient-brand text-white shadow-md shadow-primary/25",
     stagger: 0.12,
   },
@@ -192,7 +193,6 @@ const API_CARDS = [
     stagger: 0.28,
   },
 ];
-
 
 /** Inbox rows behind the card. Varied widths so it reads as a real list rather
  *  than a stack of identical bars. */
@@ -366,7 +366,12 @@ function PhoneStage() {
         delay={0.8}
         slower
       />
-      <ChatBubble size={24} className="left-[1%] top-[44%]" rotate={-8} delay={1.6} />
+      <ChatBubble
+        size={24}
+        className="left-[1%] top-[44%]"
+        rotate={-8}
+        delay={1.6}
+      />
       <ChatBubble
         size={40}
         className="bottom-[4%] right-[6%]"
@@ -469,7 +474,9 @@ function SceneVisual({ id }: { id: number }) {
                   S
                 </span>
               )}
-              <span className="text-[15px] font-medium leading-snug">{text}</span>
+              <span className="text-[15px] font-medium leading-snug">
+                {text}
+              </span>
             </span>
           </span>
         ))}
@@ -841,110 +848,115 @@ function SceneVisual({ id }: { id: number }) {
           <circle cx="129" cy="58" r="3.5" />
           <circle cx="197" cy="124" r="3.5" />
         </g>
-
       </svg>
 
       {/* connected apps */}
-      {INTEGRATION_MARKS.map(({ icon: Icon, label, pos, size, tint, stagger }) => (
-        <span
-          key={label}
-          className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
-        >
+      {INTEGRATION_MARKS.map(
+        ({ icon: Icon, label, pos, size, tint, stagger }) => (
           <span
-            className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(4, stagger) }}
+            key={label}
+            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
           >
-            {/* The float wrapper is `relative` and the caption is absolute, so
+            <span
+              className="animate-scene-fade block"
+              style={{ animationDelay: sceneDelay(4, stagger) }}
+            >
+              {/* The float wrapper is `relative` and the caption is absolute, so
                 the tile itself stays centred on its ring — letting the caption
                 affect layout would push every tile off its radius. */}
-            <span className="animate-float-slower relative block">
-              <span
-                className={`flex items-center justify-center rounded-2xl bg-white shadow-lg shadow-slate-900/10 ring-1 ring-brand-start/[0.14] ${size}`}
-              >
-                <Icon className={`h-6 w-6 ${tint}`} strokeWidth={2} />
-              </span>
-              <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap text-[10px] font-semibold tracking-tight text-muted-foreground">
-                {label}
+              <span className="animate-float-slower relative block">
+                <span
+                  className={`flex items-center justify-center rounded-2xl bg-white shadow-lg shadow-slate-900/10 ring-1 ring-brand-start/[0.14] ${size}`}
+                >
+                  <Icon className={`h-6 w-6 ${tint}`} strokeWidth={2} />
+                </span>
+                <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap text-[10px] font-semibold tracking-tight text-muted-foreground">
+                  {label}
+                </span>
               </span>
             </span>
           </span>
-        </span>
-      ))}
+        ),
+      )}
 
       {/* endpoint stack — top card live, the two behind it are placeholders */}
-      {API_CARDS.map(({ method, path, pos, active, stagger, bar, shell, chip }) => (
-        <span
-          key={path}
-          className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
-        >
+      {API_CARDS.map(
+        ({ method, path, pos, active, stagger, bar, shell, chip }) => (
           <span
-            className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(4, stagger) }}
+            key={path}
+            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
           >
             <span
-              className={`relative flex w-[300px] items-center gap-4 overflow-hidden rounded-2xl px-5 py-5 ${shell} ${
-                active ? "animate-float-slow" : ""
-              }`}
+              className="animate-scene-fade block"
+              style={{ animationDelay: sceneDelay(4, stagger) }}
             >
-              {/* Accent on the LEFT + BOTTOM edges, drawn as ONE path so it
+              <span
+                className={`relative flex w-[300px] items-center gap-4 overflow-hidden rounded-2xl px-5 py-5 ${shell} ${
+                  active ? "animate-float-slow" : ""
+                }`}
+              >
+                {/* Accent on the LEFT + BOTTOM edges, drawn as ONE path so it
                   follows the 16px corner radius. Two straight bars got clipped
                   by overflow-hidden and left a notch at the corner.
                   Lives inside the card so it floats with it — an SVG outside
                   stayed put while the card bobbed and the border drifted off. */}
-              {active && (
-                <svg
-                  viewBox="0 0 300 88"
-                  preserveAspectRatio="none"
-                  className="pointer-events-none absolute inset-0 h-full w-full"
-                  aria-hidden
+                {active && (
+                  <svg
+                    viewBox="0 0 300 88"
+                    preserveAspectRatio="none"
+                    className="pointer-events-none absolute inset-0 h-full w-full"
+                    aria-hidden
+                  >
+                    <defs>
+                      <linearGradient id="liveEdge" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="var(--brand-start)" />
+                        <stop offset="55%" stopColor="var(--brand-end)" />
+                        <stop
+                          offset="100%"
+                          stopColor="var(--brand-end)"
+                          stopOpacity="0"
+                        />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M2.5,0 V72 A13.5,13.5 0 0 0 16,85.5 H240"
+                      fill="none"
+                      stroke="url(#liveEdge)"
+                      strokeWidth="5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                )}
+                <span
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${chip}`}
                 >
-                  <defs>
-                    <linearGradient id="liveEdge" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="var(--brand-start)" />
-                      <stop offset="55%" stopColor="var(--brand-end)" />
-                      <stop
-                        offset="100%"
-                        stopColor="var(--brand-end)"
-                        stopOpacity="0"
-                      />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M2.5,0 V72 A13.5,13.5 0 0 0 16,85.5 H240"
-                    fill="none"
-                    stroke="url(#liveEdge)"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              )}
-              <span
-                className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${chip}`}
-              >
-                <Code2 className="h-5 w-5" strokeWidth={2.5} />
-              </span>
-
-              {active ? (
-                <>
-                  <span className="min-w-0 flex-1 text-left font-mono text-[13px] font-semibold leading-snug">
-                    <span className="text-brand-end">{method}</span>{" "}
-                    <span className="text-heading">{path}</span>
-                  </span>
-                  <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
-                    200
-                  </span>
-                </>
-              ) : (
-                /* two bars, like the reference — one long, one short */
-                <span className="min-w-0 flex-1 space-y-2">
-                  <span className={`block h-2.5 rounded-full bg-white/75 ${bar}`} />
-                  <span className="block h-2.5 w-1/2 rounded-full bg-white/55" />
+                  <Code2 className="h-5 w-5" strokeWidth={2.5} />
                 </span>
-              )}
+
+                {active ? (
+                  <>
+                    <span className="min-w-0 flex-1 text-left font-mono text-[13px] font-semibold leading-snug">
+                      <span className="text-brand-end">{method}</span>{" "}
+                      <span className="text-heading">{path}</span>
+                    </span>
+                    <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+                      200
+                    </span>
+                  </>
+                ) : (
+                  /* two bars, like the reference — one long, one short */
+                  <span className="min-w-0 flex-1 space-y-2">
+                    <span
+                      className={`block h-2.5 rounded-full bg-white/75 ${bar}`}
+                    />
+                    <span className="block h-2.5 w-1/2 rounded-full bg-white/55" />
+                  </span>
+                )}
+              </span>
             </span>
           </span>
-        </span>
-      ))}
+        ),
+      )}
 
       {/* The request. Seated at centre y=311 so its top (228) clears card2's
           bottom (220) — it previously overlapped card2 by 12px and ran off the
@@ -1023,15 +1035,38 @@ function SceneVisual({ id }: { id: number }) {
 }
 
 export default function HeroScenes() {
+  // A scaled element keeps its full layout height, so the stage still reserved
+  // 400px while drawing 232px — the negative margins on it claw that back, and
+  // this min-height drops to match.
+  //
+  // min-w-0: this is a grid item, and min-width:auto would let it stretch to fit
+  // the 560px stage inside it — which dragged the caption below out to 560px and
+  // off the screen. Pinned to the column, the oversized stage simply overflows
+  // it and is scaled back into place.
   return (
-    <div className="relative flex min-h-[520px] flex-col items-center justify-center">
+    <div className="relative flex min-h-[260px] min-w-0 flex-col items-center justify-center sm:min-h-[520px]">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 opacity-[0.1]">
         <div className="animate-pulse-soft h-full w-full rounded-full bg-gradient-brand blur-3xl" />
       </div>
 
-      {/* fixed slot: scenes differ in height, so this keeps the title from
-          jumping as the carousel rotates */}
-      <div className="relative flex h-[400px] w-full items-center justify-center">
+      {/* Fixed slot: scenes differ in height, so this keeps the title from
+          jumping as the carousel rotates.
+
+          The stage is pinned to 560px — the width these scenes were composed
+          against — and scaled to fit the column, rather than being w-full.
+          Children are positioned by PERCENTAGE of the stage but sized in fixed
+          pixels, so a narrower stage compresses the gaps while the cards keep
+          their width: at 327px the three flow cards overlapped by 26px and the
+          API cards by 246px. Laying out at 560px and scaling the finished
+          composition keeps every gap exactly as designed.
+
+          Scales are set per breakpoint against the narrowest column each one
+          can produce:
+            base  <640   column 327  -> 560*0.58 = 325
+            sm    640+   column 592  -> 560*1.00 = 560
+            lg    1024+  column 464  -> 560*0.82 = 459   (two-column grid)
+            xl    1280+  column 592  -> 560*1.00 = 560 */}
+      <div className="relative mx-auto -my-[84px] flex h-[400px] w-[560px] shrink-0 origin-left scale-[0.58] items-center justify-center sm:my-0 sm:scale-100 lg:-my-[36px] lg:scale-[0.82] xl:my-0 xl:scale-100">
         {/* stationary across scenes 1 and 2 — only the pop-ups and chats change */}
         <div className="animate-stage-1-2 pointer-events-none absolute inset-0 flex items-center justify-center">
           <PhoneStage />
@@ -1065,7 +1100,7 @@ export default function HeroScenes() {
             className="animate-scene-5 absolute inset-0 text-center"
             style={{ animationDelay: `${i * 3.2}s` }}
           >
-            <p className="text-xl font-semibold tracking-tight text-heading">
+            <p className="text-lg font-semibold tracking-tight text-heading sm:text-xl">
               {title}
             </p>
             <p className="mx-auto mt-1 max-w-[16rem] text-xs text-muted-foreground">

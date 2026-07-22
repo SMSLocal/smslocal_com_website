@@ -51,7 +51,7 @@ export default function AppShowcase() {
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-white shadow-lg shadow-primary/25">
               <Zap className="h-6 w-6 fill-white" />
             </span>
-            <p className="mt-8 text-lg font-semibold tracking-tight text-foreground">
+            <p className="mt-8 text-base font-semibold tracking-tight text-foreground sm:text-lg">
               All-in-One{" "}
               <span className="text-gradient-brand">SMS Toolkit</span>
             </p>
@@ -71,7 +71,7 @@ export default function AppShowcase() {
               <span className="h-3 w-3 rounded-full bg-orange-300" />
               <span className="h-3 w-3 rounded-full bg-slate-300" />
             </div>
-            <p className="mt-6 text-2xl font-semibold leading-snug tracking-tight">
+            <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
               <span className="text-gradient-brand">
                 SMSLocal is a blazing-fast, top-rated SMS platform
               </span>{" "}
@@ -89,7 +89,7 @@ export default function AppShowcase() {
             {/* multilingual & global (dotted map) — grows tall */}
             <div className="flex flex-1 flex-col overflow-hidden rounded-3xl border border-black/[0.06] bg-white p-6 shadow-sm">
               <ScrollGlobe />
-              <p className="mt-4 text-lg font-semibold tracking-tight text-foreground">
+              <p className="mt-4 text-base font-semibold tracking-tight text-foreground sm:text-lg">
                 <span className="text-gradient-brand">Multilingual</span> &amp;
                 Global
               </p>
@@ -101,7 +101,7 @@ export default function AppShowcase() {
 
             {/* rating / social proof — compact */}
             <div className="flex flex-col items-center justify-center rounded-3xl bg-[#fdf3ee] p-7 text-center">
-              <p className="text-5xl font-bold tracking-tight">
+              <p className="text-4xl font-bold tracking-tight sm:text-5xl">
                 <span className="text-gradient-brand">4.9</span>
               </p>
               <div className="mt-2 flex justify-center gap-0.5 text-amber-400">
@@ -180,7 +180,7 @@ export default function AppShowcase() {
                 </div>
               </div>
             </div>
-            <p className="mt-5 text-lg font-semibold tracking-tight text-foreground">
+            <p className="mt-5 text-base font-semibold tracking-tight text-foreground sm:text-lg">
               SMS Generator
             </p>
             <p className="mt-1 text-sm text-muted-foreground">

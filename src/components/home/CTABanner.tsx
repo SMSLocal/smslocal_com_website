@@ -34,7 +34,7 @@ export default function CTABanner() {
 
           <DropText
             as="h2"
-            className="mt-6 text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
+            className="mt-6 text-3xl font-semibold tracking-tight text-balance text-white sm:text-5xl"
             segments={[
               { text: "Join thousands of businesses" },
               { br: true },
@@ -43,7 +43,7 @@ export default function CTABanner() {
           />
 
           <Reveal delay={320}>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/60">
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg">
               One platform. Endless communication possibilities. Start today —
               it&apos;s free.
             </p>

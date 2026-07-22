@@ -84,7 +84,7 @@ export default function PowerhousePills() {
       className="bg-wave relative flex h-full min-h-[340px] flex-col overflow-hidden rounded-3xl border border-border bg-white p-8"
     >
       <div>
-        <p className="text-2xl font-semibold tracking-tight text-foreground">
+        <p className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
           SMS Powerhouse
         </p>
         <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
@@ -93,13 +93,24 @@ export default function PowerhousePills() {
         </p>
       </div>
 
-      <div className="mt-auto flex w-full flex-col -space-y-2 pt-8">
+      {/* Four pills per row spread with justify-between need ~400px; the
+          mobile card is 263px inside its padding, so the last pill in each row
+          overflowed by up to 108px. Below sm the rows wrap and centre instead,
+          and the pills tighten. The negative row overlap only applies once the
+          rows are single-line again. */}
+      <div className="mt-auto flex w-full flex-wrap justify-center gap-1.5 pt-8 sm:flex-col sm:flex-nowrap sm:gap-0 sm:-space-y-2">
         {PILL_ROWS.map((row, ri) => (
-          <div key={ri} className="flex w-full justify-between">
+          // display:contents below sm, so all twelve pills wrap as one group and
+          // no row strands a single pill on its own line. The row boxes come
+          // back at sm+, where four across fits and the overlap reads right.
+          <div
+            key={ri}
+            className="contents sm:flex sm:w-full sm:justify-between"
+          >
             {row.map((pill) => (
               <span
                 key={pill.label}
-                className={`whitespace-nowrap rounded-full border px-4 py-2 text-[13px] font-medium shadow-sm ${
+                className={`whitespace-nowrap rounded-full border px-2.5 py-1.5 text-[11px] font-medium shadow-sm sm:px-4 sm:py-2 sm:text-[13px] ${
                   PILL_TONES[pill.tone]
                 } ${started ? "animate-pill-fall" : "opacity-0"}`}
                 style={

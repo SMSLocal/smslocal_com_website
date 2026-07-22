@@ -66,7 +66,7 @@ export default function FAQ() {
               <MessageCircleQuestion className="h-6 w-6" />
             </span>
             <div className="relative">
-              <p className="text-2xl leading-snug font-semibold text-heading">
+              <p className="text-xl leading-snug font-semibold text-heading sm:text-2xl">
                 Still have questions about SMSLocal?
               </p>
               {/* Darker than muted-foreground: the tinted card lifts the

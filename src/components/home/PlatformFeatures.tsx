@@ -82,7 +82,7 @@ const SLIDE_MS = 700;
 // Disabled arrows fade out and drop their hover styling, so a dead end reads as
 // dead rather than as a button that silently does nothing.
 const ARROW =
-  "flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-foreground transition-all duration-300 " +
+  "flex h-9 w-9 items-center justify-center rounded-full border border-border bg-white text-foreground transition-all duration-300 " +
   "hover:border-brand-start/30 hover:bg-brand-start/10 hover:text-brand-start " +
   "disabled:pointer-events-none disabled:opacity-30";
 
@@ -129,27 +129,29 @@ function FeatureCard({
         >
           {/* header */}
           <div
-            className={`p-6 ${
+            className={`p-4 sm:p-6 ${
               highlighted
                 ? "bg-gradient-to-br from-brand-start/[0.07] to-brand-end/[0.07]"
                 : "bg-muted/40"
             }`}
           >
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <Icon className="h-5 w-5" />
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary sm:h-11 sm:w-11 sm:rounded-xl">
+              <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
             </span>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground sm:mt-4 sm:text-xs">
               {eyebrow}
             </p>
-            <p className="mt-1 text-xl font-semibold text-foreground">
+            <p className="mt-1 text-base font-semibold text-foreground sm:text-xl">
               {title}
             </p>
-            <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
+            <p className="mt-1.5 text-[13px] text-muted-foreground sm:mt-2 sm:text-sm">
+              {subtitle}
+            </p>
           </div>
 
           {/* short description */}
-          <div className="flex-1 p-6">
-            <p className="text-sm leading-relaxed text-muted-foreground">
+          <div className="flex-1 p-4 sm:p-6">
+            <p className="text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
               {desc}
             </p>
           </div>
@@ -235,7 +237,7 @@ function FeatureSlider() {
       onMouseLeave={() => (paused.current = false)}
     >
       {/* arrows below the text, aligned to where the description text starts */}
-      <div className="ml-auto flex max-w-md gap-3">
+      <div className="ml-auto flex max-w-md gap-2 sm:gap-3">
         <button
           type="button"
           onClick={prev}
@@ -243,7 +245,7 @@ function FeatureSlider() {
           aria-label="Previous feature"
           className={ARROW}
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -252,12 +254,12 @@ function FeatureSlider() {
           aria-label="Next feature"
           className={ARROW}
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4" />
         </button>
       </div>
 
       <div
-        className="relative mt-6 px-1 pt-10 pb-8"
+        className="relative mt-4 px-1 pt-6 pb-8 sm:mt-6 sm:pt-10"
         style={{ overflowX: "clip", overflowY: "visible" }}
       >
         {/* radial glow behind the center card */}
@@ -313,7 +315,7 @@ export default function PlatformFeatures() {
             </span>
             <DropText
               as="h2"
-              className="mt-5 text-3xl font-medium tracking-tight text-heading sm:text-4xl lg:text-[2.75rem]"
+              className="mt-5 text-[1.8rem] font-medium tracking-tight text-heading sm:text-4xl lg:text-[2.75rem]"
               segments={[
                 { text: "Explore The Features That Make" },
                 {

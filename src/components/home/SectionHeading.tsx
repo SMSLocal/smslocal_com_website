@@ -26,15 +26,20 @@ export default function SectionHeading({
       </span>
       <DropText
         as="h2"
-        className="mt-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl"
+        className="mt-4 text-[1.8rem] font-semibold tracking-tight text-heading sm:text-4xl"
         segments={
           highlight
-            ? [{ text: title }, { text: highlight, className: "text-gradient-brand" }]
+            ? [
+                { text: title },
+                { text: highlight, className: "text-gradient-brand" },
+              ]
             : [{ text: title }]
         }
       />
       {description && (
-        <p className="mt-4 text-muted-foreground">{description}</p>
+        <p className="mt-4 text-sm text-muted-foreground sm:text-base">
+          {description}
+        </p>
       )}
     </div>
   );

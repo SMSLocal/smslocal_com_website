@@ -22,36 +22,39 @@ export default function Hero() {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.2em]">
             <span className="text-primary">Powering</span>{" "}
-            <span className="text-secondary">
-              20,000+ businesses worldwide
-            </span>
+            <span className="text-secondary">20,000+ businesses worldwide</span>
           </p>
 
           <DropText
             as="h1"
             className="mt-6 text-4xl font-medium leading-tight tracking-tight text-heading sm:text-5xl lg:text-[3.25rem]"
+            /* Breaking after "for" gives two lines at every width. The break
+               used to sit before "at Scale", which needed 443px on mobile and
+               640px on desktop for line one — wider than either column, so it
+               wrapped to three ragged lines on both. This way line one is
+               272px mobile / 394px desktop, and line two 304px / 440px. */
             segments={[
               { text: "One Platform for" },
-              { text: "Bulk SMS", className: "text-gradient-brand" },
               { br: true },
+              { text: "Bulk SMS", className: "text-gradient-brand" },
               { text: "at Scale" },
             ]}
           />
 
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Launch SMS campaigns, alerts, and promotions in seconds. Simply
-            log in from any web browser — no apps, no coding, no integration
-            needed. Connect effortlessly and grow your business.
+          <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
+            Launch SMS campaigns, alerts, and promotions in seconds. Simply log
+            in from any web browser — no apps, no coding, no integration needed.
+            Connect effortlessly and grow your business.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
             <a
               href="#signup"
               className="group rounded-full bg-gradient-brand p-[1.5px] shadow-lg shadow-primary/20 transition hover:shadow-xl hover:shadow-secondary/25"
             >
               {/* Fill stays white on hover — the lift comes from the outer
                   anchor's shadow, not a background swap. */}
-              <span className="flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold">
+              <span className="flex items-center justify-center rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold sm:px-6 sm:py-3 sm:text-sm">
                 <span className="text-gradient-brand">
                   Create Free Trial Account
                 </span>
@@ -59,7 +62,7 @@ export default function Hero() {
             </a>
             <a
               href="#demo"
-              className="rounded-full border-2 border-border bg-white px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+              className="rounded-full border-2 border-border bg-white px-4 py-2.5 text-[13px] font-semibold text-foreground transition hover:border-primary hover:text-primary sm:px-6 sm:py-3 sm:text-sm"
             >
               Book a demo
             </a>

@@ -152,7 +152,7 @@ export default function Testimonials() {
                 onClick={() => go(index - 1)}
                 disabled={index === 0}
                 aria-label="Previous testimonial"
-                className="text-heading transition hover:text-brand-start disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:text-heading"
+                className="-m-2.5 flex h-11 w-11 items-center justify-center text-heading transition hover:text-brand-start disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:text-heading"
               >
                 <ArrowLeft className="h-5 w-5" />
               </button>
@@ -169,7 +169,7 @@ export default function Testimonials() {
                 onClick={() => go(index + 1)}
                 disabled={index >= pages - 1}
                 aria-label="Next testimonial"
-                className="text-heading transition hover:text-brand-start disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:text-heading"
+                className="-m-2.5 flex h-11 w-11 items-center justify-center text-heading transition hover:text-brand-start disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:text-heading"
               >
                 <ArrowRight className="h-5 w-5" />
               </button>
