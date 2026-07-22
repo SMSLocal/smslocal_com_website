@@ -43,9 +43,9 @@ function AiAgentsSalesSdr() {
 
       <Hero
         eyebrow="AI Sales"
-        title="An AI SDR that prospects while your team sells"
+        title={<>An AI SDR that prospects <span className="grad-word">while your team sells</span></>}
         subtitle="Research leads, personalize outreach and book meetings automatically — across email, SMS and WhatsApp."
-        primaryCta={{ label: 'Deploy an AI SDR', href: '/contact' }}
+        primaryCta={{ label: 'Deploy an AI SDR', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
         visual={<SdrFunnelVisual />}
       />
@@ -78,14 +78,14 @@ function AiAgentsSalesSdr() {
 
       <WhyUsBento eyebrow="Why us" title={<>Why sales teams use our AI SDR</>} items={WHY_US} />
 
-      <FAQ title={<>AI SDR — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Put prospecting on autopilot"
         subtitle="Deploy an AI SDR and start booking meetings automatically."
-        cta={{ label: 'Deploy an AI SDR', href: '/contact' }}
+        cta={{ label: 'Deploy an AI SDR', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>AI SDR — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

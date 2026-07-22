@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import BulkSms from './pages/BulkSms.jsx'
@@ -18,6 +18,8 @@ import ChatbotBuilder from './pages/ChatbotBuilder.jsx'
 import AiAgentsCustomerService from './pages/AiAgentsCustomerService.jsx'
 import AiAgentsVoice from './pages/AiAgentsVoice.jsx'
 import AiAgentsSalesSdr from './pages/AiAgentsSalesSdr.jsx'
+import AiAgentsBooking from './pages/AiAgentsBooking.jsx'
+import AiAgentsLeadQualification from './pages/AiAgentsLeadQualification.jsx'
 import Products from './pages/Products.jsx'
 import Channels from './pages/Channels.jsx'
 import TransactionalSms from './pages/TransactionalSms.jsx'
@@ -29,6 +31,11 @@ import AiAgentsPlatform from './pages/AiAgentsPlatform.jsx'
 import AiAgentsBuilder from './pages/AiAgentsBuilder.jsx'
 import AiAgentsWhatsapp from './pages/AiAgentsWhatsapp.jsx'
 import ChatbotVsAiAgent from './pages/ChatbotVsAiAgent.jsx'
+import CompareHub from './pages/CompareHub.jsx'
+import CompareHaptik from './pages/CompareHaptik.jsx'
+import CompareTwilio from './pages/CompareTwilio.jsx'
+import CompareTwixor from './pages/CompareTwixor.jsx'
+import CompareInfobip from './pages/CompareInfobip.jsx'
 import ChatbotInstagramMessenger from './pages/ChatbotInstagramMessenger.jsx'
 import ChatbotSms from './pages/ChatbotSms.jsx'
 import ChatbotRcs from './pages/ChatbotRcs.jsx'
@@ -55,6 +62,20 @@ import Partners from './pages/Partners.jsx'
 import Careers from './pages/Careers.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import Platform from './pages/Platform.jsx'
+import PlatformSecurity from './pages/PlatformSecurity.jsx'
+import ProductsAnalytics from './pages/ProductsAnalytics.jsx'
+import ProductsOmnichannelInbox from './pages/ProductsOmnichannelInbox.jsx'
+import IntegrationsPage from './pages/IntegrationsPage.jsx'
+import WhatsappBroadcasting from './pages/WhatsappBroadcasting.jsx'
+import RcsBroadcasting from './pages/RcsBroadcasting.jsx'
+import VoiceChannel from './pages/VoiceChannel.jsx'
+import SocialInbox from './pages/SocialInbox.jsx'
+import DidNumbers from './pages/DidNumbers.jsx'
+import Pricing from './pages/Pricing.jsx'
+import WhySmslocal from './pages/WhySmslocal.jsx'
+import ServicesAiConsulting from './pages/ServicesAiConsulting.jsx'
+import Solutions from './pages/Solutions.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
 
 function App() {
@@ -65,7 +86,22 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/products" element={<Products />} />
+          <Route path="/solutions" element={<Solutions />} />
           <Route path="/channels" element={<Channels />} />
+          <Route path="/channels/whatsapp-broadcasting" element={<WhatsappBroadcasting />} />
+          <Route path="/channels/rcs-broadcasting" element={<RcsBroadcasting />} />
+          <Route path="/channels/voice" element={<VoiceChannel />} />
+          <Route path="/channels/social" element={<SocialInbox />} />
+          <Route path="/numbers/did" element={<DidNumbers />} />
+
+          <Route path="/platform" element={<Platform />} />
+          <Route path="/platform/security" element={<PlatformSecurity />} />
+          <Route path="/products/analytics" element={<ProductsAnalytics />} />
+          <Route path="/products/omnichannel-inbox" element={<ProductsOmnichannelInbox />} />
+          <Route path="/integrations" element={<IntegrationsPage />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/why-smslocal" element={<WhySmslocal />} />
+          <Route path="/services/ai-consulting" element={<ServicesAiConsulting />} />
 
           <Route path="/bulk-sms" element={<BulkSms />} />
           <Route path="/sms-api" element={<SmsApi />} />
@@ -73,10 +109,10 @@ function App() {
           <Route path="/transactional-sms" element={<TransactionalSms />} />
           <Route path="/promotional-sms" element={<PromotionalSms />} />
 
-          <Route path="/whatsapp-business-api" element={<WhatsappBusinessApi />} />
-          <Route path="/rcs-business-messaging" element={<RcsBusinessMessaging />} />
-          <Route path="/instagram-messaging-api" element={<InstagramMessagingApi />} />
-          <Route path="/facebook-messenger-api" element={<FacebookMessengerApi />} />
+          <Route path="/channels/whatsapp" element={<WhatsappBusinessApi />} />
+          <Route path="/channels/rcs" element={<RcsBusinessMessaging />} />
+          <Route path="/channels/instagram" element={<InstagramMessagingApi />} />
+          <Route path="/channels/messenger" element={<FacebookMessengerApi />} />
           <Route path="/viber-business-messages" element={<ViberBusinessMessages />} />
           <Route path="/telegram-business" element={<TelegramBusiness />} />
           <Route path="/apple-messages-for-business" element={<AppleMessagesForBusiness />} />
@@ -100,9 +136,11 @@ function App() {
 
           <Route path="/agentic-ai" element={<AiAgentsPlatform />} />
           <Route path="/ai-agents/customer-service" element={<AiAgentsCustomerService />} />
-          <Route path="/ai-agents/voice" element={<AiAgentsVoice />} />
-          <Route path="/ai-agents/sales-sdr" element={<AiAgentsSalesSdr />} />
-          <Route path="/ai-agents/builder" element={<AiAgentsBuilder />} />
+          <Route path="/voice-ai-agents" element={<AiAgentsVoice />} />
+          <Route path="/ai-agents/sales" element={<AiAgentsSalesSdr />} />
+          <Route path="/ai-agents/booking" element={<AiAgentsBooking />} />
+          <Route path="/ai-agents/lead-qualification" element={<AiAgentsLeadQualification />} />
+          <Route path="/ai-agents/agent-builder" element={<AiAgentsBuilder />} />
           <Route path="/ai-agents/whatsapp" element={<AiAgentsWhatsapp />} />
           <Route path="/ai-agents/agent-assist" element={<AiAgentsAgentAssist />} />
           <Route path="/ai-agents/omnichannel-agent" element={<AiAgentsOmnichannel />} />
@@ -114,16 +152,34 @@ function App() {
 
           <Route path="/chatbot-vs-ai-agent" element={<ChatbotVsAiAgent />} />
 
+          <Route path="/compare" element={<CompareHub />} />
+          <Route path="/compare/haptik" element={<CompareHaptik />} />
+          <Route path="/compare/twilio" element={<CompareTwilio />} />
+          <Route path="/compare/twixor" element={<CompareTwixor />} />
+          <Route path="/compare/infobip" element={<CompareInfobip />} />
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/resources/guides" element={<ResourcesGuides />} />
           <Route path="/resources/docs" element={<ResourcesDocs />} />
           <Route path="/resources/case-studies" element={<ResourcesCaseStudies />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/partners" element={<Partners />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/partnerships" element={<Partners />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+
+          {/* old paths -> sheet canonical URLs */}
+          <Route path="/whatsapp-business-api" element={<Navigate to="/channels/whatsapp" replace />} />
+          <Route path="/rcs-business-messaging" element={<Navigate to="/channels/rcs" replace />} />
+          <Route path="/instagram-messaging-api" element={<Navigate to="/channels/instagram" replace />} />
+          <Route path="/facebook-messenger-api" element={<Navigate to="/channels/messenger" replace />} />
+          <Route path="/ai-agents/voice" element={<Navigate to="/voice-ai-agents" replace />} />
+          <Route path="/ai-agents/sales-sdr" element={<Navigate to="/ai-agents/sales" replace />} />
+          <Route path="/ai-agents/builder" element={<Navigate to="/ai-agents/agent-builder" replace />} />
+          <Route path="/about" element={<Navigate to="/about-us" replace />} />
+          <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
+          <Route path="/partners" element={<Navigate to="/partnerships" replace />} />
 
           <Route path="*" element={<ComingSoon />} />
         </Route>

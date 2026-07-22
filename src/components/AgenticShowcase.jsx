@@ -100,7 +100,7 @@ const CARDS_ROW2 = [
     title: 'Agentic AI voice.',
     desc: 'Natural, low-latency voice AI that answers, qualifies and resolves calls — no hold music required.',
     cta: 'See demo',
-    href: '/ai-agents/voice',
+    href: '/voice-ai-agents',
     dark: true,
     Mock: VoiceMock,
   },
@@ -125,7 +125,7 @@ const CARDS_ROW3 = [
     title: 'Decides and escalates.',
     desc: 'Set the rules once — the agent knows exactly when to act and when to hand off.',
     cta: 'Explore automation',
-    href: '/ai-agents/builder',
+    href: '/ai-agents/agent-builder',
     Mock: AutomationMock,
   },
 ]

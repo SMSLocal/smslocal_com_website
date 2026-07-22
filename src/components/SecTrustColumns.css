@@ -1,0 +1,105 @@
+/* Two grouped trust lists separated by a hairline — non-boxed columns */
+.sec-depth-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.sec-depth-col {
+  position: relative;
+}
+
+/* Centred hairline divider living in the gap */
+.sec-depth-divider {
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  right: -1.75rem;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--border) 12%, var(--border) 88%, transparent);
+}
+
+.sec-depth-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--blue), var(--cyan)) 1;
+  width: fit-content;
+}
+
+.sec-depth-head-ic {
+  display: inline-flex;
+  color: var(--blue);
+}
+
+.sec-depth-head-ic svg { width: 20px; height: 20px; }
+
+.sec-depth-head h3 {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.sec-depth-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.sec-depth-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.sec-depth-check {
+  flex: none;
+  margin-top: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px -6px rgba(79, 91, 213, 0.55);
+}
+
+.sec-depth-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.sec-depth-text strong {
+  font-size: 0.98rem;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.sec-depth-text span {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .sec-depth-cols {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 420px;
+  }
+
+  .sec-depth-divider { display: none; }
+}

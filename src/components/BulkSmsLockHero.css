@@ -1,0 +1,194 @@
+.bslh {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: inherit;
+}
+
+/* ---- lock-screen clock (context only, no device frame) ---- */
+.bslh-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+}
+
+.bslh-lock {
+  display: inline-flex;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-bottom: 0.1rem;
+}
+
+.bslh-time {
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.bslh-date {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+/* ---- notification cascade — individual banners, no wrapping frame ---- */
+.bslh-stack {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bslh-ping {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.72rem 0.85rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 20px 40px -26px rgba(16, 35, 63, 0.32),
+    0 2px 5px -2px rgba(16, 35, 63, 0.06);
+}
+
+/* Newest banner (top) reads crispest; older ones recede */
+.bslh-ping--0 {
+  box-shadow:
+    0 26px 48px -24px rgba(79, 91, 213, 0.34),
+    0 3px 8px -3px rgba(16, 35, 63, 0.08);
+}
+
+.bslh-ping--1 { transform: scale(0.975); opacity: 0.92; }
+.bslh-ping--2 { transform: scale(0.95); opacity: 0.82; }
+
+.bslh-app {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 6px 14px -6px rgba(79, 91, 213, 0.6);
+}
+
+.bslh-ping--1 .bslh-app { background: linear-gradient(135deg, var(--cyan), var(--coral)); }
+.bslh-ping--2 .bslh-app { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+
+.bslh-ping-body { min-width: 0; }
+
+.bslh-ping-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.bslh-from {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+
+.bslh-ago {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.bslh-text {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.42;
+  color: #35404f;
+}
+
+.bslh-text b {
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bslh-tick-wrap {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+
+.bslh-tick { color: var(--success); }
+
+/* ---- reach caption ---- */
+.bslh-reach {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.15rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.bslh-reach b {
+  color: var(--navy);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.bslh-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Motion only enhances. Base state is fully-assembled and fully-delivered
+   (all ticks green). Under prefers-reduced-motion the banners just sit still.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .bslh-ping { animation: bslh-land 5s ease-in-out infinite; }
+  .bslh-ping--1 { animation-delay: 0.35s; }
+  .bslh-ping--2 { animation-delay: 0.7s; }
+
+  @keyframes bslh-land {
+    0% { transform: translateY(-6px) scale(var(--s, 1)); opacity: 0; }
+    12%, 100% { transform: translateY(0) scale(var(--s, 1)); opacity: var(--o, 1); }
+  }
+
+  .bslh-ping--1 { --s: 0.975; --o: 0.92; }
+  .bslh-ping--2 { --s: 0.95; --o: 0.82; }
+
+  .bslh-tick { animation: bslh-deliver 5s ease-in-out infinite; }
+  .bslh-ping--1 .bslh-tick { animation-delay: 0.35s; }
+  .bslh-ping--2 .bslh-tick { animation-delay: 0.7s; }
+
+  @keyframes bslh-deliver {
+    0%, 10% { color: #c4c9d1; }
+    24%, 100% { color: var(--success); }
+  }
+
+  .bslh-live { animation: bslh-pulse 1.7s ease-in-out infinite; }
+
+  @keyframes bslh-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.66); }
+  }
+}

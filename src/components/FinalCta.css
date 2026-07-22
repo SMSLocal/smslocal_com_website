@@ -10,9 +10,9 @@
   border-radius: 28px;
   border: 1px solid var(--border);
   background:
-    radial-gradient(circle at 15% 20%, rgba(109, 92, 231, 0.14), transparent 45%),
+    radial-gradient(circle at 15% 20%, rgba(79, 91, 213, 0.14), transparent 45%),
     radial-gradient(circle at 85% 15%, rgba(236, 72, 153, 0.14), transparent 45%),
-    linear-gradient(180deg, #fbfbff, #f4f6fb);
+    linear-gradient(180deg, #fbfbff, #f8fafc);
 }
 
 .final-cta-badge {

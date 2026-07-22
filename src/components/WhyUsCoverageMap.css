@@ -1,0 +1,136 @@
+.wcm-motif {
+  max-width: 800px;
+  margin: 0 auto 2.75rem;
+}
+
+.wcm-motif svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.wcm-arc { fill: none; }
+.wcm-arc--a { stroke: var(--blue); opacity: 0.5; }
+.wcm-arc--b { stroke: var(--cyan); opacity: 0.45; }
+
+.wcm-pin-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0.55;
+}
+
+.wcm-pin--blue .wcm-pin-ring { stroke: var(--blue); }
+.wcm-pin--blue .wcm-pin-core { fill: var(--blue); }
+.wcm-pin--cyan .wcm-pin-ring { stroke: var(--cyan); }
+.wcm-pin--cyan .wcm-pin-core { fill: var(--cyan); }
+.wcm-pin--teal .wcm-pin-ring { stroke: var(--teal); }
+.wcm-pin--teal .wcm-pin-core { fill: var(--teal); }
+.wcm-pin--coral .wcm-pin-ring { stroke: var(--coral); }
+.wcm-pin--coral .wcm-pin-core { fill: var(--coral); }
+
+/* ---- De-boxed coverage points ---- */
+.wcm-points {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wcm-point {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.4rem 1.7rem;
+  border-left: 1px solid var(--border);
+}
+
+.wcm-point:first-child { border-left: 0; }
+
+/* map-style ring + core pin marker */
+.wcm-point-pin {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wcm-point-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  opacity: 0.4;
+}
+
+.wcm-point-core {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.wcm-point--blue { color: var(--blue); }
+.wcm-point--cyan { color: var(--cyan); }
+.wcm-point--teal { color: var(--teal); }
+.wcm-point--coral { color: var(--coral); }
+
+.wcm-point h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.wcm-point p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .wcm-points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem 0;
+  }
+
+  .wcm-point:nth-child(odd) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 460px) {
+  .wcm-points {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .wcm-point {
+    border-left: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Animation. Base state is a clean, static coverage band. Motion adds a gentle
+   pulse to the pins only, gated behind reduced-motion.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .wcm-pin-ring {
+    animation: wcm-pulse 3.2s ease-in-out infinite;
+  }
+  .wcm-pin--cyan .wcm-pin-ring { animation-delay: 0.6s; }
+  .wcm-pin--teal .wcm-pin-ring { animation-delay: 1.2s; }
+  .wcm-pin--coral .wcm-pin-ring { animation-delay: 1.8s; }
+
+  @keyframes wcm-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    70% { transform: scale(2.4); opacity: 0; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+}

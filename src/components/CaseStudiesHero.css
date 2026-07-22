@@ -1,0 +1,210 @@
+/* Bespoke hero visual for /resources/case-studies.
+   Non-container: a self-drawing resolution-rate sparkline floating directly on
+   the page background with a live count-up headline and three floating outcome
+   readouts on hairline dividers. No card, no frame, no browser chrome. */
+
+.cshero {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0.5rem 0.25rem;
+}
+
+.cshero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.cshero-livedot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5);
+  animation: cshero-pulse 1.8s ease-out infinite;
+}
+
+@keyframes cshero-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); }
+  70% { box-shadow: 0 0 0 9px rgba(236, 72, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+}
+
+.cshero-headline {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin: 0.9rem 0 0.15rem;
+}
+
+.cshero-num {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cshero-numcap {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  max-width: 9rem;
+  line-height: 1.35;
+}
+
+/* self-drawing chart — pulled left of the number and bled past the right
+   edge so its silhouette never lines up into a rectangle */
+.cshero-chart {
+  position: relative;
+  width: 104%;
+  margin-left: -3%;
+  height: 132px;
+  margin-top: 0.4rem;
+}
+
+.cshero-chart svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.cshero-line {
+  fill: none;
+  stroke: url(#cshero-grad);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+  animation: cshero-draw 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+@keyframes cshero-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.cshero-area {
+  fill: url(#cshero-area);
+  opacity: 0;
+  animation: cshero-fade 1s ease 1.4s forwards;
+}
+
+@keyframes cshero-fade {
+  to { opacity: 1; }
+}
+
+.cshero-endpoint {
+  fill: #fff;
+  stroke: var(--cyan);
+  stroke-width: 2.4;
+  opacity: 0;
+  animation: cshero-fade 0.4s ease 2.2s forwards;
+}
+
+.cshero-endpulse {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 1.6;
+  transform-origin: center;
+  transform-box: fill-box;
+  opacity: 0;
+  animation: cshero-ring 2s ease-out 2.4s infinite;
+}
+
+@keyframes cshero-ring {
+  0% { transform: scale(0.4); opacity: 0.7; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+.cshero-xtick {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  fill: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* floating outcome readouts — each a free-standing line at its own width and
+   indent so the block cascades diagonally instead of stacking into a box.
+   No full-width shared borders: every hairline stops at its own row's edge. */
+.cshero-outs {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.cshero-out {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.2rem 0.62rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* stagger widths + left offsets so neither edge lines up vertically */
+.cshero-out:nth-child(1) { width: 100%; margin-left: 0; }
+.cshero-out:nth-child(2) { width: 78%;  margin-left: 15%; }
+.cshero-out:nth-child(3) { width: 62%;  margin-left: 5%; }
+
+.cshero-out-label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.cshero-out-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.cshero-out-flow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cshero-out-from {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  text-decoration-color: rgba(84, 89, 95, 0.4);
+}
+
+.cshero-out-arrow {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.cshero-out-to {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+@media (max-width: 600px) {
+  .cshero-num { font-size: 2.7rem; }
+  .cshero-chart { height: 108px; }
+  /* keep a gentler stagger on small screens so rows stay legible */
+  .cshero-out:nth-child(2) { width: 88%; margin-left: 12%; }
+  .cshero-out:nth-child(3) { width: 80%; margin-left: 4%; }
+}

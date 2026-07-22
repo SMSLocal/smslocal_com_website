@@ -1,18 +1,31 @@
 :root {
-  --navy: #10233f;
-  --ink: #0b1424;
-  --blue: #6d5ce7;
+  /* Palette synced with the finished homepage (origin/main globals.css) */
+  --navy: #154989;
+  --heading: #154989;
+  --primary: #154989;
+  --primary-dark: #113a6e;
+  --ink: #0f172a;
+  --blue: #4f5bd5;
   --cyan: #ec4899;
+  --brand-start: #4f5bd5;
+  --brand-end: #ec4899;
+  --gradient-brand: linear-gradient(128deg, #4f5bd5 30%, #ec4899 90%);
+  --secondary: #ff3d8a;
+  --accent: #00f5a0;
   --teal: #14b8a6;
   --coral: #fb7185;
-  --text-secondary: #54595f;
-  --border: #e6e6e6;
-  --bg-subtle: #f9f9f9;
-  --bg-subtle-2: #f5f5f5;
+  --text-secondary: #64748b;
+  --border: #e5e7eb;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --bg-subtle: #f8fafc;
+  --bg-subtle-2: #f1f5f9;
   --success: #16a34a;
   --radius-md: 12px;
   --radius-lg: 20px;
   --container: 1180px;
+  --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 }
 
 * {
@@ -25,10 +38,19 @@ html, body, #root {
 }
 
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  color: #1a1a1a;
-  background: #f4f6fb;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg-subtle);
   line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  /* matches the homepage: Geist 400 with tight tracking (~-3.1px on a 52px H1) */
+  letter-spacing: -0.06em;
+  color: var(--heading);
 }
 
 a {
@@ -68,38 +90,67 @@ img {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
 }
 
+/* Gradient-bordered white pill. Deliberately NOT using background-clip:text —
+   that technique (transparent text color relying on a clipped gradient
+   showing through) rendered as a genuinely empty button in real testing.
+   Solid, always-visible ink-colored text; the gradient lives only in the
+   border, via the standard two-layer background technique (no pseudo-element,
+   no isolation/z-index — nothing that can silently fail to paint). */
 .btn-primary {
-  background: var(--ink);
-  color: #fff;
+  color: var(--ink);
+  background: linear-gradient(#fff, #fff) padding-box, var(--gradient-brand) border-box;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 2px 2px 3px 2px;
+  /* shadow sits underneath only — small blur, no spread, so it doesn't halo the top/sides */
+  box-shadow: 0 4px 6px -2px rgba(21, 73, 137, 0.12);
 }
 
 .btn-primary:hover {
-  background: var(--blue);
+  /* no lift/scale on hover — only the glow beneath changes, matching the live site */
+  transform: none;
+  box-shadow: 0 6px 10px -2px rgba(255, 61, 138, 0.22);
 }
 
 .btn-ghost {
   background: #fff;
   color: var(--navy);
   border: 1px solid var(--border);
+  box-shadow: none;
 }
 
 .btn-ghost:hover {
-  border-color: var(--blue);
-  color: var(--blue);
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: none;
+  box-shadow: none;
 }
 
 .grad-word {
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Gradient words inside headings use Instrument Serif italic — mirrors the
+   homepage, where .text-gradient-brand is serif only within h1–h6. Small UI
+   labels that reuse .grad-word (e.g. nav menu items) keep the sans font. */
+:is(h1, h2, h3, h4, h5, h6) .grad-word,
+:is(h1, h2, h3, h4, h5, h6).grad-word {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: normal;
+  padding-right: 0.12em;
+  margin-right: -0.06em;
 }
 
 .eyebrow {
@@ -188,7 +239,8 @@ img {
   color: var(--navy);
   text-align: center;
   margin: 0 0 2rem;
-  letter-spacing: 0.01em;
+  font-weight: 400;
+  letter-spacing: -0.045em;
 }
 
 .section-subtitle {

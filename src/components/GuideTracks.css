@@ -1,0 +1,104 @@
+/* Simplified learning tracks for /resources/guides. Quiet, de-boxed. */
+
+.gtrk {
+  max-width: 1000px;
+  margin: 3rem auto 0;
+}
+
+.gtrk-row {
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.gtrk-row:last-child { border-bottom: 1px solid var(--border); }
+
+/* track header */
+.gtrk-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.gtrk-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.gtrk-icon svg { width: 16px; height: 16px; }
+
+.gtrk-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.gtrk-tag {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* stops on a thin line */
+.gtrk-line {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gtrk-line::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.5), rgba(236, 72, 153, 0.5));
+}
+
+.gtrk-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.gtrk-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 0 3px #fff;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0.7rem;
+}
+
+.gtrk-label {
+  font-size: 0.85rem;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+@media (max-width: 720px) {
+  .gtrk-line {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem 0.5rem;
+  }
+  .gtrk-line::before { display: none; }
+  .gtrk-stop { flex-direction: row; gap: 0.5rem; text-align: left; }
+  .gtrk-dot { margin-bottom: 0; }
+}

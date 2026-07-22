@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const LOGO_COLORS = ['#6d5ce7', '#ec4899', '#fb7185', '#10233f', '#8b5cf6']
+const LOGO_COLORS = ['#4f5bd5', '#ec4899', '#fb7185', '#154989', '#8b5cf6']
 
 // App name -> brand domain (used to fetch the real logo). Default is slug + ".com".
 const LOGO_DOMAINS = {

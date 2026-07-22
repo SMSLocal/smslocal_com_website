@@ -1,0 +1,143 @@
+/* Interactive capability explorer for /channels/voice.
+   Left name-rail drives a right detail panel. No card, no box, no numbering. */
+
+.vcx {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: 3rem;
+  align-items: start;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+}
+
+/* left: selectable capability names on a shared vertical keyline */
+.vcx-rail {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+}
+
+.vcx-name {
+  position: relative;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.95rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.vcx-name::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  height: 0;
+  width: 2.5px;
+  background: linear-gradient(180deg, var(--blue), var(--cyan));
+  transform: translateY(-50%);
+  transition: height 0.22s ease;
+}
+
+.vcx-name:hover { color: var(--navy); }
+
+.vcx-name.is-active {
+  color: var(--navy);
+  font-weight: 700;
+  padding-left: 1.4rem;
+}
+
+.vcx-name.is-active::before { height: 60%; }
+
+/* right: detail panel for the active capability */
+.vcx-panel {
+  padding-top: 0.4rem;
+  animation: vcx-fade 0.3s ease;
+}
+
+@keyframes vcx-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vcx-panel-title {
+  margin: 0 0 0.7rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vcx-panel-desc {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 42ch;
+}
+
+.vcx-specs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 0.7rem;
+}
+
+.vcx-spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.vcx-spec::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  flex: none;
+}
+
+@media (max-width: 760px) {
+  .vcx {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .vcx-rail {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.4rem;
+    border-left: 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+  }
+
+  .vcx-name {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+
+  .vcx-name::before { display: none; }
+
+  .vcx-name.is-active {
+    padding-left: 0.85rem;
+    border-color: var(--blue);
+    background: rgba(79, 91, 213, 0.06);
+  }
+}

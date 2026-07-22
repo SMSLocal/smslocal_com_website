@@ -1,0 +1,40 @@
+/* Compact 2x2 hero badges for /email-api. */
+
+.ebg-section { padding: 2.5rem 0; }
+
+.ebg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem 3rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ebg-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ebg-ic {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 12px 24px -14px rgba(79, 91, 213, 0.6);
+}
+
+.ebg-ic svg { width: 19px; height: 19px; }
+
+.ebg-text { display: flex; flex-direction: column; }
+.ebg-text strong { font-size: 0.98rem; color: var(--navy); }
+.ebg-text span { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.35; }
+
+@media (max-width: 560px) {
+  .ebg { grid-template-columns: 1fr; gap: 1.3rem; max-width: 320px; }
+}

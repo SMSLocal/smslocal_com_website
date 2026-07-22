@@ -47,7 +47,7 @@
 }
 
 .accent-blue::before {
-  background: radial-gradient(circle at 100% 0%, rgba(109, 92, 231, 0.1), transparent 60%);
+  background: radial-gradient(circle at 100% 0%, rgba(79, 91, 213, 0.1), transparent 60%);
 }
 
 .accent-cyan::before {

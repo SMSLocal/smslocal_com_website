@@ -1,0 +1,174 @@
+.bph {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Floating price readout — no card, no frame */
+.bph-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.bph-price-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.bph-price-lead {
+  align-self: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.bph-price-amount {
+  font-size: 4.4rem;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bph-price-period {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  padding-bottom: 0.5rem;
+}
+
+.bph-price-bar {
+  width: 150px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  opacity: 0.9;
+}
+
+.bph-price-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.bph-tally {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bph-tally strong {
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* Capability chips — individual pills, each with its own soft shadow (no unifying box) */
+.bph-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  max-width: 420px;
+}
+
+.bph-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 20px -14px rgba(16, 35, 63, 0.5);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  transform: translateY(3px);
+  transition: opacity 0.45s ease, transform 0.45s ease, color 0.45s ease, box-shadow 0.45s ease;
+}
+
+.bph-chip-ic {
+  display: inline-flex;
+  color: var(--text-secondary);
+  transition: color 0.45s ease;
+}
+
+.bph-chip-ic svg {
+  width: 14px;
+  height: 14px;
+}
+
+.bph-chip-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--border);
+  color: #fff;
+  transform: scale(0.7);
+  transition: background 0.45s ease, transform 0.45s ease;
+}
+
+.bph-chip.is-on {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--navy);
+  box-shadow: 0 12px 26px -16px rgba(79, 91, 213, 0.65);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--blue), var(--cyan)) border-box;
+}
+
+.bph-chip.is-on .bph-chip-ic {
+  color: var(--blue);
+}
+
+.bph-chip.is-on .bph-chip-check {
+  background: var(--success);
+  transform: scale(1);
+}
+
+.bph-chip.is-new {
+  animation: bphPulse 0.6s ease-out;
+}
+
+@keyframes bphPulse {
+  0% { box-shadow: 0 0 0 0 rgba(79, 91, 213, 0.45); }
+  100% { box-shadow: 0 12px 26px -16px rgba(79, 91, 213, 0.65); }
+}
+
+@media (max-width: 560px) {
+  .bph { max-width: 360px; }
+  .bph-price-amount { font-size: 3.4rem; }
+  .bph-chip { font-size: 0.72rem; padding: 0.45rem 0.72rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bph-chip {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .bph-chip.is-new { animation: none; }
+}

@@ -36,7 +36,7 @@
 
 .intg-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(109, 92, 231, 0.3);
+  border-color: rgba(79, 91, 213, 0.3);
   box-shadow: 0 16px 32px -22px rgba(16, 35, 63, 0.35);
 }
 
@@ -54,7 +54,7 @@
   width: 34px;
   height: 34px;
   border-radius: 9px;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   flex: none;
 }

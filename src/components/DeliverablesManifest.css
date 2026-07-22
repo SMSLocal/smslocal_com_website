@@ -1,0 +1,122 @@
+.dlm-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 980px;
+  margin: 1.5rem auto 0;
+}
+
+.dlm-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+/* Faint gradient spine running down behind each workstream's chips */
+.dlm-spine {
+  position: absolute;
+  top: 56px;
+  bottom: 34px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(79, 91, 213, 0.35), rgba(236, 72, 153, 0.05));
+  z-index: 0;
+}
+
+.dlm-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 16px 30px -16px rgba(79, 91, 213, 0.7);
+}
+
+.dlm-badge svg { width: 22px; height: 22px; }
+
+.dlm-col--1 .dlm-badge { background: linear-gradient(135deg, var(--teal), var(--blue)); }
+.dlm-col--1 .dlm-spine { background: linear-gradient(180deg, rgba(20, 184, 166, 0.35), rgba(79, 91, 213, 0.05)); }
+.dlm-col--2 .dlm-badge { background: linear-gradient(135deg, var(--coral), var(--cyan)); }
+.dlm-col--2 .dlm-spine { background: linear-gradient(180deg, rgba(251, 113, 133, 0.35), rgba(236, 72, 153, 0.05)); }
+
+.dlm-tag {
+  margin-top: 0.9rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.dlm-col h3 {
+  margin: 0.25rem 0 1.2rem;
+  color: var(--navy);
+  font-size: 1.12rem;
+  letter-spacing: -0.01em;
+}
+
+.dlm-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 260px;
+}
+
+/* Each deliverable = its own floating chip with a soft shadow (allowed) */
+.dlm-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 10px 26px -18px rgba(16, 35, 63, 0.55);
+  color: var(--navy);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.dlm-check {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+}
+
+.dlm-note {
+  margin: 2.75rem auto 0;
+  max-width: 620px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.dlm-note strong { color: var(--navy); }
+
+@media (max-width: 820px) {
+  .dlm-cols { grid-template-columns: 1fr; gap: 2.75rem; max-width: 420px; }
+  .dlm-spine { display: none; }
+}

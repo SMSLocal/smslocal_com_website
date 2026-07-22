@@ -42,7 +42,7 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   box-shadow:
-    0 24px 48px -16px rgba(109, 92, 231, 0.2),
+    0 24px 48px -16px rgba(79, 91, 213, 0.2),
     0 8px 20px -10px rgba(236, 72, 153, 0.14);
   padding: 2rem;
   text-align: center;
@@ -108,7 +108,7 @@
 }
 
 .inbox-item.active {
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
 }
 
 .inbox-avatar {

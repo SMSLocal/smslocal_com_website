@@ -94,7 +94,7 @@
 
 .vbmock-tag-pill.accent {
   color: var(--blue);
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
 }
 
 /* Prior conversation */
@@ -132,8 +132,8 @@
 
 .vbmock-mini-bubble.out {
   align-self: flex-end;
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.1), rgba(236, 72, 153, 0.08));
-  border: 1px solid rgba(109, 92, 231, 0.15);
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.1), rgba(236, 72, 153, 0.08));
+  border: 1px solid rgba(79, 91, 213, 0.15);
   color: var(--navy);
   border-bottom-right-radius: 4px;
 }

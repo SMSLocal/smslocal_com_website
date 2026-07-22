@@ -1,0 +1,164 @@
+/* Bulk SMS hero — subtle globe with SMS routing between cities.
+   The stage carries no frame or border; the globe's round silhouette shows on
+   top and sides and its base softly dissolves into the page (mask), so ~3/4 is
+   visible and it never reads as a boxed object. Canvas + overlay share one box
+   so the JS-projected SMS chips register exactly on the globe. */
+.bsg {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* The globe itself — square, with its lower quarter dissolved into the page
+   (soft fade, not a hard crop) so ~3/4 shows and it never reads as boxed. */
+.bsg-orb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 66%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 66%, transparent 92%);
+}
+
+/* Soft brand glow behind the globe for depth (subtle). */
+.bsg-glow {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: 82%;
+  height: 82%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.16), rgba(236, 72, 153, 0.08) 45%, transparent 70%);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.bsg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  contain: layout paint;
+}
+
+/* Overlay for the travelling SMS — exactly overlaps the canvas box. */
+.bsg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ---- Travelling SMS chip ---- */
+.bsg-sms {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  will-change: transform, opacity;
+}
+
+/* Motion trail — a short gradient streak pointing back along the path. */
+.bsg-sms-tail {
+  position: absolute;
+  top: calc(50% - 3px);
+  right: 50%;
+  width: 42px;
+  height: 6px;
+  border-radius: 3px;
+  transform-origin: right center;
+  transform: rotate(var(--ang, 0deg));
+  background: linear-gradient(to left, rgba(236, 72, 153, 0.55), transparent);
+  transition: opacity 0.2s ease;
+}
+
+.bsg-sms[data-arrived="1"] .bsg-sms-tail { opacity: 0; }
+
+.bsg-sms-msg,
+.bsg-sms-tick {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 8px 18px -6px rgba(236, 72, 153, 0.6);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.bsg-sms-msg svg,
+.bsg-sms-tick svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* Default: show the message; on arrival swap to the delivered tick. */
+.bsg-sms-tick { opacity: 0; transform: scale(0.7); }
+.bsg-sms[data-arrived="1"] .bsg-sms-msg { opacity: 0; }
+.bsg-sms[data-arrived="1"] .bsg-sms-tick { opacity: 1; transform: scale(1); }
+
+/* Received pulse ring — blips out once when the SMS lands. */
+.bsg-sms-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  border: 2px solid var(--cyan);
+  opacity: 0;
+}
+
+.bsg-sms[data-arrived="1"] .bsg-sms-ring {
+  animation: bsgRing 0.7s ease-out;
+}
+
+@keyframes bsgRing {
+  0% { opacity: 0.7; transform: scale(0.9); }
+  100% { opacity: 0; transform: scale(2.1); }
+}
+
+/* ---- Floating caption (no card) — sits over the dissolving base ---- */
+.bsg-caption {
+  position: relative;
+  z-index: 2;
+  margin-top: -9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.bsg-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5);
+  animation: bsgLive 1.8s ease-out infinite;
+}
+
+@keyframes bsgLive {
+  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); }
+  70%, 100% { box-shadow: 0 0 0 8px rgba(236, 72, 153, 0); }
+}
+
+@media (max-width: 900px) {
+  .bsg { max-width: 420px; }
+}
+
+@media (max-width: 480px) {
+  .bsg { max-width: 330px; }
+  .bsg-sms { width: 26px; height: 26px; }
+  .bsg-caption { font-size: 0.72rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bsg-live { animation: none; }
+  .bsg-sms-ring { animation: none; }
+}

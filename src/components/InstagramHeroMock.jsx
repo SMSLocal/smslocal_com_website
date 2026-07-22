@@ -2,12 +2,6 @@ import { useEffect, useState } from 'react'
 import './InstagramHeroMock.css'
 import { IconBolt } from './icons.jsx'
 
-const CONVERSATIONS = [
-  { initial: 'A', handle: 'aria.wears', note: 'story reply', state: 'unread', active: true },
-  { initial: 'K', handle: 'kunal_style', note: 'sizing question', state: 'done' },
-  { initial: 'U', handle: 'urbanroots.co', note: 'wholesale · routed', state: 'routed' },
-]
-
 const REPLY = 'Yes, still in stock — and it ships worldwide! Want the link?'
 
 function InstagramHeroMock() {
@@ -34,51 +28,50 @@ function InstagramHeroMock() {
   }, [])
 
   return (
-    <div className="igmock" role="img" aria-label="An Instagram inbox with prior conversations, and the AI answering a DM from a story reply">
-      <span className="igmock-tag">
-        <i className="igmock-tag-dot" />
-        @yourbrand.co · Replied in 6s
-      </span>
-
-      <div className="igmock-convo-list">
-        {CONVERSATIONS.map((c) => (
-          <div className={`igmock-convo${c.active ? ' is-active' : ''}`} key={c.handle}>
-            <span className="igmock-convo-avatar">{c.initial}</span>
-            <div className="igmock-convo-text">
-              <strong>{c.handle}</strong>
-              <span>{c.note}</span>
-            </div>
-            {c.state === 'unread' && <span className="igmock-convo-dot" />}
-            {c.state === 'done' && <span className="igmock-convo-check">✓</span>}
-          </div>
-        ))}
+    <div className="igmock" role="img" aria-label="Floating Instagram conversation fragments — a story reply, an incoming DM, and the AI answering in six seconds">
+      {/* live badge — top right */}
+      <div className="igf igf-badge">
+        <span className="igmock-chip igmock-chip--live"><i className="igmock-live-dot" /> Replied in 6s</span>
       </div>
 
-      <div className="igmock-thread">
-        <div className="igmock-story-ref">
-          <span className="igmock-story-thumb" />
-          Replied to your story · "New drop — the canvas tote 🛍️"
-        </div>
+      {/* story-reply chip — top left */}
+      <div className="igf igf-story">
+        <span className="igmock-chip"><i className="igmock-thumb" /> Replied to your story · canvas tote 🛍️</span>
+      </div>
 
-        <div className="igmock-bubble">
+      {/* incoming DM — upper left */}
+      <div className="igf igf-in">
+        <div className="igmock-card igmock-card--in">
           Obsessed 😍 is the canvas tote still in stock, and does it ship internationally?
           <span className="igmock-time">9:41 AM</span>
         </div>
-
-        {!showReply && (
-          <div className="igmock-bubble igmock-bubble--out igmock-typing"><i /><i /><i /></div>
-        )}
-        {showReply && (
-          <div className="igmock-bubble igmock-bubble--out">
-            <span className="igmock-ai-label"><IconBolt /> AI answering</span>
-            {REPLY}
-          </div>
-        )}
       </div>
 
-      <div className="igmock-inputbar">
-        <span>Message @aria.wears…</span>
-        <span className="igmock-channels-pill">DMs · stories · comments</span>
+      {/* AI reply — focal, center-right */}
+      <div className="igf igf-reply">
+        <div className="igmock-card igmock-card--ai">
+          <span className="igmock-ai-label"><IconBolt /> AI answering</span>
+          {showReply ? (
+            <span className="igmock-reply-text">{REPLY}</span>
+          ) : (
+            <span className="igmock-typing"><i /><i /><i /></span>
+          )}
+        </div>
+      </div>
+
+      {/* avatar cluster — lower left */}
+      <div className="igf igf-avatars">
+        <div className="igmock-avatars">
+          <span style={{ '--i': 0 }}>A</span>
+          <span style={{ '--i': 1 }}>K</span>
+          <span style={{ '--i': 2 }}>U</span>
+          <em>3 new DMs</em>
+        </div>
+      </div>
+
+      {/* channels pill — lower right */}
+      <div className="igf igf-channels">
+        <span className="igmock-pill">DMs · stories · comments</span>
       </div>
     </div>
   )

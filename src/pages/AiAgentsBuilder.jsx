@@ -43,9 +43,9 @@ function AiAgentsBuilder() {
 
       <Hero
         eyebrow="Agent Builder"
-        title="Build a custom AI agent, no-code or code"
+        title={<>Build a <span className="grad-word">custom AI agent</span>, no-code or code</>}
         subtitle="Connect your data and tools, set clear guardrails, and deploy the same agent across chat, WhatsApp and voice — from one builder."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<AgentBuilderPrompt />}
       />
@@ -81,14 +81,14 @@ function AiAgentsBuilder() {
 
       <WhyUsManifesto eyebrow="Why us" title={<>Why teams build agents on SMSLocal</>} items={WHY_US} />
 
-      <FAQ title={<>AI agent builder — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Build your first custom agent"
         subtitle="Connect your tools and set guardrails — live in days."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>AI agent builder — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

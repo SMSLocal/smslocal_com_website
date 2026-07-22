@@ -40,9 +40,9 @@ function ChatbotBankingFinancialServices() {
 
       <Hero
         eyebrow="Banking & Finance"
-        title="Secure self-service for banking and finance"
+        title={<>Secure self-service for <span className="grad-word">banking and finance</span></>}
         subtitle="Balance checks, security alerts, KYC assistance and support automation — built for compliance, across WhatsApp, web and SMS."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
       />
 
@@ -76,13 +76,13 @@ function ChatbotBankingFinancialServices() {
 
       <WhyUs title={<>Why financial teams automate with SMSLocal</>} items={WHY_US} />
 
-      <FAQ title={<>Banking chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Automate account support securely"
         subtitle="Connect your core systems and go live under your compliance rules."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Banking chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

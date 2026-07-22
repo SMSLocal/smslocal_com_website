@@ -1,0 +1,130 @@
+/* "One send -> personalized threads" for /channels/whatsapp-broadcasting.
+   Hub pinned left-centre; threads fill the right in equal thirds so the
+   connector endpoints (1/6, 1/2, 5/6 of height) line up exactly. De-boxed. */
+
+.preach {
+  position: relative;
+  height: 300px;
+  max-width: 860px;
+  margin: 3.4rem auto 0;
+}
+
+/* ---- broadcast hub (left, vertically centred) ---- */
+.preach-hub {
+  position: absolute;
+  left: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.2;
+  width: 120px;
+}
+
+.preach-hub-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 22px 44px -18px rgba(79, 91, 213, 0.8);
+}
+
+.preach-hub-badge svg { width: 32px; height: 32px; }
+
+.preach-hub strong { font-size: 1rem; color: var(--navy); }
+.preach-hub span { font-size: 0.75rem; color: var(--text-secondary); }
+
+/* ---- fan connectors (full-container overlay) ---- */
+.preach-fan {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.preach-fan line {
+  stroke: url(#preachGrad);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.55;
+}
+
+/* ---- personalized threads (fill the right, equal thirds) ---- */
+.preach-threads {
+  position: absolute;
+  left: 40%;
+  right: 1%;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.preach-thread {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.preach-avatar {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.16), rgba(236, 72, 153, 0.16));
+  color: var(--blue);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.preach-thread-body { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+
+.preach-thread-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.preach-ticks { display: inline-flex; color: var(--blue); }
+.preach-ticks svg { width: 11px; height: 11px; margin-left: -5px; }
+
+.preach-thread-msg {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+@media (max-width: 680px) {
+  .preach {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+    max-width: 380px;
+  }
+  .preach-hub, .preach-threads { position: static; transform: none; }
+  .preach-fan { display: none; }
+  .preach-threads { width: 100%; gap: 1.4rem; }
+  .preach-thread { flex: none; }
+}

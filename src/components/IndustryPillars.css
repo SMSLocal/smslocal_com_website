@@ -22,7 +22,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   margin-bottom: 1.1rem;
 }
@@ -55,7 +55,7 @@
   border-radius: 999px;
 }
 
-.ipl-tint--a .ipl-icon { background: rgba(109, 92, 231, 0.1); color: var(--blue); }
+.ipl-tint--a .ipl-icon { background: rgba(79, 91, 213, 0.1); color: var(--blue); }
 .ipl-tint--a .ipl-bar { background: var(--blue); }
 
 .ipl-tint--b .ipl-icon { background: rgba(20, 184, 166, 0.1); color: var(--teal); }

@@ -1,0 +1,143 @@
+/* Spatial quadrant "cornerstones around a core" for /services/ai-consulting.
+   Not a list — items placed in the four quadrants around a central emblem. */
+
+.pcore {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 900px;
+  margin: 3.4rem auto 0;
+}
+
+/* soft radial glow for depth behind the core */
+.pcore-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 340px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.14), rgba(236, 72, 153, 0.06) 45%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* gradient cross dividing the quadrants */
+.pcore-vline {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  width: 1.5px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent, rgba(79, 91, 213, 0.5) 25%, rgba(236, 72, 153, 0.5) 75%, transparent);
+  z-index: 1;
+}
+
+.pcore-hline {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1.5px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, rgba(79, 91, 213, 0.5) 25%, rgba(236, 72, 153, 0.5) 75%, transparent);
+  z-index: 1;
+}
+
+/* quadrant cells — content clusters toward the centre */
+.pcore-cell {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  padding: 2.6rem;
+}
+
+.pcore-content {
+  max-width: 250px;
+}
+
+.pcore-cell--tl { justify-content: flex-end; align-items: flex-end; padding-right: 3.4rem; padding-bottom: 3.4rem; }
+.pcore-cell--tr { justify-content: flex-start; align-items: flex-end; padding-left: 3.4rem; padding-bottom: 3.4rem; }
+.pcore-cell--bl { justify-content: flex-end; align-items: flex-start; padding-right: 3.4rem; padding-top: 3.4rem; }
+.pcore-cell--br { justify-content: flex-start; align-items: flex-start; padding-left: 3.4rem; padding-top: 3.4rem; }
+
+.pcore-medal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  margin-bottom: 0.9rem;
+  box-shadow: 0 14px 26px -14px rgba(79, 91, 213, 0.6);
+}
+
+.pcore-medal svg { width: 22px; height: 22px; }
+
+.pcore-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.pcore-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* central glowing emblem */
+.pcore-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 22px 44px -18px rgba(79, 91, 213, 0.8);
+  z-index: 3;
+}
+
+.pcore-core svg { width: 30px; height: 30px; position: relative; z-index: 1; }
+
+.pcore-core-aura {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+@media (max-width: 720px) {
+  .pcore {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    max-width: 420px;
+    gap: 0.5rem;
+  }
+  .pcore-vline, .pcore-hline, .pcore-core, .pcore-glow { display: none; }
+  .pcore-cell {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding: 1.5rem 0.4rem !important;
+    border-top: 1px solid var(--border);
+  }
+  .pcore-cell--tl { border-top: 0; }
+  .pcore-content { max-width: none; }
+}

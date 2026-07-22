@@ -48,9 +48,9 @@ function TransactionalSms() {
 
       <Hero
         eyebrow="Transactional SMS"
-        title="Order, alert and account SMS your customers actually expect"
+        title={<>Order, alert and account SMS your customers <span className="grad-word">actually expect</span></>}
         subtitle="Trigger instant notifications from your app, CRM or order system — OTPs, delivery updates and account alerts, delivered with priority routing."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'View SMS API', href: '/sms-api' }}
       />
 
@@ -69,13 +69,13 @@ function TransactionalSms() {
 
       <WhyUs title={<>Why teams trust us for transactional alerts</>} items={WHY_US} />
 
-      <FAQ title={<>Transactional SMS — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Wire up your first transactional alert"
         subtitle="Connect your app or CRM and start sending in minutes."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Transactional SMS — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

@@ -1,11 +1,14 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, CompareTable, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconMail, IconChart, IconRefresh, IconCode, IconShield, IconLink, IconBolt, IconBrain, IconPencil } from '../components/icons.jsx'
 import EmailHeroMock from '../components/EmailHeroMock.jsx'
-import EmailCapabilityGrid from '../components/EmailCapabilityGrid.jsx'
-import EmailStepsQuiet from '../components/EmailStepsQuiet.jsx'
-import WhyUsTargetRing from '../components/WhyUsTargetRing.jsx'
-import EcosystemBareIcons from '../components/EcosystemBareIcons.jsx'
+import EmailBadges from '../components/EmailBadges.jsx'
+import EmailAloneLedger from '../components/EmailAloneLedger.jsx'
+import EmailSetupConsole from '../components/EmailSetupConsole.jsx'
+import EmailOneApi from '../components/EmailOneApi.jsx'
+import EmailCompare from '../components/EmailCompare.jsx'
+import EmailWhyProof from '../components/EmailWhyProof.jsx'
+import EmailStackBrowser from '../components/EmailStackBrowser.jsx'
 
 const HERO_BADGES = [
   { icon: <IconMail />, word: 'Transactional', desc: 'order & OTP emails, instant' },
@@ -37,7 +40,7 @@ const WHY_US = [
 
 const ECOSYSTEM = [
   { icon: <IconBolt />, title: 'Bulk SMS', desc: 'Pair email with bulk SMS campaigns from the same account and API.', href: '/bulk-sms' },
-  { icon: <IconMail />, title: 'WhatsApp, too', desc: 'Add WhatsApp Business API as a richer channel alongside email and SMS.', href: '/whatsapp-business-api' },
+  { icon: <IconMail />, title: 'WhatsApp, too', desc: 'Add WhatsApp Business API as a richer channel alongside email and SMS.', href: '/channels/whatsapp' },
   { icon: <IconBrain />, title: 'Agentic AI', desc: 'Let AI handle replies to transactional emails and SMS from the same inbox.', href: '/ai-agents/customer-service' },
   { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design multi-channel flows that combine email, SMS and chat, without writing code.', href: '/chatbot/builder' },
 ]
@@ -66,58 +69,27 @@ function EmailApi() {
 
       <Hero
         eyebrow="Email"
-        title="Transactional and bulk email, combined with SMS in one API"
+        title={<>Transactional and bulk email, combined with SMS in <span className="grad-word">one API</span></>}
         subtitle="REST or SMTP, high deliverability, and a fallback to SMS when an email bounces — all from the same account as your other channels."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<EmailHeroMock />}
       />
 
-      <div className="hero-badges-wrap">
-        <div className="container">
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <div className="hero-badge" key={b.word}>
-                <span className="hero-badge-icon">{b.icon}</span>
-                <div className="hero-badge-text">
-                  <strong>{b.word}</strong>
-                  <span>{b.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <EmailBadges items={HERO_BADGES} />
 
-      <NarrativeCompare
+      <EmailAloneLedger
         heading={<>Email is the one channel most teams still run alone.</>}
         paragraphs={[
-          "SMS, WhatsApp and chat usually live in one platform. Email is the exception — a separate vendor, a separate dashboard, and a separate bill, even though it is often sending the exact same transactional message.",
-          'When an email bounces or sits unopened, that is usually the end of it. There is no automatic next step, and no shared view of whether the customer actually got the message on any channel.',
-          <>Running email on the same platform as SMS means <strong>one API, one report, and an automatic fallback</strong> when an email does not land.</>,
+          <>SMS, WhatsApp and chat live in one platform — email is the exception. A separate vendor, a separate dashboard, a separate bill, for a message that&rsquo;s often the exact same one.</>,
         ]}
-        leftLabel="Email, on its own"
-        leftItems={[
-          'A separate vendor and a separate bill',
-          'Bounces and unopened sends just end there',
-          'No shared reporting with your other channels',
-          'Deliverability is entirely on your team',
-        ]}
-        rightLabel="Email, on SMSLocal"
-        rightItems={[
-          'One API and one account for email and SMS',
-          'Bounces can retry automatically over SMS',
-          'Combined delivery, open and click reporting',
-          'Managed sending infrastructure and monitoring',
-        ]}
-        alt
       />
 
-      <EmailCapabilityGrid />
+      <EmailOneApi />
 
-      <EmailStepsQuiet eyebrow="How it works" title={<>Start sending email in three steps</>} steps={STEPS} alt />
+      <EmailSetupConsole eyebrow="How it works" title={<>Start sending email in three steps</>} steps={STEPS} />
 
-      <CompareTable
+      <EmailCompare
         title={<>Email-only provider vs the combined API</>}
         subtitle="Both send email. Only one of them also catches the ones that don't land."
         leftLabel="Email-only provider"
@@ -125,9 +97,9 @@ function EmailApi() {
         rows={COMPARE_ROWS}
       />
 
-      <WhyUsTargetRing eyebrow="Why us" title={<>Why teams send email through SMSLocal</>} items={WHY_US} alt />
+      <EmailWhyProof eyebrow="Why us" title={<>Why teams send email through SMSLocal</>} items={WHY_US} />
 
-      <EcosystemBareIcons
+      <EmailStackBrowser
         eyebrow="Ecosystem"
         title={<>Email fits right into your messaging stack</>}
         subtitle="Pair email with SMS, WhatsApp and agentic AI across the same customer record."
@@ -136,13 +108,13 @@ function EmailApi() {
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
 
-      <FAQ title={<>Email API — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Send email that has a backup plan"
         subtitle="One API for email and SMS — set up your first send in minutes."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Email API — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

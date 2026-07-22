@@ -40,9 +40,9 @@ function OtpSms() {
 
       <Hero
         eyebrow="Verify"
-        title="Verify users in seconds with OTP SMS"
+        title={<>Verify users in seconds with <span className="grad-word">OTP SMS</span></>}
         subtitle="Fast, global OTP delivery for signup, login and 2FA — with voice and WhatsApp fallback, plus fraud protection built in."
-        primaryCta={{ label: 'Get API Key', href: '/contact' }}
+        primaryCta={{ label: 'Get API Key', href: '/contact-us' }}
         secondaryCta={{ label: 'View SMS API', href: '/sms-api' }}
         visual={<OtpMock />}
       />
@@ -77,13 +77,13 @@ function OtpSms() {
 
       <WhyUs title={<>Built to maximize successful verification</>} items={WHY_US} />
 
-      <FAQ title={<>OTP SMS — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Start verifying users today"
         subtitle="Get your API key and send a test OTP in minutes."
-        cta={{ label: 'Get API Key', href: '/contact' }}
+        cta={{ label: 'Get API Key', href: '/contact-us' }}
       />
+
+      <FAQ title={<>OTP SMS — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

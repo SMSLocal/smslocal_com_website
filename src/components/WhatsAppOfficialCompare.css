@@ -1,0 +1,179 @@
+/* Two literal WhatsApp screens facing off, not paragraphs + bullet cards. */
+.waoc-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  align-items: start;
+  max-width: 640px;
+  margin: 3rem auto 0;
+}
+
+.waoc-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.waoc-vs {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 24px -6px rgba(79, 91, 213, 0.55), 0 0 0 4px var(--bg-subtle);
+}
+
+.waoc-phone {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 24px;
+  padding: 1rem 0.95rem 1.2rem;
+  box-shadow: 0 20px 40px -20px rgba(16, 35, 63, 0.4);
+}
+
+.waoc-phone--bad {
+  background: #e9edf2;
+}
+
+.waoc-phone--good {
+  background: #0f172a;
+}
+
+.waoc-phone-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.9rem;
+}
+
+.waoc-avatar {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.waoc-avatar--bad {
+  background: #b7c0cc;
+}
+
+.waoc-avatar--good {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.waoc-name {
+  flex: 1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.waoc-phone--bad .waoc-name {
+  color: #64748b;
+}
+
+.waoc-phone--good .waoc-name {
+  color: #fff;
+}
+
+.waoc-badge {
+  flex: none;
+  font-size: 0.56rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  padding: 0.18rem 0.45rem;
+  border-radius: 999px;
+}
+
+.waoc-bubble {
+  position: relative;
+  border-radius: 12px;
+  border-bottom-left-radius: 3px;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.waoc-bubble--bad {
+  background: #d7dde5;
+  color: #64748b;
+}
+
+.waoc-bubble--good {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  margin-bottom: 0.7rem;
+}
+
+.waoc-tick {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.68rem;
+}
+
+.waoc-tick--bad {
+  color: #94a3b8;
+}
+
+.waoc-tick--good {
+  color: #38bdf8;
+}
+
+.waoc-chip {
+  width: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  border: none;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+}
+
+.waoc-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.waoc-tags--bad span {
+  color: var(--coral);
+}
+
+.waoc-tags--good span {
+  color: var(--blue);
+}
+
+@media (max-width: 640px) {
+  .waoc-stage {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 3.5rem;
+  }
+
+  .waoc-vs {
+    position: static;
+    transform: none;
+    margin: -0.6rem auto;
+  }
+}

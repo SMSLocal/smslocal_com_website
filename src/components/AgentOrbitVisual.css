@@ -61,7 +61,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
-  box-shadow: 0 20px 40px -14px rgba(109, 92, 231, 0.45);
+  box-shadow: 0 20px 40px -14px rgba(79, 91, 213, 0.45);
 }
 
 .aov-core-ic {

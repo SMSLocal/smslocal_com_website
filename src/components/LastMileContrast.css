@@ -1,0 +1,113 @@
+/* Last-mile contrast for /services/ai-consulting. Two-column, de-boxed. */
+
+.lmc-lead { max-width: 760px; }
+
+.lmc {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 2.4rem;
+  max-width: 940px;
+  margin: 3rem auto 0;
+}
+
+.lmc-side-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+}
+
+.lmc-side-label--good {
+  color: transparent;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.lmc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lmc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.lmc-item--bad { color: var(--text-secondary); }
+.lmc-item--good { color: var(--navy); font-weight: 600; }
+
+.lmc-mark {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 35, 63, 0.05);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.lmc-check {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.lmc-check svg { width: 11px; height: 11px; }
+
+/* center gap marker */
+.lmc-divide {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--blue), var(--cyan)) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: 0 14px 28px -16px rgba(79, 91, 213, 0.6);
+}
+
+.lmc-arrow {
+  font-size: 1.1rem;
+  font-weight: 800;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (max-width: 760px) {
+  .lmc {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    max-width: 460px;
+  }
+  .lmc-divide { transform: rotate(90deg); margin: 0 auto; }
+}

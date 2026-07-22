@@ -5,7 +5,7 @@ import { IconChart, IconUsers, IconHandshake, IconChat } from '../components/ico
 const OPTIONS = [
   { icon: <IconChart />, title: 'Talk to Sales', desc: 'Get a walkthrough of the platform and find the right plan for your team.', href: 'mailto:sales@smslocal.com' },
   { icon: <IconUsers />, title: 'Get Support', desc: 'Already a customer? Reach our support team for help with your account.', href: 'mailto:support@smslocal.com' },
-  { icon: <IconHandshake />, title: 'Partnerships', desc: 'Interested in reselling or integrating with SMSLocal? Let\'s talk.', href: '/partners' },
+  { icon: <IconHandshake />, title: 'Partnerships', desc: 'Interested in reselling or integrating with SMSLocal? Let\'s talk.', href: '/partnerships' },
   { icon: <IconChat />, title: 'General Inquiries', desc: 'Anything else — press, feedback or just a question.', href: 'mailto:hello@smslocal.com' },
 ]
 
@@ -25,7 +25,7 @@ function Contact() {
 
       <Hero
         eyebrow="Contact"
-        title="Let's talk about what you're trying to build"
+        title={<>Let's talk about what you're <span className="grad-word">trying to build</span></>}
         subtitle="Whether it's a quick question or a full platform walkthrough, pick the option below that fits."
       />
 

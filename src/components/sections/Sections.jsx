@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './sections.css'
 import { IconPlug, IconGear, IconRocket, IconCheck } from '../icons.jsx'
+import { hl } from '../../utils/hl.jsx'
 
 const STEP_ICONS = [<IconPlug />, <IconGear />, <IconRocket />, <IconCheck />]
 
@@ -67,7 +68,7 @@ export function FeatureGrid({ title, subtitle, items, alt, variant, eyebrow = 'F
         <div className="container fpanel-inner">
           <div className="fpanel-copy">
             {eyebrow && <span className="section-kicker fpanel-kicker">{eyebrow}</span>}
-            {title && <h2>{title}</h2>}
+            {title && <h2>{hl(title)}</h2>}
             {subtitle && <p>{subtitle}</p>}
           </div>
           <div className="fpanel-grid">
@@ -87,7 +88,7 @@ export function FeatureGrid({ title, subtitle, items, alt, variant, eyebrow = 'F
     <section className={`${alt ? 'section section-alt' : 'section'}${variant ? ` fsec--${variant}` : ''}`}>
       <div className="container">
         {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {title && <h2 className="section-title">{title}</h2>}
+        {title && <h2 className="section-title">{hl(title)}</h2>}
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
         <div className={`feature-grid${variant ? ` feature-grid--${variant}` : ''}`}>
           {items.map((item) => (
@@ -108,7 +109,7 @@ export function HowItWorks({ title, steps, alt, variant, eyebrow = 'How it works
     <section className={alt ? 'section section-alt' : 'section'}>
       <div className="container">
         {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {title && <h2 className="section-title">{title}</h2>}
+        {title && <h2 className="section-title">{hl(title)}</h2>}
         <div className={`steps-row${variant ? ` steps-row--${variant}` : ''}`}>
           {steps.map((step, idx) => (
             <div className="step-card" key={step.title}>
@@ -133,7 +134,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container nconv-inner">
           <div className="nconv-head">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -173,7 +174,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container nstat-inner">
           <div className="nstat-copy">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -202,7 +203,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
           </div>
           <div className="narrative-copy">
             {eyebrow && <span className="section-kicker narrative-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -226,7 +227,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container ncoll-inner">
           <div className="ncoll-copy">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -258,7 +259,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container nscat-inner">
           <div className="nscat-copy">
             {eyebrow && <span className="nscat-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             <div className="nscat-points">
               {leftItems.map((pt) => (
                 <div className="nscat-point" key={pt.text}>
@@ -296,7 +297,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container nstack-inner">
           <div className="nstack-copy">
             {eyebrow && <span className="nstack-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -317,7 +318,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container ncols-inner">
           <div className="ncols-head">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -352,7 +353,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container npaths-inner">
           <div className="npaths-head">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -400,7 +401,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
         <div className="container narrative--rows">
           <div className="nrows-head">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-            <h2>{heading}</h2>
+            <h2>{hl(heading)}</h2>
             {paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
@@ -443,7 +444,7 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
           {eyebrow && (variant === 'ledger'
             ? <span className="section-kicker">{eyebrow}</span>
             : <span className="narrative-eyebrow">{eyebrow}</span>)}
-          <h2>{heading}</h2>
+          <h2>{hl(heading)}</h2>
           {paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -477,7 +478,7 @@ export function CompareTable({ title, subtitle, leftLabel, rightLabel, rows, alt
   return (
     <section className={alt ? 'section section-alt' : 'section'}>
       <div className="container">
-        {title && <h2 className="section-title">{title}</h2>}
+        {title && <h2 className="section-title">{hl(title)}</h2>}
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
         <div className="compare-table">
           <div className="compare-row compare-head">
@@ -515,7 +516,7 @@ export function TripleCompareTable({ title, subtitle, col1Label, col2Label, col3
       <section className={alt ? 'section section-alt' : 'section'}>
         <div className="container">
           {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-          {title && <h2 className="section-title">{title}</h2>}
+          {title && <h2 className="section-title">{hl(title)}</h2>}
           {subtitle && <p className="section-subtitle">{subtitle}</p>}
           <div className="triple-cards">
             {cols.map((c) => (
@@ -550,7 +551,7 @@ export function TripleCompareTable({ title, subtitle, col1Label, col2Label, col3
     <section className={alt ? 'section section-alt' : 'section'}>
       <div className="container">
         {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {title && <h2 className="section-title">{title}</h2>}
+        {title && <h2 className="section-title">{hl(title)}</h2>}
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
         <div className="triple-table">
           <div className="triple-row triple-head">
@@ -579,7 +580,7 @@ export function EcosystemGrid({ title, subtitle, items, alt, variant, eyebrow = 
       <div className="container">
         <div className="ecosystem-header">
           {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-          {title && <h2>{title}</h2>}
+          {title && <h2>{hl(title)}</h2>}
           {subtitle && <p>{subtitle}</p>}
         </div>
         <div className={`ecosystem-grid${variant ? ` ecosystem-grid--${variant}` : ''}`}>
@@ -610,7 +611,7 @@ export function WhyUs({ title, subtitle, eyebrow, items, alt, variant }) {
       <div className="container">
         <div className="whyus-head">
           {kick && <span className={variant === 'split' ? 'whyus-eyebrow' : 'section-kicker'}>{kick}</span>}
-          {title && <h2 className="section-title">{title}</h2>}
+          {title && <h2 className="section-title">{hl(title)}</h2>}
           {subtitle && <p className="section-subtitle">{subtitle}</p>}
         </div>
         <div className={`whyus-grid${variant ? ` whyus-grid--${variant}` : ''}`}>
@@ -641,118 +642,211 @@ function initialsOf(name) {
 
 const AVATAR_TINTS = ['tint-a', 'tint-b', 'tint-c', 'tint-d']
 
-export function Testimonials({ title, items, alt, eyebrow = 'Testimonials' }) {
-  const looped = [...items, ...items, ...items]
+export function Testimonials({ title, subtitle, items, alt, eyebrow = 'Experience Their Journey' }) {
+  const trackRef = useRef(null)
+  const [index, setIndex] = useState(0)
+  const [perView, setPerView] = useState(1)
+  const [paused, setPaused] = useState(false)
+  const last = Math.max(0, items.length - perView)
+  const pages = last + 1
+
+  // One card in view on mobile, two on desktop — read the same breakpoint the CSS uses.
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 720px)')
+    const apply = () => setPerView(mq.matches ? 2 : 1)
+    apply()
+    mq.addEventListener('change', apply)
+    return () => mq.removeEventListener('change', apply)
+  }, [])
+
+  useEffect(() => {
+    setIndex((i) => Math.min(i, last))
+  }, [last])
+
+  const metrics = () => {
+    const el = trackRef.current
+    if (!el || el.children.length === 0) return null
+    const first = el.children[0].getBoundingClientRect()
+    const second = el.children[1]?.getBoundingClientRect()
+    const pitch = second ? second.left - first.left : first.width
+    if (pitch <= 0) return null
+    return { pitch }
+  }
+
+  const go = (to) => {
+    const el = trackRef.current
+    const m = metrics()
+    if (!el || !m) return
+    const clamped = Math.max(0, Math.min(last, to))
+    el.scrollTo({ left: clamped * m.pitch, behavior: 'smooth' })
+    setIndex(clamped)
+  }
+
+  const sync = () => {
+    const el = trackRef.current
+    const m = metrics()
+    if (!el || !m) return
+    setIndex(Math.min(last, Math.round(el.scrollLeft / m.pitch)))
+  }
+
+  // Autoplay — restarts on any manual nav, pauses on hover/focus.
+  useEffect(() => {
+    if (paused || last === 0) return
+    const id = setTimeout(() => go(index >= last ? 0 : index + 1), 4000)
+    return () => clearTimeout(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, last, paused])
 
   return (
     <section className={alt ? 'section section-alt testimonials-section' : 'section testimonials-section'}>
-      <div className="container">
-        {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {title && <h2 className="section-title">{title}</h2>}
-      </div>
-      <div className="testimonial-marquee">
-        <div className="testimonial-marquee-track">
-          {looped.map((t, idx) => (
-            <figure className="testimonial-card" key={`${t.name}-${idx}`}>
-              <span className="testimonial-mark" aria-hidden="true">&ldquo;</span>
-              <blockquote className="testimonial-quote">{t.quote}</blockquote>
-              <figcaption className="testimonial-author">
-                <span className={`testimonial-avatar ${AVATAR_TINTS[idx % AVATAR_TINTS.length]}`}>
-                  {initialsOf(t.name)}
-                </span>
-                <span className="testimonial-author-meta">
-                  <strong>{t.name}</strong>
-                  <span>{t.role}</span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+      <div className="container testi-layout">
+        <div className="testi-head">
+          {eyebrow && <span className="section-kicker section-kicker--left">{eyebrow}</span>}
+          {title && <h2 className="section-title section-title--left">{hl(title)}</h2>}
+          {subtitle && <p className="testi-sub">{subtitle}</p>}
+
+          <div className="testi-controls">
+            <button
+              type="button"
+              className="testi-arrow"
+              onClick={() => go(index - 1)}
+              disabled={index === 0}
+              aria-label="Previous testimonial"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+            </button>
+            <span className="testi-rail">
+              <span className="testi-rail-fill" style={{ width: `${((index + 1) / pages) * 100}%` }} />
+            </span>
+            <button
+              type="button"
+              className="testi-arrow"
+              onClick={() => go(index + 1)}
+              disabled={index >= pages - 1}
+              aria-label="Next testimonial"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="testi-viewport">
+          <span className="testi-glyph" aria-hidden="true">&rdquo;</span>
+          <div
+            ref={trackRef}
+            className="testi-track"
+            onScroll={sync}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocusCapture={() => setPaused(true)}
+            onBlurCapture={() => setPaused(false)}
+          >
+            {items.map((t, idx) => (
+              <figure className="testi-card" key={`${t.name}-${idx}`}>
+                <div className="testi-card-body">
+                  <blockquote className="testi-quote">{t.quote}</blockquote>
+                  <div className="testi-stars" aria-hidden="true">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <svg key={i} viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z" /></svg>
+                    ))}
+                  </div>
+                  <span className="testi-tail" aria-hidden="true" />
+                </div>
+                <figcaption className="testi-author">
+                  <span className={`testi-avatar ${AVATAR_TINTS[idx % AVATAR_TINTS.length]}`}>
+                    {initialsOf(t.name)}
+                  </span>
+                  <span className="testi-author-meta">
+                    <strong>{t.name}</strong>
+                    <span>{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-export function FAQ({ title, items, alt, eyebrow = 'FAQ' }) {
+export function FAQ({ title, subtitle, items, alt, eyebrow = 'Answers To Your Questions' }) {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
     <section className={alt ? 'section section-alt' : 'section'}>
-      <div className="container faq-container">
-        {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {title && <h2 className="section-title">{title}</h2>}
-        <div className="faq-list">
-          {items.map((item, idx) => (
-            <div className={openIndex === idx ? 'faq-item open' : 'faq-item'} key={item.q}>
-              <button
-                type="button"
-                className="faq-question"
-                onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
-              >
-                {item.q}
-                <span className="faq-caret">+</span>
-              </button>
-              <div className="faq-answer-wrap">
-                <div className="faq-answer-inner">
-                  <p className="faq-answer">{item.a}</p>
-                </div>
-              </div>
+      <div className="container">
+        <div className="faq-head">
+          {eyebrow && <span className="section-kicker">{eyebrow}</span>}
+          {title && <h2 className="section-title">{hl(title)}</h2>}
+          {subtitle && <p className="section-subtitle">{subtitle}</p>}
+        </div>
+
+        <div className="faq-layout">
+          <aside className="faq-aside">
+            <span className="faq-aside-glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7.5 8.5a4.5 4.5 0 0 1 9 0c0 3-4.5 3-4.5 6" />
+                <circle cx="12" cy="19" r="0.6" fill="currentColor" stroke="none" />
+                <path d="M20 12a8 8 0 1 1-3.2-6.4" opacity="0.35" />
+              </svg>
+            </span>
+            <div className="faq-aside-body">
+              <p className="faq-aside-title">Still have questions about SMSLocal?</p>
+              <p className="faq-aside-sub">Our support team responds within minutes — every day of the week.</p>
+              <Link to="/contact-us" className="faq-aside-btn">Contact Us</Link>
             </div>
-          ))}
+          </aside>
+
+          <div className="faq-list">
+            {items.map((item, idx) => {
+              const open = openIndex === idx
+              return (
+                <div className={open ? 'faq-item open' : 'faq-item'} key={item.q}>
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenIndex(open ? -1 : idx)}
+                  >
+                    {item.q}
+                    <span className="faq-caret" aria-hidden="true">{open ? '−' : '+'}</span>
+                  </button>
+                  <div className="faq-answer-wrap">
+                    <div className="faq-answer-inner">
+                      <p className="faq-answer">{item.a}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-export function CTABanner({ title, subtitle, cta, secondaryCta, variant }) {
-  let heading = title
-  if (typeof title === 'string') {
-    const words = title.trim().split(' ')
-    const last = words.pop()
-    heading = (
-      <>
-        {words.join(' ')} <span className="grad-word">{last}</span>
-      </>
-    )
-  }
-
-  if (variant === 'plain') {
-    return (
-      <section className="cta-banner">
-        <div className="container">
-          <div className="cta-inner">
-            <h2>{heading}</h2>
-            <p>{subtitle}</p>
-            <Link to={cta.href} className="btn btn-primary">{cta.label}</Link>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
+export function CTABanner({ title, subtitle, cta, secondaryCta, eyebrow = 'Get Started' }) {
   return (
-    <section className="cta-banner cta-banner--spotlight">
-      <div className="container">
-        <div className="cta-spot">
-          <span className="cta-spot-glow cta-spot-glow--a" aria-hidden="true" />
-          <span className="cta-spot-glow cta-spot-glow--b" aria-hidden="true" />
-          <div className="cta-spot-inner">
-            <h2>{heading}</h2>
-            <p>{subtitle}</p>
-            <div className="cta-spot-actions">
-              <Link to={cta.href} className="btn btn-primary">{cta.label}</Link>
-              {secondaryCta && (
-                <Link to={secondaryCta.href} className="cta-spot-secondary">{secondaryCta.label}</Link>
-              )}
-            </div>
-          </div>
-          <div className="cta-spot-visual" aria-hidden="true">
-            <span className="cta-spot-chip cta-spot-chip-0"><IconPlug /></span>
-            <span className="cta-spot-chip cta-spot-chip-1"><IconGear /></span>
-            <span className="cta-spot-chip cta-spot-chip-2"><IconRocket /></span>
-            <span className="cta-spot-chip cta-spot-chip-3"><IconCheck /></span>
-          </div>
+    <section className="cta-night">
+      <span className="cta-night-glow" aria-hidden="true" />
+      <div className="container cta-night-inner">
+        {eyebrow && (
+          <span className="cta-night-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.8L20 9l-4.9 3.6L16.8 19 12 15.4 7.2 19l1.7-6.4L4 9l6.1-1.2z" /></svg>
+            {eyebrow}
+          </span>
+        )}
+        <h2 className="cta-night-title">{title}</h2>
+        {subtitle && <p className="cta-night-sub">{subtitle}</p>}
+        <div className="cta-night-actions">
+          <Link to={cta.href} className="cta-night-primary">
+            {cta.label}
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </Link>
+          {secondaryCta && (
+            <Link to={secondaryCta.href} className="cta-night-ghost">{secondaryCta.label}</Link>
+          )}
         </div>
       </div>
     </section>
@@ -763,7 +857,7 @@ export function PricingTable({ title, subtitle, plans }) {
   return (
     <section className="section">
       <div className="container">
-        {title && <h2 className="section-title">{title}</h2>}
+        {title && <h2 className="section-title">{hl(title)}</h2>}
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
         <div className="pricing-grid">
           {plans.map((plan) => (
@@ -774,7 +868,7 @@ export function PricingTable({ title, subtitle, plans }) {
               <ul>
                 {plan.features.map((f) => <li key={f}>{f}</li>)}
               </ul>
-              <Link to="/contact" className="btn btn-primary full-width">{plan.cta || 'Choose Plan'}</Link>
+              <Link to={plan.href || '/contact-us'} className="btn btn-primary full-width">{plan.cta || 'Choose Plan'}</Link>
             </div>
           ))}
         </div>

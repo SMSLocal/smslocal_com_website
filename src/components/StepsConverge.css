@@ -1,0 +1,147 @@
+.scv-merge {
+  max-width: 860px;
+  margin: 0.5rem auto 0;
+}
+
+.scv-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.scv-lane {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.scv-pulse {
+  fill: none;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-dasharray: 16 100;
+  stroke-dashoffset: 116;
+  opacity: 0;
+}
+
+.scv-src {
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.scv-node-ring {
+  fill: #fff;
+  stroke: var(--blue);
+  stroke-width: 2.2;
+}
+
+.scv-node {
+  fill: var(--blue);
+}
+
+/* colour the three downstream nodes across the brand gradient */
+.scv-svg g:nth-of-type(1) .scv-node-ring { stroke: var(--blue); }
+.scv-svg g:nth-of-type(2) .scv-node-ring { stroke: #a24fc0; }
+.scv-svg g:nth-of-type(3) .scv-node-ring { stroke: var(--cyan); }
+.scv-svg g:nth-of-type(1) .scv-node { fill: var(--blue); }
+.scv-svg g:nth-of-type(2) .scv-node { fill: #a24fc0; }
+.scv-svg g:nth-of-type(3) .scv-node { fill: var(--cyan); }
+
+/* ---- step cards below, aligned & centred ---- */
+.scv-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem;
+  max-width: 940px;
+  margin: 2.4rem auto 0;
+}
+
+.scv-step {
+  position: relative;
+  text-align: center;
+  padding: 0 0.4rem;
+}
+
+/* a small connector tick above each card tying it to the merged line */
+.scv-step::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 1.1rem;
+  background: linear-gradient(180deg, transparent, var(--border));
+}
+
+.scv-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 0.7rem;
+  border-radius: 50%;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 8px 18px -8px rgba(79, 91, 213, 0.6);
+}
+
+.scv-step h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.04rem;
+  letter-spacing: -0.01em;
+}
+
+.scv-step p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------------------------------------
+   Animation. The lanes are drawn solid in the base state (fully-merged), so
+   reduced-motion visitors see the finished converging diagram. Motion sends a
+   pulse down each lane into the merge, staggered via negative delays so the
+   phase offset persists across the seamless loop.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .scv-pulse { animation: scv-flow 3.6s linear infinite; }
+  .scv-pulse--1 { animation-delay: -0.9s; }
+  .scv-pulse--2 { animation-delay: -1.8s; }
+  .scv-pulse--3 { animation-delay: -2.7s; }
+
+  .scv-node { animation: scv-node-pop 3.6s ease-in-out infinite; }
+
+  @keyframes scv-flow {
+    0% { stroke-dashoffset: 116; opacity: 0; }
+    8% { opacity: 1; }
+    82% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  @keyframes scv-node-pop {
+    0%, 74%, 100% { transform: scale(1); }
+    88% { transform: scale(1.45); }
+  }
+}
+
+.scv-node { transform-box: fill-box; transform-origin: center; }
+
+@media (max-width: 720px) {
+  .scv-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.4rem;
+  }
+  .scv-step::before { display: none; }
+}
+
+@media (max-width: 420px) {
+  .scv-steps { grid-template-columns: 1fr; }
+}

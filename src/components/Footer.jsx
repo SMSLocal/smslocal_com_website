@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useFooterMeta } from '../hooks/useFooterMeta'
+import BrandLogo from './BrandLogo.jsx'
 import './Footer.css'
 
 const iconProps = { viewBox: '0 0 24 24', width: 16, height: 16, fill: 'currentColor' }
@@ -34,15 +35,6 @@ const SOCIALS = [
     ),
   },
   {
-    label: 'Pinterest',
-    icon: (
-      <svg {...iconProps} fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M9 17c1-3 1.5-5.5 1.5-7.2A2.2 2.2 0 0 1 13 7.6c1.6 0 2.4 1 2.4 2.5 0 1.7-1 4.3-1.6 5.3a1.6 1.6 0 0 0 1.6 2.5c2 0 3.4-2.3 3.4-5.2 0-2.7-2-4.7-5-4.7-3.6 0-5.7 2.5-5.7 5.2 0 1 .4 2.1 1 2.7" />
-      </svg>
-    ),
-  },
-  {
     label: 'YouTube',
     icon: (
       <svg {...iconProps} fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -55,62 +47,39 @@ const SOCIALS = [
 
 const COLUMNS = [
   {
-    title: 'Channels',
+    title: 'Product',
     links: [
-      { t: 'Bulk SMS', href: '/bulk-sms' },
-      { t: 'SMS API', href: '/sms-api' },
-      { t: 'OTP SMS', href: '/otp-sms' },
-      { t: 'Transactional SMS', href: '/transactional-sms' },
-      { t: 'Promotional SMS', href: '/promotional-sms' },
-      { t: 'WhatsApp Business API', href: '/whatsapp-business-api' },
-      { t: 'RCS Messaging', href: '/rcs-business-messaging' },
-      { t: 'Email API', href: '/email-api' },
-      { t: 'All channels', href: '/channels' },
+      { t: 'Mass texting', href: '/bulk-sms' },
+      { t: 'SMS marketing', href: '/promotional-sms' },
+      { t: 'Two-way messaging', href: '/channels/social' },
+      { t: 'API & Developers', href: '/sms-api' },
     ],
   },
   {
-    title: 'Chatbot',
+    title: 'Solutions',
     links: [
-      { t: 'Chatbot Platform', href: '/chatbot', badge: 'New' },
-      { t: 'No-Code Builder', href: '/chatbot/builder' },
-      { t: 'WhatsApp Chatbot', href: '/chatbot/whatsapp' },
-      { t: 'Website Chatbot', href: '/chatbot/website' },
-      { t: 'Customer Support Bot', href: '/chatbot/customer-support' },
-      { t: 'Lead Generation Bot', href: '/chatbot/lead-generation' },
-      { t: 'Ecommerce Chatbot', href: '/chatbot/ecommerce' },
-      { t: 'Chatbot vs AI Agent', href: '/chatbot-vs-ai-agent' },
-    ],
-  },
-  {
-    title: 'AI Agents',
-    links: [
-      { t: 'Agentic AI Platform', href: '/agentic-ai', badge: 'New' },
-      { t: 'AI Customer Service', href: '/ai-agents/customer-service' },
-      { t: 'Voice AI Agent', href: '/ai-agents/voice' },
-      { t: 'AI Sales / SDR', href: '/ai-agents/sales-sdr' },
-      { t: 'AI Agent Builder', href: '/ai-agents/builder' },
-      { t: 'WhatsApp AI Agent', href: '/ai-agents/whatsapp' },
+      { t: 'Sales & Marketing', href: '/promotional-sms' },
+      { t: 'Appointment reminders', href: '/transactional-sms' },
+      { t: 'School & campus', href: '/resources/case-studies' },
+      { t: 'Alerts & notifications', href: '/otp-sms' },
     ],
   },
   {
     title: 'Resources',
     links: [
       { t: 'Blog', href: '/blog' },
-      { t: 'Guides', href: '/resources/guides' },
-      { t: 'Developer Docs', href: '/resources/docs' },
-      { t: 'Case Studies', href: '/resources/case-studies' },
-      { t: 'All Products', href: '/products' },
+      { t: 'Help Center', href: '/resources/docs' },
+      { t: 'Pricing', href: '/pricing' },
+      { t: 'Support', href: '/contact-us' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { t: 'About', href: '/about' },
-      { t: 'Contact', href: '/contact' },
-      { t: 'Partners', href: '/partners' },
+      { t: 'About Us', href: '/about-us' },
       { t: 'Careers', href: '/careers' },
-      { t: 'Log in', href: '/login' },
-      { t: 'Get Started', href: '/signup' },
+      { t: 'Contact', href: '/contact-us' },
+      { t: 'Privacy Policy', href: '/privacy-policy' },
     ],
   },
 ]
@@ -120,49 +89,51 @@ function Footer() {
 
   return (
     <footer className="site-footer">
-      <div className="footer-top-bar" />
+      <span className="footer-glow" aria-hidden="true" />
+      <span className="footer-dotgrid" aria-hidden="true" />
 
-      <div className="container footer-top">
-        <div className="footer-brand">
-          <Link to="/" className="footer-logo">
-            <span className="brand-mark" aria-hidden="true" />
-            SmsLocal
-          </Link>
-          <p>A leading provider of business messaging solutions, empowering companies worldwide with reliable SMS, chatbot and AI agent services.</p>
-          <div className="footer-social">
-            {SOCIALS.map((s) => (
-              <a href="#" aria-label={s.label} key={s.label}>{s.icon}</a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="container footer-grid">
-        {COLUMNS.map((col) => (
-          <div className="footer-col" key={col.title}>
-            <h4>{col.title}</h4>
-            <ul>
-              {col.links.map((l) => (
-                <li key={l.t}>
-                  <Link to={l.href}>
-                    {l.t}
-                    {l.badge && <span className="footer-badge">{l.badge}</span>}
-                  </Link>
-                </li>
+      <div className="container footer-inner">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <Link to="/" className="footer-logo">
+              <BrandLogo size={32} />
+              SMSLocal
+            </Link>
+            <p>Launch SMS campaigns, alerts, and promotions in seconds — no apps, no coding, no integration needed.</p>
+            <div className="footer-social">
+              {SOCIALS.map((s) => (
+                <a href="#" aria-label={s.label} key={s.label}>{s.icon}</a>
               ))}
-            </ul>
+            </div>
           </div>
-        ))}
-      </div>
 
-      <div className="container footer-bottom">
-        <p onClick={onProbe} className="footer-note">
-          © {new Date().getFullYear()} SmsLocal. All rights reserved.
-          {metaOn && <span className="footer-note-x">{' '}{metaLabel}</span>}
-        </p>
-        <div className="footer-legal">
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms">Terms and Conditions</Link>
+          {COLUMNS.map((col) => (
+            <div className="footer-col" key={col.title}>
+              <h4>{col.title}</h4>
+              <ul>
+                {col.links.map((l) => (
+                  <li key={l.t}>
+                    <Link to={l.href}>
+                      {l.t}
+                      {l.badge && <span className="footer-badge">{l.badge}</span>}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="footer-bottom">
+          <p onClick={onProbe} className="footer-note">
+            © {new Date().getFullYear()} SMSLocal. All rights reserved.
+            {metaOn && <span className="footer-note-x">{' '}{metaLabel}</span>}
+          </p>
+          <div className="footer-legal">
+            <Link to="/terms">Terms</Link>
+            <Link to="/privacy-policy">Privacy</Link>
+            <Link to="/privacy-policy">Cookies</Link>
+          </div>
         </div>
       </div>
     </footer>

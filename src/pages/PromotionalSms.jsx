@@ -46,9 +46,9 @@ function PromotionalSms() {
 
       <Hero
         eyebrow="Promotional SMS"
-        title="SMS marketing campaigns that actually get opened"
+        title={<>SMS marketing campaigns that <span className="grad-word">actually get opened</span></>}
         subtitle="Segment your list, personalize the message, and send at scale — with opt-in compliance and reporting built in from the first send."
-        primaryCta={{ label: 'Start a Campaign', href: '/contact' }}
+        primaryCta={{ label: 'Start a Campaign', href: '/contact-us' }}
         secondaryCta={{ label: 'View Bulk SMS', href: '/bulk-sms' }}
       />
 
@@ -60,13 +60,13 @@ function PromotionalSms() {
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} />
 
-      <FAQ title={<>Promotional SMS — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Send your first SMS campaign today"
         subtitle="Upload a list, write the message, and watch it go out live."
-        cta={{ label: 'Start a Campaign', href: '/contact' }}
+        cta={{ label: 'Start a Campaign', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Promotional SMS — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

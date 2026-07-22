@@ -40,9 +40,9 @@ function ChatbotTravelHospitality() {
 
       <Hero
         eyebrow="Travel & Hospitality"
-        title="Guest support and bookings, automated"
+        title={<>Guest support and bookings, <span className="grad-word">automated</span></>}
         subtitle="Bookings, itinerary updates and guest support — 24/7, in any language, across WhatsApp, web and SMS."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
       />
 
@@ -76,13 +76,13 @@ function ChatbotTravelHospitality() {
 
       <WhyUs title={<>Why travel brands automate with SMSLocal</>} items={WHY_US} />
 
-      <FAQ title={<>Travel chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Automate guest support today"
         subtitle="Connect your booking system and go live in days."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Travel chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

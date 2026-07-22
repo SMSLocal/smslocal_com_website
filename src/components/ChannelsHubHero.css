@@ -1,0 +1,165 @@
+.chh {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: inherit;
+}
+
+.chh-cap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: rgba(79, 91, 213, 0.08);
+  border: 1px solid rgba(79, 91, 213, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+.chh-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex: none;
+}
+
+/* ---- the shared rail ---- */
+.chh-rail {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.25rem 0;
+}
+
+.chh-track {
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  top: 32px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.25), rgba(236, 72, 153, 0.25));
+}
+
+.chh-pulse {
+  position: absolute;
+  top: 32px;
+  left: 9%;
+  width: 12px;
+  height: 12px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--blue));
+  box-shadow: 0 0 0 4px rgba(79, 91, 213, 0.2);
+  opacity: 0;
+}
+
+.chh-node {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.chh-chip {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 10px 22px -10px rgba(79, 91, 213, 0.7);
+}
+
+.chh-chip svg { width: 22px; height: 22px; }
+
+.chh-tick {
+  position: absolute;
+  top: -3px;
+  left: calc(50% + 9px);
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  border: 2px solid var(--bg-subtle);
+}
+
+.chh-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+}
+
+.chh-foot {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+   Animation. Base state above is fully lit and static (every channel live,
+   ticked, on one rail), so reduced-motion and no-CSS visitors see the finished
+   visual. Motion only adds a travelling ping down the shared rail.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .chh-pulse {
+    animation: chh-travel 3.6s ease-in-out infinite;
+  }
+
+  .chh-chip {
+    animation: chh-ping 3.6s ease-in-out infinite;
+  }
+
+  .chh-tick {
+    transform: scale(0.9);
+    animation: chh-tick 3.6s ease-in-out infinite;
+  }
+
+  @keyframes chh-travel {
+    0% { left: 9%; opacity: 0; }
+    8% { opacity: 1; }
+    82% { left: 91%; opacity: 1; }
+    92%, 100% { left: 91%; opacity: 0; }
+  }
+
+  @keyframes chh-ping {
+    0%, 6% { transform: scale(1); box-shadow: 0 10px 22px -10px rgba(79, 91, 213, 0.7); }
+    14% { transform: scale(1.14); box-shadow: 0 12px 26px -8px rgba(236, 72, 153, 0.75); }
+    26%, 100% { transform: scale(1); box-shadow: 0 10px 22px -10px rgba(79, 91, 213, 0.7); }
+  }
+
+  @keyframes chh-tick {
+    0%, 6% { transform: scale(0.5); opacity: 0; }
+    16% { transform: scale(1.1); opacity: 1; }
+    26%, 100% { transform: scale(0.9); opacity: 1; }
+  }
+}
+
+@media (max-width: 520px) {
+  .chh-chip { width: 40px; height: 40px; }
+  .chh-chip svg { width: 19px; height: 19px; }
+  .chh-track, .chh-pulse { top: 29px; }
+  .chh-label { font-size: 0.68rem; }
+}

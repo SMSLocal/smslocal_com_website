@@ -1,0 +1,96 @@
+/* Horizontal accordion "why us" for /rcs-business-messaging. De-boxed. */
+
+.rwq-acc {
+  display: flex;
+  gap: 0;
+  max-width: 960px;
+  margin: 3rem auto 0;
+  height: 230px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.rwq-panel {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.8rem 1.3rem;
+  border: 0;
+  border-left: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  overflow: hidden;
+  transition: flex-grow 0.35s cubic-bezier(0.33, 0, 0.2, 1), background 0.3s ease;
+}
+
+.rwq-panel:first-child { border-left: 0; }
+
+.rwq-panel.is-active {
+  flex-grow: 2.6;
+  background:
+    radial-gradient(120% 140% at 0% 0%, rgba(79, 91, 213, 0.08), transparent 60%),
+    var(--bg-subtle);
+}
+
+.rwq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  margin-bottom: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.rwq-panel.is-active .rwq-icon {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 14px 26px -14px rgba(79, 91, 213, 0.6);
+}
+
+.rwq-icon svg { width: 22px; height: 22px; }
+
+.rwq-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.rwq-desc {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  opacity: 0;
+  max-width: 30ch;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.rwq-panel.is-active .rwq-desc { opacity: 1; }
+
+@media (max-width: 720px) {
+  .rwq-acc {
+    flex-direction: column;
+    height: auto;
+    border: 0;
+  }
+  .rwq-panel {
+    flex: none;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 1.4rem 0.4rem;
+  }
+  .rwq-panel:first-child { border-top: 0; }
+  .rwq-panel.is-active { flex-grow: 0; }
+  .rwq-desc { opacity: 1; }
+}

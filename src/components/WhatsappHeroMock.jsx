@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './WhatsappHeroMock.css'
-import { IconChat } from './icons.jsx'
 
 const THREAD = [
   { from: 'in', text: 'Hi, I need help with my recent order' },
@@ -49,10 +48,12 @@ function WhatsappHeroMock() {
         </div>
 
         <div className="wamock-header">
-          <span className="wamock-avatar"><IconChat /></span>
+          <span className="wamock-avatar">
+            <span className="wamock-avatar-icon" aria-hidden="true" />
+          </span>
           <div className="wamock-header-text">
-            <strong>SMSLocal Support</strong>
-            <span><span className="wamock-online-dot" />Online via WhatsApp Business API</span>
+            <strong>SMSLocal</strong>
+            <span>online</span>
           </div>
           <span className="wamock-verified">Verified ✓</span>
         </div>
@@ -72,6 +73,10 @@ function WhatsappHeroMock() {
 
         <span className="wamock-home-indicator" />
       </div>
+
+      <span className="wamock-badge" aria-hidden="true">
+        <span className="wamock-badge-icon" />
+      </span>
     </div>
   )
 }

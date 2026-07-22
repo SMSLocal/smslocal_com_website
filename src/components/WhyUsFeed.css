@@ -1,0 +1,125 @@
+.wfd-feed {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* post rows float on the page, separated by thin dividers — no card frame */
+.wfd-post {
+  padding: 1.5rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.wfd-post:first-child { padding-top: 0.25rem; }
+.wfd-post:last-child { border-bottom: none; padding-bottom: 0.25rem; }
+
+.wfd-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wfd-avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+/* alternate the accent so the feed stays lively */
+.wfd-post--1 .wfd-avatar {
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.12);
+}
+
+.wfd-avatar svg { width: 20px; height: 20px; }
+
+.wfd-id {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.wfd-id strong {
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.wfd-handle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.wfd-post--1 .wfd-handle { color: var(--cyan); }
+
+.wfd-dot {
+  margin-left: auto;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border);
+  box-shadow: 0 8px 0 var(--border), 0 -8px 0 var(--border);
+}
+
+.wfd-body {
+  margin: 0.85rem 0 0.9rem;
+  padding-left: calc(40px + 0.75rem);
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.wfd-foot {
+  display: flex;
+  gap: 1.4rem;
+  padding-left: calc(40px + 0.75rem);
+}
+
+.wfd-react {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.wfd-react svg { width: 16px; height: 16px; }
+
+.wfd-react--heart {
+  color: var(--cyan);
+}
+
+.wfd-react--heart svg {
+  fill: rgba(236, 72, 153, 0.14);
+}
+
+.wfd-post--1 .wfd-react--heart { color: var(--blue); }
+.wfd-post--1 .wfd-react--heart svg { fill: rgba(79, 91, 213, 0.14); }
+
+@media (max-width: 520px) {
+  .wfd-body,
+  .wfd-foot { padding-left: 0; }
+}
+
+/* ---------------------------------------------------------------------------
+   Animation. Base is the finished feed. Motion gives the heart a gentle beat
+   so the reactions feel alive — nothing structural depends on it.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .wfd-react--heart svg { animation: wfd-beat 3.2s ease-in-out infinite; }
+  .wfd-post--1 .wfd-react--heart svg { animation-delay: 0.6s; }
+
+  @keyframes wfd-beat {
+    0%, 70%, 100% { transform: scale(1); }
+    80% { transform: scale(1.22); }
+    90% { transform: scale(1.05); }
+  }
+}

@@ -1,0 +1,157 @@
+.ari-inner {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.ari-aside {
+  position: sticky;
+  top: 6rem;
+}
+
+.ari-index-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4f5bd5;
+  margin-bottom: 1rem;
+}
+
+.ari-title {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+.ari-blurb {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  margin: 0 0 1.5rem;
+  max-width: 34ch;
+}
+
+.ari-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.ari-link:hover {
+  color: #4f5bd5;
+  border-color: #4f5bd5;
+}
+
+/* Two-column hairline index — no cards */
+.ari-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.5rem;
+}
+
+.ari-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Bottom rule only on the last row of each column */
+.ari-item:nth-last-child(-n+2) {
+  border-bottom: 1px solid var(--border);
+}
+
+.ari-item-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f5bd5;
+}
+
+.ari-item-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ari-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ari-item-name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.ari-item-desc {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.ari-item-no {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #c4cbd8;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.1rem;
+}
+
+.ari-item:hover .ari-item-no {
+  color: #ec4899;
+}
+
+@media (max-width: 900px) {
+  .ari-inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .ari-aside {
+    position: static;
+    top: auto;
+  }
+
+  .ari-blurb {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .ari-list {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  /* Reset the two-per-row bottom rule; only the final row keeps it */
+  .ari-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .ari-item:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+}

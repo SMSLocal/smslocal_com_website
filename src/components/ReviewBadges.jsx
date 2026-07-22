@@ -16,7 +16,7 @@ function Stars({ rating }) {
 
 const REVIEWS = [
   { name: 'G2', rating: 4.9, count: '342 reviews', logo: '/logos/g2.png' },
-  { name: 'Capterra', rating: 4.8, count: '342 reviews', logo: '/logos/capterra.png' },
+  { name: 'Capterra', rating: 4.9, count: '342 reviews', logo: '/logos/capterra.png' },
   { name: 'TrustPilot', rating: 4.9, count: '342 reviews', logo: '/logos/trustpilot.svg' },
 ]
 

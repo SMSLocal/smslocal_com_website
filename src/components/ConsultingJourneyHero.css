@@ -1,0 +1,131 @@
+.cjh {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.cjh-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.cjh-base {
+  stroke: #dfe2ee;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 2 7;
+}
+
+.cjh-progress {
+  stroke: url(#cjhLine);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: cjhDraw 2.4s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+}
+
+@keyframes cjhDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+.cjh-dot {
+  fill: #fff;
+  stroke: url(#cjhNode);
+  stroke-width: 2.6;
+}
+
+.cjh-dot--live {
+  fill: url(#cjhNode);
+  stroke: none;
+}
+
+.cjh-check {
+  fill: none;
+  stroke: #4f5bd5;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cjh-up {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cjh-halo {
+  fill: rgba(236, 72, 153, 0.16);
+}
+
+/* Inner group carries the pop so the node's translate attribute is kept */
+.cjh-pop {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cjhPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cjh-pop--0 { animation-delay: 0.35s; }
+.cjh-pop--1 { animation-delay: 1.05s; }
+.cjh-pop--2 { animation-delay: 1.7s; }
+.cjh-pop--3 { animation-delay: 2.35s; }
+
+@keyframes cjhPop {
+  from { opacity: 0; transform: scale(0.2); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cjh-pop--3 .cjh-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cjhPulse 2.4s ease-in-out 2.7s infinite;
+}
+
+@keyframes cjhPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.7); }
+  50% { opacity: 0; transform: scale(1.4); }
+}
+
+.cjh-title {
+  font-size: 12px;
+  font-weight: 800;
+  fill: var(--navy);
+  letter-spacing: 0.1px;
+}
+
+.cjh-cap {
+  font-size: 8.5px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+}
+
+.cjh-fade {
+  opacity: 0;
+  animation: cjhFade 0.6s ease forwards;
+}
+
+.cjh-fade--0 { animation-delay: 0.5s; }
+.cjh-fade--1 { animation-delay: 1.2s; }
+.cjh-fade--2 { animation-delay: 1.85s; }
+.cjh-fade--3 { animation-delay: 2.5s; }
+
+@keyframes cjhFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 520px) {
+  .cjh-title { font-size: 13px; }
+  .cjh-cap { font-size: 9.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cjh-progress { stroke-dashoffset: 0; animation: none; }
+  .cjh-pop, .cjh-fade { opacity: 1; animation: none; }
+  .cjh-pop--3 .cjh-halo { animation: none; opacity: 0.4; }
+}

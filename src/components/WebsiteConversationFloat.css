@@ -25,13 +25,13 @@
   height: 6px;
   border-radius: 50%;
   background: var(--blue);
-  box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.2);
+  box-shadow: 0 0 0 3px rgba(79, 91, 213, 0.2);
   animation: webcfPulse 1.8s ease-in-out infinite;
 }
 
 @keyframes webcfPulse {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.2); }
-  50% { box-shadow: 0 0 0 6px rgba(109, 92, 231, 0.06); }
+  0%, 100% { box-shadow: 0 0 0 3px rgba(79, 91, 213, 0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(79, 91, 213, 0.06); }
 }
 
 .webcf-thread {
@@ -123,7 +123,7 @@
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
   color: #fff;
-  box-shadow: 0 18px 34px -16px rgba(109, 92, 231, 0.55);
+  box-shadow: 0 18px 34px -16px rgba(79, 91, 213, 0.55);
   animation: webcfFloat 4s ease-in-out infinite;
 }
 

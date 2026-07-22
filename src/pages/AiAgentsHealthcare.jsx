@@ -53,9 +53,9 @@ function AiAgentsHealthcare() {
 
       <Hero
         eyebrow="AI Agents"
-        title="AI agents that keep patients on schedule, and in the loop"
+        title={<>AI agents that keep patients on schedule, and <span className="grad-word">in the loop</span></>}
         subtitle="Autonomous scheduling, refill and lab-result reminders, and multilingual patient Q&A — connected to your systems and safe by design, across WhatsApp, SMS and voice."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
         visual={<AgentAnalyticsMock />}
       />
@@ -86,14 +86,14 @@ function AiAgentsHealthcare() {
 
       <WhyUsChecklist eyebrow="Why us" title={<>Why practices deploy an AI agent</>} items={WHY_US} alt />
 
-      <FAQ title={<>Healthcare agents — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Give patients 24/7 access, safely"
         subtitle="Deploy a healthcare agent that schedules, reminds and answers within your rules."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>Healthcare agents — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

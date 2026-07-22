@@ -40,9 +40,9 @@ function ChatbotEcommerce() {
 
       <Hero
         eyebrow="Ecommerce"
-        title="A chatbot that shops, tracks and handles returns"
+        title={<>A chatbot that shops, tracks and <span className="grad-word">handles returns</span></>}
         subtitle="Product discovery, order tracking and returns automation — connected to your store, live on WhatsApp, web and SMS."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Bulk SMS', href: '/bulk-sms' }}
       />
 
@@ -76,13 +76,13 @@ function ChatbotEcommerce() {
 
       <WhyUs title={<>Why stores automate with our chatbot</>} items={WHY_US} />
 
-      <FAQ title={<>Ecommerce chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Connect your store today"
         subtitle="Product discovery, WISMO and returns — live in minutes."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Ecommerce chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

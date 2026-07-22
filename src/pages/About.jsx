@@ -46,9 +46,9 @@ function About() {
 
       <Hero
         eyebrow="About"
-        title="One platform to reach customers, everywhere they are"
+        title={<>One platform to reach customers, <span className="grad-word">everywhere they are</span></>}
         subtitle="We build messaging infrastructure, chatbot tooling and agentic AI so businesses can run every conversation from one place, not five."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Products', href: '/products' }}
       />
 
@@ -99,13 +99,13 @@ function About() {
         </div>
       </section>
 
-      <FAQ title={<>About us — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="See the platform for yourself"
         subtitle="Talk to us about what you're trying to build."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>About us — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

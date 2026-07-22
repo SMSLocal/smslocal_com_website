@@ -1,0 +1,177 @@
+/* Use-cases filmstrip for /channels/rcs — horizontally scrollable, no
+   arrows/dots needed, just swipe/drag. Edge fade hints there's more. */
+
+.rcu-strip {
+  display: flex;
+  gap: 1.1rem;
+  margin: 2.6rem -1.5rem 0;
+  padding: 0.4rem 1.5rem 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  scrollbar-width: none;
+}
+
+.rcu-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.rcu-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.rcu-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.rcu-mock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: 0 20px 40px -26px rgba(16, 35, 63, 0.32);
+}
+
+.rcu-mock-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.rcu-av {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-size: 0.56rem;
+  font-weight: 800;
+}
+
+.rcu-mock-top strong {
+  font-size: 0.78rem;
+  color: var(--navy);
+  margin-right: auto;
+}
+
+.rcu-tick {
+  color: var(--blue);
+  font-size: 0.76rem;
+}
+
+.rcu-carousel-hint {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.rcu-carousel-hint span {
+  width: 14px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(79, 91, 213, 0.18);
+}
+
+.rcu-carousel-hint span:first-child {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+.rcu-title {
+  margin: 0 0 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.rcu-text {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.rcu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+}
+
+.rcu-btn {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  color: var(--blue);
+  border: 1.5px solid rgba(79, 91, 213, 0.3);
+}
+
+.rcu-btn--solid {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.rcu-thread {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.rcu-bubble {
+  margin: 0;
+  max-width: 88%;
+  padding: 0.5rem 0.65rem;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.rcu-bubble--in {
+  align-self: flex-start;
+  background: var(--bg-subtle);
+  color: var(--navy);
+  border-bottom-left-radius: 4px;
+}
+
+.rcu-bubble--out {
+  align-self: flex-end;
+  margin-left: auto;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-bottom-right-radius: 4px;
+}
+
+@media (max-width: 560px) {
+  .rcu-strip {
+    margin: 2.6rem -1rem 0;
+    padding: 0.4rem 1rem 1rem;
+  }
+  .rcu-card {
+    flex-basis: 230px;
+  }
+}

@@ -1,0 +1,281 @@
+.dnh {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: inherit;
+  gap: 0.35rem;
+}
+
+/* ---- Country selector ---- */
+.dnh-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.dnh-selector-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.dnh-chip-slot {
+  position: relative;
+  width: 96px;
+  height: 40px;
+}
+
+.dnh-chip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 22px -14px rgba(16, 35, 63, 0.4);
+  opacity: 0;
+}
+
+/* Base (reduced-motion) state shows the first country assembled */
+.dnh-chip--0 { opacity: 1; }
+
+.dnh-flag {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.dnh-code {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+/* ---- The assembling number ---- */
+.dnh-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.dnh-digit {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dnh-digit--space {
+  width: 0.4em;
+  white-space: pre;
+}
+
+.dnh-live {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.15rem;
+}
+
+/* ---- Routing split ---- */
+.dnh-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.dnh-wires {
+  width: 100%;
+  height: 68px;
+  display: block;
+}
+
+.dnh-g0 { stop-color: var(--blue); }
+.dnh-g1 { stop-color: var(--cyan); }
+
+.dnh-wire {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 0;
+}
+
+.dnh-wire-node { fill: url(#dnhGrad); }
+.dnh-wire-dot--l { fill: var(--blue); }
+.dnh-wire-dot--r { fill: var(--cyan); }
+
+.dnh-dests {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  width: 100%;
+  margin-top: -0.35rem;
+}
+
+.dnh-dest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 138px;
+  padding: 0.6rem 0.7rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 34px -20px rgba(16, 35, 63, 0.4);
+}
+
+.dnh-dest-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  color: #fff;
+}
+
+.dnh-dest-icon svg { width: 16px; height: 16px; }
+
+.dnh-dest--voice .dnh-dest-icon { background: linear-gradient(135deg, var(--blue), #8b7bf0); }
+.dnh-dest--sms .dnh-dest-icon { background: linear-gradient(135deg, var(--cyan), var(--coral)); }
+
+.dnh-dest-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.dnh-dest-text strong {
+  font-size: 0.86rem;
+  color: var(--navy);
+}
+
+.dnh-dest-text span {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 400px) {
+  .dnh-number { font-size: 1.5rem; }
+  .dnh-dests { gap: 1rem; }
+  .dnh-dest { width: 128px; }
+}
+
+/* ---------------------------------------------------------------------------
+   Animation. The base styles above are the fully-assembled, correct state:
+   country chip #0 shown, all digits visible, wires drawn, destinations solid.
+   Motion only enhances, and is gated behind reduced-motion.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .dnh-chip--0 { animation: dnh-chip-hold 8s ease-in-out infinite; }
+  .dnh-chip--1 { animation: dnh-chip-b 8s ease-in-out infinite; }
+  .dnh-chip--2 { animation: dnh-chip-c 8s ease-in-out infinite; }
+  .dnh-chip--3 { animation: dnh-chip-d 8s ease-in-out infinite; }
+
+  .dnh-digit {
+    opacity: 0;
+    animation: dnh-digit-in 8s ease-in-out infinite;
+    animation-fill-mode: both;
+  }
+
+  .dnh-live {
+    opacity: 0;
+    animation: dnh-fade 8s ease-in-out infinite;
+    animation-delay: 3.2s;
+  }
+
+  .dnh-wire {
+    stroke-dashoffset: 120;
+    animation: dnh-draw 8s ease-in-out infinite;
+  }
+  .dnh-wire--l { animation-delay: 3.4s; }
+  .dnh-wire--r { animation-delay: 3.6s; }
+
+  .dnh-wire-node,
+  .dnh-wire-dot {
+    opacity: 0;
+    animation: dnh-fade 8s ease-in-out infinite;
+  }
+  .dnh-wire-node { animation-delay: 3.3s; }
+  .dnh-wire-dot--l { animation-delay: 4s; }
+  .dnh-wire-dot--r { animation-delay: 4.2s; }
+
+  .dnh-dest {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: dnh-dest-in 8s ease-in-out infinite;
+  }
+  .dnh-dest--voice { animation-delay: 4.1s; }
+  .dnh-dest--sms { animation-delay: 4.3s; }
+
+  /* Selector flips US -> UK -> IN -> AU during the first ~1.6s, then settles
+     back on US (which matches the +1 number) and holds for the rest of the loop. */
+  @keyframes dnh-chip-hold {
+    0%, 4% { opacity: 1; }
+    6%, 18% { opacity: 0; }
+    20%, 100% { opacity: 1; }
+  }
+  @keyframes dnh-chip-b {
+    0%, 5% { opacity: 0; }
+    6%, 9% { opacity: 1; }
+    10%, 100% { opacity: 0; }
+  }
+  @keyframes dnh-chip-c {
+    0%, 10% { opacity: 0; }
+    11%, 14% { opacity: 1; }
+    15%, 100% { opacity: 0; }
+  }
+  @keyframes dnh-chip-d {
+    0%, 15% { opacity: 0; }
+    16%, 19% { opacity: 1; }
+    20%, 100% { opacity: 0; }
+  }
+
+  @keyframes dnh-digit-in {
+    0%, 10% { opacity: 0; transform: translateY(6px) scale(0.9); }
+    20% { opacity: 1; transform: translateY(0) scale(1); }
+    90% { opacity: 1; transform: translateY(0) scale(1); }
+    97%, 100% { opacity: 0; transform: translateY(6px) scale(0.9); }
+  }
+
+  @keyframes dnh-fade {
+    0%, 4% { opacity: 0; }
+    12%, 90% { opacity: 1; }
+    98%, 100% { opacity: 0; }
+  }
+
+  @keyframes dnh-draw {
+    0%, 6% { stroke-dashoffset: 120; }
+    16%, 90% { stroke-dashoffset: 0; }
+    98%, 100% { stroke-dashoffset: 120; }
+  }
+
+  @keyframes dnh-dest-in {
+    0%, 6% { opacity: 0; transform: translateY(8px); }
+    16%, 90% { opacity: 1; transform: translateY(0); }
+    98%, 100% { opacity: 0; transform: translateY(8px); }
+  }
+}

@@ -1,0 +1,103 @@
+/* Asymmetric "one account" included-list for /why-smslocal.
+   Left lead + right hairline list on the section background. No card/box. */
+
+.oal-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.oal-lead {
+  position: sticky;
+  top: 6.5rem;
+  text-align: left;
+}
+
+.oal-lead .section-kicker {
+  text-align: left;
+}
+
+.oal-title {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin: 0.6rem 0 0.9rem;
+}
+
+.oal-sub {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 30ch;
+}
+
+/* included list */
+.oal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.oal-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding: 1.15rem 0.3rem;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.22s ease;
+}
+
+.oal-item:hover {
+  padding-left: 0.9rem;
+}
+
+.oal-plus {
+  flex: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.oal-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.oal-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.oal-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 760px) {
+  .oal-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .oal-lead {
+    position: static;
+  }
+
+  .oal-title {
+    font-size: 1.7rem;
+  }
+}

@@ -1,0 +1,70 @@
+.intg-nums .section-kicker { margin-bottom: 0.9rem; }
+
+.intg-nums-lead {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+  max-width: 560px;
+  margin: 0 auto 3.2rem;
+}
+
+.intg-nums-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: start;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.intg-nums-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.6rem;
+}
+
+/* Thin vertical hairline separators between the three numerals */
+.intg-nums-item + .intg-nums-item {
+  border-left: 1px solid var(--border);
+}
+
+.intg-nums-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intg-nums-label {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.intg-nums-sub {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  max-width: 200px;
+}
+
+@media (max-width: 640px) {
+  .intg-nums-row {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .intg-nums-item + .intg-nums-item {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-top: 2.2rem;
+  }
+}

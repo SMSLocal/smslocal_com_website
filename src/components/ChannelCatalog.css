@@ -1,0 +1,131 @@
+.chcat {
+  max-width: 940px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+
+.chcat-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.chcat-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.chcat-head-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--navy);
+  flex: none;
+}
+
+.chcat-head-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.35), var(--border) 60%);
+}
+
+.chcat-head-count {
+  flex: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.chcat-rows {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.4rem;
+}
+
+.chcat-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 0.35rem;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s ease;
+}
+
+.chcat-icon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.09);
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.chcat-icon svg { width: 19px; height: 19px; }
+
+.chcat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.chcat-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  transition: color 0.18s ease;
+}
+
+.chcat-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.chcat-go {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border);
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.chcat-row:hover .chcat-name {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.chcat-row:hover .chcat-icon {
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  transform: translateY(-1px);
+}
+
+.chcat-row:hover .chcat-go {
+  color: var(--blue);
+  transform: translateX(3px);
+}
+
+@media (max-width: 720px) {
+  .chcat-rows {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .chcat { gap: 2rem; }
+}

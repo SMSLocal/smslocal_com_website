@@ -1,0 +1,128 @@
+.msgflow {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.msgflow svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: inherit;
+}
+
+/* ---- text ---- */
+.msgflow-node-label {
+  text-anchor: middle;
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+
+.msgflow-hub-label {
+  text-anchor: middle;
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+
+.msgflow-hub-sub {
+  text-anchor: middle;
+  font-size: 11.5px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+}
+
+.msgflow-cap {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--blue);
+  dominant-baseline: middle;
+}
+
+/* ---- source nodes ---- */
+.msgflow-node-disc {
+  fill: #fff;
+  stroke-width: 1.5;
+}
+
+.msgflow-node-halo {
+  fill: currentColor;
+  opacity: 0.1;
+}
+
+.msgflow-node.is-support { color: #4f5bd5; }
+.msgflow-node.is-sales { color: #ec4899; }
+.msgflow-node.is-marketing { color: #14b8a6; }
+
+.msgflow-node-disc { stroke: currentColor; }
+.msgflow-node-glyph { color: currentColor; }
+
+/* ---- hub ---- */
+.msgflow-hub-pulse {
+  fill: #4f5bd5;
+  opacity: 0.16;
+}
+
+/* ---- flow overlay (dashed highlight travelling toward hub) ---- */
+.msgflow-flow {
+  stroke-dasharray: 16 190;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------------ *
+ * Motion — decorative only. Base (above) is a complete static state. *
+ * ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  .msgflow-flow {
+    opacity: 1;
+    animation: msgflow-stream 2.6s linear infinite;
+  }
+  .msgflow-flow.is-sales { animation-delay: 0.6s; }
+  .msgflow-flow.is-marketing { animation-delay: 1.2s; }
+
+  .msgflow-hub-pulse {
+    transform-origin: 300px 205px;
+    transform-box: view-box;
+    animation: msgflow-pulse 3s ease-in-out infinite;
+  }
+
+  .msgflow-ring {
+    transform-origin: 300px 205px;
+    transform-box: view-box;
+    animation: msgflow-spin 44s linear infinite;
+  }
+
+  .msgflow-node-halo {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: msgflow-breathe 3.4s ease-in-out infinite;
+  }
+  .msgflow-node.is-sales .msgflow-node-halo { animation-delay: 0.5s; }
+  .msgflow-node.is-marketing .msgflow-node-halo { animation-delay: 1s; }
+}
+
+/* Hide travelling dots for reduced-motion visitors (SMIL ignores the query). */
+@media (prefers-reduced-motion: reduce) {
+  .msgflow-dot { display: none; }
+}
+
+@keyframes msgflow-stream {
+  from { stroke-dashoffset: 206; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes msgflow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.16; }
+  50% { transform: scale(1.12); opacity: 0.05; }
+}
+
+@keyframes msgflow-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes msgflow-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+}

@@ -33,7 +33,7 @@ function ChatbotVsAiAgent() {
 
       <Hero
         eyebrow="Comparison"
-        title="Chatbot vs AI agent — what's actually different"
+        title={<>Chatbot vs AI agent — what's <span className="grad-word">actually different</span></>}
         subtitle="One follows a script and replies. The other reasons over context and takes action. Here's how to tell which one you need."
         primaryCta={{ label: 'Explore Chatbots', href: '/chatbot' }}
         secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents' }}
@@ -78,13 +78,13 @@ function ChatbotVsAiAgent() {
         alt
       />
 
-      <FAQ title={<>Chatbot vs AI agent — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Not sure which one fits your use case?"
         subtitle="Tell us what you're trying to automate — we'll point you to the right one."
-        cta={{ label: 'Talk to Us', href: '/contact' }}
+        cta={{ label: 'Talk to Us', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Chatbot vs AI agent — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

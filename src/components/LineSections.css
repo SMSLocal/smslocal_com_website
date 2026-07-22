@@ -1,0 +1,530 @@
+/* =====================================================================
+   LINE Business Messaging — bespoke, box-free sections.
+   Motifs are deliberately different from the Messenger page's set:
+   capability meter bars, alternating spotlight rows, a horizontal progress
+   tracker, a two-column VS split, a centred accordion, three hairline quotes
+   and a split CTA band. Teal-forward accent so the LINE page has its own
+   identity.
+   ===================================================================== */
+
+.ln-kicker {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  border-radius: 999px;
+  background: rgba(20, 184, 166, 0.07);
+  color: #0f9488;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ln-h2 {
+  font-size: 2.1rem;
+  color: var(--navy);
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+.ln-grad {
+  background: linear-gradient(90deg, #14b8a6, #4f5bd5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ln-head { text-align: center; max-width: 680px; margin: 0 auto 3.2rem; }
+.ln-head .ln-kicker { margin-bottom: 1rem; }
+.ln-head-title { text-align: center; }
+.ln-head-sub {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 0.7rem auto 0;
+  max-width: 560px;
+}
+
+/* =====================================================================
+   1 · Opportunity — copy + capability usage meters
+   ===================================================================== */
+.ln-opp { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; }
+.ln-opp-copy .ln-h2 { margin-top: 1rem; }
+.ln-lead { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.75; margin: 1.1rem 0 0; }
+.ln-lead strong { color: var(--navy); }
+.ln-lead a { color: #0f9488; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(20, 184, 166, 0.4); }
+.ln-lead a:hover { border-bottom-color: #0f9488; }
+
+.ln-meters-cap {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.ln-meter { padding: 0.65rem 0; }
+.ln-meter-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.4rem; }
+.ln-meter-name { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+.ln-meter-pct { font-size: 0.76rem; font-weight: 700; color: var(--text-secondary); }
+.ln-meter-track { height: 7px; border-radius: 999px; background: #eceef1; overflow: hidden; }
+.ln-meter-fill { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #14b8a6, #4f5bd5); }
+.ln-meter--low .ln-meter-name { color: #6b7178; font-weight: 500; }
+.ln-meter--low .ln-meter-fill { background: #cfd4da; }
+
+/* =====================================================================
+   2 · Capabilities — one LINE chat screen cycling through each capability,
+   with a captioned dot-picker beside it.
+   ===================================================================== */
+.ln-demo-stage {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 780px;
+  margin: 3rem auto 0;
+}
+
+.ln-demo-phone {
+  position: relative;
+  flex: none;
+  width: 220px;
+  aspect-ratio: 9 / 17;
+  background: linear-gradient(165deg, #1c2a2e, #0d1517);
+  border-radius: 34px;
+  padding: 8px;
+  box-shadow: 0 30px 60px -28px rgba(13, 21, 23, 0.55);
+}
+
+.ln-demo-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 14px;
+  background: #0b1112;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.ln-demo-screen {
+  height: 100%;
+  background: #f4faf9;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ln-demo-status {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.9rem 0.2rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.ln-demo-status-icons {
+  font-size: 0.55rem;
+  letter-spacing: 0.05em;
+}
+
+.ln-demo-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.9rem 0.7rem;
+  border-bottom: 1px solid rgba(20, 184, 166, 0.15);
+}
+
+.ln-demo-avatar {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #14b8a6, #34d3bd);
+}
+
+.ln-demo-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.2;
+}
+
+.ln-demo-header-text strong {
+  font-size: 0.76rem;
+  color: var(--navy);
+}
+
+.ln-demo-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.ln-demo-online i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #14b8a6;
+}
+
+.ln-demo-thread {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 0.9rem;
+  overflow: hidden;
+}
+
+.ln-demo-msg.lead {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  max-width: 88%;
+  box-shadow: 0 4px 10px -6px rgba(16, 35, 63, 0.15);
+}
+
+.ln-demo-current {
+  width: 100%;
+  animation: lnDemoIn 0.35s ease both;
+}
+
+@keyframes lnDemoIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ln-demo-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 8px 20px -12px rgba(20, 184, 166, 0.4);
+}
+
+.ln-demo-flex-img {
+  display: block;
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #14b8a6, #34d3bd);
+}
+
+.ln-demo-flex-btn {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  background: #14b8a6;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+}
+
+.ln-demo-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.ln-demo-menu-item {
+  text-align: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #14b8a6;
+  background: rgba(20, 184, 166, 0.1);
+  border-radius: 10px;
+  padding: 0.7rem 0.3rem;
+}
+
+.ln-demo-coupon {
+  align-items: flex-start;
+  background: linear-gradient(135deg, #14b8a6, #34d3bd);
+  color: #fff;
+  box-shadow: 0 8px 20px -12px rgba(20, 184, 166, 0.55);
+}
+
+.ln-demo-coupon-pts {
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.ln-demo-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.ln-demo-msg {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  width: fit-content;
+  max-width: 88%;
+}
+
+.ln-demo-msg.user {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--navy);
+}
+
+.ln-demo-msg.bot {
+  align-self: flex-end;
+  background: #14b8a6;
+  color: #fff;
+}
+
+.ln-demo-caption {
+  flex: 1;
+  min-width: 0;
+  animation: lnDemoIn 0.35s ease both;
+}
+
+.ln-demo-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ln-demo-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.ln-demo-dots button.active {
+  background: #14b8a6;
+  transform: scale(1.3);
+}
+
+.ln-cap-title { font-size: 1.25rem; color: var(--navy); margin: 0 0 0.4rem; }
+.ln-cap-desc { color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0; }
+
+@media (max-width: 720px) {
+  .ln-demo-stage {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ln-demo-dots {
+    justify-content: center;
+  }
+}
+
+/* =====================================================================
+   3 · Steps — horizontal progress tracker
+   ===================================================================== */
+.ln-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.ln-track::before {
+  content: '';
+  position: absolute;
+  top: 23px;
+  left: 16.6%;
+  right: 16.6%;
+  height: 2px;
+  background: linear-gradient(90deg, #14b8a6, #4f5bd5);
+}
+.ln-step { text-align: center; padding: 0 1.2rem; }
+.ln-step-dot {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid #14b8a6;
+  color: #0f9488;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.ln-step-title { font-size: 1.1rem; color: var(--navy); margin: 0 0 0.5rem; }
+.ln-step-desc { color: var(--text-secondary); font-size: 0.94rem; line-height: 1.6; margin: 0; }
+
+/* =====================================================================
+   4 · Compare — two lists split by a centre VS divider
+   ===================================================================== */
+.ln-vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2.8rem; align-items: stretch; max-width: 900px; margin: 0 auto; }
+.ln-vs-col { display: flex; flex-direction: column; }
+.ln-vs-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.3rem;
+  color: var(--text-secondary);
+}
+.ln-vs-col--accent .ln-vs-label { color: #0f9488; }
+.ln-vs-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.2rem; }
+.ln-vs-item { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+.ln-vs-item:last-child { border-bottom: none; }
+.ln-vs-item svg { flex: none; width: 16px; height: 16px; margin-top: 2px; }
+.ln-vs-feat { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #aeb3ba; margin-bottom: 0.15rem; }
+.ln-vs-val { font-size: 0.92rem; color: #6b7178; }
+.ln-vs-col--accent .ln-vs-val { color: var(--navy); font-weight: 600; }
+.ln-i-x { color: #c8ccd2; }
+.ln-i-check { color: #14b8a6; }
+.ln-vs-mid { display: flex; flex-direction: column; align-items: center; }
+.ln-vs-line { flex: 1; width: 1px; background: var(--border); }
+.ln-vs-badge {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.4rem 0;
+  background: linear-gradient(135deg, #14b8a6, #4f5bd5);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+/* =====================================================================
+   5 · FAQ — centred single-column accordion
+   ===================================================================== */
+.ln-faq { max-width: 780px; margin: 0 auto; }
+.ln-faq-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border); }
+.ln-faq-item { border-bottom: 1px solid var(--border); }
+.ln-faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+.ln-faq-caret {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: #14b8a6;
+  transition: transform 0.3s ease;
+}
+.ln-faq-item.is-open .ln-faq-caret { transform: rotate(180deg); }
+.ln-faq-a-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+.ln-faq-item.is-open .ln-faq-a-wrap { grid-template-rows: 1fr; }
+.ln-faq-a-inner { overflow: hidden; }
+.ln-faq-a-inner p { margin: 0; padding: 0 0 1.4rem; color: var(--text-secondary); line-height: 1.7; font-size: 0.97rem; }
+
+/* =====================================================================
+   6 · Testimonials — three hairline-divided quotes
+   ===================================================================== */
+.ln-quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.ln-quote { padding: 0 2rem; border-left: 1px solid var(--border); }
+.ln-quote:first-child { border-left: none; padding-left: 0; }
+.ln-quote:last-child { padding-right: 0; }
+.ln-quote-mark { display: block; font-family: Georgia, serif; font-size: 3rem; line-height: 0.5; color: #14b8a6; opacity: 0.4; margin-bottom: 1rem; }
+.ln-quote-text { font-size: 1rem; line-height: 1.65; color: var(--navy); font-weight: 500; margin: 0 0 1.6rem; }
+.ln-quote-author { display: flex; align-items: center; gap: 0.7rem; }
+.ln-quote-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #14b8a6, #4f5bd5);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+.ln-quote-meta { display: flex; flex-direction: column; }
+.ln-quote-meta strong { color: var(--navy); font-size: 0.9rem; }
+.ln-quote-meta span { color: var(--text-secondary); font-size: 0.8rem; }
+
+/* =====================================================================
+   7 · CTA — split band (heading left, actions right)
+   ===================================================================== */
+.ln-cta {
+  padding: 4rem 0;
+  background:
+    radial-gradient(90% 140% at 0% 50%, rgba(20, 184, 166, 0.14), transparent 60%),
+    var(--bg-subtle);
+}
+.ln-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; }
+.ln-cta-title { font-size: 1.9rem; color: var(--navy); margin: 0 0 0.5rem; }
+.ln-cta-sub { color: var(--text-secondary); font-size: 1.02rem; margin: 0; max-width: 44ch; }
+.ln-cta-actions { display: flex; gap: 1.1rem; align-items: center; flex: none; }
+.ln-cta-secondary { color: #0f9488; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+.ln-cta-secondary:hover { text-decoration: underline; }
+
+/* =====================================================================
+   Responsive
+   ===================================================================== */
+@media (max-width: 860px) {
+  .ln-opp { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ln-cap-row { grid-template-columns: 1fr; gap: 1.2rem; padding: 2rem 0; }
+  .ln-cap-row.rev .ln-cap-figure { order: 0; justify-content: flex-start; }
+  .ln-cap-row.rev .ln-cap-body { order: 0; text-align: left; }
+  .ln-quotes-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+  .ln-quote { padding: 0; border-left: none; }
+  .ln-quote + .ln-quote { border-top: 1px solid var(--border); padding-top: 2.4rem; }
+}
+
+@media (max-width: 720px) {
+  .ln-h2 { font-size: 1.6rem; }
+  .ln-head { margin-bottom: 2.4rem; }
+  .ln-track { grid-template-columns: 1fr; gap: 2rem; max-width: 340px; }
+  .ln-track::before { display: none; }
+  .ln-vs { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ln-vs-mid { flex-direction: row; width: 100%; }
+  .ln-vs-line { width: 100%; height: 1px; flex: 1; }
+  .ln-vs-badge { margin: 0 0.8rem; }
+  .ln-cta-title { font-size: 1.55rem; }
+  .ln-cta-inner { flex-direction: column; align-items: flex-start; }
+}

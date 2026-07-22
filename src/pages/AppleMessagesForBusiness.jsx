@@ -1,17 +1,27 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, CompareTable, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconCalendar, IconDollar, IconShield, IconBrain, IconMail, IconLink, IconUsers, IconChat, IconBolt, IconPencil } from '../components/icons.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { IconCalendar, IconDollar, IconShield, IconChat, IconMail, IconUsers, IconLink } from '../components/icons.jsx'
 import AppleMessagesHeroMock from '../components/AppleMessagesHeroMock.jsx'
-import AppleMessagesCapabilityGrid from '../components/AppleMessagesCapabilityGrid.jsx'
-import AppleStepsBrackets from '../components/AppleStepsBrackets.jsx'
-import WhyUsReceipt from '../components/WhyUsReceipt.jsx'
-import EcosystemHexGrid from '../components/EcosystemHexGrid.jsx'
+import './AppleMessagesForBusiness.css'
 
-const HERO_BADGES = [
-  { icon: <IconCalendar />, word: 'Pickers', desc: 'lists, times & options in-chat' },
-  { icon: <IconDollar />, word: 'Apple Pay', desc: 'checkout without leaving Messages' },
-  { icon: <IconShield />, word: 'Approved', desc: 'sent through an official MSP' },
-  { icon: <IconBrain />, word: 'AI', desc: 'answers folded into one inbox' },
+const FORMATS = [
+  { icon: <IconCalendar />, title: 'List & time pickers', desc: 'Customers tap a slot, size or option right inside the thread — no forms, no links out.' },
+  { icon: <IconDollar />, title: 'Apple Pay', desc: 'Take a deposit or full payment without the customer ever leaving Messages.' },
+  { icon: <IconChat />, title: 'Rich links & tapbacks', desc: 'Branded link previews, images and reaction tapbacks — not plain grey texts.' },
+  { icon: <IconShield />, title: 'Verified brand', desc: 'Your name, logo and colour sit at the top of every conversation.' },
+]
+
+const DIRECT = [
+  'Apply as your own Messages Service Provider',
+  'Wait through Apple’s review and verification',
+  'Build list pickers and Apple Pay yourself',
+  'No shared inbox with your other channels',
+]
+const ONUS = [
+  'Send through our already-approved MSP status',
+  'Live as soon as your business is verified',
+  'List pickers, time pickers and Apple Pay, ready-made',
+  'Sits beside WhatsApp, SMS and email in one inbox',
 ]
 
 const STEPS = [
@@ -20,26 +30,11 @@ const STEPS = [
   { title: 'Go live in one inbox', desc: 'Every Business Chat conversation lands beside your other channels.' },
 ]
 
-const COMPARE_ROWS = [
-  { feature: 'Access', left: 'Requires a Messages Service Provider', right: 'We are the approved MSP for you' },
-  { feature: 'Message format', left: 'Plain text only', right: 'List pickers, time pickers, Apple Pay' },
-  { feature: 'Team access', left: 'One login at a time', right: 'Unlimited team seats' },
-  { feature: 'Integrations', left: 'None', right: 'CRM, helpdesk & store integrations' },
-  { feature: 'Reporting', left: 'No analytics', right: 'Delivery, read & reply reporting' },
-]
-
-const WHY_US = [
+const WHY = [
   { icon: <IconShield />, title: 'We are the approved path', desc: 'Apple requires an approved Messages Service Provider — that paperwork and review is on us, not you.' },
-  { icon: <IconUsers />, title: 'Built for teams', desc: 'Multiple agents can work the same Business Chat inbox without stepping on each other.' },
-  { icon: <IconLink />, title: 'Works with your stack', desc: 'Connect your CRM, helpdesk or store so every reply has real order and customer context.' },
+  { icon: <IconUsers />, title: 'Built for teams', desc: 'Multiple agents work the same Business Chat inbox without stepping on each other.' },
+  { icon: <IconLink />, title: 'Works with your stack', desc: 'Connect your CRM, helpdesk or store so every reply carries real order and customer context.' },
   { icon: <IconMail />, title: 'One inbox, every channel', desc: 'Apple Messages sits beside WhatsApp, SMS and email in the same shared inbox.' },
-]
-
-const ECOSYSTEM = [
-  { icon: <IconChat />, title: 'WhatsApp, too', desc: 'Run Apple Messages alongside WhatsApp Business API from the same inbox.', href: '/whatsapp-business-api' },
-  { icon: <IconBolt />, title: 'SMS fallback', desc: 'Keep a universal channel in reach for customers on Android or outside iMessage.', href: '/bulk-sms' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers Apple Messages can carry a conversation across every channel.', href: '/ai-agents/customer-service' },
-  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design list pickers and reply flows visually, without writing code.', href: '/chatbot/builder' },
 ]
 
 const TESTIMONIALS = [
@@ -66,83 +61,104 @@ function AppleMessagesForBusiness() {
 
       <Hero
         eyebrow="Apple Messages"
-        title="Native iMessage business chat, sent through an approved provider"
+        title={<>Native <span className="grad-word">iMessage</span> business chat, sent through an approved provider</>}
         subtitle="Rich links, list pickers, Apple Pay and reactions — delivered to the Messages app customers already trust, with Apple's required approval handled for you."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<AppleMessagesHeroMock />}
       />
 
-      <div className="hero-badges-wrap">
+      {/* INNER 1 — rich formats: open 4-column band with hairline dividers */}
+      <section className="section am-formats">
         <div className="container">
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <div className="hero-badge" key={b.word}>
-                <span className="hero-badge-icon">{b.icon}</span>
-                <div className="hero-badge-text">
-                  <strong>{b.word}</strong>
-                  <span>{b.desc}</span>
+          <span className="section-kicker">Rich formats</span>
+          <h2 className="section-title">Messages that do more than say hello</h2>
+          <div className="am-format-band">
+            {FORMATS.map((f) => (
+              <div className="am-format" key={f.title}>
+                <span className="am-format-icon">{f.icon}</span>
+                <h3>{f.title}</h3>
+                <p>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INNER 2 — the approval gate: two lists split by a checkpoint badge */}
+      <section className="section section-alt am-gate">
+        <div className="container">
+          <span className="section-kicker">The catch</span>
+          <h2 className="section-title">Apple decides who can send. We are already through the gate.</h2>
+          <p className="section-subtitle am-gate-sub">Apple Messages for Business isn’t an open API — every message must go through an approved Messages Service Provider. The bottleneck isn’t the chat, it’s the approval.</p>
+          <div className="am-gate-grid">
+            <div className="am-gate-col am-gate-col--direct">
+              <span className="am-gate-label">Going direct</span>
+              <ul>
+                {DIRECT.map((d) => <li key={d}>{d}</li>)}
+              </ul>
+            </div>
+            <div className="am-gate-badge" aria-hidden="true">
+              <span className="am-gate-lock">✓</span>
+              <span>Apple-approved MSP</span>
+            </div>
+            <div className="am-gate-col am-gate-col--us">
+              <span className="am-gate-label">On SMSLocal</span>
+              <ul>
+                {ONUS.map((o) => <li key={o}>{o}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INNER 3 — how it works: vertical timeline rail */}
+      <section className="section am-steps">
+        <div className="container">
+          <span className="section-kicker">How it works</span>
+          <h2 className="section-title">Go live on Apple Messages in three steps</h2>
+          <ol className="am-timeline">
+            {STEPS.map((s, i) => (
+              <li className="am-tl-item" key={s.title}>
+                <span className="am-tl-node">{i + 1}</span>
+                <div className="am-tl-body">
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* INNER 4 — why us: quadrant with center cross */}
+      <section className="section section-alt am-why">
+        <div className="container">
+          <span className="section-kicker">Why us</span>
+          <h2 className="section-title">Why brands choose SMSLocal as their MSP</h2>
+          <div className="am-quad">
+            {WHY.map((w) => (
+              <div className="am-quad-cell" key={w.title}>
+                <span className="am-quad-icon">{w.icon}</span>
+                <div>
+                  <h3>{w.title}</h3>
+                  <p>{w.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-
-      <NarrativeCompare
-        heading={<>You can't just start sending Apple Business Chat. Apple decides who can.</>}
-        paragraphs={[
-          'Apple Messages for Business is not an open API — every message has to be sent through a Messages Service Provider that Apple has reviewed and approved. Most teams discover this only after trying to integrate it directly.',
-          "So the real bottleneck isn't the chat experience, it's getting approved in the first place: the MSP application, the business verification, the review queue.",
-          <>We are an approved Messages Service Provider, so <strong>the approval process is already done</strong> — you connect your business and start sending.</>,
-        ]}
-        leftLabel="Going direct"
-        leftItems={[
-          'Apply as your own Messages Service Provider',
-          'Wait through Apple\'s review and verification',
-          'Build list pickers and Apple Pay integration yourself',
-          'No shared inbox with your other channels',
-        ]}
-        rightLabel="Apple Messages, on SMSLocal"
-        rightItems={[
-          'Send through our already-approved MSP status',
-          'Live once your business is verified with us',
-          'List pickers, time pickers and Apple Pay, ready-made',
-          'Sits beside WhatsApp, SMS and email in one inbox',
-        ]}
-        alt
-      />
-
-      <AppleMessagesCapabilityGrid />
-
-      <AppleStepsBrackets eyebrow="How it works" title={<>Go live on Apple Messages in three steps</>} steps={STEPS} alt />
-
-      <CompareTable
-        title={<>Going direct vs the SMSLocal path</>}
-        subtitle="Apple requires an approved provider either way — here's what changes when that provider is us."
-        leftLabel="Going Direct"
-        rightLabel="SMSLocal"
-        rows={COMPARE_ROWS}
-      />
-
-      <WhyUsReceipt eyebrow="Why us" title={<>Why brands choose SMSLocal as their MSP</>} items={WHY_US} alt />
-
-      <EcosystemHexGrid
-        eyebrow="Ecosystem"
-        title={<>Apple Messages fits right into your messaging stack</>}
-        subtitle="Pair Apple Messages with WhatsApp, SMS fallback and agentic AI across the same conversations."
-        items={ECOSYSTEM}
-      />
+      </section>
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} alt />
-
-      <FAQ title={<>Apple Messages for Business — frequently asked questions</>} items={FAQS} />
 
       <CTABanner
         title="Bring your brand into iMessage the right way"
         subtitle="We handle Apple's approval — you handle the conversation."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Apple Messages for Business — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

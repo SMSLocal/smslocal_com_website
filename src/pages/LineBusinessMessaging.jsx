@@ -1,17 +1,28 @@
+import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, CompareTable, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconPackage, IconUsers, IconMail, IconBrain, IconLink, IconShield, IconChat, IconBolt, IconPencil } from '../components/icons.jsx'
-import LineHeroMock from '../components/LineHeroMock.jsx'
-import LineCapabilityGrid from '../components/LineCapabilityGrid.jsx'
-import LineStepsList from '../components/LineStepsList.jsx'
-import WhyUsCenterDivider from '../components/WhyUsCenterDivider.jsx'
-import EcosystemAccentList from '../components/EcosystemAccentList.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { IconPackage, IconMenu, IconReceipt, IconChat } from '../components/icons.jsx'
+import LineHeroLoyalty from '../components/LineHeroLoyalty.jsx'
+import LineUsageRings from '../components/LineUsageRings.jsx'
+import {
+  CapabilitySpotlight,
+  StepTracker,
+  CompareVS,
+} from '../components/LineSections.jsx'
 
-const HERO_BADGES = [
-  { icon: <IconPackage />, word: 'Flex', desc: 'custom rich message cards' },
-  { icon: <IconUsers />, word: 'Loyalty', desc: 'points & coupons in-chat' },
-  { icon: <IconMail />, word: 'Shared', desc: 'inbox with your other channels' },
-  { icon: <IconBrain />, word: 'AI', desc: 'answers folded into one inbox' },
+const METERS = [
+  { name: 'Broadcast blasts', pct: 92 },
+  { name: 'Flex messages', pct: 12 },
+  { name: 'Rich menu', pct: 15 },
+  { name: 'Loyalty & coupons', pct: 8 },
+  { name: 'Two-way chat', pct: 18 },
+]
+
+const CAPABILITIES = [
+  { icon: <IconPackage />, title: 'Flex messages', desc: 'Design rich, branded message cards — images, buttons and custom layouts — from templates or your own assets, with no developer needed each time.' },
+  { icon: <IconMenu />, title: 'Rich menu', desc: 'An always-on, tappable menu pinned to the bottom of the chat that sends people straight to shop, orders, rewards or support in a single tap.' },
+  { icon: <IconReceipt />, title: 'Loyalty & coupons', desc: 'Issue points and coupons right inside the conversation, so rewards live in the same thread as the chat and the order — not a separate app.' },
+  { icon: <IconChat />, title: 'Two-way chat', desc: 'Real conversations, not one-way blasts — every reply lands in your shared inbox with full history, assignment and AI handoff.' },
 ]
 
 const STEPS = [
@@ -26,20 +37,6 @@ const COMPARE_ROWS = [
   { feature: 'Rich messages', left: 'Basic templates only', right: 'Custom flex messages & rich menus' },
   { feature: 'Integrations', left: 'None', right: 'CRM, helpdesk & store integrations' },
   { feature: 'Reporting', left: 'Basic message counts', right: 'Delivery, read & reply analytics' },
-]
-
-const WHY_US = [
-  { icon: <IconUsers />, title: 'Built for teams', desc: 'Multiple agents work the same LINE inbox without stepping on each other.' },
-  { icon: <IconLink />, title: 'Works with your stack', desc: 'Connect your CRM, helpdesk or store so every reply has real context.' },
-  { icon: <IconShield />, title: 'Official Messaging API', desc: 'Runs on the official LINE Messaging API — not a workaround that risks your account.' },
-  { icon: <IconMail />, title: 'One inbox, every channel', desc: 'LINE sits beside WhatsApp, SMS and email in the same shared inbox.' },
-]
-
-const ECOSYSTEM = [
-  { icon: <IconChat />, title: 'WhatsApp, too', desc: 'Run LINE alongside WhatsApp Business API from the same shared inbox.', href: '/whatsapp-business-api' },
-  { icon: <IconBolt />, title: 'SMS fallback', desc: 'Keep a universal channel in reach for customers outside LINE.', href: '/bulk-sms' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers LINE messages can carry a conversation across every channel.', href: '/ai-agents/customer-service' },
-  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design flex messages and reply flows visually, without writing code.', href: '/chatbot/builder' },
 ]
 
 const TESTIMONIALS = [
@@ -66,82 +63,64 @@ function LineBusinessMessaging() {
 
       <Hero
         eyebrow="LINE"
-        title="Your LINE Official Account, run like a real channel"
+        title={<>Your LINE Official Account, run like <span className="grad-word">a real channel</span></>}
         subtitle="Two-way chat, flex messages and a rich menu — integrated with WhatsApp, SMS and the rest of your channels, not run in isolation."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<LineHeroMock />}
+        visual={<LineHeroLoyalty />}
       />
 
-      <div className="hero-badges-wrap">
-        <div className="container">
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <div className="hero-badge" key={b.word}>
-                <span className="hero-badge-icon">{b.icon}</span>
-                <div className="hero-badge-text">
-                  <strong>{b.word}</strong>
-                  <span>{b.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <NarrativeCompare
-        heading={<>A LINE Official Account that only broadcasts is leaving half the platform unused.</>}
+      <LineUsageRings
+        eyebrow="The opportunity"
+        heading="A broadcast-only LINE account leaves half the platform unused."
         paragraphs={[
-          "Most businesses use LINE for one thing: blasting a message to every follower. That's a fraction of what an Official Account can actually do — flex messages, a rich menu, loyalty points, and two-way conversations all live on the same platform, mostly untouched.",
-          'So replies pile up in a generic inbox nobody owns, loyalty programs stay disconnected from chat, and the same customer messaging you on WhatsApp starts from zero again on LINE.',
-          <>Run LINE as a real channel — <strong>flex messages, rich menu and replies in the same inbox as everything else</strong> — and it stops being just a broadcast list.</>,
+          <>Most businesses use LINE for one thing — blasting followers. Flex messages, a rich menu, loyalty and two-way chat all sit on the same Official Account, mostly untouched. Run LINE as a real channel beside your <Link to="/bulk-sms">SMS</Link> and <Link to="/ai-agents/customer-service">AI</Link>, and it stops being just a broadcast list.</>,
         ]}
-        leftLabel="LINE, broadcast-only"
-        leftItems={[
-          'One-way blasts to every follower',
-          'Replies land in a separate, unowned inbox',
-          'Loyalty and orders disconnected from chat',
-          'Starts from zero versus your other channels',
-        ]}
-        rightLabel="LINE, on SMSLocal"
-        rightItems={[
-          'Flex messages, rich menu and two-way chat',
-          'Every reply lands in your shared inbox',
-          'Points, orders and chat in one conversation',
-          'One record across LINE, WhatsApp and SMS',
-        ]}
+        caption="What a broadcast-only account actually uses"
+        meters={METERS}
+      />
+
+      <CapabilitySpotlight
+        eyebrow="Capabilities"
+        title="Everything a LINE Official Account can really do"
+        subtitle="Four things a broadcast list can't — all in the same conversation."
+        items={CAPABILITIES}
         alt
       />
 
-      <LineCapabilityGrid />
+      <StepTracker eyebrow="How it works" title="Go live on LINE in three steps" steps={STEPS} />
 
-      <LineStepsList eyebrow="How it works" title={<>Go live on LINE in three steps</>} steps={STEPS} alt />
-
-      <CompareTable
-        title={<>Official Account app vs the Messaging API</>}
+      <CompareVS
+        eyebrow="Comparison"
+        title="Official Account app vs the Messaging API"
         subtitle="The native app works for one person. The API is built for a team and for scale."
         leftLabel="Official Account App"
         rightLabel="SMSLocal API"
         rows={COMPARE_ROWS}
+        alt
       />
 
-      <WhyUsCenterDivider eyebrow="Why us" title={<>Why brands run LINE on SMSLocal</>} items={WHY_US} alt />
-
-      <EcosystemAccentList
-        eyebrow="Ecosystem"
-        title={<>LINE fits right into your messaging stack</>}
-        subtitle="Pair LINE with WhatsApp, SMS fallback and agentic AI across the same conversations."
-        items={ECOSYSTEM}
+      <Testimonials
+        eyebrow="Experience Their Journey"
+        title={<>Why brands run LINE with <span className="grad-word">SMSLocal</span></>}
+        subtitle="From ecommerce to support teams, growing brands use SMSLocal to turn their LINE Official Account into a real channel."
+        items={TESTIMONIALS}
       />
-
-      <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} alt />
-
-      <FAQ title={<>LINE business messaging — frequently asked questions</>} items={FAQS} />
 
       <CTABanner
+        eyebrow="Get Started"
         title="Turn your LINE account into a real channel"
         subtitle="Flex messages, rich menu and one shared inbox — live in days."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+      />
+
+      <FAQ
+        eyebrow="Answers To Your Questions"
+        title={<>LINE business messaging <span className="grad-word">questions</span></>}
+        subtitle="Everything about running your LINE Official Account at scale — flex messages, rich menus, shared inbox and the Messaging API."
+        items={FAQS}
+        alt
       />
     </>
   )

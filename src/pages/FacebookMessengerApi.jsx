@@ -1,16 +1,22 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, CompareTable, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconClock, IconBrain, IconChart, IconUsers, IconLink, IconShield, IconBolt, IconChat, IconPencil, IconCheck } from '../components/icons.jsx'
-import MessengerHeroMock from '../components/MessengerHeroMock.jsx'
-import MessengerStepsUnderline from '../components/MessengerStepsUnderline.jsx'
-import WhyUsDiamonds from '../components/WhyUsDiamonds.jsx'
-import EcosystemChipsRow from '../components/EcosystemChipsRow.jsx'
+import MessengerHeroFlow from '../components/MessengerHeroFlow.jsx'
+import MessengerScorecard from '../components/MessengerScorecard.jsx'
+import MessengerUseCases from '../components/MessengerUseCases.jsx'
+import { ProblemSplit, StepFlow } from '../components/MessengerSections.jsx'
 
 const HERO_BADGES = [
   { icon: <IconClock />, word: '24/7', desc: 'coverage on Messenger' },
   { icon: <IconBolt />, word: '<10s', desc: 'typical first reply' },
   { icon: <IconCheck />, word: 'Most', desc: 'questions handled by AI' },
   { icon: <IconUsers />, word: 'One', desc: 'record across every channel' },
+]
+
+const MOMENTS = [
+  { time: '11:58 PM', text: '“Is this back in stock?”' },
+  { time: 'Sun 8:04 AM', text: '“Where has my order got to?”' },
+  { time: 'Public holiday', text: '“Can I still change my address?”' },
 ]
 
 const STEPS = [
@@ -35,8 +41,8 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconChat />, title: 'Instagram, too', desc: 'Run Messenger alongside Instagram DMs from the same shared inbox.', href: '/instagram-messaging-api' },
-  { icon: <IconBolt />, title: 'WhatsApp Business API', desc: 'Add WhatsApp as a verified, branded channel next to Messenger.', href: '/whatsapp-business-api' },
+  { icon: <IconChat />, title: 'Instagram, too', desc: 'Run Messenger alongside Instagram DMs from the same shared inbox.', href: '/channels/instagram' },
+  { icon: <IconBolt />, title: 'WhatsApp Business API', desc: 'Add WhatsApp as a verified, branded channel next to Messenger.', href: '/channels/whatsapp' },
   { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers Messenger can carry a conversation across every channel.', href: '/ai-agents/customer-service' },
   { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design your persistent menu and reply flows visually, without writing code.', href: '/chatbot/builder' },
 ]
@@ -65,82 +71,55 @@ function FacebookMessengerApi() {
 
       <Hero
         eyebrow="Messenger"
-        title="One Facebook Messenger API for support, sales and marketing"
+        title={<>One <span className="grad-word">Facebook Messenger</span> API for support, sales and marketing</>}
         subtitle="Automate replies, stay inside Meta's messaging window rules, and route every conversation into one shared inbox — without ever leaving Messenger."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<MessengerHeroMock />}
+        visual={<MessengerHeroFlow />}
       />
 
-      <div className="hero-badges-wrap">
-        <div className="container">
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <div className="hero-badge" key={b.word}>
-                <span className="hero-badge-icon">{b.icon}</span>
-                <div className="hero-badge-text">
-                  <strong>{b.word}</strong>
-                  <span>{b.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <NarrativeCompare
-        heading={<>Your Page gets messages all night. Your team clocks out.</>}
+      <ProblemSplit
+        eyebrow="The problem"
+        heading="Your Page gets messages all night. Your team clocks out."
         paragraphs={[
-          "Customers treat a Facebook Page like a text thread — they ask about stock at midnight, shipping on a Sunday, and where an order is stuck on a public holiday. Every hour that goes unanswered, the intent cools and the sale slips away.",
-          "So the Page inbox turns into a second, disconnected queue. Someone checks it between other tasks, replies land hours late, and there's no link to the order, the past conversation, or the message the same customer sent on Instagram.",
-          <>Agentic AI answering inside your main inbox closes that gap — <strong>instant replies around the clock</strong>, and a clean handoff to your team for anything that actually needs a human.</>,
+          <>Customers treat a Facebook Page like a text thread — asking at midnight, on a Sunday, on a public holiday — and every hour unanswered, the sale slips away. Agentic AI answering inside your main inbox closes that gap with <strong>instant replies around the clock</strong>, and a clean handoff for anything that needs a human.</>,
         ]}
-        leftLabel="Messenger, left alone"
-        leftItems={[
-          'Replies land hours after the question',
-          'No coverage overnight or on weekends',
-          'No link to the order or past conversation',
-          'A separate inbox nobody really owns',
-        ]}
-        rightLabel="Messenger, with SMSLocal"
-        rightItems={[
-          'AI answers in seconds, 24/7',
-          'Complex chats routed to the right person',
-          'Order and history attached to every thread',
-          'One inbox shared across the whole team',
-        ]}
-        alt
+        logTitle="Messages that missed you"
+        moments={MOMENTS}
+        outcome="Answered in seconds — day, night, weekend or holiday."
       />
 
-      <MessengerStepsUnderline eyebrow="How it works" title={<>Go live on Messenger in three steps</>} steps={STEPS} />
+      <StepFlow eyebrow="How it works" title="Go live on Messenger in three steps" steps={STEPS} alt />
 
-      <CompareTable
-        title={<>Meta Business Suite vs the Messenger API</>}
-        subtitle="The native inbox works for one person. The API is built for a team and for scale."
-        leftLabel="Business Suite"
-        rightLabel="SMSLocal API"
-        rows={COMPARE_ROWS}
-        alt
+      <MessengerUseCases
+        eyebrow="See it in action"
+        title="The everyday questions it answers for you"
+        subtitle="Real Messenger threads, handled automatically — with a clean handoff whenever a human is needed."
       />
 
-      <WhyUsDiamonds eyebrow="Why us" title={<>Why teams automate Messenger with SMSLocal</>} items={WHY_US} />
+      <MessengerScorecard eyebrow="Why us" title="Why teams automate Messenger with SMSLocal" />
 
-      <EcosystemChipsRow
-        eyebrow="Ecosystem"
-        title={<>Messenger fits right into your messaging stack</>}
-        subtitle="Pair Messenger with Instagram, WhatsApp and agentic AI across the same conversations."
-        items={ECOSYSTEM}
-        alt
+      <Testimonials
+        eyebrow="Experience Their Journey"
+        title={<>Why teams automate Messenger with <span className="grad-word">SMSLocal</span></>}
+        subtitle="From support teams to lead-gen, growing teams trust SMSLocal to handle Messenger conversations automatically."
+        items={TESTIMONIALS}
       />
-
-      <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} />
-
-      <FAQ title={<>Messenger API — frequently asked questions</>} items={FAQS} alt />
 
       <CTABanner
+        eyebrow="Get Started"
         title="Turn Messenger into a real support channel"
         subtitle="Connect your Page and start automating replies today."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+      />
+
+      <FAQ
+        eyebrow="Answers To Your Questions"
+        title={<>Messenger API questions, <span className="grad-word">answered</span></>}
+        subtitle="Everything about connecting your Facebook Page, automating replies, and handing off to a human when needed."
+        items={FAQS}
+        alt
       />
     </>
   )

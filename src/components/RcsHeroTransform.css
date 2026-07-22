@@ -1,0 +1,309 @@
+/* RCS hero — a phone showing the actual rich-card thread, with three
+   feature badges floating independently around it. Compact enough to fit
+   the hero-no-scroll rule (no crop/scroll on the hero frame). */
+
+.rcshero {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.rcshero-glow {
+  position: absolute;
+  z-index: 0;
+  inset: -8% -14%;
+  background: radial-gradient(60% 55% at 50% 45%, rgba(79, 91, 213, 0.2), rgba(236, 72, 153, 0.12) 55%, transparent 75%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* ---- floating feature badges ---- */
+.rcshero-badge {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 30px -16px rgba(16, 35, 63, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.rcshero-badge svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  color: var(--blue);
+}
+
+.rcshero-badge--a {
+  top: 6%;
+  left: -4%;
+  animation: rcshero-float-a 4.6s ease-in-out infinite;
+}
+
+.rcshero-badge--b {
+  top: 34%;
+  right: -8%;
+  animation: rcshero-float-b 5.2s ease-in-out infinite;
+}
+
+.rcshero-badge--c {
+  bottom: 10%;
+  left: -2%;
+  animation: rcshero-float-c 4.1s ease-in-out infinite;
+}
+
+@keyframes rcshero-float-a {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes rcshero-float-b {
+  0%, 100% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(9px) rotate(-1deg); }
+}
+
+@keyframes rcshero-float-c {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
+
+/* ---- phone frame ---- */
+.rcshero-phone {
+  position: relative;
+  z-index: 1;
+  width: 220px;
+  max-width: 100%;
+  aspect-ratio: 9 / 18;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(165deg, #2a3550, #131b2e);
+  border-radius: 40px;
+  padding: 8px;
+  box-shadow:
+    0 40px 70px -24px rgba(16, 35, 63, 0.55),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.08);
+}
+
+.rcshero-btn {
+  position: absolute;
+  background: linear-gradient(90deg, #0f1728, #263252);
+}
+
+.rcshero-btn--mute { left: -3px; top: 17%; width: 3px; height: 4%; border-radius: 2px 0 0 2px; }
+.rcshero-btn--vol-up { left: -3px; top: 24.5%; width: 3px; height: 7%; border-radius: 2px 0 0 2px; }
+.rcshero-btn--vol-down { left: -3px; top: 33.5%; width: 3px; height: 7%; border-radius: 2px 0 0 2px; }
+.rcshero-btn--power { right: -3px; top: 25%; width: 3px; height: 10%; border-radius: 0 2px 2px 0; }
+
+.rcshero-screen {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.rcshero-statusbar {
+  position: relative;
+  flex: none;
+  display: flex;
+  justify-content: center;
+  padding: 0.7rem 1.4rem 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.rcshero-island {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 15px;
+  background: #0b0f19;
+  border-radius: 999px;
+}
+
+.rcshero-header {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem 0.7rem;
+  border-bottom: 1px solid #eceff4;
+}
+
+.rcshero-avatar {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.rcshero-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+}
+
+.rcshero-header-text strong {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  color: var(--navy);
+}
+
+.rcshero-header-text span {
+  font-size: 0.58rem;
+  color: var(--text-secondary);
+}
+
+.rcshero-verified {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+}
+
+.rcshero-verified svg {
+  width: 7px;
+  height: 7px;
+}
+
+.rcshero-thread {
+  flex: 1;
+  min-height: 0;
+  padding: 0.7rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  overflow: hidden;
+}
+
+.rcshero-bubble--in {
+  align-self: flex-start;
+  max-width: 80%;
+  background: #eceef1;
+  color: #4a5058;
+  font-size: 0.66rem;
+  line-height: 1.45;
+  padding: 0.45rem 0.65rem;
+  border-radius: 12px;
+  border-top-left-radius: 4px;
+}
+
+.rcshero-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px -14px rgba(16, 35, 63, 0.3);
+}
+
+.rcshero-card-media {
+  position: relative;
+  height: 54px;
+  background:
+    radial-gradient(120% 140% at 15% 10%, rgba(79, 91, 213, 0.55), transparent 55%),
+    linear-gradient(135deg, rgba(79, 91, 213, 0.85), rgba(236, 72, 153, 0.85));
+}
+
+.rcshero-media-badge {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  background: rgba(11, 20, 36, 0.5);
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 700;
+  padding: 0.14rem 0.4rem;
+  border-radius: 999px;
+}
+
+.rcshero-card-body {
+  padding: 0.5rem 0.6rem 0.4rem;
+}
+
+.rcshero-card-body strong {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--navy);
+  margin-bottom: 0.18rem;
+}
+
+.rcshero-card-body p {
+  margin: 0;
+  font-size: 0.58rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.rcshero-card-actions {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.1rem 0.6rem 0.6rem;
+}
+
+.rcshero-card-btn {
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 91, 213, 0.35);
+  color: var(--blue);
+}
+
+.rcshero-card-btn--solid {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.rcshero-home-indicator {
+  flex: none;
+  width: 100px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(16, 35, 63, 0.28);
+  margin: 0 auto 0.45rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rcshero-badge {
+    animation: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .rcshero-badge {
+    display: none;
+  }
+}

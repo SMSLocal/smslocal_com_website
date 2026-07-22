@@ -1,0 +1,193 @@
+.ssh {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  width: 100%;
+  padding: 0.5rem 0.25rem;
+}
+
+.ssh-scene {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 400 / 340;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.ssh-wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ssh-base line {
+  stroke: var(--border);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ssh-flow line {
+  stroke: url(#sshGrad);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 14 86;
+  stroke-dashoffset: 100;
+  animation: sshFlow 2.4s linear infinite;
+  animation-delay: var(--d);
+}
+
+@keyframes sshFlow {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+.ssh-source {
+  position: absolute;
+  left: 12%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 22px 44px -18px rgba(79, 91, 213, 0.75);
+  z-index: 3;
+}
+
+.ssh-source-ic { display: inline-flex; }
+.ssh-source-ic svg { width: 20px; height: 20px; }
+
+.ssh-source-tx {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.ssh-source-tx strong { font-size: 0.82rem; }
+.ssh-source-tx span { font-size: 0.62rem; opacity: 0.85; }
+
+.ssh-prism {
+  position: absolute;
+  left: 44%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 34px -16px rgba(16, 35, 63, 0.5);
+  color: var(--blue);
+  z-index: 3;
+}
+
+.ssh-prism svg {
+  width: 22px;
+  height: 22px;
+  transform: rotate(-45deg);
+}
+
+.ssh-prism-glow {
+  position: absolute;
+  inset: -10px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  filter: blur(16px);
+  opacity: 0.4;
+  z-index: -1;
+  animation: sshPulse 3.4s ease-in-out infinite;
+}
+
+@keyframes sshPulse {
+  0%, 100% { transform: scale(1); opacity: 0.35; }
+  50% { transform: scale(1.14); opacity: 0.55; }
+}
+
+.ssh-chip {
+  position: absolute;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  width: 124px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.44rem 0.72rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 14px 28px -16px rgba(16, 35, 63, 0.45);
+  white-space: nowrap;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--navy);
+  z-index: 2;
+}
+
+.ssh-chip-ic { display: inline-flex; }
+.ssh-chip-ic svg { width: 14px; height: 14px; }
+
+/* equal-width chips on one vertical axis, evenly spaced 15% -> 85% */
+.ssh-chip--e1 { top: 15%; }
+.ssh-chip--e2 { top: 29%; }
+.ssh-chip--e3 { top: 43%; }
+.ssh-chip--e4 { top: 57%; }
+.ssh-chip--e5 { top: 71%; }
+.ssh-chip--e6 { top: 85%; }
+
+.ssh-chip--e1 .ssh-chip-ic { color: var(--blue); }
+.ssh-chip--e2 .ssh-chip-ic { color: var(--teal); }
+.ssh-chip--e3 .ssh-chip-ic { color: var(--cyan); }
+.ssh-chip--e4 .ssh-chip-ic { color: var(--coral); }
+.ssh-chip--e5 .ssh-chip-ic { color: var(--blue); }
+.ssh-chip--e6 .ssh-chip-ic { color: var(--teal); }
+
+.ssh-fan {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.ssh-fan--top { left: 77%; top: 2%; }
+.ssh-fan--bottom { left: 77%; top: 98%; }
+
+.ssh-caption {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .ssh-chip { font-size: 0.68rem; padding: 0.38rem 0.58rem; }
+  .ssh-source-tx strong { font-size: 0.74rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ssh-flow line {
+    animation: none;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+  .ssh-prism-glow { animation: none; }
+}

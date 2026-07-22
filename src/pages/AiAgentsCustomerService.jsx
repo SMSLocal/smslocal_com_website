@@ -60,9 +60,9 @@ function AiAgentsCustomerService() {
 
       <Hero
         eyebrow="AI Agents"
-        title="An AI agent that resolves, not just replies"
+        title={<>An AI agent that <span className="grad-word">resolves</span>, not just replies</>}
         subtitle="Deflect repetitive tickets across every channel with an agent that answers from your data, takes real action, and escalates the rest with full context."
-        primaryCta={{ label: 'Deploy an Agent', href: '/contact' }}
+        primaryCta={{ label: 'Deploy an Agent', href: '/contact-us' }}
         secondaryCta={{ label: 'Chatbot vs AI Agent', href: '/chatbot-vs-ai-agent' }}
         visual={<AgentWorkflowMock />}
       />
@@ -118,14 +118,14 @@ function AiAgentsCustomerService() {
         items={INDUSTRIES}
       />
 
-      <FAQ title={<>AI customer service agent — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Resolve more tickets without adding headcount"
         subtitle="Connect your channels, train the agent on your data, and go live in days. Your team handles what needs a person — the agent handles everything else."
-        cta={{ label: 'Deploy an Agent', href: '/contact' }}
+        cta={{ label: 'Deploy an Agent', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>AI customer service agent — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

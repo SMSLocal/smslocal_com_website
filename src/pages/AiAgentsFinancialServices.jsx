@@ -43,9 +43,9 @@ function AiAgentsFinancialServices() {
 
       <Hero
         eyebrow="AI Agents"
-        title="Compliant AI agents for banking and fintech"
+        title={<>Compliant AI agents for <span className="grad-word">banking and fintech</span></>}
         subtitle="Auditable self-service for balances, statements and account questions — connected to your live systems, scoped by roles, and logged for compliance."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
         visual={<SmsDashboardMock />}
       />
@@ -74,14 +74,14 @@ function AiAgentsFinancialServices() {
 
       <FinWhyUsManifesto eyebrow="Why us" title={<>Why finance teams trust our AI agents</>} items={WHY_US} />
 
-      <FAQ title={<>Financial services agents — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Automate servicing without losing oversight"
         subtitle="Deploy compliant AI agents that resolve the routine and log every action."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>Financial services agents — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

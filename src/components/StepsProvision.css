@@ -1,0 +1,129 @@
+.spv-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 0.6rem;
+  max-width: 940px;
+  margin: 3.25rem auto 0;
+}
+
+.spv-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Number fragment materializing above the segment ---- */
+.spv-frag {
+  min-height: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.7rem;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+/* ---- Segmented bar ---- */
+.spv-seg {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.spv-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Give the four segments subtly different gradient endpoints for depth */
+.spv-step--1 .spv-fill { background: linear-gradient(90deg, var(--blue), var(--teal)); }
+.spv-step--2 .spv-fill { background: linear-gradient(90deg, var(--cyan), var(--coral)); }
+.spv-step--3 .spv-fill { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+
+/* ---- Step copy ---- */
+.spv-num {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 1.1rem 0 0.5rem;
+}
+
+.spv-step h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.04rem;
+  letter-spacing: -0.01em;
+}
+
+.spv-step p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 210px;
+}
+
+@media (max-width: 720px) {
+  .spv-track {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem 1.4rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .spv-track {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Animation. Base styles above are the fully-provisioned state (every segment
+   filled, every fragment shown). Motion sequences the fill left-to-right and
+   loops; gated behind reduced-motion.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .spv-fill {
+    transform: scaleX(0);
+    animation: spv-grow 6.5s ease-in-out infinite;
+    animation-delay: calc(var(--spv-i) * 0.55s);
+  }
+
+  .spv-frag {
+    opacity: 0;
+    transform: translateY(6px);
+    animation: spv-frag-in 6.5s ease-in-out infinite;
+    animation-delay: calc(var(--spv-i) * 0.55s + 0.25s);
+  }
+
+  @keyframes spv-grow {
+    0% { transform: scaleX(0); }
+    14% { transform: scaleX(1); }
+    88% { transform: scaleX(1); }
+    97%, 100% { transform: scaleX(0); }
+  }
+
+  @keyframes spv-frag-in {
+    0% { opacity: 0; transform: translateY(6px); }
+    14% { opacity: 1; transform: translateY(0); }
+    88% { opacity: 1; transform: translateY(0); }
+    97%, 100% { opacity: 0; transform: translateY(6px); }
+  }
+}

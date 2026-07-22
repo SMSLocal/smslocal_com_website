@@ -1,0 +1,156 @@
+/* "The shift" contrast for /channels/voice — island vs network. De-boxed. */
+
+.vsh-lead { max-width: 780px; }
+
+.vsh {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+
+.vsh-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.vsh-col--new { position: relative; }
+.vsh-col--new::before {
+  content: '';
+  position: absolute;
+  left: -1.75rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: var(--border);
+}
+
+/* ---- left: isolated island ---- */
+.vsh-island {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 2px dashed rgba(84, 89, 95, 0.35);
+  margin-bottom: 1.2rem;
+}
+
+.vsh-island-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.vsh-island-node svg { width: 30px; height: 30px; }
+
+/* ---- right: connected channel network ---- */
+.vsh-net {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin-bottom: 1.2rem;
+  padding: 1.2rem 0;
+}
+
+.vsh-net-line {
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+.vsh-chan {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.vsh-chan-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 0 4px var(--bg-subtle);
+}
+
+/* ---- labels + points ---- */
+.vsh-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+}
+
+.vsh-label--new {
+  color: transparent;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.vsh-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: left;
+  width: 100%;
+  max-width: 320px;
+}
+
+.vsh-points li {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.vsh-points:not(.vsh-points--new) li {
+  text-decoration: line-through;
+  text-decoration-color: rgba(84, 89, 95, 0.35);
+}
+
+.vsh-points--new li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.vsh-check {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.vsh-check svg { width: 10px; height: 10px; }
+
+@media (max-width: 680px) {
+  .vsh { grid-template-columns: 1fr; gap: 2.4rem; max-width: 420px; }
+  .vsh-col--new::before { display: none; }
+  .vsh-points { margin: 0 auto; }
+}

@@ -1,0 +1,225 @@
+.aph {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Live pill */
+.aph-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.aph-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ec4899;
+  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.45);
+  animation: aphPulse 1.7s ease-out infinite;
+}
+
+@keyframes aphPulse {
+  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(236, 72, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+}
+
+/* Big counting KPI */
+.aph-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.aph-kpi-num {
+  font-size: 3.35rem;
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.aph-kpi-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Chart area — no frame, joined only by a hairline baseline */
+.aph-chartwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0.9rem;
+  padding-bottom: 0.4rem;
+}
+
+.aph-chart {
+  display: block;
+  width: 100%;
+  height: 130px;
+  overflow: visible;
+}
+
+.aph-chart-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: aphDraw 3.6s ease-in-out infinite;
+}
+
+@keyframes aphDraw {
+  0% { stroke-dashoffset: 1; }
+  62% { stroke-dashoffset: 0; }
+  92% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1; }
+}
+
+.aph-chart-area {
+  opacity: 0;
+  animation: aphFill 3.6s ease-in-out infinite;
+}
+
+@keyframes aphFill {
+  0% { opacity: 0; }
+  62% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.aph-chart-tip {
+  opacity: 0;
+  animation: aphTip 3.6s ease-in-out infinite;
+}
+
+@keyframes aphTip {
+  0%, 55% { opacity: 0; }
+  62% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.aph-baseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(16, 35, 63, 0.16), rgba(16, 35, 63, 0.04));
+}
+
+/* Floating delta chips */
+.aph-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 14px 34px -18px rgba(16, 35, 63, 0.4);
+  border: 1px solid rgba(230, 230, 230, 0.9);
+}
+
+.aph-chip--a {
+  top: -8px;
+  right: -6px;
+  animation: aphFloat 5s ease-in-out infinite;
+}
+
+.aph-chip--b {
+  bottom: 34px;
+  left: -8px;
+  animation: aphFloat 5.6s ease-in-out infinite 0.6s;
+}
+
+@keyframes aphFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.aph-chip-spark {
+  width: 40px;
+  height: 20px;
+  flex: none;
+}
+
+.aph-chip-spark-line {
+  fill: none;
+  stroke: #4f5bd5;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: aphSparkDraw 3.4s ease-in-out infinite;
+}
+
+@keyframes aphSparkDraw {
+  0% { stroke-dashoffset: 1; }
+  55% { stroke-dashoffset: 0; }
+  88% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1; }
+}
+
+.aph-chip-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.aph-chip-val {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.aph-chip-label {
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.aph-chip-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.15rem 0.4rem 0.15rem 0.28rem;
+  border-radius: 999px;
+}
+
+.aph-chip-delta.up {
+  color: #4f5bd5;
+  background: rgba(79, 91, 213, 0.1);
+}
+
+@media (max-width: 480px) {
+  .aph-kpi-num { font-size: 2.7rem; }
+  .aph-chip--a { right: 0; }
+  .aph-chip--b { left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aph-live-dot,
+  .aph-chip--a,
+  .aph-chip--b { animation: none; }
+
+  .aph-chart-line,
+  .aph-chip-spark-line { stroke-dashoffset: 0; animation: none; }
+
+  .aph-chart-area,
+  .aph-chart-tip { opacity: 1; animation: none; }
+}

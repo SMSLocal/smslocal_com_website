@@ -1,166 +1,121 @@
-.tgmock {
+/* ===========================================================
+   TelegramHeroMock — a radial BROADCAST HUB: a central bot
+   emitting concentric broadcast rings, ringed by its commands
+   and tappable buttons. Distinct from scatter/spine layouts.
+   =========================================================== */
+
+.tmock {
+  position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 460px;
+  min-height: 440px;
   margin: 0 auto;
+}
+
+/* central bot hub */
+.tmock-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-}
-
-/* Status pill */
-.tgmock-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 26px -16px rgba(16, 35, 63, 0.28);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--navy);
-}
-
-.tgmock-tag-icon {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff;
-}
-
-.tgmock-tag-icon svg {
-  width: 10px;
-  height: 10px;
-}
-
-.tgmock-tag svg {
-  width: 12px;
-  height: 12px;
-  color: var(--blue);
-}
-
-/* Thread */
-.tgmock-thread {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  min-height: 220px;
-  justify-content: flex-end;
-}
-
-.tgmock-msg { display: flex; flex-direction: column; }
-.tgmock-in { align-items: flex-end; }
-.tgmock-out { align-items: flex-start; }
-
-.tgmock-pop {
-  animation: tgmockPop 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--md, 0s);
-}
-
-@keyframes tgmockPop {
-  from { opacity: 0; transform: translateY(8px) scale(0.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.tgmock-bubble {
-  max-width: 82%;
-  padding: 0.6rem 0.85rem;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  border-radius: 16px;
-}
-
-.tgmock-in .tgmock-bubble {
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff;
-  border-bottom-right-radius: 4px;
-}
-
-.tgmock-out .tgmock-bubble {
-  background: #fff;
-  border: 1px solid var(--border);
-  color: var(--navy);
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 8px 20px -16px rgba(16, 35, 63, 0.3);
-}
-
-.tgmock-typing { display: inline-flex; gap: 4px; align-items: center; }
-.tgmock-typing i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--blue);
-  animation: tgmockBlink 1.1s ease-in-out infinite;
-}
-.tgmock-typing i:nth-child(2) { animation-delay: 0.16s; }
-.tgmock-typing i:nth-child(3) { animation-delay: 0.32s; }
-
-@keyframes tgmockBlink {
-  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
-  40% { opacity: 1; transform: translateY(-3px); }
-}
-
-/* Inline keyboard */
-.tgmock-keyboard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.45rem;
-  width: 100%;
-  margin-top: 0.15rem;
-}
-
-.tgmock-key {
+  gap: 0.15rem;
   text-align: center;
-  background: #fff;
-  border: 1px solid rgba(109, 92, 231, 0.3);
-  color: var(--blue);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.5rem 0.5rem;
-  border-radius: 10px;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-
-.tgmock-key.is-tapped {
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  border-color: transparent;
   color: #fff;
+  background: linear-gradient(135deg, #4f5bd5 0%, #ec4899 60%, #fb7185 100%);
+  box-shadow: 0 26px 55px -18px rgba(79, 91, 213, 0.7);
 }
-
-/* Footer */
-.tgmock-footer {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.tgmock-input {
-  flex: 1;
-  color: var(--text-secondary);
+.tmock-hub-mark { font-size: 2rem; line-height: 1; transform: rotate(-8deg); }
+.tmock-hub-name {
   font-size: 0.78rem;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.5rem 1rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.tmock-hub-name i { font-style: normal; font-size: 0.66rem; opacity: 0.9; }
+.tmock-hub-sub { font-size: 0.62rem; opacity: 0.85; }
+
+/* broadcast rings emanating from centre */
+.tmock-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(236, 72, 153, 0.5);
+  transform: translate(-50%, -50%) scale(1);
+  animation: tmockRipple 3.6s ease-out infinite;
+  z-index: 1;
+}
+.tmock-ring--2 { animation-delay: 1.2s; }
+.tmock-ring--3 { animation-delay: 2.4s; }
+@keyframes tmockRipple {
+  0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
 }
 
-.tgmock-commands {
-  flex: none;
-  font-size: 0.66rem;
+/* command + button chips around the hub */
+.tmock-chip {
+  position: absolute;
+  z-index: 4;
+  padding: 0.5rem 0.9rem;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 0.76rem;
   font-weight: 600;
-  color: var(--blue);
+  color: var(--navy);
   white-space: nowrap;
+  box-shadow: 0 16px 34px -18px rgba(16, 35, 63, 0.4);
+  animation: tmockBob 5s ease-in-out infinite;
+}
+.tmock-chip--cmd {
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  border-radius: 999px;
+}
+.tmock-chip--tl { top: 8%;  left: 0;   animation-delay: -0.5s; }
+.tmock-chip--tr { top: 3%;  right: 0;  animation-delay: -2.0s; }
+.tmock-chip--bl { bottom: 12%; left: 0; animation-delay: -3.0s; }
+.tmock-chip--br { bottom: 6%; right: 2%; animation-delay: -1.4s; }
+@keyframes tmockBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* broadcast counter — bottom centre */
+.tmock-broadcast {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #4f5bd5, #ec4899, #fb7185);
+  white-space: nowrap;
+  box-shadow: 0 16px 34px -16px rgba(236, 72, 153, 0.55);
+}
+
+@media (max-width: 520px) {
+  .tmock { max-width: 360px; min-height: 380px; }
+  .tmock-hub { width: 120px; height: 120px; }
+  .tmock-ring { width: 120px; height: 120px; }
+  .tmock-chip { font-size: 0.68rem; padding: 0.4rem 0.7rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tgmock-pop, .tgmock-typing i { animation: none; }
+  .tmock-ring { animation: none; opacity: 0.3; }
+  .tmock-chip { animation: none; }
 }

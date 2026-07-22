@@ -1,0 +1,113 @@
+/* "Every plan includes" showcase for /pricing. De-boxed columns, light. */
+
+.pinc-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto 2.8rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--blue), var(--cyan)) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: 0 14px 30px -20px rgba(79, 91, 213, 0.6);
+}
+
+.pinc-section .container { text-align: center; }
+
+.pinc-ribbon-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.pinc-groups {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.6rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.pinc-group { position: relative; }
+
+.pinc-groups .pinc-group + .pinc-group::before {
+  content: '';
+  position: absolute;
+  left: -1.3rem;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  width: 1px;
+  background: var(--border);
+}
+
+.pinc-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  margin-bottom: 1rem;
+  box-shadow: 0 14px 26px -14px rgba(79, 91, 213, 0.6);
+}
+
+.pinc-icon svg { width: 21px; height: 21px; }
+
+.pinc-group-label {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.pinc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.pinc-li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.pinc-check {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79, 91, 213, 0.12);
+  color: var(--blue);
+}
+
+.pinc-check svg { width: 9px; height: 9px; }
+
+@media (max-width: 900px) {
+  .pinc-groups { grid-template-columns: repeat(2, 1fr); gap: 2.4rem 3rem; }
+  .pinc-groups .pinc-group + .pinc-group::before { display: none; }
+}
+
+@media (max-width: 480px) {
+  .pinc-groups { grid-template-columns: 1fr; }
+}

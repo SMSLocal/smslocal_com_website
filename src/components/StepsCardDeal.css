@@ -1,0 +1,147 @@
+.scd-deck {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 3rem;
+  padding: 2.4rem 0 1.2rem;
+  perspective: 1200px;
+}
+
+.scd-card {
+  position: relative;
+  width: 236px;
+  flex: none;
+  transform-origin: bottom center;
+  transition: transform 0.25s ease, z-index 0s;
+}
+
+.scd-card:not(:first-child) {
+  margin-left: -26px;
+}
+
+/* fanned / dealt-out static layout (also the reduced-motion base state) */
+.scd-card--0 { transform: translateY(22px) rotate(-7deg); z-index: 1; }
+.scd-card--1 { transform: translateY(4px) rotate(-2.4deg); z-index: 2; }
+.scd-card--2 { transform: translateY(4px) rotate(2.4deg); z-index: 3; }
+.scd-card--3 { transform: translateY(22px) rotate(7deg); z-index: 4; }
+
+/* bring a hovered card forward and straighten it for easy reading */
+.scd-card:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.03);
+  z-index: 10;
+}
+
+.scd-card-inner {
+  background: #fff;
+  border: 1px solid #f1f2f6;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 22px 44px -30px rgba(16, 35, 63, 0.22),
+    0 2px 5px -2px rgba(16, 35, 63, 0.04);
+}
+
+.scd-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.85rem 0.55rem;
+}
+
+.scd-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.scd-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.scd-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.scd-media {
+  height: 54px;
+  margin: 0 0.7rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7b85e0, #f28fc0);
+}
+
+.scd-card--0 .scd-media { background: linear-gradient(135deg, #7b85e0, #f28fc0); }
+.scd-card--1 .scd-media { background: linear-gradient(135deg, #f28fc0, #fc9aa8); }
+.scd-card--2 .scd-media { background: linear-gradient(135deg, #7b85e0, #5cd6c5); }
+.scd-card--3 .scd-media { background: linear-gradient(135deg, #7b85e0, #f28fc0); }
+
+.scd-card-body {
+  padding: 0.7rem 0.85rem 0.9rem;
+  text-align: center;
+}
+
+.scd-card-body h3 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.scd-card-body p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+/* ---------------------------------------------------------------------------
+   Animation — cards "deal" outward one after another. The per-card transform
+   above is the settled fan (correct reduced-motion state); only the inner
+   layer animates, so the card's fan position is never disturbed.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .scd-card-inner {
+    animation: scd-deal 7s ease-in-out infinite;
+  }
+
+  .scd-card--0 .scd-card-inner { animation-delay: 0s; }
+  .scd-card--1 .scd-card-inner { animation-delay: 0.18s; }
+  .scd-card--2 .scd-card-inner { animation-delay: 0.36s; }
+  .scd-card--3 .scd-card-inner { animation-delay: 0.54s; }
+
+  @keyframes scd-deal {
+    0% { opacity: 0.15; transform: translateY(-20px) scale(0.96); }
+    12% { opacity: 1; transform: translateY(0) scale(1); }
+    90% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0.15; transform: translateY(-20px) scale(0.96); }
+  }
+}
+
+@media (max-width: 760px) {
+  .scd-deck {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+  }
+
+  .scd-card {
+    width: 288px;
+    margin: 0 0 1.1rem !important;
+    transform: none !important;
+  }
+
+  .scd-card:hover {
+    transform: translateY(-4px) !important;
+  }
+}

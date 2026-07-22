@@ -1,0 +1,164 @@
+/* Two literal screens facing off — Viber answering blind and alone, vs.
+   Viber sitting in a shared inbox that already has the customer's history. */
+.vps-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  align-items: start;
+  max-width: 680px;
+  margin: 3rem auto 0;
+}
+
+.vps-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vps-vs {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 24px -6px rgba(79, 91, 213, 0.55), 0 0 0 4px var(--bg-subtle);
+}
+
+.vps-phone {
+  width: 100%;
+  max-width: 270px;
+  border-radius: 22px;
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 0 20px 40px -20px rgba(16, 35, 63, 0.4);
+}
+
+.vps-phone--bad {
+  background: #e9edf2;
+}
+
+.vps-phone--good {
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.vps-phone-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.vps-avatar {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.vps-avatar--bad {
+  background: #b7c0cc;
+}
+
+.vps-avatar--good {
+  background: var(--gradient-brand);
+}
+
+.vps-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.vps-phone--bad .vps-name {
+  color: #64748b;
+}
+
+.vps-phone--good .vps-name {
+  color: var(--navy);
+}
+
+.vps-context {
+  flex: none;
+  width: 100%;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  border-radius: 8px;
+  padding: 0.3rem 0.5rem;
+}
+
+.vps-bubble {
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.vps-bubble:last-child {
+  margin-bottom: 0;
+}
+
+.vps-bubble--in {
+  background: var(--bg-subtle);
+  color: var(--navy);
+}
+
+.vps-phone--bad .vps-bubble--in {
+  background: #d7dde5;
+}
+
+.vps-bubble--out {
+  margin-left: auto;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.vps-bubble--out.muted {
+  background: #b7c0cc;
+  color: #fff;
+}
+
+.vps-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.vps-tag--bad {
+  color: var(--coral);
+}
+
+.vps-tag--good {
+  color: var(--blue);
+}
+
+@media (max-width: 640px) {
+  .vps-stage {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 3.5rem;
+  }
+
+  .vps-vs {
+    position: static;
+    transform: none;
+    margin: -0.6rem auto;
+  }
+}

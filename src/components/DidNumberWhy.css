@@ -1,0 +1,178 @@
+/* Full-width "one number, routed everywhere" strip — source number on the
+   left, a connecting line with a travelling signal, four destinations on
+   the right. Replaces the two-column checklist card. */
+
+.dnw-strip {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.dnw-source {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 1.1rem 1.3rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 44px -28px rgba(21, 73, 137, 0.3);
+}
+
+.dnw-number {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.dnw-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.dnw-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s ease;
+}
+
+.dnw-live.on {
+  color: var(--success);
+}
+
+.dnw-live.on .dnw-live-dot {
+  background: var(--cyan);
+  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5);
+  animation: dnwPulse 1.8s ease-out infinite;
+}
+
+@keyframes dnwPulse {
+  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); }
+  70%, 100% { box-shadow: 0 0 0 6px rgba(236, 72, 153, 0); }
+}
+
+/* ---- connecting line ---- */
+.dnw-line {
+  position: relative;
+  flex: 1;
+  min-width: 40px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.dnw-signal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 0 4px rgba(79, 91, 213, 0.15);
+  transform: translate(-50%, -50%);
+}
+
+/* ---- destinations ---- */
+.dnw-dests {
+  flex: none;
+  display: flex;
+  gap: 1.6rem;
+}
+
+.dnw-dest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dnw-dest-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--blue);
+  box-shadow: 0 14px 28px -20px rgba(21, 73, 137, 0.3);
+}
+
+.dnw-dest-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dnw-dest-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .dnw-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .dnw-source {
+    align-items: center;
+    align-self: center;
+  }
+
+  .dnw-line {
+    width: 2px;
+    height: 32px;
+    align-self: center;
+  }
+
+  .dnw-signal {
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .dnw-dests {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dnw-signal {
+    animation: dnwSignal 2.4s ease-in-out infinite;
+  }
+
+  @keyframes dnwSignal {
+    0% { left: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  @keyframes dnwSignal {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+}

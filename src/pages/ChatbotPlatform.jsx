@@ -61,9 +61,9 @@ function ChatbotPlatform() {
 
       <Hero
         eyebrow="Chatbot Platform"
-        title="Build a chatbot once, deploy it on every channel"
+        title={<>Build a chatbot once, deploy it on <span className="grad-word">every channel</span></>}
         subtitle="Drag-and-drop conversation flows, AI-generated answers, and one-click deploy to WhatsApp, your website, SMS and social."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<DeployFanVisual />}
       />
@@ -83,13 +83,13 @@ function ChatbotPlatform() {
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
 
-      <FAQ title={<>Chatbot platform — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Build your first chatbot free"
         subtitle="No credit card required to get started."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Chatbot platform — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

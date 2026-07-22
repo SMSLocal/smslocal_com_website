@@ -35,7 +35,7 @@
   justify-content: center;
   gap: 0.35rem;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
-  box-shadow: 0 24px 48px -18px rgba(109, 92, 231, 0.45);
+  box-shadow: 0 24px 48px -18px rgba(79, 91, 213, 0.45);
   z-index: 2;
 }
 
@@ -55,7 +55,7 @@
   position: absolute;
   inset: -14px;
   border-radius: 50%;
-  border: 1px dashed rgba(109, 92, 231, 0.35);
+  border: 1px dashed rgba(79, 91, 213, 0.35);
 }
 
 /* Capability items scattered around the hub */
@@ -81,7 +81,7 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }

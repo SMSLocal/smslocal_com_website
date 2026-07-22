@@ -48,9 +48,9 @@ function ChatbotBuilder() {
 
       <Hero
         eyebrow="Chatbot Builder"
-        title="Build a chatbot without writing a single line of code"
+        title={<>Build a chatbot without writing <span className="grad-word">a single line of code</span></>}
         subtitle="Drag-and-drop conversation flows, AI-generated answers, and one-click deploy to WhatsApp, your website and more."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<BuilderCanvasVisual />}
       />
@@ -79,13 +79,13 @@ function ChatbotBuilder() {
 
       <StepsChevron eyebrow="How it works" title={<>From idea to live bot in three steps</>} steps={STEPS} />
 
-      <FAQ title={<>Chatbot builder — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Build your first chatbot free"
         subtitle="No credit card required to get started."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Chatbot builder — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

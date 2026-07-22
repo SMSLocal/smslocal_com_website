@@ -1,0 +1,177 @@
+/* Docs hero — annotated webhook-payload specimen. Frameless: only the small
+   chips carry shadow. A fluid field -> leader -> type-label grid, so leaders
+   always register with their field at any width. */
+
+.pfa {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2.2rem 0 1rem 2.6rem;
+  font-family: 'Cascadia Code', Consolas, ui-monospace, monospace;
+}
+
+/* caption chip (top-left) */
+.pfa-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 14px rgba(20, 20, 40, 0.1);
+}
+.pfa-source-key {
+  width: 10px; height: 10px; border-radius: 3px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+/* oversized braces framing the object down the left gutter */
+.pfa-brace {
+  position: absolute;
+  left: 0;
+  font-size: 3.2rem;
+  font-weight: 300;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.pfa-brace--open { top: 3.1rem; }
+.pfa-brace--close { bottom: 0.5rem; }
+
+/* the object as a field | leader | annotation grid */
+.pfa-grid {
+  display: grid;
+  grid-template-columns: max-content 54px minmax(150px, 1fr);
+  align-items: center;
+  row-gap: 1.15rem;
+  column-gap: 0.5rem;
+}
+.pfa-row { display: contents; }
+
+/* col 1 — field */
+.pfa-field {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.22rem;
+  padding-right: 0.55rem;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+.pfa-k { color: var(--navy); font-weight: 700; }
+.pfa-p { color: #94a3b8; }
+.pfa-v { color: #475569; }
+.pfa-v--int { color: var(--blue); }
+
+.pfa-words {
+  position: relative;
+  display: inline-block;
+  width: 9ch;
+  height: 1.2em;
+  vertical-align: bottom;
+}
+.pfa-word { position: absolute; left: 0; top: 0; }
+.pfa-word--q { opacity: 0; animation: pfa-wq 2.8s ease forwards; }
+.pfa-word--s { opacity: 0; animation: pfa-ws 2.8s ease forwards; }
+.pfa-word--d {
+  opacity: 1;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pfa-wd 2.8s ease forwards;
+}
+
+.pfa-dot {
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 7px; height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  animation: pfa-breathe 2.6s ease-in-out infinite;
+}
+
+/* col 2 — leader line */
+.pfa-lead {
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: pfa-draw 0.5s ease forwards;
+  animation-delay: calc(0.2s + var(--i) * 0.14s);
+}
+
+/* col 3 — annotation */
+.pfa-annot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.28rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  animation: pfa-reveal 0.45s ease forwards;
+  animation-delay: calc(0.42s + var(--i) * 0.14s);
+}
+.pfa-type {
+  padding: 0.14rem 0.55rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(79, 91, 213, 0.28);
+}
+.pfa-desc {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+.pfa-desc b {
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes pfa-draw { to { transform: scaleX(1); } }
+@keyframes pfa-reveal { to { opacity: 1; transform: none; } }
+@keyframes pfa-breathe { 0%, 100% { opacity: 0.5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.18); } }
+@keyframes pfa-wq { 0% { opacity: 1; } 18% { opacity: 1; } 20% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes pfa-ws { 0%, 20% { opacity: 0; } 22% { opacity: 1; } 40% { opacity: 1; } 43% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes pfa-wd { 0%, 43% { opacity: 0; } 45% { opacity: 1; } 100% { opacity: 1; } }
+
+@media (max-width: 620px) {
+  .pfa { padding-left: 2rem; }
+  .pfa-grid { grid-template-columns: max-content 32px minmax(120px, 1fr); column-gap: 0.4rem; }
+  .pfa-field { font-size: 0.82rem; }
+  .pfa-brace { font-size: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .pfa-field { font-size: 0.72rem; }
+  .pfa-grid { grid-template-columns: max-content 24px minmax(96px, 1fr); }
+  .pfa-type { font-size: 0.6rem; }
+  .pfa-desc { font-size: 0.68rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pfa-lead { animation: none; transform: scaleX(1); }
+  .pfa-annot { animation: none; opacity: 1; transform: none; }
+  .pfa-dot { animation: none; }
+  .pfa-word--q, .pfa-word--s { animation: none; opacity: 0; }
+  .pfa-word--d { animation: none; opacity: 1; }
+}

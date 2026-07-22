@@ -1,0 +1,296 @@
+.sih {
+  --sih-rh: 3.05rem;
+  position: relative;
+  width: 100%;
+  max-width: 372px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family: inherit;
+}
+
+/* ---- Sources: the many channels ---- */
+.sih-sources {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.4rem;
+}
+
+.sih-src {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 18px -12px rgba(16, 35, 63, 0.4);
+}
+
+.sih-src svg { width: 17px; height: 17px; }
+
+/* channel tints (small source chips only — brand gradient stays for accents) */
+.sih-tint--ig { color: var(--cyan); }
+.sih-tint--ms { color: var(--blue); }
+.sih-tint--wa { color: var(--teal); }
+.sih-tint--tg { color: var(--coral); }
+.sih-tint--ln { color: var(--navy); }
+
+/* ---- Converging fan ---- */
+.sih-fan {
+  width: 100%;
+  height: 30px;
+  margin: 0.15rem 0 0.35rem;
+  display: block;
+}
+
+.sih-fan-line {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.4;
+}
+
+.sih-fan-pulse {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 14 100;
+  stroke-dashoffset: 114;
+  opacity: 0;
+}
+
+/* ---- One unified inbox (no wrapping frame — rows float on divider lines) ---- */
+.sih-inbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.sih-inbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.15rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.sih-inbox-count {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+.sih-rows {
+  position: relative;
+}
+
+/* the walking brand-gradient highlight — active/selected row */
+.sih-hi {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--sih-rh);
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.13), rgba(236, 72, 153, 0.1));
+  box-shadow: inset 3px 0 0 0 var(--blue);
+  transform: translateY(calc(var(--sih-rh) * 1));
+  z-index: 0;
+}
+
+.sih-row {
+  position: relative;
+  z-index: 1;
+  height: var(--sih-rh);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.55rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sih-row:last-child { border-bottom: none; }
+
+.sih-badge {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.sih-badge svg { width: 14px; height: 14px; }
+
+.sih-row-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.sih-row-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.sih-row-text {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sih-row-time {
+  flex: none;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #9aa1ab;
+}
+
+/* ---- Composer: reply once (single element, soft shadow — allowed) ---- */
+.sih-composer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 14px 30px -20px rgba(16, 35, 63, 0.4);
+}
+
+.sih-composer-field {
+  flex: 1;
+  font-size: 0.75rem;
+  color: #9aa1ab;
+}
+
+.sih-send {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 8px 18px -6px rgba(79, 91, 213, 0.6);
+}
+
+.sih-send svg { width: 15px; height: 15px; }
+
+/* ---------------------------------------------------------------------------
+   Animation. Base styles above are the fully-assembled inbox (all rows in,
+   highlight resting on row 1). Motion re-plays the fill: messages arrive one
+   by one, then a brand-gradient highlight walks down to the active row and
+   settles. Single shared 11s timeline, no per-element delays, exactly like
+   RcsHeroTransform.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .sih-src { animation: sih-src-pulse 11s ease-in-out infinite; }
+  .sih-src--1 { animation-name: sih-src-pulse-b; }
+  .sih-src--3 { animation-name: sih-src-pulse-b; }
+
+  .sih-fan-pulse { animation: sih-fan-flow 11s linear infinite; }
+  .sih-fan-pulse--1 { animation-delay: -2.2s; }
+  .sih-fan-pulse--2 { animation-delay: -4.4s; }
+  .sih-fan-pulse--3 { animation-delay: -6.6s; }
+  .sih-fan-pulse--4 { animation-delay: -8.8s; }
+
+  .sih-row--0 { animation: sih-in-0 11s ease-in-out infinite; }
+  .sih-row--1 { animation: sih-in-1 11s ease-in-out infinite; }
+  .sih-row--2 { animation: sih-in-2 11s ease-in-out infinite; }
+  .sih-row--3 { animation: sih-in-3 11s ease-in-out infinite; }
+  .sih-row--4 { animation: sih-in-4 11s ease-in-out infinite; }
+
+  .sih-hi { animation: sih-select 11s ease-in-out infinite; }
+  .sih-send { animation: sih-send-glow 11s ease-in-out infinite; }
+
+  @keyframes sih-src-pulse {
+    0%, 100% { transform: translateY(0); box-shadow: 0 8px 18px -12px rgba(16, 35, 63, 0.4); }
+    46%, 54% { transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(79, 91, 213, 0.5); }
+  }
+  @keyframes sih-src-pulse-b {
+    0%, 100% { transform: translateY(0); box-shadow: 0 8px 18px -12px rgba(16, 35, 63, 0.4); }
+    24%, 32% { transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(236, 72, 153, 0.5); }
+  }
+
+  @keyframes sih-fan-flow {
+    0% { stroke-dashoffset: 114; opacity: 0; }
+    6% { opacity: 0.9; }
+    40% { opacity: 0.9; }
+    50%, 100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  /* rows arrive one-by-one, alternating in-direction, then hold, then reset */
+  @keyframes sih-in-0 {
+    0%, 3% { opacity: 0; transform: translateX(-16px); }
+    9%, 90% { opacity: 1; transform: none; }
+    97%, 100% { opacity: 0; transform: translateX(-16px); }
+  }
+  @keyframes sih-in-1 {
+    0%, 9% { opacity: 0; transform: translateX(16px); }
+    15%, 90% { opacity: 1; transform: none; }
+    97%, 100% { opacity: 0; transform: translateX(16px); }
+  }
+  @keyframes sih-in-2 {
+    0%, 15% { opacity: 0; transform: translateX(-16px); }
+    21%, 90% { opacity: 1; transform: none; }
+    97%, 100% { opacity: 0; transform: translateX(-16px); }
+  }
+  @keyframes sih-in-3 {
+    0%, 21% { opacity: 0; transform: translateX(16px); }
+    27%, 90% { opacity: 1; transform: none; }
+    97%, 100% { opacity: 0; transform: translateX(16px); }
+  }
+  @keyframes sih-in-4 {
+    0%, 27% { opacity: 0; transform: translateX(-16px); }
+    33%, 90% { opacity: 1; transform: none; }
+    97%, 100% { opacity: 0; transform: translateX(-16px); }
+  }
+
+  /* highlight appears after the rows land, walks each one, settles on row 1 */
+  @keyframes sih-select {
+    0%, 36% { opacity: 0; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(calc(var(--sih-rh) * 1)); }
+    60% { opacity: 1; transform: translateY(calc(var(--sih-rh) * 2)); }
+    70% { opacity: 1; transform: translateY(calc(var(--sih-rh) * 3)); }
+    80% { opacity: 1; transform: translateY(calc(var(--sih-rh) * 4)); }
+    88%, 92% { opacity: 1; transform: translateY(calc(var(--sih-rh) * 1)); }
+    100% { opacity: 0; transform: translateY(calc(var(--sih-rh) * 1)); }
+  }
+
+  @keyframes sih-send-glow {
+    0%, 100% { box-shadow: 0 8px 18px -6px rgba(79, 91, 213, 0.6); }
+    50% { box-shadow: 0 10px 26px -6px rgba(236, 72, 153, 0.7); }
+  }
+}
+
+@media (max-width: 480px) {
+  .sih { max-width: 340px; }
+  .sih-row-text { font-size: 0.7rem; }
+}

@@ -41,7 +41,7 @@
   color: #fff;
   font-weight: 700;
   border-bottom-left-radius: 4px;
-  box-shadow: 0 14px 26px -16px rgba(109, 92, 231, 0.45);
+  box-shadow: 0 14px 26px -16px rgba(79, 91, 213, 0.45);
 }
 
 .fcq-item:nth-child(2) .fcq-bubble--out { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 14px 26px -16px rgba(20, 184, 166, 0.45); }

@@ -1,243 +1,176 @@
+/* ===========================================================
+   InstagramHeroMock — scattered, free-floating fragments.
+   No containing panel: each piece floats at its own depth.
+   =========================================================== */
+
 .igmock {
+  position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
+  min-height: 420px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.1rem;
 }
 
-/* Status pill */
-.igmock-tag {
+/* floating wrapper: position + gentle independent bob */
+.igf {
+  position: absolute;
+  animation: igFloat 6s ease-in-out infinite;
+}
+.igf-badge   { top: 2%;  right: 4%;  animation-delay: -0.5s; }
+.igf-story   { top: 12%; left: 0;    animation-delay: -2.4s; }
+.igf-in      { top: 30%; left: 2%;   animation-delay: -1.2s; z-index: 2; }
+.igf-reply   { top: 46%; right: 0;   animation-delay: -3.1s; z-index: 3; }
+.igf-avatars { bottom: 8%; left: 6%;  animation-delay: -1.8s; z-index: 2; }
+.igf-channels{ bottom: 0;  right: 8%; animation-delay: -4.0s; }
+
+@keyframes igFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+
+/* ---- chips (story + live badge) ---- */
+.igmock-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 0.85rem;
   border-radius: 999px;
   background: #fff;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 26px -16px rgba(16, 35, 63, 0.28);
+  box-shadow: 0 14px 30px -16px rgba(16, 35, 63, 0.35);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--navy);
+  white-space: nowrap;
 }
-
-.igmock-tag-dot {
+.igmock-chip--live { font-weight: 700; }
+.igmock-live-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--success);
   animation: igmockBlink 1.6s ease-in-out infinite;
 }
-
 @keyframes igmockBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-/* Conversation list */
-.igmock-convo-list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.igmock-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899, #fb7185);
 }
 
-.igmock-convo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--border);
-  border-left: 2px solid transparent;
-  padding-left: 0.6rem;
-  margin-left: -0.6rem;
-}
-
-.igmock-convo-list .igmock-convo:last-child {
-  border-bottom: none;
-}
-
-.igmock-convo.is-active {
-  border-left-color: var(--blue);
-}
-
-.igmock-convo-avatar {
-  flex: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff;
-  font-size: 0.68rem;
-  font-weight: 700;
-}
-
-.igmock-convo-text {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.igmock-convo-text strong {
-  font-size: 0.8rem;
-  color: var(--navy);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.igmock-convo-text span {
-  font-size: 0.68rem;
-  color: var(--text-secondary);
-}
-
-.igmock-convo-dot {
-  flex: none;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--blue);
-}
-
-.igmock-convo-check {
-  flex: none;
-  font-size: 0.72rem;
-  color: var(--success);
-  font-weight: 700;
-}
-
-/* Active thread */
-.igmock-thread {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.igmock-story-ref {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.5rem 0.7rem;
-}
-
-.igmock-story-thumb {
-  flex: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-}
-
-.igmock-bubble {
-  align-self: flex-start;
-  max-width: 88%;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  border-bottom-left-radius: 4px;
-  padding: 0.6rem 0.8rem;
-  font-size: 0.82rem;
-  color: var(--navy);
+/* ---- message cards ---- */
+.igmock-card {
+  max-width: 250px;
+  padding: 0.75rem 0.95rem;
+  font-size: 0.84rem;
   line-height: 1.5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 20px 44px -20px rgba(16, 35, 63, 0.4);
+}
+.igmock-card--in {
+  color: var(--navy);
+  border-bottom-left-radius: 5px;
+  transform: rotate(-2deg);
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.35rem;
 }
+.igmock-time { font-size: 0.64rem; color: var(--text-secondary); }
 
-.igmock-time {
-  font-size: 0.64rem;
-  color: var(--text-secondary);
+.igmock-card--ai {
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5 0%, #ec4899 55%, #fb7185 100%);
+  border-bottom-right-radius: 5px;
+  transform: rotate(1.5deg);
+  box-shadow: 0 24px 50px -18px rgba(236, 72, 153, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 210px;
 }
-
-.igmock-bubble--out {
-  align-self: flex-end;
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.1), rgba(236, 72, 153, 0.08));
-  border-color: rgba(109, 92, 231, 0.15);
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 4px;
-  animation: igmockPop 0.35s ease both;
-}
-
-@keyframes igmockPop {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 .igmock-ai-label {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   font-size: 0.66rem;
   font-weight: 700;
-  color: var(--blue);
+  color: rgba(255, 255, 255, 0.95);
+}
+.igmock-ai-label svg { width: 12px; height: 12px; }
+.igmock-reply-text { animation: igmockPop 0.35s ease both; }
+@keyframes igmockPop {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.igmock-ai-label svg {
-  width: 11px;
-  height: 11px;
-}
-
-.igmock-typing {
-  flex-direction: row;
-  gap: 4px;
-  align-items: center;
-  padding: 0.7rem 0.85rem;
-}
-
+/* typing dots inside the AI card */
+.igmock-typing { display: inline-flex; gap: 5px; padding: 0.25rem 0; }
 .igmock-typing i {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--blue);
+  background: rgba(255, 255, 255, 0.9);
   animation: igmockTypingBlink 1.1s ease-in-out infinite;
 }
-
 .igmock-typing i:nth-child(2) { animation-delay: 0.16s; }
 .igmock-typing i:nth-child(3) { animation-delay: 0.32s; }
-
 @keyframes igmockTypingBlink {
-  0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
   40% { opacity: 1; transform: translateY(-3px); }
 }
 
-/* Input bar */
-.igmock-inputbar {
-  width: 100%;
+/* ---- avatar cluster ---- */
+.igmock-avatars {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.igmock-inputbar span:first-child {
-  flex: 1;
-  color: var(--text-secondary);
-  font-size: 0.78rem;
-  background: #fff;
-  border: 1px solid var(--border);
+  padding: 0.4rem 0.85rem 0.4rem 0.5rem;
   border-radius: 999px;
-  padding: 0.5rem 1rem;
+  background: #fff;
+  box-shadow: 0 14px 30px -16px rgba(16, 35, 63, 0.35);
 }
-
-.igmock-channels-pill {
-  flex: none;
-  font-size: 0.64rem;
+.igmock-avatars span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
-  padding: 0.4rem 0.7rem;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  border: 2px solid #fff;
+  margin-left: calc(var(--i, 0) * -10px);
+}
+.igmock-avatars em {
+  margin-left: 0.6rem;
+  font-style: normal;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ---- channels pill ---- */
+.igmock-pill {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #4f5bd5, #ec4899, #fb7185);
+  padding: 0.45rem 0.85rem;
   border-radius: 999px;
   white-space: nowrap;
+  box-shadow: 0 14px 30px -16px rgba(236, 72, 153, 0.5);
+}
+
+/* ---- small screens: shrink the stage, keep the scatter ---- */
+@media (max-width: 520px) {
+  .igmock { max-width: 340px; min-height: 380px; }
+  .igmock-card { max-width: 200px; font-size: 0.78rem; }
+  .igmock-chip { font-size: 0.66rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .igmock-tag-dot, .igmock-bubble--out, .igmock-typing i { animation: none; }
+  .igf { animation: none; }
+  .igmock-live-dot, .igmock-reply-text, .igmock-typing i { animation: none; }
 }

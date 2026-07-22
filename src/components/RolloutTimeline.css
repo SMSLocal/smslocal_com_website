@@ -1,0 +1,143 @@
+/* Horizontal rollout rail for /resources/case-studies.
+   A gradient line threaded through milestone nodes on the page background —
+   no card, no frame, no dark fill. Nodes light up in sequence on scroll. */
+
+.rollout-rail {
+  position: relative;
+  margin: 3.2rem auto 0;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+  padding-top: 0.5rem;
+}
+
+/* base track + the coloured progress line that fills in on reveal.
+   Sits at the vertical centre of the node row (padding-top 0.5rem + node radius 8px). */
+.rollout-track,
+.rollout-progress {
+  position: absolute;
+  top: calc(0.5rem + 7px);
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.rollout-track {
+  background: var(--border);
+}
+
+.rollout-progress {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+
+.rollout-rail.is-on .rollout-progress {
+  transform: scaleX(1);
+}
+
+.rollout-stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.4rem;
+}
+
+/* node dot — a normal flow element at the top of the column, drawn over the
+   track (white fill masks the line beneath it) */
+.rollout-node {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid var(--border);
+  transform: scale(0.7);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  transition-delay: calc(0.35s + var(--i) * 0.32s);
+}
+
+.rollout-rail.is-on .rollout-node {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 5px rgba(79, 91, 213, 0.12);
+  transform: scale(1);
+}
+
+.rollout-when {
+  display: block;
+  margin-top: 0.95rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.rollout-head {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.rollout-body {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ---- mobile: rail rotates to a vertical spine on the left ---- */
+@media (max-width: 720px) {
+  .rollout-rail {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    padding-top: 0;
+    padding-left: 2.2rem;
+  }
+
+  .rollout-track,
+  .rollout-progress {
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .rollout-progress {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .rollout-rail.is-on .rollout-progress {
+    transform: scaleY(1);
+  }
+
+  .rollout-stop {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .rollout-node {
+    position: absolute;
+    top: 0.15rem;
+    left: -2.2rem;
+  }
+
+  .rollout-when {
+    margin-top: 0;
+  }
+
+  .rollout-head {
+    margin-top: 0.4rem;
+  }
+}

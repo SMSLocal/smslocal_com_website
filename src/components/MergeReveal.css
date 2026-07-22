@@ -1,0 +1,108 @@
+/* Merge-field section for /channels/whatsapp-broadcasting — a calm
+   "what you write / what they see" split. Static template on the left,
+   one WhatsApp bubble cross-fading between recipients on the right. */
+
+.mrg-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  max-width: 780px;
+  margin: 3rem auto 0;
+}
+
+.mrg-write,
+.mrg-see {
+  flex: 1 1 0;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: 0 18px 38px -24px rgba(16, 35, 63, 0.28);
+}
+
+.mrg-write-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.mrg-write-code {
+  margin: 0;
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--navy);
+  white-space: pre-wrap;
+}
+
+.mrg-write-tag {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.mrg-arrow {
+  flex: none;
+  color: var(--border);
+}
+
+.mrg-see-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  animation: mrg-fade 0.35s ease;
+}
+
+@keyframes mrg-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mrg-see-avatar {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.mrg-see-bubble {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  background: #d9fdd3;
+  border-radius: 12px;
+  border-top-left-radius: 4px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #111b21;
+}
+
+@media (max-width: 700px) {
+  .mrg-split {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 420px;
+  }
+  .mrg-arrow {
+    align-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mrg-see-row {
+    animation: none;
+  }
+}

@@ -40,9 +40,9 @@ function ChatbotHealthcare() {
 
       <Hero
         eyebrow="Healthcare"
-        title="Patient engagement that runs itself"
+        title={<>Patient engagement that <span className="grad-word">runs itself</span></>}
         subtitle="Appointment booking, reminders and FAQ automation — across WhatsApp, web and SMS, cutting no-shows and front-desk load."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
       />
 
@@ -76,13 +76,13 @@ function ChatbotHealthcare() {
 
       <WhyUs title={<>Why clinics automate with our chatbot</>} items={WHY_US} />
 
-      <FAQ title={<>Healthcare chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Reduce no-shows starting this week"
         subtitle="Connect your scheduling system and go live in days."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Healthcare chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

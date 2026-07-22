@@ -130,9 +130,9 @@ function Blog() {
 
       <Hero
         eyebrow="Blog"
-        title="Messaging, compliance and delivery — from the team that ships it"
+        title={<>Messaging, compliance and delivery — from <span className="grad-word">the team that ships it</span></>}
         subtitle="Guides and playbooks on SMS, WhatsApp, chatbots and agentic AI, written for the people actually building with them."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Guides', href: '/resources/guides' }}
       />
 
@@ -179,7 +179,7 @@ function Blog() {
       <CTABanner
         title="Get new articles as we publish them"
         subtitle="Talk to us and we'll keep you posted on what's new."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
     </>
   )

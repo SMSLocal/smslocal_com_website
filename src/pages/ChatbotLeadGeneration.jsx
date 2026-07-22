@@ -40,10 +40,10 @@ function ChatbotLeadGeneration() {
 
       <Hero
         eyebrow="Lead Generation"
-        title="Qualify leads and book meetings, automatically"
+        title={<>Qualify leads and book meetings, <span className="grad-word">automatically</span></>}
         subtitle="Engage visitors, filter for real intent, and sync qualified leads straight into your CRM — around the clock, across channels."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
-        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/sales-sdr' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
+        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/sales' }}
       />
 
       <NarrativeCompare
@@ -76,13 +76,13 @@ function ChatbotLeadGeneration() {
 
       <WhyUs title={<>Why sales teams use our lead bot</>} items={WHY_US} />
 
-      <FAQ title={<>Lead generation chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Start qualifying leads today"
         subtitle="Connect your calendar and CRM, and go live in minutes."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Lead generation chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

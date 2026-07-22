@@ -8,7 +8,7 @@
   overflow: hidden;
   box-shadow:
     0 30px 60px -24px rgba(16, 35, 63, 0.34),
-    0 8px 22px -12px rgba(109, 92, 231, 0.22);
+    0 8px 22px -12px rgba(79, 91, 213, 0.22);
 }
 
 /* Header */
@@ -42,14 +42,14 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #6d5ce7;
-  box-shadow: 0 0 0 3px rgba(109, 92, 231, 0.3);
+  background: #4f5bd5;
+  box-shadow: 0 0 0 3px rgba(79, 91, 213, 0.3);
   animation: aimPulse 1.8s ease-in-out infinite;
 }
 
 @keyframes aimPulse {
-  0%, 100% { box-shadow: 0 0 0 2px rgba(109, 92, 231, 0.35); }
-  50% { box-shadow: 0 0 0 5px rgba(109, 92, 231, 0.08); }
+  0%, 100% { box-shadow: 0 0 0 2px rgba(79, 91, 213, 0.35); }
+  50% { box-shadow: 0 0 0 5px rgba(79, 91, 213, 0.08); }
 }
 
 .aim-live {
@@ -73,7 +73,7 @@
   flex-direction: column;
   gap: 0.55rem;
   background:
-    radial-gradient(circle at 20% 0%, rgba(109, 92, 231, 0.05), transparent 45%),
+    radial-gradient(circle at 20% 0%, rgba(79, 91, 213, 0.05), transparent 45%),
     #fbfbfe;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22px);
   mask-image: linear-gradient(to bottom, transparent 0, #000 22px);
@@ -140,8 +140,8 @@
   align-self: stretch;
   font-size: 0.68rem;
   color: var(--navy);
-  background: rgba(109, 92, 231, 0.08);
-  border: 1px dashed rgba(109, 92, 231, 0.35);
+  background: rgba(79, 91, 213, 0.08);
+  border: 1px dashed rgba(79, 91, 213, 0.35);
   border-radius: 10px;
   padding: 0.5rem 0.6rem;
 }

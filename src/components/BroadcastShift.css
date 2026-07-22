@@ -1,0 +1,108 @@
+/* "Old -> new" transformation grid for /channels/whatsapp-broadcasting.
+   De-boxed 2x2, each tile a before->after morph. Light. */
+
+.bsh-lead { max-width: 780px; }
+
+.bsh-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.6rem auto 0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bsh-legend-old { color: var(--text-secondary); display: inline-flex; align-items: center; gap: 0.45rem; }
+.bsh-legend-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: transparent;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bsh-x {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(16, 35, 63, 0.06);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+}
+
+.bsh-tick, .bsh-new-tick {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bsh-tick svg, .bsh-new-tick svg { width: 9px; height: 9px; }
+
+/* 2x2 transformation grid */
+.bsh-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.6rem 3.5rem;
+  max-width: 860px;
+  margin: 2.4rem auto 0;
+}
+
+.bsh-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.55rem;
+}
+
+.bsh-old {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+  text-decoration: line-through;
+  text-decoration-color: rgba(84, 89, 95, 0.4);
+}
+
+.bsh-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, var(--blue), var(--cyan)) border-box;
+  border: 1.5px solid transparent;
+  color: var(--blue);
+}
+
+.bsh-arrow svg { width: 15px; height: 15px; }
+
+.bsh-new {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+@media (max-width: 720px) {
+  .bsh-grid { grid-template-columns: 1fr; gap: 2.2rem; max-width: 420px; }
+}

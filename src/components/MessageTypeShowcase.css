@@ -1,81 +1,104 @@
-.mts-rows {
+/* One live phone that updates as you move through tabs — not three
+   disconnected alternating rows. */
+.mts-stage {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  max-width: 780px;
+  margin: 3rem auto 0;
+}
+
+.mts-tabs {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 1.5rem;
 }
 
-.mts-row {
+.mts-tab {
   display: flex;
-  align-items: center;
-  gap: 3rem;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 2px solid var(--border);
+  padding: 0.1rem 0 0.1rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
 }
 
-.mts-row--a {
-  flex-direction: row;
+.mts-tab.active {
+  border-left: 2px solid transparent;
+  border-image: var(--gradient-brand) 1;
 }
 
-.mts-row--b {
-  flex-direction: row-reverse;
-}
-
-.mts-visual {
+.mts-tab-num {
   flex: none;
-}
-
-.mts-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.mts-row--b .mts-text {
-  text-align: right;
-}
-
-.mts-num {
-  display: block;
-  font-size: 0.78rem;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--border);
-  margin-bottom: 0.6rem;
+  transition: color 0.2s ease;
 }
 
-.mts-text h3 {
-  margin: 0 0 0.65rem;
-  color: var(--navy);
-  font-size: 1.35rem;
+.mts-tab.active .mts-tab-num {
+  color: var(--blue);
 }
 
-.mts-text p {
-  margin: 0;
+.mts-tab-body h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.08rem;
   color: var(--text-secondary);
-  font-size: 1rem;
-  line-height: 1.65;
-  max-width: 420px;
+  transition: color 0.2s ease;
 }
 
-.mts-row--b .mts-text p {
-  margin-left: auto;
+.mts-tab.active .mts-tab-body h3 {
+  color: var(--navy);
+}
+
+.mts-tab-body p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.mts-tab.active .mts-tab-body p {
+  opacity: 1;
+  max-height: none;
+}
+
+.mts-visual {
+  animation: mtsSwap 0.35s ease both;
+}
+
+@keyframes mtsSwap {
+  from { opacity: 0; transform: translateY(6px) scale(0.97); }
+  to { opacity: 1; transform: none; }
 }
 
 @media (max-width: 720px) {
-  .mts-row,
-  .mts-row--b {
-    flex-direction: column;
-    gap: 1.6rem;
-    text-align: center;
+  .mts-stage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 380px;
   }
 
-  .mts-row--b .mts-text,
-  .mts-text {
-    text-align: center;
+  .mts-visual {
+    order: -1;
   }
 
-  .mts-text p,
-  .mts-row--b .mts-text p {
-    margin-left: auto;
-    margin-right: auto;
+  .mts-tab-body p {
+    max-height: none;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mts-visual { animation: none; }
 }

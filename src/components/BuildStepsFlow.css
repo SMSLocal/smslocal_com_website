@@ -46,7 +46,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   margin-bottom: 0.8rem;
 }
@@ -81,7 +81,7 @@
 .bsf-chip {
   padding: 0.32rem 0.75rem;
   border-radius: 999px;
-  background: rgba(109, 92, 231, 0.08);
+  background: rgba(79, 91, 213, 0.08);
   color: var(--blue);
   font-size: 0.74rem;
   font-weight: 700;
@@ -99,13 +99,13 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.08), rgba(236, 72, 153, 0.08));
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.08), rgba(236, 72, 153, 0.08));
   color: var(--blue);
 }
 
-.bsf-step--1 .bsf-mark { background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(109, 92, 231, 0.08)); color: var(--teal); }
+.bsf-step--1 .bsf-mark { background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), rgba(79, 91, 213, 0.08)); color: var(--teal); }
 .bsf-step--2 .bsf-mark { background: linear-gradient(135deg, rgba(251, 113, 133, 0.08), rgba(236, 72, 153, 0.08)); color: var(--coral); }
-.bsf-step--3 .bsf-mark { background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(109, 92, 231, 0.08)); color: var(--cyan); }
+.bsf-step--3 .bsf-mark { background: linear-gradient(135deg, rgba(236, 72, 153, 0.08), rgba(79, 91, 213, 0.08)); color: var(--cyan); }
 
 .bsf-mark svg { width: 42px; height: 42px; }
 

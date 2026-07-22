@@ -1,0 +1,144 @@
+/* "Results climb" hero for /resources/case-studies.
+   Base styles = fully assembled (bars full, 94%). Motion enhances. */
+
+.csgh {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 0.5rem 0.25rem;
+}
+
+.csgh-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.csgh-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+.csgh-figure {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0.9rem 0 1.6rem;
+}
+
+.csgh-num {
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.csgh-cap {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  max-width: 9.5rem;
+}
+
+/* ---- ascending bars ---- */
+.csgh-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5%;
+  height: 150px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+.csgh-bar {
+  position: relative;
+  flex: 1;
+  height: var(--h);
+  border-radius: 7px 7px 0 0;
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+  transform-origin: bottom;
+  opacity: 0.35;
+}
+
+.csgh-bar--peak {
+  opacity: 1;
+  box-shadow: 0 14px 30px -14px rgba(79, 91, 213, 0.7);
+}
+
+/* earlier bars read fainter, so the climb reads as "toward" the peak */
+.csgh-bar:nth-child(1) { opacity: 0.3; }
+.csgh-bar:nth-child(2) { opacity: 0.4; }
+.csgh-bar:nth-child(3) { opacity: 0.52; }
+.csgh-bar:nth-child(4) { opacity: 0.64; }
+.csgh-bar:nth-child(5) { opacity: 0.76; }
+.csgh-bar:nth-child(6) { opacity: 0.88; }
+.csgh-bar:nth-child(7) { opacity: 1; }
+
+/* glowing summit marker on the tallest bar */
+.csgh-peak {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.18);
+}
+
+.csgh-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.55rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ---------------------------------------------------------------------------
+   Motion — bars grow up in sequence, summit pulses. Base above is assembled.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .csgh.is-on .csgh-bar {
+    animation: csgh-grow 0.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 0.11s);
+  }
+
+  .csgh.is-on .csgh-peak {
+    animation: csgh-pulse 2.4s ease-out 1s infinite;
+  }
+
+  @keyframes csgh-grow {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes csgh-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(236, 72, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+  }
+}
+
+@media (max-width: 480px) {
+  .csgh-num { font-size: 2.7rem; }
+  .csgh-bars { height: 120px; }
+}

@@ -1,0 +1,118 @@
+/* Case-study directory for /resources/case-studies.
+   Magazine index: full-width numbered rows on hairline dividers — oversized
+   ghost numeral, industry tag, headline story, and an emphasized outcome
+   metric pinned right. De-boxed; structurally distinct from ChannelCatalog's
+   grouped two-column icon rows. */
+
+.csidx {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.csidx-row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr auto;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.7rem 0.4rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.csidx-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.csidx-row:hover {
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.04), rgba(236, 72, 153, 0.02));
+}
+
+.csidx-num {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.4px rgba(79, 91, 213, 0.45);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.csidx-main {
+  min-width: 0;
+}
+
+.csidx-tag {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.csidx-head {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0.28rem 0 0.32rem;
+  letter-spacing: -0.005em;
+}
+
+.csidx-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 38rem;
+}
+
+.csidx-metric {
+  text-align: right;
+  flex: none;
+  padding-left: 1rem;
+}
+
+.csidx-metric-val {
+  display: block;
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.csidx-metric-label {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  max-width: 8.5rem;
+  margin-left: auto;
+  line-height: 1.35;
+}
+
+@media (max-width: 720px) {
+  .csidx-row {
+    grid-template-columns: 2.4rem 1fr;
+    grid-template-areas:
+      'num main'
+      'num metric';
+    row-gap: 0.9rem;
+    column-gap: 1rem;
+  }
+
+  .csidx-num { grid-area: num; font-size: 1.6rem; align-self: start; }
+  .csidx-main { grid-area: main; }
+  .csidx-metric {
+    grid-area: metric;
+    text-align: left;
+    padding-left: 0;
+  }
+  .csidx-metric-val { font-size: 1.5rem; }
+  .csidx-metric-label { margin-left: 0; max-width: none; }
+}

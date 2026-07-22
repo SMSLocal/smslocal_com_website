@@ -22,7 +22,7 @@
   color: #fff;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
   clip-path: polygon(0% 0%, 100% 0%, 100% 68%, 50% 100%, 0% 68%);
-  box-shadow: 0 16px 28px -16px rgba(109, 92, 231, 0.5);
+  box-shadow: 0 16px 28px -16px rgba(79, 91, 213, 0.5);
   transition: transform 0.25s ease;
 }
 

@@ -40,9 +40,9 @@ function ChatbotMarketingSales() {
 
       <Hero
         eyebrow="Marketing & Sales"
-        title="Turn conversations into conversions"
+        title={<>Turn conversations into <span className="grad-word">conversions</span></>}
         subtitle="Recover carts, guide buyers, and run promotions as a conversation instead of a blast — on WhatsApp and web."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Promotional SMS', href: '/promotional-sms' }}
       />
 
@@ -76,13 +76,13 @@ function ChatbotMarketingSales() {
 
       <WhyUs title={<>Why brands drive sales with our chatbot</>} items={WHY_US} />
 
-      <FAQ title={<>Marketing & sales chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Start recovering carts today"
         subtitle="Connect your store and go live in minutes."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Marketing & sales chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

@@ -26,7 +26,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 20%, rgba(109, 92, 231, 0.35), transparent 45%),
+    radial-gradient(circle at 15% 20%, rgba(79, 91, 213, 0.35), transparent 45%),
     radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.25), transparent 45%);
 }
 

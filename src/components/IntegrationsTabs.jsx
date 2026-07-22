@@ -4,7 +4,7 @@ import './IntegrationsTabs.css'
 import AppLogo, { colorFor } from './AppLogo.jsx'
 import { APP_CATEGORIES } from '../data/appCategories.jsx'
 
-const TAB_DOTS = ['#6d5ce7', '#ec4899', '#fb7185', '#8b5cf6', '#0ea5e9', '#10233f']
+const TAB_DOTS = ['#4f5bd5', '#ec4899', '#fb7185', '#8b5cf6', '#0ea5e9', '#154989']
 
 function IntegrationsTabs({ title, subtitle, eyebrow = 'Integrations', alt, id }) {
   const total = APP_CATEGORIES.length

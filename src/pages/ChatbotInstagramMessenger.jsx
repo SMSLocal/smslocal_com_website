@@ -40,10 +40,10 @@ function ChatbotInstagramMessenger() {
 
       <Hero
         eyebrow="Social Chatbot"
-        title="One bot for Instagram DMs and Facebook Messenger"
+        title={<>One bot for <span className="grad-word">Instagram DMs</span> and Facebook Messenger</>}
         subtitle="Reply instantly, turn comments into conversations, and recover carts — across both social channels from a single flow."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
-        secondaryCta={{ label: 'See Instagram API', href: '/instagram-messaging-api' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
+        secondaryCta={{ label: 'See Instagram API', href: '/channels/instagram' }}
       />
 
       <NarrativeCompare
@@ -76,13 +76,13 @@ function ChatbotInstagramMessenger() {
 
       <WhyUs title={<>Why brands automate social with SMSLocal</>} items={WHY_US} />
 
-      <FAQ title={<>Instagram & Messenger chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Automate your Instagram and Messenger DMs"
         subtitle="Connect both accounts and go live in minutes."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Instagram & Messenger chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

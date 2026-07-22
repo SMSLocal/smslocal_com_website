@@ -43,9 +43,9 @@ function AiAgentsAgentAssist() {
 
       <Hero
         eyebrow="AI Agents"
-        title="An AI copilot for your support agents"
+        title={<>An <span className="grad-word">AI copilot</span> for your support agents</>}
         subtitle="Agent assist drafts replies, surfaces the right knowledge and summarizes threads — so your human agents resolve faster, in their own words."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
         visual={<AgentWorkflowMock />}
       />
@@ -72,14 +72,14 @@ function AiAgentsAgentAssist() {
 
       <WhyUsSplitGrid eyebrow="Why us" title={<>Why teams turn on agent assist</>} items={WHY_US} />
 
-      <FAQ title={<>Agent assist — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Give every agent a copilot"
         subtitle="Turn on agent assist and cut handle time without adding headcount."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>Agent assist — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

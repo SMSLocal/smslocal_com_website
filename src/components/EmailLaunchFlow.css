@@ -1,0 +1,90 @@
+/* Vertical launch ladder for /email-api. Big numerals, de-boxed. */
+
+.ell {
+  max-width: 620px;
+  margin: 3rem auto 0;
+}
+
+.ell-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 1.4rem;
+  padding: 1.6rem 0;
+}
+
+.ell-step + .ell-step,
+.ell-live { border-top: 1px solid var(--border); }
+
+.ell-num {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(150deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.9;
+}
+
+.ell-title {
+  margin: 0.3rem 0 0.45rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.ell-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.ell-chips { display: flex; gap: 0.4rem; margin-top: 0.8rem; }
+
+.ell-chip {
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--blue);
+  padding: 0.24rem 0.5rem;
+  border-radius: 6px;
+  border: 1.5px solid rgba(79, 91, 213, 0.3);
+}
+
+.ell-live {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.6rem 0 0.4rem;
+}
+
+.ell-rocket {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 20px 38px -16px rgba(79, 91, 213, 0.8);
+}
+
+.ell-rocket svg { width: 26px; height: 26px; }
+
+.ell-live strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.ell-live span { font-size: 0.82rem; color: var(--text-secondary); }

@@ -46,9 +46,9 @@ function ChatbotCustomerSupport() {
 
       <Hero
         eyebrow="Customer Support"
-        title="A support chatbot that deflects tickets, not just chats"
+        title={<>A support chatbot that <span className="grad-word">deflects tickets</span>, not just chats</>}
         subtitle="Answer common questions instantly, escalate the rest with full context, and cover WhatsApp, web, SMS and social from one bot."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/customer-service' }}
       />
 
@@ -84,13 +84,13 @@ function ChatbotCustomerSupport() {
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
 
-      <FAQ title={<>Customer support chatbot — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Start deflecting tickets today"
         subtitle="Connect your help content and go live in minutes."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Customer support chatbot — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

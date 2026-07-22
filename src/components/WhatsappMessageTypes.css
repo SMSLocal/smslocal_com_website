@@ -3,7 +3,7 @@
   max-width: 240px;
   height: 220px;
   margin: 0 auto;
-  background: #0b1424;
+  background: #0f172a;
   border-radius: 22px;
   padding: 0.9rem 0.8rem 1.1rem;
   box-shadow: 0 20px 40px -18px rgba(16, 35, 63, 0.4);
@@ -82,8 +82,8 @@
 
 .wamt-chip {
   width: 100%;
-  background: rgba(109, 92, 231, 0.16);
-  border: 1px solid rgba(109, 92, 231, 0.35);
+  background: rgba(79, 91, 213, 0.16);
+  border: 1px solid rgba(79, 91, 213, 0.35);
   color: #cdd3f5;
   font-size: 0.7rem;
   font-weight: 600;

@@ -125,9 +125,9 @@ function SmsApi() {
 
       <Hero
         eyebrow="Developer"
-        title="Programmable SMS API for developers"
+        title={<>Programmable <span className="grad-word">SMS API</span> for developers</>}
         subtitle="Integrate SMS into your product in minutes. Global reach, carrier-grade delivery, and webhooks for delivery receipts and inbound replies."
-        primaryCta={{ label: 'Get API Key', href: '/contact' }}
+        primaryCta={{ label: 'Get API Key', href: '/contact-us' }}
         secondaryCta={{ label: 'View Docs', href: '/resources/docs' }}
         visual={<SmsApiHeroMock />}
       />
@@ -182,13 +182,13 @@ function SmsApi() {
 
       <WhyUs title={<>Built for production traffic</>} items={WHY_US} alt />
 
-      <FAQ title={<>SMS API — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Start building with the SMS API"
         subtitle="Get your API key and send a test message in minutes."
-        cta={{ label: 'Get API Key', href: '/contact' }}
+        cta={{ label: 'Get API Key', href: '/contact-us' }}
       />
+
+      <FAQ title={<>SMS API — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

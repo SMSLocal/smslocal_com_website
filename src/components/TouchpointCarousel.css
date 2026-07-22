@@ -45,7 +45,7 @@
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 }
 
-.tpc-tint-a { background: rgba(109, 92, 231, 0.07); }
+.tpc-tint-a { background: rgba(79, 91, 213, 0.07); }
 .tpc-tint-b { background: rgba(0, 174, 239, 0.08); }
 .tpc-tint-c { background: rgba(20, 184, 166, 0.08); }
 

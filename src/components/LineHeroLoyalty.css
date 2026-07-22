@@ -1,0 +1,94 @@
+.lnl {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.lnl svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: inherit;
+}
+
+/* verified official-account marker */
+.lnl-oa-mono {
+  text-anchor: middle;
+  font-size: 10px;
+  font-weight: 700;
+  fill: #fff;
+}
+.lnl-oa-name {
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+.lnl-oa-sub {
+  font-size: 10px;
+  fill: var(--text-secondary);
+}
+
+/* gauge */
+.lnl-gauge-num {
+  text-anchor: middle;
+  font-size: 30px;
+  font-weight: 800;
+  fill: var(--navy);
+  letter-spacing: -0.01em;
+}
+.lnl-gauge-lbl {
+  text-anchor: middle;
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+}
+
+/* satellites */
+.lnl-sat-disc {
+  fill: #fff;
+  stroke-width: 1.5;
+}
+.lnl-sat-label {
+  text-anchor: middle;
+  font-size: 12.5px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+.lnl-sat.is-teal { color: #14b8a6; }
+.lnl-sat.is-blue { color: #4f5bd5; }
+.lnl-sat.is-coral { color: #fb7185; }
+.lnl-sat.is-purple { color: #8b5cf6; }
+.lnl-sat-disc { stroke: currentColor; }
+.lnl-sat-glyph { color: currentColor; }
+
+/* motion */
+@media (prefers-reduced-motion: no-preference) {
+  .lnl-orbit {
+    transform-origin: 220px 220px;
+    transform-box: view-box;
+    animation: lnl-spin 60s linear infinite;
+  }
+  .lnl-gauge-gift {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: lnl-bob 3.2s ease-in-out infinite;
+  }
+  .lnl-sat {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: lnl-float 4s ease-in-out infinite;
+    animation-delay: var(--d);
+  }
+}
+
+@keyframes lnl-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes lnl-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+@keyframes lnl-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}

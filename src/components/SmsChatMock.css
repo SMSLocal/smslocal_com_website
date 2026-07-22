@@ -30,19 +30,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.55rem 1.4rem 0.5rem;
-  color: #0b1424;
+  color: #0f172a;
   flex: none;
 }
 
 .sms-time { font-size: 0.72rem; font-weight: 700; }
 .sms-status-icons { display: flex; align-items: center; gap: 5px; }
 .sms-signal { display: flex; align-items: flex-end; gap: 1.5px; }
-.sms-signal i { display: block; width: 2.5px; border-radius: 1px; background: #0b1424; }
+.sms-signal i { display: block; width: 2.5px; border-radius: 1px; background: #0f172a; }
 
 .sms-battery {
   width: 18px;
   height: 9px;
-  border: 1px solid #0b1424;
+  border: 1px solid #0f172a;
   border-radius: 2px;
   position: relative;
 }
@@ -52,7 +52,7 @@
   position: absolute;
   inset: 1.5px;
   right: 4px;
-  background: #0b1424;
+  background: #0f172a;
   border-radius: 1px;
 }
 

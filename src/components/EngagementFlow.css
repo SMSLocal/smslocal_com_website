@@ -1,0 +1,84 @@
+/* Engagement phase flow for /services/ai-consulting. Horizontal, de-boxed. */
+
+.eflow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 1080px;
+  margin: 3rem auto 0;
+}
+
+.eflow-phase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 1.6rem;
+  border-left: 1px solid var(--border);
+}
+
+.eflow-phase:first-child { border-left: 0; padding-left: 0.4rem; }
+
+.eflow-dur {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 20px -12px rgba(79, 91, 213, 0.7);
+}
+
+.eflow-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.eflow-desc {
+  margin: 0 0 1.3rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.eflow-exit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.eflow-exit-check {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--teal);
+}
+
+.eflow-exit-check svg { width: 10px; height: 10px; }
+
+@media (max-width: 860px) {
+  .eflow { grid-template-columns: repeat(2, 1fr); gap: 2.4rem 0; }
+  .eflow-phase:nth-child(odd) { border-left: 0; padding-left: 0.4rem; }
+}
+
+@media (max-width: 480px) {
+  .eflow { grid-template-columns: 1fr; gap: 2rem; }
+  .eflow-phase { border-left: 0; padding-left: 0.4rem; }
+}

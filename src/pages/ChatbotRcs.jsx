@@ -40,10 +40,10 @@ function ChatbotRcs() {
 
       <Hero
         eyebrow="RCS Chatbot"
-        title="An automated bot that looks as good as it replies"
+        title={<>An automated bot that looks <span className="grad-word">as good as it replies</span></>}
         subtitle="Rich cards, carousels and suggested replies on RCS — with a verified sender and automatic SMS fallback built in."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
-        secondaryCta={{ label: 'See RCS Messaging', href: '/rcs-business-messaging' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
+        secondaryCta={{ label: 'See RCS Messaging', href: '/channels/rcs' }}
       />
 
       <NarrativeCompare
@@ -76,13 +76,13 @@ function ChatbotRcs() {
 
       <WhyUs title={<>Why brands automate RCS with SMSLocal</>} items={WHY_US} />
 
-      <FAQ title={<>RCS chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Build your first RCS bot"
         subtitle="Verified sender, rich cards and SMS fallback — live in days."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>RCS chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

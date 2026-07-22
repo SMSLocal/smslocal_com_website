@@ -1,23 +1,19 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, CompareTable, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconShield, IconPackage, IconRefresh, IconChart, IconGlobe, IconBolt, IconMail, IconChat, IconCheck, IconBrain } from '../components/icons.jsx'
-import RcsHeroMock from '../components/RcsHeroMock.jsx'
-import RcsCapabilityGrid from '../components/RcsCapabilityGrid.jsx'
-import RcsStepsRibbon from '../components/RcsStepsRibbon.jsx'
-import WhyUsQuoteMarks from '../components/WhyUsQuoteMarks.jsx'
-import EcosystemConnectedRow from '../components/EcosystemConnectedRow.jsx'
+import RcsHeroTransform from '../components/RcsHeroTransform.jsx'
+import RcsHeroBadges from '../components/RcsHeroBadges.jsx'
+import RcsCapabilities from '../components/RcsCapabilities.jsx'
+import RcsUseCases from '../components/RcsUseCases.jsx'
+import RcsCompareMatrix from '../components/RcsCompareMatrix.jsx'
+import RcsWhyUsQuad from '../components/RcsWhyUsQuad.jsx'
+import RcsEcosystemHub from '../components/RcsEcosystemHub.jsx'
 
 const HERO_BADGES = [
   { icon: <IconCheck />, word: 'Verified', desc: 'brand sender with logo & name' },
   { icon: <IconPackage />, word: 'Rich', desc: 'cards, carousels & media' },
   { icon: <IconRefresh />, word: 'Auto', desc: 'SMS fallback, no message lost' },
   { icon: <IconBrain />, word: 'AI', desc: 'answers every reply in one inbox' },
-]
-
-const STEPS = [
-  { title: 'Get RCS verified', desc: 'We submit your brand for Google RCS verification — name, logo and sender ID approved.' },
-  { title: 'Design rich cards', desc: 'Build cards, carousels and quick replies from templates or your own brand assets.' },
-  { title: 'Send with fallback on', desc: 'Launch a campaign that automatically drops to SMS on devices that lack RCS.' },
 ]
 
 const COMPARE_ROWS = [
@@ -36,10 +32,10 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Send verified, branded RCS campaigns to your whole list at once — with SMS fallback built in.', href: '/rcs-business-messaging' },
+  { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Send verified, branded RCS campaigns to your whole list at once — with SMS fallback built in.', href: '/channels/rcs' },
   { icon: <IconChat />, title: 'SMS broadcasting', desc: 'The universal safety net — when a device can’t receive RCS, the same send still lands as plain SMS.', href: '/bulk-sms' },
   { icon: <IconBrain />, title: 'Agentic AI', desc: 'The AI layer that reads every reply, grounds its answer in your data, and closes the loop without a human.', href: '/ai-agents/customer-service' },
-  { icon: <IconMail />, title: 'Omnichannel inbox', desc: 'Every RCS reply lands beside WhatsApp, SMS and social in one shared team inbox.', href: '/chatbot/whatsapp' },
+  { icon: <IconMail />, title: 'Omnichannel inbox', desc: 'Every RCS reply lands right beside WhatsApp, SMS and social replies — all inside one shared team inbox.', href: '/chatbot/whatsapp' },
 ]
 
 const TESTIMONIALS = [
@@ -66,58 +62,20 @@ function RcsBusinessMessaging() {
 
       <Hero
         eyebrow="RCS"
-        title="Bring branded RCS messaging to every Android inbox"
+        title={<>Bring branded RCS messaging to <span className="grad-word">every Android inbox</span></>}
         subtitle="Verified sender badges, rich cards, carousels and quick-reply buttons — with automatic SMS fallback when RCS isn't supported."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<RcsHeroMock />}
+        visual={<RcsHeroTransform />}
       />
 
-      <div className="hero-badges-wrap">
-        <div className="container">
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <div className="hero-badge" key={b.word}>
-                <span className="hero-badge-icon">{b.icon}</span>
-                <div className="hero-badge-text">
-                  <strong>{b.word}</strong>
-                  <span>{b.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <RcsHeroBadges items={HERO_BADGES} />
 
-      <NarrativeCompare
-        heading={<>A text gets opened. It rarely gets remembered.</>}
-        paragraphs={[
-          "SMS still gets read fast, but every message looks identical — a grey bubble from a number nobody's saved, a link with zero context, and no way to tell a real brand from a spoofed one.",
-          'So the send that was meant to drive a click just blends in and gets forgotten. And on the rare reply, it lands in a queue with no memory of who the customer is or what they asked.',
-          <>RCS rewrites the format: your brand shows up <strong>verified, with a logo and rich media</strong>, and every reply is picked up instantly instead of sitting unread.</>,
-        ]}
-        leftLabel="Plain SMS"
-        leftItems={[
-          'Unfamiliar number, zero branding',
-          'Text only — no images, cards or buttons',
-          'A bare link the customer has to trust blind',
-          'Replies land in a queue, not a conversation',
-        ]}
-        rightLabel="Branded RCS"
-        rightItems={[
-          'Verified sender with logo and business name',
-          'Rich cards, carousels and media, built in',
-          'Tappable suggested replies, not guesswork',
-          'Every reply routed and answered in one inbox',
-        ]}
-        alt
-      />
+      <RcsCapabilities />
 
-      <RcsCapabilityGrid />
+      <RcsUseCases />
 
-      <RcsStepsRibbon eyebrow="How it works" title={<>Go live on RCS in three steps</>} steps={STEPS} alt />
-
-      <CompareTable
+      <RcsCompareMatrix
         title={<>RCS vs plain SMS</>}
         subtitle="Same underlying network, a much richer experience for the customer."
         leftLabel="SMS"
@@ -125,9 +83,9 @@ function RcsBusinessMessaging() {
         rows={COMPARE_ROWS}
       />
 
-      <WhyUsQuoteMarks eyebrow="Why us" title={<>Why brands upgrade to our RCS API</>} items={WHY_US} alt />
+      <RcsWhyUsQuad eyebrow="Why us" title={<>Why brands upgrade to our RCS API</>} items={WHY_US} />
 
-      <EcosystemConnectedRow
+      <RcsEcosystemHub
         eyebrow="Ecosystem"
         title={<>Everything RCS connects to</>}
         subtitle="RCS is one channel in a bigger system — scaled broadcasting, an SMS safety net, agentic AI, and a shared inbox tying it all together."
@@ -136,13 +94,13 @@ function RcsBusinessMessaging() {
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} alt />
 
-      <FAQ title={<>RCS business messaging — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Upgrade your SMS to branded RCS"
         subtitle="Verified sender, rich cards and automatic fallback — live in days, not months."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>RCS business messaging — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

@@ -1,0 +1,165 @@
+.bcm {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* Top bar — plain floating row, no frame */
+.bcm-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.bcm-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bcm-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.bcm-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: bcmLive 1.5s ease-in-out infinite;
+}
+
+@keyframes bcmLive {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+  50% { box-shadow: 0 0 0 4px rgba(22, 163, 74, 0); }
+}
+
+.bcm-count {
+  margin-left: auto;
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Week grid — dashed dividers only, no outer box */
+.bcm-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bcm-col {
+  min-height: 210px;
+  padding: 0 0.3rem;
+}
+
+.bcm-col:not(:first-child) {
+  border-left: 1px dashed var(--border);
+}
+
+.bcm-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  margin-bottom: 0.7rem;
+}
+
+.bcm-day-name {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.bcm-day-num {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bcm-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Appointment pills — individual chips (allowed), tinted by type */
+.bcm-pill {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.5rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--blue);
+  background: rgba(79, 91, 213, 0.09);
+  box-shadow: 0 6px 14px -10px rgba(16, 35, 63, 0.5);
+  animation: bcmPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.bcm-pill--1 { border-left-color: var(--teal); background: rgba(20, 184, 166, 0.1); }
+.bcm-pill--2 { border-left-color: var(--coral); background: rgba(251, 113, 133, 0.12); }
+.bcm-pill--3 { border-left-color: var(--cyan); background: rgba(236, 72, 153, 0.1); }
+
+@keyframes bcmPop {
+  from { opacity: 0; transform: translateY(6px) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.bcm-pill-t {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.bcm-pill-l {
+  font-size: 0.58rem;
+  color: var(--text-secondary);
+  line-height: 1.1;
+}
+
+.bcm-pill-check {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--success);
+  color: #fff;
+}
+
+/* The most recently booked slot pulses to draw the eye */
+.bcm-pill.is-new {
+  animation: bcmPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both, bcmGlow 1.2s ease-out;
+}
+
+@keyframes bcmGlow {
+  0% { box-shadow: 0 0 0 0 rgba(79, 91, 213, 0.5); }
+  100% { box-shadow: 0 6px 14px -10px rgba(16, 35, 63, 0.5); }
+}
+
+@media (max-width: 560px) {
+  .bcm { max-width: 340px; }
+  .bcm-col { min-height: 180px; padding: 0 0.2rem; }
+  .bcm-pill-t, .bcm-pill-l { font-size: 0.55rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bcm-pill, .bcm-pill.is-new { animation: none; opacity: 1; }
+  .bcm-live-dot { animation: none; }
+}

@@ -1,0 +1,69 @@
+/* Staggered two-column feature list for the DID / virtual numbers page.
+   Right column offset downward so items interleave. No card, no box. */
+
+.ncap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 4.5rem;
+  max-width: 960px;
+  margin: 3rem auto 0;
+}
+
+.ncap-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+
+/* the interleave: push the right column down by half an item */
+.ncap-col--offset {
+  margin-top: 4.5rem;
+}
+
+.ncap-item {
+  max-width: 400px;
+}
+
+.ncap-ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: rgba(79, 91, 213, 0.09);
+  color: var(--blue);
+  margin-bottom: 0.9rem;
+}
+
+.ncap-ic svg { width: 19px; height: 19px; }
+
+.ncap-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.ncap-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .ncap {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .ncap-col {
+    gap: 2.4rem;
+  }
+
+  .ncap-col--offset {
+    margin-top: 2.4rem;
+  }
+}

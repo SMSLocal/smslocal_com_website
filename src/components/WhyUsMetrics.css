@@ -1,0 +1,71 @@
+.wmet-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1000px;
+  margin: 2.6rem auto 0;
+}
+
+.wmet-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.2rem 1.1rem;
+}
+
+.wmet-row > .wmet-cell + .wmet-cell {
+  border-left: 1px solid var(--border);
+}
+
+.wmet-figure {
+  font-size: 2.9rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.wmet-cell h3 {
+  margin: 0.75rem 0 0.4rem;
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.wmet-cell p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  max-width: 220px;
+}
+
+@media (max-width: 820px) {
+  .wmet-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.6rem 0;
+  }
+
+  .wmet-row > .wmet-cell + .wmet-cell {
+    border-left: none;
+  }
+
+  .wmet-row > .wmet-cell:nth-child(even) {
+    border-left: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 460px) {
+  .wmet-row {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .wmet-row > .wmet-cell:nth-child(even) {
+    border-left: none;
+  }
+}

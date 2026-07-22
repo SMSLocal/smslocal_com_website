@@ -19,13 +19,13 @@ const CAPABILITIES = [
 ]
 
 const CHANNELS = [
-  { icon: <IconChat />, title: 'WhatsApp', desc: 'Resolves two-way conversations on the verified WhatsApp Business API.', href: '/whatsapp-business-api' },
+  { icon: <IconChat />, title: 'WhatsApp', desc: 'Resolves two-way conversations on the verified WhatsApp Business API.', href: '/channels/whatsapp' },
   { icon: <IconMegaphone />, title: 'SMS', desc: 'Two-way text that reaches every phone, no app required.', href: '/bulk-sms' },
-  { icon: <IconBolt />, title: 'RCS', desc: 'Rich cards and buttons on Android, with SMS fallback.', href: '/rcs-business-messaging' },
+  { icon: <IconBolt />, title: 'RCS', desc: 'Rich cards and buttons on Android, with SMS fallback.', href: '/channels/rcs' },
   { icon: <IconPhone />, title: 'Viber', desc: 'Reaches Viber users directly, from the same agent.', href: '/viber-business-messages' },
   { icon: <IconRobot />, title: 'Telegram', desc: 'Automated Telegram conversations, resolved by the agent.', href: '/telegram-business' },
-  { icon: <IconGlobe />, title: 'Instagram', desc: 'Handles Instagram DMs and comments beside every channel.', href: '/instagram-messaging-api' },
-  { icon: <IconLink />, title: 'Messenger', desc: 'Facebook Messenger DMs continue the same conversation.', href: '/facebook-messenger-api' },
+  { icon: <IconGlobe />, title: 'Instagram', desc: 'Handles Instagram DMs and comments beside every channel.', href: '/channels/instagram' },
+  { icon: <IconLink />, title: 'Messenger', desc: 'Facebook Messenger DMs continue the same conversation.', href: '/channels/messenger' },
   { icon: <IconShield />, title: 'Apple Messages', desc: 'Native iMessage business chat, handled by the agent.', href: '/apple-messages-for-business' },
   { icon: <IconChat />, title: 'LINE', desc: 'Messages LINE users at scale, from the same agent.', href: '/line-business-messaging' },
   { icon: <IconMail />, title: 'Email', desc: 'Triages, drafts and sends email replies from the same agent.', href: '/email-api' },
@@ -66,9 +66,9 @@ function AiAgentsOmnichannel() {
 
       <Hero
         eyebrow="AI Agents"
-        title="One AI agent, every channel"
+        title={<>One AI agent, <span className="grad-word">every channel</span></>}
         subtitle="The same agent resolves conversations on WhatsApp, RCS, SMS, voice, email, Instagram and Messenger — with one memory, one customer record, and real actions taken wherever the message arrives."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<OmniInboxMock />}
       />
@@ -118,14 +118,14 @@ function AiAgentsOmnichannel() {
         alt
       />
 
-      <FAQ title={<>Omnichannel agent — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="One agent, every channel your customers use"
         subtitle="Connect your channels and let a single agent resolve, act and hand off — with one memory across every conversation."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>Omnichannel agent — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

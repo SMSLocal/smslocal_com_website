@@ -23,7 +23,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   margin-bottom: 1.1rem;
   transition: transform 0.2s ease;
@@ -85,7 +85,7 @@
   font-size: 0.62rem;
   font-weight: 700;
   color: var(--blue);
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
 }
@@ -109,7 +109,7 @@
 }
 
 .igcap-dm {
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.1), rgba(236, 72, 153, 0.08));
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.1), rgba(236, 72, 153, 0.08));
   border-radius: 8px;
   padding: 0.5rem 0.7rem;
   font-size: 0.74rem;

@@ -1,57 +1,36 @@
-import { useEffect, useState } from 'react'
 import './AppleMessagesHeroMock.css'
 
-const SLOTS = ['Today, 4:30 PM', 'Tomorrow, 11:00 AM', 'Tomorrow, 2:15 PM']
-const TOTAL_STEPS = 5
-const HOLD = 3
+const NODES = [
+  { side: 'right', type: 'in', text: 'Hi, can I reschedule my fitting appointment?' },
+  { side: 'left', type: 'out', text: 'Sure! Pick a new time 👇', tapback: true },
+  { side: 'right', type: 'pick', text: '📅 Tomorrow, 11:00 AM', check: true },
+  { side: 'left', type: 'in', text: 'Tomorrow at 11 works great' },
+  { side: 'right', type: 'pay', text: ' Pay · $0 deposit' },
+]
 
 function AppleMessagesHeroMock() {
-  const [step, setStep] = useState(1)
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setStep((s) => (s >= TOTAL_STEPS + HOLD ? 1 : s + 1))
-    }, 1500)
-    return () => clearInterval(id)
-  }, [])
-
-  const shown = Math.min(step, TOTAL_STEPS)
-
   return (
-    <div className="amock" role="img" aria-label="An iMessage business chat rescheduling an appointment with a time picker and Apple Pay deposit">
-      <span className="amock-tag">
+    <div className="amock" role="img" aria-label="A connected iMessage business-chat journey — reschedule request, reply, time pick, confirmation and an Apple Pay deposit, threaded on one flow">
+      <span className="amock-start">
         <span className="amock-avatar">SL</span>
         SMSLocal · Business Chat
+        <span className="amock-verified">✓</span>
       </span>
 
-      <div className="amock-thread">
-        {shown >= 1 && (
-          <div className="amock-bubble in amock-pop">Hi, can I reschedule my fitting appointment?</div>
-        )}
-
-        {shown >= 2 && (
-          <div className="amock-bubble out amock-pop">
-            Sure! Pick a new time below.
-            <span className="amock-tapback">❤️</span>
+      <div className="amock-flow">
+        <span className="amock-pulse" aria-hidden="true" />
+        {NODES.map((n, i) => (
+          <div className={`amock-row amock-row--${n.side}`} key={i}>
+            <div className="amock-cell">
+              <div className={`amock-msg amock-msg--${n.type}`}>
+                {n.text}
+                {n.check && <span className="amock-msg-check">✓</span>}
+                {n.tapback && <span className="amock-tapback">❤️</span>}
+              </div>
+            </div>
+            <span className={`amock-dot amock-dot--${n.type}`} />
           </div>
-        )}
-
-        {shown >= 3 && (
-          <div className="amock-list-picker amock-pop">
-            <span className="amock-list-title">📅 Choose a time</span>
-            {SLOTS.map((s) => (
-              <span className="amock-list-row" key={s}>{s}</span>
-            ))}
-          </div>
-        )}
-
-        {shown >= 4 && (
-          <div className="amock-bubble in amock-pop">Tomorrow at 11 works great</div>
-        )}
-
-        {shown >= 5 && (
-          <div className="amock-paypill amock-pop"> Pay $0 deposit with Apple Pay</div>
-        )}
+        ))}
       </div>
     </div>
   )

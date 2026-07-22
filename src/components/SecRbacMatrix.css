@@ -1,0 +1,122 @@
+.sec-rbac-scroll {
+  max-width: 790px;
+  margin: 0 auto 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+}
+
+/* Role x permission matrix — hairline cells, no heavy card */
+.sec-rbac-grid {
+  display: grid;
+  grid-template-columns: minmax(168px, 1.5fr) repeat(5, minmax(88px, 1fr));
+  min-width: 640px;
+}
+
+.sec-rbac-line { display: contents; }
+
+/* Header row */
+.sec-rbac-corner {
+  padding: 0 0 1rem;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  align-self: end;
+  border-bottom: 2px solid var(--navy);
+}
+
+.sec-rbac-colhead {
+  padding: 0 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  align-self: end;
+  border-bottom: 2px solid var(--navy);
+  border-left: 1px solid var(--border);
+}
+
+/* Role rows */
+.sec-rbac-role {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.95rem 1rem 0.95rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sec-rbac-role strong {
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.sec-rbac-role span {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+.sec-rbac-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.sec-rbac-line:hover .sec-rbac-cell,
+.sec-rbac-line:hover .sec-rbac-role {
+  background: rgba(79, 91, 213, 0.04);
+}
+
+.sec-rbac-yes {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 13px -6px rgba(79, 91, 213, 0.6);
+}
+
+.sec-rbac-no {
+  width: 14px;
+  height: 3px;
+  border-radius: 3px;
+  background: #ccd0dc;
+}
+
+/* Legend */
+.sec-rbac-legend {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.sec-rbac-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.sec-rbac-yes--legend {
+  width: 18px;
+  height: 18px;
+  box-shadow: none;
+}
+
+.sec-rbac-no--legend { margin: 0; }
+
+@media (max-width: 720px) {
+  .sec-rbac-scroll { margin-left: -1.5rem; margin-right: -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+}

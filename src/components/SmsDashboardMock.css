@@ -70,9 +70,9 @@
 }
 
 .smsd-agent .smsd-bubble {
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.1), rgba(236, 72, 153, 0.08));
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.1), rgba(236, 72, 153, 0.08));
   color: var(--navy);
-  border: 1px solid rgba(109, 92, 231, 0.15);
+  border: 1px solid rgba(79, 91, 213, 0.15);
   border-bottom-left-radius: 4px;
 }
 

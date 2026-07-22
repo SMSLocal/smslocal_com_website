@@ -40,7 +40,7 @@ function Login() {
                   <input type="checkbox" />
                   Remember me
                 </label>
-                <Link to="/contact" className="auth-link">Forgot password?</Link>
+                <Link to="/contact-us" className="auth-link">Forgot password?</Link>
               </div>
 
               <button type="submit" className="btn btn-primary auth-submit">

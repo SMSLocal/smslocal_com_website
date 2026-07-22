@@ -43,9 +43,9 @@ function ChatbotWebsite() {
 
       <Hero
         eyebrow="Website Chatbot"
-        title="An AI chatbot for your website, live in minutes"
+        title={<>An AI chatbot for your website, <span className="grad-word">live in minutes</span></>}
         subtitle="Answer FAQs, capture leads and hand off to live agents — 24/7, with a single script snippet and no code required."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<WebsiteConversationFloat />}
       />
@@ -82,13 +82,13 @@ function ChatbotWebsite() {
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} />
 
-      <FAQ title={<>Website chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Add a chatbot to your website today"
         subtitle="One snippet, live in minutes — no developer required."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Website chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

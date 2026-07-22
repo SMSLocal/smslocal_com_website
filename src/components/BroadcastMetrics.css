@@ -1,0 +1,214 @@
+/* "Why us" section for /channels/whatsapp-broadcasting — a bento grid:
+   one large featured panel (Read rate) + a 2x2 grid of smaller stat
+   cards, each with a soft-tinted icon badge and a small data preview. */
+
+.bmet-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.bmet-head .section-kicker,
+.bmet-title {
+  text-align: left;
+}
+
+.bmet-title {
+  margin: 0.4rem 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.bmet-lead {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+/* ---- bento layout ---- */
+.bmet-bento {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1.1rem;
+  max-width: 1040px;
+  margin: 2.4rem auto 0;
+}
+
+.bmet-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.bmet-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.bmet-icon--coral { background: rgba(251, 113, 133, 0.14); color: var(--coral); }
+.bmet-icon--blue { background: rgba(79, 91, 213, 0.12); color: var(--blue); }
+.bmet-icon--teal { background: rgba(20, 184, 166, 0.14); color: var(--teal); }
+.bmet-icon--cyan { background: rgba(236, 72, 153, 0.12); color: var(--cyan); }
+.bmet-icon--success { background: rgba(22, 163, 74, 0.12); color: var(--success); }
+
+/* ---- featured panel ---- */
+.bmet-feature {
+  background: linear-gradient(155deg, rgba(251, 113, 133, 0.07), rgba(255, 255, 255, 0.4));
+  border: 1px solid rgba(251, 113, 133, 0.22);
+  border-radius: 18px;
+  padding: 1.6rem 1.6rem 1.7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bmet-feature-kicker {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.bmet-feature-value {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.bmet-feature-value i {
+  font-size: 0.7em;
+  font-style: normal;
+}
+
+.bmet-feature-desc {
+  margin: 0.6rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.bmet-receipts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.bmet-receipt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.5rem 0.65rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.72rem;
+}
+
+.bmet-receipt-name {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.bmet-receipt-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 700;
+  color: var(--success);
+  font-size: 0.66rem;
+}
+
+.bmet-feature-foot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 1.3rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.bmet-feature-foot svg {
+  flex: none;
+  color: var(--success);
+}
+
+/* ---- 2x2 grid of smaller cards ---- */
+.bmet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+.bmet-tile {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.3rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bmet-tile-heading {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bmet-tile-desc {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.bmet-tile-preview {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.4rem 0.65rem;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+@media (max-width: 860px) {
+  .bmet-head {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .bmet-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .bmet-grid,
+  .bmet-receipts {
+    grid-template-columns: 1fr;
+  }
+}

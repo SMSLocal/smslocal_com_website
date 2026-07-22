@@ -45,7 +45,7 @@
 
 .agt-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(109, 92, 231, 0.3);
+  border-color: rgba(79, 91, 213, 0.3);
   box-shadow: 0 16px 32px -22px rgba(16, 35, 63, 0.35);
 }
 
@@ -92,7 +92,7 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -137,8 +137,8 @@
 }
 
 .agt-arrow:hover {
-  background: rgba(109, 92, 231, 0.08);
-  border-color: rgba(109, 92, 231, 0.4);
+  background: rgba(79, 91, 213, 0.08);
+  border-color: rgba(79, 91, 213, 0.4);
   color: var(--blue);
 }
 

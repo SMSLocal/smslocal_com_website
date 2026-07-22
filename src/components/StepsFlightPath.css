@@ -1,0 +1,106 @@
+.sfp-flow {
+  max-width: 940px;
+  margin: 2.6rem auto 0;
+}
+
+.sfp-path {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* glowing traveller — base rests at the final stop */
+.sfp-glow {
+  transform: translate(875px, 80px);
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+/* labels — one centered column beneath each node's x-position */
+.sfp-labels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.4rem;
+}
+
+.sfp-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.sfp-num {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  margin-bottom: 0.65rem;
+}
+
+.sfp-label h3 {
+  margin: 0 0 0.45rem;
+  color: var(--navy);
+  font-size: 1.04rem;
+  letter-spacing: -0.01em;
+}
+
+.sfp-label p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-width: 220px;
+}
+
+/* ---------------------------------------------------------------------------
+   Motion only. Base above is the assembled path with the dot at the last stop.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .sfp-glow {
+    animation: sfp-travel 6.5s ease-in-out infinite;
+  }
+
+  @keyframes sfp-travel {
+    0% { transform: translate(125px, 160px); opacity: 0; }
+    6% { opacity: 1; }
+    30% { transform: translate(375px, 80px); opacity: 1; }
+    55% { transform: translate(625px, 160px); opacity: 1; }
+    80% { transform: translate(875px, 80px); opacity: 1; }
+    90% { transform: translate(875px, 80px); opacity: 0; }
+    100% { transform: translate(125px, 160px); opacity: 0; }
+  }
+
+  .sfp-node {
+    transform-box: view-box;
+    transform-origin: center;
+    animation: sfp-node-pulse 6.5s ease-in-out infinite;
+  }
+
+  @keyframes sfp-node-pulse {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+  }
+}
+
+@media (max-width: 680px) {
+  .sfp-labels {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .sfp-labels {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+}

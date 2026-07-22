@@ -13,9 +13,9 @@ import ControlsChecklist from '../components/ControlsChecklist.jsx'
 
 const USE_CASES = [
   { icon: <IconChat />, title: 'Customer service agents', desc: 'Resolve support conversations end to end across channels.', href: '/ai-agents/customer-service' },
-  { icon: <IconMic />, title: 'Voice AI agents', desc: 'Answer the phone and handle calls autonomously.', href: '/ai-agents/voice' },
-  { icon: <IconGlobe />, title: 'Sales & SDR agents', desc: 'Qualify leads and book meetings around the clock.', href: '/ai-agents/sales-sdr' },
-  { icon: <IconBrain />, title: 'Agent builder', desc: 'Build and deploy custom agents with no-code and code.', href: '/ai-agents/builder' },
+  { icon: <IconMic />, title: 'Voice AI agents', desc: 'Answer the phone and handle calls autonomously.', href: '/voice-ai-agents' },
+  { icon: <IconGlobe />, title: 'Sales & SDR agents', desc: 'Qualify leads and book meetings around the clock.', href: '/ai-agents/sales' },
+  { icon: <IconBrain />, title: 'Agent builder', desc: 'Build and deploy custom agents with no-code and code.', href: '/ai-agents/agent-builder' },
 ]
 
 const TRIPLE_ROWS = [
@@ -67,9 +67,9 @@ function AiAgentsPlatform() {
 
       <Hero
         eyebrow="Agentic AI"
-        title="The AI agent that actually does the work"
+        title={<>The AI agent that actually <span className="grad-word">does the work</span></>}
         subtitle="It doesn't just reply — it connects to your business tools and takes real action inside the conversation, then hands off cleanly when it can't."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<ActionPipelineVisual />}
       />
@@ -106,14 +106,14 @@ function AiAgentsPlatform() {
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
 
-      <FAQ title={<>Agentic AI — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Give your AI agent the keys to your stack"
         subtitle="Connect your first app, scope it with a custom role, and watch it resolve conversations end to end."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>Agentic AI — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

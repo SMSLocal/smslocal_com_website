@@ -6,7 +6,7 @@ import IntegrationsGrid from '../components/IntegrationsGrid.jsx'
 import { getCategory } from '../data/appCategories.jsx'
 import './AppCategory.css'
 
-const LOGO_COLORS = ['#6d5ce7', '#ec4899', '#fb7185', '#10233f', '#8b5cf6']
+const LOGO_COLORS = ['#4f5bd5', '#ec4899', '#fb7185', '#154989', '#8b5cf6']
 
 // App name -> brand domain (used to fetch the real logo). Default is slug + ".com".
 const LOGO_DOMAINS = {
@@ -108,7 +108,7 @@ function AppCategory() {
           <h1>{cat.title}</h1>
           <p className="appx-intro">{cat.intro} Connect any app with one-click OAuth, and your AI agent can read live data and take real actions inside every conversation.</p>
           <div className="appx-hero-actions">
-            <Link to="/contact" className="btn btn-primary">Connect {cat.title}</Link>
+            <Link to="/contact-us" className="btn btn-primary">Connect {cat.title}</Link>
             <Link to="/agentic-ai" className="btn btn-ghost">See all integrations</Link>
           </div>
         </div>
@@ -142,7 +142,7 @@ function AppCategory() {
       <CTABanner
         title={`Connect ${cat.title} to your AI agent`}
         subtitle="One-click OAuth — no API keys to manage. The agent gets the right scopes and starts taking actions immediately."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
 
       {/* Related categories */}

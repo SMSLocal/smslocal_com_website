@@ -1,0 +1,188 @@
+/* ============================================================
+   Apple Messages for Business — page-scoped bespoke layouts
+   (deliberately different shapes from the Instagram page)
+   ============================================================ */
+
+/* ---------- INNER 1 · Rich formats : open column band ---------- */
+.am-formats .section-title { text-align: center; }
+.am-formats .section-kicker { display: block; text-align: center; }
+.am-format-band {
+  margin-top: 2.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.am-format {
+  padding: 0 1.5rem;
+  border-left: 1px solid var(--border);
+}
+.am-format:first-child { border-left: none; padding-left: 0; }
+.am-format-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+}
+.am-format-icon svg { width: 22px; height: 22px; }
+.am-format h3 { margin: 0 0 0.45rem; font-size: 1.08rem; color: var(--navy); }
+.am-format p { margin: 0; color: var(--text-secondary); line-height: 1.6; font-size: 0.94rem; }
+
+/* ---------- INNER 2 · Approval gate : split lists + badge ---------- */
+.am-gate .section-title { text-align: center; max-width: 780px; margin-left: auto; margin-right: auto; }
+.am-gate .section-kicker { display: block; text-align: center; }
+.am-gate-sub { text-align: center; margin-left: auto; margin-right: auto; }
+.am-gate-grid {
+  margin-top: 2.75rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.am-gate-col ul { list-style: none; margin: 0; padding: 0; }
+.am-gate-col li {
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed var(--border);
+  color: var(--navy);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 1.6rem;
+}
+.am-gate-col li::before {
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+}
+.am-gate-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.am-gate-col--direct { opacity: 0.72; }
+.am-gate-col--direct .am-gate-label { color: var(--text-secondary); }
+.am-gate-col--direct li::before { content: "○"; color: #b0b0b0; }
+.am-gate-col--us .am-gate-label { color: var(--blue); }
+.am-gate-col--us li { color: var(--navy); font-weight: 500; }
+.am-gate-col--us li::before { content: "✓"; color: var(--success); font-weight: 700; }
+
+.am-gate-badge {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5 0%, #ec4899 55%, #fb7185 100%);
+  box-shadow: 0 24px 50px -18px rgba(236, 72, 153, 0.6);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0 1rem;
+}
+.am-gate-lock { font-size: 1.9rem; line-height: 1; }
+
+/* ---------- INNER 3 · Steps : vertical timeline rail ---------- */
+.am-timeline {
+  list-style: none;
+  margin: 2.5rem auto 0;
+  padding: 0;
+  max-width: 640px;
+  position: relative;
+}
+.am-timeline::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, #4f5bd5, #ec4899, #fb7185);
+  opacity: 0.35;
+}
+.am-tl-item {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  padding: 0 0 2rem;
+  position: relative;
+}
+.am-tl-item:last-child { padding-bottom: 0; }
+.am-tl-node {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 8px 20px -8px rgba(236, 72, 153, 0.6);
+  position: relative;
+  z-index: 1;
+}
+.am-tl-body h3 { margin: 0.4rem 0 0.35rem; font-size: 1.12rem; color: var(--navy); }
+.am-tl-body p { margin: 0; color: var(--text-secondary); line-height: 1.6; }
+
+/* ---------- INNER 4 · Why us : quadrant with center cross ---------- */
+.am-quad {
+  margin-top: 2.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.am-quad::before,
+.am-quad::after {
+  content: "";
+  position: absolute;
+  background: var(--border);
+}
+.am-quad::before { left: 0; right: 0; top: 50%; height: 1px; }
+.am-quad::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+.am-quad-cell {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 2rem;
+}
+.am-quad-icon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+}
+.am-quad-icon svg { width: 20px; height: 20px; }
+.am-quad-cell h3 { margin: 0 0 0.35rem; font-size: 1.1rem; color: var(--navy); }
+.am-quad-cell p { margin: 0; color: var(--text-secondary); line-height: 1.6; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .am-format-band { grid-template-columns: 1fr 1fr; gap: 2rem 0; }
+  .am-format { padding: 0 1.25rem; }
+  .am-format:nth-child(odd) { border-left: none; padding-left: 0; }
+  .am-gate-grid { grid-template-columns: 1fr; gap: 1.75rem; justify-items: center; }
+  .am-gate-col { width: 100%; max-width: 460px; }
+  .am-quad { grid-template-columns: 1fr; max-width: 480px; }
+  .am-quad::after { display: none; }
+  .am-quad::before { display: none; }
+  .am-quad-cell { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+  .am-quad-cell:last-child { border-bottom: none; }
+}
+@media (max-width: 520px) {
+  .am-format-band { grid-template-columns: 1fr; }
+  .am-format { padding: 0; border-left: none; }
+}

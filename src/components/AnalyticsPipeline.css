@@ -1,0 +1,189 @@
+.apl {
+  --travel: 5.4s;
+  --edge: 12.5%;
+  max-width: 940px;
+  margin: 1rem auto 0;
+}
+
+.apl-track {
+  position: relative;
+  padding-top: 4px;
+}
+
+/* Base hairline pipe between the first and last node */
+.apl-rail {
+  position: absolute;
+  top: 16px;
+  left: var(--edge);
+  right: var(--edge);
+  height: 2px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(90deg, var(--border) 0 7px, transparent 7px 13px);
+}
+
+/* Brand-tinted flow line sitting over the rail */
+.apl-flow {
+  position: absolute;
+  top: 16px;
+  left: var(--edge);
+  right: var(--edge);
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.35), rgba(236, 72, 153, 0.35));
+}
+
+/* The glowing particle that travels the pipe */
+.apl-particle {
+  position: absolute;
+  top: 16px;
+  left: var(--edge);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 35% 35%, #fff, #ec4899 55%, #4f5bd5);
+  box-shadow: 0 0 0 5px rgba(236, 72, 153, 0.14), 0 0 16px 3px rgba(79, 91, 213, 0.55);
+  animation: aplTravel var(--travel) linear infinite;
+}
+
+@keyframes aplTravel {
+  0% { left: 12.5%; }
+  100% { left: 87.5%; }
+}
+
+.apl-stages {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.apl-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.6rem;
+}
+
+.apl-node {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.apl-node-core {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #cbd3e2;
+  transition: none;
+  animation: aplLit var(--travel) ease-out infinite;
+  animation-delay: calc(var(--i) * var(--travel) / 3);
+}
+
+@keyframes aplLit {
+  0% {
+    background: linear-gradient(135deg, #4f5bd5, #ec4899);
+    box-shadow: 0 0 0 6px rgba(79, 91, 213, 0.12);
+    transform: scale(1.35);
+  }
+  16% {
+    background: #cbd3e2;
+    box-shadow: 0 0 0 0 rgba(79, 91, 213, 0);
+    transform: scale(1);
+  }
+  100% {
+    background: #cbd3e2;
+    box-shadow: 0 0 0 0 rgba(79, 91, 213, 0);
+    transform: scale(1);
+  }
+}
+
+.apl-stage-name {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.apl-stage-cap {
+  margin-top: 0.3rem;
+  max-width: 15ch;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .apl {
+    max-width: 320px;
+  }
+
+  .apl-track {
+    padding-top: 0;
+  }
+
+  /* Vertical pipe on small screens */
+  .apl-rail,
+  .apl-flow {
+    top: 0;
+    bottom: 0;
+    left: 11px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    transform: none;
+  }
+
+  .apl-rail {
+    background: repeating-linear-gradient(180deg, var(--border) 0 7px, transparent 7px 13px);
+  }
+
+  .apl-flow {
+    background: linear-gradient(180deg, rgba(79, 91, 213, 0.35), rgba(236, 72, 153, 0.35));
+  }
+
+  .apl-particle {
+    top: 12px;
+    left: 11px;
+    animation: aplTravelV var(--travel) linear infinite;
+  }
+
+  @keyframes aplTravelV {
+    0% { top: 12px; }
+    100% { top: calc(100% - 12px); }
+  }
+
+  .apl-stages {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .apl-stage {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.9rem;
+    text-align: left;
+    padding: 0;
+  }
+
+  .apl-stage-name { margin-top: 0; }
+
+  .apl-stage-cap { max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apl-particle { display: none; }
+
+  .apl-node-core {
+    animation: none;
+    background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  }
+}

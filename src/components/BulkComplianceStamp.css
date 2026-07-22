@@ -1,0 +1,101 @@
+/* A live "stamping" interaction — each requirement gets a VERIFIED stamp
+   slammed onto it one at a time, then the whole set clears and loops.
+   No card/border/background — plain rows on the page. */
+.bcst-stage {
+  max-width: 640px;
+  margin: 2.8rem auto 0;
+}
+
+.bcst-progress {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.bcst-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.bcst-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.bcst-row:last-child {
+  border-bottom: none;
+}
+
+.bcst-text {
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.bcst-mark {
+  position: relative;
+  flex: none;
+  display: inline-flex;
+}
+
+.bcst-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--success);
+  border: 2px solid var(--success);
+  border-radius: 6px;
+  padding: 0.28rem 0.6rem;
+  opacity: 0;
+  transform: scale(0.4) rotate(-18deg);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.bcst-badge.is-in {
+  opacity: 1;
+  transform: scale(1) rotate(-8deg);
+  transition: opacity 0.2s ease-out, transform 0.4s cubic-bezier(0.34, 1.8, 0.64, 1);
+}
+
+/* The stamp itself, slamming down from above onto the row just as it
+   becomes verified */
+.bcst-stamp-actor {
+  position: absolute;
+  right: -4px;
+  top: -46px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid var(--success);
+  pointer-events: none;
+  animation: bcstSlam 0.55s cubic-bezier(0.3, 0.9, 0.4, 1) forwards;
+}
+
+@keyframes bcstSlam {
+  0% { transform: translateY(-14px) scale(1.5) rotate(-30deg); opacity: 0.9; }
+  55% { transform: translateY(4px) scale(0.85) rotate(-6deg); opacity: 0.75; }
+  100% { transform: translateY(0) scale(0.15) rotate(-8deg); opacity: 0; }
+}
+
+@media (max-width: 560px) {
+  .bcst-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bcst-badge { transition: none; }
+}

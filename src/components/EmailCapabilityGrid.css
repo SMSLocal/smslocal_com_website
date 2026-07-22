@@ -26,12 +26,12 @@
   background: linear-gradient(135deg, var(--blue), var(--cyan));
   color: #fff;
   margin-bottom: 1.2rem;
-  box-shadow: 0 0 0 5px rgba(109, 92, 231, 0.1);
+  box-shadow: 0 0 0 5px rgba(79, 91, 213, 0.1);
   transition: box-shadow 0.25s ease;
 }
 
 .emcap-card:hover .emcap-icon {
-  box-shadow: 0 0 0 7px rgba(109, 92, 231, 0.16);
+  box-shadow: 0 0 0 7px rgba(79, 91, 213, 0.16);
 }
 
 .emcap-card h3 {
@@ -86,7 +86,7 @@
   font-size: 0.62rem;
   font-weight: 700;
   color: var(--blue);
-  background: rgba(109, 92, 231, 0.12);
+  background: rgba(79, 91, 213, 0.12);
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
 }

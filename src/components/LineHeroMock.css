@@ -69,7 +69,7 @@
 
 .lnmock-flex-media {
   height: 76px;
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.55), rgba(236, 72, 153, 0.55));
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.55), rgba(236, 72, 153, 0.55));
 }
 
 .lnmock-flex-body {
@@ -193,7 +193,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
 }
 

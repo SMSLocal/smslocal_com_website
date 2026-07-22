@@ -5,7 +5,7 @@
   border: 1px solid var(--border);
   border-radius: 18px;
   box-shadow:
-    0 24px 48px -16px rgba(109, 92, 231, 0.25),
+    0 24px 48px -16px rgba(79, 91, 213, 0.25),
     0 8px 20px -10px rgba(236, 72, 153, 0.18);
   padding: 1.5rem;
 }
@@ -194,7 +194,7 @@
 }
 
 .hmock-flow-node.start {
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   border-color: transparent;
 }
 

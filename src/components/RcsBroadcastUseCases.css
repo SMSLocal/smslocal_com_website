@@ -1,0 +1,136 @@
+/* "Built for real sends" section for /channels/rcs-broadcasting — a grid of
+   ticket-stub cards (message on top, perforated tear line, outcome below)
+   showing concrete campaign types rather than abstract capability bullets. */
+
+.rbuc-head {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.rbuc-head h2 {
+  margin: 0.7rem 0 1rem;
+}
+
+.rbuc-head p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.rbuc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+}
+
+.rbuc-card {
+  --acc: var(--blue);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--acc) 6%, #fff), #fff 40%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem 1.3rem 1.1rem;
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.3);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rbuc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--acc);
+}
+
+.rbuc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 50px -26px rgba(16, 35, 63, 0.4);
+}
+
+.rbuc-card:nth-child(2) { --acc: var(--teal); }
+.rbuc-card:nth-child(3) { --acc: var(--coral); }
+.rbuc-card:nth-child(4) { --acc: var(--cyan); }
+
+.rbuc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--acc);
+  margin-bottom: 1.1rem;
+}
+
+.rbuc-tag-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--acc);
+  color: #fff;
+  box-shadow: 0 8px 16px -6px var(--acc);
+}
+
+.rbuc-tag-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.rbuc-title {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--navy);
+  font-weight: 600;
+  min-height: 2.7em;
+}
+
+.rbuc-perf {
+  display: block;
+  height: 0;
+  margin: 1rem 0 0.9rem;
+  border-top: 1.5px dashed var(--border);
+}
+
+.rbuc-outcome {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--navy);
+  margin-top: auto;
+  padding: 0.6rem 0.7rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--acc) 10%, #fff);
+}
+
+.rbuc-outcome svg {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  margin-top: 0.15em;
+  color: var(--acc);
+}
+
+@media (max-width: 1024px) {
+  .rbuc-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .rbuc-grid {
+    grid-template-columns: 1fr;
+  }
+}

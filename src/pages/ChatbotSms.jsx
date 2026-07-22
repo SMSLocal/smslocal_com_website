@@ -52,9 +52,9 @@ function ChatbotSms() {
 
       <Hero
         eyebrow="SMS Chatbot"
-        title="Two-way SMS automation, no app required"
+        title={<>Two-way SMS automation, <span className="grad-word">no app required</span></>}
         subtitle="Keyword-triggered replies, alerts customers can respond to, and clean handoff to a human — all over plain text."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Bulk SMS', href: '/bulk-sms' }}
         visual={<SmsDashboardFloat />}
       />
@@ -90,13 +90,13 @@ function ChatbotSms() {
 
       <Testimonials title={<>Teams that switched to two-way SMS</>} items={TESTIMONIALS} />
 
-      <FAQ title={<>SMS chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Automate your first SMS keyword flow"
         subtitle="Connect your number and go live in minutes."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
       />
+
+      <FAQ title={<>SMS chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

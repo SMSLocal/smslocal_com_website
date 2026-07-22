@@ -45,9 +45,9 @@ function AiAgentsEcommerce() {
 
       <Hero
         eyebrow="AI Agents"
-        title="An AI agent that runs your store's conversations"
+        title={<>An AI agent that runs <span className="grad-word">your store</span>'s conversations</>}
         subtitle="Guided shopping, order status, returns and cart recovery — connected to your store's live data and working across WhatsApp, your website and SMS."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
         visual={<EcomAgentMock />}
       />
@@ -84,14 +84,14 @@ function AiAgentsEcommerce() {
 
       <WhyUsDividers eyebrow="Why us" title={<>Why online stores deploy an AI agent</>} items={WHY_US} />
 
-      <FAQ title={<>Ecommerce agent — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Turn store conversations into revenue"
         subtitle="Connect your store and let an AI agent resolve, guide and recover — around the clock."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>Ecommerce agent — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

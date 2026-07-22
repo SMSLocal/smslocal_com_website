@@ -1,0 +1,114 @@
+.wag {
+  position: relative;
+  max-width: 720px;
+  margin: 3.25rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* Running timeline down the gutter */
+.wag-line {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 74px;
+  width: 2px;
+  background: linear-gradient(var(--blue), var(--cyan));
+  opacity: 0.35;
+}
+
+.wag-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.wag-time {
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Node dot sitting on the timeline */
+.wag-node {
+  position: absolute;
+  left: 69px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px var(--border);
+  transform: translateY(-50%);
+}
+
+.wag-row--1 .wag-node { background: var(--teal); }
+.wag-row--2 .wag-node { background: var(--coral); }
+
+/* Event chip — the only boxed element, an individual chip (allowed) */
+.wag-event {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.1rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px -20px rgba(16, 35, 63, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wag-row--1 .wag-event { border-left-color: var(--teal); }
+.wag-row--2 .wag-event { border-left-color: var(--coral); }
+
+.wag-event:hover {
+  transform: translateX(3px);
+  box-shadow: 0 16px 32px -18px rgba(16, 35, 63, 0.5);
+}
+
+.wag-ic {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+}
+
+.wag-row--1 .wag-ic { background: rgba(20, 184, 166, 0.12); color: var(--teal); }
+.wag-row--2 .wag-ic { background: rgba(251, 113, 133, 0.14); color: var(--coral); }
+
+.wag-ic svg { width: 18px; height: 18px; }
+
+.wag-event-t { min-width: 0; }
+
+.wag-event-t h3 {
+  margin: 0 0 0.2rem;
+  font-size: 0.98rem;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.wag-event-t p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .wag-line { left: 58px; }
+  .wag-row { grid-template-columns: 44px 1fr; column-gap: 1.5rem; }
+  .wag-node { left: 53px; }
+  .wag-time { font-size: 0.72rem; }
+}

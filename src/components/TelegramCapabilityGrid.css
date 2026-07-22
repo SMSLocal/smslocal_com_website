@@ -41,7 +41,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(109, 92, 231, 0.1);
+  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
   margin-bottom: 1.1rem;
 }
@@ -85,7 +85,7 @@
 .tgcap-key {
   text-align: center;
   background: #fff;
-  border: 1px solid rgba(109, 92, 231, 0.35);
+  border: 1px solid rgba(79, 91, 213, 0.35);
   color: var(--blue);
   font-size: 0.7rem;
   font-weight: 700;
@@ -112,7 +112,7 @@
   font-size: 0.64rem;
   font-weight: 700;
   color: var(--blue);
-  background: rgba(109, 92, 231, 0.12);
+  background: rgba(79, 91, 213, 0.12);
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
 }
@@ -126,7 +126,7 @@
 }
 
 .tgcap-status.bot {
-  background: rgba(109, 92, 231, 0.12);
+  background: rgba(79, 91, 213, 0.12);
   color: var(--blue);
 }
 

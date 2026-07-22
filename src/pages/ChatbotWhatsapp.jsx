@@ -43,9 +43,9 @@ function ChatbotWhatsapp() {
 
       <Hero
         eyebrow="WhatsApp Chatbot"
-        title="Automate WhatsApp conversations with a no-code chatbot"
+        title={<>Automate WhatsApp conversations with a <span className="grad-word">no-code chatbot</span></>}
         subtitle="24/7 answers, lead capture and order updates — built on the official WhatsApp Business API, no coding required."
-        primaryCta={{ label: 'Build a Chatbot', href: '/contact' }}
+        primaryCta={{ label: 'Build a Chatbot', href: '/contact-us' }}
         secondaryCta={{ label: 'Explore Builder', href: '/chatbot/builder' }}
         visual={<WhatsappConversationFloat />}
       />
@@ -82,13 +82,13 @@ function ChatbotWhatsapp() {
 
       <WhyUsBadges eyebrow="Why us" title={<>Why teams automate WhatsApp with us</>} items={WHY_US} />
 
-      <FAQ title={<>WhatsApp chatbot — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Automate your WhatsApp today"
         subtitle="Build your first flow free — no credit card required."
-        cta={{ label: 'Build a Chatbot', href: '/contact' }}
+        cta={{ label: 'Build a Chatbot', href: '/contact-us' }}
       />
+
+      <FAQ title={<>WhatsApp chatbot — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

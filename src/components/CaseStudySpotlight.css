@@ -1,0 +1,202 @@
+/* Featured case study for /resources/case-studies.
+   Editorial story arc: a left identity rail with an oversized outcome metric,
+   and a right narrative told on a dashed vertical spine (Challenge -> Approach
+   -> Result). De-boxed: no card wrapper, hairline + dashed lines only.
+   Structurally distinct from every Steps* / WhyUs* layout on the site. */
+
+.csspot {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* left identity rail */
+.csspot-id {
+  position: relative;
+  padding-right: 2.2rem;
+  border-right: 1px solid var(--border);
+}
+
+.csspot-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.csspot-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+
+.csspot-company {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0.85rem 0 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.csspot-sector {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem;
+}
+
+.csspot-metric {
+  margin-top: 0.5rem;
+}
+
+.csspot-metric-val {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.csspot-metric-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--navy);
+  font-weight: 600;
+  max-width: 15rem;
+}
+
+.csspot-sub {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 1.8rem;
+}
+
+.csspot-sub-item strong {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.csspot-sub-item span {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* right narrative spine */
+.csspot-arc {
+  position: relative;
+  padding-left: 2.4rem;
+}
+
+.csspot-arc::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  bottom: 10px;
+  border-left: 2px dashed rgba(79, 91, 213, 0.3);
+}
+
+.csspot-stage {
+  position: relative;
+  padding-bottom: 2.2rem;
+}
+
+.csspot-stage:last-child {
+  padding-bottom: 0;
+}
+
+.csspot-stage-mark {
+  position: absolute;
+  left: -2.4rem;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--blue);
+}
+
+.csspot-stage:last-child .csspot-stage-mark {
+  border-color: var(--cyan);
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+}
+
+.csspot-stage-kicker {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.csspot-stage:last-child .csspot-stage-kicker {
+  color: var(--cyan);
+}
+
+.csspot-stage-head {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0.35rem 0 0.5rem;
+}
+
+.csspot-stage-body {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 34rem;
+}
+
+.csspot-quote {
+  margin: 2.4rem 0 0;
+  padding-left: 2.4rem;
+  position: relative;
+}
+
+.csspot-quote p {
+  font-size: 1.02rem;
+  color: var(--navy);
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0 0 0.6rem;
+}
+
+.csspot-quote cite {
+  font-size: 0.82rem;
+  font-style: normal;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .csspot {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .csspot-id {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+
+  .csspot-metric-val { font-size: 3.2rem; }
+}

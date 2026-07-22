@@ -50,7 +50,7 @@
 
 .indchip:hover .indchip-pill {
   border-color: transparent;
-  box-shadow: 0 16px 32px -18px rgba(109, 92, 231, 0.45);
+  box-shadow: 0 16px 32px -18px rgba(79, 91, 213, 0.45);
   transform: translateY(-3px);
 }
 

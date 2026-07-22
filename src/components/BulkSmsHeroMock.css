@@ -146,8 +146,8 @@
 /* AI reply */
 .bcast-reply {
   width: 100%;
-  background: linear-gradient(135deg, rgba(109, 92, 231, 0.08), rgba(236, 72, 153, 0.06));
-  border: 1px solid rgba(109, 92, 231, 0.15);
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.08), rgba(236, 72, 153, 0.06));
+  border: 1px solid rgba(79, 91, 213, 0.15);
   border-radius: 14px;
   padding: 0.85rem 1rem;
   opacity: 0;

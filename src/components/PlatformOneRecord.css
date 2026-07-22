@@ -1,0 +1,238 @@
+.por {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+}
+
+/* Floating unified-profile chip, centred above the line */
+.por-chip {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 auto 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.7rem 1.1rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 44px -26px rgba(16, 35, 63, 0.5);
+}
+
+.por-avatar {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.por-chip-id { display: flex; flex-direction: column; gap: 0.25rem; text-align: left; }
+.por-chip-id strong { font-size: 0.95rem; color: var(--navy); }
+
+.por-chip-tags { display: flex; gap: 0.3rem; }
+
+.por-chip-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+.por-chip-ltv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  padding-left: 0.9rem;
+  margin-left: 0.2rem;
+  border-left: 1px solid var(--border);
+}
+
+.por-chip-ltv-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.por-chip-ltv strong {
+  font-size: 1rem;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Field holding the converging fan, baseline and nodes */
+.por-field {
+  position: relative;
+  margin-top: 2.6rem;
+  height: 210px;
+}
+
+.por-fan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2.4rem;
+  width: 100%;
+  height: calc(2.4rem + 6px);
+  overflow: visible;
+}
+
+.por-fan line {
+  stroke: rgba(79, 91, 213, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Thin baseline the touchpoints sit on */
+.por-baseline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(79, 91, 213, 0.25),
+    rgba(79, 91, 213, 0.55) 20%,
+    rgba(236, 72, 153, 0.55) 80%,
+    rgba(236, 72, 153, 0.25));
+  border-radius: 2px;
+}
+
+/* Pulse gliding along the baseline */
+.por-pulse {
+  position: absolute;
+  top: 7px;
+  left: 12.5%;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 0 5px rgba(79, 91, 213, 0.14);
+  z-index: 2;
+  animation: porPulse 4.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes porPulse {
+  0%   { left: 12.5%; opacity: 0; }
+  5%   { opacity: 1; }
+  25%  { left: 37.5%; }
+  50%  { left: 62.5%; }
+  75%  { left: 87.5%; opacity: 1; }
+  84%  { left: 96%;   opacity: 0; }
+  100% { left: 12.5%; opacity: 0; }
+}
+
+/* Touchpoint columns */
+.por-nodes {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.por-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 0;
+}
+
+.por-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--blue);
+  box-shadow: 0 4px 10px -4px rgba(16, 35, 63, 0.4);
+  animation: porDot 4.8s ease-in-out infinite;
+}
+
+.por-node-ch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.por-node-ic {
+  display: inline-flex;
+  color: var(--blue);
+}
+
+.por-node-ic svg { width: 15px; height: 15px; }
+
+.por-node-snip {
+  margin-top: 0.3rem;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.por-node-time {
+  margin-top: 0.28rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.09);
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Dot light-up synced to the passing pulse */
+.por-node:nth-child(1) .por-dot { animation-delay: 0s; }
+.por-node:nth-child(2) .por-dot { animation-delay: 1.2s; }
+.por-node:nth-child(3) .por-dot { animation-delay: 2.4s; }
+.por-node:nth-child(4) .por-dot { animation-delay: 3.6s; }
+
+@keyframes porDot {
+  0%, 100% {
+    background: #fff;
+    border-color: var(--blue);
+    transform: scale(1);
+  }
+  8% {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    border-color: var(--cyan);
+    transform: scale(1.35);
+  }
+  22% {
+    background: #fff;
+    border-color: var(--blue);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .por-pulse { animation: none; left: 50%; }
+  .por-dot { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .por-chip { flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.85rem; }
+  .por-field { height: 190px; }
+  .por-node-snip { display: none; }
+  .por-node-ch { font-size: 0.74rem; }
+}

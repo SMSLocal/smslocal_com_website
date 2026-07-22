@@ -1,0 +1,112 @@
+/* Immersive "why partner with us" bands for /services/ai-consulting.
+   Full-width reason bands with glowing medallions + ghost numerals.
+   Base visible; reveal only when armed (JS + motion allowed). */
+
+.ppil {
+  max-width: 920px;
+  margin: 3.2rem auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ppil-band {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 2rem 0.4rem;
+  overflow: hidden;
+}
+
+.ppil-band + .ppil-band {
+  border-top: 1px solid var(--border);
+}
+
+/* glowing gradient medallion */
+.ppil-medal {
+  position: relative;
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 20px 40px -18px rgba(79, 91, 213, 0.7);
+}
+
+.ppil-medal svg { width: 27px; height: 27px; position: relative; z-index: 1; }
+
+.ppil-aura {
+  position: absolute;
+  inset: -10px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  filter: blur(20px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.ppil-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.ppil-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 44ch;
+}
+
+/* oversized ghost numeral */
+.ppil-num {
+  justify-self: end;
+  font-size: 4.4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(150deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+/* ---- staggered scroll reveal (only when armed) ---- */
+.ppil--armed .ppil-band {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ppil--armed.is-on .ppil-band {
+  animation: ppil-in 0.6s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+
+@keyframes ppil-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .ppil-band {
+    grid-template-columns: auto 1fr;
+    gap: 1.1rem;
+    padding: 1.6rem 0.4rem;
+  }
+  .ppil-num {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 2.6rem;
+  }
+  .ppil-body { grid-column: 1 / -1; }
+}

@@ -33,9 +33,9 @@ function Products() {
 
       <Hero
         eyebrow="Products"
-        title="One platform for messaging, chatbots and AI agents"
+        title={<>One platform for <span className="grad-word">messaging, chatbots and AI agents</span></>}
         subtitle="Reach customers on any channel, automate conversations with no-code bots, and deploy autonomous AI agents that resolve requests — all from one account."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
       />
 
@@ -48,13 +48,13 @@ function Products() {
 
       <WhyUs title={<>Why teams run their whole stack on SMSLocal</>} items={WHY_US} />
 
-      <FAQ title={<>Products — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="See the whole platform in one call"
         subtitle="We'll walk through messaging, chatbots and AI agents for your use case."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Products — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

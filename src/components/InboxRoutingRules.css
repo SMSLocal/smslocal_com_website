@@ -1,0 +1,125 @@
+.irules-ladder {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.irules-rule {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.15rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.irules-rule:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.irules-index {
+  flex: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  width: 1.6rem;
+}
+
+.irules-logic {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.irules-kw {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.irules-kw-then { color: var(--blue); }
+
+.irules-frag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.irules-plus {
+  font-size: 0.66rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.irules-cond {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.irules-ck {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.irules-op {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+.irules-cv {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.irules-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: #a855c9;
+  margin: 0 0.15rem;
+}
+
+.irules-dest {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.36rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  box-shadow: 0 12px 26px -16px rgba(79, 91, 213, 0.8);
+}
+
+.irules-sla {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--blue);
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px dashed rgba(79, 91, 213, 0.5);
+}
+
+@media (max-width: 720px) {
+  .irules-rule {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+  }
+
+  .irules-index { width: auto; }
+}

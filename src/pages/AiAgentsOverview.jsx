@@ -7,7 +7,7 @@ import JourneyAscent from '../components/JourneyAscent.jsx'
 import ControlDials from '../components/ControlDials.jsx'
 import {
   IconBrain, IconLink, IconRefresh, IconCheck, IconChat, IconChart, IconMic,
-  IconCursor, IconCalendar, IconUsers, IconMail, IconBolt, IconShield, IconReceipt,
+  IconCursor, IconCalendar, IconUsers, IconMail, IconBolt, IconShield, IconReceipt, IconSearch,
 } from '../components/icons.jsx'
 import AgentOrbitVisual from '../components/AgentOrbitVisual.jsx'
 
@@ -19,11 +19,12 @@ const CAPABILITIES = [
 ]
 
 const AGENT_TYPES = [
-  { icon: <IconCursor />, title: 'AI agent builder', desc: 'Build agents visually, no code.', href: '/ai-agents/builder' },
+  { icon: <IconCursor />, title: 'AI agent builder', desc: 'Build agents visually, no code.', href: '/ai-agents/agent-builder' },
   { icon: <IconChat />, title: 'Customer service agent', desc: 'Resolves tickets on every channel.', href: '/ai-agents/customer-service' },
-  { icon: <IconChart />, title: 'Sales & SDR agent', desc: 'Guides shoppers to checkout.', href: '/ai-agents/sales-sdr' },
+  { icon: <IconChart />, title: 'Sales & SDR agent', desc: 'Guides shoppers to checkout.', href: '/ai-agents/sales' },
+  { icon: <IconSearch />, title: 'Lead qualification agent', desc: 'Scores and routes inbound leads.', href: '/ai-agents/lead-qualification' },
   { icon: <IconUsers />, title: 'Agent assist', desc: 'Drafts replies for your team.', href: '/ai-agents/agent-assist' },
-  { icon: <IconMic />, title: 'Voice AI agent', desc: 'Handles calls with full context.', href: '/ai-agents/voice' },
+  { icon: <IconMic />, title: 'Voice AI agent', desc: 'Handles calls with full context.', href: '/voice-ai-agents' },
   { icon: <IconChat />, title: 'WhatsApp AI agent', desc: 'Resolves chats on WhatsApp.', href: '/ai-agents/whatsapp' },
   { icon: <IconLink />, title: 'Omnichannel agents', desc: 'One agent, every channel.', href: '/ai-agents/omnichannel-agent' },
   { icon: <IconReceipt />, title: 'Ecommerce agents', desc: 'Handles orders, returns and refunds.', href: '/ai-agents/ecommerce' },
@@ -77,9 +78,9 @@ function AiAgentsOverview() {
 
       <Hero
         eyebrow="AI Agents"
-        title="AI agents for every conversation"
+        title={<>AI agents for <span className="grad-word">every conversation</span></>}
         subtitle="Deploy agents that resolve support, close sales, fill your calendar and qualify leads — grounded in your data, taking real action across your apps, and handing off to a human the moment it's needed."
-        primaryCta={{ label: 'Start Free', href: '/contact' }}
+        primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<AgentOrbitVisual />}
       />
@@ -122,14 +123,14 @@ function AiAgentsOverview() {
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
 
-      <FAQ title={<>AI agents — frequently asked questions</>} items={FAQS} />
-
       <CTABanner
         title="Give your agent the keys to your stack"
         subtitle="Connect your first app, train it on your content, and watch it resolve conversations end to end."
-        cta={{ label: 'Start Free', href: '/contact' }}
+        cta={{ label: 'Start Free', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>AI agents — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

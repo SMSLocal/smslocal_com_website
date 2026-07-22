@@ -1,145 +1,128 @@
 import Seo from '../components/Seo.jsx'
-import HeroStars from '../components/HeroStars.jsx'
-import DashboardPreview from '../components/DashboardPreview.jsx'
-import HomeSteps from '../components/HomeSteps.jsx'
+import HeroPhoneMock from '../components/HeroPhoneMock.jsx'
 import ReviewBadges from '../components/ReviewBadges.jsx'
-import ImpactStats from '../components/ImpactStats.jsx'
-import TrustedBy from '../components/TrustedBy.jsx'
-import AgenticShowcase from '../components/AgenticShowcase.jsx'
-import FinalCta from '../components/FinalCta.jsx'
-import { Hero, Testimonials, FAQ } from '../components/sections/Sections.jsx'
+import TrustStrip from '../components/TrustStrip.jsx'
+import OverviewBento from '../components/OverviewBento.jsx'
+import MobileToolsShowcase from '../components/MobileToolsShowcase.jsx'
+import PlatformFeatures from '../components/PlatformFeatures.jsx'
+import CampaignShowcase from '../components/CampaignShowcase.jsx'
+import GetStartedSection from '../components/GetStartedSection.jsx'
+import { Hero, FeatureGrid, WhyUs, Testimonials, CTABanner, FAQ } from '../components/sections/Sections.jsx'
+import { IconMegaphone, IconChat, IconRefresh, IconChart, IconPlug, IconUsers, IconCalendar, IconBriefcase, IconDollar, IconClock, IconBook, IconHandshake, IconMail } from '../components/icons.jsx'
 
-const iconStroke = {
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeWidth: 1.8,
-  strokeLinecap: 'round',
-  strokeLinejoin: 'round',
-}
+const QUICK_FEATURES = [
+  { icon: <IconMegaphone />, title: 'Bulk SMS', desc: 'Send to thousands in one click' },
+  { icon: <IconChat />, title: 'Two-Way Messaging', desc: 'Customers reply — managed in a shared inbox' },
+  { icon: <IconRefresh />, title: 'Campaign Automation', desc: 'Triggered messages and multi-step flows' },
+  { icon: <IconChart />, title: 'Reporting & Analytics', desc: 'Real-time delivery, clicks and carrier data' },
+  { icon: <IconPlug />, title: 'API & Integrations', desc: 'REST API plus pre-built integrations' },
+]
 
-const PRODUCTS = [
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" width="22" height="22" {...iconStroke}>
-        <path d="M21 11.5a8.38 8.38 0 0 1-3.8 7.4A8.5 8.5 0 0 1 7 20.1L3 21l1.9-4a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8-8.5h.5a8.48 8.48 0 0 1 8 8v.3z" />
-      </svg>
-    ),
-    title: 'Channels',
-    desc: 'Bulk SMS, WhatsApp, RCS, Viber, Telegram, Instagram, Email and more — one API for every channel.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" width="22" height="22" {...iconStroke}>
-        <rect x="4" y="8" width="16" height="12" rx="3" />
-        <path d="M12 8V4" />
-        <circle cx="12" cy="3" r="1" fill="currentColor" stroke="none" />
-        <circle cx="9" cy="13.5" r="1.1" fill="currentColor" stroke="none" />
-        <circle cx="15" cy="13.5" r="1.1" fill="currentColor" stroke="none" />
-        <path d="M9 17h6" />
-      </svg>
-    ),
-    title: 'Chatbot',
-    desc: 'No-code chatbots that answer, qualify and convert across every messaging channel, 24/7.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" width="22" height="22" {...iconStroke}>
-        <rect x="7" y="7" width="10" height="10" rx="1.5" />
-        <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
-      </svg>
-    ),
-    title: 'AI Agents',
-    desc: 'Autonomous AI agents that resolve support, sales and voice conversations end to end.',
-  },
+const AUDIENCES = [
+  { icon: <IconUsers />, title: 'Customers & Clients', desc: 'Reminders & updates' },
+  { icon: <IconCalendar />, title: 'Guests', desc: 'Bookings & inquiries' },
+  { icon: <IconBriefcase />, title: 'Employees', desc: 'Internal alerts' },
+  { icon: <IconDollar />, title: 'Donors', desc: 'Campaign appeals' },
+  { icon: <IconClock />, title: 'Patients', desc: 'Appointments' },
+  { icon: <IconBook />, title: 'Job applicants', desc: 'Application status' },
+  { icon: <IconBook />, title: 'Students', desc: 'Class updates' },
+  { icon: <IconHandshake />, title: 'Business partners', desc: 'Partner notices' },
+  { icon: <IconMail />, title: 'Subscribers & Members', desc: 'Offers & news' },
 ]
 
 const TESTIMONIALS = [
-  { quote: 'We moved our OTP and order alerts to SMSLocal and delivery times dropped noticeably in the first week.', name: 'Aisha Rahman', role: 'Head of Engineering, Fintech startup' },
-  { quote: 'The WhatsApp chatbot builder let our support team launch a bot without waiting on developers.', name: 'Daniel Cho', role: 'Customer Experience Lead, Retail' },
-  { quote: 'Switching our SMS marketing campaigns over was painless — the API docs are genuinely good.', name: 'Priya Nair', role: 'Growth Marketer, D2C brand' },
+  { quote: 'SMSLocal has truly transformed the way we connect with our customers. From running SMS marketing campaigns to sending appointment reminders, the platform is incredibly easy to use.', name: 'John Miller', role: 'Marketing Manager' },
+  { quote: "We've been using SMSLocal to communicate with our customers, and it's been a game changer. Two-way messaging lets us provide instant support and build better relationships.", name: 'Sarah Cooper', role: 'Customer Support Specialist' },
+  { quote: "SMSLocal has made communication within our team so much smoother. Whether it's shift reminders or urgent updates, it's super convenient to send quick messages.", name: 'Emily Rodriguez', role: 'Operations Assistant' },
+  { quote: 'I love how simple it is to integrate SMS messaging into our sales process. Whether we’re sending quick updates or following up with leads, SMSLocal makes it easy and efficient.', name: 'David Lee', role: 'Sales Coordinator' },
 ]
 
 const FAQS = [
-  { q: 'What channels does SMSLocal support?', a: 'SMS, WhatsApp Business API, RCS, Viber, Telegram, Instagram, Facebook Messenger, Apple Messages, LINE and email — all from one dashboard and API.' },
-  { q: 'Do I need to code to use SMSLocal?', a: 'No. Use the no-code dashboard and chatbot builder to send campaigns and build bots, or use our REST API if you prefer to integrate programmatically.' },
-  { q: 'Is there a free trial?', a: 'Yes, you can start free with trial credits — no credit card required.' },
-  { q: 'How fast is delivery?', a: 'Most messages are delivered in under a second on supported routes, backed by carrier-grade infrastructure.' },
-  { q: 'Can I use SMSLocal for OTP and two-factor authentication?', a: 'Yes, our OTP SMS API includes voice and WhatsApp fallback to maximize verification success rates.' },
-  { q: 'Does SMSLocal offer AI agents as well as chatbots?', a: 'Yes. Chatbots handle scripted flows; AI agents act autonomously to resolve support, sales and voice conversations — see our chatbot vs AI agent comparison to choose the right fit.' },
+  { q: 'What features does SMSLocal offer for business communication?', a: 'SMSLocal offers bulk SMS, two-way messaging, campaign automation, contact management, a helpdesk, and detailed reporting — all from one dashboard, no coding required.' },
+  { q: 'How can SMSLocal help me run SMS marketing campaigns?', a: 'Build, schedule, and track promotional campaigns from a single dashboard, with templates and audience segmentation built in.' },
+  { q: 'Can I send bulk SMS with SMSLocal?', a: 'Yes — reach thousands of contacts in one click with carrier-grade delivery across 190+ countries.' },
+  { q: 'Is it possible to integrate SMSLocal with other business apps?', a: 'Yes, SMSLocal offers a REST API plus pre-built integrations with popular CRM, helpdesk, and e-commerce platforms.' },
+  { q: 'How does SMSLocal help with team communication?', a: 'A shared two-way inbox lets your whole team send, receive, and manage conversations together in real time.' },
+  { q: 'How secure is SMSLocal’s messaging service?', a: 'SMSLocal is secure and fully compliant, with encrypted delivery and enterprise-grade data protection.' },
 ]
 
 function Home() {
   return (
     <>
       <Seo
-        title="Bulk SMS, Chatbot & AI Agent Platform"
-        description="SMSLocal is a business messaging platform for bulk SMS, OTP, WhatsApp, chatbots and autonomous AI agents — all from one API."
+        title="Bulk SMS Services for Businesses"
+        description="SMSLocal is a bulk SMS platform for campaigns, alerts, and promotions — two-way messaging, automation, and analytics in one place, no coding needed."
       />
 
-      <div className="home-hero">
-        <HeroStars />
-        <Hero
-          eyebrow="Business Messaging Platform"
-          title="Reach every customer with SMS, chatbot and AI agents"
-          subtitle="One platform to send bulk SMS and OTPs, build no-code chatbots, and deploy autonomous AI agents — across every channel your customers use."
-          primaryCta={{ label: 'Start Free Trial', href: '/contact' }}
-          secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        />
+      <Hero
+        eyebrow="Powering 20,000+ Businesses Worldwide"
+        title={<>One Platform for <span className="grad-word">Bulk SMS at Scale</span></>}
+        subtitle="Launch SMS campaigns, alerts, and promotions in seconds. Simply log in from any web browser — no apps, no coding, no integration needed. Connect effortlessly and grow your business."
+        primaryCta={{ label: 'Create Free Trial Account', href: '/contact-us' }}
+        secondaryCta={{ label: 'Book a demo', href: '/contact-us' }}
+        visual={<HeroPhoneMock />}
+      />
+
+      <div className="reveal">
+        <FeatureGrid items={QUICK_FEATURES} eyebrow={null} />
       </div>
 
       <div className="reveal">
         <ReviewBadges />
       </div>
 
+      <TrustStrip />
+
       <div className="reveal">
-        <section className="section section-alt">
-          <div className="container">
-            <h2 className="section-title">One platform, three product lines</h2>
-            <p className="section-subtitle">Messaging channels, chatbots, and AI agents — built to work together.</p>
-          </div>
-
-          <DashboardPreview />
-
-          <div className="container">
-            <div className="feature-grid">
-              {PRODUCTS.map((item) => (
-                <div className="feature-card" key={item.title}>
-                  <span className="feature-icon">{item.icon}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <OverviewBento />
       </div>
 
       <div className="reveal">
-        <TrustedBy />
+        <MobileToolsShowcase />
       </div>
 
       <div className="reveal">
-        <ImpactStats />
+        <PlatformFeatures />
       </div>
 
       <div className="reveal">
-        <AgenticShowcase />
+        <CampaignShowcase />
       </div>
 
       <div className="reveal">
-        <HomeSteps />
+        <GetStartedSection />
       </div>
 
       <div className="reveal">
-        <Testimonials title="Trusted by growing businesses" items={TESTIMONIALS} />
+        <WhyUs
+          eyebrow="Built For Every Audience"
+          title="Reach Audiences Who Prefer Text-Based Communication"
+          subtitle="Text messaging has become the most efficient and preferred way for businesses to connect. Here's why various groups favor SMS communication over other channels."
+          items={AUDIENCES}
+          alt
+        />
       </div>
 
       <div className="reveal">
-        <FAQ title="Frequently asked questions" items={FAQS} alt />
+        <Testimonials title="Why Teams Rely On SMSLocal" items={TESTIMONIALS} />
       </div>
 
       <div className="reveal">
-        <FinalCta />
+        <CTABanner
+          title={<>Join thousands of businesses building with <span className="grad-word">SMSLocal</span></>}
+          subtitle="One platform. Endless communication possibilities. Start today — it's free."
+          cta={{ label: 'Create Free Trial Account', href: '/contact-us' }}
+          secondaryCta={{ label: 'Book a demo', href: '/contact-us' }}
+        />
+      </div>
+
+      <div className="reveal">
+        <FAQ
+          title="Get Clear Answers On Bulk SMS"
+          subtitle="Explore answers about features, integrations, pricing, and getting started with SMSLocal."
+          items={FAQS}
+          alt
+        />
       </div>
     </>
   )

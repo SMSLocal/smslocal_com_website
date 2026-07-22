@@ -1,17 +1,28 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, CompareTable, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconRobot, IconCursor, IconMegaphone, IconBrain, IconPlug, IconUsers, IconLink, IconMail, IconChat, IconBolt, IconPencil } from '../components/icons.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { IconRobot, IconMegaphone, IconPlug, IconUsers, IconLink, IconMail } from '../components/icons.jsx'
 import TelegramHeroMock from '../components/TelegramHeroMock.jsx'
-import TelegramCapabilityGrid from '../components/TelegramCapabilityGrid.jsx'
-import TelegramStepsCascade from '../components/TelegramStepsCascade.jsx'
-import WhyUsTiltBadges from '../components/WhyUsTiltBadges.jsx'
-import EcosystemTextLinks from '../components/EcosystemTextLinks.jsx'
+import TelegramBotSetup from '../components/TelegramBotSetup.jsx'
+import './TelegramBusiness.css'
 
-const HERO_BADGES = [
-  { icon: <IconRobot />, word: 'Bots', desc: 'commands & inline keyboards' },
-  { icon: <IconCursor />, word: 'Buttons', desc: 'tap to act, no typing needed' },
-  { icon: <IconMegaphone />, word: 'Broadcast', desc: 'channel posts at scale' },
-  { icon: <IconBrain />, word: 'AI', desc: 'answers folded into one inbox' },
+const BOT_POINTS = [
+  'Tap-to-act buttons — customers never guess a command',
+  'AI answers, then hands off to a human with full history',
+  'Remembers context across every visit, not just one session',
+]
+const CAST_POINTS = [
+  'Segmented one-to-many channel broadcasts',
+  'Delivery and read tracking on every send',
+  'Replies flow straight back into one shared inbox',
+]
+
+const BUTTONS = [
+  { label: '/start', kind: 'cmd' },
+  { label: '🛒 Track Order', kind: 'btn' },
+  { label: '📦 Order status', kind: 'btn' },
+  { label: '📚 Browse Catalog', kind: 'btn' },
+  { label: '💬 Talk to Support', kind: 'btn' },
+  { label: '❓ FAQ', kind: 'btn' },
 ]
 
 const STEPS = [
@@ -20,26 +31,11 @@ const STEPS = [
   { title: 'Go live in one inbox', desc: 'Every bot chat and channel reply lands beside your other channels.' },
 ]
 
-const COMPARE_ROWS = [
-  { feature: 'Hosting', left: 'You run your own bot server', right: 'Fully hosted, nothing to maintain' },
-  { feature: 'Changes', left: 'Code changes for every tweak', right: 'Visual builder, no code needed' },
-  { feature: 'Context', left: 'No memory between sessions', right: 'Full customer record on every chat' },
-  { feature: 'Integrations', left: 'None', right: 'CRM, helpdesk & store integrations' },
-  { feature: 'Reporting', left: 'Basic bot logs', right: 'Delivery, reply & command analytics' },
-]
-
-const WHY_US = [
+const WHY = [
   { icon: <IconPlug />, title: 'No server to run', desc: 'We host and scale your bot — no infrastructure for your team to maintain.' },
-  { icon: <IconUsers />, title: 'Built for teams', desc: 'Multiple agents can take over any bot conversation without losing history.' },
+  { icon: <IconUsers />, title: 'Built for teams', desc: 'Multiple agents take over any bot conversation without losing history.' },
   { icon: <IconLink />, title: 'Works with your stack', desc: 'Connect your CRM, helpdesk or store so every reply has real context.' },
-  { icon: <IconMail />, title: 'One inbox, every channel', desc: 'Telegram sits beside WhatsApp, SMS and email in the same shared inbox.' },
-]
-
-const ECOSYSTEM = [
-  { icon: <IconChat />, title: 'WhatsApp, too', desc: 'Run your Telegram bot alongside WhatsApp Business API from the same inbox.', href: '/whatsapp-business-api' },
-  { icon: <IconBolt />, title: 'SMS fallback', desc: 'Keep a universal channel in reach for customers outside Telegram.', href: '/bulk-sms' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers your bot can carry a conversation across every channel.', href: '/ai-agents/customer-service' },
-  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design commands, keyboards and reply flows visually, without writing code.', href: '/chatbot/builder' },
+  { icon: <IconMail />, title: 'One shared inbox', desc: 'Telegram sits beside WhatsApp, SMS and email in the same inbox.' },
 ]
 
 const TESTIMONIALS = [
@@ -66,83 +62,99 @@ function TelegramBusiness() {
 
       <Hero
         eyebrow="Telegram"
-        title="Telegram bots and broadcasts, built for business"
+        title={<>Telegram bots and broadcasts, <span className="grad-word">built for business</span></>}
         subtitle="Automate two-way conversations, publish channel broadcasts, and manage every Telegram interaction from one platform — bots, buttons and all."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         visual={<TelegramHeroMock />}
       />
 
-      <div className="hero-badges-wrap">
+      {/* INNER 1 — two-mode split: bots | broadcasts */}
+      <section className="section tg-modes">
         <div className="container">
-          <div className="hero-badges">
-            {HERO_BADGES.map((b) => (
-              <div className="hero-badge" key={b.word}>
-                <span className="hero-badge-icon">{b.icon}</span>
-                <div className="hero-badge-text">
-                  <strong>{b.word}</strong>
-                  <span>{b.desc}</span>
-                </div>
+          <span className="section-kicker">Two jobs, one platform</span>
+          <h2 className="section-title">Bots that talk back, and broadcasts that reach everyone</h2>
+          <div className="tg-modes-grid">
+            <div className="tg-mode">
+              <span className="tg-mode-icon"><IconRobot /></span>
+              <h3>Two-way bots</h3>
+              <p>Commands, inline keyboards and AI answers that actually remember the customer.</p>
+              <ul>{BOT_POINTS.map((p) => <li key={p}>{p}</li>)}</ul>
+            </div>
+            <div className="tg-mode-split" aria-hidden="true"><span>+</span></div>
+            <div className="tg-mode">
+              <span className="tg-mode-icon"><IconMegaphone /></span>
+              <h3>Channel broadcasts</h3>
+              <p>Publish one-to-many posts to your subscribers and see exactly how they land.</p>
+              <ul>{CAST_POINTS.map((p) => <li key={p}>{p}</li>)}</ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INNER 2 — inline-keyboard command showcase, explained as a flow */}
+      <section className="section section-alt tg-keys">
+        <div className="container tg-keys-inner">
+          <div className="tg-keys-copy">
+            <span className="section-kicker">Tap, don’t type</span>
+            <h2 className="section-title">Everything happens with a button</h2>
+            <p className="section-subtitle">Your customers never guess a command. They tap a labelled button, and the bot — or your AI — takes it from there.</p>
+          </div>
+
+          <div className="tg-flow" aria-hidden="true">
+            <div className="tg-flow-step">
+              <span className="tg-flow-label">Step 1 — typed once, to begin</span>
+              <span className="tg-key tg-key--cmd">/start</span>
+            </div>
+
+            <span className="tg-flow-arrow">↓</span>
+
+            <div className="tg-flow-step">
+              <span className="tg-flow-label">Step 2 — every reply after is a tap, never typed again</span>
+              <div className="tg-keyboard">
+                {BUTTONS.filter((b) => b.kind === 'btn').map((b) => (
+                  <span className="tg-key tg-key--btn" key={b.label}>{b.label}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* INNER 3 — live BotFather-style setup transcript */}
+      <TelegramBotSetup
+        eyebrow="How it works"
+        title="Go live on Telegram in three steps"
+        steps={STEPS}
+      />
+
+      {/* INNER 4 — why us: ghost-numeral benefits, 4 across */}
+      <section className="section section-alt tg-why">
+        <div className="container">
+          <span className="section-kicker">Why us</span>
+          <h2 className="section-title">Why teams run Telegram on SMSLocal</h2>
+          <div className="tg-why-grid">
+            {WHY.map((w, i) => (
+              <div className="tg-why-cell" key={w.title}>
+                <span className="tg-why-ghost">{`0${i + 1}`}</span>
+                <span className="tg-why-icon">{w.icon}</span>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
-
-      <NarrativeCompare
-        heading={<>A Telegram bot without memory is just a command list.</>}
-        paragraphs={[
-          'Most Telegram bots handle a command and forget everything the moment the chat ends. A customer types /start, taps a button, and if they come back tomorrow the bot has no idea who they are or what they asked.',
-          "So every interaction restarts from zero, buttons repeat themselves, and anything that needs a human gets stuck — there's no shared record connecting the bot, the agent, and the rest of your channels.",
-          <>Wire your bot into the same inbox as WhatsApp, SMS and email, and <strong>every tap, command and handoff stays attached to one customer record</strong>.</>,
-        ]}
-        leftLabel="A standalone bot"
-        leftItems={[
-          'Forgets the customer between sessions',
-          'Buttons and commands, nothing else',
-          "No handoff path when a bot can't help",
-          'Lives apart from your other channels',
-        ]}
-        rightLabel="Telegram, on SMSLocal"
-        rightItems={[
-          'Remembers context across every visit',
-          'Bots, buttons and live agents in one thread',
-          'Clean handoff to a human, with full history',
-          'Sits beside WhatsApp, SMS and email',
-        ]}
-        alt
-      />
-
-      <TelegramCapabilityGrid />
-
-      <TelegramStepsCascade eyebrow="How it works" title={<>Go live on Telegram in three steps</>} steps={STEPS} alt />
-
-      <CompareTable
-        title={<>DIY bot vs the SMSLocal API</>}
-        subtitle="A raw Bot API gets you a command list. This gets you a channel your whole team can run."
-        leftLabel="DIY Telegram Bot"
-        rightLabel="SMSLocal API"
-        rows={COMPARE_ROWS}
-      />
-
-      <WhyUsTiltBadges eyebrow="Why us" title={<>Why teams run Telegram on SMSLocal</>} items={WHY_US} alt />
-
-      <EcosystemTextLinks
-        eyebrow="Ecosystem"
-        title={<>Telegram fits right into your messaging stack</>}
-        subtitle="Pair Telegram with WhatsApp, SMS fallback and agentic AI across the same conversations."
-        items={ECOSYSTEM}
-      />
+      </section>
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
-
-      <FAQ title={<>Telegram for business — frequently asked questions</>} items={FAQS} />
 
       <CTABanner
         title="Launch your Telegram bot without the server"
         subtitle="Bots, buttons and broadcasts — live in days, not months."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
       />
+
+      <FAQ title={<>Telegram for business — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

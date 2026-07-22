@@ -65,10 +65,10 @@ function AiAgentsWhatsapp() {
 
       <Hero
         eyebrow="WhatsApp AI Agent"
-        title="An autonomous AI agent, right on WhatsApp"
+        title={<>An autonomous AI agent, <span className="grad-word">right on WhatsApp</span></>}
         subtitle="Understands intent, takes real actions and resolves conversations end to end — on the verified WhatsApp Business API your customers already message."
-        primaryCta={{ label: 'Get Started', href: '/contact' }}
-        secondaryCta={{ label: 'See WhatsApp API', href: '/whatsapp-business-api' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
+        secondaryCta={{ label: 'See WhatsApp API', href: '/channels/whatsapp' }}
         visual={<WhatsappInboxMock />}
       />
 
@@ -114,14 +114,14 @@ function AiAgentsWhatsapp() {
         items={INDUSTRIES}
       />
 
-      <FAQ title={<>WhatsApp AI agent — frequently asked questions</>} items={FAQS} alt />
-
       <CTABanner
         title="Put an AI agent on your WhatsApp number"
         subtitle="Connect your account and start resolving conversations today."
-        cta={{ label: 'Get Started', href: '/contact' }}
+        cta={{ label: 'Get Started', href: '/contact-us' }}
         variant="spotlight"
       />
+
+      <FAQ title={<>WhatsApp AI agent — frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }
