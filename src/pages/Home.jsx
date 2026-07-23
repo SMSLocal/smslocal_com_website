@@ -13,7 +13,9 @@ import Reveal from '../components/home/Reveal.jsx'
 
 function Home() {
   return (
-    <>
+    // .home-tw scopes the Tailwind element reset in styles/home-tailwind.css to
+    // this page only — the plain-CSS inner pages must not inherit it.
+    <div className="home-tw">
       <Seo
         title="Bulk SMS Services for Businesses"
         description="Launch SMS campaigns, alerts, and promotions in seconds. No apps, no coding, no integration needed. Connect effortlessly and grow your business with SMSLocal."
@@ -30,7 +32,7 @@ function Home() {
       <Reveal><Testimonials /></Reveal>
       <Reveal><CTABanner /></Reveal>
       <Reveal><FAQ /></Reveal>
-    </>
+    </div>
   )
 }
 

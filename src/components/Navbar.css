@@ -1,34 +1,54 @@
+/* Full-bleed sticky bar. The white surface, border and shadow live here rather
+   than on .navbar-inner so the bar spans the viewport edge to edge; the inner
+   element only constrains the content width. */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: transparent;
-  padding: 1rem 1.5rem 0;
+  /* Frosted glass at 40% strength — 60% opaque white tint, blur doing the work
+     of killing detail in whatever scrolls under it.
+     Measured nav-label contrast (text is --text-secondary #64748b):
+       over the light sections (#fbfcfe / #f1f5f9 / #fff) -> 4.59-4.76:1, AA ok
+       over the dark #0f172a bands                        -> 1.86:1, fails AA
+     The dark full-bleed sections (CTA banner, "Get Started", footer) are the
+     only failing case, and no usable tint fixes it: staying above 4.5:1 there
+     needs alpha >= 0.97, i.e. no glass at all. Fix it by darkening the label
+     colour instead if it matters.
+     Dial in one place: raise the alpha toward 1 for less glass, lower it for
+     more. Blur should move with it — a thin tint needs a heavier blur. */
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 46, 86, 0.06);
+}
+
+/* Without backdrop-filter the tint alone would just look washed out and the
+   labels would sit on raw page content, so fall back to the solid bar. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: #ffffff;
+  }
 }
 
 .navbar-inner {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0.75rem 1.5rem;
-  background: #ffffff;
-  border-radius: 999px;
-  box-shadow: 0 4px 24px rgba(0, 46, 86, 0.1);
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.5rem;
+  /* anchors the mega-menus and the mobile .nav-links drawer */
   position: relative;
 }
 
+/* The wordmark carries the brand name itself, so the old icon+text lockup's
+   font/gap rules are gone — only the anchor box remains. */
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--navy);
   text-decoration: none;
-  letter-spacing: -0.02em;
 }
 
 .menu-toggle {
@@ -69,7 +89,10 @@
 }
 
 .nav-item-link {
-  color: var(--text-secondary);
+  /* Solid ink, not --text-secondary grey. Besides reading better, this is what
+     makes the frosted bar safe: slate-500 labels dropped to 1.86:1 against the
+     bar once a dark section scrolled under it, where ink holds ~6.8:1. */
+  color: var(--ink);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -82,7 +105,7 @@
 .nav-trigger {
   background: none;
   border: none;
-  color: var(--text-secondary);
+  color: var(--ink);
   font-weight: 500;
   font-size: 0.95rem;
   display: flex;
@@ -97,19 +120,58 @@
   color: var(--blue);
 }
 
+/* 14px lucide chevron, matching the reference site's h-3.5 w-3.5 opacity-60 */
 .caret {
-  font-size: 0.65rem;
+  width: 14px;
+  height: 14px;
+  flex: none;
+  opacity: 0.6;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.caret[data-open] {
+  transform: rotate(180deg);
+}
+
+/* Outlined pill, mirroring the hero's "Book a demo": 2px grey ring that goes
+   near-black on hover, with the label itself already ink. */
 .nav-login {
-  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
+  padding: 0.6rem 1.35rem;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  /* Solid white like .btn-primary next to it. Left transparent, this pill let
+     the frosted bar show through while Get Started stayed opaque, so the two
+     rings read as different weights. */
+  background: #ffffff;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-login:hover {
-  color: var(--blue);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* The global .btn-primary is sized for page-body CTAs — at 53px tall it stood
+   taller than the hero's own secondary button (48px) and crowded the 78px bar.
+   Scoped down here only; .btn-primary elsewhere is untouched. */
+.nav-auth .btn-primary {
+  padding: 0.6rem 1.35rem;
+  font-size: 0.9rem;
+  border-width: 2px;
+}
+
+/* Both states: the page-body shadow is offset 4px down, which padded Get
+   Started's apparent bottom edge and made it look taller than the Log in pill
+   even though both boxes measure 45.52px. Dropped in the bar only. */
+.nav-auth .btn-primary,
+.nav-auth .btn-primary:hover {
+  box-shadow: none;
 }
 
 /* Mega menu (Products) */

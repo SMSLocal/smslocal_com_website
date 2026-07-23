@@ -1,0 +1,169 @@
+/* "Why it matters" section for /channels/social — four channel sources
+   converging via curved lines into one unified-inbox card, instead of a
+   stack of separate browser-window mockups. */
+
+.swim-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.swim-copy h2 {
+  margin: 0.7rem 0 1rem;
+}
+
+.swim-copy p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.swim-copy p strong {
+  color: var(--blue);
+}
+
+.swim-converge {
+  position: relative;
+  height: 350px;
+}
+
+.swim-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.swim-lines path {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2;
+}
+
+.swim-sources {
+  position: absolute;
+  inset: 0;
+}
+
+.swim-source {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+  box-shadow: 0 12px 26px -18px rgba(16, 35, 63, 0.35);
+}
+
+.swim-source-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  flex: none;
+}
+
+.swim-source-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.swim-inbox {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.4rem 1.5rem;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 28px 56px -24px rgba(16, 35, 63, 0.4);
+}
+
+.swim-inbox-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--gradient-brand);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 0.3rem;
+}
+
+.swim-inbox-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
+.swim-inbox strong {
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.swim-inbox p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .swim-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .swim-converge {
+    height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .swim-lines {
+    display: none;
+  }
+
+  .swim-converge {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .swim-sources {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .swim-source {
+    position: static;
+    transform: none;
+  }
+
+  .swim-inbox {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+}

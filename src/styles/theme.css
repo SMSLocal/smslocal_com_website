@@ -24,8 +24,16 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --container: 1180px;
-  --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  /* The real font stacks live under the same names the ported homepage's
+     globals.css uses (--font-geist / --font-instrument, set by next/font
+     there). --font-sans/--font-serif are aliases for the plain-CSS inner
+     pages. They must NOT be the canonical definition: Tailwind's own
+     theme.css redeclares --font-sans/--font-serif on :root, so home-tailwind
+     re-points those aliases at the stacks below via @theme inline. */
+  --font-geist: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-instrument: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-instrument);
 }
 
 * {

@@ -1,7 +1,8 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconChat, IconUsers, IconGear, IconBrain, IconGlobe, IconMail } from '../components/icons.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { IconChat, IconUsers, IconGear, IconBrain } from '../components/icons.jsx'
 import SocialInboxHero from '../components/SocialInboxHero.jsx'
+import SocialWhyItMatters from '../components/SocialWhyItMatters.jsx'
 import SocialCapabilitySpotlight from '../components/SocialCapabilitySpotlight.jsx'
 import StepsConverge from '../components/StepsConverge.jsx'
 import WhyUsFeed from '../components/WhyUsFeed.jsx'
@@ -46,22 +47,7 @@ function SocialInbox() {
         visual={<SocialInboxHero />}
       />
 
-      <NarrativeCompare
-        variant="collage"
-        eyebrow="Why it matters"
-        heading={<>Your customers message everywhere. Your team shouldn&apos;t have to.</>}
-        paragraphs={[
-          <>A DM on Instagram, a comment on Facebook, a WhatsApp about the same order — spread across apps and logins. SMSLocal pulls every channel into <strong>one shared inbox with one customer record</strong>, so any teammate can pick up any conversation with full context.</>,
-        ]}
-        leftItems={[]}
-        rightItems={[
-          { label: 'Instagram & comments', icon: <IconChat /> },
-          { label: 'Messenger & Telegram', icon: <IconGlobe /> },
-          { label: 'WhatsApp & LINE', icon: <IconMail /> },
-          { label: 'One customer record', icon: <IconUsers /> },
-        ]}
-        alt
-      />
+      <SocialWhyItMatters alt />
 
       <SocialCapabilitySpotlight />
 

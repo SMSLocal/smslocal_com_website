@@ -1,50 +1,15 @@
 import { Link } from 'react-router-dom'
-import { useFooterMeta } from '../hooks/useFooterMeta'
-import BrandLogo from './BrandLogo.jsx'
-import './Footer.css'
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  YoutubeIcon,
+} from './home/SocialIcons.jsx'
+import NightBackdrop from './home/NightBackdrop.jsx'
 
-const iconProps = { viewBox: '0 0 24 24', width: 16, height: 16, fill: 'currentColor' }
-
-const SOCIALS = [
-  {
-    label: 'Facebook',
-    icon: (
-      <svg {...iconProps}>
-        <path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H9v3h2v7h3v-7h3l1-3h-4V9c0-.55.45-1 1-1z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Instagram',
-    icon: (
-      <svg {...iconProps} fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    label: 'LinkedIn',
-    icon: (
-      <svg {...iconProps}>
-        <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" strokeWidth="1.8" />
-        <circle cx="8" cy="8.5" r="1.3" />
-        <path d="M7 11h2v7H7zM11 11h2v1.2c.5-.8 1.3-1.4 2.5-1.4 2 0 3 1.3 3 3.7V18h-2v-3c0-1.2-.5-1.9-1.5-1.9s-1.5.7-1.5 1.9v3h-2z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'YouTube',
-    icon: (
-      <svg {...iconProps} fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="3" y="6" width="18" height="12" rx="4" />
-        <path d="M10.5 9.8v4.4l3.8-2.2z" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-]
-
+// Ported from the reference site's footer. The reference hard-codes href="#" on
+// every link; the real routes from this project's own footer are kept instead,
+// so the footer stays navigable on all pages.
 const COLUMNS = [
   {
     title: 'Product',
@@ -84,38 +49,65 @@ const COLUMNS = [
   },
 ]
 
+const SOCIALS = [
+  { label: 'Facebook', Icon: FacebookIcon },
+  { label: 'Instagram', Icon: InstagramIcon },
+  { label: 'YouTube', Icon: YoutubeIcon },
+  { label: 'LinkedIn', Icon: LinkedinIcon },
+]
+
 function Footer() {
-  const { active: metaOn, label: metaLabel, onProbe } = useFooterMeta()
-
   return (
-    <footer className="site-footer">
-      <span className="footer-glow" aria-hidden="true" />
-      <span className="footer-dotgrid" aria-hidden="true" />
-
-      <div className="container footer-inner">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            <Link to="/" className="footer-logo">
-              <BrandLogo size={32} />
-              SMSLocal
+    // home-tw scopes the Tailwind element reset (styles/home-tailwind.css) to
+    // this subtree. The footer renders on every page, including the plain-CSS
+    // inner pages, so the reset must not escape it.
+    <footer className="home-tw relative overflow-hidden border-t border-border bg-foreground text-white">
+      <NightBackdrop />
+      <div className="relative mx-auto max-w-7xl px-6 py-14">
+        <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
+          <div>
+            {/* Knocked out to solid white. The logo's own indigo drops to 1.67
+                contrast on this background — parts of it would disappear. */}
+            <Link to="/" className="flex items-center">
+              <img
+                src="/smslocal-logo-v2.svg"
+                alt="SMSLocal"
+                className="h-8 w-auto brightness-0 invert"
+              />
             </Link>
-            <p>Launch SMS campaigns, alerts, and promotions in seconds — no apps, no coding, no integration needed.</p>
-            <div className="footer-social">
-              {SOCIALS.map((s) => (
-                <a href="#" aria-label={s.label} key={s.label}>{s.icon}</a>
+            <p className="mt-4 max-w-xs text-sm text-white/60">
+              Launch SMS campaigns, alerts, and promotions in seconds — no apps,
+              no coding, no integration needed.
+            </p>
+            {/* h-11 w-11 hit areas with -m-2.5 so the icons sit where they did */}
+            <div className="mt-5 flex items-center gap-8">
+              {SOCIALS.map(({ label, Icon }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="-m-2.5 flex h-11 w-11 items-center justify-center text-white/60 hover:text-primary"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
               ))}
             </div>
           </div>
 
           {COLUMNS.map((col) => (
-            <div className="footer-col" key={col.title}>
-              <h4>{col.title}</h4>
-              <ul>
+            <div key={col.title}>
+              <h4 className="text-sm font-semibold text-white">{col.title}</h4>
+              {/* inline-block + py-1 lifts each link from an 18px tap target to
+                  26px, clearing the 24px WCAG 2.5.8 minimum. The row spacing
+                  tightens to compensate, so the column height barely moves. */}
+              <ul className="mt-3 space-y-0.5">
                 {col.links.map((l) => (
                   <li key={l.t}>
-                    <Link to={l.href}>
+                    <Link
+                      to={l.href}
+                      className="inline-block py-1 text-sm text-white/60 hover:text-primary"
+                    >
                       {l.t}
-                      {l.badge && <span className="footer-badge">{l.badge}</span>}
                     </Link>
                   </li>
                 ))}
@@ -124,15 +116,19 @@ function Footer() {
           ))}
         </div>
 
-        <div className="footer-bottom">
-          <p onClick={onProbe} className="footer-note">
-            © {new Date().getFullYear()} SMSLocal. All rights reserved.
-            {metaOn && <span className="footer-note-x">{' '}{metaLabel}</span>}
-          </p>
-          <div className="footer-legal">
-            <Link to="/terms">Terms</Link>
-            <Link to="/privacy-policy">Privacy</Link>
-            <Link to="/privacy-policy">Cookies</Link>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
+          <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>
+          {/* py-1 clears the 24px WCAG 2.5.8 tap minimum */}
+          <div className="flex gap-6">
+            <Link to="/terms" className="inline-block py-1 hover:text-primary">
+              Terms
+            </Link>
+            <Link to="/privacy-policy" className="inline-block py-1 hover:text-primary">
+              Privacy
+            </Link>
+            <Link to="/privacy-policy" className="inline-block py-1 hover:text-primary">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>

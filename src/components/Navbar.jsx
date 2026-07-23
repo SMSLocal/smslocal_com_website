@@ -6,8 +6,15 @@ import {
   IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCart, IconCalendar, IconDollar, IconReceipt, IconSearch,
   IconNewspaper, IconBook, IconCode, IconInfo, IconHandshake, IconBriefcase, IconMenu,
 } from './icons.jsx'
+import { ChevronDown } from 'lucide-react'
 import { CompareLogo } from './CompareLogo.jsx'
 import BrandLogo from './BrandLogo.jsx'
+
+// Real chevron icon, matching the reference site — replaces the "▾" text glyph,
+// which rendered at whatever the font decided and could not rotate on open.
+function Caret({ open }) {
+  return <ChevronDown className="caret" aria-hidden="true" data-open={open || undefined} />
+}
 
 // --- Product mega: three sub-divisions -----------------------------------
 const CHANNELS = [
@@ -270,8 +277,7 @@ function Navbar() {
     <header className="navbar" ref={navRef}>
       <div className="navbar-inner" onMouseLeave={() => setOpenMenu(null)}>
         <Link to="/" className="brand" onClick={closeAll}>
-          <BrandLogo size={26} />
-          SMSLocal
+          <BrandLogo />
         </Link>
 
         <button
@@ -286,7 +292,7 @@ function Navbar() {
           {/* Products — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('products')}>
             <button type="button" className="nav-trigger" onClick={() => toggleMenu('products')}>
-              Products <span className="caret">▾</span>
+              Products <Caret open={openMenu === 'products'} />
             </button>
             {openMenu === 'products' && (
               <CategoryMega
@@ -301,7 +307,7 @@ function Navbar() {
           {/* Platform — simple grid dropdown */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('platform')}>
             <button type="button" className="nav-trigger" onClick={() => toggleMenu('platform')}>
-              Platform <span className="caret">▾</span>
+              Platform <Caret open={openMenu === 'platform'} />
             </button>
             {openMenu === 'platform' && (
               <div className="dropdown-wrapper">
@@ -319,7 +325,7 @@ function Navbar() {
           {/* Solutions — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('solutions')}>
             <button type="button" className="nav-trigger" onClick={() => toggleMenu('solutions')}>
-              Solutions <span className="caret">▾</span>
+              Solutions <Caret open={openMenu === 'solutions'} />
             </button>
             {openMenu === 'solutions' && (
               <CategoryMega
@@ -334,7 +340,7 @@ function Navbar() {
           {/* Resources — two-panel flyout (now includes Pricing) */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('resources')}>
             <button type="button" className="nav-trigger" onClick={() => toggleMenu('resources')}>
-              Resources <span className="caret">▾</span>
+              Resources <Caret open={openMenu === 'resources'} />
             </button>
             {openMenu === 'resources' && (
               <div className="dropdown-wrapper">
@@ -372,7 +378,7 @@ function Navbar() {
           {/* Company — simple dropdown */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('company')}>
             <button type="button" className="nav-trigger" onClick={() => toggleMenu('company')}>
-              Company <span className="caret">▾</span>
+              Company <Caret open={openMenu === 'company'} />
             </button>
             {openMenu === 'company' && (
               <div className="dropdown-wrapper">

@@ -5,6 +5,13 @@
    homepage), so they're safe to redeclare. */
 @import "tailwindcss/theme.css";
 @import "tailwindcss/utilities.css";
+@source "../components/home";
+@source "../pages/Home.jsx";
+/* Footer is Tailwind-authored (ported from the reference site) and renders on
+   every page, so it must be scanned too — its own .home-tw wrapper keeps the
+   reset from leaking into the plain-CSS inner pages. */
+@source "../components/Footer.jsx";
+@source "../components/TopBar.jsx";
 
 :root {
   --background: #f8fafc;
@@ -24,7 +31,115 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-sans: var(--font-sans);
+  /* Must point at --font-geist, not --font-sans: `--font-sans: var(--font-sans)`
+     is a self-reference, which CSS treats as invalid at computed-value time —
+     it silently blanked the token and dropped the whole page to Times New Roman. */
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-instrument);
+}
+
+/* Scoped Preflight.
+   Tailwind's global reset is deliberately not imported (it would restyle every
+   plain-CSS inner page), but the ported homepage was authored against it — so
+   without it the browser's UA styles leak back in: underlined links, bold UA
+   headings, and margins on p/h1/ul that made every panel taller than the
+   reference. This is Preflight's element reset, confined to the homepage tree.
+
+   The @layer wrapper is load-bearing, and plain :where() is NOT a substitute.
+   `tailwindcss/utilities.css` is `@tailwind utilities;` with no layer, so
+   utilities land UNLAYERED — and unlayered styles beat every layered rule
+   regardless of specificity. That gives utilities an unconditional win here.
+   The :where() version of this block tied with them at zero specificity and,
+   being later in the file, silently won instead: it zeroed the margins that
+   `space-y-*` sets via its own `:where(& > :not(:last-child))`, collapsing
+   every gap in the step lists.
+   ponytail: hand-copied subset, not the real Preflight — if the homepage ever
+   starts using forms/tables heavily, import Tailwind's own and scope it instead. */
+@layer home-reset {
+  .home-tw,
+  .home-tw *,
+  .home-tw ::before,
+  .home-tw ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* `border: 0 solid` is load-bearing: some border-* utilities only set a
+       width and inherit the style from here. Without it they render nothing. */
+    border: 0 solid;
+  }
+
+  .home-tw :is(h1, h2, h3, h4, h5, h6) {
+    font-size: inherit;
+    /* theme.css colours all headings navy for the inner pages; the homepage
+       sets its own via text-* utilities. */
+    color: inherit;
+  }
+
+  .home-tw a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+
+  .home-tw :is(b, strong) {
+    font-weight: bolder;
+  }
+
+  .home-tw :is(ol, ul, menu) {
+    list-style: none;
+  }
+
+  .home-tw :is(img, svg, video, canvas) {
+    display: block;
+    vertical-align: middle;
+  }
+
+  .home-tw :is(img, video) {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .home-tw :is(button, input, select, optgroup, textarea) {
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .home-tw button {
+    cursor: pointer;
+  }
+
+  .home-tw table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+}
+
+/* Deliberately OUTSIDE the layer above. globals.css declares this on bare
+   h1-h6, unlayered, so in the Next build it outranks the font-weight and
+   tracking utilities in @layer utilities — headings there really are Geist 400
+   even where a component says font-medium. Reproducing that needs to be
+   unlayered here too, winning on specificity (0,1,1) over the utilities'
+   (0,1,0). Excludes color and font-size, which stay text-* overridable. */
+.home-tw :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-geist), sans-serif;
+  font-weight: 400;
+  /* relative tracking scales with heading size (≈ -3.1px on the 52px H1) */
+  letter-spacing: -0.06em;
+}
+
+/* Ported from globals.css. Its absence made all 37 uses across 10 components
+   render with no background at all — gradient buttons ("Contact Us"), icon
+   tiles, glow blobs and step bullets all went transparent.
+   Declared as @utility, not a plain class, so variants compose — a plain
+   `.bg-gradient-brand {}` emits no `hover:` rule, which silently leaves
+   `hover:bg-gradient-brand hover:text-white` as white-on-white. */
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
 }
 
 .bg-dot-grid {
