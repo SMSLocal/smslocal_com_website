@@ -1,0 +1,334 @@
+.bos {
+  position: relative;
+  width: 400px;
+  max-width: 100%;
+  height: 380px;
+  flex: none;
+}
+
+.bos::before {
+  content: '';
+  position: absolute;
+  inset: 6%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.14), rgba(236, 72, 153, 0.08) 55%, transparent 75%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.bos-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed var(--border);
+}
+
+.bos-ring--outer {
+  animation: bos-spin 46s linear infinite;
+}
+
+.bos-ring--inner {
+  inset: 12%;
+  border-style: solid;
+  border-color: rgba(21, 73, 137, 0.08);
+  animation: bos-spin-rev 34s linear infinite;
+}
+
+@keyframes bos-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bos-spin-rev {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.bos-beam-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.bos-beam {
+  stroke: var(--blue);
+  stroke-width: 0.6;
+  stroke-linecap: round;
+  opacity: 0.55;
+  animation: bos-beam-in 0.5s ease;
+}
+
+@keyframes bos-beam-in {
+  from { opacity: 0; }
+  to { opacity: 0.55; }
+}
+
+.bos-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 68px;
+  padding: 0.45rem 0.35rem 0.4rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 8px 20px -12px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  font: inherit;
+  color: var(--ink);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.bos-node:hover {
+  transform: translate(-50%, -50%) translateY(-2px);
+}
+
+.bos-node.is-active {
+  border-color: transparent;
+  background: linear-gradient(#fff, #fff) padding-box, var(--gradient-brand) border-box;
+  border-width: 1.5px;
+  box-shadow: 0 10px 24px -10px rgba(236, 72, 153, 0.35);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.bos-node-ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--bg-subtle);
+  color: var(--primary);
+  flex: none;
+}
+
+.bos-node-ic svg {
+  width: 13px;
+  height: 13px;
+}
+
+.bos-node.is-active .bos-node-ic {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.bos-node-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.15;
+  color: var(--text-secondary);
+}
+
+.bos-node.is-active .bos-node-label {
+  color: var(--navy);
+}
+
+.bos-phone-bezel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 184px;
+  height: 312px;
+  background: linear-gradient(155deg, #1c2333, var(--ink) 55%, #1c2333);
+  border-radius: 28px;
+  padding: 4px;
+  box-shadow:
+    0 22px 44px -18px rgba(15, 23, 42, 0.4),
+    0 0 0 1px rgba(15, 23, 42, 0.06),
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.06);
+}
+
+.bos-phone-notch {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 16px;
+  background: var(--ink);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.bos-phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+.bos-phone-home {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--ink);
+  opacity: 0.18;
+}
+
+.bos-phone-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.25rem 0.65rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+
+.bos-phone-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  flex: none;
+}
+
+.bos-phone-avatar svg {
+  width: 12px;
+  height: 12px;
+}
+
+.bos-phone-head strong {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--ink);
+}
+
+.bos-phone-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.55rem;
+  color: var(--text-secondary);
+}
+
+.bos-phone-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  flex: none;
+}
+
+.bos-phone-thread {
+  flex: 1;
+  padding: 0.5rem 0.45rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  overflow: hidden;
+}
+
+.bos-bubble {
+  max-width: 86%;
+  padding: 0.35rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.58rem;
+  line-height: 1.32;
+  animation: bos-bubble-in 0.3s ease;
+}
+
+@keyframes bos-bubble-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bos-bubble--user {
+  align-self: flex-end;
+  background: var(--bg-subtle);
+  color: var(--ink);
+  border-bottom-right-radius: 4px;
+}
+
+.bos-bubble--bot {
+  align-self: flex-start;
+  background: linear-gradient(#fff, #fff) padding-box, var(--gradient-brand) border-box;
+  border: 1px solid transparent;
+  color: var(--ink);
+  border-bottom-left-radius: 4px;
+}
+
+.bos-bubble-tag {
+  display: block;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.15rem;
+}
+
+.bos-bubble--typing {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.55rem 0.7rem;
+}
+
+.bos-bubble--typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  animation: bos-typing 1s infinite ease-in-out;
+}
+
+.bos-bubble--typing span:nth-child(2) { animation-delay: 0.15s; }
+.bos-bubble--typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes bos-typing {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}
+
+@media (max-width: 900px) {
+  .bos {
+    width: 400px;
+    height: 340px;
+    margin: 0 auto;
+  }
+
+  .bos-phone-bezel {
+    width: 156px;
+    height: 268px;
+  }
+
+  .bos-node {
+    width: 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bos-ring--outer,
+  .bos-ring--inner {
+    animation: none;
+  }
+
+  .bos-bubble,
+  .bos-beam {
+    animation: none;
+  }
+}

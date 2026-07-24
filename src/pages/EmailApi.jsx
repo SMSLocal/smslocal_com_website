@@ -1,34 +1,17 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconMail, IconChart, IconRefresh, IconCode, IconShield, IconLink, IconBolt, IconBrain, IconPencil } from '../components/icons.jsx'
+import { IconMail, IconChart, IconRefresh, IconShield, IconLink, IconBolt, IconBrain, IconPencil } from '../components/icons.jsx'
 import EmailHeroMock from '../components/EmailHeroMock.jsx'
-import EmailBadges from '../components/EmailBadges.jsx'
 import EmailAloneLedger from '../components/EmailAloneLedger.jsx'
-import EmailSetupConsole from '../components/EmailSetupConsole.jsx'
+import EmailSetupJourney from '../components/EmailSetupJourney.jsx'
 import EmailOneApi from '../components/EmailOneApi.jsx'
-import EmailCompare from '../components/EmailCompare.jsx'
-import EmailWhyProof from '../components/EmailWhyProof.jsx'
-import EmailStackBrowser from '../components/EmailStackBrowser.jsx'
-
-const HERO_BADGES = [
-  { icon: <IconMail />, word: 'Transactional', desc: 'order & OTP emails, instant' },
-  { icon: <IconChart />, word: 'Deliverability', desc: 'inbox placement tracked' },
-  { icon: <IconRefresh />, word: 'Fallback', desc: 'auto-retries via SMS' },
-  { icon: <IconCode />, word: 'REST + SMTP', desc: 'integrate either way' },
-]
+import EmailWhyFlip from '../components/EmailWhyFlip.jsx'
+import EmailEcosystemOrbit from '../components/EmailEcosystemOrbit.jsx'
 
 const STEPS = [
   { title: 'Verify your domain', desc: 'Add a few DNS records — SPF, DKIM and DMARC — we walk you through it.' },
   { title: 'Design your templates', desc: 'Build transactional and bulk templates visually, or send raw HTML via API.' },
   { title: 'Send with fallback on', desc: 'Launch sends that automatically retry over SMS on a bounce or no-open.' },
-]
-
-const COMPARE_ROWS = [
-  { feature: 'Channels', left: 'Email only', right: 'Email + SMS in one API' },
-  { feature: 'On a bounce', left: 'Message is just lost', right: 'Automatic retry over SMS' },
-  { feature: 'Integration', left: 'REST API only', right: 'REST API or SMTP relay' },
-  { feature: 'Reporting', left: 'Separate email dashboard', right: 'Unified email + SMS reporting' },
-  { feature: 'Deliverability', left: 'Self-managed reputation', right: 'Managed sending infrastructure' },
 ]
 
 const WHY_US = [
@@ -76,8 +59,6 @@ function EmailApi() {
         visual={<EmailHeroMock />}
       />
 
-      <EmailBadges items={HERO_BADGES} />
-
       <EmailAloneLedger
         heading={<>Email is the one channel most teams still run alone.</>}
         paragraphs={[
@@ -87,19 +68,11 @@ function EmailApi() {
 
       <EmailOneApi />
 
-      <EmailSetupConsole eyebrow="How it works" title={<>Start sending email in three steps</>} steps={STEPS} />
+      <EmailSetupJourney eyebrow="How it works" title={<>Start sending email in three steps</>} steps={STEPS} />
 
-      <EmailCompare
-        title={<>Email-only provider vs the combined API</>}
-        subtitle="Both send email. Only one of them also catches the ones that don't land."
-        leftLabel="Email-only provider"
-        rightLabel="SMSLocal"
-        rows={COMPARE_ROWS}
-      />
+      <EmailWhyFlip eyebrow="Why us" title={<>Why teams send email through SMSLocal</>} items={WHY_US} />
 
-      <EmailWhyProof eyebrow="Why us" title={<>Why teams send email through SMSLocal</>} items={WHY_US} />
-
-      <EmailStackBrowser
+      <EmailEcosystemOrbit
         eyebrow="Ecosystem"
         title={<>Email fits right into your messaging stack</>}
         subtitle="Pair email with SMS, WhatsApp and agentic AI across the same customer record."

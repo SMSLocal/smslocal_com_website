@@ -41,7 +41,7 @@ export default function ScrollGlobe() {
   return (
     <div
       ref={wrapRef}
-      className="relative -mx-6 -mt-6 min-h-[20rem] flex-1 overflow-hidden"
+      className="relative -mx-6 -mt-6 min-h-[15rem] flex-1 overflow-hidden"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

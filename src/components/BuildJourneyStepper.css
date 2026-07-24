@@ -1,0 +1,160 @@
+/* "From idea to live bot in three steps" on /chatbot — a horizontal
+   progress track driving a floating content panel, instead of three
+   static stacked rows with a giant faded numeral each. */
+
+.bjs {
+  margin: 3.2rem auto 0;
+  max-width: 780px;
+}
+
+/* ---- progress track ---- */
+.bjs-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.bjs-rail {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 18px;
+  height: 2px;
+  background: var(--border);
+}
+
+.bjs-fill {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  max-width: calc(100% - 36px);
+}
+
+.bjs-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bjs-node-dot {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 800;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bjs-node.is-done .bjs-node-dot {
+  background: var(--bg-subtle);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.bjs-node.is-active .bjs-node-dot {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 12px 24px -12px rgba(79, 91, 213, 0.6);
+}
+
+.bjs-node-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+.bjs-node.is-active .bjs-node-label { color: var(--navy); }
+
+/* ---- floating content panel (no card) ---- */
+.bjs-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.3rem;
+  animation: bjs-panel-in 0.4s ease both;
+}
+@keyframes bjs-panel-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.bjs-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  box-shadow: 0 16px 30px -14px rgba(79, 91, 213, 0.6);
+}
+.bjs-icon svg { width: 24px; height: 24px; }
+
+.bjs-text h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.bjs-text p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 460px;
+}
+
+.bjs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bjs-chip {
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(79, 91, 213, 0.08);
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: bjs-chip-in 0.35s ease both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes bjs-chip-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bjs-panel { animation: none; opacity: 1; }
+  .bjs-chip { animation: none; opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .bjs-node-label { display: none; }
+  .bjs-panel { gap: 1rem; }
+  .bjs-icon { width: 44px; height: 44px; }
+  .bjs-icon svg { width: 20px; height: 20px; }
+}

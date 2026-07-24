@@ -1,0 +1,176 @@
+.bbr-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 2.6rem;
+}
+
+.bbr-header h2 {
+  font-size: 2.05rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.7rem;
+}
+
+.bbr-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.bbr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.bbr-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 300px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 20px 44px -28px rgba(16, 35, 63, 0.3);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.bbr-card:hover,
+.bbr-card:focus-visible,
+.bbr-card.is-open {
+  transform: translateY(-4px);
+  border-color: rgba(79, 91, 213, 0.35);
+  box-shadow: 0 28px 54px -26px rgba(79, 91, 213, 0.4);
+  outline: none;
+}
+
+.bbr-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bbr-card:hover .bbr-card-inner,
+.bbr-card:focus-visible .bbr-card-inner,
+.bbr-card.is-open .bbr-card-inner {
+  transform: translateY(-300px);
+}
+
+.bbr-face {
+  flex: none;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.9rem 1.8rem;
+}
+
+.bbr-face-front {
+  background:
+    radial-gradient(rgba(16, 35, 63, 0.06) 1px, transparent 1px) 0 0 / 16px 16px,
+    #fff;
+}
+
+.bbr-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  flex: none;
+  background: rgba(79, 91, 213, 0.09);
+  color: var(--blue);
+  margin-bottom: 1.3rem;
+  animation: bbrFloat 3.2s ease-in-out infinite;
+}
+
+.bbr-icon svg { width: 28px; height: 28px; }
+
+@keyframes bbrFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.bbr-face-front h3 {
+  margin: 0 0 0.4rem;
+  color: var(--navy);
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.bbr-hint {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.bbr-hint::after {
+  content: '↓';
+  transition: transform 0.25s ease;
+}
+
+.bbr-card:hover .bbr-hint::after,
+.bbr-card:focus-visible .bbr-hint::after,
+.bbr-card.is-open .bbr-hint::after {
+  transform: translateY(3px);
+}
+
+.bbr-face-back {
+  color: var(--navy);
+  justify-content: center;
+}
+
+.bbr-icon-back {
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--navy);
+  animation: none;
+}
+
+.bbr-face-back h3 {
+  margin: 0 0 0.6rem;
+  color: var(--navy);
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
+}
+
+.bbr-face-back p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(21, 73, 137, 0.75);
+}
+
+.bbr-card--0 .bbr-face-back { background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 55%, white), color-mix(in srgb, var(--cyan) 45%, white)); }
+.bbr-card--1 .bbr-face-back { background: linear-gradient(135deg, color-mix(in srgb, #4f5bd5 55%, white), color-mix(in srgb, #14b8a6 45%, white)); }
+.bbr-card--2 .bbr-face-back { background: linear-gradient(135deg, color-mix(in srgb, #ec4899 50%, white), color-mix(in srgb, #4f5bd5 50%, white)); }
+.bbr-card--3 .bbr-face-back { background: linear-gradient(135deg, color-mix(in srgb, #14b8a6 50%, white), color-mix(in srgb, #ec4899 45%, white)); }
+
+@media (max-width: 860px) {
+  .bbr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .bbr-grid { grid-template-columns: minmax(0, 1fr); }
+  .bbr-card { height: 220px; }
+  .bbr-card-inner { height: 440px; }
+  .bbr-face { height: 220px; padding: 1.5rem 1.5rem; }
+  .bbr-card:hover .bbr-card-inner,
+  .bbr-card:focus-visible .bbr-card-inner,
+  .bbr-card.is-open .bbr-card-inner {
+    transform: translateY(-220px);
+  }
+}

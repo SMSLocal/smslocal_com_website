@@ -8,22 +8,22 @@ const PILL_TONES = {
 
 const PILL_ROWS = [
   [
-    { label: "Bulk SMS", tone: "rose", rot: "-5deg", delay: "0s" },
-    { label: "SMS Marketing", tone: "purple", rot: "3deg", delay: "0.15s" },
-    { label: "Campaigns", tone: "blue", rot: "-2deg", delay: "0.3s" },
-    { label: "Scheduling", tone: "purple", rot: "6deg", delay: "0.45s" },
+    { label: "AI Agent", tone: "rose", rot: "-5deg", delay: "0s" },
+    { label: "Agentic AI", tone: "purple", rot: "3deg", delay: "0.15s" },
+    { label: "AI Receptionist", tone: "blue", rot: "-2deg", delay: "0.3s" },
+    { label: "Chatbot", tone: "purple", rot: "6deg", delay: "0.45s" },
   ],
   [
-    { label: "OTP", tone: "rose", rot: "4deg", delay: "0.2s" },
-    { label: "Alerts", tone: "purple", rot: "-4deg", delay: "0.35s" },
-    { label: "Two-Way", tone: "blue", rot: "2deg", delay: "0.5s" },
-    { label: "Automation", tone: "blue", rot: "-3deg", delay: "0.65s" },
+    { label: "Smart Replies", tone: "rose", rot: "4deg", delay: "0.2s" },
+    { label: "Voice AI", tone: "purple", rot: "-4deg", delay: "0.35s" },
+    { label: "AI Workflows", tone: "blue", rot: "2deg", delay: "0.5s" },
+    { label: "Auto-Reply", tone: "blue", rot: "-3deg", delay: "0.65s" },
   ],
   [
-    { label: "Reminders", tone: "blue", rot: "-3deg", delay: "0.4s" },
-    { label: "API", tone: "purple", rot: "5deg", delay: "0.55s" },
-    { label: "Contacts", tone: "rose", rot: "-4deg", delay: "0.7s" },
-    { label: "Reports", tone: "purple", rot: "3deg", delay: "0.85s" },
+    { label: "Sentiment AI", tone: "blue", rot: "-3deg", delay: "0.4s" },
+    { label: "AI Copilot", tone: "purple", rot: "5deg", delay: "0.55s" },
+    { label: "Knowledge Base", tone: "rose", rot: "-4deg", delay: "0.7s" },
+    { label: "Live Handoff", tone: "purple", rot: "3deg", delay: "0.85s" },
   ],
 ];
 
@@ -83,11 +83,11 @@ export default function PowerhousePills() {
     >
       <div>
         <p className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-          SMS Powerhouse
+          AI Suite
         </p>
         <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-          Powered by carrier-grade delivery, optimized for blazing speed,
-          privacy-first design, and reliable global reach.
+          AI Agent, Agentic AI, AI Receptionist, and Chatbot working together
+          to answer, qualify, and route every conversation automatically.
         </p>
       </div>
 

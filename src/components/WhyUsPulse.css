@@ -1,0 +1,251 @@
+/* "Why teams build with our platform" on /chatbot — pulsing icon nodes
+   whose click opens a floating panel with a small animated proof, instead
+   of a static 2x2 icon+text grid. */
+
+.wup {
+  margin: 3.2rem auto 0;
+  max-width: 760px;
+}
+
+/* ---- row of pulsing nodes ---- */
+.wup-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wup-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1;
+  border: 0;
+  background: none;
+  padding: 0.5rem;
+  border-radius: 14px;
+  cursor: pointer;
+  outline: none;
+}
+.wup-node:focus-visible {
+  box-shadow: 0 0 0 3px rgba(79, 91, 213, 0.35);
+}
+
+.wup-node-ic {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.wup-node-ic svg { width: 24px; height: 24px; }
+
+.wup-node-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+  opacity: 0;
+}
+
+.wup-node.is-active .wup-node-ic {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 16px 30px -14px rgba(79, 91, 213, 0.6);
+}
+.wup-node.is-active .wup-node-pulse {
+  animation: wup-pulse-ring 1.8s ease-out infinite;
+}
+@keyframes wup-pulse-ring {
+  0% { opacity: 0.6; transform: scale(0.9); }
+  100% { opacity: 0; transform: scale(1.35); }
+}
+
+.wup-node-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: color 0.25s ease;
+}
+.wup-node.is-active .wup-node-title { color: var(--navy); }
+
+/* ---- floating panel below the active node ---- */
+.wup-panel {
+  position: relative;
+  margin-top: 2.4rem;
+  padding-top: 1.6rem;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.1rem;
+  animation: wup-panel-in 0.35s ease both;
+}
+@keyframes wup-panel-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.wup-pointer {
+  position: absolute;
+  top: 0;
+  left: var(--x, 50%);
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transition: left 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wup-desc {
+  margin: 0;
+  max-width: 380px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.wup-proof {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.wup-caption {
+  margin: 0.2rem 0 0;
+  max-width: 400px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* ---- ring proof ---- */
+.wup-ring-wrap { position: relative; width: 80px; height: 80px; }
+.wup-ring-pct {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+.wup-ring-stats { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+.wup-ring-label { font-size: 0.86rem; font-weight: 700; color: var(--navy); }
+.wup-mini-stats {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.wup-mini-stats strong { color: var(--blue); font-weight: 800; }
+
+/* ---- channel proof ---- */
+.wup-channel-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+.wup-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: wup-chip-in 0.35s ease both;
+  animation-delay: var(--d, 0s);
+}
+.wup-chip svg { width: 14px; height: 14px; }
+@keyframes wup-chip-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.wup-chip--one {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  animation-delay: 0.55s;
+}
+.wup-channel-arrow { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ---- handoff proof ---- */
+.wup-handoff-row { display: flex; align-items: center; gap: 1.1rem; }
+.wup-handoff-actor { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+.wup-handoff-actor-label { font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); }
+.wup-avatar {
+  font-size: 1.9rem;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.wup-avatar--bot.is-out { opacity: 0.3; transform: scale(0.85); }
+.wup-avatar--human { opacity: 0.3; transform: scale(0.85); }
+.wup-avatar--human.is-in { opacity: 1; transform: none; }
+.wup-handoff-arrow { font-size: 1.3rem; color: var(--blue); }
+
+.wup-handoff-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.wup-handoff-card.is-shown { opacity: 1; transform: none; }
+.wup-handoff-tag {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ---- analytics proof ---- */
+.wup-bars-headline {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+.wup-bars-headline strong { font-size: 1rem; color: var(--navy); font-weight: 800; }
+.wup-bars-sub { color: var(--text-secondary); }
+
+.wup-bar-chart { display: flex; align-items: flex-end; gap: 0.9rem; height: 64px; }
+.wup-bar-col { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; height: 100%; justify-content: flex-end; }
+.wup-bar {
+  width: 10px;
+  height: var(--h, 50%);
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: wup-bar-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+.wup-bar-label { font-size: 0.66rem; font-weight: 700; color: var(--text-secondary); }
+@keyframes wup-bar-in { to { transform: scaleY(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .wup-panel { animation: none; opacity: 1; }
+  .wup-node.is-active .wup-node-pulse { animation: none; opacity: 0; }
+  .wup-chip { animation: none; opacity: 1; }
+  .wup-bar { animation: none; transform: scaleY(1); }
+}
+
+@media (max-width: 640px) {
+  .wup-row { gap: 0.4rem; }
+  .wup-node-title { font-size: 0.72rem; }
+  .wup-node-ic { width: 48px; height: 48px; }
+  .wup-node-ic svg { width: 20px; height: 20px; }
+  .wup-mini-stats { flex-direction: column; gap: 0.3rem; }
+  .wup-bar-chart { gap: 0.6rem; }
+}

@@ -1,0 +1,143 @@
+/* "Why us" flip cards for /email-api — hover (or focus) a card, it rotates
+   in 3D to reveal its proof visual on the back, and flips closed again the
+   moment the pointer/focus leaves. */
+
+.ewf-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  max-width: 1080px;
+  margin: 3.2rem auto 0;
+}
+
+.ewf-card {
+  perspective: 1200px;
+  min-height: 250px;
+  opacity: 0;
+  animation: ewf-card-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes ewf-card-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ewf-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.ewf-card:hover .ewf-card-inner,
+.ewf-card:focus-visible .ewf-card-inner,
+.ewf-card:focus-within .ewf-card-inner {
+  transform: rotateY(180deg);
+}
+
+.ewf-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 20px 44px -30px rgba(16, 35, 63, 0.35);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.ewf-face--back { transform: rotateY(180deg); gap: 1.1rem; }
+
+.ewf-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 12px 24px -12px rgba(79, 91, 213, 0.6);
+}
+.ewf-icon svg { width: 21px; height: 21px; }
+
+.ewf-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.ewf-hint {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--blue);
+  opacity: 0.75;
+}
+
+.ewf-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* ---- proof visuals ---- */
+.ewf-proof { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+
+.ewf-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(16, 35, 63, 0.08);
+  overflow: hidden;
+}
+.ewf-fill { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+.ewf-fill--faint { background: rgba(84, 89, 95, 0.35); }
+.ewf-proof-lbl { font-size: 0.68rem; font-weight: 700; color: var(--text-secondary); }
+
+.ewf-proof--row { flex-direction: row; align-items: center; gap: 0.6rem; }
+.ewf-chip { font-size: 0.76rem; font-weight: 700; padding: 0.3rem 0.6rem; border-radius: 999px; }
+.ewf-chip--dead {
+  color: var(--text-secondary);
+  background: rgba(16, 35, 63, 0.05);
+  text-decoration: line-through;
+  text-decoration-color: rgba(84, 89, 95, 0.4);
+}
+.ewf-chip--live { color: #fff; background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+.ewf-arrow { font-size: 0.85rem; color: var(--text-secondary); }
+
+.ewf-scale { font-size: 1.2rem; font-weight: 800; color: var(--text-secondary); letter-spacing: -0.02em; }
+.ewf-scale--big {
+  font-size: 1.55rem;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ewf-span { flex: 1; max-width: 44px; height: 2px; background: linear-gradient(90deg, rgba(84, 89, 95, 0.3), var(--cyan)); border-radius: 2px; }
+
+.ewf-proof--bars { flex-direction: row; align-items: flex-end; gap: 0.4rem; height: 44px; }
+.ewf-bar { display: flex; align-items: flex-end; gap: 2px; height: 100%; }
+.ewf-bar-em, .ewf-bar-sms { width: 6px; border-radius: 3px 3px 0 0; }
+.ewf-bar-em { background: linear-gradient(180deg, var(--cyan), var(--blue)); }
+.ewf-bar-sms { background: rgba(16, 35, 63, 0.14); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ewf-card { animation: none; opacity: 1; }
+  .ewf-card-inner { transition: none; }
+}
+
+@media (max-width: 860px) {
+  .ewf-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .ewf-grid { grid-template-columns: 1fr; max-width: 320px; }
+}

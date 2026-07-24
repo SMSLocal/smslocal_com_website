@@ -1,10 +1,11 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import WhatsappCompareSlider from '../components/WhatsappCompareSlider.jsx'
 import { IconPlug, IconClock, IconUsers, IconCart, IconBolt, IconLink, IconChart, IconGlobe } from '../components/icons.jsx'
-import WhatsappConversationFloat from '../components/WhatsappConversationFloat.jsx'
-import FeatureChatQA from '../components/FeatureChatQA.jsx'
+import WhatsappLiveDemo from '../components/WhatsappLiveDemo.jsx'
+import FeatureChatConsole from '../components/FeatureChatConsole.jsx'
 import StepsSignal from '../components/StepsSignal.jsx'
-import WhyUsBadges from '../components/WhyUsBadges.jsx'
+import WhyUsSpotlight from '../components/WhyUsSpotlight.jsx'
 
 const FEATURES = [
   { icon: <IconPlug />, question: 'Do I need a developer for this?', title: 'No-code flow builder', desc: 'Design conversation flows visually — no developer needed.' },
@@ -20,10 +21,10 @@ const STEPS = [
 ]
 
 const WHY_US = [
-  { icon: <IconBolt />, title: 'Instant responses', desc: 'Never leave a customer waiting on WhatsApp again.' },
-  { icon: <IconLink />, title: 'Built on official API', desc: 'Runs on the WhatsApp Business API — no workarounds.' },
-  { icon: <IconChart />, title: 'Conversion tracking', desc: 'See how many chats turn into leads or completed orders.' },
-  { icon: <IconGlobe />, title: 'Multilingual replies', desc: 'Serve customers in their preferred language automatically.' },
+  { icon: <IconBolt />, title: 'Instant responses', desc: 'Never leave a customer waiting on WhatsApp again.', stat: { value: 11, suffix: 's avg first reply' } },
+  { icon: <IconLink />, title: 'Built on official API', desc: 'Runs on the WhatsApp Business API — no workarounds.', stat: { value: 100, suffix: '% API compliant' } },
+  { icon: <IconChart />, title: 'Conversion tracking', desc: 'See how many chats turn into leads or completed orders.', stat: { value: 1204, suffix: ' conversions tracked' } },
+  { icon: <IconGlobe />, title: 'Multilingual replies', desc: 'Serve customers in their preferred language automatically.', stat: { value: 38, suffix: ' languages supported' } },
 ]
 
 const FAQS = [
@@ -47,18 +48,17 @@ function ChatbotWhatsapp() {
         subtitle="24/7 answers, lead capture and order updates — built on the official WhatsApp Business API, no coding required."
         primaryCta={{ label: 'Build a Chatbot', href: '/contact-us' }}
         secondaryCta={{ label: 'Explore Builder', href: '/chatbot/builder' }}
-        visual={<WhatsappConversationFloat />}
+        visual={<WhatsappLiveDemo />}
       />
 
-      <NarrativeCompare
+      <WhatsappCompareSlider
         eyebrow="The problem"
         heading={<>A WhatsApp bot that only replies isn't really automating support.</>}
         paragraphs={[
-          "Plenty of WhatsApp bots can send a canned reply to a keyword. Far fewer can actually carry a conversation — ask a follow-up, check an order, or know when to stop and bring in a person.",
-          'So the bot handles the easy 20% and the rest still lands on a human, except now it\'s buried under bot noise instead of arriving clean.',
-          <>A WhatsApp chatbot worth building is one that <strong>resolves what it can and hands off cleanly</strong> for the rest — not one that just replies faster.</>,
+          <>Plenty of WhatsApp bots can send a canned reply to a keyword — far fewer <strong>resolve what they can and hand off cleanly</strong> for the rest.</>,
         ]}
         leftLabel="Keyword auto-reply"
+        leftChat={{ in: 'Do you have this in blue?', out: "Sorry, I didn't understand that. Reply MENU for options." }}
         leftItems={[
           'Answers only exact keyword matches',
           'No memory of earlier messages in the chat',
@@ -66,6 +66,7 @@ function ChatbotWhatsapp() {
           'Same script, every conversation',
         ]}
         rightLabel="Built to resolve"
+        rightChat={{ in: 'Do you have this in blue?', out: 'Yes! It comes in blue, size M–XL, ₹1,850 — want me to add it to your cart?' }}
         rightItems={[
           'Multi-step flows with real branching logic',
           'AI fallback for questions outside the script',
@@ -73,14 +74,18 @@ function ChatbotWhatsapp() {
           'Templates for support, leads and orders',
         ]}
         alt
-        variant="flanked"
       />
 
-      <FeatureChatQA eyebrow="Features" title={<>Everything you need to automate WhatsApp</>} items={FEATURES} />
+      <FeatureChatConsole
+        eyebrow="Features"
+        title={<>Everything you need to automate WhatsApp</>}
+        description="Try it yourself — tap a question on the tablet and watch the bot answer live, exactly how it responds to a real customer on WhatsApp. Every reply below is the same flow logic running on your WhatsApp number, not a scripted demo."
+        items={FEATURES}
+      />
 
       <StepsSignal eyebrow="How it works" title={<>Launch a WhatsApp chatbot in three steps</>} steps={STEPS} alt />
 
-      <WhyUsBadges eyebrow="Why us" title={<>Why teams automate WhatsApp with us</>} items={WHY_US} />
+      <WhyUsSpotlight eyebrow="Why us" title={<>Why teams automate WhatsApp with us</>} items={WHY_US} />
 
       <CTABanner
         title="Automate your WhatsApp today"

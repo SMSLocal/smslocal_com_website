@@ -1,0 +1,394 @@
+.pfd-inner {
+  text-align: center;
+}
+
+.pfd-switch-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 3rem;
+}
+
+.pfd-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: none;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pfd-switch-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+
+.pfd-switch.is-on .pfd-switch-label--on,
+.pfd-switch:not(.is-on) .pfd-switch-label--off {
+  color: var(--navy);
+}
+
+.pfd-switch-track {
+  position: relative;
+  width: 56px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--bg-subtle-2);
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.pfd-switch.is-on .pfd-switch-track {
+  background: var(--gradient-brand);
+  border-color: transparent;
+}
+
+.pfd-switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pfd-switch.is-on .pfd-switch-knob {
+  transform: translateX(26px);
+}
+
+.pfd-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.pfd-card {
+  perspective: 1200px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  height: 268px;
+  animation: pfd-float 5.5s ease-in-out infinite;
+  animation-delay: var(--pfd-delay, 0s);
+}
+
+.pfd-card-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.pfd-card.is-flipped .pfd-card-inner {
+  transform: rotateY(180deg);
+}
+
+.pfd-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  border-radius: var(--radius-lg);
+  backface-visibility: hidden;
+  text-align: left;
+}
+
+.pfd-face--front {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.pfd-face--back {
+  background: linear-gradient(#fff, #fff) padding-box, var(--gradient-brand) border-box;
+  border: 1.5px solid transparent;
+  transform: rotateY(180deg);
+  box-shadow: 0 16px 32px -18px rgba(236, 72, 153, 0.35);
+}
+
+.pfd-face-text {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-secondary);
+  flex: none;
+}
+
+.pfd-face--back .pfd-face-text {
+  color: var(--navy);
+}
+
+.pfd-face-ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.pfd-face-ic--off {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+}
+
+.pfd-face-ic--on {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.pfd-face-ic--on svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Realistic compact UI panel mockup: header + rows / chart, styled like an
+   actual product widget rather than a decorative icon. Plain & disconnected
+   on the front, unified & modernised on the back. */
+.pfd-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.7rem 0.8rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.pfd-panel--accent {
+  border-color: rgba(79, 91, 213, 0.25);
+  background: var(--bg-subtle);
+}
+
+.pfd-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.1rem;
+}
+
+.pfd-panel-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pfd-row-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.pfd-row-label {
+  flex: 1;
+}
+
+.pfd-row-metric {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.pfd-row-metric--off {
+  letter-spacing: 0.1em;
+}
+
+.pfd-pill {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  flex: none;
+}
+
+.pfd-pill--off {
+  background: var(--bg-subtle-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.pfd-pill--on {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.pfd-pill--live {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid rgba(79, 91, 213, 0.35);
+  text-transform: none;
+  font-weight: 700;
+}
+
+/* Stacked "duplicate flow" ghost cards — old-way redundancy */
+.pfd-panel--stack {
+  position: relative;
+  flex: 1;
+  padding: 0;
+  background: none;
+  border: none;
+  justify-content: initial;
+}
+
+.pfd-panel-ghost {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transform: translate(calc(var(--n) * 5px), calc(var(--n) * -5px));
+  z-index: calc(4 - var(--n));
+}
+
+.pfd-panel-ghost-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.pfd-panel-ghost-line {
+  width: 90%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-subtle-2);
+}
+
+/* Mini flow map — Start -> Branch -> Reply */
+.pfd-flowmap-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pfd-flow-node {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.3rem 0.4rem;
+  white-space: nowrap;
+}
+
+.pfd-flow-node--accent {
+  background: var(--gradient-brand);
+  color: #fff;
+  border-color: transparent;
+}
+
+.pfd-flow-link {
+  flex: 1;
+  height: 1.5px;
+  background: repeating-linear-gradient(to right, var(--blue) 0 4px, transparent 4px 8px);
+  min-width: 8px;
+}
+
+.pfd-flowmap-caption {
+  font-size: 0.64rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Mini bar chart — separate silos vs. one combined chart */
+.pfd-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  height: 64px;
+  flex: 1;
+}
+
+.pfd-chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  height: 100%;
+  flex: 1;
+}
+
+.pfd-chart-bar {
+  width: 60%;
+  border-radius: 4px 4px 2px 2px;
+  transition: height 0.4s ease;
+}
+
+.pfd-chart-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+@keyframes pfd-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (max-width: 720px) {
+  .pfd-row {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+
+  .pfd-card {
+    height: 260px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pfd-card {
+    animation: none;
+  }
+
+  .pfd-card-inner {
+    transition: none;
+  }
+}

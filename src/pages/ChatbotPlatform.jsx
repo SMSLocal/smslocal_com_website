@@ -1,14 +1,14 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import AgentTypesGrid from '../components/AgentTypesGrid.jsx'
+import ChatbotUseCaseSwitch from '../components/ChatbotUseCaseSwitch.jsx'
 import {
   IconCursor, IconBrain, IconRocket, IconUsers, IconGlobe, IconChart, IconClock, IconPlug,
   IconChat, IconMegaphone,
 } from '../components/icons.jsx'
 import DeployFanVisual from '../components/DeployFanVisual.jsx'
 import FeatureGlow from '../components/FeatureGlow.jsx'
-import BuildStepsFlow from '../components/BuildStepsFlow.jsx'
-import WhyUsQuadrant from '../components/WhyUsQuadrant.jsx'
+import BuildJourneyStepper from '../components/BuildJourneyStepper.jsx'
+import WhyUsPulse from '../components/WhyUsPulse.jsx'
 
 const FEATURES = [
   { icon: <IconCursor />, title: 'Drag-and-drop builder', desc: 'Design multi-step conversations visually, no code required.' },
@@ -70,16 +70,16 @@ function ChatbotPlatform() {
 
       <FeatureGlow title={<>Everything you need to launch a bot</>} items={FEATURES} alt />
 
-      <AgentTypesGrid
+      <ChatbotUseCaseSwitch
         eyebrow="Explore"
         title={<>Built for every use case</>}
         subtitle="The same builder, tuned for how your team actually uses it."
         items={USE_CASES}
       />
 
-      <BuildStepsFlow title={<>From idea to live bot in three steps</>} steps={STEPS} alt />
+      <BuildJourneyStepper title={<>From idea to live bot in three steps</>} steps={STEPS} />
 
-      <WhyUsQuadrant title={<>Why teams build with our platform</>} items={WHY_US} />
+      <WhyUsPulse title={<>Why teams build with our platform</>} items={WHY_US} />
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
 

@@ -1,24 +1,23 @@
 import {
   Zap,
-  Star,
   Send,
   MessagesSquare,
+  MessageSquare,
   Users,
   BarChart3,
   Bell,
   LayoutGrid,
+  Phone,
+  Plug,
+  MessageCircle,
+  Radio,
+  Inbox,
+  Mail,
 } from "lucide-react";
 import PowerhousePills from "./PowerhousePills";
 import ScrollGlobe from "./ScrollGlobe";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-
-const AVATARS = [
-  { grad: "from-[#154989] to-[#7c6ee0]", initials: "JM" },
-  { grad: "from-[#7c6ee0] to-[#ff3d8a]", initials: "SC" },
-  { grad: "from-[#ff3d8a] to-[#fb923c]", initials: "ER" },
-  { grad: "from-[#00b4d8] to-[#154989]", initials: "DL" },
-];
 
 const TILES = [
   { icon: Send, label: "Campaigns", tint: "bg-primary/10 text-primary" },
@@ -62,22 +61,33 @@ export default function AppShowcase() {
           </div>
         </Reveal>
 
-        {/* Row 1 — center: statement */}
+        {/* Row 1 — center: Voice & Integrations — one statement */}
         <Reveal delay={80} className="h-full min-w-0">
-          <div className="flex h-full flex-col justify-center rounded-3xl bg-[#f6f0fb] p-8">
+          <div className="flex h-full flex-col rounded-3xl bg-[#f6f0fb] p-8">
             <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-primary" />
-              <span className="h-3 w-3 rounded-full bg-secondary" />
-              <span className="h-3 w-3 rounded-full bg-orange-300" />
-              <span className="h-3 w-3 rounded-full bg-slate-300" />
+              <span
+                className="animate-typing-dot h-3 w-3 rounded-full bg-primary"
+                style={{ animationDelay: "0s" }}
+              />
+              <span
+                className="animate-typing-dot h-3 w-3 rounded-full bg-secondary"
+                style={{ animationDelay: "0.15s" }}
+              />
+              <span
+                className="animate-typing-dot h-3 w-3 rounded-full bg-orange-300"
+                style={{ animationDelay: "0.3s" }}
+              />
+              <span
+                className="animate-typing-dot h-3 w-3 rounded-full bg-slate-300"
+                style={{ animationDelay: "0.45s" }}
+              />
             </div>
             <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
               <span className="grad-word">
-                SMSLocal is a blazing-fast, top-rated SMS platform
+                Voice calls, IVR, and voice bots
               </span>{" "}
               <span className="text-foreground">
-                redefining business messaging, and innovation in every
-                conversation.
+                sync with your CRM and every other integration you rely on.
               </span>
             </p>
           </div>
@@ -90,8 +100,8 @@ export default function AppShowcase() {
             <div className="flex flex-1 flex-col overflow-hidden rounded-3xl border border-black/[0.06] bg-white p-6 shadow-sm">
               <ScrollGlobe />
               <p className="mt-4 text-base font-semibold tracking-tight text-foreground sm:text-lg">
-                <span className="grad-word">Multilingual</span> &amp;
-                Global
+                <span className="grad-word">Multilingual</span>{" "}
+                &amp; Global
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 SMSLocal&apos;s multi-language support lets you create and
@@ -99,30 +109,93 @@ export default function AppShowcase() {
               </p>
             </div>
 
-            {/* rating / social proof — compact */}
-            <div className="flex flex-col items-center justify-center rounded-3xl bg-[#fdf3ee] p-7 text-center">
-              <p className="text-4xl font-bold tracking-tight sm:text-5xl">
-                <span className="grad-word">4.9</span>
-              </p>
-              <div className="mt-2 flex justify-center gap-0.5 text-amber-400">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="mt-4 text-sm font-medium text-foreground">
-                Trusted by <span className="grad-word">20,000+</span>{" "}
-                global businesses.
-              </p>
-              <div className="mt-4 flex justify-center -space-x-2.5">
-                {AVATARS.map((a, i) => (
+            {/* Omnichannel — statement */}
+            <div className="flex flex-col overflow-hidden rounded-3xl bg-[#fdf3ee] p-5">
+              <div className="relative mx-auto h-[108px] w-[180px]">
+                {/* faint 5x5 grid (4 vertical + 4 horizontal lines), fading toward the edges */}
+                <svg
+                  className="pointer-events-none absolute inset-0 h-full w-full [mask-image:radial-gradient(ellipse_at_center,#000_55%,transparent_95%)]"
+                  viewBox="0 0 300 168"
+                  preserveAspectRatio="none"
+                  fill="none"
+                >
+                  <line x1="60" y1="0" x2="60" y2="168" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="120" y1="0" x2="120" y2="168" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="180" y1="0" x2="180" y2="168" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="240" y1="0" x2="240" y2="168" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="0" y1="33.6" x2="300" y2="33.6" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="0" y1="67.2" x2="300" y2="67.2" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="0" y1="100.8" x2="300" y2="100.8" stroke="rgba(21,73,137,0.12)" />
+                  <line x1="0" y1="134.4" x2="300" y2="134.4" stroke="rgba(21,73,137,0.12)" />
+                </svg>
+
+                {/* channel tiles — sit one grid cell out from the hub, on the intersections */}
+                {[
+                  {
+                    icon: MessageCircle,
+                    tint: "bg-emerald-50 text-emerald-500",
+                    left: "30%",
+                    top: "30%",
+                  },
+                  {
+                    icon: MessageSquare,
+                    tint: "bg-primary/10 text-primary",
+                    left: "70%",
+                    top: "30%",
+                  },
+                  {
+                    icon: Radio,
+                    tint: "bg-purple-50 text-purple-500",
+                    left: "10%",
+                    top: "50%",
+                  },
+                  {
+                    icon: Phone,
+                    tint: "bg-secondary/10 text-secondary",
+                    left: "90%",
+                    top: "50%",
+                  },
+                  {
+                    icon: Mail,
+                    tint: "bg-slate-100 text-slate-500",
+                    left: "30%",
+                    top: "70%",
+                  },
+                  {
+                    icon: Plug,
+                    tint: "bg-amber-100 text-amber-600",
+                    left: "70%",
+                    top: "70%",
+                  },
+                ].map(({ icon: Icon, tint, left, top }, i) => (
                   <span
                     key={i}
-                    className={`flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br ${a.grad} text-[10px] font-semibold text-white ring-2 ring-white`}
+                    className="absolute flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-black/[0.05] bg-white shadow-sm"
+                    style={{ left, top }}
                   >
-                    {a.initials}
+                    <span
+                      className={`flex h-[22px] w-[22px] items-center justify-center rounded-md ${tint}`}
+                    >
+                      <Icon className="h-3 w-3" />
+                    </span>
                   </span>
                 ))}
+
+                {/* the shared inbox — the hub every channel connects to */}
+                <span className="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg bg-slate-900 text-white shadow-lg">
+                  <Inbox className="h-4 w-4" />
+                  <span className="animate-pulse-soft absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-secondary text-white shadow-sm">
+                    <Bell className="h-2 w-2" />
+                  </span>
+                </span>
               </div>
+              <p className="mt-2 text-lg font-semibold tracking-tight text-foreground">
+                Omnichannel Inbox
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                WhatsApp, Bulk SMS, RCS, and more channels in one shared
+                inbox.
+              </p>
             </div>
           </div>
         </Reveal>

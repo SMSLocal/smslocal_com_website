@@ -1,0 +1,231 @@
+/* Hero visual for /chatbot/builder — a proper live canvas that fills the
+   hero visual column, instead of a thin static single-row mock. */
+
+.bfl {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 80px -36px rgba(16, 35, 63, 0.35);
+  overflow: hidden;
+}
+
+/* ---- fake window chrome ---- */
+.bfl-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.bfl-dot { width: 8px; height: 8px; border-radius: 50%; }
+.bfl-dot--r { background: #f87171; }
+.bfl-dot--y { background: #fbbf24; }
+.bfl-dot--g { background: #34d399; }
+.bfl-topbar-title {
+  margin-left: 0.5rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.bfl-live-badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--navy);
+  font-size: 0.66rem;
+  font-weight: 800;
+  animation: bfl-live-in 0.3s ease both;
+}
+@keyframes bfl-live-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+.bfl-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success, #1aa16a);
+  animation: bfl-dot-pulse 1.4s ease-in-out infinite;
+}
+@keyframes bfl-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(26, 161, 106, 0.4); }
+  50% { box-shadow: 0 0 0 5px rgba(26, 161, 106, 0); }
+}
+
+/* ---- palette: a horizontal strip inside the canvas window ---- */
+.bfl-palette {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1rem 0;
+}
+
+.bfl-palette-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--navy);
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+.bfl-palette-item:hover:not(:disabled) { border-color: var(--blue); transform: translateY(-1px); }
+.bfl-palette-item:disabled { cursor: default; opacity: 0.5; }
+.bfl-palette-item.is-used { background: var(--bg-subtle); border-color: transparent; }
+
+.bfl-palette-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 6px;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  flex: none;
+  font-size: 0.65rem;
+}
+.bfl-palette-ic svg { width: 10px; height: 10px; }
+.bfl-palette-item.is-used .bfl-palette-ic {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+/* ---- canvas: fills the remaining space, dot-grid background ---- */
+.bfl-canvas {
+  position: relative;
+  height: 300px;
+  background: var(--bg-subtle);
+  background-image: radial-gradient(circle at 15% 20%, rgba(79, 91, 213, 0.1), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(6, 182, 212, 0.1), transparent 45%);
+}
+
+.bfl-canvas-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(16, 35, 63, 0.14);
+  fill: currentColor;
+}
+
+.bfl-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bfl-link {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 2 3;
+  transition: stroke 0.4s ease;
+}
+.bfl-link.is-on { stroke: var(--blue); stroke-dasharray: none; }
+
+.bfl-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 26px -16px rgba(16, 35, 63, 0.25);
+  white-space: nowrap;
+}
+
+.bfl-node strong { font-size: 0.82rem; color: var(--navy); font-weight: 700; }
+
+.bfl-node--start { top: 46%; left: 10%; transform: translate(-50%, -50%); }
+.bfl-node--msg { top: 46%; left: 49%; transform: translate(-50%, -50%); }
+
+.bfl-node-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  flex: none;
+}
+.bfl-node-ic svg { width: 14px; height: 14px; }
+.bfl-node-ic--start { background: rgba(20, 184, 166, 0.12); color: var(--teal); }
+.bfl-node-ic--fill { background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; }
+
+/* open branch slots */
+.bfl-slot {
+  position: absolute;
+  width: 96px;
+  height: 46px;
+  transform: translate(-50%, -50%);
+}
+.bfl-slot--0 { left: 88%; top: 22%; }
+.bfl-slot--1 { left: 88%; top: 74%; }
+
+.bfl-slot-hint {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 1.5px dashed var(--border);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  animation: bfl-slot-breathe 2s ease-in-out infinite;
+}
+@keyframes bfl-slot-breathe {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.bfl-slot.is-filled .bfl-node {
+  position: static;
+  transform: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bfl-node--pop { animation: bfl-node-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes bfl-node-pop {
+  from { opacity: 0; transform: scale(0.6) translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bfl-slot-hint { animation: none; }
+  .bfl-node--pop { animation: none; opacity: 1; }
+  .bfl-live-badge { animation: none; }
+  .bfl-live-dot { animation: none; }
+}
+
+@media (max-width: 560px) {
+  .bfl { max-width: 340px; }
+  .bfl-canvas { height: 250px; }
+  .bfl-palette-item { font-size: 0.68rem; padding: 0.4rem 0.6rem; }
+  .bfl-node { padding: 0.5rem 0.7rem; }
+  .bfl-node strong { font-size: 0.74rem; }
+  .bfl-slot { width: 78px; height: 40px; }
+}

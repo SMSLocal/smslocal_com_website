@@ -1,8 +1,10 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import WebsiteContextContrast from '../components/WebsiteContextContrast.jsx'
+import StepsControlPanel from '../components/StepsControlPanel.jsx'
 import { IconBolt, IconUsers, IconCalendar, IconChat } from '../components/icons.jsx'
-import WebsiteConversationFloat from '../components/WebsiteConversationFloat.jsx'
-import FeatureRows from '../components/FeatureRows.jsx'
+import WebsiteWidgetDemo from '../components/WebsiteWidgetDemo.jsx'
+import FeatureExpandStack from '../components/FeatureExpandStack.jsx'
 
 const FEATURES = [
   { icon: <IconBolt />, title: 'Instant AI answers', desc: 'Sub-second responses to pricing, feature and policy questions, pulled straight from your own content.' },
@@ -47,18 +49,12 @@ function ChatbotWebsite() {
         subtitle="Answer FAQs, capture leads and hand off to live agents — 24/7, with a single script snippet and no code required."
         primaryCta={{ label: 'Start Free', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<WebsiteConversationFloat />}
+        visual={<WebsiteWidgetDemo />}
       />
 
-      <NarrativeCompare
-        variant="convert"
+      <WebsiteContextContrast
         eyebrow="The problem"
         heading={<>A chatbot that only pops up isn't actually helping anyone.</>}
-        paragraphs={[
-          "Most website chat widgets are built to be seen, not to be useful — a bubble in the corner that opens to a form, or a script that only handles the three questions it was trained on.",
-          'So visitors close it, and the same "where do I find pricing" question gets typed into a contact form instead — landing in a queue for a human to answer hours later.',
-          <>A website chatbot should actually <strong>read your help content and answer from it</strong>, resolving the question before the visitor ever considers leaving.</>,
-        ]}
         leftLabel="Chat widget"
         leftItems={[
           'Answers three pre-written questions, nothing else',
@@ -76,9 +72,9 @@ function ChatbotWebsite() {
         alt
       />
 
-      <FeatureRows eyebrow="Features" title={<>Everything a website bot needs</>} items={FEATURES} />
+      <FeatureExpandStack eyebrow="Features" title={<>Everything a website bot needs</>} items={FEATURES} />
 
-      <HowItWorks title={<>Live on your site in three steps</>} steps={STEPS} alt variant="divided" />
+      <StepsControlPanel eyebrow="How it works" title={<>Live on your site in three steps</>} steps={STEPS} alt />
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} />
 

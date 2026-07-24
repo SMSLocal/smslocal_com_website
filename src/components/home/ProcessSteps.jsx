@@ -189,10 +189,7 @@ export default function ProcessSteps() {
             <DropText
               as="h2"
               className="mt-4 text-[1.8rem] font-medium leading-tight text-white sm:text-4xl"
-              segments={[
-                { text: "It's Easy To" },
-                { text: "Get Started", className: "grad-word" },
-              ]}
+              segments={[{ text: "It's Easy To Get Started" }]}
             />
             <p className="mt-4 max-w-md text-white/60">
               From sign-up to your first delivered campaign, SMSLocal gets you
