@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconChat, IconRefresh, IconMail, IconBrain, IconChart, IconUsers, IconLink, IconShield } from '../components/icons.jsx'
@@ -18,17 +17,19 @@ const STEPS = [
   { title: 'Go live in one inbox', desc: 'Every DM, comment-turned-DM and handoff lands in the same inbox as your other channels.' },
 ]
 
-const TRANSFORM_POINTS = [
-  'A comment auto-routes into a private DM in seconds',
-  'The AI answers with stock, a link and a discount code',
-  'The whole thread stays in your shared inbox to close',
+/* the comment→sale story, stamped along a six-second clock */
+const TRANSFORM_BEATS = [
+  { t: '0s', title: 'The comment lands', desc: 'A public “is this in stock?” on your latest post.', quote: '@aria.wears · Is the canvas tote still in stock? 😍' },
+  { t: '2s', title: 'It auto-routes to a DM', desc: 'The comment becomes a private conversation before it scrolls away.' },
+  { t: '6s', title: 'The AI answers', desc: 'Stock checked, link sent, discount applied — no one had to be watching.', quote: 'Yes! In stock — here’s the link and a 10% code for you 🛍️' },
+  { t: 'then', title: 'Your team closes it', desc: 'The whole thread stays in the shared inbox with the rest of the customer’s history.' },
 ]
 
 const WHY = [
-  { icon: <IconChart />, title: 'Faster response times', desc: 'Auto-replies and saved responses cut average first-response time from hours to seconds.' },
-  { icon: <IconUsers />, title: 'Built for teams', desc: 'Multiple agents work the same Instagram inbox at once, with assignment and clean handoff.' },
-  { icon: <IconLink />, title: 'Works with your stack', desc: 'Connect your CRM, helpdesk or store so every reply carries real order and customer context.' },
-  { icon: <IconShield />, title: 'Built on the official API', desc: 'Runs on Meta’s official Instagram Messaging API — never a workaround that risks your account.' },
+  { icon: <IconChart />, title: 'Faster response times', desc: 'Auto-replies answer in seconds, day or night.' },
+  { icon: <IconUsers />, title: 'Built for teams', desc: 'Every agent works the same inbox, with clean handoff.' },
+  { icon: <IconLink />, title: 'Works with your stack', desc: 'CRM, helpdesk and store context ride along.' },
+  { icon: <IconShield />, title: 'Built on the official API', desc: 'Meta’s own API — never a risky workaround.' },
 ]
 
 const TESTIMONIALS = [
@@ -44,20 +45,7 @@ const FAQS = [
   { q: 'Do I need an Instagram Business account?', a: 'Yes — an Instagram Business or Creator account connected to a Facebook Page is required to use the Messaging API.' },
 ]
 
-const REDUCED =
-  typeof window !== 'undefined' &&
-  typeof window.matchMedia === 'function' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 function InstagramMessagingApi() {
-  const [flipped, setFlipped] = useState(0)
-
-  useEffect(() => {
-    if (REDUCED) return
-    const id = setInterval(() => setFlipped((i) => (i + 1) % WHY.length), 2200)
-    return () => clearInterval(id)
-  }, [])
-
   return (
     <>
       <Seo
@@ -75,7 +63,8 @@ function InstagramMessagingApi() {
         visual={<InstagramHeroMock />}
       />
 
-      {/* INNER 1 — surfaces: asymmetric lead + open row list (no boxes) */}
+      {/* INNER 1 — surfaces: the section IS the thread. Each surface arrives as a
+          labelled inbound message; the AI answers all three at the end. */}
       <section className="section ig-surfaces">
         <div className="container ig-surfaces-inner">
           <div className="ig-surfaces-lead">
@@ -83,92 +72,131 @@ function InstagramMessagingApi() {
             <h2 className="section-title">Every Instagram surface, answered in one place</h2>
             <p className="section-subtitle">DMs, comments and story replies stop living in three separate corners of the app. They all land in the same shared inbox — with the same history behind them.</p>
           </div>
-          <ul className="ig-surface-list">
-            {SURFACES.map((s) => (
-              <li className="ig-surface-row" key={s.title}>
-                <span className="ig-surface-icon">{s.icon}</span>
-                <div className="ig-surface-text">
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                </div>
-              </li>
+
+          <div className="ig-thread">
+            <span className="ig-thread-line" aria-hidden="true" />
+
+            {SURFACES.slice(0, 3).map((s, i) => (
+              <div className="ig-msg" key={s.title} style={{ '--i': i }}>
+                <span className="ig-msg-src">
+                  <i aria-hidden="true">{s.icon}</i>
+                  {s.title}
+                </span>
+                <p className="ig-msg-body">{s.desc}</p>
+              </div>
             ))}
-          </ul>
+
+            <div className="ig-msg ig-msg--out" style={{ '--i': 3 }}>
+              <span className="ig-msg-src">
+                <i aria-hidden="true">{SURFACES[3].icon}</i>
+                {SURFACES[3].title}
+              </span>
+              <p className="ig-msg-body">{SURFACES[3].desc}</p>
+            </div>
+
+            <span className="ig-typing" aria-hidden="true">
+              <i /><i /><i />
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* INNER 2 — steps: horizontal connected path with big numerals */}
+      {/* INNER 2 — steps: horizontal expanding panels, heading sits in the row */}
       <section className="section section-alt ig-steps">
-        <div className="container">
-          <span className="section-kicker">How it works</span>
-          <h2 className="section-title">Go live on Instagram in three steps</h2>
-          <ol className="ig-steps-track">
+        <div className="container ig-steps-row">
+          <div className="ig-steps-lead">
+            <span className="section-kicker">How it works</span>
+            <h2 className="section-title">Go live on Instagram in three steps</h2>
+          </div>
+
+          <ol className="ig-steps-panels">
             {STEPS.map((s, i) => (
-              <li className="ig-step" key={s.title}>
-                <span className="ig-step-num">{i + 1}</span>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
+              <li className="ig-panel" key={s.title} style={{ '--i': i }}>
+                <span className="ig-panel-num" aria-hidden="true">{i + 1}</span>
+                <div className="ig-panel-text">
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      {/* INNER 3 — signature moment: public comment -> private DM */}
+      {/* INNER 3 — one moment, two sides of a seam: public post vs private DM */}
       <section className="section ig-transform">
-        <div className="container ig-transform-inner">
-          <div className="ig-transform-copy">
+        <div className="container">
+          <div className="ig-cross-head">
             <span className="section-kicker">Social commerce</span>
-            <h2 className="section-title">Turn a public comment into a private sale</h2>
-            <p className="section-subtitle">The moment someone comments on a post, it becomes a DM your team — or the AI — can actually close, before it scrolls away for good.</p>
-            <ul className="ig-transform-points">
-              {TRANSFORM_POINTS.map((p) => (
-                <li key={p}><span className="ig-tick" aria-hidden="true" />{p}</li>
-              ))}
-            </ul>
+            <h2 className="ig-cross-title">It starts in public. It closes in private.</h2>
+            <p className="ig-cross-sub">A comment under your post is a buying signal with a shelf life. SMSLocal moves it into a private DM automatically, so the AI — or your team — can answer while the customer is still there.</p>
           </div>
-          <div className="ig-transform-visual" aria-hidden="true">
-            <div className="ig-tile ig-tile--public">
-              <span className="ig-tile-label">Public comment</span>
-              <div className="ig-bubble">
-                <strong>@aria.wears</strong>
-                <span>Is the canvas tote still in stock? 😍</span>
-              </div>
+
+          <div className="ig-cross">
+            <div className="ig-cross-side ig-cross-side--public">
+              <span className="ig-cross-label">On the post</span>
+              <p className="ig-cross-line">Is the canvas tote still in stock? 😍</p>
+              <span className="ig-cross-meta">@aria.wears · public comment, sliding down the feed</span>
             </div>
-            <span className="ig-transform-arrow" />
-            <div className="ig-tile ig-tile--private">
-              <span className="ig-tile-label">Private DM · replied in 6s</span>
-              <div className="ig-bubble ig-bubble--bot">
-                <span>Yes! In stock — here’s the link and a 10% code for you 🛍️</span>
-              </div>
+
+            <span className="ig-cross-seam" aria-hidden="true">
+              <i />
+            </span>
+
+            <div className="ig-cross-side ig-cross-side--private">
+              <span className="ig-cross-label">In the DM, 6s later</span>
+              <p className="ig-cross-line">Yes! In stock — here’s the link and a 10% code 🛍️</p>
+              <span className="ig-cross-meta">Answered by AI-assist · thread waiting in your shared inbox</span>
             </div>
           </div>
+
+          <p className="ig-cross-foot">
+            <span><b>2s</b> comment routed to a DM</span>
+            <span><b>6s</b> answered with stock, link and code</span>
+            <span><b>0</b> tabs your team has to watch</span>
+          </p>
         </div>
       </section>
 
-      {/* INNER 4 — why us: 3D flip cards (front icon+title, back the reason) */}
+      {/* INNER 4 — why us: a hub. Four reasons orbit the shared inbox, each
+          wired to it with a live line. */}
       <section className="section section-alt ig-why">
         <div className="container">
-          <span className="section-kicker">Why us</span>
-          <h2 className="section-title">Why brands run Instagram on SMSLocal</h2>
-          <div className="ig-why-flip-row">
+          <div className="ig-why-head">
+            <span className="section-kicker">Why us</span>
+            <h2 className="ig-why-title">Why brands run Instagram on SMSLocal</h2>
+          </div>
+
+          <div className="ig-hub">
+            <svg className="ig-hub-wires" viewBox="0 0 1000 380" preserveAspectRatio="none" aria-hidden="true">
+              {[
+                { id: 'w0', d: 'M320,80 C430,80 430,190 500,190' },
+                { id: 'w1', d: 'M320,300 C430,300 430,190 500,190' },
+                { id: 'w2', d: 'M680,80 C570,80 570,190 500,190' },
+                { id: 'w3', d: 'M680,300 C570,300 570,190 500,190' },
+              ].map((w, i) => (
+                <g key={w.id}>
+                  <path id={w.id} className="ig-hub-wire" d={w.d} />
+                  <circle className="ig-hub-spark" r="4">
+                    <animateMotion dur="3.6s" begin={`${i * 0.9}s`} repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1">
+                      <mpath href={`#${w.id}`} />
+                    </animateMotion>
+                  </circle>
+                </g>
+              ))}
+            </svg>
+
+            <div className="ig-hub-core">
+              <span className="ig-hub-ring" aria-hidden="true" />
+              <strong>One shared inbox</strong>
+              <small>every DM, comment and story reply</small>
+            </div>
+
             {WHY.map((w, i) => (
-              <div
-                className="ig-why-flip"
-                key={w.title}
-                onClick={() => setFlipped(i)}
-                onMouseEnter={() => setFlipped(i)}
-              >
-                <div className={i === flipped ? 'ig-why-flip-inner flipped' : 'ig-why-flip-inner'}>
-                  <div className="ig-why-face ig-why-front">
-                    <span className="ig-why-icon">{w.icon}</span>
-                    <h3>{w.title}</h3>
-                  </div>
-                  <div className="ig-why-face ig-why-back">
-                    <h3>{w.title}</h3>
-                    <p>{w.desc}</p>
-                  </div>
-                </div>
+              <div className={`ig-hub-node ig-hub-node--${i}`} key={w.title} style={{ '--i': i }}>
+                <span className="ig-hub-ic">{w.icon}</span>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
               </div>
             ))}
           </div>

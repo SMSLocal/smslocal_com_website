@@ -18,7 +18,7 @@ function EmailAloneLedger({ eyebrow, heading, paragraphs = [] }) {
           <div className="eal-ledger">
             <span className="eal-ledger-head">Your stack · this month</span>
 
-            <div className="eal-row">
+            <div className="eal-row" style={{ '--d': '0.05s' }}>
               <span className="eal-dot" />
               <div className="eal-line">
                 <strong>Messaging platform</strong>
@@ -29,7 +29,7 @@ function EmailAloneLedger({ eyebrow, heading, paragraphs = [] }) {
 
             <div className="eal-sep" aria-hidden="true" />
 
-            <div className="eal-row eal-row--alone">
+            <div className="eal-row eal-row--alone" style={{ '--d': '0.35s' }}>
               <span className="eal-dot eal-dot--alone" />
               <div className="eal-line">
                 <strong>+ Email vendor <em>(run alone)</em></strong>
@@ -38,12 +38,12 @@ function EmailAloneLedger({ eyebrow, heading, paragraphs = [] }) {
               <span className="eal-badge eal-badge--extra">+1 login</span>
             </div>
 
-            <div className="eal-total">
+            <div className="eal-total" style={{ '--d': '0.7s' }}>
               = <s>2 vendors · 2 dashboards · 2 bills</s>
             </div>
           </div>
 
-          <p className="eal-fix">
+          <p className="eal-fix" style={{ '--d': '1s' }}>
             <span className="eal-fix-mark" aria-hidden="true">→</span>
             On SMSLocal, email is one more line on the <strong>same</strong> account — one vendor, one dashboard, one report.
           </p>

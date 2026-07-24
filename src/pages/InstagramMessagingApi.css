@@ -7,316 +7,478 @@
   --ig-grad: linear-gradient(135deg, #4f5bd5 0%, #ec4899 55%, #fb7185 100%);
 }
 
-/* shared: keep section titles left-aligned & tighter than the boxy default */
-.ig-surfaces .section-title,
+/* shared: the transform section keeps its left-aligned title */
 .ig-transform .section-title { text-align: left; }
-.ig-surfaces .section-subtitle,
 .ig-transform .section-subtitle { margin-left: 0; }
 
-/* ---------- INNER 1 · Surfaces : asymmetric lead + open rows ---------- */
+/* ---------- INNER 1 · Surfaces : the section rendered AS a thread ----------
+   Three surfaces arrive as inbound messages on one thread line; the AI answers
+   all three from the other side. No cards — bubbles are the content itself. */
 .ig-surfaces-inner {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 3.5rem;
+  align-items: center;
 }
-.ig-surfaces-lead { position: sticky; top: 6rem; }
-.ig-surface-list {
+.ig-surfaces .section-title { text-align: left; }
+.ig-surfaces .section-subtitle { margin-left: 0; }
+
+.ig-thread {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  padding-left: 1.6rem;
+}
+/* the single thread every surface lands on */
+.ig-thread-line {
+  position: absolute;
+  left: 3px;
+  top: 0.6rem;
+  bottom: 2.4rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--border), var(--border) 70%, transparent);
+}
+
+.ig-msg {
+  position: relative;
+  max-width: 92%;
+  animation: ig-msg-in 0.5s calc(var(--i) * 0.12s) both;
+}
+/* node where this message joins the thread */
+.ig-msg::before {
+  content: '';
+  position: absolute;
+  left: -1.6rem;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ig-grad);
+}
+
+@keyframes ig-msg-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.ig-msg-src {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--blue);
+}
+.ig-msg-src i { display: flex; }
+.ig-msg-src svg { width: 15px; height: 15px; }
+
+.ig-msg-body {
+  margin: 0.4rem 0 0;
+  padding: 0.75rem 1rem 0.8rem;
+  border-radius: 4px 16px 16px 16px;
+  background: var(--bg-subtle);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* the AI reply answers from the other side of the thread */
+.ig-msg--out {
+  align-self: flex-end;
+  text-align: right;
+  max-width: 88%;
+}
+.ig-msg--out::before { display: none; }
+.ig-msg--out .ig-msg-src {
+  flex-direction: row-reverse;
+  color: var(--cyan);
+}
+.ig-msg--out .ig-msg-body {
+  border-radius: 16px 4px 16px 16px;
+  background: var(--ig-grad);
+  color: #fff;
+  text-align: left;
+}
+
+.ig-typing {
+  display: inline-flex;
+  align-self: flex-end;
+  gap: 4px;
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+}
+.ig-typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  animation: ig-typing 1.2s infinite;
+}
+.ig-typing i:nth-child(2) { animation-delay: 0.15s; }
+.ig-typing i:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes ig-typing {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-msg, .ig-typing i { animation: none; }
+}
+
+/* ---------- INNER 2 · Steps : heading in-row + expanding panels ----------
+   The heading is the first column of the row, then three panels share the rest
+   of the width. Hovering a panel widens it and the others give way. */
+.ig-steps-row {
+  display: flex;
+  align-items: stretch;
+  gap: 2.5rem;
+}
+.ig-steps-lead {
+  flex: 0 0 260px;
+  align-self: center;
+}
+.ig-steps-lead .section-kicker { display: inline-block; margin-bottom: 0.7rem; }
+.ig-steps-lead .section-title {
+  text-align: left;
+  margin: 0;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.2;
+}
+
+.ig-steps-panels {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.ig-surface-row {
+  flex: 1;
   display: flex;
-  gap: 1.25rem;
+  min-width: 0;
+}
+.ig-panel {
+  flex: 1;
+  min-width: 0;
+  display: flex;
   align-items: flex-start;
-  padding: 1.6rem 0;
-  border-top: 1px solid var(--border);
+  gap: 0.9rem;
+  padding: 0.4rem 1.4rem;
+  border-left: 1px solid var(--border);
+  transition: flex 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.ig-surface-row:last-child { border-bottom: 1px solid var(--border); }
-.ig-surface-icon {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  color: #fff;
+.ig-panel:last-child { padding-right: 0; }
+
+/* the hovered panel takes the room, the rest yield */
+.ig-steps-panels:hover .ig-panel { flex: 0.8; }
+.ig-steps-panels .ig-panel:hover { flex: 1.7; }
+
+.ig-panel-num {
+  flex: none;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
   background: var(--ig-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.45;
+  transition: opacity 0.35s ease;
 }
-.ig-surface-icon svg { width: 22px; height: 22px; }
-.ig-surface-text h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.15rem;
+.ig-panel:hover .ig-panel-num { opacity: 1; }
+
+.ig-panel-text { min-width: 0; }
+.ig-panel h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
   color: var(--navy);
+  letter-spacing: -0.02em;
 }
-.ig-surface-text p {
+.ig-panel p {
   margin: 0;
+  font-size: 0.87rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-/* ---------- INNER 2 · Steps : horizontal connected path ---------- */
-.ig-steps .section-title { text-align: center; }
-.ig-steps .section-kicker { display: block; text-align: center; }
-.ig-steps-track {
-  list-style: none;
-  margin: 3rem 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  position: relative;
+/* ---------- INNER 3 · Public | private ----------
+   One moment shown on both sides of a single seam: the public comment on the
+   left, the private DM on the right. A token crosses the seam on a loop. */
+.ig-cross-head {
+  max-width: 720px;
+  margin: 0 0 2.4rem;
 }
-.ig-steps-track::before {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 12%;
-  right: 12%;
-  height: 2px;
-  background: linear-gradient(90deg, #4f5bd5, #ec4899, #fb7185);
-  opacity: 0.35;
-}
-.ig-step {
-  text-align: center;
-  position: relative;
-  padding: 0 0.5rem;
-}
-.ig-step-num {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1.25rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  background: var(--ig-grad);
-  box-shadow: 0 8px 22px -8px rgba(236, 72, 153, 0.6);
-  position: relative;
-  z-index: 1;
-}
-.ig-step h3 { margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--navy); }
-.ig-step p { margin: 0; color: var(--text-secondary); line-height: 1.6; }
-
-/* ---------- INNER 3 · Comment -> DM transformation ---------- */
-.ig-transform-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-.ig-transform-points {
-  list-style: none;
-  margin: 1.75rem 0 0;
-  padding: 0;
-}
-.ig-transform-points li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0;
+.ig-cross-title {
+  margin: 0.8rem 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  font-weight: 400;
   color: var(--navy);
-  font-weight: 500;
 }
-.ig-tick {
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--ig-grad);
-  position: relative;
-}
-.ig-tick::after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 4px;
-  width: 5px;
-  height: 9px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.ig-transform-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: stretch;
-}
-.ig-tile {
-  border-radius: var(--radius-lg);
-  padding: 1.4rem 1.5rem;
-  background: #fff;
-  box-shadow: 0 18px 40px -22px rgba(16, 35, 63, 0.35);
-}
-.ig-tile--public { border: 1px solid var(--border); }
-.ig-tile--private {
-  color: #fff;
-  background: var(--ig-grad);
-  box-shadow: 0 22px 46px -20px rgba(236, 72, 153, 0.6);
-}
-.ig-tile-label {
-  display: block;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.7rem;
+
+.ig-cross-sub {
+  margin: 1rem 0 0;
+  max-width: 640px;
+  font-size: 0.98rem;
+  line-height: 1.7;
   color: var(--text-secondary);
 }
-.ig-tile--private .ig-tile-label { color: rgba(255, 255, 255, 0.85); }
-.ig-bubble {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  line-height: 1.5;
-}
-.ig-bubble strong { color: var(--blue); font-size: 0.9rem; }
-.ig-transform-arrow {
-  width: 2px;
-  height: 34px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, #4f5bd5, #fb7185);
-  position: relative;
-}
-.ig-transform-arrow::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: #fb7185;
-}
 
-/* ---------- INNER 4 · Why us : 3D flip cards ---------- */
-.ig-why-flip-row {
-  display: flex;
-  gap: 1.5rem;
-  max-width: 980px;
-  margin: 3rem auto 0;
-}
-
-.ig-why-flip {
-  flex: 1;
-  height: 210px;
-  perspective: 1200px;
-  cursor: pointer;
-}
-
-.ig-why-flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.ig-why-flip-inner.flipped {
-  transform: rotateY(180deg);
-}
-
-.ig-why-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  border-radius: var(--radius-lg);
-  padding: 1.6rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.ig-why-front {
+.ig-cross {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.9rem;
-  background: #fff;
-  border: 1px solid var(--border);
-  box-shadow: 0 14px 34px -26px rgba(21, 73, 137, 0.28);
 }
 
-.ig-why-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  color: var(--blue);
-  background: rgba(79, 91, 213, 0.1);
+.ig-cross-side {
+  padding: 1.6rem 0;
 }
+.ig-cross-side--private { padding-left: 2.2rem; }
+.ig-cross-side--public { padding-right: 2.2rem; }
 
-.ig-why-icon svg { width: 22px; height: 22px; }
-
-.ig-why-front h3 {
-  margin: 0;
-  font-size: 1.02rem;
-  color: var(--navy);
-  letter-spacing: -0.01em;
+.ig-cross-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
-
-.ig-why-back {
-  transform: rotateY(180deg);
-  justify-content: center;
+.ig-cross-side--private .ig-cross-label {
   background: var(--ig-grad);
-  color: #fff;
-  box-shadow: 0 20px 40px -20px rgba(79, 91, 213, 0.5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.ig-why-back h3 {
-  margin: 0 0 0.6rem;
-  font-size: 1.02rem;
-  color: #fff;
-  letter-spacing: -0.01em;
+/* the words themselves carry the section — no bubbles, no tiles */
+.ig-cross-line {
+  margin: 0.8rem 0 0.9rem;
+  font-size: clamp(1.15rem, 1.9vw, 1.55rem);
+  line-height: 1.4;
+  letter-spacing: -0.03em;
+  color: var(--navy);
 }
+/* both lines read at full strength; the sides differ by label, not by fading */
+.ig-cross-side--private .ig-cross-line { font-weight: 500; }
 
-.ig-why-back p {
-  margin: 0;
-  font-size: 0.86rem;
+.ig-cross-meta {
+  display: block;
+  font-size: 0.82rem;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--text-secondary);
 }
 
-@media (max-width: 860px) {
-  .ig-why-flip-row {
-    flex-wrap: wrap;
-  }
-
-  .ig-why-flip {
-    flex: 1 1 calc(50% - 0.75rem);
-  }
+/* the seam, and the token that crosses it */
+.ig-cross-seam {
+  position: relative;
+  justify-self: center;
+  width: 2px;
+  height: 100%;
+  min-height: 150px;
+  background: linear-gradient(180deg, transparent, var(--border) 15%, var(--border) 85%, transparent);
+}
+.ig-cross-seam i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--ig-grad);
+  box-shadow: 0 0 0 5px rgba(236, 72, 153, 0.12);
+  animation: ig-cross-token 4.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes ig-cross-token {
+  0% { transform: translateX(-150px) scale(0.6); opacity: 0; }
+  18% { opacity: 1; }
+  45%, 60% { transform: translateX(0) scale(1); opacity: 1; }
+  90%, 100% { transform: translateX(150px) scale(0.6); opacity: 0; }
 }
 
-@media (max-width: 480px) {
-  .ig-why-flip {
-    flex: 1 1 100%;
-  }
+/* closing facts, under a hairline */
+.ig-cross-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.8rem;
+  margin: 2rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.ig-cross-foot b {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: var(--ig-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ig-why-flip-inner {
-    transition: none;
-  }
+  .ig-cross-seam i { animation: none; }
+}
+
+/* ---------- INNER 4 · Why us : the hub ----------
+   Four reasons orbit the shared inbox, each wired to it with a live line that
+   carries a spark inward. No cards, no rows, no table. */
+.ig-why-head {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+.ig-why-title {
+  margin: 0.8rem 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.ig-hub {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px minmax(0, 1fr);
+  grid-template-rows: 1fr 1fr;
+  row-gap: 2.6rem;
+  align-items: center;
+  min-height: 380px;
+}
+
+.ig-hub-wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.ig-hub-wire {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 7;
+}
+.ig-hub-spark { fill: #ec4899; }
+
+/* the core */
+.ig-hub-core {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: center;
+  align-self: center;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1.5rem;
+  border-radius: 50%;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 30px 60px -30px rgba(236, 72, 153, 0.55);
+}
+.ig-hub-core strong {
+  font-size: 1.05rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+.ig-hub-core small {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+/* the ring breathes, so the core reads as live */
+.ig-hub-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--ig-grad);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ig-hub-breathe 3.6s ease-in-out infinite;
+}
+@keyframes ig-hub-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* the four reasons */
+.ig-hub-node {
+  position: relative;
+  max-width: 290px;
+}
+.ig-hub-node--0 { grid-column: 1; grid-row: 1; justify-self: start; }
+.ig-hub-node--1 { grid-column: 1; grid-row: 2; justify-self: start; }
+.ig-hub-node--2 { grid-column: 3; grid-row: 1; justify-self: end; text-align: right; }
+.ig-hub-node--3 { grid-column: 3; grid-row: 2; justify-self: end; text-align: right; }
+
+.ig-hub-ic {
+  display: inline-flex;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+  animation: ig-hub-pop 3.6s calc(var(--i) * 0.9s + 1.4s) infinite;
+}
+.ig-hub-ic svg { width: 22px; height: 22px; }
+@keyframes ig-hub-pop {
+  0%, 24%, 100% { color: var(--blue); transform: scale(1); }
+  8%, 16% { color: var(--cyan); transform: scale(1.18); }
+}
+
+.ig-hub-node h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+.ig-hub-node p {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-hub-ring, .ig-hub-ic { animation: none; }
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .ig-surfaces-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .ig-surfaces-lead { position: static; }
-  .ig-steps-track { grid-template-columns: 1fr; gap: 2rem; }
-  .ig-steps-track::before { display: none; }
-  .ig-transform-inner { grid-template-columns: 1fr; gap: 2.25rem; }
-  .ig-why-row,
-  .ig-why-row--alt {
-    grid-template-columns: auto 1fr;
-    text-align: left;
-    gap: 1rem;
+  .ig-msg, .ig-msg--out { max-width: 100%; }
+  .ig-steps-row { flex-direction: column; gap: 1.6rem; }
+  .ig-steps-lead { flex: none; }
+  .ig-steps-panels { flex-direction: column; gap: 1.2rem; }
+  .ig-panel, .ig-steps-panels:hover .ig-panel, .ig-steps-panels .ig-panel:hover {
+    flex: none;
+    border-left: 0;
+    padding: 0;
   }
-  .ig-why-row--alt .ig-why-index { order: 0; }
-  .ig-why-row--alt .ig-why-icon { display: none; }
-  .ig-why-row--alt .ig-why-text { order: 0; }
-  .ig-why-row .ig-why-icon { display: none; }
+  .ig-cross { grid-template-columns: 1fr; }
+  .ig-cross-side--public, .ig-cross-side--private { padding: 1.2rem 0; }
+  .ig-cross-seam { width: 100%; height: 2px; min-height: 0; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+  .ig-cross-seam i { animation: none; top: 50%; }
+  .ig-cross-foot { gap: 1.6rem; }
+  .ig-hub { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 1.6rem; min-height: 0; }
+  .ig-hub-wires { display: none; }
+  .ig-hub-core { grid-column: 1; grid-row: auto; order: -1; }
+  .ig-hub-node,
+  .ig-hub-node--0, .ig-hub-node--1, .ig-hub-node--2, .ig-hub-node--3 {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+    text-align: left;
+    max-width: none;
+  }
 }

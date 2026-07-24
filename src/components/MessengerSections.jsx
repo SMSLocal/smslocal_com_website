@@ -64,7 +64,7 @@ export function ProblemSplit({ eyebrow, heading, paragraphs, logTitle, moments, 
   return (
     <section className="section">
       <div className="container mx-prob">
-        <div className="mx-prob-copy">
+        <div className="mx-prob-head">
           {eyebrow && <span className="mx-kicker">{eyebrow}</span>}
           <h2 className="mx-h2">{heading}</h2>
           {paragraphs.map((p, i) => (
@@ -72,23 +72,23 @@ export function ProblemSplit({ eyebrow, heading, paragraphs, logTitle, moments, 
           ))}
         </div>
 
-        <div className="mx-prob-log">
-          <span className="mx-log-title">{logTitle}</span>
-          <ul className="mx-log">
-            {moments.map((m) => (
-              <li className="mx-log-item" key={m.time}>
-                <span className="mx-log-dot" />
-                <span className="mx-log-time">{m.time}</span>
-                <span className="mx-log-text">{m.text}</span>
-                <span className="mx-log-flag">unseen</span>
-              </li>
-            ))}
-            <li className="mx-log-item mx-log-item--done">
-              <span className="mx-log-dot mx-log-dot--done"><IconTick /></span>
-              <span className="mx-log-time">Now</span>
-              <span className="mx-log-text">{outcome}</span>
-            </li>
-          </ul>
+        {/* the questions that piled up overnight, straightening out as the AI
+            answers each one in turn */}
+        <div className="mx-pile" aria-label={logTitle}>
+          <span className="mx-pile-sweep" aria-hidden="true" />
+
+          {moments.map((m, i) => (
+            <div className="mx-note" key={m.time} style={{ '--i': i }}>
+              <q className="mx-note-q">{m.text}</q>
+              <span className="mx-note-meta">
+                <b>{m.time}</b>
+                <span className="mx-note-state mx-note-state--miss">unanswered</span>
+                <span className="mx-note-state mx-note-state--done">answered in 4s</span>
+              </span>
+            </div>
+          ))}
+
+          <p className="mx-pile-out">{outcome}</p>
         </div>
       </div>
     </section>

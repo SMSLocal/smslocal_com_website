@@ -13,6 +13,42 @@
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
+  animation: amFloat 6s ease-in-out infinite;
+}
+
+/* soft ambient glow blobs behind the whole mock for depth */
+.amock::before,
+.amock::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: amGlow 8s ease-in-out infinite;
+}
+.amock::before {
+  top: -10%;
+  right: -12%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #4f5bd5, transparent 70%);
+}
+.amock::after {
+  bottom: -8%;
+  left: -10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #ec4899, transparent 70%);
+  animation-delay: -4s;
+}
+@keyframes amFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes amGlow {
+  0%, 100% { opacity: 0.28; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.15); }
 }
 
 /* start chip */
@@ -31,6 +67,7 @@
   z-index: 2;
 }
 .amock-avatar {
+  position: relative;
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -39,6 +76,21 @@
   font-size: 0.62rem;
   color: #fff;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+.amock-online {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc71;
+  box-shadow: 0 0 0 2px #fff;
+  animation: amOnlinePulse 2s ease-in-out infinite;
+}
+@keyframes amOnlinePulse {
+  0%, 100% { box-shadow: 0 0 0 2px #fff, 0 0 0 2px rgba(46, 204, 113, 0.4); }
+  50% { box-shadow: 0 0 0 2px #fff, 0 0 0 5px rgba(46, 204, 113, 0); }
 }
 .amock-verified { font-size: 0.66rem; color: #0a7cff; }
 
@@ -91,15 +143,32 @@
   display: grid;
   grid-template-columns: 1fr 44px 1fr;
   align-items: center;
+  opacity: 0;
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-fill-mode: both;
+  animation-delay: var(--d, 0s);
 }
-.amock-cell { display: flex; }
+.amock-row--left { animation-name: amRowInLeft; }
+.amock-row--right { animation-name: amRowInRight; }
+@keyframes amRowInRight {
+  from { opacity: 0; transform: translate(14px, 8px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes amRowInLeft {
+  from { opacity: 0; transform: translate(-14px, 8px) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+.amock-cell { display: flex; grid-row: 1; align-self: center; }
 .amock-row--left .amock-cell { grid-column: 1; justify-content: flex-end; }
 .amock-row--right .amock-cell { grid-column: 3; justify-content: flex-start; }
 
 /* node dot sits on the spine */
 .amock-dot {
   grid-column: 2;
+  grid-row: 1;
   justify-self: center;
+  align-self: center;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -110,6 +179,20 @@
 .amock-dot--out { border-color: #0a7cff; }
 .amock-dot--pick { border-color: #ec4899; }
 .amock-dot--pay { border-color: #111; background: #111; }
+.amock-dot--ghost { border-color: transparent; background: transparent; width: 8px; height: 8px; }
+
+.amock-receipt {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0;
+  animation: amReceiptIn 0.4s ease both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes amReceiptIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 0.85; transform: none; }
+}
 
 /* connector stub from spine to the message */
 .amock-cell::after {
@@ -138,11 +221,33 @@
   color: #111;
   border-bottom-left-radius: 5px;
 }
+.amock-msg--in::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -6px;
+  width: 12px;
+  height: 14px;
+  background: #e9e9eb;
+  border-bottom-right-radius: 10px;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
 .amock-msg--out {
   color: #fff;
   background: linear-gradient(180deg, #1e9dff 0%, #0a7cff 100%);
   border-bottom-right-radius: 5px;
   box-shadow: 0 18px 38px -18px rgba(10, 124, 255, 0.6);
+}
+.amock-msg--out::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -6px;
+  width: 12px;
+  height: 14px;
+  background: #0a7cff;
+  border-bottom-left-radius: 10px;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
 }
 .amock-msg--pick {
   display: inline-flex;
@@ -192,4 +297,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .amock-pulse { animation: none; opacity: 0; }
+  .amock { animation: none; }
+  .amock::before, .amock::after { animation: none; }
+  .amock-row { animation: none; opacity: 1; }
 }

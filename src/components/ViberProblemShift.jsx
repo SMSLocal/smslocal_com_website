@@ -10,10 +10,12 @@ import './ViberProblemShift.css'
 function ViberProblemShift({ eyebrow, heading, subtitle }) {
   return (
     <section className="section section-alt vps-section">
-      <div className="container">
-        {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {heading && <h2 className="section-title">{heading}</h2>}
-        {subtitle && <p className="section-subtitle">{subtitle}</p>}
+      <div className="container vps-inner">
+        <div className="vps-copy">
+          {eyebrow && <span className="section-kicker">{eyebrow}</span>}
+          {heading && <h2 className="vps-heading">{heading}</h2>}
+          {subtitle && <p className="vps-sub">{subtitle}</p>}
+        </div>
 
         <div className="vps-stage">
           <div className="vps-side">

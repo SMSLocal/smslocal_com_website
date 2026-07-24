@@ -1,4 +1,4 @@
-/* "Email run alone" stack ledger for /email-api. Light. */
+/* "Email run alone" stack ledger for /email-api. Light, animated, responsive. */
 
 .eal-lead { max-width: 760px; }
 
@@ -15,6 +15,11 @@
   border-radius: 16px;
   padding: 1.5rem 1.6rem 1.3rem;
   box-shadow: 0 26px 54px -32px rgba(16, 35, 63, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.eal-ledger:hover {
+  box-shadow: 0 34px 64px -30px rgba(16, 35, 63, 0.5);
+  transform: translateY(-2px);
 }
 
 .eal-ledger-head {
@@ -32,6 +37,15 @@
   align-items: center;
   gap: 0.85rem;
   padding: 0.6rem 0;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: eal-row-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes eal-row-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
 }
 
 .eal-dot {
@@ -41,9 +55,16 @@
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
 }
-.eal-dot--alone { background: rgba(84, 89, 95, 0.35); }
+.eal-dot--alone {
+  background: rgba(84, 89, 95, 0.35);
+  animation: eal-dot-pulse 2.4s ease-in-out infinite;
+}
+@keyframes eal-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.35); }
+  50% { box-shadow: 0 0 0 5px rgba(251, 113, 133, 0); }
+}
 
-.eal-line { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.eal-line { flex: 1; min-width: 180px; display: flex; flex-direction: column; }
 .eal-line strong { font-size: 0.92rem; font-weight: 700; color: var(--navy); }
 .eal-line em { font-style: normal; font-weight: 700; color: var(--coral, #fb7185); }
 .eal-line span { font-size: 0.78rem; color: var(--text-secondary); }
@@ -59,7 +80,10 @@
   padding: 0.24rem 0.55rem;
   border-radius: 999px;
 }
-.eal-badge--extra { color: var(--text-secondary); background: rgba(16, 35, 63, 0.06); }
+.eal-badge--extra {
+  color: var(--coral, #fb7185);
+  background: rgba(251, 113, 133, 0.1);
+}
 
 .eal-sep {
   height: 0;
@@ -68,6 +92,7 @@
 }
 
 .eal-total {
+  position: relative;
   margin-top: 0.9rem;
   padding-top: 0.9rem;
   border-top: 1px solid var(--border);
@@ -75,8 +100,28 @@
   font-size: 0.86rem;
   font-weight: 700;
   color: var(--text-secondary);
+  opacity: 0;
+  animation: eal-row-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
 }
-.eal-total s { text-decoration-color: rgba(84, 89, 95, 0.5); }
+.eal-total s {
+  position: relative;
+  text-decoration: none;
+}
+.eal-total s::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1.5px;
+  background: rgba(251, 113, 133, 0.7);
+  animation: eal-strike 0.5s ease-out both;
+  animation-delay: calc(var(--d, 0s) + 0.35s);
+}
+@keyframes eal-strike {
+  to { width: 100%; }
+}
 
 /* resolution line */
 .eal-fix {
@@ -88,6 +133,9 @@
   font-size: 0.95rem;
   line-height: 1.55;
   color: var(--navy);
+  opacity: 0;
+  animation: eal-row-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
 }
 
 .eal-fix strong { color: var(--navy); }
@@ -104,4 +152,27 @@
   color: #fff;
   font-weight: 800;
   font-size: 0.9rem;
+  animation: eal-mark-bob 2.2s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+@keyframes eal-mark-bob {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eal-row, .eal-total, .eal-fix { animation: none; opacity: 1; }
+  .eal-dot--alone, .eal-fix-mark { animation: none; }
+  .eal-total s::after { animation: none; width: 100%; }
+  .eal-ledger { transition: none; }
+}
+
+@media (max-width: 560px) {
+  .eal { max-width: 100%; padding: 0 0.5rem; }
+  .eal-ledger { padding: 1.25rem 1.1rem 1.1rem; }
+  .eal-row { gap: 0.6rem; }
+  .eal-line { min-width: 140px; }
+  .eal-badge { margin-left: auto; }
+  .eal-total { text-align: left; }
+  .eal-fix { text-align: left; }
 }

@@ -1,19 +1,44 @@
 /* Two literal screens facing off — Viber answering blind and alone, vs.
    Viber sitting in a shared inbox that already has the customer's history. */
+/* two columns: the argument on the left, the two screens facing off on the
+   right */
+.vps-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.vps-heading {
+  margin: 1rem 0 0.8rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.vps-sub {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
 .vps-stage {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.4rem;
-  align-items: start;
-  max-width: 680px;
-  margin: 3rem auto 0;
+  gap: 2.2rem;
+  align-items: stretch;
 }
 
+/* both sidesy the same box: the phones stretch to the taller of the two, so
+   the screens match and the tags line up */
 .vps-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
   gap: 1rem;
 }
 
@@ -39,6 +64,7 @@
 
 .vps-phone {
   width: 100%;
+  height: 100%;
   max-width: 270px;
   border-radius: 22px;
   padding: 1rem 1rem 1.1rem;
@@ -147,6 +173,13 @@
 
 .vps-tag--good {
   color: var(--blue);
+}
+
+@media (max-width: 900px) {
+  .vps-inner {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
 }
 
 @media (max-width: 640px) {

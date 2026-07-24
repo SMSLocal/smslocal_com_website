@@ -13,81 +13,73 @@
   margin: 2.6rem auto 1.6rem;
 }
 
-.lud {
+/* leaderboard-style usage bars — one clearly in use, the rest visibly idle */
+.lub {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.4rem 2.6rem;
-  max-width: 940px;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 640px;
   margin: 0 auto;
 }
 
-.lud-item {
-  display: flex;
-  flex-direction: column;
+.lub-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 3.2rem 4.5rem;
   align-items: center;
-  text-align: center;
-  width: 128px;
-  opacity: 0.72;
+  gap: 1rem;
+  opacity: 0.6;
+}
+.lub-row.is-used { opacity: 1; }
+
+.lub-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
 }
 
-.lud-item.is-used { opacity: 1; }
-
-.lud-ring {
+.lub-track {
   position: relative;
-  width: 108px;
-  height: 108px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(16, 35, 63, 0.07);
+  overflow: hidden;
 }
-
-.lud-ring svg { width: 100%; height: 100%; }
-
-.lud-track {
-  fill: none;
-  stroke: rgba(16, 35, 63, 0.08);
-  stroke-width: 3.5;
-}
-
-.lud-prog {
-  fill: none;
-  stroke: url(#ludGrad);
-  stroke-width: 3.5;
-  stroke-linecap: round;
-  transform: rotate(-90deg);
-  transform-origin: center;
-}
-
-.lud-pct {
+.lub-fill {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.35rem;
+  width: 0;
+  border-radius: inherit;
+  background: rgba(16, 35, 63, 0.35);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: lub-grow 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+.lub-row.is-used .lub-fill {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+@keyframes lub-grow {
+  to { transform: scaleX(1); }
+}
+
+.lub-pct {
+  font-size: 0.95rem;
   font-weight: 800;
   color: var(--navy);
   font-variant-numeric: tabular-nums;
 }
+.lub-pct i { font-size: 0.7rem; font-style: normal; font-weight: 700; margin-left: 0.05rem; color: var(--text-secondary); }
 
-.lud-pct i { font-size: 0.8rem; font-style: normal; font-weight: 800; margin-left: 0.05rem; }
-
-.lud-name {
-  margin-top: 0.85rem;
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--navy);
-  line-height: 1.3;
-}
-
-.lud-status {
-  margin-top: 0.35rem;
+.lub-status {
   font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-secondary);
+  text-align: left;
 }
-
-.lud-item.is-used .lud-status {
+.lub-row.is-used .lub-status {
   color: transparent;
   background: linear-gradient(120deg, var(--blue), var(--cyan));
   -webkit-background-clip: text;
@@ -106,6 +98,10 @@
 .lud-punch strong { color: var(--navy); }
 
 @media (max-width: 560px) {
-  .lud { gap: 2rem 1.6rem; }
-  .lud-item { width: 44%; }
+  .lub-row { grid-template-columns: 84px 1fr 2.6rem; }
+  .lub-status { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lub-fill { animation: none; transform: scaleX(1); }
 }

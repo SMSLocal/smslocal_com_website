@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import './TelegramBotSetup.css'
 
 /**
- * "How it works" section for /telegram-business — a live BotFather-style
- * setup transcript that plays out message by message, accumulating (not
- * swapping), with the matching step highlighted as it goes. This is
- * literally how a Telegram bot gets created, not a staggered card layout.
+ * "How it works" section for /telegram-business — an auto-advancing full-width
+ * slide, one step at a time, with that step's own BotFather chat snippet
+ * playing out beside it. Crossfades to the next step instead of a persistent
+ * split panel or a top rail.
  */
 
 const REDUCED =
@@ -37,6 +37,7 @@ function TelegramBotSetup({ eyebrow, title, steps }) {
   }, [])
 
   const activeStep = MESSAGES[Math.max(0, shown - 1)]?.step ?? 0
+  const stepMessages = MESSAGES.filter((m, i) => m.step === activeStep && i < shown)
 
   return (
     <section className="section tg-steps">
@@ -44,31 +45,33 @@ function TelegramBotSetup({ eyebrow, title, steps }) {
         {eyebrow && <span className="section-kicker">{eyebrow}</span>}
         {title && <h2 className="section-title">{title}</h2>}
 
-        <div className="tgb-stage">
-          <div className="tgb-panel">
-            <div className="tgb-head">
-              <span className="tgb-avatar">B</span>
-              <span>
-                <strong>BotFather</strong>
-                <span className="tgb-verified">✓ verified bot</span>
-              </span>
+        <div className="tgb-slide">
+          <div className="tgb-slide-frame" key={activeStep}>
+            <div className="tgb-slide-copy">
+              <span className="tgb-slide-ghost">{`0${activeStep + 1}`}</span>
+              <h3>{steps[activeStep]?.title}</h3>
+              <p>{steps[activeStep]?.desc}</p>
             </div>
-            <div className="tgb-thread">
-              {MESSAGES.slice(0, shown).map((m, i) => (
-                <span key={i} className={`tgb-msg ${m.from}`}>{m.text}</span>
-              ))}
+
+            <div className="tgb-slide-chat">
+              <div className="tgb-head">
+                <span className="tgb-avatar">B</span>
+                <span>
+                  <strong>BotFather</strong>
+                  <span className="tgb-verified">✓ verified bot</span>
+                </span>
+              </div>
+              <div className="tgb-thread">
+                {stepMessages.map((m, i) => (
+                  <span key={i} className={`tgb-msg ${m.from}`}>{m.text}</span>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="tgb-steps">
+          <div className="tgb-dots" aria-hidden="true">
             {steps.map((s, i) => (
-              <div key={s.title} className={i === activeStep ? 'tgb-step active' : 'tgb-step'}>
-                <span className="tgb-step-num">{i + 1}</span>
-                <div>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                </div>
-              </div>
+              <span key={s.title} className={`tgb-dot${i === activeStep ? ' tgb-dot--active' : ''}`} />
             ))}
           </div>
         </div>

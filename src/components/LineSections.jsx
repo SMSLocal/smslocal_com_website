@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './LineSections.css'
 
@@ -115,6 +115,12 @@ function ChatDemo() {
 
 const DEMOS = [FlexCardDemo, RichMenuDemo, CouponDemo, ChatDemo]
 
+const WHY_POINTS = [
+  'No developer needed — built from templates',
+  'Works the same on iOS, Android and desktop LINE',
+  'Every tap and reply logged in your shared inbox',
+]
+
 export function CapabilitySpotlight({ eyebrow, title, subtitle, items, alt }) {
   const [active, setActive] = useState(0)
 
@@ -129,7 +135,7 @@ export function CapabilitySpotlight({ eyebrow, title, subtitle, items, alt }) {
   return (
     <section className={alt ? 'section section-alt' : 'section'}>
       <div className="container">
-        <div className="ln-head">
+        <div className="ln-head ln-head--tight">
           {eyebrow && <span className="ln-kicker">{eyebrow}</span>}
           <h2 className="ln-h2 ln-head-title">{title}</h2>
           {subtitle && <p className="ln-head-sub">{subtitle}</p>}
@@ -159,7 +165,7 @@ export function CapabilitySpotlight({ eyebrow, title, subtitle, items, alt }) {
             </div>
           </div>
 
-          <div className="ln-demo-caption" key={`c-${active}`}>
+          <div className="ln-demo-caption">
             <div className="ln-demo-dots">
               {items.map((it, i) => (
                 <button
@@ -171,8 +177,16 @@ export function CapabilitySpotlight({ eyebrow, title, subtitle, items, alt }) {
                 />
               ))}
             </div>
-            <h3 className="ln-cap-title">{items[active].title}</h3>
-            <p className="ln-cap-desc">{items[active].desc}</p>
+            <div key={`c-${active}`} className="ln-demo-caption-text">
+              <h3 className="ln-cap-title">{items[active].title}</h3>
+              <p className="ln-cap-desc">{items[active].desc}</p>
+            </div>
+
+            <ul className="ln-cap-why">
+              {WHY_POINTS.map((p) => (
+                <li key={p}><IconTick />{p}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -180,8 +194,69 @@ export function CapabilitySpotlight({ eyebrow, title, subtitle, items, alt }) {
   )
 }
 
-/* 3 · Steps — horizontal progress tracker ----------------------------- */
+/* 3 · Steps — real code, typed out character by character ------------- */
+function fnNameFor(title) {
+  const words = title.replace(/[^a-zA-Z0-9 ]/g, '').split(' ').filter(Boolean)
+  return words.map((w, i) => (i === 0 ? w[0].toLowerCase() + w.slice(1) : w[0].toUpperCase() + w.slice(1))).join('')
+}
+function codeFor(step) {
+  return `${fnNameFor(step.title)}()\n  // ${step.desc}`
+}
+
 export function StepTracker({ eyebrow, title, steps, alt }) {
+  const [display, setDisplay] = useState(() => steps.map(() => ''))
+  const [done, setDone] = useState(() => steps.map(() => false))
+
+  useEffect(() => {
+    if (REDUCED) {
+      setDisplay(steps.map((s) => codeFor(s)))
+      setDone(steps.map(() => true))
+      return
+    }
+
+    let cancelled = false
+    let timeoutId
+    let stepIdx = 0
+    let charIdx = 0
+
+    const tick = () => {
+      if (cancelled) return
+      const text = codeFor(steps[stepIdx])
+      charIdx += 1
+      const i = stepIdx
+      setDisplay((d) => {
+        const next = [...d]
+        next[i] = text.slice(0, charIdx)
+        return next
+      })
+      if (charIdx >= text.length) {
+        setDone((d) => {
+          const next = [...d]
+          next[i] = true
+          return next
+        })
+        timeoutId = setTimeout(() => {
+          if (cancelled) return
+          stepIdx = (stepIdx + 1) % steps.length
+          charIdx = 0
+          if (stepIdx === 0) {
+            setDisplay(steps.map(() => ''))
+            setDone(steps.map(() => false))
+          }
+          timeoutId = setTimeout(tick, 24)
+        }, 750)
+        return
+      }
+      timeoutId = setTimeout(tick, 24)
+    }
+
+    timeoutId = setTimeout(tick, 24)
+    return () => {
+      cancelled = true
+      clearTimeout(timeoutId)
+    }
+  }, [steps])
+
   return (
     <section className={alt ? 'section section-alt' : 'section'}>
       <div className="container">
@@ -189,22 +264,79 @@ export function StepTracker({ eyebrow, title, steps, alt }) {
           {eyebrow && <span className="ln-kicker">{eyebrow}</span>}
           <h2 className="ln-h2 ln-head-title">{title}</h2>
         </div>
-        <div className="ln-track">
-          {steps.map((s, i) => (
-            <div className="ln-step" key={s.title}>
-              <span className="ln-step-dot">{i + 1}</span>
-              <h3 className="ln-step-title">{s.title}</h3>
-              <p className="ln-step-desc">{s.desc}</p>
+
+        <div className="ln-steps-layout">
+          <div className="ln-console">
+            <div className="ln-console-bar">
+              <span className="ln-console-dot ln-console-dot--red" />
+              <span className="ln-console-dot ln-console-dot--yellow" />
+              <span className="ln-console-dot ln-console-dot--green" />
+              <span className="ln-console-bar-title">line-setup.js</span>
             </div>
-          ))}
+            <div className="ln-console-body">
+              {steps.map((s, i) => {
+                const [fullCmd = '', fullComment = ''] = codeFor(s).split('\n')
+                const [cmdLine = '', commentLine = ''] = (display[i] || '').split('\n')
+                const started = display[i] !== undefined && display[i].length > 0
+                const isTyping = started && !done[i]
+                const typingOnCmd = isTyping && !commentLine
+                return (
+                  <div className="ln-console-line" key={s.title}>
+                    <span className="ln-console-prompt">{i + 1}</span>
+                    <div className="ln-console-content">
+                      <div className="ln-console-stack">
+                        <p className="ln-console-cmd ln-console-ghost" aria-hidden="true">{fullCmd}</p>
+                        <p className="ln-console-cmd">
+                          {cmdLine}
+                          {typingOnCmd && <span className="ln-console-cursor" aria-hidden="true" />}
+                        </p>
+                      </div>
+                      <div className="ln-console-stack">
+                        <p className="ln-console-out ln-console-ghost" aria-hidden="true">{fullComment}</p>
+                        <p className="ln-console-out">
+                          {commentLine}
+                          {isTyping && !typingOnCmd && <span className="ln-console-cursor" aria-hidden="true" />}
+                        </p>
+                      </div>
+                    </div>
+                    <span className={`ln-console-done${done[i] ? '' : ' ln-console-done--hidden'}`}>✓ done</span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          <div className="ln-steps-side">
+            <span className="ln-steps-side-stat">&lt; 1 day</span>
+            <span className="ln-steps-side-stat-lbl">average time from signup to a live Official Account</span>
+            <ul className="ln-steps-side-list">
+              <li><IconTick />No code — every step is a template or a click</li>
+              <li><IconTick />Your rich menu and flex messages carry over as you grow</li>
+              <li><IconTick />Support is with you for the whole setup, not just the sale</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-/* 4 · Compare — two lists split by a VS divider ----------------------- */
+/* 4 · Compare — a single spec-table grid, clickable rows reveal "why" -- */
 export function CompareVS({ eyebrow, title, subtitle, leftLabel, rightLabel, rows, alt }) {
+  const [openIndex, setOpenIndex] = useState(null)
+  const [explored, setExplored] = useState(() => new Set())
+
+  const toggleRow = (i) => {
+    setOpenIndex((cur) => (cur === i ? null : i))
+    setExplored((cur) => {
+      const next = new Set(cur)
+      next.add(i)
+      return next
+    })
+  }
+
+  const pct = Math.round((explored.size / rows.length) * 100)
+
   return (
     <section className={alt ? 'section section-alt' : 'section'}>
       <div className="container">
@@ -213,40 +345,52 @@ export function CompareVS({ eyebrow, title, subtitle, leftLabel, rightLabel, row
           <h2 className="ln-h2 ln-head-title">{title}</h2>
           {subtitle && <p className="ln-head-sub">{subtitle}</p>}
         </div>
-        <div className="ln-vs">
-          <div className="ln-vs-col">
-            <span className="ln-vs-label">{leftLabel}</span>
-            <ul className="ln-vs-list">
-              {rows.map((r) => (
-                <li className="ln-vs-item" key={r.feature}>
+
+        <div className="ln-cmp-progress">
+          <span className="ln-cmp-progress-label">
+            {explored.size === 0 ? 'Tap a row to see why it matters' : `Explored ${explored.size} of ${rows.length} reasons teams switch`}
+          </span>
+          <span className="ln-cmp-progress-track">
+            <span className="ln-cmp-progress-fill" style={{ width: `${pct}%` }} />
+          </span>
+        </div>
+
+        <div className="ln-cmp">
+          <span className="ln-cmp-corner" />
+          <span className="ln-cmp-head">{leftLabel}</span>
+          <span className="ln-cmp-head ln-cmp-head--accent">{rightLabel}</span>
+
+          {rows.map((r, i) => {
+            const isOpen = openIndex === i
+            const isLast = i === rows.length - 1
+            return (
+              <Fragment key={r.feature}>
+                <div
+                  className={`ln-cmp-feat ln-cmp-feat--clickable${isOpen ? ' is-open' : ''}${explored.has(i) ? ' is-explored' : ''}`}
+                  onClick={() => toggleRow(i)}
+                >
+                  <span className="ln-cmp-caret" aria-hidden="true">›</span>
+                  {r.feature}
+                </div>
+                <div className={`ln-cmp-cell${isOpen ? ' is-open' : ''}`} onClick={() => toggleRow(i)}>
                   <IconX />
-                  <span>
-                    <span className="ln-vs-feat">{r.feature}</span>
-                    <span className="ln-vs-val">{r.left}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="ln-vs-mid" aria-hidden="true">
-            <span className="ln-vs-line" />
-            <span className="ln-vs-badge">VS</span>
-            <span className="ln-vs-line" />
-          </div>
-          <div className="ln-vs-col ln-vs-col--accent">
-            <span className="ln-vs-label">{rightLabel}</span>
-            <ul className="ln-vs-list">
-              {rows.map((r) => (
-                <li className="ln-vs-item" key={r.feature}>
+                  <span>{r.left}</span>
+                </div>
+                <div
+                  className={`ln-cmp-cell ln-cmp-cell--accent${isOpen ? ' is-open' : ''}${isLast && !isOpen ? ' ln-cmp-cell--last' : ''}`}
+                  onClick={() => toggleRow(i)}
+                >
                   <IconTick />
-                  <span>
-                    <span className="ln-vs-feat">{r.feature}</span>
-                    <span className="ln-vs-val">{r.right}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  <span>{r.right}</span>
+                </div>
+                {isOpen && (
+                  <div className={`ln-cmp-why${isLast ? ' ln-cmp-why--last' : ''}`}>
+                    {r.why}
+                  </div>
+                )}
+              </Fragment>
+            )
+          })}
         </div>
       </div>
     </section>

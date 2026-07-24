@@ -390,10 +390,9 @@
   text-decoration: none;
 }
 
-/* Simple dropdown (Resources / Company) */
-.has-dropdown {
-  position: relative;
-}
+/* Simple dropdown (Platform / Resources / Company).
+   Deliberately NOT position:relative — like .has-mega, these anchor to
+   .navbar-inner so the panel centres on the bar instead of on its trigger. */
 
 .dropdown-wrapper {
   position: absolute;
@@ -404,12 +403,25 @@
 }
 
 .dropdown {
+  position: relative;
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: 0 20px 40px -12px rgba(79, 91, 213, 0.25);
-  padding: 0.75rem;
+  padding: calc(0.75rem + 4px) 0.75rem 0.75rem;
   min-width: 240px;
+  overflow: hidden;
+}
+
+/* Same gradient strip the Products/Solutions megas carry */
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
 }
 
 .dropdown ul {
@@ -515,6 +527,10 @@
     padding: 0.5rem 0 0;
   }
 
+  .dropdown::before {
+    display: none;
+  }
+
   .dropdown--grid {
     min-width: 0;
   }
@@ -530,7 +546,7 @@
   grid-template-columns: minmax(210px, 1fr) minmax(238px, 1fr);
   gap: 0 1.1rem;
   min-width: 528px;
-  padding: 1rem 1.1rem;
+  padding: calc(1rem + 4px) 1.1rem 1rem;
 }
 
 .resources-mega-panel {

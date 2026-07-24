@@ -111,15 +111,17 @@
 }
 
 /* =====================================================================
-   2 · Problem split — editorial copy + timestamped message log
+   2 · Problem — the overnight pile, straightening out
+   The questions sit as tilted lines of type; a sweep runs down them and each
+   flips from "unanswered" to "answered in 4s" in turn. No log, no timeline.
    ===================================================================== */
 .mx-prob {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
-  align-items: start;
+  align-items: center;
 }
-.mx-prob-copy .mx-h2 { margin-top: 1rem; }
+.mx-prob-head .mx-h2 { margin-top: 1rem; }
 .mx-lead {
   color: var(--text-secondary);
   font-size: 1.02rem;
@@ -128,78 +130,101 @@
 }
 .mx-lead strong { color: var(--navy); }
 
-.mx-log-title {
+.mx-pile {
+  position: relative;
+  padding-left: 1.2rem;
+}
+/* the sweep that works through the backlog */
+.mx-pile-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 86px;
+  background: linear-gradient(180deg, transparent, rgba(79, 91, 213, 0.09), transparent);
+  animation: mx-sweep 9s linear infinite;
+}
+@keyframes mx-sweep {
+  0% { transform: translateY(-90px); }
+  75%, 100% { transform: translateY(320px); }
+}
+
+.mx-note {
+  position: relative;
+  padding: 0.9rem 0;
+  transform: rotate(calc((var(--i) - 1) * 0.55deg));
+  transform-origin: left center;
+  animation: mx-note-settle 9s calc(var(--i) * 1.6s + 0.9s) infinite;
+}
+@keyframes mx-note-settle {
+  0%, 6% { transform: rotate(calc((var(--i) - 1) * 0.55deg)); }
+  14%, 86% { transform: rotate(0deg); }
+  96%, 100% { transform: rotate(calc((var(--i) - 1) * 0.55deg)); }
+}
+
+.mx-note-q {
   display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 1.6rem;
+  quotes: none;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: var(--navy);
 }
-.mx-log {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0 1.6rem;
-  position: relative;
-}
-.mx-log::before {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 10px;
-  bottom: 30px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--border), rgba(79, 91, 213, 0.4));
-}
-.mx-log-item {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.15rem 0.85rem;
-  padding: 0.7rem 0;
-}
-.mx-log-dot {
-  position: absolute;
-  left: -1.6rem;
-  top: 1.05rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #cfd4da;
-}
-.mx-log-time {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-}
-.mx-log-text { font-size: 0.92rem; color: #6b7178; }
-.mx-log-flag {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--coral);
-  opacity: 0.85;
-}
-.mx-log-item--done { padding-top: 1.1rem; }
-.mx-log-dot--done {
-  left: -1.75rem;
-  top: 1.15rem;
-  width: 22px;
-  height: 22px;
-  border: none;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
+.mx-note-meta {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #fff;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
 }
-.mx-log-dot--done svg { width: 12px; height: 12px; }
-.mx-log-item--done .mx-log-time { color: var(--blue); }
-.mx-log-item--done .mx-log-text { color: var(--navy); font-weight: 600; }
+.mx-note-meta b {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.mx-note-state {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mx-note-state--miss {
+  color: var(--coral);
+  animation: mx-state-out 9s calc(var(--i) * 1.6s + 0.9s) infinite;
+}
+.mx-note-state--done {
+  margin-left: -5.6rem;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  animation: mx-state-in 9s calc(var(--i) * 1.6s + 0.9s) infinite;
+}
+@keyframes mx-state-out {
+  0%, 8% { opacity: 1; }
+  14%, 88% { opacity: 0; }
+  96%, 100% { opacity: 1; }
+}
+@keyframes mx-state-in {
+  0%, 8% { opacity: 0; }
+  14%, 88% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+
+.mx-pile-out {
+  margin: 1.4rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mx-pile-sweep, .mx-note, .mx-note-state--miss, .mx-note-state--done { animation: none; }
+  .mx-note { transform: none; }
+  .mx-note-state--done { opacity: 1; margin-left: 0; }
+  .mx-note-state--miss { display: none; }
+}
 
 /* =====================================================================
    3 · Step flow — giant ghost numerals, hairline dividers

@@ -1,125 +1,148 @@
-.wfd-feed {
-  max-width: 720px;
-  margin: 0 auto;
+/* "Why us" — heading in a left column beside a 2x2 bento of reasons.
+   The only left-aligned heading on the page, so it reads as its own beat. */
+
+.wfd-section {
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
 }
 
-/* post rows float on the page, separated by thin dividers — no card frame */
-.wfd-post {
-  padding: 1.5rem 0.25rem;
-  border-bottom: 1px solid var(--border);
+.wfd-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.35fr);
+  gap: 3rem;
+  align-items: center;
 }
 
-.wfd-post:first-child { padding-top: 0.25rem; }
-.wfd-post:last-child { border-bottom: none; padding-bottom: 0.25rem; }
+/* ---- left: intro ---- */
 
-.wfd-head {
+.wfd-intro .section-kicker {
+  margin-bottom: 0.7rem;
+}
+
+.wfd-title {
+  margin: 0 0 0.8rem;
+  color: var(--navy);
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  line-height: 1.15;
+}
+
+.wfd-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.wfd-rule {
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 1.4rem 0 1.1rem;
+  border-radius: 3px;
+  background: var(--gradient-brand);
+}
+
+.wfd-note {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ---- right: bento ---- */
+
+.wfd-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.4rem;
+  row-gap: 2rem;
+}
+
+/* frameless entries: a hairline on the left is the only structure,
+   and it turns into the brand gradient on hover */
+.wfd-tile {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.wfd-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.wfd-bar::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 22%;
+  background: var(--gradient-brand);
+  transition: height 0.35s ease;
+}
+
+.wfd-tile:hover .wfd-bar::after {
+  height: 100%;
+}
+
+.wfd-tile-top {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .wfd-avatar {
-  flex: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-}
-
-/* alternate the accent so the feed stays lively */
-.wfd-post--1 .wfd-avatar {
-  color: var(--blue);
-  background: rgba(79, 91, 213, 0.12);
-}
-
-.wfd-avatar svg { width: 20px; height: 20px; }
-
-.wfd-id {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  min-width: 0;
-}
-
-.wfd-id strong {
-  color: var(--navy);
-  font-size: 1rem;
-  letter-spacing: -0.01em;
-}
-
-.wfd-handle {
-  font-size: 0.78rem;
-  font-weight: 600;
   color: var(--blue);
 }
 
-.wfd-post--1 .wfd-handle { color: var(--cyan); }
-
-.wfd-dot {
-  margin-left: auto;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--border);
-  box-shadow: 0 8px 0 var(--border), 0 -8px 0 var(--border);
+.wfd-avatar svg {
+  width: 19px;
+  height: 19px;
 }
 
-.wfd-body {
-  margin: 0.85rem 0 0.9rem;
-  padding-left: calc(40px + 0.75rem);
+.wfd-index {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   color: var(--text-secondary);
-  font-size: 0.96rem;
-  line-height: 1.6;
 }
 
-.wfd-foot {
-  display: flex;
-  gap: 1.4rem;
-  padding-left: calc(40px + 0.75rem);
-}
-
-.wfd-react {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
+.wfd-tile-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.04rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.wfd-tile-desc {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  line-height: 1.65;
   color: var(--text-secondary);
 }
 
-.wfd-react svg { width: 16px; height: 16px; }
-
-.wfd-react--heart {
-  color: var(--cyan);
+.wfd-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--blue);
 }
 
-.wfd-react--heart svg {
-  fill: rgba(236, 72, 153, 0.14);
+@media (max-width: 980px) {
+  .wfd-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
-.wfd-post--1 .wfd-react--heart { color: var(--blue); }
-.wfd-post--1 .wfd-react--heart svg { fill: rgba(79, 91, 213, 0.14); }
-
-@media (max-width: 520px) {
-  .wfd-body,
-  .wfd-foot { padding-left: 0; }
-}
-
-/* ---------------------------------------------------------------------------
-   Animation. Base is the finished feed. Motion gives the heart a gentle beat
-   so the reactions feel alive — nothing structural depends on it.
-   --------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: no-preference) {
-  .wfd-react--heart svg { animation: wfd-beat 3.2s ease-in-out infinite; }
-  .wfd-post--1 .wfd-react--heart svg { animation-delay: 0.6s; }
-
-  @keyframes wfd-beat {
-    0%, 70%, 100% { transform: scale(1); }
-    80% { transform: scale(1.22); }
-    90% { transform: scale(1.05); }
+@media (max-width: 620px) {
+  .wfd-bento {
+    grid-template-columns: 1fr;
   }
 }

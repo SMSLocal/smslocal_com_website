@@ -1,60 +1,36 @@
 import './WhyUsFeed.css'
 
 /**
- * Bespoke "Why us" section for the Social media inbox page.
- * Each reason is styled as a post in a social FEED — a small source glyph, a
- * heading, a line of copy and a subtle reaction chip (heart + count) — the
- * posts separated by thin dividers with NO unifying card frame. A tiny accent
- * alternates row to row to keep the feed lively. The heart on accent posts
- * gives a gentle beat under motion; reduced motion shows the finished feed.
- * Centred single column (max-width ~720px). Distinct from zebra / numbered /
- * agenda rows via the feed + reaction treatment.
+ * "Why us" for the social inbox page.
+ * A split layout: the heading sits left-aligned in its own column (every other
+ * section on this page centres its heading) beside a 2x2 bento of reasons.
+ * Each tile carries a numbered rule, a tag and a gradient accent bar that
+ * fills on hover.
  */
-
-const HeartIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 20s-7-4.4-9.2-8.4C1.3 8.9 2.6 5.5 6 5.5c2 0 3.2 1.2 4 2.4.8-1.2 2-2.4 4-2.4 3.4 0 4.7 3.4 3.2 6.1C19 15.6 12 20 12 20z" />
-  </svg>
-)
-
-const ReplyIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 11.5a8 8 0 0 1-11.5 7.2L4 20l1.3-4A8 8 0 1 1 21 11.5z" />
-  </svg>
-)
 
 function WhyUsFeed({ eyebrow, title, subtitle, items, alt }) {
   return (
-    <section className={alt ? 'section section-alt' : 'section'}>
-      <div className="container">
-        {eyebrow && <span className="section-kicker">{eyebrow}</span>}
-        {title && <h2 className="section-title">{title}</h2>}
-        {subtitle && <p className="section-subtitle">{subtitle}</p>}
+    <section className={alt ? 'section section-alt wfd-section' : 'section wfd-section'}>
+      <div className="container wfd-split">
+        <header className="wfd-intro">
+          {eyebrow && <span className="section-kicker">{eyebrow}</span>}
+          {title && <h2 className="wfd-title">{title}</h2>}
+          {subtitle && <p className="wfd-subtitle">{subtitle}</p>}
+          <span className="wfd-rule" aria-hidden="true" />
+          <p className="wfd-note">Instagram, Messenger, WhatsApp, Telegram, LINE, Viber and Apple Messages — one queue, one record, one reply.</p>
+        </header>
 
-        <div className="wfd-feed">
+        <div className="wfd-bento">
           {items.map((item, i) => (
-            <article className={`wfd-post wfd-post--${i % 2}`} key={item.title}>
-              <div className="wfd-head">
+            <article className="wfd-tile" key={item.title}>
+              <span className="wfd-bar" aria-hidden="true" />
+              <div className="wfd-tile-top">
                 <span className="wfd-avatar" aria-hidden="true">{item.icon}</span>
-                <span className="wfd-id">
-                  <strong>{item.title}</strong>
-                  <span className="wfd-handle">{item.handle}</span>
-                </span>
-                <span className="wfd-dot" aria-hidden="true" />
+                <span className="wfd-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
-
-              <p className="wfd-body">{item.desc}</p>
-
-              <div className="wfd-foot" aria-hidden="true">
-                <span className="wfd-react wfd-react--heart">
-                  <HeartIcon />
-                  <span>{item.count}</span>
-                </span>
-                <span className="wfd-react">
-                  <ReplyIcon />
-                  <span>{item.replies}</span>
-                </span>
-              </div>
+              <h3 className="wfd-tile-title">{item.title}</h3>
+              <p className="wfd-tile-desc">{item.desc}</p>
+              {item.handle && <span className="wfd-tag">{item.handle}</span>}
             </article>
           ))}
         </div>

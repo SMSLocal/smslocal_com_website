@@ -1,87 +1,157 @@
+/* "What you get" — a rotating deck. The three mocks stack with depth and take
+   turns at the front on a 12s loop; the copy on the left swaps with whichever
+   mock is showing. No columns, no alternating rows. */
+
+.vbcap-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
 .vbcap-eyebrow {
   display: block;
-  text-align: center;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
-.vbcap-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
+.vbcap-title {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.6rem, 2.9vw, 2.2rem);
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.vbcap-sub {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* the caption area holds all three, one visible at a time */
+.vbcap-captions {
+  position: relative;
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  min-height: 148px;
+}
+
+.vbcap-caption {
+  position: absolute;
+  inset: 1.5rem 0 auto;
+  opacity: 0;
+  animation: vbcap-caption 12s calc(var(--i) * -4s) infinite;
+}
+/* visible for the first third of the loop, so the first caption is already up
+   on load rather than fading in from nothing */
+@keyframes vbcap-caption {
+  0%, 29% { opacity: 1; transform: none; }
+  33%, 96% { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.vbcap-caption h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+.vbcap-caption p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 44ch;
+}
+
+/* ---- the deck ---- */
+
+.vbcap-deck {
+  position: relative;
+  height: 320px;
+}
+
+/* every slot is the same box, so the three mocks read as one size */
+.vbcap-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 230px;
+  margin-top: -115px;
+  margin-left: -200px;
+  animation: vbcap-deck 12s calc(var(--i) * -4s) infinite;
+}
+
+/* front → back-right → back-further → front again */
+@keyframes vbcap-deck {
+  0%, 30% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+  33%, 63% {
+    transform: translate(38px, 26px) scale(0.93);
+    opacity: 0.92;
+    z-index: 2;
+  }
+  66%, 96% {
+    transform: translate(76px, 52px) scale(0.86);
+    opacity: 0.8;
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+}
+
+.vbcap-slot .vbcap-mock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1.3rem 1.5rem;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 26px 50px -28px rgba(16, 35, 63, 0.5);
 }
 
 @media (max-width: 860px) {
-  .vbcap-grid {
+  .vbcap-inner {
     grid-template-columns: 1fr;
-    max-width: 460px;
-    margin: 0 auto;
+    gap: 2.4rem;
   }
+  .vbcap-deck { height: 280px; }
+  .vbcap-slot { width: 300px; margin-left: -150px; height: 210px; margin-top: -105px; }
 }
 
-.vbcap-card {
-  text-align: left;
-  padding: 0 1.8rem;
-  border-left: 2px solid var(--border);
-  transition: border-color 0.25s ease;
-}
-
-.vbcap-card:first-child {
-  padding-left: 0;
-  border-left: none;
-}
-
-.vbcap-card:hover {
-  border-left-color: var(--blue);
-}
-
-@media (max-width: 860px) {
-  .vbcap-card {
-    padding: 0;
-    border-left: none;
-    border-top: 2px solid var(--border);
-    padding-top: 1.8rem;
-  }
-
-  .vbcap-card:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .vbcap-card:hover {
-    border-left-color: transparent;
-    border-top-color: var(--blue);
-  }
+@media (prefers-reduced-motion: reduce) {
+  .vbcap-caption,
+  .vbcap-slot { animation: none; }
+  .vbcap-caption { position: relative; inset: auto; opacity: 1; margin-bottom: 1.2rem; }
+  .vbcap-captions { min-height: 0; }
+  .vbcap-slot:nth-child(2) { transform: translate(38px, 26px) scale(0.93); z-index: 2; }
+  .vbcap-slot:nth-child(3) { transform: translate(76px, 52px) scale(0.86); z-index: 1; }
 }
 
 .vbcap-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(79, 91, 213, 0.1);
   color: var(--blue);
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.8rem;
 }
-
-.vbcap-card h3 {
-  margin: 0 0 0.5rem;
-  color: var(--navy);
-  font-size: 1.05rem;
-}
-
-.vbcap-card p {
-  margin: 0 0 1.25rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
+.vbcap-icon svg { width: 22px; height: 22px; }
 
 .vbcap-mock {
   background: var(--bg-subtle);
@@ -105,7 +175,7 @@
 }
 
 .vbcap-sender-row strong {
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   color: var(--navy);
 }
 
@@ -124,7 +194,7 @@
   background: #fff;
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  font-size: 0.66rem;
+  font-size: 0.74rem;
   font-weight: 600;
   padding: 0.28rem 0.55rem;
   border-radius: 999px;
@@ -135,7 +205,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
-  font-size: 0.76rem;
+  font-size: 0.84rem;
   color: var(--navy);
   padding: 0.3rem 0;
 }
@@ -146,7 +216,7 @@
 
 .vbcap-pill {
   flex: none;
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 700;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
@@ -166,14 +236,25 @@
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   border-top: 1px dashed var(--border);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--success);
 }
 
+/* sample broadcast body inside the verified mock */
+.vbcap-preview {
+  margin-top: 0.2rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
 .vbcap-channel {
   flex: none;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--blue);
   background: rgba(79, 91, 213, 0.1);

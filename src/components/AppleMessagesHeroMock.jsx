@@ -12,7 +12,10 @@ function AppleMessagesHeroMock() {
   return (
     <div className="amock" role="img" aria-label="A connected iMessage business-chat journey — reschedule request, reply, time pick, confirmation and an Apple Pay deposit, threaded on one flow">
       <span className="amock-start">
-        <span className="amock-avatar">SL</span>
+        <span className="amock-avatar">
+          SL
+          <span className="amock-online" aria-hidden="true" />
+        </span>
         SMSLocal · Business Chat
         <span className="amock-verified">✓</span>
       </span>
@@ -20,7 +23,7 @@ function AppleMessagesHeroMock() {
       <div className="amock-flow">
         <span className="amock-pulse" aria-hidden="true" />
         {NODES.map((n, i) => (
-          <div className={`amock-row amock-row--${n.side}`} key={i}>
+          <div className={`amock-row amock-row--${n.side}`} key={i} style={{ '--d': `${i * 0.18}s` }}>
             <div className="amock-cell">
               <div className={`amock-msg amock-msg--${n.type}`}>
                 {n.text}
@@ -31,6 +34,12 @@ function AppleMessagesHeroMock() {
             <span className={`amock-dot amock-dot--${n.type}`} />
           </div>
         ))}
+        <div className="amock-row amock-row--right" style={{ '--d': `${NODES.length * 0.18 + 0.25}s` }}>
+          <div className="amock-cell">
+            <span className="amock-receipt">Read · just now</span>
+          </div>
+          <span className="amock-dot amock-dot--ghost" aria-hidden="true" />
+        </div>
       </div>
     </div>
   )

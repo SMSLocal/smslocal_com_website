@@ -1,59 +1,182 @@
-.vst-list {
-  max-width: 620px;
-  margin: 0 auto;
+/* "How it works" for /viber-business-messages — the broadcast being built.
+   Three stages of the same message across the full width; each stage's newest
+   piece drops in on its beat. No panel, no card, no timeline. */
+
+.vst-head {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  text-align: center;
 }
 
-.vst-item {
-  position: relative;
+.vst-title {
+  margin: 0.8rem 0 0.6rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.vst-sub {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ---- the build ---- */
+
+.vst-build {
   display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 1.3rem;
-  padding-bottom: 2.2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3.4rem;
 }
 
-.vst-item:last-child {
-  padding-bottom: 0;
-}
-
-.vst-item:not(:last-child)::before {
-  content: '';
-  position: absolute;
-  top: 40px;
-  left: 19px;
-  bottom: 0;
-  width: 2px;
-  background: repeating-linear-gradient(180deg, var(--border) 0 6px, transparent 6px 12px);
-}
-
-.vst-dot {
+.vst-stage {
   position: relative;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+}
+
+/* the message pieces for this stage */
+.vst-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  min-height: 132px;
+  margin-bottom: 1.4rem;
+}
+
+.vst-piece {
+  animation: vst-drop 9s calc(var(--i) * 2.4s + var(--d) * 0.5s) infinite;
+}
+@keyframes vst-drop {
+  0%, 4% { opacity: 0; transform: translateY(10px); }
+  10%, 92% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+.vst-sender {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff;
-  font-weight: 800;
-  font-size: 0.8rem;
-  box-shadow: 0 10px 22px -10px rgba(79, 91, 213, 0.5);
-}
-
-.vst-text {
-  padding-top: 0.4rem;
-}
-
-.vst-text h3 {
-  margin: 0 0 0.5rem;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--navy);
-  font-size: 1.05rem;
+}
+.vst-sender--muted { opacity: 0.75; }
+.vst-sender b { color: var(--blue); font-size: 0.8rem; }
+
+.vst-sender-av {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--gradient-brand);
 }
 
-.vst-text p {
-  margin: 0;
+.vst-note {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vst-bubble {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  max-width: 280px;
+  padding: 0.75rem 0.95rem;
+  border-radius: 14px 14px 14px 4px;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.vst-bubble--sm {
+  max-width: 240px;
+  font-size: 0.82rem;
+  opacity: 0.6;
+}
+
+.vst-cta {
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.vst-reply {
+  align-self: flex-end;
+  max-width: 250px;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px 14px 4px 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+/* ---- the caption under each stage ---- */
+
+.vst-n {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   color: var(--text-secondary);
+}
+
+.vst-stage h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--navy);
+}
+
+.vst-stage p {
+  margin: 0;
   font-size: 0.9rem;
   line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* the hand-off between stages */
+.vst-arrow {
+  position: absolute;
+  top: 56px;
+  right: -2.1rem;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--border);
+  border-right: 2px solid var(--border);
+  transform: rotate(45deg);
+  animation: vst-arrow 9s calc(var(--i) * 2.4s + 1.6s) infinite;
+}
+@keyframes vst-arrow {
+  0%, 14%, 100% { border-color: var(--border); }
+  20%, 30% { border-color: var(--cyan); }
+}
+
+@media (max-width: 860px) {
+  .vst-build {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+  .vst-visual { min-height: 0; }
+  .vst-arrow { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vst-piece, .vst-arrow { animation: none; opacity: 1; transform: none; }
+  .vst-arrow { transform: rotate(45deg); }
 }

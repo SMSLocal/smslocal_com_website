@@ -150,21 +150,19 @@ function MessengerHeroFlow() {
         <g className="msgflow-hub">
           <circle className="msgflow-hub-pulse" cx="300" cy="205" r="60" />
           <circle cx="300" cy="205" r="60" fill="url(#msgflow-hub)" />
-          {/* Clean, symmetric speech-bubble glyph, centred on the hub */}
-          <g transform="translate(300 205)">
-            <path
-              d="M -13 -15 H 13 Q 20 -15 20 -8 V 1 Q 20 8 13 8 H 5 L 0 16 L -5 8 H -13 Q -20 8 -20 1 V -8 Q -20 -15 -13 -15 Z"
-              fill="none"
-              stroke="#fff"
-              strokeWidth="2.6"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            />
-            <g fill="#fff">
-              <circle cx="-7" cy="-3.5" r="2" />
-              <circle cx="0" cy="-3.5" r="2" />
-              <circle cx="7" cy="-3.5" r="2" />
-            </g>
+          {/* The real Messenger mark, not a generic speech bubble.
+              Drawn inline rather than referenced from /logos/messenger.svg
+              because an <image> in another document cannot inherit the white
+              fill it needs here — the same glyph is kept in public/logos for
+              reuse elsewhere.
+              Authored by hand: every Meta brand (and Telegram) has been
+              removed from the Simple Icons dataset upstream, even though the
+              CDN still serves stale copies, so pulling it from there would
+              ship a withdrawn asset.
+              The path is a 24x24 glyph, scaled 2.33x to ~56px and offset by
+              half that so it centres on the hub at (300, 205). */}
+          <g transform="translate(272 177) scale(2.3333)" fill="#fff">
+            <path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.974 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8l3.13 3.259L19.752 8l-6.561 6.963z" />
           </g>
           <text x="300" y="292" className="msgflow-hub-label">Shared inbox</text>
           <text x="300" y="310" className="msgflow-hub-sub">AI answers, then routes</text>

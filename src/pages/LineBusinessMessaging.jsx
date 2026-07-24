@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconPackage, IconMenu, IconReceipt, IconChat } from '../components/icons.jsx'
-import LineHeroLoyalty from '../components/LineHeroLoyalty.jsx'
+import LineHeroRoute from '../components/LineHeroRoute.jsx'
 import LineUsageRings from '../components/LineUsageRings.jsx'
 import {
   CapabilitySpotlight,
@@ -32,11 +32,11 @@ const STEPS = [
 ]
 
 const COMPARE_ROWS = [
-  { feature: 'Team access', left: 'One login at a time', right: 'Unlimited team seats' },
-  { feature: 'Automation', left: 'Manual replies only', right: 'Auto-replies, flows & AI handoff' },
-  { feature: 'Rich messages', left: 'Basic templates only', right: 'Custom flex messages & rich menus' },
-  { feature: 'Integrations', left: 'None', right: 'CRM, helpdesk & store integrations' },
-  { feature: 'Reporting', left: 'Basic message counts', right: 'Delivery, read & reply analytics' },
+  { feature: 'Team access', left: 'One login at a time', right: 'Unlimited team seats', why: 'One shared login means one agent replying at a time — everyone else waits. Unlimited seats let your whole team answer at once.' },
+  { feature: 'Automation', left: 'Manual replies only', right: 'Auto-replies, flows & AI handoff', why: 'Every message typed by hand doesn’t scale past a few chats a day. Automated flows and AI handoff cover the repetitive 80% for you.' },
+  { feature: 'Rich messages', left: 'Basic templates only', right: 'Custom flex messages & rich menus', why: 'Stock templates look like everyone else’s account. Custom flex messages and rich menus carry your own branding and layout.' },
+  { feature: 'Integrations', left: 'None', right: 'CRM, helpdesk & store integrations', why: 'With no integrations, every reply starts from zero context. Connected to your CRM or store, agents see the order and history instantly.' },
+  { feature: 'Reporting', left: 'Basic message counts', right: 'Delivery, read & reply analytics', why: 'A raw message count can’t tell you what worked. Delivery, read and reply analytics show exactly where customers drop off.' },
 ]
 
 const TESTIMONIALS = [
@@ -67,7 +67,7 @@ function LineBusinessMessaging() {
         subtitle="Two-way chat, flex messages and a rich menu — integrated with WhatsApp, SMS and the rest of your channels, not run in isolation."
         primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<LineHeroLoyalty />}
+        visual={<LineHeroRoute />}
       />
 
       <LineUsageRings

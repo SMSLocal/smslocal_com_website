@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconRobot, IconMegaphone, IconPlug, IconUsers, IconLink, IconMail } from '../components/icons.jsx'
@@ -5,24 +6,37 @@ import TelegramHeroMock from '../components/TelegramHeroMock.jsx'
 import TelegramBotSetup from '../components/TelegramBotSetup.jsx'
 import './TelegramBusiness.css'
 
-const BOT_POINTS = [
-  'Tap-to-act buttons — customers never guess a command',
-  'AI answers, then hands off to a human with full history',
-  'Remembers context across every visit, not just one session',
-]
-const CAST_POINTS = [
-  'Segmented one-to-many channel broadcasts',
-  'Delivery and read tracking on every send',
-  'Replies flow straight back into one shared inbox',
+const MODES = [
+  {
+    key: 'bots',
+    icon: <IconRobot />,
+    label: 'Two-way bots',
+    desc: 'Commands, inline keyboards and AI answers that actually remember the customer.',
+    points: [
+      'Tap-to-act buttons — customers never guess a command',
+      'AI answers, then hands off to a human with full history',
+      'Remembers context across every visit, not just one session',
+    ],
+  },
+  {
+    key: 'broadcasts',
+    icon: <IconMegaphone />,
+    label: 'Channel broadcasts',
+    desc: 'Publish one-to-many posts to your subscribers and see exactly how they land.',
+    points: [
+      'Segmented one-to-many channel broadcasts',
+      'Delivery and read tracking on every send',
+      'Replies flow straight back into one shared inbox',
+    ],
+  },
 ]
 
 const BUTTONS = [
-  { label: '/start', kind: 'cmd' },
-  { label: '🛒 Track Order', kind: 'btn' },
-  { label: '📦 Order status', kind: 'btn' },
-  { label: '📚 Browse Catalog', kind: 'btn' },
-  { label: '💬 Talk to Support', kind: 'btn' },
-  { label: '❓ FAQ', kind: 'btn' },
+  { label: '🛒 Track Order', pct: 38, reply: 'Order #4812 is out for delivery, arriving today by 6 PM. You’ll get another tap-to-track update the moment it’s dropped off.' },
+  { label: '📦 Order status', pct: 24, reply: 'Your last 3 orders are all delivered — nothing pending right now. Reordering any of them takes one tap, no forms to refill.' },
+  { label: '📚 Browse Catalog', pct: 18, reply: 'Here’s the full catalog: sms.local/shop — new arrivals are pinned to the top. Every product card opens straight into checkout, no app switch needed.' },
+  { label: '💬 Talk to Support', pct: 14, reply: 'Connecting you to a human agent now — average reply time is under 2 minutes. They’ll see this whole conversation already, so you won’t repeat yourself.' },
+  { label: '❓ FAQ', pct: 6, reply: 'Most asked question: “Where’s my order?” — tap Track Order any time to check. Can’t find your answer here? Tap Talk to Support and a human takes over instantly.' },
 ]
 
 const STEPS = [
@@ -52,6 +66,8 @@ const FAQS = [
 ]
 
 function TelegramBusiness() {
+  const [activeIndex, setActiveIndex] = useState(null)
+
   return (
     <>
       <Seo
@@ -69,53 +85,88 @@ function TelegramBusiness() {
         visual={<TelegramHeroMock />}
       />
 
-      {/* INNER 1 — two-mode split: bots | broadcasts */}
+      {/* INNER 1 — full-bleed diagonal split, one job on each side of the page */}
       <section className="section tg-modes">
         <div className="container">
           <span className="section-kicker">Two jobs, one platform</span>
           <h2 className="section-title">Bots that talk back, and broadcasts that reach everyone</h2>
-          <div className="tg-modes-grid">
-            <div className="tg-mode">
-              <span className="tg-mode-icon"><IconRobot /></span>
-              <h3>Two-way bots</h3>
-              <p>Commands, inline keyboards and AI answers that actually remember the customer.</p>
-              <ul>{BOT_POINTS.map((p) => <li key={p}>{p}</li>)}</ul>
+        </div>
+
+        <div className="tg-split">
+          {MODES.map((m) => (
+            <div className={`tg-split-half tg-split-half--${m.key}`} key={m.key}>
+              <div className="tg-split-inner">
+                <span className="tg-split-icon">{m.icon}</span>
+                <h3>{m.label}</h3>
+                <p>{m.desc}</p>
+                <ul className="tg-split-points">
+                  {m.points.map((p) => (
+                    <li key={p}><span>✓</span>{p}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="tg-mode-split" aria-hidden="true"><span>+</span></div>
-            <div className="tg-mode">
-              <span className="tg-mode-icon"><IconMegaphone /></span>
-              <h3>Channel broadcasts</h3>
-              <p>Publish one-to-many posts to your subscribers and see exactly how they land.</p>
-              <ul>{CAST_POINTS.map((p) => <li key={p}>{p}</li>)}</ul>
-            </div>
-          </div>
+          ))}
+          <span className="tg-split-badge" aria-hidden="true"><IconLink /></span>
         </div>
       </section>
 
-      {/* INNER 2 — inline-keyboard command showcase, explained as a flow */}
+      {/* INNER 2 — a genuinely clickable mini-demo: tap a button, get a real reply */}
       <section className="section section-alt tg-keys">
-        <div className="container tg-keys-inner">
-          <div className="tg-keys-copy">
-            <span className="section-kicker">Tap, don’t type</span>
-            <h2 className="section-title">Everything happens with a button</h2>
-            <p className="section-subtitle">Your customers never guess a command. They tap a labelled button, and the bot — or your AI — takes it from there.</p>
-          </div>
+        <div className="container">
+          <span className="section-kicker">Tap, don’t type</span>
+          <h2 className="section-title">Everything happens with a button</h2>
+          <p className="section-subtitle">Your customers never guess a command. Try it — tap a button below and see what your bot sends back.</p>
 
-          <div className="tg-flow" aria-hidden="true">
-            <div className="tg-flow-step">
-              <span className="tg-flow-label">Step 1 — typed once, to begin</span>
-              <span className="tg-key tg-key--cmd">/start</span>
-            </div>
+          <div className="tg-live">
+            <div className="tg-live-main">
+              <span className="tg-live-typed">/start</span>
+              <p className="tg-live-prompt">
+                <span className="tg-live-avatar">🤖</span>
+                Welcome back — what can I help you with?
+              </p>
 
-            <span className="tg-flow-arrow">↓</span>
-
-            <div className="tg-flow-step">
-              <span className="tg-flow-label">Step 2 — every reply after is a tap, never typed again</span>
-              <div className="tg-keyboard">
-                {BUTTONS.filter((b) => b.kind === 'btn').map((b) => (
-                  <span className="tg-key tg-key--btn" key={b.label}>{b.label}</span>
+              <div className="tg-live-keyboard">
+                {BUTTONS.map((b, i) => (
+                  <button
+                    type="button"
+                    key={b.label}
+                    className={`tg-live-key${activeIndex === i ? ' tg-live-key--active' : ''}`}
+                    style={{ '--d': `${i * 0.08}s` }}
+                    onClick={() => setActiveIndex(i)}
+                  >
+                    {activeIndex === null && i === 0 && <span className="tg-live-tap" aria-hidden="true" />}
+                    {b.label}
+                  </button>
                 ))}
               </div>
+
+              <div className="tg-live-reply-slot" aria-live="polite">
+                {activeIndex !== null ? (
+                  <p className="tg-live-reply">{BUTTONS[activeIndex].reply}</p>
+                ) : (
+                  <span className="tg-live-hint">↑ go ahead, tap one — no typing needed</span>
+                )}
+              </div>
+            </div>
+
+            <div className="tg-live-side">
+              <span className="tg-live-side-label">What customers tap most</span>
+              <ul className="tg-live-bars">
+                {BUTTONS.map((b, i) => (
+                  <li
+                    key={b.label}
+                    className={`tg-live-bar-row${activeIndex === i ? ' tg-live-bar-row--active' : ''}`}
+                  >
+                    <span className="tg-live-bar-label">{b.label.replace(/^\S+\s/, '')}</span>
+                    <span className="tg-live-bar-track">
+                      <span className="tg-live-bar-fill" style={{ width: `${b.pct}%` }} />
+                    </span>
+                    <span className="tg-live-bar-pct">{b.pct}%</span>
+                  </li>
+                ))}
+              </ul>
+              <span className="tg-live-side-note">Tap a button on the left to see its share light up.</span>
             </div>
           </div>
         </div>
@@ -128,15 +179,14 @@ function TelegramBusiness() {
         steps={STEPS}
       />
 
-      {/* INNER 4 — why us: ghost-numeral benefits, 4 across */}
+      {/* INNER 4 — why us: asymmetric bento mosaic, not a uniform 4-up grid */}
       <section className="section section-alt tg-why">
         <div className="container">
           <span className="section-kicker">Why us</span>
           <h2 className="section-title">Why teams run Telegram on SMSLocal</h2>
-          <div className="tg-why-grid">
+          <div className="tg-why-bento">
             {WHY.map((w, i) => (
-              <div className="tg-why-cell" key={w.title}>
-                <span className="tg-why-ghost">{`0${i + 1}`}</span>
+              <div className={`tg-why-tile tg-why-tile--${['big', 'wide', 'small', 'small'][i]}`} key={w.title}>
                 <span className="tg-why-icon">{w.icon}</span>
                 <h3>{w.title}</h3>
                 <p>{w.desc}</p>

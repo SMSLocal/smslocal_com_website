@@ -14,29 +14,17 @@ function LineUsageRings({ eyebrow, heading, paragraphs = [], caption, meters = [
         {heading && <h2 className="section-title">{heading}</h2>}
         {paragraphs.map((p, i) => <p className="section-subtitle lud-lead" key={i}>{p}</p>)}
 
-        <svg width="0" height="0" aria-hidden="true" style={{ position: 'absolute' }}>
-          <defs>
-            <linearGradient id="ludGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="var(--blue)" />
-              <stop offset="1" stopColor="var(--cyan)" />
-            </linearGradient>
-          </defs>
-        </svg>
-
         {caption && <span className="lud-caption">{caption}</span>}
 
-        <div className="lud">
-          {meters.map((m) => (
-            <div className={m.pct >= 50 ? 'lud-item is-used' : 'lud-item'} key={m.name}>
-              <div className="lud-ring">
-                <svg viewBox="0 0 40 40">
-                  <circle className="lud-track" cx="20" cy="20" r="16" />
-                  <circle className="lud-prog" cx="20" cy="20" r="16" pathLength="100" style={{ strokeDasharray: `${m.pct} 100` }} />
-                </svg>
-                <span className="lud-pct">{m.pct}<i>%</i></span>
+        <div className="lub">
+          {meters.map((m, i) => (
+            <div className={m.pct >= 50 ? 'lub-row is-used' : 'lub-row'} key={m.name} style={{ '--d': `${i * 0.09}s` }}>
+              <span className="lub-name">{m.name}</span>
+              <div className="lub-track">
+                <span className="lub-fill" style={{ width: `${m.pct}%` }} />
               </div>
-              <span className="lud-name">{m.name}</span>
-              <span className="lud-status">{m.pct >= 50 ? 'In use' : 'Idle'}</span>
+              <span className="lub-pct">{m.pct}<i>%</i></span>
+              <span className="lub-status">{m.pct >= 50 ? 'In use' : 'Idle'}</span>
             </div>
           ))}
         </div>
