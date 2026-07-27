@@ -17,7 +17,8 @@ import CompareHub from './pages/CompareHub.jsx'
 import CompareTwilio from './pages/CompareTwilio.jsx'
 import CompareInfobip from './pages/CompareInfobip.jsx'
 import AiAgentsOverview from './pages/AiAgentsOverview.jsx'
-import Blog from './pages/Blog.jsx'
+import BlogIndex from './pages/blog/BlogIndex.jsx'
+import BlogPost from './pages/blog/BlogPost.jsx'
 import ResourcesGuides from './pages/ResourcesGuides.jsx'
 import ResourcesDocs from './pages/ResourcesDocs.jsx'
 import ResourcesCaseStudies from './pages/ResourcesCaseStudies.jsx'
@@ -118,7 +119,8 @@ function App() {
           <Route path="/compare/plivo" element={<ComparePlivo />} />
           <Route path="/compare/infobip" element={<CompareInfobip />} />
 
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/resources/guides" element={<ResourcesGuides />} />
           <Route path="/resources/docs" element={<ResourcesDocs />} />
           <Route path="/resources/case-studies" element={<ResourcesCaseStudies />} />

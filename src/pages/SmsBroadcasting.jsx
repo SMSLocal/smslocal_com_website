@@ -1,9 +1,10 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconLink, IconShield, IconUsers, IconClock, IconChart, IconChat } from '../components/icons.jsx'
-import SmsChatMock from '../components/SmsChatMock.jsx'
+import SmsBroadcastHero from '../components/SmsBroadcastHero.jsx'
 import BroadcastCapabilityOrbit from '../components/BroadcastCapabilityOrbit.jsx'
-import BroadcastSteps from '../components/BroadcastSteps.jsx'
+import BroadcastLaunchConsole from '../components/BroadcastLaunchConsole.jsx'
+import BroadcastInboxScene from '../components/BroadcastInboxScene.jsx'
 import BroadcastMetrics from '../components/BroadcastMetrics.jsx'
 
 const CAPABILITIES = [
@@ -53,7 +54,7 @@ function SmsBroadcasting() {
         subtitle="Send segmented, personalized SMS campaigns to your entire opted-in audience — with link tracking, delivery receipts and automatic STOP/HELP handling, and AI answering every reply."
         primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<SmsChatMock />}
+        visual={<SmsBroadcastHero />}
       />
 
       <BroadcastCapabilityOrbit
@@ -63,11 +64,16 @@ function SmsBroadcasting() {
         items={CAPABILITIES}
       />
 
-      <BroadcastSteps
+      <BroadcastLaunchConsole
         eyebrow="How it works"
-        title={<>From opt-in list to live delivery in four steps</>}
-        subtitle="Import, personalize, segment, send — then track every message as it lands."
-        steps={STEPS}
+        title={<>From opt-in list to live delivery</>}
+        subtitle="Step through it — each stage runs the real thing, from importing consent records to receipts landing live."
+      />
+
+      <BroadcastInboxScene
+        eyebrow="Use cases"
+        title={<>What teams actually broadcast</>}
+        subtitle="The messages that earn their place in someone's SMS inbox — and what each one is worth."
       />
 
       <BroadcastMetrics

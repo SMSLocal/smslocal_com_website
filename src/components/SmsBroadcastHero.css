@@ -1,0 +1,207 @@
+/* Hero visual for /channels/sms-broadcasting — global routing map.
+   All timing is CSS (staggered --d delays on a shared 6s loop) because rAF
+   does not tick reliably in the in-app preview browser.
+   Height stays tight so hero visual + copy fit one viewport frame. */
+
+.sbh {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- the map ---- */
+.sbh-map {
+  position: relative;
+  width: 100%;
+}
+
+.sbh-dots {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.6; /* barely-there texture */
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ---- routes ---- */
+.sbh-routes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* BASE — every route permanently drawn. No animation on this layer, so the
+   composition always reads as a completed broadcast even if motion is off. */
+.sbh-route {
+  fill: none;
+  stroke: url(#sbhRoute);
+  stroke-width: 1;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.4;
+}
+
+/* MOTION — a short pulse travelling along each route, layered on top. */
+.sbh-flow {
+  fill: none;
+  stroke: url(#sbhRoute);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 0.12 0.88;
+  stroke-dashoffset: 1;
+  animation: sbh-travel 6s linear infinite;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes sbh-travel {
+  0%   { stroke-dashoffset: 1; opacity: 0; }
+  6%   { opacity: 1; }
+  45%  { stroke-dashoffset: 0; opacity: 1; }
+  55%  { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* ---- the send hub ---- */
+.sbh-hub {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.sbh-hub-core {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.16), 0 4px 12px -2px rgba(79, 91, 213, 0.9);
+}
+
+.sbh-hub-ping {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin: -5.5px 0 0 -5.5px;
+  border-radius: 50%;
+  border: 1.5px solid #ec4899;
+  animation: sbh-ping 6s ease-out infinite;
+}
+@keyframes sbh-ping {
+  0%   { transform: scale(1); opacity: 0.8; }
+  30%  { transform: scale(3.4); opacity: 0; }
+  100% { transform: scale(3.4); opacity: 0; }
+}
+
+.sbh-hub-tag {
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  transform: translateX(-50%);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #4f5bd5;
+  white-space: nowrap;
+}
+
+/* ---- delivered bubbles ---- */
+.sbh-drop {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.sbh-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: #0ea5a5;
+  box-shadow: 0 0 0 3px rgba(14, 165, 165, 0.18);
+  opacity: 1; /* permanently landed — no animation on this layer */
+}
+
+/* the SMS bubble — small, topic-appropriate, with a tail */
+.sbh-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  /* BASE = delivered bubble already shown */
+  transform: translateX(-50%) scale(1);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 7px;
+  border-radius: 9px 9px 9px 3px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: linear-gradient(135deg, #0ea5a5, #22c3b4);
+  box-shadow: 0 6px 14px -6px rgba(14, 165, 165, 0.9);
+  white-space: nowrap;
+  /* permanently delivered — motion lives on the travelling route pulse only */
+  opacity: 1;
+}
+
+/* ---- naked readout ---- */
+.sbh-readout {
+  margin: 16px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted, #8a93a3);
+}
+.sbh-readout strong {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy, #16203a);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.sbh-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--border, #cfd5df);
+  align-self: center;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 900px) { .sbh { max-width: 460px; } }
+
+@media (max-width: 560px) {
+  .sbh { max-width: 100%; }
+  .sbh-bubble { font-size: 8.5px; padding: 2px 5px; }
+  .sbh-hub-tag { font-size: 8.5px; }
+  .sbh-readout strong { font-size: 18px; }
+}
+
+/* fully-delivered static state */
+@media (prefers-reduced-motion: reduce) {
+  .sbh-route { animation: none; stroke-dashoffset: 0; opacity: 0.9; }
+  .sbh-hub-ping { display: none; }
+  .sbh-pin { animation: none; opacity: 1; }
+  .sbh-bubble { animation: none; opacity: 1; transform: translateX(-50%) scale(1); }
+}

@@ -1,6 +1,6 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import FeatureSpotlight from '../components/FeatureSpotlight.jsx'
+import CopilotDraftDemo from '../components/CopilotDraftDemo.jsx'
 import WhatsappStepsFlow from '../components/WhatsappStepsFlow.jsx'
 import WhyUsDividers from '../components/WhyUsDividers.jsx'
 import { IconPencil, IconBook, IconBolt, IconChat, IconClock, IconCheck, IconChart, IconUsers } from '../components/icons.jsx'
@@ -69,11 +69,10 @@ function ProductsAgentCopilot() {
         alt
       />
 
-      <FeatureSpotlight
-        eyebrow="Features"
-        title="Everything an agent needs, already in the reply box"
-        subtitle="Drafts, summaries and knowledge-grounded answers, without leaving the conversation."
-        items={FEATURES}
+      <CopilotDraftDemo
+        eyebrow="See it work"
+        title="Watch it draft a real reply, live"
+        subtitle="Pick any incoming message. The copilot reads the thread, pulls from your knowledge base, and writes the reply — your agent still reviews and sends."
       />
 
       <WhatsappStepsFlow

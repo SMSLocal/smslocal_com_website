@@ -4,7 +4,7 @@ import './Navbar.css'
 import {
   IconMegaphone, IconChat, IconBolt, IconPhone, IconRobot, IconGlobe, IconLink, IconShield,
   IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCalendar, IconReceipt, IconCart, IconDollar,
-  IconNewspaper, IconBook, IconCode, IconInfo, IconHandshake, IconBriefcase, IconMenu,
+  IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu,
 } from './icons.jsx'
 import { ChevronDown } from 'lucide-react'
 import { CompareLogo } from './CompareLogo.jsx'
@@ -145,7 +145,6 @@ const PLATFORM = [
 ]
 
 const RESOURCES = [
-  { t: 'Pricing', d: 'Plans & transparent pricing', i: <IconReceipt />, href: '/pricing' },
   { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog' },
   { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides' },
   { t: 'Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
@@ -157,13 +156,6 @@ const COMPARE = [
   { name: 'Bird', domain: 'bird.com', href: '/compare/bird', d: 'Marketing & CX messaging' },
   { name: 'Plivo', domain: 'plivo.com', href: '/compare/plivo', d: 'Communications APIs' },
   { name: 'Infobip', domain: 'infobip.com', href: '/compare/infobip', d: 'Global omnichannel CPaaS' },
-]
-
-const COMPANY = [
-  { t: 'About', d: 'Our story & mission', i: <IconInfo />, href: '/about-us' },
-  { t: 'Contact', d: 'Talk to our team', i: <IconPhone />, href: '/contact-us' },
-  { t: 'Partners', d: 'Partner & reseller program', i: <IconHandshake />, href: '/partnerships' },
-  { t: 'Careers', d: "We're hiring", i: <IconBriefcase />, href: '/careers' },
 ]
 
 function ItemLink({ item, onNavigate }) {
@@ -353,22 +345,9 @@ function Navbar() {
             )}
           </div>
 
-          {/* Company — simple dropdown */}
-          <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('company')}>
-            <button type="button" className="nav-trigger" onClick={() => toggleMenu('company')}>
-              Company <Caret open={openMenu === 'company'} />
-            </button>
-            {openMenu === 'company' && (
-              <div className="dropdown-wrapper">
-                <div className="dropdown">
-                  <ul>
-                    {COMPANY.map((item) => (
-                      <li key={item.t}><ItemLink item={item} onNavigate={closeAll} /></li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
+          {/* Pricing — plain link (Company links now live in the footer only) */}
+          <div className="nav-item" onMouseEnter={() => setOpenMenu(null)}>
+            <Link to="/pricing" className="nav-item-link" onClick={closeAll}>Pricing</Link>
           </div>
 
           <div className="nav-auth mobile-only">

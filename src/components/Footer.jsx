@@ -41,6 +41,7 @@ const COLUMNS = [
     links: [
       { t: 'About Us', href: '/about-us' },
       { t: 'Careers', href: '/careers' },
+      { t: 'Partners', href: '/partnerships' },
       { t: 'Contact', href: '/contact-us' },
       { t: 'Privacy Policy', href: '/privacy-policy' },
     ],

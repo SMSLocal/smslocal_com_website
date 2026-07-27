@@ -1,0 +1,326 @@
+/* Flagship interactive section for /products/agent-copilot.
+   Floats on the page background — deliberately no outer card/panel frame. */
+
+.cdd-section {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cdd-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 78% 30%, rgba(79, 91, 213, 0.07), transparent 70%),
+    radial-gradient(50% 45% at 20% 70%, rgba(236, 72, 153, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.cdd-inner { position: relative; }
+
+.cdd-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px;
+}
+
+/* ---- stage: queue on the left, composer on the right ---- */
+.cdd-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 40px;
+  align-items: start;
+}
+
+/* ---- LEFT: incoming question queue ---- */
+.cdd-queue {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cdd-queue-label,
+.cdd-sources-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted, #6b7280);
+}
+
+.cdd-q {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+  opacity: 0.62;
+}
+
+.cdd-q:hover { opacity: 0.9; transform: translateX(3px); }
+
+.cdd-q.is-active {
+  opacity: 1;
+  border-color: transparent;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)) padding-box,
+    linear-gradient(135deg, #4f5bd5, #ec4899) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 14px 34px -18px rgba(79, 91, 213, 0.55);
+}
+
+.cdd-q-top { display: flex; align-items: center; gap: 10px; }
+
+.cdd-avatar {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.cdd-avatar--0 { background: linear-gradient(135deg, #4f5bd5, #7c8ce8); }
+.cdd-avatar--1 { background: linear-gradient(135deg, #0ea5a5, #34d3c4); }
+.cdd-avatar--2 { background: linear-gradient(135deg, #ec4899, #f472b6); }
+
+.cdd-q-id { display: flex; flex-direction: column; line-height: 1.25; margin-right: auto; }
+.cdd-q-id strong { font-size: 13.5px; color: var(--navy, #111827); }
+.cdd-q-id span { font-size: 11.5px; color: var(--muted, #6b7280); }
+
+.cdd-mood {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.cdd-mood--urgent { background: rgba(244, 63, 94, 0.12); color: #e11d48; }
+.cdd-mood--confused { background: rgba(245, 158, 11, 0.14); color: #b45309; }
+.cdd-mood--neutral { background: rgba(107, 114, 128, 0.12); color: #4b5563; }
+
+.cdd-q-text {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--body, #374151);
+}
+
+/* progress bar under the active question */
+.cdd-q-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2.5px;
+  width: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, #4f5bd5, #ec4899);
+  animation: cdd-run 7.5s linear forwards;
+}
+@keyframes cdd-run { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---- RIGHT: the composer the copilot writes into ---- */
+.cdd-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border, #e5e7eb);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 30px 70px -40px rgba(17, 24, 39, 0.4);
+  animation: cdd-in 0.45s ease both;
+}
+@keyframes cdd-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.cdd-composer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+}
+
+.cdd-composer-title { font-size: 13px; color: var(--muted, #6b7280); }
+.cdd-composer-title strong { color: var(--navy, #111827); }
+
+.cdd-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted, #6b7280);
+}
+.cdd-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.cdd-status--reading { color: #6b7280; }
+.cdd-status--drafting { color: #4f5bd5; }
+.cdd-status--ready { color: #0f9d76; }
+.cdd-status--reading .cdd-status-dot,
+.cdd-status--drafting .cdd-status-dot { animation: cdd-pulse 1.1s ease-in-out infinite; }
+@keyframes cdd-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.8); } }
+
+/* knowledge source chips */
+.cdd-sources { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.cdd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 11px 5px 7px;
+  border-radius: 999px;
+  border: 1px dashed var(--border, #e5e7eb);
+  color: var(--muted, #9ca3af);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.cdd-chip-tick {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--border, #e5e7eb);
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.cdd-chip.is-lit {
+  border-style: solid;
+  border-color: rgba(79, 91, 213, 0.28);
+  background: rgba(79, 91, 213, 0.07);
+  color: #3b45b0;
+  animation: cdd-pop 0.34s ease both;
+}
+.cdd-chip.is-lit .cdd-chip-tick { background: linear-gradient(135deg, #4f5bd5, #ec4899); }
+@keyframes cdd-pop {
+  0% { transform: scale(0.94); opacity: 0.4; }
+  60% { transform: scale(1.04); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* the draft box */
+.cdd-box {
+  position: relative;
+  min-height: 132px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(79, 91, 213, 0.045), rgba(236, 72, 153, 0.03));
+  border: 1px solid rgba(79, 91, 213, 0.16);
+}
+
+.cdd-draft {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--navy, #111827);
+}
+
+.cdd-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #4f5bd5;
+  animation: cdd-blink 0.9s steps(2, start) infinite;
+}
+@keyframes cdd-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.cdd-badge {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 6px 16px -6px rgba(79, 91, 213, 0.7);
+  animation: cdd-pop 0.3s ease both;
+}
+
+/* actions row */
+.cdd-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cdd-hint { font-size: 12px; color: var(--muted, #9ca3af); }
+.cdd-btns { display: inline-flex; gap: 9px; }
+
+.cdd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 10px;
+  user-select: none;
+}
+.cdd-btn--ghost { border: 1px solid var(--border, #e5e7eb); color: var(--body, #4b5563); }
+.cdd-btn--send {
+  color: #fff;
+  background: #c7cbd6;
+  transition: background 0.35s, box-shadow 0.35s, transform 0.25s;
+}
+.cdd-btn--send.is-armed {
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 12px 26px -12px rgba(79, 91, 213, 0.8);
+  transform: translateY(-1px);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 900px) {
+  .cdd-section { padding: 72px 0; }
+  .cdd-stage { grid-template-columns: 1fr; gap: 26px; }
+  .cdd-composer { order: -1; }
+}
+
+@media (max-width: 560px) {
+  .cdd-composer { padding: 18px 16px 16px; }
+  .cdd-box { min-height: 156px; padding: 16px; }
+  .cdd-actions { flex-direction: column; align-items: stretch; }
+  .cdd-btns { justify-content: flex-end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cdd-q-bar,
+  .cdd-caret,
+  .cdd-status-dot { animation: none; }
+  .cdd-composer, .cdd-chip.is-lit, .cdd-badge { animation: none; }
+}

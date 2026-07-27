@@ -1,0 +1,45 @@
+/* Bridges the variable names the blog CSS modules were authored against
+   (--bg / --surface / --text / --muted / --brand / --brand-soft / --grad)
+   onto the site theme in styles/theme.css. Scoped to .blog-scope so the
+   redefinition of --muted (a text colour here, a background elsewhere on
+   the site) can't leak into the rest of the app. */
+.blog-scope {
+  --bg: var(--bg-subtle);
+  --surface: #ffffff;
+  --text: var(--ink);
+  --muted: var(--text-secondary);
+  --brand: var(--primary);
+  --brand-soft: rgba(21, 73, 137, 0.08);
+  --grad: var(--gradient-brand);
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* The blog headings opt out of the global -0.06em tracking / weight 400 that
+   theme.css applies site-wide; each module sets its own. Reset the margins
+   the modules assume are zero. */
+.blog-scope h1,
+.blog-scope h2,
+.blog-scope h3,
+.blog-scope h4,
+.blog-scope p,
+.blog-scope ul,
+.blog-scope ol,
+.blog-scope blockquote,
+.blog-scope figure {
+  margin: 0;
+}
+
+.blog-scope a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Title accent used by both blog templates (`<span className="serifItalic">`). */
+.blog-scope .serifItalic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand);
+}
