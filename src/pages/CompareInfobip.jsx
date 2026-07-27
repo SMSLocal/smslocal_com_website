@@ -28,9 +28,9 @@ const SPOTLIGHT = [
 ]
 
 const SIBLINGS = [
-  { name: 'Haptik', domain: 'haptik.ai', slug: 'haptik' },
+  { name: 'Bird', domain: 'bird.com', slug: 'bird' },
   { name: 'Twilio', domain: 'twilio.com', slug: 'twilio' },
-  { name: 'Twixor', domain: 'twixor.com', slug: 'twixor' },
+  { name: 'Plivo', domain: 'plivo.com', slug: 'plivo' },
 ]
 
 function CompareInfobip() {

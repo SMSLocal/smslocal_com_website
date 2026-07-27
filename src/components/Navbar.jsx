@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import {
-  IconMegaphone, IconChat, IconBolt, IconPhone, IconRobot, IconGlobe, IconLink, IconShield, IconMail,
-  IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCart, IconCalendar, IconDollar, IconReceipt, IconSearch,
+  IconMegaphone, IconChat, IconBolt, IconPhone, IconRobot, IconGlobe, IconLink, IconShield,
+  IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCalendar, IconReceipt, IconCart, IconDollar,
   IconNewspaper, IconBook, IconCode, IconInfo, IconHandshake, IconBriefcase, IconMenu,
 } from './icons.jsx'
 import { ChevronDown } from 'lucide-react'
@@ -18,7 +18,7 @@ function Caret({ open }) {
 
 // --- Product mega: three sub-divisions -----------------------------------
 const CHANNELS = [
-  { t: 'Bulk SMS', d: 'High-volume SMS campaigns', i: <IconMegaphone />, href: '/bulk-sms' },
+  { t: 'SMS Broadcasting', d: 'A2P bulk SMS at scale', i: <IconMegaphone />, href: '/channels/sms-broadcasting' },
   { t: 'WhatsApp Business API', d: 'Official WhatsApp messaging', i: <IconChat />, href: '/channels/whatsapp' },
   { t: 'WhatsApp Broadcasting', d: 'One broadcast, thousands of chats', i: <IconMegaphone />, href: '/channels/whatsapp-broadcasting' },
   { t: 'RCS Messaging', d: 'Rich cards & suggested replies', i: <IconBolt />, href: '/channels/rcs' },
@@ -31,31 +31,15 @@ const SOCIAL_APPS = [
   { t: 'Social Inbox', d: 'Every social DM in one inbox', i: <IconUsers />, href: '/channels/social' },
   { t: 'Instagram', d: 'DMs answered instantly', i: <IconGlobe />, href: '/channels/instagram' },
   { t: 'Messenger', d: 'Facebook Messenger, 24/7', i: <IconLink />, href: '/channels/messenger' },
-  { t: 'Viber', d: 'Reach Viber users directly', i: <IconPhone />, href: '/viber-business-messages' },
-  { t: 'Telegram', d: 'Automated Telegram messaging', i: <IconRobot />, href: '/telegram-business' },
-  { t: 'Apple Messages', d: 'Native iMessage business chat', i: <IconShield />, href: '/apple-messages-for-business' },
-  { t: 'LINE', d: 'Message LINE users at scale', i: <IconChat />, href: '/line-business-messaging' },
-  { t: 'Email', d: 'Transactional & bulk email', i: <IconMail />, href: '/email-api' },
-]
-
-const CHATBOTS = [
-  { t: 'Chatbot Platform', d: 'Build bots for every channel', i: <IconRobot />, href: '/chatbot' },
-  { t: 'No-Code Builder', d: 'Drag-and-drop chatbot builder', i: <IconGear />, href: '/chatbot/builder' },
-  { t: 'WhatsApp Chatbot', d: '24/7 answers & lead capture', i: <IconChat />, href: '/chatbot/whatsapp' },
-  { t: 'Website Chatbot', d: 'FAQs & live-agent handoff', i: <IconCode />, href: '/chatbot/website' },
-  { t: 'SMS Chatbot', d: 'Two-way automated SMS', i: <IconMegaphone />, href: '/chatbot/sms' },
-  { t: 'RCS Chatbot', d: 'Rich interactive chatbot', i: <IconBolt />, href: '/chatbot/rcs' },
-  { t: 'Instagram Chatbot', d: 'Automate Instagram DMs', i: <IconGlobe />, href: '/chatbot/instagram-messenger' },
+  { t: 'Web Chat', d: 'Customisable widget, answered by AI', i: <IconCode />, href: '/channels/web-chat' },
 ]
 
 const AI_AGENTS = [
   { t: 'AI Agents', d: 'AI agents for every conversation', i: <IconRobot />, href: '/ai-agents' },
   { t: 'Agentic AI', d: 'Takes action, not just answers', i: <IconBrain />, href: '/agentic-ai' },
+  { t: 'AI Support Agent', d: 'Tier-one ticket deflection', i: <IconBook />, href: '/ai-agents/support' },
   { t: 'Voice AI Agent', d: 'Natural phone agent that resolves calls', i: <IconMic />, href: '/voice-ai-agents' },
-  { t: 'Agent Assist', d: 'Copilot that drafts replies', i: <IconUsers />, href: '/ai-agents/agent-assist' },
   { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/ai-agents/agent-builder' },
-  { t: 'Omnichannel Agent', d: 'One agent across every channel', i: <IconGlobe />, href: '/ai-agents/omnichannel-agent' },
-  { t: 'WhatsApp AI Agent', d: 'Autonomous agent on WhatsApp', i: <IconChat />, href: '/ai-agents/whatsapp' },
 ]
 
 const PRODUCT_CATEGORIES = [
@@ -74,20 +58,10 @@ const PRODUCT_CATEGORIES = [
     label: 'Social & Apps',
     sub: 'Chat & social channels',
     icon: <IconChat />,
-    desc: 'Instagram, Messenger, Viber, Telegram, Apple Messages, LINE and email.',
+    desc: 'Instagram, Messenger and a customisable web chat widget, answered by AI.',
     items: SOCIAL_APPS,
     viewAllHref: '/channels',
     viewAllLabel: 'View all Channels',
-  },
-  {
-    key: 'chatbots',
-    label: 'Chatbots',
-    sub: 'No-code chatbots',
-    icon: <IconRobot />,
-    desc: 'Build no-code chatbots and deploy them across every channel.',
-    items: CHATBOTS,
-    viewAllHref: '/chatbot',
-    viewAllLabel: 'View all Chatbots',
   },
   {
     key: 'agents',
@@ -101,20 +75,23 @@ const PRODUCT_CATEGORIES = [
   },
 ]
 
-// --- Solutions mega: three sub-divisions ---------------------------------
+// --- Solutions mega: three sub-divisions ----------------------------------
 const SOL_INDUSTRY = [
-  { t: 'Ecommerce & Retail', d: 'Shopping, order status & returns', i: <IconCart />, href: '/ai-agents/ecommerce' },
-  { t: 'Healthcare', d: 'Scheduling, reminders & patient Q&A', i: <IconCalendar />, href: '/ai-agents/healthcare' },
-  { t: 'Financial Services', d: 'Auditable self-service by role', i: <IconDollar />, href: '/ai-agents/financial-services' },
-  { t: 'Banking', d: 'Balances, alerts & KYC help', i: <IconReceipt />, href: '/chatbot/banking-financial-services' },
-  { t: 'Travel & Hospitality', d: 'Bookings & 24/7 guest support', i: <IconGlobe />, href: '/chatbot/travel-hospitality' },
+  { t: 'Retail & eCommerce', d: 'Orders, cart recovery & returns', i: <IconCart />, href: '/industry/retail' },
+  { t: 'Travel & Hospitality', d: 'Bookings & 24/7 guest support', i: <IconGlobe />, href: '/industry/travel-and-hospitality' },
+  { t: 'Fintech', d: 'Onboarding, alerts & auditable actions', i: <IconDollar />, href: '/industry/fintech' },
+  { t: 'Education', d: 'Admissions & student support', i: <IconBook />, href: '/industry/education' },
+  { t: 'Media & Entertainment', d: 'Ticketing & subscriber care', i: <IconMic />, href: '/industry/media-entertainment' },
+  { t: 'Healthcare', d: 'Scheduling, reminders & patient Q&A', i: <IconCalendar />, href: '/industry/healthcare' },
+  { t: 'Insurance', d: 'Quotes, claims & renewals', i: <IconShield />, href: '/industry/insurance' },
+  { t: 'Mortgage', d: 'Pre-qualification & borrower updates', i: <IconReceipt />, href: '/industry/mortgage' },
+  { t: 'Telecom', d: 'Support, billing & outage alerts', i: <IconPhone />, href: '/industry/telecom' },
+  { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/industry/real-estate' },
 ]
 
 const SOL_TEAM = [
   { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/ai-agents/customer-service' },
   { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/ai-agents/sales' },
-  { t: 'Lead Qualification', d: 'Score intent & route leads', i: <IconSearch />, href: '/ai-agents/lead-qualification' },
-  { t: 'Marketing & Sales', d: 'Recover carts & run promotions', i: <IconMegaphone />, href: '/chatbot/marketing-sales' },
   { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/ai-agents/booking' },
 ]
 
@@ -129,7 +106,7 @@ const SOLUTION_CATEGORIES = [
     label: 'By industry',
     sub: 'Shaped for your sector',
     icon: <IconGlobe />,
-    desc: 'Messaging, chatbots and AI agents tuned to how your industry works.',
+    desc: 'Messaging, AI agents and broadcasting tuned to how your industry works.',
     items: SOL_INDUSTRY,
     viewAllHref: '/solutions',
     viewAllLabel: 'All Solutions',
@@ -161,6 +138,7 @@ const PLATFORM = [
   { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/why-smslocal' },
   { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform' },
   { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox' },
+  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/agent-copilot' },
   { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/analytics' },
   { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/integrations' },
   { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security' },
@@ -175,9 +153,9 @@ const RESOURCES = [
 ]
 
 const COMPARE = [
-  { name: 'Haptik', domain: 'haptik.ai', href: '/compare/haptik', d: 'Enterprise conversational AI' },
   { name: 'Twilio', domain: 'twilio.com', href: '/compare/twilio', d: 'Developer communications APIs' },
-  { name: 'Twixor', domain: 'twixor.com', href: '/compare/twixor', d: 'CX & process automation' },
+  { name: 'Bird', domain: 'bird.com', href: '/compare/bird', d: 'Marketing & CX messaging' },
+  { name: 'Plivo', domain: 'plivo.com', href: '/compare/plivo', d: 'Communications APIs' },
   { name: 'Infobip', domain: 'infobip.com', href: '/compare/infobip', d: 'Global omnichannel CPaaS' },
 ]
 

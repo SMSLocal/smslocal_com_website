@@ -21,6 +21,7 @@ const LOGO_DOMAINS = {
   'Customer.io': 'customer.io', 'Acuity Scheduling': 'acuityscheduling.com', 'Mindbody': 'mindbodyonline.com',
   'QuickBooks': 'quickbooks.intuit.com', 'Make': 'make.com', 'SendGrid': 'sendgrid.com',
   'Looker': 'looker.com', 'PostHog': 'posthog.com',
+  'React / Next.js': 'react.dev', 'WordPress': 'wordpress.org',
 }
 
 function logoDomain(name) {

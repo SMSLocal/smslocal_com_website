@@ -14,19 +14,17 @@ const COLUMNS = [
   {
     title: 'Product',
     links: [
-      { t: 'Mass texting', href: '/bulk-sms' },
-      { t: 'SMS marketing', href: '/promotional-sms' },
+      { t: 'Channels', href: '/channels' },
       { t: 'Two-way messaging', href: '/channels/social' },
-      { t: 'API & Developers', href: '/sms-api' },
+      { t: 'Integrations & API', href: '/integrations' },
     ],
   },
   {
     title: 'Solutions',
     links: [
-      { t: 'Sales & Marketing', href: '/promotional-sms' },
-      { t: 'Appointment reminders', href: '/transactional-sms' },
+      { t: 'Booking & scheduling', href: '/ai-agents/booking' },
       { t: 'School & campus', href: '/resources/case-studies' },
-      { t: 'Alerts & notifications', href: '/otp-sms' },
+      { t: 'Why SMSLocal', href: '/why-smslocal' },
     ],
   },
   {

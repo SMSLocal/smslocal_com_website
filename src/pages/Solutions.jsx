@@ -7,45 +7,70 @@ import SolutionFoundationRail from '../components/SolutionFoundationRail.jsx'
 import {
   IconCart, IconFlask, IconDollar, IconGlobe,
   IconChat, IconMegaphone, IconCalendar,
-  IconRobot, IconBrain, IconMic, IconBriefcase, IconSearch, IconUsers,
-  IconPlug, IconChart, IconShield,
+  IconRobot, IconMic, IconBriefcase, IconUsers,
+  IconPlug, IconChart, IconShield, IconGear, IconBook, IconPhone, IconReceipt, IconHandshake,
 } from '../components/icons.jsx'
 
 const INDUSTRIES = [
   {
     icon: <IconCart />,
-    title: 'Ecommerce & Retail',
-    blurb: 'Product discovery, order tracking (WISMO) and returns across WhatsApp, web and SMS.',
-    links: [
-      { kind: 'Chatbot', tone: 'bot', label: 'Ecommerce Chatbot', href: '/chatbot/ecommerce' },
-      { kind: 'AI agent', tone: 'agent', label: 'AI Agent for Ecommerce', href: '/ai-agents/ecommerce' },
-    ],
-  },
-  {
-    icon: <IconFlask />,
-    title: 'Healthcare',
-    blurb: 'Appointment booking, reminders, refill and lab-result alerts and multilingual patient Q&A.',
-    links: [
-      { kind: 'Chatbot', tone: 'bot', label: 'Healthcare Chatbot', href: '/chatbot/healthcare' },
-      { kind: 'AI agent', tone: 'agent', label: 'AI Agent for Healthcare', href: '/ai-agents/healthcare' },
-    ],
-  },
-  {
-    icon: <IconDollar />,
-    title: 'Banking & Financial Services',
-    blurb: 'Compliant self-service for balances, alerts and KYC help, with a full audit trail.',
-    links: [
-      { kind: 'Chatbot', tone: 'bot', label: 'Banking & Finance Chatbot', href: '/chatbot/banking-financial-services' },
-      { kind: 'AI agent', tone: 'agent', label: 'AI Agent for Financial Services', href: '/ai-agents/financial-services' },
-    ],
+    title: 'Retail & eCommerce',
+    blurb: 'Order updates, cart recovery and returns handled automatically across every channel your shoppers use.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Retail', href: '/industry/retail' }],
   },
   {
     icon: <IconGlobe />,
     title: 'Travel & Hospitality',
-    blurb: 'Bookings, itineraries and guest support, 24/7 in any language across every channel.',
-    links: [
-      { kind: 'Chatbot', tone: 'bot', label: 'Travel & Hospitality Chatbot', href: '/chatbot/travel-hospitality' },
-    ],
+    blurb: 'Bookings, itinerary changes and multilingual guest support, around the clock, on every channel.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Travel & Hospitality', href: '/industry/travel-and-hospitality' }],
+  },
+  {
+    icon: <IconDollar />,
+    title: 'Fintech',
+    blurb: 'Onboarding, transaction alerts and account support, backed by audit logs and access controls.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Fintech', href: '/industry/fintech' }],
+  },
+  {
+    icon: <IconBook />,
+    title: 'Education',
+    blurb: 'Admissions, fee reminders and round-the-clock multilingual student support from first enquiry to enrolment.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Education', href: '/industry/education' }],
+  },
+  {
+    icon: <IconMic />,
+    title: 'Media & Entertainment',
+    blurb: 'Ticketing, recommendations and subscriber support campaigns that hold up under peak volume.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Media & Entertainment', href: '/industry/media-entertainment' }],
+  },
+  {
+    icon: <IconFlask />,
+    title: 'Healthcare',
+    blurb: 'Appointments, reminders and patient questions handled with consent-aware, role-based access control.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Healthcare', href: '/industry/healthcare' }],
+  },
+  {
+    icon: <IconShield />,
+    title: 'Insurance',
+    blurb: 'Quotes, claims status and renewal reminders that lift retention and cross-sell performance.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Insurance', href: '/industry/insurance' }],
+  },
+  {
+    icon: <IconReceipt />,
+    title: 'Mortgage',
+    blurb: 'Pre-qualification, document reminders and status updates that move borrowers from enquiry to close.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Mortgage', href: '/industry/mortgage' }],
+  },
+  {
+    icon: <IconPhone />,
+    title: 'Telecom',
+    blurb: 'Support, billing and outage notifications at scale, across SMS, RCS, WhatsApp and voice.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Telecom', href: '/industry/telecom' }],
+  },
+  {
+    icon: <IconHandshake />,
+    title: 'Real Estate',
+    blurb: 'Lead capture, listing recommendations and viewing bookings that work around the clock.',
+    links: [{ kind: 'Industry', tone: 'agent', label: 'AI for Real Estate', href: '/industry/real-estate' }],
   },
 ]
 
@@ -55,9 +80,8 @@ const TEAMS = [
     icon: <IconChat />,
     items: [
       { icon: <IconRobot />, title: 'AI Customer Service Agent', tag: 'AI agent', href: '/ai-agents/customer-service' },
-      { icon: <IconBrain />, title: 'AI Agent Assist', tag: 'Copilot', href: '/ai-agents/agent-assist' },
-      { icon: <IconChat />, title: 'Customer Support Chatbot', tag: 'Chatbot', href: '/chatbot/customer-support' },
       { icon: <IconMic />, title: 'AI Voice Agent', tag: 'Voice', href: '/voice-ai-agents' },
+      { icon: <IconChat />, title: 'Omnichannel Inbox', tag: 'Inbox', href: '/products/omnichannel-inbox' },
     ],
   },
   {
@@ -65,9 +89,8 @@ const TEAMS = [
     icon: <IconMegaphone />,
     items: [
       { icon: <IconBriefcase />, title: 'AI Sales / SDR Agent', tag: 'AI agent', href: '/ai-agents/sales' },
-      { icon: <IconSearch />, title: 'AI Lead Qualification Agent', tag: 'AI agent', href: '/ai-agents/lead-qualification' },
-      { icon: <IconUsers />, title: 'Lead Generation Chatbot', tag: 'Chatbot', href: '/chatbot/lead-generation' },
-      { icon: <IconMegaphone />, title: 'Marketing & Sales Chatbot', tag: 'Chatbot', href: '/chatbot/marketing-sales' },
+      { icon: <IconMegaphone />, title: 'WhatsApp Broadcasting', tag: 'Broadcast', href: '/channels/whatsapp-broadcasting' },
+      { icon: <IconGlobe />, title: 'RCS Broadcasting', tag: 'Broadcast', href: '/channels/rcs-broadcasting' },
     ],
   },
   {
@@ -75,6 +98,7 @@ const TEAMS = [
     icon: <IconCalendar />,
     items: [
       { icon: <IconCalendar />, title: 'AI Booking Agent', tag: 'AI agent', href: '/ai-agents/booking' },
+      { icon: <IconGear />, title: 'Agent Builder', tag: 'Build your own', href: '/ai-agents/agent-builder' },
     ],
   },
 ]
@@ -108,14 +132,14 @@ function Solutions() {
         title={<>One platform, <span className="grad-word">many solutions</span></>}
         subtitle="Messaging, chatbots and AI agents, shaped for your industry and for the exact job your team is trying to do — all from one SMSLocal account."
         primaryCta={{ label: 'Get started', href: '/contact-us' }}
-        secondaryCta={{ label: 'Chatbot vs AI agent', href: '/chatbot-vs-ai-agent' }}
+        secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents' }}
         visual={<SolutionsSplitHero />}
       />
 
       <IndustrySolutionRows
         eyebrow="By industry"
         title="Solutions built for your industry"
-        subtitle="Each industry pairs a ready-made chatbot for structured tasks with an AI agent for the judgment calls."
+        subtitle="Each industry page shows how messaging, broadcasting and agentic AI come together for your sector."
         items={INDUSTRIES}
         alt
       />

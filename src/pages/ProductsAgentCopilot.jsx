@@ -1,0 +1,105 @@
+import Seo from '../components/Seo.jsx'
+import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import FeatureSpotlight from '../components/FeatureSpotlight.jsx'
+import WhatsappStepsFlow from '../components/WhatsappStepsFlow.jsx'
+import WhyUsDividers from '../components/WhyUsDividers.jsx'
+import { IconPencil, IconBook, IconBolt, IconChat, IconClock, IconCheck, IconChart, IconUsers } from '../components/icons.jsx'
+
+const STEPS = [
+  { title: 'Connect your knowledge base', desc: 'Point the copilot at your help centre, docs and past resolved conversations.' },
+  { title: 'It learns your inbox', desc: 'The copilot starts drafting from real conversation history and policy content.' },
+  { title: 'Go live for your team', desc: 'Drafts and summaries appear inside the shared inbox your agents already use.' },
+  { title: 'Agents stay in control', desc: 'Every reply is reviewed and sent by a human — the copilot only removes the searching.' },
+]
+
+const FEATURES = [
+  { icon: <IconPencil />, title: 'Drafts the reply for you', desc: 'Suggests a ready-to-send response inside the reply box, grounded in the conversation and your knowledge base — edit or send with one click.' },
+  { icon: <IconBook />, title: 'Surfaces knowledge-grounded answers', desc: 'Pulls the right policy, article or past resolution while your agent is still reading the message, so nobody has to switch tabs to find it.' },
+  { icon: <IconBolt />, title: 'Summarises long threads instantly', desc: 'A ten-message thread becomes a two-line summary the moment an agent opens it, so context takes seconds, not minutes.' },
+  { icon: <IconChat />, title: 'Works inside the inbox your team already uses', desc: 'Lives directly in the shared omnichannel inbox — no separate tool, no copy-pasting between windows.' },
+]
+
+const BENEFITS = [
+  { icon: <IconClock />, title: 'Faster first response', desc: 'A drafted reply is ready before the agent finishes reading, cutting the time from open to send.' },
+  { icon: <IconCheck />, title: 'More consistent answers', desc: 'Every drafted reply pulls from the same knowledge base, so tone and accuracy stay consistent across the whole team.' },
+  { icon: <IconChart />, title: 'Higher throughput per agent', desc: 'Less time spent hunting for the right answer means each agent handles more conversations without feeling rushed.' },
+  { icon: <IconUsers />, title: 'Faster ramp for new hires', desc: 'New agents lean on the copilot\'s drafts and summaries while they\'re still learning your policies and product.' },
+]
+
+const FAQS = [
+  { q: 'Does the copilot send replies automatically?', a: 'No — it drafts the reply and surfaces the answer, but a human agent reviews and sends it. For fully autonomous resolution, see our AI customer service agent instead.' },
+  { q: 'What does it use to ground its suggestions?', a: 'Your help centre, past resolved conversations and any documents you connect, so drafts reflect your actual policies rather than a generic answer.' },
+  { q: 'Does it work across every channel in the inbox?', a: 'Yes — it drafts and summarises inside the same shared inbox that handles WhatsApp, SMS, email, voice and social, so agents get the same support regardless of channel.' },
+  { q: 'Can it summarise a conversation that started days ago?', a: 'Yes, it summarises the full thread history the moment an agent opens it, however long the conversation has run.' },
+  { q: 'How is this different from the AI customer service agent?', a: 'The copilot assists a human agent who stays in control of every reply. The AI customer service agent can resolve conversations autonomously, only escalating when it should.' },
+]
+
+function ProductsAgentCopilot() {
+  return (
+    <>
+      <Seo
+        title="AI Agent Copilot for Support and Sales Team Replies"
+        description="Speed up every reply with an AI agent copilot that drafts responses, summarises long threads and surfaces knowledge-grounded answers inside the reply box."
+        keywords={['AI agent copilot', 'AI reply assistant', 'support copilot', 'AI drafted replies']}
+      />
+
+      <Hero
+        eyebrow="Platform"
+        title={<>An AI copilot that drafts the reply <span className="grad-word">before you finish reading</span></>}
+        subtitle="Speed up every conversation with an AI agent copilot that drafts responses, summarises long threads and surfaces knowledge-grounded answers — right inside the reply box your team already uses."
+        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
+        secondaryCta={{ label: 'Omnichannel Inbox', href: '/products/omnichannel-inbox' }}
+      />
+
+      <NarrativeCompare
+        variant="stacked"
+        eyebrow="The problem"
+        heading={<>Every reply starts with the same search: "what did we say last time?"</>}
+        paragraphs={[
+          'An agent opens a conversation, scrolls through a long thread, switches to a help-centre tab to check the policy, then finally starts typing.',
+          'None of that searching is the actual job — the job is the reply. But it eats most of the time a conversation takes.',
+          'An AI agent copilot drafts the reply and surfaces the answer automatically — the agent reviews, edits if needed, and sends.',
+        ]}
+        leftItems={[
+          'Drafts a ready-to-send reply',
+          'Summarises the thread in two lines',
+          'Surfaces the right policy or article',
+          'Agent reviews, edits and sends',
+        ]}
+        alt
+      />
+
+      <FeatureSpotlight
+        eyebrow="Features"
+        title="Everything an agent needs, already in the reply box"
+        subtitle="Drafts, summaries and knowledge-grounded answers, without leaving the conversation."
+        items={FEATURES}
+      />
+
+      <WhatsappStepsFlow
+        eyebrow="How it works"
+        title="Live inside your inbox in four steps"
+        subtitle="From connecting your knowledge base to drafts appearing in the reply box."
+        steps={STEPS}
+        alt
+      />
+
+      <WhyUsDividers
+        eyebrow="Why it works"
+        title="Faster replies, without losing the human in the loop"
+        subtitle="Agents stay in control of every send — the copilot just removes the time spent searching for the answer."
+        items={BENEFITS}
+      />
+
+      <CTABanner
+        title="Give every agent a copilot"
+        subtitle="Drafted replies, instant summaries and grounded answers — live inside your shared inbox in days."
+        cta={{ label: 'Get Started', href: '/contact-us' }}
+      />
+
+      <FAQ title="AI agent copilot — frequently asked questions" items={FAQS} alt />
+    </>
+  )
+}
+
+export default ProductsAgentCopilot

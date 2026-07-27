@@ -1,57 +1,22 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
-import BulkSms from './pages/BulkSms.jsx'
-import SmsApi from './pages/SmsApi.jsx'
-import OtpSms from './pages/OtpSms.jsx'
 import WhatsappBusinessApi from './pages/WhatsappBusinessApi.jsx'
 import RcsBusinessMessaging from './pages/RcsBusinessMessaging.jsx'
 import InstagramMessagingApi from './pages/InstagramMessagingApi.jsx'
 import FacebookMessengerApi from './pages/FacebookMessengerApi.jsx'
-import ViberBusinessMessages from './pages/ViberBusinessMessages.jsx'
-import TelegramBusiness from './pages/TelegramBusiness.jsx'
-import AppleMessagesForBusiness from './pages/AppleMessagesForBusiness.jsx'
-import LineBusinessMessaging from './pages/LineBusinessMessaging.jsx'
-import EmailApi from './pages/EmailApi.jsx'
-import ChatbotWhatsapp from './pages/ChatbotWhatsapp.jsx'
-import ChatbotBuilder from './pages/ChatbotBuilder.jsx'
 import AiAgentsCustomerService from './pages/AiAgentsCustomerService.jsx'
 import AiAgentsVoice from './pages/AiAgentsVoice.jsx'
 import AiAgentsSalesSdr from './pages/AiAgentsSalesSdr.jsx'
 import AiAgentsBooking from './pages/AiAgentsBooking.jsx'
-import AiAgentsLeadQualification from './pages/AiAgentsLeadQualification.jsx'
 import Products from './pages/Products.jsx'
 import Channels from './pages/Channels.jsx'
-import TransactionalSms from './pages/TransactionalSms.jsx'
-import PromotionalSms from './pages/PromotionalSms.jsx'
-import ChatbotPlatform from './pages/ChatbotPlatform.jsx'
-import ChatbotWebsite from './pages/ChatbotWebsite.jsx'
-import ChatbotCustomerSupport from './pages/ChatbotCustomerSupport.jsx'
 import AiAgentsPlatform from './pages/AiAgentsPlatform.jsx'
 import AiAgentsBuilder from './pages/AiAgentsBuilder.jsx'
-import AiAgentsWhatsapp from './pages/AiAgentsWhatsapp.jsx'
-import ChatbotVsAiAgent from './pages/ChatbotVsAiAgent.jsx'
 import CompareHub from './pages/CompareHub.jsx'
-import CompareHaptik from './pages/CompareHaptik.jsx'
 import CompareTwilio from './pages/CompareTwilio.jsx'
-import CompareTwixor from './pages/CompareTwixor.jsx'
 import CompareInfobip from './pages/CompareInfobip.jsx'
-import ChatbotInstagramMessenger from './pages/ChatbotInstagramMessenger.jsx'
-import ChatbotSms from './pages/ChatbotSms.jsx'
-import ChatbotRcs from './pages/ChatbotRcs.jsx'
-import ChatbotLeadGeneration from './pages/ChatbotLeadGeneration.jsx'
-import ChatbotMarketingSales from './pages/ChatbotMarketingSales.jsx'
-import ChatbotEcommerce from './pages/ChatbotEcommerce.jsx'
-import ChatbotHealthcare from './pages/ChatbotHealthcare.jsx'
-import ChatbotBankingFinancialServices from './pages/ChatbotBankingFinancialServices.jsx'
-import ChatbotTravelHospitality from './pages/ChatbotTravelHospitality.jsx'
-import AppCategory from './pages/AppCategory.jsx'
 import AiAgentsOverview from './pages/AiAgentsOverview.jsx'
-import AiAgentsAgentAssist from './pages/AiAgentsAgentAssist.jsx'
-import AiAgentsOmnichannel from './pages/AiAgentsOmnichannel.jsx'
-import AiAgentsEcommerce from './pages/AiAgentsEcommerce.jsx'
-import AiAgentsFinancialServices from './pages/AiAgentsFinancialServices.jsx'
-import AiAgentsHealthcare from './pages/AiAgentsHealthcare.jsx'
 import Blog from './pages/Blog.jsx'
 import ResourcesGuides from './pages/ResourcesGuides.jsx'
 import ResourcesDocs from './pages/ResourcesDocs.jsx'
@@ -76,6 +41,22 @@ import Pricing from './pages/Pricing.jsx'
 import WhySmslocal from './pages/WhySmslocal.jsx'
 import ServicesAiConsulting from './pages/ServicesAiConsulting.jsx'
 import Solutions from './pages/Solutions.jsx'
+import IndustryRetail from './pages/IndustryRetail.jsx'
+import IndustryTravel from './pages/IndustryTravel.jsx'
+import IndustryFintech from './pages/IndustryFintech.jsx'
+import IndustryEducation from './pages/IndustryEducation.jsx'
+import IndustryMedia from './pages/IndustryMedia.jsx'
+import IndustryHealthcare from './pages/IndustryHealthcare.jsx'
+import IndustryInsurance from './pages/IndustryInsurance.jsx'
+import IndustryMortgage from './pages/IndustryMortgage.jsx'
+import IndustryTelecom from './pages/IndustryTelecom.jsx'
+import IndustryRealEstate from './pages/IndustryRealEstate.jsx'
+import AiAgentsSupport from './pages/AiAgentsSupport.jsx'
+import ProductsAgentCopilot from './pages/ProductsAgentCopilot.jsx'
+import SmsBroadcasting from './pages/SmsBroadcasting.jsx'
+import WebChat from './pages/WebChat.jsx'
+import CompareBird from './pages/CompareBird.jsx'
+import ComparePlivo from './pages/ComparePlivo.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
 
 function App() {
@@ -88,74 +69,53 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/channels" element={<Channels />} />
+          <Route path="/channels/sms-broadcasting" element={<SmsBroadcasting />} />
           <Route path="/channels/whatsapp-broadcasting" element={<WhatsappBroadcasting />} />
           <Route path="/channels/rcs-broadcasting" element={<RcsBroadcasting />} />
           <Route path="/channels/voice" element={<VoiceChannel />} />
           <Route path="/channels/social" element={<SocialInbox />} />
+          <Route path="/channels/web-chat" element={<WebChat />} />
           <Route path="/numbers/did" element={<DidNumbers />} />
 
           <Route path="/platform" element={<Platform />} />
           <Route path="/platform/security" element={<PlatformSecurity />} />
           <Route path="/products/analytics" element={<ProductsAnalytics />} />
           <Route path="/products/omnichannel-inbox" element={<ProductsOmnichannelInbox />} />
+          <Route path="/products/agent-copilot" element={<ProductsAgentCopilot />} />
           <Route path="/integrations" element={<IntegrationsPage />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/why-smslocal" element={<WhySmslocal />} />
           <Route path="/services/ai-consulting" element={<ServicesAiConsulting />} />
 
-          <Route path="/bulk-sms" element={<BulkSms />} />
-          <Route path="/sms-api" element={<SmsApi />} />
-          <Route path="/otp-sms" element={<OtpSms />} />
-          <Route path="/transactional-sms" element={<TransactionalSms />} />
-          <Route path="/promotional-sms" element={<PromotionalSms />} />
-
           <Route path="/channels/whatsapp" element={<WhatsappBusinessApi />} />
           <Route path="/channels/rcs" element={<RcsBusinessMessaging />} />
           <Route path="/channels/instagram" element={<InstagramMessagingApi />} />
           <Route path="/channels/messenger" element={<FacebookMessengerApi />} />
-          <Route path="/viber-business-messages" element={<ViberBusinessMessages />} />
-          <Route path="/telegram-business" element={<TelegramBusiness />} />
-          <Route path="/apple-messages-for-business" element={<AppleMessagesForBusiness />} />
-          <Route path="/line-business-messaging" element={<LineBusinessMessaging />} />
-          <Route path="/email-api" element={<EmailApi />} />
-
-          <Route path="/chatbot" element={<ChatbotPlatform />} />
-          <Route path="/chatbot/whatsapp" element={<ChatbotWhatsapp />} />
-          <Route path="/chatbot/builder" element={<ChatbotBuilder />} />
-          <Route path="/chatbot/website" element={<ChatbotWebsite />} />
-          <Route path="/chatbot/customer-support" element={<ChatbotCustomerSupport />} />
-          <Route path="/chatbot/instagram-messenger" element={<ChatbotInstagramMessenger />} />
-          <Route path="/chatbot/sms" element={<ChatbotSms />} />
-          <Route path="/chatbot/rcs" element={<ChatbotRcs />} />
-          <Route path="/chatbot/lead-generation" element={<ChatbotLeadGeneration />} />
-          <Route path="/chatbot/marketing-sales" element={<ChatbotMarketingSales />} />
-          <Route path="/chatbot/ecommerce" element={<ChatbotEcommerce />} />
-          <Route path="/chatbot/healthcare" element={<ChatbotHealthcare />} />
-          <Route path="/chatbot/banking-financial-services" element={<ChatbotBankingFinancialServices />} />
-          <Route path="/chatbot/travel-hospitality" element={<ChatbotTravelHospitality />} />
 
           <Route path="/agentic-ai" element={<AiAgentsPlatform />} />
           <Route path="/ai-agents/customer-service" element={<AiAgentsCustomerService />} />
+          <Route path="/ai-agents/support" element={<AiAgentsSupport />} />
           <Route path="/voice-ai-agents" element={<AiAgentsVoice />} />
           <Route path="/ai-agents/sales" element={<AiAgentsSalesSdr />} />
           <Route path="/ai-agents/booking" element={<AiAgentsBooking />} />
-          <Route path="/ai-agents/lead-qualification" element={<AiAgentsLeadQualification />} />
           <Route path="/ai-agents/agent-builder" element={<AiAgentsBuilder />} />
-          <Route path="/ai-agents/whatsapp" element={<AiAgentsWhatsapp />} />
-          <Route path="/ai-agents/agent-assist" element={<AiAgentsAgentAssist />} />
-          <Route path="/ai-agents/omnichannel-agent" element={<AiAgentsOmnichannel />} />
-          <Route path="/ai-agents/ecommerce" element={<AiAgentsEcommerce />} />
-          <Route path="/ai-agents/financial-services" element={<AiAgentsFinancialServices />} />
-          <Route path="/ai-agents/healthcare" element={<AiAgentsHealthcare />} />
           <Route path="/ai-agents" element={<AiAgentsOverview />} />
-          <Route path="/ai-agents/apps/:slug" element={<AppCategory />} />
 
-          <Route path="/chatbot-vs-ai-agent" element={<ChatbotVsAiAgent />} />
+          <Route path="/industry/retail" element={<IndustryRetail />} />
+          <Route path="/industry/travel-and-hospitality" element={<IndustryTravel />} />
+          <Route path="/industry/fintech" element={<IndustryFintech />} />
+          <Route path="/industry/education" element={<IndustryEducation />} />
+          <Route path="/industry/media-entertainment" element={<IndustryMedia />} />
+          <Route path="/industry/healthcare" element={<IndustryHealthcare />} />
+          <Route path="/industry/insurance" element={<IndustryInsurance />} />
+          <Route path="/industry/mortgage" element={<IndustryMortgage />} />
+          <Route path="/industry/telecom" element={<IndustryTelecom />} />
+          <Route path="/industry/real-estate" element={<IndustryRealEstate />} />
 
           <Route path="/compare" element={<CompareHub />} />
-          <Route path="/compare/haptik" element={<CompareHaptik />} />
           <Route path="/compare/twilio" element={<CompareTwilio />} />
-          <Route path="/compare/twixor" element={<CompareTwixor />} />
+          <Route path="/compare/bird" element={<CompareBird />} />
+          <Route path="/compare/plivo" element={<ComparePlivo />} />
           <Route path="/compare/infobip" element={<CompareInfobip />} />
 
           <Route path="/blog" element={<Blog />} />

@@ -47,8 +47,8 @@ const twilioCost = [
 ]
 
 const siblings = [
-  { slug: 'haptik', name: 'Haptik', domain: 'haptik.ai' },
-  { slug: 'twixor', name: 'Twixor', domain: 'twixor.com' },
+  { slug: 'bird', name: 'Bird', domain: 'bird.com' },
+  { slug: 'plivo', name: 'Plivo', domain: 'plivo.com' },
   { slug: 'infobip', name: 'Infobip', domain: 'infobip.com' },
 ]
 

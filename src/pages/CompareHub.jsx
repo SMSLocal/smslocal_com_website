@@ -28,9 +28,9 @@ function CompareHub() {
   return (
     <>
       <Seo
-        title="Compare SMSLocal vs Haptik, Twilio, Twixor & Infobip"
-        description="See how SMSLocal's all-in-one messaging, no-code chatbots and agentic AI compare with Haptik, Twilio, Twixor and Infobip — feature by feature, in one table."
-        keywords={['SMSLocal alternatives', 'business messaging comparison', 'CPaaS comparison', 'Twilio alternative', 'Infobip alternative', 'Haptik alternative']}
+        title="Compare SMSLocal vs Twilio, Infobip, Bird & Plivo"
+        description="See how SMSLocal's all-in-one messaging, no-code chatbots and agentic AI compare with Twilio, Infobip, Bird and Plivo — feature by feature, in one table."
+        keywords={['SMSLocal alternatives', 'business messaging comparison', 'CPaaS comparison', 'Twilio alternative', 'Infobip alternative', 'Bird alternative', 'Plivo alternative']}
       />
 
       {/* Hub hero with logo orbit */}
@@ -49,14 +49,14 @@ function CompareHub() {
 
           <div className="cmp-orbit" aria-hidden="true">
             <div className="cmp-orbit-logos">
-              <CompareLogo name="Haptik" domain="haptik.ai" />
+              <CompareLogo name="Bird" domain="bird.com" />
               <CompareLogo name="Twilio" domain="twilio.com" />
             </div>
             <span className="cmp-orbit-dash" />
             <SmsLocalMark />
             <span className="cmp-orbit-dash" />
             <div className="cmp-orbit-logos">
-              <CompareLogo name="Twixor" domain="twixor.com" />
+              <CompareLogo name="Plivo" domain="plivo.com" />
               <CompareLogo name="Infobip" domain="infobip.com" />
             </div>
           </div>

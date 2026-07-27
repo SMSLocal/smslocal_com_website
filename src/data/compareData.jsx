@@ -16,47 +16,47 @@ const SMSLOCAL_STATS = [
 ]
 
 const COMPETITORS = {
-  haptik: {
-    slug: 'haptik',
-    name: 'Haptik',
-    domain: 'haptik.ai',
-    category: 'Enterprise conversational AI',
+  bird: {
+    slug: 'bird',
+    name: 'Bird',
+    domain: 'bird.com',
+    category: 'Marketing & CX messaging (formerly MessageBird)',
     seo: {
-      title: 'SMSLocal vs Haptik',
+      title: 'SMSLocal vs Bird',
       description:
-        'SMSLocal vs Haptik: all-in-one omnichannel messaging, no-code chatbots and agentic AI with transparent pricing, versus Haptik’s enterprise conversational-AI platform.',
-      keywords: ['SMSLocal vs Haptik', 'Haptik alternative', 'Haptik competitor', 'conversational AI comparison', 'enterprise chatbot alternative'],
+        'SMSLocal vs Bird (formerly MessageBird): all-in-one omnichannel messaging, no-code chatbots and agentic AI with transparent bundled pricing, versus Bird’s marketing and CX messaging suite.',
+      keywords: ['SMSLocal vs Bird', 'Bird alternative', 'MessageBird alternative', 'Bird competitor', 'CX messaging comparison'],
     },
     hero: {
-      title: <>All-in-one messaging + AI, <span className="cmp-grad">without the enterprise overhead</span></>,
+      title: <>Every channel and AI, <span className="cmp-grad">bundled at one predictable rate</span></>,
       subtitle:
-        'Haptik is a strong enterprise conversational-AI platform. SMSLocal puts messaging, chatbots and AI in one plan — transparent pricing, live in days.',
+        'Bird, formerly MessageBird, covers marketing and CX messaging at scale. SMSLocal bundles messaging, chatbots and agentic AI into one plan with transparent, all-in USD pricing.',
       stats: SMSLOCAL_STATS,
     },
-    heroWins: ['Every channel in one plan', 'Transparent pricing', 'Live in days'],
+    heroWins: ['Transparent bundled pricing', 'Agentic AI included', 'No-code by default'],
     scorecard: [
-      { feature: 'Focus', them: 'Enterprise conversational AI', us: 'Messaging + chatbots + AI in one' },
-      { feature: 'Channels', them: 'WhatsApp, Instagram, Messenger, RCS, voice', us: '10+ incl. Viber, Telegram, LINE, Email' },
-      { feature: 'Dedicated SMS', them: 'SMS as a channel', us: 'First-class Bulk, OTP & transactional' },
-      { feature: 'Setup', them: 'Sales-led rollout', us: 'No-code, managed onboarding' },
-      { feature: 'Pricing', them: 'Custom quote', us: 'Transparent, self-serve' },
-      { feature: 'Best for', them: 'Large enterprises', us: 'Growing teams' },
+      { feature: 'Focus', them: 'Marketing & CX messaging platform', us: 'Messaging + chatbots + AI in one' },
+      { feature: 'Channels', them: 'WhatsApp, SMS, email, voice', us: '10+ incl. Viber, Telegram, LINE, Email' },
+      { feature: 'Agentic AI', them: 'AI features rolling out', us: 'Built into every channel' },
+      { feature: 'Setup', them: 'Sales-led for larger plans', us: 'No-code, managed onboarding' },
+      { feature: 'Pricing', them: 'Usage-based, multiple tiers', us: 'Transparent, all-in bundled plans' },
+      { feature: 'Best for', them: 'Marketing-led CX teams', us: 'Growing teams' },
     ],
     reasons: [
-      { icon: <IconGlobe />, title: 'Every channel in one plan', desc: 'SMS, WhatsApp, RCS, Viber, Telegram, Instagram, Apple Messages, LINE and Email — not just chat surfaces.' },
-      { icon: <IconRocket />, title: 'Live in days, managed', desc: 'We handle Meta/WhatsApp verification and setup — no procurement cycle.' },
-      { icon: <IconDollar />, title: 'Transparent pricing', desc: 'Published, self-serve plans instead of a custom enterprise quote.' },
+      { icon: <IconDollar />, title: 'Transparent bundled pricing', desc: 'One predictable, published rate that includes messaging, chatbots and AI — no separate line items to track.' },
+      { icon: <IconGlobe />, title: 'Every channel in one plan', desc: 'SMS, WhatsApp, RCS, Viber, Telegram, Instagram, Apple Messages, LINE and Email — not just marketing surfaces.' },
+      { icon: <IconRocket />, title: 'Agentic AI built in', desc: 'AI agents that take real action ship with the platform from day one, not as a rolling-out add-on.' },
     ],
     faqs: [
-      { q: 'Is SMSLocal a Haptik alternative?', a: 'Yes — for teams that want omnichannel messaging, no-code chatbots and agentic AI in one platform with transparent pricing.' },
-      { q: 'Does SMSLocal have AI agents like Haptik?', a: 'Yes. Agentic AI is built in — it reads each conversation, takes action, and hands off to a person with full context when needed.' },
-      { q: 'How is it different from Haptik?', a: 'Haptik centers on enterprise conversational AI, usually sold via demo-and-quote. SMSLocal bundles 10+ channels, a no-code builder and AI into one self-serve plan for growing teams.' },
-      { q: 'Which should I choose?', a: 'A large enterprise standing up a major CX program may prefer Haptik. A growing team that wants messaging plus AI live quickly, priced transparently, should choose SMSLocal.' },
+      { q: 'Is SMSLocal a Bird alternative?', a: 'Yes — for teams that want omnichannel messaging, no-code chatbots and agentic AI bundled into one plan with transparent USD pricing.' },
+      { q: 'Is Bird the same company as MessageBird?', a: 'Yes, Bird is the rebrand of MessageBird. It remains a strong marketing and CX messaging platform; SMSLocal focuses on bundling messaging, chatbots and AI as one finished product.' },
+      { q: 'How is it different from Bird?', a: 'Bird prices usage across tiers as your volume grows. SMSLocal bundles the core channels, a no-code builder and agentic AI into one transparent, predictable rate.' },
+      { q: 'Which should I choose?', a: 'A marketing-led team running large campaign programs may prefer Bird. A growing team that wants messaging plus AI at a predictable, bundled rate should choose SMSLocal.' },
     ],
-    cardBlurb: 'Enterprise conversational AI vs an all-in-one messaging + AI platform for growing teams.',
+    cardBlurb: 'Marketing & CX messaging platform vs an all-in-one messaging + AI platform with bundled pricing.',
     cta: {
-      title: 'Get messaging and AI live in days',
-      subtitle: 'Every channel, a no-code chatbot builder and agentic AI — one platform, transparent pricing.',
+      title: 'Get one predictable rate for everything',
+      subtitle: 'Every channel, a no-code chatbot builder and agentic AI — bundled, transparent USD pricing.',
     },
   },
 
@@ -104,47 +104,47 @@ const COMPETITORS = {
     },
   },
 
-  twixor: {
-    slug: 'twixor',
-    name: 'Twixor',
-    domain: 'twixor.com',
-    category: 'CX & process automation',
+  plivo: {
+    slug: 'plivo',
+    name: 'Plivo',
+    domain: 'plivo.com',
+    category: 'Communications APIs',
     seo: {
-      title: 'SMSLocal vs Twixor',
+      title: 'SMSLocal vs Plivo',
       description:
-        'SMSLocal vs Twixor: an all-in-one, no-code messaging and AI platform for growing teams, versus Twixor’s enterprise CX and process-automation platform.',
-      keywords: ['SMSLocal vs Twixor', 'Twixor alternative', 'Twixor competitor', 'CX automation comparison', 'no-code messaging platform'],
+        'SMSLocal vs Plivo: an all-in-one, no-code messaging and agentic AI platform that ships as a finished product, versus Plivo’s developer-first communications APIs.',
+      keywords: ['SMSLocal vs Plivo', 'Plivo alternative', 'Plivo competitor', 'CPaaS comparison', 'no-code Plivo alternative'],
     },
     hero: {
-      title: <>Omnichannel messaging + AI, <span className="cmp-grad">without an enterprise rollout</span></>,
+      title: <>The same reach, <span className="cmp-grad">shipped as a finished product</span></>,
       subtitle:
-        'Twixor is strong at enterprise process automation. SMSLocal gives growing teams messaging, no-code chatbots and AI — transparent pricing, fast self-serve onboarding.',
+        'Plivo gives developers reliable, low-cost voice and SMS APIs to build on. SMSLocal delivers the same channels, plus a shared inbox and agentic AI, ready to use — no raw API build required.',
       stats: SMSLOCAL_STATS,
     },
-    heroWins: ['Broader consumer channels', 'No enterprise rollout', 'Transparent pricing'],
+    heroWins: ['Ships ready to use', 'Shared inbox included', 'Agentic AI included'],
     scorecard: [
-      { feature: 'Focus', them: 'Enterprise CX & process automation', us: 'Messaging + chatbots + AI' },
-      { feature: 'Channels', them: 'WhatsApp, RCS, SMS, Telegram, Messenger, Voice', us: '10+ incl. Viber, Instagram, Apple Messages, LINE' },
-      { feature: 'Build', them: 'Low-code, enterprise programs', us: 'No-code, non-developers ship' },
-      { feature: 'Setup', them: 'Sales-led, integration-heavy', us: 'Fast, managed self-serve' },
-      { feature: 'Pricing', them: 'Custom quote', us: 'Transparent, self-serve' },
-      { feature: 'Best for', them: 'Enterprise & telco partners', us: 'Growing teams' },
+      { feature: 'Build model', them: 'Developer-first APIs & SDKs', us: 'No-code, non-developers ship' },
+      { feature: 'Chatbot & AI', them: 'Build your own on top of the API', us: 'Native no-code builder + agentic AI' },
+      { feature: 'Team inbox', them: 'Not included — build your own', us: 'Shared inbox included' },
+      { feature: 'Setup', them: 'Self-service registration & compliance', us: 'Managed onboarding' },
+      { feature: 'Pricing', them: 'Low per-unit API rates', us: 'Transparent, all-in plans' },
+      { feature: 'Best for', them: 'Developers building custom stacks', us: 'Growing teams' },
     ],
     reasons: [
-      { icon: <IconGlobe />, title: 'Broader consumer channels', desc: 'Add Viber, Instagram, Apple Messages and LINE alongside the core WhatsApp, RCS, SMS and Telegram set.' },
-      { icon: <IconRocket />, title: 'Live in days, no rollout', desc: 'No integration project — build visually and launch fast with managed onboarding.' },
-      { icon: <IconDollar />, title: 'Transparent pricing', desc: 'Published, self-serve plans instead of a contact-sales quote.' },
+      { icon: <IconCursor />, title: 'Nothing to build on top', desc: 'A shared inbox, chatbot builder and agentic AI ship with the platform — not left for you to assemble on the API.' },
+      { icon: <IconRocket />, title: 'Managed setup', desc: 'We handle sender verification and channel setup instead of a self-service registration process.' },
+      { icon: <IconDollar />, title: 'Transparent all-in pricing', desc: 'One published plan that includes the AI and inbox, instead of pricing the API separately from everything built around it.' },
     ],
     faqs: [
-      { q: 'Is SMSLocal a Twixor alternative?', a: 'Yes — for growing teams that want omnichannel messaging, no-code chatbots and agentic AI in one transparent, self-serve platform.' },
-      { q: 'Does SMSLocal do automation and AI?', a: 'SMSLocal includes agentic AI that takes real actions. Twixor goes deeper on heavy enterprise process automation; SMSLocal focuses on fast, accessible automation.' },
-      { q: 'How is it different from Twixor?', a: 'Twixor is enterprise-first and often sold to telcos and integrators via a sales-led rollout. SMSLocal serves growing teams directly with no-code building and published pricing.' },
-      { q: 'How fast can I go live?', a: 'Most teams launch in days — onboarding, including Meta/WhatsApp verification, is managed for you.' },
+      { q: 'Is SMSLocal a Plivo alternative?', a: 'Yes — for teams that want messaging, a shared inbox and agentic AI as a finished product instead of building it on top of a raw API.' },
+      { q: 'Is Plivo cheaper than SMSLocal?', a: 'Plivo’s per-unit API rates can be low, but that excludes the inbox, chatbot builder and AI you would otherwise have to build and maintain yourself.' },
+      { q: 'How is it different from Plivo?', a: 'Plivo is a developer-first API for voice and SMS. SMSLocal delivers the same core channels plus a shared inbox, no-code chatbot builder and agentic AI, ready to use.' },
+      { q: 'Which should I choose?', a: 'A team with engineers who want to build a fully custom stack may prefer Plivo’s APIs directly. A team that wants messaging and AI live quickly without building it themselves should choose SMSLocal.' },
     ],
-    cardBlurb: 'Enterprise CX & process automation vs an all-in-one, no-code messaging + AI platform for growing teams.',
+    cardBlurb: 'Developer-first communications APIs vs a finished, no-code messaging + AI platform.',
     cta: {
-      title: 'Launch omnichannel messaging in days',
-      subtitle: 'No integration project — no-code building, managed onboarding and agentic AI across 10+ channels.',
+      title: 'Skip building it yourself',
+      subtitle: 'Every channel, a shared inbox and agentic AI — ready to use, not left for you to build on an API.',
     },
   },
 
@@ -194,7 +194,7 @@ const COMPETITORS = {
 }
 
 // Ordered list used by the hub, matrix and crosslink chips.
-export const COMPETITOR_LIST = ['haptik', 'twilio', 'twixor', 'infobip'].map((slug) => ({
+export const COMPETITOR_LIST = ['bird', 'twilio', 'plivo', 'infobip'].map((slug) => ({
   slug,
   name: COMPETITORS[slug].name,
   domain: COMPETITORS[slug].domain,
@@ -216,35 +216,35 @@ const P = (label) => ({ label })
 export const COMPARE_MATRIX = [
   {
     feature: 'All-in-one: messaging + chatbot + AI in one plan',
-    cells: { smslocal: true, haptik: P('Separate products'), twilio: P('Separate products'), twixor: P('Enterprise suite'), infobip: P('Separate modules') },
+    cells: { smslocal: true, bird: P('Separate products'), twilio: P('Separate products'), plivo: P('API only'), infobip: P('Separate modules') },
   },
   {
     feature: 'No-code, non-developer friendly',
-    cells: { smslocal: true, haptik: true, twilio: P('Developer-first'), twixor: P('Low-code'), infobip: P('Dev / enterprise') },
+    cells: { smslocal: true, bird: true, twilio: P('Developer-first'), plivo: P('Developer-first'), infobip: P('Dev / enterprise') },
   },
   {
     feature: 'Omnichannel breadth (10+ channels)',
-    cells: { smslocal: true, haptik: P('Core channels'), twilio: true, twixor: P('Core channels'), infobip: true },
+    cells: { smslocal: true, bird: P('Core channels'), twilio: true, plivo: P('Voice & SMS focus'), infobip: true },
   },
   {
     feature: 'Managed onboarding (Meta / 10DLC handled for you)',
-    cells: { smslocal: true, haptik: P('Sales-led'), twilio: P('Self-service'), twixor: P('Sales-led'), infobip: P('Sales-led') },
+    cells: { smslocal: true, bird: P('Sales-led'), twilio: P('Self-service'), plivo: P('Self-service'), infobip: P('Sales-led') },
   },
   {
     feature: 'Shared team inbox included',
-    cells: { smslocal: true, haptik: true, twilio: P('Flex add-on'), twixor: true, infobip: true },
+    cells: { smslocal: true, bird: true, twilio: P('Flex add-on'), plivo: false, infobip: true },
   },
   {
     feature: 'Transparent, self-serve pricing',
-    cells: { smslocal: true, haptik: false, twilio: P('Published + fees'), twixor: false, infobip: false },
+    cells: { smslocal: true, bird: P('Usage-based tiers'), twilio: P('Published + fees'), plivo: P('Published + fees'), infobip: false },
   },
   {
     feature: 'Free to start / self-serve signup',
-    cells: { smslocal: true, haptik: false, twilio: true, twixor: false, infobip: false },
+    cells: { smslocal: true, bird: false, twilio: true, plivo: true, infobip: false },
   },
   {
     feature: 'Best fit',
-    cells: { smslocal: 'Growing teams', haptik: 'Large enterprise', twilio: 'Developers & enterprise', twixor: 'Enterprise & telco', infobip: 'Enterprise & telco' },
+    cells: { smslocal: 'Growing teams', bird: 'Marketing-led CX teams', twilio: 'Developers & enterprise', plivo: 'Developers building custom stacks', infobip: 'Enterprise & telco' },
   },
 ]
 
@@ -280,7 +280,7 @@ export const HUB_CHOOSE = {
 }
 
 export const HUB_FAQS = [
-  { q: 'How is SMSLocal different from Twilio, Infobip, Haptik and Twixor?', a: 'Those platforms are excellent at what they focus on — Twilio on developer APIs, Infobip on enterprise-scale CPaaS, Haptik on enterprise conversational AI, and Twixor on enterprise process automation. SMSLocal packages omnichannel messaging, a no-code chatbot builder and agentic AI into one plan for growing teams, with transparent pricing and managed onboarding.' },
+  { q: 'How is SMSLocal different from Twilio, Infobip, Bird and Plivo?', a: 'Those platforms are excellent at what they focus on — Twilio and Plivo on developer APIs, Infobip on enterprise-scale CPaaS, and Bird on marketing and CX messaging. SMSLocal packages omnichannel messaging, a no-code chatbot builder and agentic AI into one plan for growing teams, with transparent pricing and managed onboarding.' },
   { q: 'Is SMSLocal cheaper than the alternatives?', a: 'SMSLocal focuses on transparent, self-serve pricing you can see up front. Several alternatives price at the platform level by custom quote, so the fair comparison is total cost and time-to-value — not just a base per-message rate.' },
   { q: 'Does SMSLocal work for enterprises too?', a: 'Yes, but our sweet spot is growing SMB-to-mid-market teams. If you need maximum global carrier scale or a full enterprise contact-center stack, a platform like Infobip or Twilio may fit better — and we’ll tell you honestly.' },
   { q: 'Do I need developers to use SMSLocal?', a: 'No. SMSLocal is no-code first, so non-technical teams can launch messaging, chatbots and AI agents. Developer APIs are available when you want deeper control.' },
