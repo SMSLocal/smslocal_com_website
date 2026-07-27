@@ -44,6 +44,16 @@ const AI_AGENTS = [
 
 const PRODUCT_CATEGORIES = [
   {
+    key: 'agents',
+    label: 'AI Agents',
+    sub: 'Agentic AI',
+    icon: <IconBrain />,
+    desc: 'Autonomous AI agents that connect to your tools and take action.',
+    items: AI_AGENTS,
+    viewAllHref: '/ai-agents',
+    viewAllLabel: 'View all AI Agents',
+  },
+  {
     key: 'channels',
     label: 'Channels & Broadcasting',
     sub: 'SMS, WhatsApp, RCS & voice',
@@ -62,16 +72,6 @@ const PRODUCT_CATEGORIES = [
     items: SOCIAL_APPS,
     viewAllHref: '/channels',
     viewAllLabel: 'View all Channels',
-  },
-  {
-    key: 'agents',
-    label: 'AI Agents',
-    sub: 'Agentic AI',
-    icon: <IconBrain />,
-    desc: 'Autonomous AI agents that connect to your tools and take action.',
-    items: AI_AGENTS,
-    viewAllHref: '/ai-agents',
-    viewAllLabel: 'View all AI Agents',
   },
 ]
 
@@ -372,13 +372,13 @@ function Navbar() {
           </div>
 
           <div className="nav-auth mobile-only">
-            <Link to="/login" className="nav-login" onClick={closeAll}>Log in</Link>
+            <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Sign up</a>
             <Link to="/signup" className="btn btn-primary" onClick={closeAll}>Get Started</Link>
           </div>
         </nav>
 
         <div className="nav-auth desktop-only">
-          <Link to="/login" className="nav-login" onClick={closeAll}>Log in</Link>
+          <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Sign up</a>
           <Link to="/contact-us" className="btn btn-primary" onClick={closeAll}>Get Started</Link>
         </div>
       </div>

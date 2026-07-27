@@ -180,7 +180,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: min(980px, calc(100vw - 3rem));
+  width: min(1060px, calc(100vw - 3rem));
   padding-top: 12px;
 }
 
@@ -208,7 +208,7 @@
     0 20px 40px -12px rgba(79, 91, 213, 0.28),
     0 8px 20px -10px rgba(236, 72, 153, 0.22);
   display: grid;
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: 292px 1fr;
   overflow: hidden;
 }
 
@@ -297,11 +297,13 @@
 .product-nav-text strong {
   font-size: 0.88rem;
   color: var(--navy);
+  white-space: nowrap;
 }
 
 .product-nav-text span {
   font-size: 0.75rem;
   color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 .product-menu-viewall {
