@@ -2,8 +2,9 @@ import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import StatBand from '../components/StatBand.jsx'
 import TangleConvergeHero from '../components/TangleConvergeHero.jsx'
-import PlatformHub from '../components/PlatformHub.jsx'
-import OneAccountList from '../components/OneAccountList.jsx'
+import PlatformConsoleAnatomy from '../components/PlatformConsoleAnatomy.jsx'
+import OneAccountTicket from '../components/OneAccountTicket.jsx'
+import SwitchSteps from '../components/SwitchSteps.jsx'
 import StitchedSeamCompare from '../components/StitchedSeamCompare.jsx'
 
 const STATS = [
@@ -50,9 +51,11 @@ function WhySmslocal() {
         visual={<TangleConvergeHero />}
       />
 
-      <PlatformHub />
+      <PlatformConsoleAnatomy />
 
-      <OneAccountList />
+      <OneAccountTicket />
+
+      <SwitchSteps />
 
       <StatBand
         title="One platform, by the numbers"

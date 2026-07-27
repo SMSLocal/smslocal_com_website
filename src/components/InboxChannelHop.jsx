@@ -2,11 +2,58 @@ import './InboxChannelHop.css'
 import { IconChat, IconMegaphone, IconMail, IconPhone, IconGlobe } from './icons.jsx'
 
 const NODES = [
-  { key: 'wa', label: 'WhatsApp', icon: <IconChat />, x: 8, pos: 'top' },
-  { key: 'sms', label: 'SMS', icon: <IconMegaphone />, x: 29, pos: 'bottom' },
-  { key: 'email', label: 'Email', icon: <IconMail />, x: 50, pos: 'top' },
-  { key: 'voice', label: 'Voice', icon: <IconPhone />, x: 71, pos: 'bottom' },
-  { key: 'ig', label: 'Instagram', icon: <IconGlobe />, x: 92, pos: 'top' },
+  {
+    key: 'wa',
+    label: 'WhatsApp',
+    icon: <IconChat />,
+    x: 8,
+    pos: 'top',
+    align: 'start',
+    who: 'Emma Clarke',
+    time: '9:02am',
+    snippet: 'Hey, is my order #4821 shipped yet?',
+  },
+  {
+    key: 'sms',
+    label: 'SMS',
+    icon: <IconMegaphone />,
+    x: 29,
+    pos: 'bottom',
+    who: 'SMSLocal',
+    time: '9:03am',
+    snippet: 'Yep! Tracking: 1Z999AA10123456784',
+  },
+  {
+    key: 'email',
+    label: 'Email',
+    icon: <IconMail />,
+    x: 50,
+    pos: 'top',
+    who: 'Emma Clarke',
+    time: '11:40am',
+    snippet: 'Re: Order #4821 — can I add a gift note?',
+  },
+  {
+    key: 'voice',
+    label: 'Voice',
+    icon: <IconPhone />,
+    x: 71,
+    pos: 'bottom',
+    who: 'SMSLocal',
+    time: '11:52am',
+    snippet: 'Call · 2:14 — note added, confirmed by phone',
+  },
+  {
+    key: 'ig',
+    label: 'Instagram',
+    icon: <IconGlobe />,
+    x: 92,
+    pos: 'top',
+    align: 'end',
+    who: 'Emma Clarke',
+    time: '2:15pm',
+    snippet: 'Got it today, thank you! 📦',
+  },
 ]
 
 const POINTS = '80,46 290,174 500,46 710,174 920,46'
@@ -23,6 +70,13 @@ function InboxChannelHop() {
         </p>
 
         <div className="ichop-stage">
+          <div className="ichop-glow" aria-hidden="true" />
+
+          <div className="ichop-ticket">
+            <span className="ichop-ticket-dot" />
+            Ticket #4821 · Emma Clarke — one thread, 5 hops, still open
+          </div>
+
           <svg className="ichop-line" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true">
             <defs>
               <linearGradient id="ichopGrad" x1="0" y1="0" x2="1" y2="0">
@@ -43,6 +97,13 @@ function InboxChannelHop() {
               >
                 <span className={`ichop-dot dot-${n.key}`}>{n.icon}</span>
                 <span className="ichop-label">{n.label}</span>
+                <span className={`ichop-bubble is-${n.align || 'center'}`}>
+                  <span className="ichop-bubble-head">
+                    <b>{n.who}</b>
+                    <i>{n.time}</i>
+                  </span>
+                  {n.snippet}
+                </span>
               </div>
             ))}
           </div>

@@ -1,10 +1,10 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import AgentDirectory from '../components/AgentDirectory.jsx'
-import CapabilitiesFlow from '../components/CapabilitiesFlow.jsx'
-import ChannelsThread from '../components/ChannelsThread.jsx'
-import JourneyAscent from '../components/JourneyAscent.jsx'
-import ControlDials from '../components/ControlDials.jsx'
+import AgentRunConsole from '../components/AgentRunConsole.jsx'
+import ChannelContinuity from '../components/ChannelContinuity.jsx'
+import AgentAfternoonAscent from '../components/AgentAfternoonAscent.jsx'
+import AgentGroundingProof from '../components/AgentGroundingProof.jsx'
 import {
   IconBrain, IconLink, IconRefresh, IconCheck, IconChat, IconChart, IconMic,
   IconCursor, IconCalendar, IconUsers, IconMail, IconBolt, IconShield, IconReceipt, IconSearch,
@@ -19,17 +19,20 @@ const CAPABILITIES = [
 ]
 
 const AGENT_TYPES = [
-  { icon: <IconCursor />, title: 'AI agent builder', desc: 'Build agents visually, no code.', href: '/ai-agents/agent-builder' },
-  { icon: <IconChat />, title: 'Customer service agent', desc: 'Resolves tickets on every channel.', href: '/ai-agents/customer-service' },
-  { icon: <IconChart />, title: 'Sales & SDR agent', desc: 'Guides shoppers to checkout.', href: '/ai-agents/sales' },
-  { icon: <IconSearch />, title: 'Lead qualification agent', desc: 'Scores and routes inbound leads.', href: '/ai-agents/lead-qualification' },
-  { icon: <IconUsers />, title: 'Agent assist', desc: 'Drafts replies for your team.', href: '/ai-agents/agent-assist' },
-  { icon: <IconMic />, title: 'Voice AI agent', desc: 'Handles calls with full context.', href: '/voice-ai-agents' },
-  { icon: <IconChat />, title: 'WhatsApp AI agent', desc: 'Resolves chats on WhatsApp.', href: '/ai-agents/whatsapp' },
-  { icon: <IconLink />, title: 'Omnichannel agents', desc: 'One agent, every channel.', href: '/ai-agents/omnichannel-agent' },
-  { icon: <IconReceipt />, title: 'Ecommerce agents', desc: 'Handles orders, returns and refunds.', href: '/ai-agents/ecommerce' },
-  { icon: <IconShield />, title: 'Financial services agents', desc: 'Audited banking and fintech support.', href: '/ai-agents/financial-services' },
-  { icon: <IconCalendar />, title: 'Healthcare agents', desc: 'Scheduling and reminders, done safely.', href: '/ai-agents/healthcare' },
+  { group: 'Build & assist', icon: <IconCursor />, title: 'AI agent builder', desc: 'Draw the flow, connect your apps and publish — no engineering ticket.', channels: ['Visual builder', 'No-code'], href: '/ai-agents/agent-builder' },
+  { group: 'Build & assist', icon: <IconUsers />, title: 'Agent assist', desc: 'Drafts the reply, pulls the order and summarises the thread for your team.', channels: ['Inbox', 'Copilot'], href: '/ai-agents/agent-assist' },
+
+  { group: 'Support', icon: <IconChat />, title: 'Customer service agent', desc: 'Resolves tickets end to end and escalates with a full handoff summary.', channels: ['WhatsApp', 'SMS', 'Email'], href: '/ai-agents/customer-service' },
+  { group: 'Support', icon: <IconChat />, title: 'WhatsApp AI agent', desc: 'Answers, verifies and completes requests on your verified number.', channels: ['WhatsApp'], href: '/ai-agents/whatsapp' },
+  { group: 'Support', icon: <IconLink />, title: 'Omnichannel agents', desc: 'One agent that keeps the same context as the customer switches channel.', channels: ['All channels'], href: '/ai-agents/omnichannel-agent' },
+  { group: 'Support', icon: <IconMic />, title: 'Voice AI agent', desc: 'Picks up the call already knowing the chat history and account state.', channels: ['Voice', 'IVR'], href: '/voice-ai-agents' },
+
+  { group: 'Revenue', icon: <IconChart />, title: 'Sales & SDR agent', desc: 'Recovers carts, answers product questions and guides shoppers to checkout.', channels: ['WhatsApp', 'SMS'], href: '/ai-agents/sales' },
+  { group: 'Revenue', icon: <IconSearch />, title: 'Lead qualification agent', desc: 'Scores inbound leads against your criteria and routes them to the right rep.', channels: ['CRM', 'Email'], href: '/ai-agents/lead-qualification' },
+
+  { group: 'Industry', icon: <IconReceipt />, title: 'Ecommerce agents', desc: 'Tracks orders, processes returns and issues refunds inside the thread.', channels: ['Shopify', 'WhatsApp'], href: '/ai-agents/ecommerce' },
+  { group: 'Industry', icon: <IconShield />, title: 'Financial services agents', desc: 'Handles balance, card and KYC requests with every action audit-logged.', channels: ['Voice', 'SMS'], href: '/ai-agents/financial-services' },
+  { group: 'Industry', icon: <IconCalendar />, title: 'Healthcare agents', desc: 'Books, reschedules and reminds — without exposing patient data.', channels: ['Voice', 'SMS'], href: '/ai-agents/healthcare' },
 ]
 
 const CHANNELS = [
@@ -43,13 +46,6 @@ const STEPS = [
   { title: 'Connect your apps and data', desc: 'One-click OAuth to your CRM, payments, store and helpdesk — the agent inherits the right scopes to read and act.' },
   { title: 'Train on your knowledge', desc: 'Drop in your FAQ docs, policies, catalog and past transcripts. Indexed in minutes, every answer tracing back to a source.' },
   { title: 'Set guardrails and go live', desc: 'Scope roles, set SLAs and handoff rules, then plug into your existing WhatsApp, SMS, email and voice inbox.' },
-]
-
-const CONTROLS = [
-  { icon: <IconCursor />, title: 'Macros & canned replies', desc: 'One-click multi-step actions and saved replies, available to both the agent and your team.' },
-  { icon: <IconChart />, title: 'SLA policies', desc: 'Set first-response and resolution targets; the agent works to them and escalates before they breach.' },
-  { icon: <IconShield />, title: 'Custom roles', desc: 'Scope exactly which apps, actions and conversations each teammate — and the agent — can access.' },
-  { icon: <IconReceipt />, title: 'Audit logs', desc: 'Every lookup, action and handoff is logged — who, what, when and why — and exportable for compliance.' },
 ]
 
 const TESTIMONIALS = [
@@ -85,11 +81,10 @@ function AiAgentsOverview() {
         visual={<AgentOrbitVisual />}
       />
 
-      <CapabilitiesFlow
+      <AgentRunConsole
         eyebrow="Capabilities"
         title={<>An agent that thinks, acts, and knows when to step back</>}
-        subtitle="Not a scripted bot — an agent that answers from your data, takes real action, and escalates cleanly."
-        items={CAPABILITIES}
+        subtitle="Pick a real ticket and watch it run — reading intent, checking your data, taking action, or stopping and calling a human."
       />
 
       <AgentDirectory
@@ -100,25 +95,23 @@ function AiAgentsOverview() {
         alt
       />
 
-      <ChannelsThread
+      <ChannelContinuity
         eyebrow="Channels"
-        title={<>One agent, every channel</>}
-        subtitle="The same agent, knowledge and actions everywhere your customers message — on your existing numbers, billed from one wallet."
-        items={CHANNELS}
+        title={<>One thread. Four channels. <span className="grad-word">Nothing repeated.</span></>}
+        subtitle="One customer, four channels, one week — and the agent never starts over."
       />
 
-      <JourneyAscent
+      <AgentAfternoonAscent
         eyebrow="How it works"
         title={<>From connected apps to first resolution, in an afternoon</>}
-        steps={STEPS}
+        subtitle="One real afternoon, 2:04pm to 4:47pm — from zero connected apps to a ticket the agent closed by itself."
         alt
       />
 
-      <ControlDials
-        eyebrow="Built-in controls"
-        title={<>A real help desk, not just a bot</>}
-        subtitle="Autonomy never means a loss of oversight — the agent works inside the guardrails your team already relies on."
-        items={CONTROLS}
+      <AgentGroundingProof
+        eyebrow="Grounding"
+        title={<>Every answer traces back to a file <span className="grad-word">you approved</span></>}
+        subtitle="And when nothing in your content covers the question, it says so instead of inventing an answer."
       />
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />

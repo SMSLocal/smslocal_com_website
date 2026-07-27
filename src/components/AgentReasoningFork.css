@@ -1,0 +1,258 @@
+/* Hero visual for /ai-agents — the agent's reasoning path ending in a fork.
+   Container-free: nodes, labels and counters float on the page background.
+   Height kept tight so hero visual + copy fit one viewport frame. */
+
+.arf {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arf-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 520 / 300;
+}
+
+.arf-wires {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* the pulse must never wash onto the page */
+}
+
+/* BASE — path always drawn, no animation on this layer */
+.arf-base path {
+  fill: none;
+  stroke: var(--border, #dfe4ec);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* MOTION — a short pulse walking the path */
+.arf-pulse {
+  fill: none;
+  stroke: url(#arfG);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 0.18 0.82;
+  stroke-dashoffset: 1;
+}
+.arf-pulse--spine { animation: arf-walk 3.4s cubic-bezier(0.4, 0, 0.5, 1) infinite; }
+.arf-pulse--arm {
+  animation: arf-walk 3.4s cubic-bezier(0.4, 0, 0.5, 1) infinite;
+  animation-delay: 0.62s;
+}
+.arf-pulse--arm.is-human { stroke: #94a3b8; }
+
+@keyframes arf-walk {
+  0%   { stroke-dashoffset: 1; opacity: 0; }
+  8%   { opacity: 1; }
+  46%  { stroke-dashoffset: 0; opacity: 1; }
+  58%  { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* ---- the request entering ---- */
+.arf-in {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.arf-in-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 0 0 4px rgba(79, 91, 213, 0.12);
+}
+.arf-in-tx {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #9aa3b2);
+  white-space: nowrap;
+}
+
+/* ---- reasoning steps ---- */
+.arf-step {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arf-node {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #a9b1e8;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.95);
+  animation: arf-tick 3.4s ease-out infinite;
+  animation-delay: calc(var(--i) * 0.18s);
+}
+@keyframes arf-tick {
+  0%, 12%   { border-color: #a9b1e8; transform: scale(1); }
+  20%       { border-color: #4f5bd5; transform: scale(1.28); }
+  38%, 100% { border-color: #a9b1e8; transform: scale(1); }
+}
+
+.arf-step-tx {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: center;
+  white-space: nowrap;
+}
+.arf-step.is-up .arf-step-tx { bottom: 18px; }
+.arf-step.is-down .arf-step-tx { top: 18px; }
+
+.arf-step-tx strong {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--navy, #16203a);
+}
+.arf-step-tx em {
+  font-style: normal;
+  font-size: 10px;
+  color: var(--muted, #9aa3b2);
+}
+
+/* ---- the decision point ---- */
+.arf-fork {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+}
+.arf-fork-core {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 4px 14px -3px rgba(79, 91, 213, 0.9);
+}
+.arf-fork-ring {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid #ec4899;
+  animation: arf-ping 3.4s ease-out infinite;
+  animation-delay: 0.5s;
+}
+@keyframes arf-ping {
+  0%, 10% { transform: scale(1); opacity: 0.75; }
+  40%     { transform: scale(2.9); opacity: 0; }
+  100%    { transform: scale(2.9); opacity: 0; }
+}
+.arf-fork-tx {
+  position: absolute;
+  top: 20px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7b6ee0;
+  white-space: nowrap;
+}
+
+/* ---- outcomes ---- */
+.arf-out {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  opacity: 0.38;
+  transition: opacity 0.45s ease;
+}
+.arf-out.is-on { opacity: 1; }
+
+.arf-out-ic {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  transition: background 0.45s ease, box-shadow 0.45s ease;
+}
+.arf-out--resolve .arf-out-ic { background: linear-gradient(135deg, #0ea5a5, #34d3c4); }
+.arf-out--human .arf-out-ic { background: #94a3b8; }
+.arf-out--resolve.is-on .arf-out-ic { box-shadow: 0 0 0 4px rgba(14, 165, 165, 0.16); }
+.arf-out--human.is-on .arf-out-ic { box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.2); }
+
+.arf-out-tx { display: flex; flex-direction: column; gap: 1px; }
+.arf-out-tx strong { font-size: 12px; font-weight: 800; color: var(--navy, #16203a); }
+.arf-out-tx em { font-style: normal; font-size: 10px; color: var(--muted, #9aa3b2); }
+
+/* the two outcomes sit at the right edge — pull them in so they never clip */
+.arf-out--resolve, .arf-out--human { transform: translate(-72%, -50%); }
+
+/* ---- naked readout ---- */
+.arf-readout {
+  margin: 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 11.5px;
+  color: var(--muted, #8a93a3);
+  text-align: center;
+}
+.arf-live {
+  font-weight: 700;
+  color: #0b8a86;
+  transition: color 0.4s ease;
+}
+.arf-live.is-human { color: #64748b; }
+.arf-readout strong {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--navy, #16203a);
+  font-variant-numeric: tabular-nums;
+}
+.arf-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--border, #cfd5df);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 900px) { .arf { max-width: 460px; } }
+
+@media (max-width: 560px) {
+  .arf { max-width: 100%; }
+  .arf-step-tx strong { font-size: 10px; }
+  .arf-step-tx em { display: none; }
+  .arf-out-tx strong { font-size: 10.5px; }
+  .arf-out-tx em { display: none; }
+  .arf-readout { font-size: 10.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arf-pulse, .arf-node, .arf-fork-ring { animation: none; }
+  .arf-fork-ring { display: none; }
+  .arf-out { opacity: 1; }
+}

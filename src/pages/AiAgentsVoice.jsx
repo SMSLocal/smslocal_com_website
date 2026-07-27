@@ -1,9 +1,9 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, NarrativeCompare, FeatureGrid, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import WhyUsSpine from '../components/WhyUsSpine.jsx'
+import OneAgentCore from '../components/OneAgentCore.jsx'
 import IndustryChips from '../components/IndustryChips.jsx'
 import {
-  IconMic, IconRefresh, IconChart, IconPhone, IconGlobe, IconBrain, IconLink, IconUsers,
+  IconMic, IconRefresh, IconChart, IconPhone, IconGlobe,
   IconCart, IconDollar, IconCalendar, IconBook, IconBriefcase, IconShield, IconPackage,
 } from '../components/icons.jsx'
 import VoiceAgentMock from '../components/VoiceAgentMock.jsx'
@@ -16,13 +16,6 @@ const FEATURES = [
   { icon: <IconRefresh />, title: 'Escalates the moment it should', desc: 'Detects a direct request for a human or rising frustration, and hands off before the caller has to ask twice.' },
   { icon: <IconPhone />, title: 'Sits in front of your existing line', desc: 'Layer it over your current IVR and number, or let it replace the queue outright.' },
   { icon: <IconGlobe />, title: 'Speaks the caller\'s language', desc: 'Hindi, English and more — the agent replies in the language the caller opened with.' },
-]
-
-const WHY_US = [
-  { icon: <IconBrain />, title: 'One agent, every channel', desc: 'The same reasoning that resolves a WhatsApp chat also answers the phone — no separate voicebot to manage.' },
-  { icon: <IconLink />, title: 'Shared data & guardrails', desc: 'Voice agents work from the same connected apps and roles as your chat and email agents.' },
-  { icon: <IconMic />, title: 'Built for real speech', desc: 'Background noise, cross-talk and trailing off mid-sentence are handled, not just clean scripted audio.' },
-  { icon: <IconUsers />, title: 'A warm handoff, not a transfer', desc: 'The human who picks up gets the full transcript and summary — never a cold "please hold" call.' },
 ]
 
 const INDUSTRIES = [
@@ -103,7 +96,13 @@ function AiAgentsVoice() {
         </div>
       </section>
 
-      <WhyUsSpine eyebrow="Why voice runs on the same AI" title={<>One agent — not a separate voicebot to manage</>} items={WHY_US} alt />
+      <section className="section section-alt">
+        <div className="container">
+          <span className="section-kicker">Why voice runs on the same AI</span>
+          <h2 className="section-title">One agent — not a separate voicebot to manage</h2>
+          <OneAgentCore />
+        </div>
+      </section>
 
       <IndustryChips
         eyebrow="Industries"

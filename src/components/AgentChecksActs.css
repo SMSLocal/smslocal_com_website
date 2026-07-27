@@ -1,0 +1,214 @@
+/* Simple section: a short list of requests on the left, and the check → act
+   pair for the picked one on the right. Light on content by design. */
+.aca {
+  padding: 3.5rem 0;
+}
+
+.aca-head {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.aca-kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.aca-h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+}
+
+.aca-lede {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.aca-body {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+/* ---------- request list ---------- */
+.aca-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.aca-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.75rem 0.35rem;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.aca-item:hover { color: var(--navy); }
+
+.aca-item.is-active {
+  color: var(--navy);
+  padding-left: 0.7rem;
+  box-shadow: inset 2px 0 0 var(--blue);
+}
+
+.aca-item-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 9px;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.aca-item-ic svg { width: 14px; height: 14px; }
+
+.aca-item.is-active .aca-item-ic {
+  color: var(--blue);
+  border-color: rgba(79, 91, 213, 0.4);
+}
+
+.aca-item-label { font-size: 0.92rem; font-weight: 500; }
+
+/* ---------- check → act panel ---------- */
+.aca-panel {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+  animation: acaFade 0.35s ease both;
+}
+
+.aca-step {
+  padding: 1.1rem 1.15rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 20px 36px -30px rgba(16, 35, 63, 0.45);
+}
+
+.aca-step--act { border-color: rgba(79, 91, 213, 0.28); }
+
+.aca-step-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.aca-step-tag svg { width: 12px; height: 12px; }
+.aca-step-tag--act { color: var(--blue); }
+
+.aca-step-text {
+  margin: 0 0 0.7rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.aca-step-out {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--muted);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.aca-step-out--act {
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--success);
+  font-weight: 600;
+}
+
+.aca-step-out svg { width: 10px; height: 10px; }
+
+/* thin connector between the two halves */
+.aca-arrow {
+  align-self: center;
+  position: relative;
+  width: 34px;
+  height: 2px;
+  background: repeating-linear-gradient(to right, var(--border) 0 5px, transparent 5px 10px);
+}
+
+.aca-arrow::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  animation: acaTravel 2.4s ease-in-out infinite;
+}
+
+@keyframes acaTravel {
+  0%, 100% { transform: translateX(0); opacity: 0.35; }
+  50% { transform: translateX(26px); opacity: 1; }
+}
+
+@keyframes acaFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .aca-body { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+
+@media (max-width: 620px) {
+  .aca { padding: 2.75rem 0; }
+  .aca-h2 { font-size: 1.5rem; }
+  .aca-panel { grid-template-columns: 1fr; gap: 0.9rem; }
+  .aca-arrow {
+    width: 2px;
+    height: 24px;
+    margin: 0 auto;
+    background: repeating-linear-gradient(to bottom, var(--border) 0 5px, transparent 5px 10px);
+  }
+  .aca-arrow::after { top: 0; left: -3px; animation: acaTravelY 2.4s ease-in-out infinite; }
+  @keyframes acaTravelY {
+    0%, 100% { transform: translateY(0); opacity: 0.35; }
+    50% { transform: translateY(16px); opacity: 1; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aca-panel,
+  .aca-arrow::after { animation: none; }
+}

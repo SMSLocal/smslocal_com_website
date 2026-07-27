@@ -1,0 +1,245 @@
+/* ===== Guardrail console — an editable policy sentence and one run, read left to right ===== */
+
+.gdc-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.gdc-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gdc-head h2 {
+  font-size: 2rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  margin: 0.5rem 0 0.6rem;
+}
+
+.gdc-head p {
+  margin: 0 auto;
+  max-width: 560px;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+/* ---------------- the editable rule ---------------- */
+.gdc-rule {
+  position: relative;
+  margin: 0;
+  padding-bottom: 1.5rem;
+  font-size: 1.12rem;
+  line-height: 2.15;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.gdc-chip {
+  font: inherit;
+  font-weight: 700;
+  color: var(--blue);
+  margin: 0 0.28rem;
+  padding: 0.14rem 0.55rem 0.2rem;
+  border: 0;
+  border-bottom: 2px dashed rgba(79, 91, 213, 0.45);
+  border-radius: 6px 6px 0 0;
+  background: rgba(79, 91, 213, 0.08);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.gdc-chip:hover {
+  background: rgba(79, 91, 213, 0.16);
+  transform: translateY(-1px);
+}
+
+.gdc-chip:active { transform: translateY(0); }
+
+.gdc-chip--off {
+  color: var(--coral);
+  background: rgba(251, 113, 133, 0.1);
+  border-bottom-color: rgba(251, 113, 133, 0.5);
+}
+
+.gdc-chip--off:hover { background: rgba(251, 113, 133, 0.18); }
+
+.gdc-rule-hint {
+  position: absolute;
+  right: 0;
+  bottom: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--blue);
+  animation: gdc-fade 2.6s ease-in-out infinite;
+}
+
+@keyframes gdc-fade {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ---------------- the ticket ---------------- */
+.gdc-ticket {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.gdc-ticket b { color: var(--navy); font-weight: 700; }
+
+.gdc-avatar {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--gradient-brand);
+}
+
+/* ---------------- the track ---------------- */
+.gdc-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.6rem 0 1.5rem;
+}
+
+.gdc-rail-bg {
+  position: absolute;
+  top: calc(1.6rem + 4px);
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  background: var(--border);
+}
+
+.gdc-rail-fill {
+  display: block;
+  height: 100%;
+  background: var(--gradient-brand);
+  transition: width 0.32s linear;
+}
+
+.gdc-stage {
+  position: relative;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.gdc-stage.is-in { opacity: 1; transform: none; }
+
+.gdc-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--blue);
+  margin-bottom: 0.75rem;
+}
+
+.gdc-stage--act .gdc-dot { border-color: var(--teal); background: var(--teal); }
+.gdc-stage--hold .gdc-dot { border-color: #f59e0b; background: #f59e0b; }
+.gdc-stage--warn .gdc-dot { border-color: var(--coral); background: var(--coral); }
+
+.gdc-stage-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.015em;
+}
+
+.gdc-stage-note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.gdc-stage--act .gdc-stage-note { color: #0d9488; font-weight: 600; }
+.gdc-stage--hold .gdc-stage-note { color: #b45309; font-weight: 600; }
+.gdc-stage--warn .gdc-stage-note { color: #e11d48; font-weight: 600; }
+
+/* ---------------- outcome ---------------- */
+.gdc-outcome {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--border);
+  animation: gdc-swap 0.4s ease;
+}
+
+@keyframes gdc-swap {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.gdc-flag {
+  flex: none;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 6px;
+}
+
+.gdc-outcome--resolved .gdc-flag { background: rgba(20, 184, 166, 0.14); color: #0d9488; }
+.gdc-outcome--held .gdc-flag { background: rgba(245, 158, 11, 0.16); color: #b45309; }
+
+.gdc-outcome-text {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.gdc-live i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.gdc-live.is-running i { background: var(--blue); animation: gdc-blink 0.8s ease-in-out infinite; }
+
+@keyframes gdc-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(0.7); }
+}
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 720px) {
+  .gdc-head h2 { font-size: 1.6rem; }
+  .gdc-rule { font-size: 1rem; line-height: 2; padding-bottom: 1.9rem; }
+  .gdc-rule-hint { left: 0; right: auto; }
+  .gdc-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem 1rem; }
+  .gdc-rail-bg { display: none; }
+  .gdc-outcome { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gdc-stage { opacity: 1; transform: none; }
+  .gdc-rule-hint, .gdc-live.is-running i { animation: none; }
+  .gdc-rail-fill { transition: none; }
+}

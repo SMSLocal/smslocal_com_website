@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 import {
   IconMegaphone, IconChat, IconBolt, IconPhone, IconRobot, IconGlobe, IconLink, IconShield,
   IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCalendar, IconReceipt, IconCart, IconDollar,
   IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu,
 } from './icons.jsx'
-import { ChevronDown } from 'lucide-react'
 import { CompareLogo } from './CompareLogo.jsx'
 import BrandLogo from './BrandLogo.jsx'
 
-// Real chevron icon, matching the reference site — replaces the "▾" text glyph,
-// which rendered at whatever the font decided and could not rotate on open.
-function Caret({ open }) {
-  return <ChevronDown className="caret" aria-hidden="true" data-open={open || undefined} />
+// A small static dot in place of the old chevron. Deliberately inert: it never
+// rotates, recolours or moves on hover/open, so the label is the only thing
+// that reacts. Purely decorative, hence aria-hidden and no state prop.
+function Dot() {
+  return <span className="nav-dot" aria-hidden="true" />
 }
 
 // --- Product mega: three sub-divisions -----------------------------------
@@ -89,15 +89,13 @@ const SOL_INDUSTRY = [
   { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/industry/real-estate' },
 ]
 
+// Team/use-case and Services share one category — Services was a single link,
+// too thin to hold its own rail entry.
 const SOL_TEAM = [
   { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/ai-agents/customer-service' },
   { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/ai-agents/sales' },
   { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/ai-agents/booking' },
-]
-
-const SOL_SERVICES = [
   { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/services/ai-consulting' },
-  { t: 'Talk to an Expert', d: 'Map your use case with our team', i: <IconPhone />, href: '/contact-us' },
 ]
 
 const SOLUTION_CATEGORIES = [
@@ -113,23 +111,13 @@ const SOLUTION_CATEGORIES = [
   },
   {
     key: 'team',
-    label: 'By team / use case',
+    label: 'By team & services',
     sub: 'Shaped for the job',
     icon: <IconUsers />,
-    desc: 'Start from the job to be done — support, sales, bookings and more.',
+    desc: 'Start from the job to be done — support, sales, bookings — or get hands-on help taking an AI use case to production.',
     items: SOL_TEAM,
     viewAllHref: '/solutions',
     viewAllLabel: 'All Solutions',
-  },
-  {
-    key: 'services',
-    label: 'Services',
-    sub: 'Get hands-on help',
-    icon: <IconBriefcase />,
-    desc: 'Expert help to take an AI use case from proof of concept to production.',
-    items: SOL_SERVICES,
-    viewAllHref: '/services/ai-consulting',
-    viewAllLabel: 'AI Consulting',
   },
 ]
 
@@ -157,6 +145,24 @@ const COMPARE = [
   { name: 'Plivo', domain: 'plivo.com', href: '/compare/plivo', d: 'Communications APIs' },
   { name: 'Infobip', domain: 'infobip.com', href: '/compare/infobip', d: 'Global omnichannel CPaaS' },
 ]
+
+// Every route reachable from each top-level menu, so a trigger can highlight
+// itself while you are on one of its pages. Derived from the same arrays the
+// menus render, so adding a link to a menu keeps the highlight in sync.
+const categoryRoutes = (cats) => cats.flatMap((c) => [c.viewAllHref, ...c.items.map((i) => i.href)])
+
+const MENU_ROUTES = {
+  products: categoryRoutes(PRODUCT_CATEGORIES),
+  platform: PLATFORM.map((i) => i.href),
+  solutions: categoryRoutes(SOLUTION_CATEGORIES),
+  resources: [...RESOURCES.map((i) => i.href), ...COMPARE.map((c) => c.href), '/compare'],
+}
+
+// startsWith so nested pages count too — /blog/a-post lights up Resources, and
+// /ai-agents/support lights up Products.
+function isMenuActive(menu, pathname) {
+  return (MENU_ROUTES[menu] ?? []).some((href) => pathname === href || pathname.startsWith(`${href}/`))
+}
 
 function ItemLink({ item, onNavigate }) {
   return (
@@ -223,6 +229,11 @@ function Navbar() {
   const [activeProductCat, setActiveProductCat] = useState(PRODUCT_CATEGORIES[0].key)
   const [activeSolutionCat, setActiveSolutionCat] = useState(SOLUTION_CATEGORIES[0].key)
   const navRef = useRef(null)
+  const { pathname } = useLocation()
+
+  // A trigger is "current" when the page you are on lives inside its menu.
+  const triggerClass = (menu) =>
+    isMenuActive(menu, pathname) ? 'nav-trigger is-current' : 'nav-trigger'
 
   const toggleMenu = (name) => {
     setOpenMenu((current) => (current === name ? null : name))
@@ -261,8 +272,8 @@ function Navbar() {
         <nav className={mobileOpen ? 'nav-links open' : 'nav-links'}>
           {/* Products — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('products')}>
-            <button type="button" className="nav-trigger" onClick={() => toggleMenu('products')}>
-              Products <Caret open={openMenu === 'products'} />
+            <button type="button" className={triggerClass('products')} onClick={() => toggleMenu('products')}>
+              Products <Dot />
             </button>
             {openMenu === 'products' && (
               <CategoryMega
@@ -276,8 +287,8 @@ function Navbar() {
 
           {/* Platform — simple grid dropdown */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('platform')}>
-            <button type="button" className="nav-trigger" onClick={() => toggleMenu('platform')}>
-              Platform <Caret open={openMenu === 'platform'} />
+            <button type="button" className={triggerClass('platform')} onClick={() => toggleMenu('platform')}>
+              Platform <Dot />
             </button>
             {openMenu === 'platform' && (
               <div className="dropdown-wrapper">
@@ -294,8 +305,8 @@ function Navbar() {
 
           {/* Solutions — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('solutions')}>
-            <button type="button" className="nav-trigger" onClick={() => toggleMenu('solutions')}>
-              Solutions <Caret open={openMenu === 'solutions'} />
+            <button type="button" className={triggerClass('solutions')} onClick={() => toggleMenu('solutions')}>
+              Solutions <Dot />
             </button>
             {openMenu === 'solutions' && (
               <CategoryMega
@@ -309,8 +320,8 @@ function Navbar() {
 
           {/* Resources — two-panel flyout (now includes Pricing) */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('resources')}>
-            <button type="button" className="nav-trigger" onClick={() => toggleMenu('resources')}>
-              Resources <Caret open={openMenu === 'resources'} />
+            <button type="button" className={triggerClass('resources')} onClick={() => toggleMenu('resources')}>
+              Resources <Dot />
             </button>
             {openMenu === 'resources' && (
               <div className="dropdown-wrapper">
@@ -347,7 +358,11 @@ function Navbar() {
 
           {/* Pricing — plain link (Company links now live in the footer only) */}
           <div className="nav-item" onMouseEnter={() => setOpenMenu(null)}>
-            <Link to="/pricing" className="nav-item-link" onClick={closeAll}>Pricing</Link>
+            <Link
+              to="/pricing"
+              className={pathname === '/pricing' ? 'nav-item-link is-current' : 'nav-item-link'}
+              onClick={closeAll}
+            >Pricing</Link>
           </div>
 
           <div className="nav-auth mobile-only">

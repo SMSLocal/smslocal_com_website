@@ -120,17 +120,29 @@
   color: var(--blue);
 }
 
-/* 14px lucide chevron, matching the reference site's h-3.5 w-3.5 opacity-60 */
-.caret {
-  width: 14px;
-  height: 14px;
+/* Static dot replacing the old chevron. It uses a fixed colour rather than
+   currentColor, and carries no transition, so it stays visually identical
+   whether the trigger is hovered, open or current — only the label reacts. */
+.nav-dot {
+  width: 4px;
+  height: 4px;
   flex: none;
-  opacity: 0.6;
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  background: var(--text-secondary);
+  opacity: 0.55;
 }
 
-.caret[data-open] {
-  transform: rotate(180deg);
+/* Soft purple pill marking the menu the current page belongs to. */
+.nav-trigger.is-current,
+.nav-item-link.is-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.09);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  margin: -0.35rem -0.2rem;
 }
 
 /* Outlined pill, mirroring the hero's "Book a demo": 2px grey ring that goes

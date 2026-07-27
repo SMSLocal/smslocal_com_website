@@ -46,7 +46,7 @@
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--muted, #6b7280);
+  color: var(--muted-foreground, #6b7280);
 }
 
 .cdd-q {
@@ -96,7 +96,7 @@
 
 .cdd-q-id { display: flex; flex-direction: column; line-height: 1.25; margin-right: auto; }
 .cdd-q-id strong { font-size: 13.5px; color: var(--navy, #111827); }
-.cdd-q-id span { font-size: 11.5px; color: var(--muted, #6b7280); }
+.cdd-q-id span { font-size: 11.5px; color: var(--muted-foreground, #6b7280); }
 
 .cdd-mood {
   font-size: 10px;
@@ -157,7 +157,7 @@
   border-bottom: 1px solid var(--border, #e5e7eb);
 }
 
-.cdd-composer-title { font-size: 13px; color: var(--muted, #6b7280); }
+.cdd-composer-title { font-size: 13px; color: var(--muted-foreground, #6b7280); }
 .cdd-composer-title strong { color: var(--navy, #111827); }
 
 .cdd-status {
@@ -166,7 +166,7 @@
   gap: 7px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--muted, #6b7280);
+  color: var(--muted-foreground, #6b7280);
 }
 .cdd-status-dot {
   width: 7px;
@@ -193,7 +193,7 @@
   padding: 5px 11px 5px 7px;
   border-radius: 999px;
   border: 1px dashed var(--border, #e5e7eb);
-  color: var(--muted, #9ca3af);
+  color: var(--muted-foreground, #9ca3af);
   background: transparent;
   transition: all 0.3s ease;
 }
@@ -279,7 +279,7 @@
   flex-wrap: wrap;
 }
 
-.cdd-hint { font-size: 12px; color: var(--muted, #9ca3af); }
+.cdd-hint { font-size: 12px; color: var(--muted-foreground, #9ca3af); }
 .cdd-btns { display: inline-flex; gap: 9px; }
 
 .cdd-btn {

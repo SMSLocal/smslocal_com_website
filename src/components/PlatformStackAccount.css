@@ -1,0 +1,422 @@
+.psa-stage {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.psa-glow {
+  position: absolute;
+  inset: -6% -4%;
+  z-index: 0;
+  background:
+    radial-gradient(36% 44% at 14% 10%, rgba(79, 91, 213, 0.13), transparent 70%),
+    radial-gradient(32% 40% at 92% 84%, rgba(236, 72, 153, 0.11), transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.psa-diagram {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 22px 232px;
+  grid-template-rows: auto repeat(6, minmax(72px, auto));
+  column-gap: 0;
+  align-items: stretch;
+}
+
+/* Window chrome sits behind the titlebar + module cells, which share col 1 */
+.psa-frame {
+  grid-column: 1;
+  grid-row: 1 / 8;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 30px 60px -30px rgba(21, 73, 137, 0.28), 0 2px 0 rgba(21, 73, 137, 0.04);
+}
+
+.psa-titlebar {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.psa-tb-dots {
+  display: flex;
+  gap: 0.32rem;
+  flex: none;
+}
+
+.psa-tb-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.psa-tb-url {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 0.28rem 0.7rem;
+  background: var(--bg-subtle);
+  border-radius: 999px;
+}
+
+.psa-tb-account {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.psa-tb-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  color: #fff;
+  background: var(--gradient-brand);
+  flex: none;
+}
+
+/* Each layer occupies one grid row of column 1, stacked flush inside the frame */
+.psa-module {
+  grid-column: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.psa-diagram .psa-module:nth-child(8) {
+  border-bottom: none;
+}
+
+.psa-mod-ic {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.psa-mod-ic svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Leader line running from the frame edge to the annotation */
+.psa-leader {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.psa-leader-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), var(--border) 60%, transparent);
+}
+
+.psa-leader-dot {
+  flex: none;
+  width: 5px;
+  height: 5px;
+  margin-left: -1px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.psa-note {
+  grid-column: 3;
+  align-self: center;
+  padding: 0.35rem 0;
+}
+
+.psa-note-name {
+  margin: 0 0 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.psa-note-desc {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.psa-note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.psa-note-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 0.24rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+}
+
+/* ---- Module body content ---- */
+
+.psa-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.psa-bubble {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--ink);
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  white-space: nowrap;
+}
+
+.psa-bubble b {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.psa-bubble--ghost {
+  opacity: 0.55;
+}
+
+.psa-inbox,
+.psa-ai {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.psa-avatar,
+.psa-bot {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.psa-inbox-text,
+.psa-ai-text {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.psa-inbox-text b,
+.psa-ai-tag {
+  color: var(--navy);
+}
+
+.psa-sla,
+.psa-ai-tag {
+  margin-left: auto;
+  flex: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 0.24rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+}
+
+.psa-sync {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.psa-sync-nodes {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+}
+
+.psa-node {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 0.28rem 0.55rem;
+  border-radius: 8px;
+  background: var(--bg-subtle);
+}
+
+.psa-node-line {
+  width: 14px;
+  height: 1px;
+  background: var(--border);
+}
+
+.psa-sync-status {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.psa-sync-status svg {
+  color: var(--success);
+  flex: none;
+}
+
+.psa-chart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.psa-spark {
+  flex: none;
+  width: 90px;
+  height: 26px;
+}
+
+.psa-spark polyline {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.psa-chart-stats {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.psa-chart-stats b {
+  color: var(--navy);
+}
+
+.psa-security {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.psa-sec-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.psa-sec-item svg {
+  color: var(--success);
+  flex: none;
+}
+
+.psa-sec-role {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 0.24rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+}
+
+@media (max-width: 900px) {
+  .psa-diagram {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .psa-frame {
+    grid-column: 1;
+    grid-row: 1 / -1;
+  }
+
+  .psa-titlebar {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .psa-module,
+  .psa-leader,
+  .psa-note {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  .psa-leader {
+    display: none;
+  }
+
+  .psa-note {
+    padding: 0.9rem 1.4rem 1.3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .psa-note-tags {
+    padding-bottom: 0.1rem;
+  }
+
+  .psa-sla,
+  .psa-ai-tag,
+  .psa-sec-role {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .psa-tb-url {
+    display: none;
+  }
+
+  .psa-module {
+    align-items: flex-start;
+  }
+
+  .psa-bubbles,
+  .psa-inbox,
+  .psa-ai,
+  .psa-sync,
+  .psa-chart,
+  .psa-security {
+    gap: 0.5rem;
+  }
+}

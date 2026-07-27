@@ -1,6 +1,7 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import CopilotDraftDemo from '../components/CopilotDraftDemo.jsx'
+import CopilotAheadHero from '../components/CopilotAheadHero.jsx'
 import WhatsappStepsFlow from '../components/WhatsappStepsFlow.jsx'
 import WhyUsDividers from '../components/WhyUsDividers.jsx'
 import { IconPencil, IconBook, IconBolt, IconChat, IconClock, IconCheck, IconChart, IconUsers } from '../components/icons.jsx'
@@ -49,6 +50,7 @@ function ProductsAgentCopilot() {
         subtitle="Speed up every conversation with an AI agent copilot that drafts responses, summarises long threads and surfaces knowledge-grounded answers — right inside the reply box your team already uses."
         primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'Omnichannel Inbox', href: '/products/omnichannel-inbox' }}
+        visual={<CopilotAheadHero />}
       />
 
       <NarrativeCompare

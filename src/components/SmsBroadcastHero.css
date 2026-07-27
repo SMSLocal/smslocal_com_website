@@ -170,7 +170,7 @@
   justify-content: center;
   font-size: 11.5px;
   font-weight: 600;
-  color: var(--muted, #8a93a3);
+  color: var(--muted-foreground, #8a93a3);
 }
 .sbh-readout strong {
   font-size: 21px;

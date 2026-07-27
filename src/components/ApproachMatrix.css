@@ -1,0 +1,220 @@
+/* Compact three-way matrix. Hairline rows, one tinted column for the answer
+   we're arguing for, and a single explanation line under the whole thing. */
+.apm {
+  padding: 3.5rem 0;
+}
+
+.apm-head {
+  max-width: 40rem;
+  margin-bottom: 1.5rem;
+}
+
+.apm-kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.apm-h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+}
+
+/* ---------- table ---------- */
+.apm-table {
+  border-top: 1px solid var(--border);
+}
+
+.apm-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) repeat(3, minmax(0, 0.8fr));
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  outline: none;
+  transition: background 0.18s ease;
+}
+
+.apm-row:not(.apm-row--head):hover,
+.apm-row.is-on {
+  background: rgba(79, 91, 213, 0.04);
+}
+
+.apm-row--head {
+  padding: 0.55rem 0;
+  border-bottom-color: var(--border);
+}
+
+.apm-col {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* the column we're arguing for gets a faint band, not a card */
+.apm-col--best {
+  position: relative;
+  background: rgba(79, 91, 213, 0.05);
+  color: var(--blue);
+}
+
+.apm-row--head .apm-col--best::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.55rem;
+  height: 2px;
+  background: var(--gradient-brand);
+}
+
+.apm-label {
+  padding: 0.72rem 0.15rem;
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+
+.apm-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  align-self: stretch;
+  justify-content: center;
+  padding: 0.6rem 0.25rem;
+}
+
+.apm-cell i {
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.apm-cell em {
+  font-style: normal;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.apm-cell--yes i { color: var(--success); }
+.apm-cell--part i { color: var(--cyan); }
+.apm-cell--no i { color: var(--border); }
+.apm-cell--no em { opacity: 0.75; }
+
+/* ---------- payoff row ---------- */
+.apm-row--stat { border-bottom: 0; }
+
+.apm-row--stat .apm-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.apm-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28rem;
+  align-self: stretch;
+  justify-content: center;
+  padding: 0.75rem 0.6rem;
+}
+
+.apm-stat b {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-secondary);
+}
+
+.apm-stat.apm-col--best b { color: var(--navy); }
+
+.apm-bar {
+  display: block;
+  width: 100%;
+  max-width: 6.5rem;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.apm-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--text-secondary);
+  opacity: 0.45;
+  animation: apmGrow 0.7s ease both;
+}
+
+.apm-col--best .apm-bar span {
+  background: var(--gradient-brand);
+  opacity: 1;
+}
+
+/* ---------- shared explanation line ---------- */
+.apm-note {
+  margin: 1rem 0 0;
+  max-width: 44rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  animation: apmFade 0.3s ease both;
+}
+
+@keyframes apmGrow {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); }
+}
+
+@keyframes apmFade {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  .apm { padding: 2.75rem 0; }
+  .apm-h2 { font-size: 1.5rem; }
+
+  .apm-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0.55rem 0;
+  }
+  .apm-row--head { display: none; }
+  .apm-label {
+    grid-column: 1 / -1;
+    padding: 0 0 0.25rem;
+    font-weight: 600;
+  }
+  /* the column name has to ride along with each cell once the head is gone */
+  .apm-cell::before,
+  .apm-stat::before {
+    content: attr(data-col);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .apm-cell { padding: 0.35rem 0.2rem; }
+  .apm-col--best { border-radius: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apm-note,
+  .apm-bar span { animation: none; }
+}

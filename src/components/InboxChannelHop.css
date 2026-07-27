@@ -1,9 +1,49 @@
 .ichop-stage {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  height: 220px;
-  margin: 0 auto;
+  max-width: 1080px;
+  height: 320px;
+  margin: 2.6rem auto 0;
+  padding: 0 40px;
+}
+
+.ichop-glow {
+  position: absolute;
+  inset: -60px -20px;
+  background:
+    radial-gradient(340px 220px at 10% 10%, rgba(79, 91, 213, 0.14), transparent 70%),
+    radial-gradient(340px 220px at 90% 90%, rgba(236, 72, 153, 0.12), transparent 70%);
+  filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ichop-ticket {
+  position: absolute;
+  left: 50%;
+  top: -2.4rem;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 30px -18px rgba(16, 35, 63, 0.4);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--navy);
+  z-index: 2;
+}
+
+.ichop-ticket-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
 }
 
 .ichop-line {
@@ -11,6 +51,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 .ichop-base {
@@ -39,6 +80,7 @@
 .ichop-nodes {
   position: absolute;
   inset: 0;
+  z-index: 1;
 }
 
 .ichop-node {
@@ -60,7 +102,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.ichop-node:hover .ichop-dot {
+  box-shadow: 0 18px 34px -16px rgba(16, 35, 63, 0.62), 0 0 0 5px rgba(79, 91, 213, 0.12);
+  transform: translateY(-1px);
 }
 
 .ichop-dot svg {
@@ -87,6 +135,50 @@
 .ichop-node.is-top .ichop-label { bottom: calc(100% + 7px); }
 .ichop-node.is-bottom .ichop-label { top: calc(100% + 7px); }
 
+.ichop-bubble {
+  position: absolute;
+  width: 188px;
+  padding: 0.55rem 0.7rem 0.6rem;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 38px -22px rgba(16, 35, 63, 0.45);
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  text-align: left;
+  white-space: normal;
+}
+
+.ichop-bubble-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.ichop-bubble-head b {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.ichop-bubble-head i {
+  font-style: normal;
+  font-size: 0.64rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.ichop-node.is-top .ichop-bubble { bottom: calc(100% + 34px); }
+.ichop-node.is-bottom .ichop-bubble { top: calc(100% + 34px); }
+
+.ichop-bubble.is-center { left: 50%; transform: translateX(-50%); }
+.ichop-bubble.is-start { left: -6px; }
+.ichop-bubble.is-end { right: -6px; }
+
 .ichop-caption {
   max-width: 620px;
   margin: 2.6rem auto 0;
@@ -112,10 +204,16 @@
 }
 
 @media (max-width: 720px) {
-  .ichop-stage { height: 300px; max-width: 420px; }
+  .ichop-stage { height: 380px; max-width: 420px; padding: 0 16px; }
   .ichop-dot { width: 46px; height: 46px; }
   .ichop-dot svg { width: 19px; height: 19px; }
   .ichop-label { font-size: 0.68rem; }
+  .ichop-bubble { width: 128px; font-size: 0.66rem; padding: 0.45rem 0.55rem 0.5rem; }
+  .ichop-bubble-head b { font-size: 0.62rem; }
+  .ichop-bubble-head i { display: none; }
+  .ichop-bubble.is-start { left: -30px; }
+  .ichop-bubble.is-end { right: -30px; }
+  .ichop-ticket { font-size: 0.66rem; padding: 0.35rem 0.7rem; top: -1.9rem; max-width: 92%; overflow: hidden; text-overflow: ellipsis; }
 }
 
 @media (prefers-reduced-motion: reduce) {

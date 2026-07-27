@@ -1,0 +1,207 @@
+/* Horizontal day-timeline: four channel stops on one rail, with the active
+   stop's detail underneath. Deliberately not another grid of cards. */
+.cht {
+  padding: 3.5rem 0;
+  background: var(--bg-subtle-2);
+}
+
+.cht-head {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.cht-kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.cht-h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+}
+
+.cht-lede {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ---------- rail ---------- */
+.cht-rail {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 0.25rem;
+}
+
+.cht-track,
+.cht-track-fill {
+  position: absolute;
+  top: 22px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: var(--border);
+}
+
+.cht-track-fill {
+  right: auto;
+  width: 0;
+  max-width: 75%;
+  background: var(--gradient-brand);
+  transition: width 0.5s ease;
+}
+
+.cht-stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.cht-stop:hover { color: var(--navy); }
+
+.cht-stop-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cht-stop-ic svg { width: 17px; height: 17px; }
+
+.cht-stop.is-past .cht-stop-ic {
+  color: var(--blue);
+  border-color: rgba(79, 91, 213, 0.45);
+}
+
+.cht-stop.is-active .cht-stop-ic {
+  color: #fff;
+  border-color: transparent;
+  background: var(--gradient-brand);
+  transform: scale(1.09);
+  box-shadow: 0 14px 26px -14px rgba(79, 91, 213, 0.6);
+}
+
+.cht-stop-time {
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+
+.cht-stop-ch {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.cht-stop.is-active .cht-stop-ch { color: var(--navy); }
+
+/* ---------- detail under the rail ---------- */
+.cht-panel {
+  max-width: 40rem;
+  margin: 2rem auto 0;
+  text-align: center;
+  animation: chtIn 0.4s ease both;
+}
+
+.cht-customer {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.cht-agent {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.cht-context {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.cht-context-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: chtPulse 2s ease-in-out infinite;
+}
+
+@keyframes chtIn {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes chtPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 700px) {
+  .cht { padding: 2.75rem 0; }
+  .cht-h2 { font-size: 1.5rem; }
+  .cht-head { margin-bottom: 1.75rem; }
+
+  /* The rail turns vertical rather than squeezing four stops across. */
+  .cht-rail { grid-template-columns: 1fr; gap: 0.15rem; }
+  .cht-track,
+  .cht-track-fill { display: none; }
+  .cht-stop {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    padding: 0.45rem 0.15rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .cht-stop-ic { width: 34px; height: 34px; }
+  .cht-stop-ic svg { width: 14px; height: 14px; }
+  .cht-stop.is-active .cht-stop-ic { transform: none; }
+  .cht-stop-time { margin-left: auto; }
+  .cht-panel { text-align: left; margin-top: 1.4rem; }
+  .cht-customer { font-size: 1.15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cht-panel,
+  .cht-context-dot { animation: none; }
+  .cht-track-fill,
+  .cht-stop-ic { transition: none; }
+}

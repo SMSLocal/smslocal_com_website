@@ -1,0 +1,300 @@
+/* ThreadRiver — one medium-width thread that keeps going across channels. */
+
+.trv-head {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.trv-head h2 {
+  font-size: 2.05rem;
+  color: var(--navy);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  margin: .7rem 0 .7rem;
+}
+
+.trv-head p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ---- the artifact ---- */
+.trv-card {
+  --hue: var(--brand-start);
+  position: relative;
+  max-width: 720px;
+  margin: 36px auto 0;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 24px 60px -34px color-mix(in srgb, var(--hue) 60%, transparent), 0 1px 2px rgba(15, 23, 42, .04);
+  overflow: hidden;
+  transition: box-shadow .8s ease;
+}
+
+.trv-card.ch-whatsapp { --hue: var(--teal); }
+.trv-card.ch-sms { --hue: var(--brand-start); }
+.trv-card.ch-email { --hue: var(--primary); }
+.trv-card.ch-voice { --hue: var(--brand-end); }
+
+/* header */
+.trv-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.trv-top b {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: -.01em;
+}
+
+.trv-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--gradient-brand);
+}
+
+.trv-live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--hue);
+  transition: color .6s;
+}
+
+.trv-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: trv-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes trv-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .25; }
+}
+
+/* ---- body ---- */
+.trv-body {
+  display: flex;
+  gap: 16px;
+  padding: 18px 18px 6px;
+}
+
+/* left channel spine */
+.trv-spine {
+  position: relative;
+  flex-shrink: 0;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2px 0 14px;
+}
+
+.trv-spine-line,
+.trv-spine-fill {
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  bottom: 26px;
+  width: 2px;
+  margin-left: -1px;
+  border-radius: 2px;
+}
+
+.trv-spine-line { background: var(--border); }
+
+.trv-spine-fill {
+  background: linear-gradient(180deg, var(--teal), var(--brand-start) 42%, var(--primary) 72%, var(--brand-end));
+  transform-origin: top center;
+  transition: transform .7s cubic-bezier(.32,.72,0,1);
+}
+
+.trv-dot {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  transition: transform .45s cubic-bezier(.32,.72,0,1), background .45s, color .45s, border-color .45s, box-shadow .45s;
+}
+
+.trv-dot svg { width: 14px; height: 14px; }
+
+.trv-dot.ch-whatsapp { --hue: var(--teal); }
+.trv-dot.ch-sms { --hue: var(--brand-start); }
+.trv-dot.ch-email { --hue: var(--primary); }
+.trv-dot.ch-voice { --hue: var(--brand-end); }
+
+.trv-dot.is-past {
+  color: var(--hue);
+  border-color: color-mix(in srgb, var(--hue) 45%, transparent);
+}
+
+.trv-dot.is-now {
+  background: var(--hue);
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.14);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--hue) 14%, transparent);
+}
+
+/* ---- feed ---- */
+.trv-feed {
+  flex: 1;
+  min-width: 0;
+  height: 268px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-right: 2px;
+}
+
+.trv-feed::-webkit-scrollbar { display: none; }
+
+.trv-leg {
+  --hue: var(--brand-start);
+  padding-bottom: 18px;
+  opacity: .45;
+  transition: opacity .5s;
+  animation: trv-in .55s cubic-bezier(.32,.72,0,1) backwards;
+}
+
+.trv-leg.is-now { opacity: 1; }
+
+.trv-leg.ch-whatsapp { --hue: var(--teal); }
+.trv-leg.ch-sms { --hue: var(--brand-start); }
+.trv-leg.ch-email { --hue: var(--primary); }
+.trv-leg.ch-voice { --hue: var(--brand-end); }
+
+@keyframes trv-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: .45; transform: none; }
+}
+
+.trv-switch {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.trv-switch b { color: var(--hue); font-weight: 800; }
+
+.trv-leg p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  letter-spacing: -.01em;
+}
+
+.trv-ask { color: var(--text-secondary); }
+
+.trv-reply {
+  margin-top: 7px !important;
+  padding-left: 12px;
+  border-left: 2px solid color-mix(in srgb, var(--hue) 45%, transparent);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.trv-kept {
+  display: inline-block;
+  margin-top: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--success);
+}
+
+/* ---- foot ---- */
+.trv-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 18px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.trv-knows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.trv-knows em {
+  font-style: normal;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--heading);
+  background: #fff;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  animation: trv-chip .45s cubic-bezier(.32,.72,0,1) backwards;
+}
+
+@keyframes trv-chip {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.trv-zero {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.trv-zero b {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--success);
+}
+
+@media (max-width: 640px) {
+  .trv-body { padding: 14px 12px 4px; gap: 12px; }
+  .trv-feed { height: 300px; }
+  .trv-leg p { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trv-spine-fill, .trv-dot, .trv-leg { transition-duration: .01ms; }
+  .trv-leg, .trv-knows em { animation: none; }
+  .trv-live::before { animation: none; }
+}

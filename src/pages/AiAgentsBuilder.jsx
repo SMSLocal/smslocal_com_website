@@ -1,21 +1,17 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, HowItWorks, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconCode, IconLink, IconShield, IconRocket, IconCursor, IconChart, IconUsers, IconGear } from '../components/icons.jsx'
 import AgentBuilderPrompt from '../components/AgentBuilderPrompt.jsx'
 import FeatureFormula from '../components/FeatureFormula.jsx'
 import WhyUsManifesto from '../components/WhyUsManifesto.jsx'
+import AgentBuildBlueprint from '../components/AgentBuildBlueprint.jsx'
+import AgentStatStrip from '../components/AgentStatStrip.jsx'
 
 const FEATURES = [
   { icon: <IconCursor />, title: 'No-code flow builder', desc: 'Design agent behavior visually — steps, conditions and tools.' },
   { icon: <IconCode />, title: 'Code when you need it', desc: 'Drop into custom functions and API calls for advanced logic.' },
   { icon: <IconLink />, title: 'Connect your tools', desc: 'Wire up your CRM, order system or database as agent-callable tools.' },
   { icon: <IconShield />, title: 'Guardrails built in', desc: 'Define exactly what the agent can do autonomously, and what it can\'t.' },
-]
-
-const STEPS = [
-  { title: 'Define the agent\'s job', desc: 'Describe what it should handle and connect the tools it needs.' },
-  { title: 'Set guardrails & escalation', desc: 'Decide what it can do on its own, and when it hands off to a human.' },
-  { title: 'Deploy across channels', desc: 'Publish the same agent to chat, WhatsApp and voice.' },
 ]
 
 const WHY_US = [
@@ -50,34 +46,11 @@ function AiAgentsBuilder() {
         visual={<AgentBuilderPrompt />}
       />
 
-      <NarrativeCompare
-        eyebrow="The problem"
-        heading={<>Most "AI agent builders" are really chatbot builders with a new name.</>}
-        paragraphs={[
-          "Rebrand a flow-chart chatbot tool as an \"agent builder\" and it still can't do the one thing that makes an agent different — reach into a real system and take an action, not just pick the next branch in a script.",
-          "So teams end up building something that talks like an agent but works like a bot, and the gap only shows up once it's live and can't actually resolve anything real.",
-          <>A real agent builder connects to <strong>your actual tools — CRM, database, internal APIs</strong> — so what it builds can genuinely act, not just answer.</>,
-        ]}
-        leftLabel="Chatbot builder, rebranded"
-        leftItems={[
-          'Flow charts and conditional branches only',
-          'No way to call your own systems',
-          'No guardrails beyond the flow itself',
-          'Can\'t take an action, only reply',
-        ]}
-        rightLabel="A real agent builder"
-        rightItems={[
-          'Connect any tool, database or internal API',
-          'Custom code for logic the visual builder can\'t express',
-          'Guardrails that scope every autonomous action',
-          'Full observability into every decision it makes',
-        ]}
-        alt
-      />
-
       <FeatureFormula eyebrow="Features" title={<>Everything you need to build an agent</>} items={FEATURES} />
 
-      <HowItWorks title={<>Deploy a custom agent in three steps</>} steps={STEPS} alt />
+      <AgentStatStrip eyebrow="At a glance" title={<>One agent, built once</>} />
+
+      <AgentBuildBlueprint eyebrow="How it works" title={<>Deploy a custom agent in three steps</>} alt />
 
       <WhyUsManifesto eyebrow="Why us" title={<>Why teams build agents on SMSLocal</>} items={WHY_US} />
 

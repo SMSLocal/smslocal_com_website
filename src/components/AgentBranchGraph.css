@@ -1,0 +1,243 @@
+/* Capabilities for /ai-agents — an SVG decision graph.
+   Graphic-forward: gradient branch strokes, a glowing core, travelling pulses.
+   Labels are small and ride on top of the geometry. No cards or panels.
+   BASE state = fully-drawn graph; motion only adds pulses. */
+
+.abg {
+  position: relative;
+  padding: 104px 0 92px;
+  overflow: hidden;
+}
+
+.abg-glow {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  width: min(1300px, 134%);
+  height: 640px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background:
+    radial-gradient(32% 44% at 26% 46%, rgba(79, 91, 213, 0.14), transparent 70%),
+    radial-gradient(32% 44% at 76% 54%, rgba(14, 165, 165, 0.1), transparent 72%);
+  filter: blur(9px);
+}
+
+.abg-inner { position: relative; }
+
+.abg-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+/* ---- the stage ---- */
+.abg-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1100 / 400;
+}
+
+.abg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* feed line into the core */
+.abg-feed {
+  stroke: url(#abgFeed);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 5;
+  opacity: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+.abg-feed-pulse {
+  stroke: #4f5bd5;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 0.16 0.84;
+  stroke-dashoffset: 1;
+  vector-effect: non-scaling-stroke;
+  animation: abg-run 2.6s linear infinite;
+}
+
+/* ---- branches: base layer ---- */
+.abg-br {
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, stroke-width 0.3s ease;
+}
+.abg-br--ok { stroke: url(#abgOk); }
+.abg-br--stop { stroke: url(#abgStop); stroke-dasharray: 7 6; }
+.abg-br.is-dim { opacity: 0.14; }
+.abg-br.is-hot { opacity: 1; stroke-width: 2.6; }
+
+/* ---- travelling pulses: motion only ---- */
+.abg-pulse {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 0.1 0.9;
+  stroke-dashoffset: 1;
+  animation: abg-run 3.4s linear infinite;
+  animation-delay: var(--d, 0s);
+  transition: opacity 0.3s ease;
+}
+.abg-pulse--ok { stroke: #0ea5a5; }
+.abg-pulse--stop { stroke: #f59e0b; }
+.abg-pulse.is-dim { opacity: 0.1; }
+
+@keyframes abg-run {
+  0% { stroke-dashoffset: 1; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* ---- the core ---- */
+.abg-core {
+  fill: url(#abgOk);
+  filter: drop-shadow(0 6px 18px rgba(79, 91, 213, 0.55));
+}
+.abg-core-ring {
+  fill: none;
+  stroke: #8b5cf6;
+  stroke-width: 1.4;
+  opacity: 0.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: abg-breathe 3.4s ease-in-out infinite;
+}
+@keyframes abg-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.16); opacity: 0.1; }
+}
+
+/* ---- endpoint nodes ---- */
+.abg-node circle:first-child {
+  fill: #fff;
+  stroke-width: 2;
+  transition: opacity 0.3s ease;
+}
+.abg-node--ok circle:first-child { stroke: #0ea5a5; }
+.abg-node--stop circle:first-child { stroke: #f59e0b; }
+.abg-node-in { stroke: none; }
+.abg-node--ok .abg-node-in { fill: #0ea5a5; }
+.abg-node--stop .abg-node-in { fill: #f59e0b; }
+.abg-node { transition: opacity 0.3s ease; }
+.abg-node.is-dim { opacity: 0.2; }
+.abg-node.is-hot { filter: drop-shadow(0 0 10px rgba(14, 165, 165, 0.7)); }
+
+/* invisible thick hit areas */
+.abg-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 26;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ---- labels riding on the geometry ---- */
+.abg-tag,
+.abg-out {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  white-space: nowrap;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy, #16203a);
+  line-height: 1.3;
+}
+.abg-tag em,
+.abg-out em {
+  font-style: normal;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7b6ee0;
+}
+
+/* input + core sit below their glyphs, centred */
+.abg-tag--in,
+.abg-tag--core {
+  transform: translate(-50%, 44px);
+  align-items: center;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted-foreground, #7d8798);
+}
+.abg-tag--core { transform: translate(-50%, 52px); }
+
+/* outcome labels sit to the RIGHT of their node */
+.abg-out {
+  transform: translate(22px, -50%);
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  align-items: flex-start;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.abg-out.is-dim { opacity: 0.3; }
+.abg-out.is-hot { transform: translate(26px, -50%); }
+.abg-out--stop em { color: #b45309; }
+
+.abg-readout {
+  margin: 26px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted-foreground, #7d8798);
+  transition: opacity 0.3s ease;
+}
+.abg-readout strong {
+  display: block;
+  font-size: 15.5px;
+  color: var(--navy, #16203a);
+  margin-bottom: 3px;
+}
+.abg-readout strong.is-stop { color: #b45309; }
+
+/* ---- responsive ---- */
+@media (max-width: 1080px) {
+  .abg-stage { aspect-ratio: 1100 / 470; }
+  .abg-out { font-size: 11.5px; transform: translate(18px, -50%); }
+  .abg-out.is-hot { transform: translate(21px, -50%); }
+}
+
+@media (max-width: 820px) {
+  .abg { padding: 78px 0 70px; }
+  /* the graph stops being legible — show it as a compact list instead */
+  .abg-stage { aspect-ratio: auto; height: auto; }
+  .abg-svg { display: none; }
+
+  .abg-tag { display: none; }
+  .abg-out {
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 13px 0 13px 16px;
+    border-left: 2px solid #0ea5a5;
+    margin-bottom: 10px;
+    white-space: normal;
+  }
+  .abg-out.is-hot { transform: none; }
+  .abg-out--stop { border-left-color: #f59e0b; }
+  .abg-out.is-dim { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abg-pulse, .abg-feed-pulse, .abg-core-ring { animation: none; }
+  .abg-pulse { display: none; }
+}

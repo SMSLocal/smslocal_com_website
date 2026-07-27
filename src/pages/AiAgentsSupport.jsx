@@ -1,11 +1,20 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import BroadcastCapabilityOrbit from '../components/BroadcastCapabilityOrbit.jsx'
 import FeatureVerticalIndex from '../components/FeatureVerticalIndex.jsx'
 import StepsSignal from '../components/StepsSignal.jsx'
-import WhyUsSplitGrid from '../components/WhyUsSplitGrid.jsx'
-import { IconBook, IconGlobe, IconUsers, IconClock, IconChart, IconBolt, IconCheck, IconRefresh } from '../components/icons.jsx'
-import HeroPhoneMock from '../components/HeroPhoneMock.jsx'
+import WhyShorterQueue from '../components/WhyShorterQueue.jsx'
+import {
+  IconBook, IconGlobe, IconChart, IconRefresh, IconBrain, IconSearch, IconCheck, IconHandshake, IconChat,
+} from '../components/icons.jsx'
+import SupportQueueDrainHero from '../components/SupportQueueDrainHero.jsx'
+
+const DECISION_STEPS = [
+  { icon: <IconChat />, title: 'Reads the exact question', desc: 'No paraphrasing — it works from what the customer actually typed.' },
+  { icon: <IconSearch />, title: 'Searches your help centre', desc: 'Matched against your published articles, never a generic guess.' },
+  { icon: <IconCheck />, title: 'Answers only on a match', desc: 'If nothing in your help centre covers it, it won’t invent one.' },
+  { icon: <IconHandshake />, title: 'Escalates with the thread attached', desc: 'A person picks it up mid-conversation — the customer never repeats themselves.' },
+]
 
 const STEPS = [
   { title: 'Connect your help centre', desc: 'Point the agent at your knowledge base, docs or existing help centre content.' },
@@ -14,25 +23,11 @@ const STEPS = [
   { title: 'Watch deflection climb', desc: 'Track resolution rate and escalation reasons from day one, and tune as you go.' },
 ]
 
-const STATS = [
-  { value: '70%', label: 'Tier-one deflection', desc: 'Routine, repetitive questions resolve themselves without ever reaching a human queue.' },
-  { value: '24/7', label: 'Coverage', desc: 'The same accurate answers at 3am as at 3pm, with no shift handoff gaps.' },
-  { value: '<1s', label: 'First response time', desc: 'No ticket sits unacknowledged — every question gets an instant first reply.' },
-  { value: '100%', label: 'Context on handoff', desc: 'Every escalation carries the full conversation and knowledge-base lookup with it.' },
-]
-
 const FEATURES = [
   { icon: <IconBook />, title: 'Reads your help centre', desc: 'Grounded in your actual knowledge base and docs, so tier-one answers match your real policies, not a guess.' },
   { icon: <IconGlobe />, title: 'Replies on every channel', desc: 'The same agent answers on your help widget, WhatsApp, SMS and email, so the queue never depends on which channel a customer picked.' },
   { icon: <IconRefresh />, title: 'Deflects, then escalates cleanly', desc: 'Resolves what it can and hands off the rest to a human agent inside the same thread, with full context attached.' },
   { icon: <IconChart />, title: 'Ticket volume you can see', desc: 'Track deflection rate, resolution time and escalation reasons, so support leadership can see exactly where the agent is helping.' },
-]
-
-const BENEFITS = [
-  { icon: <IconClock />, title: 'No queue for the routine stuff', desc: 'Password resets, order status and FAQ-shaped tickets stop clogging the queue meant for the hard cases.' },
-  { icon: <IconBolt />, title: 'Faster resolution for everyone', desc: 'Tier-one deflection means your human agents spend their time on tickets that actually need judgement.' },
-  { icon: <IconUsers />, title: 'Escalates with respect for context', desc: 'A human picking up an escalated ticket sees the full thread — nobody makes the customer repeat themselves.' },
-  { icon: <IconCheck />, title: 'Consistent tier-one answers', desc: 'Every customer gets the same accurate answer, sourced from the same help centre, every time.' },
 ]
 
 const FAQS = [
@@ -58,34 +53,15 @@ function AiAgentsSupport() {
         subtitle="Deflect and resolve tier-one questions by reading your help centre directly, replying on every channel, and escalating only what genuinely needs a person — with full context attached."
         primaryCta={{ label: 'Deploy an Agent', href: '/contact-us' }}
         secondaryCta={{ label: 'AI Customer Service Agent', href: '/ai-agents/customer-service' }}
-        visual={<HeroPhoneMock />}
+        visual={<SupportQueueDrainHero />}
       />
 
-      <StatBand items={STATS} />
-
-      <NarrativeCompare
-        variant="rows"
-        eyebrow="The problem"
-        heading={<>Most support queues are full of questions that already have a documented answer.</>}
-        paragraphs={[
-          'A help centre article exists for a reason — but customers still open a ticket instead of finding it, and agents still spend their morning answering the same three questions.',
-          "An AI support agent reads the help centre and answers directly — deflecting the routine volume so your team's queue is actually the hard cases.",
-        ]}
-        leftLabel="Routing problem"
-        leftItems={[
-          'The answer already exists in the help centre',
-          'Customer opens a ticket anyway',
-          'Agent answers the same question again',
-          'Queue fills with routine, documented answers',
-        ]}
-        rightLabel="AI support agent"
-        rightItems={[
-          'Reads the help centre directly',
-          'Answers the question on the spot',
-          'Escalates only what genuinely needs a person',
-          'Queue becomes the hard cases only',
-        ]}
-        alt
+      <BroadcastCapabilityOrbit
+        eyebrow="How it decides"
+        title="It answers when your help centre has the answer. Otherwise, it hands you the thread."
+        subtitle="No guessing, no generic replies — every response is checked against your real articles first, and escalated with full context when it isn't there."
+        items={DECISION_STEPS}
+        hubIcon={<IconBrain />}
       />
 
       <FeatureVerticalIndex
@@ -103,12 +79,7 @@ function AiAgentsSupport() {
         alt
       />
 
-      <WhyUsSplitGrid
-        eyebrow="Why it works"
-        title="A shorter queue, not a bigger team"
-        subtitle="Deflecting the repetitive tickets frees your human agents for the ones that actually need them."
-        items={BENEFITS}
-      />
+      <WhyShorterQueue />
 
       <CTABanner
         title="Clear the routine tickets automatically"

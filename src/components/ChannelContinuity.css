@@ -1,0 +1,237 @@
+/* Channels section for /ai-agents — bento grid.
+   Asymmetric tiles: the first contact takes a tall 2x2, SMS a wide tile, then
+   two small tiles and a gradient proof tile. Static, no animation. */
+
+.cco {
+  padding: 92px 0;
+}
+
+.cco-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 52px;
+}
+
+/* ---- the bento ---- */
+.cco-bento {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(158px, auto);
+  gap: 16px;
+}
+
+/* tile placements — four tiles pack the 4x2 grid with no holes:
+   row 1: lg(1-2) + wide(3-4) · row 2: lg continues + sm(3) + sm(4) */
+.cco-tile--lg   { grid-column: span 2; grid-row: span 2; }
+.cco-tile--wide { grid-column: span 2; }
+.cco-tile--sm   { grid-column: span 1; }
+
+/* ---- tile shell ---- */
+.cco-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--border, #e8ecf2);
+  box-shadow: 0 28px 56px -42px rgba(17, 24, 39, 0.42);
+  overflow: hidden;
+}
+
+/* the hero tile gets a soft brand wash */
+.cco-tile--lg {
+  background:
+    radial-gradient(90% 70% at 100% 0%, rgba(236, 72, 153, 0.07), transparent 70%),
+    radial-gradient(80% 70% at 0% 100%, rgba(79, 91, 213, 0.08), transparent 70%),
+    #fff;
+}
+
+/* ---- channel label ---- */
+.cco-ch { display: flex; align-items: baseline; gap: 8px; }
+
+.cco-ch-name {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, #4f5bd5, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cco-ch-day {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted-foreground, #b0b8c4);
+}
+
+/* "thread opened" marker on the hero tile */
+.cco-opened {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #0b8a86;
+}
+.cco-opened::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0ea5a5;
+}
+
+/* ---- the exchange ---- */
+.cco-ask {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--navy, #16203a);
+}
+.cco-tile--lg .cco-ask { font-size: 22px; line-height: 1.34; }
+
+.cco-reply {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--body, #5b6577);
+  padding-left: 11px;
+  border-left: 2px solid rgba(123, 110, 224, 0.4);
+}
+.cco-tile--lg .cco-reply { font-size: 14px; }
+
+/* ---- meta row (hero tile only) ---- */
+.cco-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 4px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border, #eef1f5);
+  border-bottom: 1px solid var(--border, #eef1f5);
+}
+
+.cco-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--muted-foreground, #a6aeba);
+}
+.cco-meta-item b {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--navy, #16203a);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- what it did (hero tile only) ---- */
+.cco-did {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cco-did li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 11px;
+  align-items: start;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--body, #4d5766);
+}
+
+.cco-did-mark {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5, #7c3aed);
+}
+
+/* ---- tile foot: learned tokens + note ---- */
+.cco-tile-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cco-learned { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+
+.cco-learned-l {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground, #b0b8c4);
+  margin-right: 2px;
+}
+
+.cco-tok {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 4px 9px;
+  border-radius: 7px;
+  color: #3b45b0;
+  background: rgba(79, 91, 213, 0.1);
+  white-space: nowrap;
+}
+
+.cco-nothing {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0b8a86;
+}
+
+.cco-note {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--muted-foreground, #98a1b0);
+}
+
+
+/* ---- responsive ---- */
+@media (max-width: 1040px) {
+  .cco-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cco-tile--lg { grid-column: span 2; grid-row: span 1; }
+  .cco-tile--wide { grid-column: span 2; }
+  .cco-tile--lg .cco-ask { font-size: 20px; }
+}
+
+@media (max-width: 620px) {
+  .cco { padding: 72px 0; }
+  .cco-bento { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 12px; }
+  .cco-tile--lg,
+  .cco-tile--wide,
+  .cco-tile--sm { grid-column: span 1; }
+  .cco-tile { padding: 18px 18px; }
+  .cco-tile--lg .cco-ask { font-size: 18px; }
+}

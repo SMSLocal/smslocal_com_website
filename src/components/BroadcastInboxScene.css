@@ -50,7 +50,7 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted, #a6aeba);
+  color: var(--muted-foreground, #a6aeba);
   align-self: end;
 }
 .bis-gcell--left { text-align: right; }
@@ -73,7 +73,7 @@
   letter-spacing: -0.02em;
   color: var(--navy, #16203a);
 }
-.bis-sub { font-size: 11.5px; color: var(--muted, #9aa3b2); }
+.bis-sub { font-size: 11.5px; color: var(--muted-foreground, #9aa3b2); }
 
 /* ---- centre: the message row (part of the screen surface) ---- */
 .bis-row {
@@ -131,7 +131,7 @@
 .bis-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .bis-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
 .bis-from { font-size: 13.5px; font-weight: 700; color: var(--navy, #16203a); }
-.bis-time { font-size: 11px; color: var(--muted, #9aa3b2); font-variant-numeric: tabular-nums; }
+.bis-time { font-size: 11px; color: var(--muted-foreground, #9aa3b2); font-variant-numeric: tabular-nums; }
 .bis-body {
   font-size: 13px;
   line-height: 1.55;
@@ -173,7 +173,7 @@
 .bis-note {
   font-size: 11.5px;
   line-height: 1.45;
-  color: var(--muted, #98a1b0);
+  color: var(--muted-foreground, #98a1b0);
   max-width: 210px;
 }
 
@@ -191,7 +191,7 @@
 .bis-result {
   font-size: 11.5px;
   line-height: 1.45;
-  color: var(--muted, #98a1b0);
+  color: var(--muted-foreground, #98a1b0);
   max-width: 210px;
 }
 
@@ -216,7 +216,7 @@
   max-width: 580px;
   text-align: center;
   font-size: 13.5px;
-  color: var(--muted, #7d8798);
+  color: var(--muted-foreground, #7d8798);
 }
 
 /* ---- responsive: annotations fold under each message ---- */

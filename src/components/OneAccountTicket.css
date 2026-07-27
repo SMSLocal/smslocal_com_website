@@ -1,0 +1,242 @@
+.oat-section {
+  overflow: hidden;
+}
+
+.oat-ticket {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 230px auto 1fr;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px -26px rgba(21, 73, 137, 0.26);
+  overflow: visible;
+}
+
+/* ---- left stub: old stack, voided ---- */
+.oat-stub {
+  position: relative;
+  padding: 1.75rem 1.5rem;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border-radius: 18px 0 0 18px;
+  overflow: hidden;
+}
+
+.oat-stub-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9aa3b2;
+  margin-bottom: 1rem;
+}
+
+.oat-stub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.oat-stub-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-decoration: line-through;
+  text-decoration-color: #c3cad6;
+  opacity: 0.75;
+}
+
+.oat-stub-name {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #7c8698;
+}
+
+.oat-stub-vendor {
+  font-size: 0.7rem;
+  color: #9aa3b2;
+}
+
+.oat-void {
+  position: absolute;
+  right: -18px;
+  bottom: 14px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: rgba(220, 38, 38, 0.16);
+  border: 3px solid rgba(220, 38, 38, 0.16);
+  border-radius: 8px;
+  padding: 0.1rem 0.6rem;
+  transform: rotate(-14deg);
+  pointer-events: none;
+}
+
+/* ---- perforation between stub and main ticket ---- */
+.oat-perf {
+  position: relative;
+  width: 0;
+  border-left: 2px dashed var(--border);
+}
+
+.oat-perf::before,
+.oat-perf::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  transform: translateX(-50%);
+}
+
+.oat-perf::before { top: -13px; }
+.oat-perf::after { bottom: -13px; }
+
+/* ---- right: the live ticket ---- */
+.oat-main {
+  padding: 1.75rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.oat-main-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oat-main-kicker {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.oat-main-status {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--success);
+  background: rgba(22, 163, 74, 0.1);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+}
+
+.oat-fields {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+}
+
+.oat-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.oat-field-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9aa3b2;
+}
+
+.oat-field-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.oat-included {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+}
+
+.oat-included li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.oat-included svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  color: var(--blue);
+}
+
+.oat-barcode {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 34px;
+  margin-top: 0.2rem;
+}
+
+.oat-barcode span {
+  display: block;
+  width: calc(var(--w) * 1px + 1px);
+  height: 100%;
+  background: var(--ink);
+  opacity: 0.72;
+}
+
+.oat-serial {
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: #9aa3b2;
+  margin-top: -0.9rem;
+}
+
+@media (max-width: 760px) {
+  .oat-ticket {
+    grid-template-columns: 1fr;
+    border-radius: 18px;
+  }
+
+  .oat-stub {
+    border-radius: 18px 18px 0 0;
+  }
+
+  .oat-perf {
+    width: auto;
+    height: 0;
+    border-left: none;
+    border-top: 2px dashed var(--border);
+  }
+
+  .oat-perf::before,
+  .oat-perf::after {
+    top: 50%;
+    left: auto;
+    transform: translateY(-50%);
+  }
+
+  .oat-perf::before { left: -13px; }
+  .oat-perf::after { left: auto; right: -13px; }
+
+  .oat-fields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

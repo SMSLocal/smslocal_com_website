@@ -1,7 +1,7 @@
 .agd-header {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 2.4rem;
 }
 
 .agd-header h2 {
@@ -18,117 +18,267 @@
   margin: 0;
 }
 
-.agd-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1.3rem;
+/* ============ carousel ============ */
+.agd-carousel {
+  --agd-card-w: 460px;
+  --agd-shift: 60%;
+  position: relative;
   max-width: 1180px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.agd-card {
+.agd-stage {
   position: relative;
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+}
+
+/* ---- card ---- */
+.agd-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--agd-card-w);
+  max-width: 82vw;
+  min-height: 292px;
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem 1.3rem 1.3rem;
+  padding: 1.6rem 1.7rem;
+  border-radius: 20px;
+  border: 1px solid var(--agd-line);
+  background: var(--agd-bg);
   text-decoration: none;
   color: inherit;
-  overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  transform: translate(-50%, -50%) scale(0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease,
+    box-shadow 0.45s ease;
 }
 
-/* Top accent bar that fills in on hover */
-.agd-card::before {
-  content: '';
+/* main card — big, centred, lifted */
+.agd-card--main {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 3;
+  box-shadow: 0 30px 60px -30px rgba(16, 35, 63, 0.34);
+}
+
+/* ghost cards — a little smaller either side */
+.agd-card--ghost {
+  transform: translate(calc(-50% + var(--agd-off) * var(--agd-shift)), -50%) scale(0.88);
+  opacity: 0.62;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 18px 36px -28px rgba(16, 35, 63, 0.3);
+}
+
+.agd-card--ghost:hover {
+  opacity: 0.85;
+  transform: translate(calc(-50% + var(--agd-off) * var(--agd-shift)), -50%) scale(0.9);
+}
+
+.agd-card--hidden {
+  transform: translate(calc(-50% + var(--agd-off) * 78%), -50%) scale(0.72);
+}
+
+/* ---- soft per-card colour ---- */
+.agd-hue--0 { --agd-bg: #eff4fd; --agd-line: #d8e4f8; --agd-ink: #33517f; --agd-chip: #dfe9fb; }
+.agd-hue--1 { --agd-bg: #ecf6f4; --agd-line: #d3e8e3; --agd-ink: #2b6560; --agd-chip: #dcece9; }
+.agd-hue--2 { --agd-bg: #fbf3e8; --agd-line: #f0e2ca; --agd-ink: #7d5a2b; --agd-chip: #f3e8d6; }
+.agd-hue--3 { --agd-bg: #f3f0fb; --agd-line: #e2dbf5; --agd-ink: #4d4288; --agd-chip: #e8e2f8; }
+.agd-hue--4 { --agd-bg: #fbeff2; --agd-line: #f3dbe1; --agd-ink: #824454; --agd-chip: #f5e2e7; }
+.agd-hue--5 { --agd-bg: #ecf5fa; --agd-line: #d4e6f1; --agd-ink: #2c5c76; --agd-chip: #dcebf4; }
+.agd-hue--6 { --agd-bg: #eff6ee; --agd-line: #dae9d7; --agd-ink: #3d6440; --agd-chip: #e2eee0; }
+
+/* ---- card content ---- */
+.agd-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.05rem;
+}
+
+.agd-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--agd-ink);
+  border: 1px solid var(--agd-line);
+}
+
+.agd-card-icon svg { width: 20px; height: 20px; }
+
+.agd-card-group {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--agd-ink);
+  background: var(--agd-chip);
+  border-radius: 999px;
+  padding: 0.24rem 0.62rem;
+}
+
+.agd-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.32rem;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.agd-card p {
+  margin: 0 0 1.05rem;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.agd-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.34rem;
+  margin-bottom: 1.05rem;
+}
+
+.agd-card-tags span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--agd-ink);
+  background: #fff;
+  border: 1px solid var(--agd-line);
+  border-radius: 6px;
+  padding: 0.18rem 0.45rem;
+  white-space: nowrap;
+}
+
+.agd-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--agd-ink);
+}
+
+.agd-card-cta svg { transition: transform 0.2s ease; }
+.agd-card--main:hover .agd-card-cta svg { transform: translateX(4px); }
+
+/* ---- arrows ---- */
+.agd-arrow {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--cyan));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.agd-card:hover::before {
-  transform: scaleX(1);
-}
-
-.agd-card:hover {
-  transform: translateY(-5px);
-  border-color: transparent;
-  box-shadow: 0 22px 44px -22px rgba(16, 35, 63, 0.32);
-}
-
-.agd-icon {
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  color: #fff;
-  margin-bottom: 1rem;
-  transition: transform 0.25s ease;
-}
-
-.agd-icon svg { width: 19px; height: 19px; }
-
-.agd-card:hover .agd-icon {
-  transform: scale(1.08);
-}
-
-.agd-tint--0 .agd-icon { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
-.agd-tint--1 .agd-icon { background: linear-gradient(135deg, var(--teal), #0ea5e9); }
-.agd-tint--2 .agd-icon { background: linear-gradient(135deg, #f59e0b, var(--coral)); }
-.agd-tint--3 .agd-icon { background: linear-gradient(135deg, #8b5cf6, var(--cyan)); }
-.agd-tint--4 .agd-icon { background: linear-gradient(135deg, var(--navy), #334e78); }
-
-.agd-card h3 {
-  margin: 0 0 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fff;
   color: var(--navy);
-  font-size: 1rem;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow: 0 12px 26px -16px rgba(16, 35, 63, 0.45);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.agd-card p {
-  margin: 0 0 1.1rem;
-  color: var(--text-secondary);
-  font-size: 0.83rem;
-  line-height: 1.55;
-  flex: 1;
+.agd-arrow:hover {
+  background: var(--navy);
+  color: #fff;
 }
 
-.agd-more {
-  display: inline-flex;
+.agd-arrow--prev { left: 0; }
+.agd-arrow--next { right: 0; }
+.agd-arrow--prev:hover { transform: translateY(-50%) translateX(-2px); }
+.agd-arrow--next:hover { transform: translateY(-50%) translateX(2px); }
+
+/* ---- dots with 5s progress ---- */
+.agd-dots {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.3rem;
-  color: var(--blue);
-  font-weight: 700;
-  font-size: 0.78rem;
+  gap: 0.4rem;
+  margin-top: 1.6rem;
 }
 
-.agd-more svg {
-  transition: transform 0.2s ease;
+.agd-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(16, 35, 63, 0.16);
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
 }
 
-.agd-card:hover .agd-more svg {
-  transform: translateX(3px);
+.agd-dot:hover { background: rgba(16, 35, 63, 0.3); }
+
+.agd-dot.is-active {
+  width: 34px;
+  background: rgba(16, 35, 63, 0.14);
 }
 
-@media (max-width: 1000px) {
-  .agd-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.agd-dot-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--blue);
+  transform-origin: left;
+  animation: agd-fill 5s linear forwards;
 }
 
-@media (max-width: 420px) {
-  .agd-grid {
-    grid-template-columns: 1fr;
-  }
+.agd-dot-fill.is-paused {
+  animation: none;
+  transform: scaleX(1);
+}
+
+@keyframes agd-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ============ responsive ============ */
+@media (max-width: 1080px) {
+  .agd-carousel { --agd-card-w: 400px; --agd-shift: 58%; }
+  .agd-stage { height: 340px; }
+}
+
+@media (max-width: 780px) {
+  .agd-carousel { --agd-card-w: 330px; --agd-shift: 62%; }
+  .agd-card { padding: 1.3rem 1.35rem; min-height: 300px; }
+  .agd-card h3 { font-size: 1.15rem; }
+  .agd-stage { height: 350px; }
+  .agd-arrow { width: 38px; height: 38px; }
+  .agd-arrow--prev { left: -6px; }
+  .agd-arrow--next { right: -6px; }
+}
+
+@media (max-width: 520px) {
+  .agd-carousel { --agd-card-w: 260px; --agd-shift: 68%; }
+  .agd-card { max-width: 74vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agd-card { transition: none; }
+  .agd-dot-fill { animation: none; transform: scaleX(1); }
 }

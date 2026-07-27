@@ -1,0 +1,534 @@
+/* Agent launch timeline — a dark console dropped into the light page.
+   All colour derives from the theme tokens; no third-party brand colours. */
+
+.alt-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 2.2rem;
+}
+
+.alt-head h2 {
+  font-size: 2.05rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.7rem;
+}
+
+.alt-head p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ===================== console shell ===================== */
+.alt-console {
+  --ink-0: color-mix(in srgb, var(--navy) 62%, #04070d);
+  --ink-1: color-mix(in srgb, var(--navy) 74%, #04070d);
+  --ink-2: color-mix(in srgb, var(--navy) 88%, #04070d);
+  --line: color-mix(in srgb, #ffffff 13%, transparent);
+  --line-soft: color-mix(in srgb, #ffffff 7%, transparent);
+  --on: color-mix(in srgb, #ffffff 92%, var(--blue));
+  --dim: color-mix(in srgb, #ffffff 54%, var(--navy));
+  --faint: color-mix(in srgb, #ffffff 36%, var(--navy));
+
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: 22px;
+  background:
+    radial-gradient(120% 90% at 12% -10%, color-mix(in srgb, var(--blue) 34%, transparent), transparent 60%),
+    radial-gradient(90% 80% at 100% 0%, color-mix(in srgb, var(--brand-end) 20%, transparent), transparent 62%),
+    linear-gradient(165deg, var(--ink-1), var(--ink-0) 55%, var(--ink-2));
+  box-shadow: 0 30px 70px -30px color-mix(in srgb, var(--navy) 60%, transparent);
+  color: var(--on);
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.alt-console::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(80% 70% at 50% 25%, #000 20%, transparent 90%);
+  opacity: 0.5;
+}
+
+/* ===================== the clock ===================== */
+.alt-clock {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.6rem 1.5rem 0.5rem;
+}
+
+.alt-track {
+  position: relative;
+  height: 56px;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.alt-track::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.alt-track-fill {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--brand-end) 55%, transparent);
+}
+
+.alt-playhead {
+  position: absolute;
+  top: 9.5px;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-end) 38%, transparent);
+}
+
+.alt-stamp {
+  position: absolute;
+  top: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--faint);
+  cursor: pointer;
+  transition: color 0.25s ease, background 0.25s ease;
+  font-family: inherit;
+}
+
+.alt-stamp:hover { background: var(--line-soft); color: var(--on); }
+.alt-stamp.is-done { color: var(--dim); }
+.alt-stamp.is-now { color: #fff; }
+
+.alt-stamp-time {
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.alt-stamp-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.alt-stamp.is-now .alt-stamp-label {
+  background: linear-gradient(92deg, #fff, color-mix(in srgb, var(--brand-end) 60%, #fff));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.alt-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--line-soft);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.alt-play:hover { background: color-mix(in srgb, #ffffff 18%, transparent); transform: scale(1.06); }
+
+/* ===================== stage ===================== */
+.alt-stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.3rem 1.5rem 1.4rem;
+  /* fixed so stepping never resizes the console under the cursor */
+  min-height: 250px;
+  border-top: 1px solid var(--line-soft);
+  animation: alt-stage-in 0.4s ease both;
+}
+
+@keyframes alt-stage-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.alt-stage > * {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.alt-line {
+  margin: auto 0 0;
+  padding-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--faint);
+}
+
+.alt-line b { color: #fff; font-weight: 600; }
+
+/* ---------- connect ---------- */
+.alt-apps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.alt-app {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  background: color-mix(in srgb, #ffffff 4%, transparent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  transition: border-color 0.35s ease, background 0.35s ease, transform 0.35s ease;
+}
+
+.alt-app.is-off { opacity: 0.38; }
+.alt-app.is-busy { border-color: color-mix(in srgb, var(--brand-end) 45%, transparent); }
+.alt-app.is-on {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  transform: translateY(-1px);
+}
+
+.alt-app-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--accent);
+}
+
+.alt-app.is-on .alt-app-mark {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.alt-spin {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  border-top-color: var(--brand-end);
+  animation: alt-spin 0.7s linear infinite;
+}
+
+@keyframes alt-spin { to { transform: rotate(360deg); } }
+
+/* ---------- train ---------- */
+.alt-docs { display: grid; gap: 0.5rem; flex: none; }
+
+.alt-doc {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) 62px;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--line-soft);
+  background: color-mix(in srgb, #ffffff 4%, transparent);
+  font-size: 0.83rem;
+}
+
+.alt-doc.is-done { border-color: color-mix(in srgb, var(--accent) 32%, transparent); }
+.alt-doc-name { color: #fff; font-weight: 600; }
+
+.alt-doc-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.alt-doc-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  transition: width 0.12s linear;
+}
+
+.alt-doc-pct {
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.alt-doc.is-done .alt-doc-pct { color: var(--accent); }
+
+/* ---------- dry run ---------- */
+.alt-qs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; flex: none; }
+
+.alt-q {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--dim);
+  font-size: 0.79rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.alt-q:hover { color: #fff; border-color: color-mix(in srgb, #ffffff 32%, transparent); }
+
+.alt-q.is-on {
+  color: #fff;
+  border-color: transparent;
+  background: var(--gradient-brand);
+  box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--brand-end) 70%, transparent);
+}
+
+.alt-chat { display: grid; gap: 0.5rem; justify-items: start; align-content: start; flex: none; }
+
+.alt-msg {
+  max-width: 78%;
+  padding: 0.55rem 0.9rem;
+  border-radius: 14px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.alt-msg.is-in { animation: alt-msg-in 0.3s ease both; }
+.alt-msg:not(.is-in) { opacity: 0; }
+
+@keyframes alt-msg-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.alt-msg--them {
+  background: color-mix(in srgb, #ffffff 9%, transparent);
+  border: 1px solid var(--line-soft);
+  border-bottom-left-radius: 4px;
+  color: #fff;
+}
+
+.alt-msg--agent {
+  justify-self: end;
+  background: var(--gradient-brand);
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  box-shadow: 0 10px 26px -14px color-mix(in srgb, var(--brand-end) 80%, transparent);
+}
+
+.alt-caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  margin-left: 2px;
+  vertical-align: -1px;
+  background: #fff;
+  animation: alt-blink 0.9s steps(1) infinite;
+}
+
+@keyframes alt-blink { 50% { opacity: 0; } }
+
+.alt-tools { display: grid; gap: 0.3rem; justify-items: start; }
+
+.alt-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--line-soft);
+  background: color-mix(in srgb, #000000 18%, transparent);
+  font-size: 0.74rem;
+  opacity: 0;
+}
+
+.alt-tool.is-in { animation: alt-tool-in 0.28s ease both; }
+
+@keyframes alt-tool-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.alt-tool-app {
+  font-weight: 700;
+  font-size: 0.63rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-end);
+}
+
+.alt-tool code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #fff;
+  font-size: 0.73rem;
+}
+
+.alt-tool-out { color: var(--accent); font-size: 0.71rem; }
+
+.alt-line--verdict {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.alt-line--verdict.is-in { opacity: 1; }
+
+.alt-pill {
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.alt-pill--ok {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+}
+
+.alt-pill--hand {
+  color: color-mix(in srgb, var(--brand-end) 70%, #fff);
+  background: color-mix(in srgb, var(--brand-end) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-end) 40%, transparent);
+}
+
+/* ---------- live ---------- */
+.alt-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  flex: none;
+}
+
+.alt-metric {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  background: color-mix(in srgb, #ffffff 4%, transparent);
+}
+
+.alt-metric--hero {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(color-mix(in srgb, #000000 22%, transparent), color-mix(in srgb, #000000 22%, transparent)) padding-box,
+    var(--gradient-brand) border-box;
+}
+
+.alt-metric em {
+  display: block;
+  font-style: normal;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.alt-metric span { font-size: 0.75rem; color: var(--faint); }
+
+/* ===================== foot ===================== */
+.alt-foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.5rem 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.74rem;
+  color: var(--dim);
+}
+
+.alt-foot-hint { margin-left: auto; color: var(--faint); font-size: 0.7rem; }
+
+.alt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.alt-dot--wait { background: var(--brand-end); animation: alt-pulse 1.4s infinite; }
+.alt-dot--test { background: color-mix(in srgb, #ffffff 70%, var(--blue)); }
+.alt-dot--live { background: var(--accent); animation: alt-pulse 1.6s infinite; }
+
+@keyframes alt-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ===================== responsive ===================== */
+@media (max-width: 720px) {
+  .alt-head h2 { font-size: 1.65rem; }
+  .alt-clock { grid-template-columns: minmax(0, 1fr); padding: 1.4rem 1rem 0.4rem; }
+  .alt-play { display: none; }
+  .alt-stamp { padding: 0.25rem 0.25rem; }
+  .alt-stamp-label { font-size: 0.74rem; }
+  .alt-stamp-time { font-size: 0.55rem; }
+  .alt-stage { padding: 1.1rem 1rem 1.2rem; min-height: 330px; }
+  .alt-apps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .alt-doc { grid-template-columns: minmax(0, 1fr) 56px; row-gap: 0.35rem; }
+  .alt-doc-bar { grid-column: 1 / -1; }
+  .alt-metrics { grid-template-columns: minmax(0, 1fr); }
+  .alt-metric { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0.85rem; }
+  .alt-metric em { font-size: 1.35rem; }
+  .alt-msg { max-width: 92%; }
+  .alt-foot { padding: 0.6rem 1rem 0.7rem; }
+  .alt-foot-hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alt-console *,
+  .alt-console *::before,
+  .alt-console *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}

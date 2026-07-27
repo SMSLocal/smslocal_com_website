@@ -1,0 +1,248 @@
+/* "How it works" for /ai-agents — four LEVEL stages + an outcome band.
+   All four columns sit on one continuous rule at the same height (no ascending
+   offsets, no risers), each marked by a node. Beneath them a full-width band
+   carries the first resolved ticket. Light page background, static. */
+
+.aaa {
+  padding: 96px 0 92px;
+}
+
+.aaa-head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 34px;
+}
+
+/* ---- the stairs ---- */
+/* all four steps sit LEVEL on one continuous rule — no ascending offsets */
+.aaa-stairs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 30px;
+  align-items: stretch;
+}
+
+/* the single rule running the full width behind every step */
+.aaa-stairs::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(123, 110, 224, 0.5),
+    rgba(123, 110, 224, 0.5) 78%,
+    rgba(236, 72, 153, 0.6)
+  );
+}
+
+.aaa-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-top: 26px;
+}
+
+/* marker where the rule starts */
+.aaa-node {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 2.5px #b9b2ea;
+}
+.aaa-step.is-live .aaa-node {
+  background: linear-gradient(135deg, #4f5bd5, #ec4899);
+  box-shadow: 0 0 0 2.5px #ec4899, 0 0 0 6px rgba(236, 72, 153, 0.14);
+}
+
+/* ---- step content ---- */
+.aaa-when {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.aaa-time {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--navy, #16203a);
+  font-variant-numeric: tabular-nums;
+}
+.aaa-time em {
+  font-style: normal;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--muted-foreground, #a6aeba);
+}
+
+.aaa-num {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  color: #b9b2ea;
+  font-variant-numeric: tabular-nums;
+}
+.aaa-step.is-live .aaa-num { color: #ec4899; }
+
+.aaa-name {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy, #16203a);
+}
+
+.aaa-line {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--body, #5b6577);
+}
+
+.aaa-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 1px; }
+
+.aaa-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 7px;
+  color: #3b45b0;
+  background: rgba(79, 91, 213, 0.09);
+  white-space: nowrap;
+}
+
+.aaa-stat {
+  margin-top: auto;
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted-foreground, #a6aeba);
+}
+.aaa-stat b {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  color: var(--navy, #16203a);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- the outcome band ---- */
+.aaa-outcome {
+  margin-top: 62px;
+  padding: 24px 28px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(79, 91, 213, 0.06), rgba(236, 72, 153, 0.045));
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.aaa-outcome-tag {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7b6ee0;
+}
+
+/* ask → tool → reply, reading across */
+.aaa-outcome-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) 22px minmax(0, 1fr) 22px minmax(0, 1.3fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.aaa-ask {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy, #16203a);
+}
+
+.aaa-arrow {
+  display: grid;
+  place-items: center;
+  color: #b9b2ea;
+}
+
+.aaa-call { margin: 0; display: flex; flex-direction: column; gap: 3px; }
+.aaa-call code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #3b45b0;
+  background: rgba(79, 91, 213, 0.11);
+  padding: 4px 8px;
+  border-radius: 6px;
+  align-self: flex-start;
+}
+.aaa-call span { font-size: 11px; color: var(--muted-foreground, #8b95a5); }
+
+.aaa-reply {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--body, #4d5766);
+  padding-left: 12px;
+  border-left: 2px solid rgba(123, 110, 224, 0.45);
+}
+
+.aaa-verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #0b8a86;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 1080px) {
+  .aaa-stairs { gap: 0 18px; }
+  .aaa-name { font-size: 16px; }
+  .aaa-time { font-size: 18px; }
+}
+
+/* two-by-two, shallower climb */
+@media (max-width: 900px) {
+  .aaa-stairs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px 24px;
+  }
+  /* the shared rule only spans the first row once wrapped */
+  .aaa-stairs::before { display: none; }
+  .aaa-step { border-top: 1px solid var(--border, #dfe4ec); }
+
+  .aaa-outcome-flow { grid-template-columns: 1fr; gap: 12px; }
+  .aaa-arrow { transform: rotate(90deg); justify-self: start; }
+}
+
+/* flat stack */
+@media (max-width: 620px) {
+  .aaa { padding: 74px 0 70px; }
+  .aaa-stairs { grid-template-columns: 1fr; gap: 28px; }
+  .aaa-outcome { padding: 20px 18px; margin-top: 40px; }
+}

@@ -1,32 +1,16 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, TripleCompareTable, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import AgentCapabilityCompare from '../components/AgentCapabilityCompare.jsx'
-import IntegrationsTabs from '../components/IntegrationsTabs.jsx'
+import { HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import AgentLiveRunHero from '../components/AgentLiveRunHero.jsx'
+import AgentChecksActs from '../components/AgentChecksActs.jsx'
+import ChannelHandoffTimeline from '../components/ChannelHandoffTimeline.jsx'
+import ApproachMatrix from '../components/ApproachMatrix.jsx'
 import {
   IconBrain, IconMic, IconChat, IconUsers, IconLink, IconShield, IconChart, IconGlobe,
   IconDollar, IconCart, IconMail, IconCode, IconCalendar, IconGear, IconPencil,
   IconRefresh, IconClock, IconReceipt, IconMegaphone,
 } from '../components/icons.jsx'
-import ActionPipelineVisual from '../components/ActionPipelineVisual.jsx'
-import UseCaseShowcase from '../components/UseCaseShowcase.jsx'
+import AgentRoster from '../components/AgentRoster.jsx'
 import ControlsChecklist from '../components/ControlsChecklist.jsx'
-
-const USE_CASES = [
-  { icon: <IconChat />, title: 'Customer service agents', desc: 'Resolve support conversations end to end across channels.', href: '/ai-agents/customer-service' },
-  { icon: <IconMic />, title: 'Voice AI agents', desc: 'Answer the phone and handle calls autonomously.', href: '/voice-ai-agents' },
-  { icon: <IconGlobe />, title: 'Sales & SDR agents', desc: 'Qualify leads and book meetings around the clock.', href: '/ai-agents/sales' },
-  { icon: <IconBrain />, title: 'Agent builder', desc: 'Build and deploy custom agents with no-code and code.', href: '/ai-agents/agent-builder' },
-]
-
-const TRIPLE_ROWS = [
-  { feature: 'Answers FAQs from a script', col1: true, col2: true, col3: true },
-  { feature: 'Pulls live data from your apps', col1: false, col2: false, col3: true },
-  { feature: 'Takes real actions (refund, update order)', col1: false, col2: false, col3: true },
-  { feature: 'Works across 180+ connected tools', col1: false, col2: false, col3: true },
-  { feature: 'Respects roles & permissions', col1: false, col2: false, col3: true },
-  { feature: 'Logs every action to an audit trail', col1: false, col2: false, col3: true },
-  { feature: 'Honors SLAs and escalates to a human', col1: false, col2: 'Partial', col3: true },
-]
 
 const STEPS = [
   { title: 'Connect', desc: 'One-click connections to your CRM, helpdesk, store or internal tools.' },
@@ -65,40 +49,15 @@ function AiAgentsPlatform() {
         keywords={['AI agent platform', 'autonomous AI agents', 'enterprise AI agents', 'AI agents for customer experience']}
       />
 
-      <Hero
-        eyebrow="Agentic AI"
-        title={<>The AI agent that actually <span className="grad-word">does the work</span></>}
-        subtitle="It doesn't just reply — it connects to your business tools and takes real action inside the conversation, then hands off cleanly when it can't."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<ActionPipelineVisual />}
-      />
+      <AgentLiveRunHero />
 
-      <AgentCapabilityCompare />
+      <AgentChecksActs />
 
-      <IntegrationsTabs
-        id="integrations"
-        title={<>Connects to the tools you already use</>}
-        subtitle="300+ apps across 16 categories, connected with one-click OAuth. Pick a category to explore."
-      />
+      <ChannelHandoffTimeline />
 
-      <TripleCompareTable
-        title={<>Canned replies vs a scripted bot vs an agentic AI</>}
-        subtitle="Only one of the three can actually finish the job."
-        col1Label="Canned Replies"
-        col2Label="Scripted Bot"
-        col3Label="Agentic AI"
-        rows={TRIPLE_ROWS}
-        alt
-        variant="cards"
-      />
+      <ApproachMatrix />
 
-      <UseCaseShowcase
-        eyebrow="Use cases"
-        title={<>An agent for every use case</>}
-        subtitle="Same platform, tuned for support, sales, voice or your own custom agent."
-        items={USE_CASES}
-      />
+      <AgentRoster />
 
       <HowItWorks title={<>Connect, decide, act — on autopilot</>} steps={STEPS} alt variant="numbered" />
 

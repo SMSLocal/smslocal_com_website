@@ -1,0 +1,458 @@
+/* Agentic-AI hero: copy on the left, a live agent run trace on the right.
+   The whole thing is sized to sit inside one viewport frame — no crop, no
+   scroll needed to reach the end of the trace. */
+.alrh {
+  position: relative;
+  padding: 2.25rem 0 2rem;
+  overflow: hidden;
+}
+
+/* Soft brand wash so the trace reads as "live" without a boxed container */
+.alrh::before {
+  content: '';
+  position: absolute;
+  top: -22%;
+  right: -12%;
+  width: 780px;
+  height: 780px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.10) 0%, rgba(236, 72, 153, 0.07) 42%, transparent 70%);
+  pointer-events: none;
+}
+
+.alrh-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.02fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* ---------- copy ---------- */
+.alrh-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.34rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.alrh-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  animation: alrhPulse 2s ease-in-out infinite;
+}
+
+.alrh-title {
+  font-size: 3rem;
+  line-height: 1.12;
+  letter-spacing: -0.06em;
+  margin: 1rem 0 0.9rem;
+  color: var(--heading);
+}
+
+.alrh-title-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.alrh-sub {
+  max-width: 34rem;
+  margin: 0 0 1.6rem;
+  color: var(--text-secondary);
+  font-size: 1.03rem;
+  line-height: 1.62;
+}
+
+.alrh-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1.9rem;
+}
+
+/* ---------- request picker (the interactive hook) ---------- */
+.alrh-picker-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.alrh-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.alrh-chip {
+  position: relative;
+  overflow: hidden;
+  padding: 0.44rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alrh-chip:hover {
+  color: var(--navy);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.alrh-chip.is-active {
+  color: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 10px 22px -14px rgba(79, 91, 213, 0.55);
+}
+
+/* Fills across the chip for as long as the picked run is playing */
+.alrh-chip-timer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: left;
+  background: var(--gradient-brand);
+  animation: alrhTimer 6.4s linear forwards;
+}
+
+/* ---------- the trace ---------- */
+.alrh-trace {
+  position: relative;
+  padding-left: 2.6rem;
+  min-height: 430px;
+}
+
+/* Dashed spine every node hangs off */
+.alrh-spine {
+  position: absolute;
+  left: 13px;
+  top: 14px;
+  bottom: 74px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--border) 0 5px, transparent 5px 11px);
+}
+
+.alrh-node {
+  position: relative;
+  margin-bottom: 0.85rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.alrh-node.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reserve each node's height so later steps never shift the layout */
+.alrh-node--in { min-height: 84px; }
+.alrh-node--think { min-height: 88px; }
+.alrh-node--tools { min-height: 84px; }
+.alrh-node--done { min-height: 76px; }
+
+.alrh-dot {
+  position: absolute;
+  left: -2.6rem;
+  top: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.alrh-dot svg { width: 13px; height: 13px; }
+.alrh-dot.is-on { color: var(--blue); border-color: rgba(79, 91, 213, 0.45); }
+
+.alrh-dot--agent {
+  background: var(--gradient-brand);
+  border-color: transparent;
+  color: #fff;
+}
+
+.alrh-dot--agent.is-on { color: #fff; border-color: transparent; }
+
+.alrh-dot-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(79, 91, 213, 0.45);
+  animation: alrhSpin 9s linear infinite;
+}
+
+.alrh-dot--done.is-on {
+  background: var(--success);
+  border-color: transparent;
+  color: #fff;
+  animation: alrhPop 0.4s ease;
+}
+
+.is-handoff .alrh-dot--done.is-on { background: var(--blue); }
+
+/* Cards — small, unframed, floating off the spine */
+.alrh-card {
+  display: block;
+  padding: 0.7rem 0.95rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 18px 34px -26px rgba(16, 35, 63, 0.4);
+}
+
+.alrh-card--msg { max-width: 24rem; }
+
+.alrh-who {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.alrh-msg {
+  margin: 0;
+  min-height: 2.9em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.alrh-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.13em;
+  background: var(--blue);
+  animation: alrhBlink 0.9s steps(1) infinite;
+}
+
+.alrh-card--think {
+  max-width: 27rem;
+  border-color: rgba(79, 91, 213, 0.28);
+  background: linear-gradient(180deg, rgba(79, 91, 213, 0.05), #fff 70%);
+}
+
+.alrh-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.alrh-thought {
+  margin: 0;
+  min-height: 2.9em;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink);
+  animation: alrhFade 0.5s ease both;
+}
+
+/* Tool calls */
+.alrh-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 25rem;
+}
+
+.alrh-tool {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fff;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+}
+
+.alrh-tool.is-on {
+  opacity: 1;
+  transform: none;
+  border-color: rgba(79, 91, 213, 0.3);
+}
+
+.alrh-tool-ic {
+  display: inline-flex;
+  color: var(--blue);
+  flex: none;
+}
+
+.alrh-tool-ic svg { width: 14px; height: 14px; }
+
+.alrh-tool-call {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.76rem;
+  color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alrh-tool-ms {
+  flex: none;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.alrh-tool-ok {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.25s;
+}
+
+.alrh-tool-ok svg { width: 9px; height: 9px; }
+.alrh-tool.is-on .alrh-tool-ok { opacity: 1; }
+
+/* Outcome */
+.alrh-card--done {
+  max-width: 26rem;
+  border-color: rgba(22, 163, 74, 0.35);
+  background: linear-gradient(180deg, rgba(22, 163, 74, 0.07), #fff 75%);
+}
+
+.is-handoff .alrh-card--done {
+  border-color: rgba(79, 91, 213, 0.35);
+  background: linear-gradient(180deg, rgba(79, 91, 213, 0.07), #fff 75%);
+}
+
+.alrh-result {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.alrh-note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* Live counter, unframed under the trace */
+.alrh-meter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+.alrh-meter-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+  animation: alrhPop 0.35s ease;
+}
+
+.alrh-meter-txt {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* ---------- animations ---------- */
+@keyframes alrhSpin { to { transform: rotate(360deg); } }
+@keyframes alrhBlink { 50% { opacity: 0; } }
+@keyframes alrhFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes alrhTimer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes alrhPop {
+  0% { transform: scale(0.82); }
+  60% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+@keyframes alrhPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.65; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .alrh-title { font-size: 2.6rem; }
+  .alrh-inner { gap: 2rem; }
+}
+
+@media (max-width: 900px) {
+  .alrh-inner { grid-template-columns: 1fr; }
+  .alrh-title { font-size: 2.3rem; }
+  .alrh-sub { margin-bottom: 1.3rem; }
+  .alrh-trace { min-height: 0; }
+}
+
+/* Below this the copy plus the full trace can't share one frame. The copy is
+   the essential part, so the trace steps down to the request + outcome only. */
+@media (max-width: 640px) {
+  .alrh { padding: 1.5rem 0 1.25rem; }
+  .alrh-title { font-size: 1.85rem; margin: 0.8rem 0 0.7rem; }
+  .alrh-sub { font-size: 0.95rem; margin-bottom: 1.1rem; }
+  .alrh-ctas { margin-bottom: 1.25rem; }
+  .alrh-node--think,
+  .alrh-node--tools,
+  .alrh-meter { display: none; }
+  .alrh-node--in { min-height: 74px; }
+  .alrh-node--done { min-height: 0; }
+  .alrh-spine { bottom: auto; height: 58px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alrh-eyebrow-dot,
+  .alrh-dot-ring,
+  .alrh-chip-timer,
+  .alrh-caret,
+  .alrh-meter-num,
+  .alrh-thought { animation: none; }
+  .alrh-node,
+  .alrh-tool { transition: none; }
+}

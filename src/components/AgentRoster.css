@@ -1,0 +1,169 @@
+/* One band of four columns divided by hairlines — no cards, no big gaps. */
+.agr {
+  padding: 3.5rem 0;
+  background: var(--bg-subtle-2);
+}
+
+.agr-head {
+  max-width: 38rem;
+  margin-bottom: 1.75rem;
+}
+
+.agr-kicker {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.agr-h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+}
+
+.agr-lede {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.agr-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.agr-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.35rem 1.25rem 1.25rem;
+  border-left: 1px solid var(--border);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.agr-col:first-child { border-left: 0; }
+.agr-col:hover { background: #fff; }
+
+.agr-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0.7rem;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--blue);
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+
+.agr-ic svg { width: 15px; height: 15px; }
+
+.agr-col:hover .agr-ic {
+  background: var(--gradient-brand);
+  border-color: transparent;
+  color: #fff;
+}
+
+.agr-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.agr-line {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* the concrete example only shows on hover, so the band stays quiet at rest */
+.agr-example {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--blue);
+  transition: max-height 0.3s ease, opacity 0.25s ease, margin 0.3s ease;
+}
+
+.agr-col:hover .agr-example,
+.agr-col:focus-visible .agr-example {
+  max-height: 4rem;
+  opacity: 1;
+  margin-top: 0.45rem;
+}
+
+.agr-stat {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.agr-stat b {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+}
+
+.agr-stat i {
+  font-style: normal;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.agr-go {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+  opacity: 0.55;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.agr-col:hover .agr-go { opacity: 1; transform: translateX(2px); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .agr-band { grid-template-columns: repeat(2, 1fr); }
+  .agr-col:nth-child(3) { border-left: 0; }
+  .agr-col:nth-child(n + 3) { border-top: 1px solid var(--border); }
+}
+
+@media (max-width: 620px) {
+  .agr { padding: 2.75rem 0; }
+  .agr-h2 { font-size: 1.5rem; }
+  .agr-band { grid-template-columns: 1fr; }
+  .agr-col {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 1.1rem 0.15rem;
+  }
+  .agr-col:first-child { border-top: 0; }
+  /* no hover on touch — show the example inline */
+  .agr-example { max-height: 4rem; opacity: 1; margin-top: 0.4rem; }
+  .agr-stat { padding-top: 0.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agr-example,
+  .agr-ic,
+  .agr-go { transition: none; }
+}

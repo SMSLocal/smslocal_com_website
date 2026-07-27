@@ -1,0 +1,260 @@
+.lcf-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 2.8rem;
+}
+
+.lcf-header h2 {
+  font-size: 2.05rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.7rem;
+}
+
+.lcf-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ================= the three picks ================= */
+.lcf-rows {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.lcf-row {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 1.6rem;
+  align-items: start;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.lcf-row:last-of-type { border-bottom: 1px solid var(--border); }
+
+.lcf-label {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-top: 0.3rem;
+}
+
+.lcf-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.lcf-verb {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.lcf-hint {
+  flex-basis: 100%;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.lcf-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* pick — a control, not a card */
+.lcf-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem 0.4rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lcf-pick:hover {
+  color: var(--navy);
+  border-color: rgba(16, 35, 63, 0.3);
+}
+
+.lcf-pick:active { transform: scale(0.96); }
+
+.lcf-tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  color: transparent;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lcf-pick.is-on {
+  color: var(--navy);
+  border-color: rgba(37, 99, 235, 0.45);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.lcf-pick.is-on .lcf-tick {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--blue), var(--teal, #14b8a6));
+  transform: scale(1.05);
+}
+
+/* ================= what it answers back ================= */
+.lcf-answer {
+  max-width: 1080px;
+  margin: 2.4rem auto 0;
+}
+
+.lcf-sentence {
+  margin: 0 0 1.9rem;
+  font-size: 1.32rem;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+}
+
+.lcf-sentence b {
+  font-weight: 700;
+  color: var(--blue);
+  background: linear-gradient(180deg, transparent 62%, rgba(37, 99, 235, 0.14) 62%);
+  animation: lcf-mark 0.4s ease both;
+}
+
+@keyframes lcf-mark {
+  from { opacity: 0.4; background-size: 0% 100%; }
+  to { opacity: 1; background-size: 100% 100%; }
+}
+
+.lcf-sentence i {
+  font-style: normal;
+  color: rgba(16, 35, 63, 0.34);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+}
+
+/* ---- capability list ---- */
+.lcf-day {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.lcf-day-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding-top: 0.15rem;
+}
+
+.lcf-day-label em {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  color: var(--blue);
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 999px;
+  padding: 0.05rem 0.42rem;
+}
+
+.lcf-caps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 2.4rem;
+}
+
+.lcf-cap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  break-inside: avoid;
+  padding: 0.34rem 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--navy);
+  animation: lcf-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes lcf-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.lcf-cap-mark {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  transform: translateY(-2px);
+}
+
+.lcf-cap--knowledge .lcf-cap-mark { background: var(--teal, #14b8a6); }
+.lcf-cap--channels .lcf-cap-mark { background: #8b5cf6; }
+
+.lcf-cap--empty {
+  color: rgba(16, 35, 63, 0.36);
+  font-style: italic;
+}
+
+/* ---- closing line ---- */
+.lcf-close {
+  grid-column: 2;
+  margin: 1.9rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 760px;
+}
+
+.lcf-close b {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* ================= responsive ================= */
+@media (max-width: 860px) {
+  .lcf-row,
+  .lcf-day {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .lcf-label { padding-top: 0; }
+  .lcf-caps { columns: 1; }
+  .lcf-sentence { font-size: 1.15rem; }
+  .lcf-close { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lcf-cap, .lcf-sentence b { animation: none; }
+}

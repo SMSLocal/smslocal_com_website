@@ -1,7 +1,7 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import PlatformStackHero from '../components/PlatformStackHero.jsx'
-import PlatformLayerSpec from '../components/PlatformLayerSpec.jsx'
+import PlatformAccountOrbit from '../components/PlatformAccountOrbit.jsx'
 import PlatformOneRecord from '../components/PlatformOneRecord.jsx'
 import PlatformModules from '../components/PlatformModules.jsx'
 
@@ -31,7 +31,7 @@ function Platform() {
         visual={<PlatformStackHero />}
       />
 
-      <PlatformLayerSpec />
+      <PlatformAccountOrbit />
 
       <PlatformOneRecord />
 

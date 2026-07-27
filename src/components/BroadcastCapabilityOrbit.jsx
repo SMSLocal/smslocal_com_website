@@ -16,7 +16,9 @@ function nodePos(i, n) {
   return { x: 50 + R * Math.cos(a), y: 50 + R * Math.sin(a) }
 }
 
-function BroadcastCapabilityOrbit({ eyebrow, title, subtitle, items = [] }) {
+function BroadcastCapabilityOrbit({
+  eyebrow, title, subtitle, items = [], hubIcon,
+}) {
   const [active, setActive] = useState(0)
   const cap = items[active] || {}
 
@@ -30,7 +32,7 @@ function BroadcastCapabilityOrbit({ eyebrow, title, subtitle, items = [] }) {
         <div className="bco">
           <div className="bco-ring" role="tablist" aria-label="Broadcast capabilities">
             <span className="bco-orbit-path" aria-hidden="true" />
-            <span className="bco-hub" aria-hidden="true"><IconChat /></span>
+            <span className="bco-hub" aria-hidden="true">{hubIcon || <IconChat />}</span>
             {items.map((it, i) => {
               const p = nodePos(i, items.length)
               return (
