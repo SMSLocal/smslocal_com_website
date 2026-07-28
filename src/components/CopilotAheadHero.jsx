@@ -1,42 +1,16 @@
-import { useEffect, useState } from 'react'
 import './CopilotAheadHero.css'
 
 /**
  * Hero visual for /products/agent-copilot.
  * Dramatizes the headline literally: a customer message arrives, a "reading"
- * sweep highlights across it as if an agent were scanning line by line — but
- * the draft reply card slides in and locks in a tick BEFORE that sweep
- * finishes crossing the message. One concrete moment, not a diagram.
- * Floats on the page background — no outer frame. Fully-assembled state is
- * the base; motion (the sweep, the draft's earlier arrival) only enhances,
- * and collapses to the finished state under prefers-reduced-motion.
+ * sweep highlights across it as if an agent were scanning line by line, while
+ * the draft reply — already resolved, tick and all — sits ready beside it.
+ * One concrete moment, not a diagram. Floats on the page background — no
+ * outer frame. The fully-assembled state (both cards, draft included) is the
+ * CSS base; the sweep is a decorative overlay only, gated behind
+ * prefers-reduced-motion, so nothing depends on motion to read correctly.
  */
-const REDUCED =
-  typeof window !== 'undefined' &&
-  typeof window.matchMedia === 'function' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 function CopilotAheadHero() {
-  const [draftIn, setDraftIn] = useState(REDUCED)
-
-  useEffect(() => {
-    if (REDUCED) return undefined
-    const cycle = () => {
-      setDraftIn(false)
-      const t = setTimeout(() => setDraftIn(true), 1150)
-      return t
-    }
-    let inner = cycle()
-    const loop = setInterval(() => {
-      clearTimeout(inner)
-      inner = cycle()
-    }, 4200)
-    return () => {
-      clearInterval(loop)
-      clearTimeout(inner)
-    }
-  }, [])
-
   return (
     <div className="cah" aria-hidden="true">
       <span className="cah-chip">
@@ -63,7 +37,7 @@ function CopilotAheadHero() {
         <span className="cah-link-label">before finished reading</span>
       </div>
 
-      <div className={`cah-draft${draftIn ? ' is-in' : ''}`}>
+      <div className="cah-draft">
         <div className="cah-draft-top">
           <span className="cah-draft-badge">
             <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l4 4L19 6" /></svg>

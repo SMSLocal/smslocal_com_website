@@ -1,0 +1,330 @@
+.ipc {
+  padding: 3rem 0 4rem;
+}
+
+.ipc-stage {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  height: 500px;
+  perspective: 1600px;
+}
+
+/* ---- the phone itself: tilted away by default, straightens when centered in view ---- */
+.ipc-phone {
+  position: relative;
+  width: 240px;
+  height: 100%;
+  margin: 0 auto;
+  transform: perspective(1600px) rotateX(13deg) rotateY(-33deg) rotateZ(5deg);
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.ipc-stage.is-forward .ipc-phone {
+  transform: perspective(1600px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.ipc-screen {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 38px;
+  background: linear-gradient(165deg, #f3f0ff 0%, #ece6fd 45%, #efe9fb 100%);
+  border: 3px solid #1a1530;
+  box-shadow: 0 30px 80px -24px rgba(79, 42, 173, 0.42);
+  padding: 1.6rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--navy);
+  overflow: hidden;
+}
+
+/* ambient drifting glow blobs behind the UI */
+.ipc-screen::before,
+.ipc-screen::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  filter: blur(38px);
+  opacity: 0.4;
+  z-index: 0;
+  animation: ipc-drift 9s ease-in-out infinite;
+}
+
+.ipc-screen::before {
+  top: -60px;
+  left: -50px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.55), transparent 70%);
+}
+
+.ipc-screen::after {
+  bottom: -70px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.4), transparent 70%);
+  animation-delay: -4.5s;
+}
+
+@keyframes ipc-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(18px, 14px) scale(1.12); }
+}
+
+.ipc-bar,
+.ipc-number,
+.ipc-orb,
+.ipc-caption,
+.ipc-status,
+.ipc-wave,
+.ipc-controls {
+  position: relative;
+  z-index: 1;
+}
+
+.ipc-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(21, 73, 137, 0.55);
+}
+
+.ipc-bar-status {
+  letter-spacing: 0.08em;
+  color: rgba(139, 92, 246, 0.85);
+  animation: ipc-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes ipc-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.ipc-number {
+  margin: 0.5rem 0 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.ipc-orb {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+}
+
+.ipc-orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  animation: ipc-pulse 2.4s ease-in-out infinite;
+}
+
+.ipc-orb-ring--2 {
+  inset: -12px;
+  border-color: rgba(236, 72, 153, 0.3);
+  animation: ipc-pulse 2.4s ease-in-out infinite 0.5s;
+}
+
+@keyframes ipc-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.12); opacity: 0.35; }
+}
+
+.ipc-orb-core {
+  position: relative;
+  z-index: 1;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  box-shadow: 0 10px 30px -8px rgba(139, 92, 246, 0.6);
+  animation: ipc-breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes ipc-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.ipc-caption {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.ipc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: rgba(21, 73, 137, 0.6);
+  margin-top: 0.3rem;
+}
+
+.ipc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  animation: ipc-dot-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes ipc-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25); }
+  50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.08); }
+}
+
+.ipc-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 26px;
+  margin-top: auto;
+  margin-bottom: 1.2rem;
+}
+
+.ipc-wave i {
+  width: 2.5px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #8b5cf6, #ec4899);
+  height: calc(6px + (var(--i) % 5) * 4px);
+  animation: ipc-bounce 1.1s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.05s);
+}
+
+@keyframes ipc-bounce {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}
+
+.ipc-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.ipc-ctrl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.12);
+  color: #6d28d9;
+}
+
+.ipc-ctrl svg { width: 16px; height: 16px; }
+
+.ipc-ctrl--end {
+  background: #ef4444;
+  transform: rotate(135deg);
+}
+
+/* ---- floating capability cards: hidden until the phone is centered ---- */
+.ipc-card {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  width: 200px;
+  padding: 0.8rem 0.9rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 32px -18px rgba(21, 73, 137, 0.3);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 2;
+}
+
+.ipc-stage.is-forward .ipc-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ipc-stage.is-forward .ipc-card--tl { transition-delay: 0.15s; }
+.ipc-stage.is-forward .ipc-card--r { transition-delay: 0.32s; }
+.ipc-stage.is-forward .ipc-card--bl { transition-delay: 0.48s; }
+.ipc-stage.is-forward .ipc-card--br { transition-delay: 0.64s; }
+
+.ipc-card--tl { top: 6%; left: -4%; }
+.ipc-card--r { top: 42%; right: -14%; }
+.ipc-card--bl { bottom: 20%; left: -10%; }
+.ipc-card--br { bottom: 4%; right: -6%; }
+
+.ipc-card-ic {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(79, 91, 213, 0.12);
+  color: var(--blue);
+}
+
+.ipc-card-ic svg { width: 15px; height: 15px; }
+
+.ipc-card-label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.ipc-card strong {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--navy);
+  margin: 0.1rem 0;
+}
+
+.ipc-card-sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .ipc-stage { max-width: 320px; height: 460px; }
+  .ipc-card { width: 168px; padding: 0.7rem 0.8rem; }
+  .ipc-card--tl { left: -8%; }
+  .ipc-card--r { right: -18%; }
+  .ipc-card--bl { left: -14%; }
+  .ipc-card--br { right: -10%; }
+}
+
+@media (max-width: 640px) {
+  .ipc-stage { height: auto; padding-bottom: 2rem; display: flex; flex-direction: column; }
+  .ipc-phone { height: 440px; order: -1; margin-bottom: 1.4rem; }
+  .ipc-card { position: static; width: 100%; margin: 0.5rem 0; opacity: 1; transform: none; }
+  .ipc-card--r, .ipc-card--bl, .ipc-card--br, .ipc-card--tl { top: auto; left: auto; right: auto; bottom: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ipc-phone, .ipc-card { transition: none; }
+}

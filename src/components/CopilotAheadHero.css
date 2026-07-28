@@ -138,13 +138,6 @@
   box-shadow:
     0 22px 46px -24px rgba(16, 35, 63, 0.32),
     0 2px 6px -2px rgba(16, 35, 63, 0.07);
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.cah-draft.is-in {
-  opacity: 1;
-  transform: translateY(0);
   border-left-color: var(--blue);
 }
 
@@ -199,15 +192,11 @@
 }
 
 /* ---------------------------------------------------------------------------
-   Motion only enhances. Base state above (no .is-in) already reads correctly
-   as "message just arrived, draft about to land"; .is-in is the settled,
-   fully-assembled state used outright under reduced motion.
+   Motion only enhances a base that already reads correctly: both cards fully
+   visible, draft resolved and ticked. The sweep is a decorative overlay
+   riding on top of the (already legible) incoming text, never gating it.
    --------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
-  .cah-draft {
-    transition: opacity 0.5s ease, transform 0.5s ease, border-left-color 0.5s ease;
-  }
-
   .cah-sweep {
     animation: cah-read 4.2s ease-in-out infinite;
   }

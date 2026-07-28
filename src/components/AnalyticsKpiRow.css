@@ -1,29 +1,78 @@
-.akr-row {
-  display: grid;
-  grid-template-columns: repeat(5, 176px);
-  justify-content: center;
-  justify-items: center;
-  gap: 1rem;
+.akr-list {
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.akr-chip {
-  width: 176px;
+.akr-list-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 1px solid var(--border);
+}
+
+.akr-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+
+.akr-range {
+  margin-left: auto;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.akr-rows {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1.15rem 1rem 1rem;
-  background: #fff;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: 0 18px 40px -26px rgba(16, 35, 63, 0.4);
 }
 
-/* Micro sparkline sits at the top of each chip */
+.akr-row-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6px 1fr 76px 100px 90px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 0.2s ease;
+}
+
+.akr-row-item:last-child { border-bottom: none; }
+
+.akr-accent {
+  align-self: stretch;
+  width: 3px;
+  border-radius: 999px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.akr-row-item:hover .akr-accent {
+  background: var(--gradient-brand);
+}
+
+.akr-row-item:hover {
+  padding-left: 0.3rem;
+}
+
+.akr-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Micro sparkline sits inline within the row */
 .akr-spark {
-  width: 68px;
+  width: 76px;
   height: 26px;
-  margin-bottom: 0.7rem;
 }
 
 .akr-spark-line {
@@ -37,7 +86,7 @@
   animation: akrDraw 1.4s ease-out forwards;
 }
 
-.akr-chip--down .akr-spark-line {
+.akr-row-item--down .akr-spark-line {
   stroke: var(--teal);
 }
 
@@ -46,31 +95,25 @@
 }
 
 .akr-value {
-  font-size: 1.7rem;
+  font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--navy);
-  line-height: 1.05;
   font-variant-numeric: tabular-nums;
-}
-
-.akr-label {
-  margin-top: 0.15rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  text-align: right;
 }
 
 .akr-delta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.18rem;
-  margin-top: 0.75rem;
-  padding: 0.22rem 0.6rem;
+  padding: 0.28rem 0.65rem;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
+  justify-self: end;
 }
 
 .akr-delta--up {
@@ -83,21 +126,17 @@
   background: rgba(20, 184, 166, 0.12);
 }
 
-@media (max-width: 940px) {
-  .akr-row {
-    grid-template-columns: repeat(3, 176px);
+@media (max-width: 640px) {
+  .akr-row-item {
+    grid-template-columns: 4px 1fr auto;
+    grid-template-areas: "accent label delta" "accent spark value";
+    row-gap: 0.5rem;
   }
-}
-
-@media (max-width: 620px) {
-  .akr-row {
-    grid-template-columns: repeat(2, minmax(140px, 176px));
-    gap: 0.8rem;
-  }
-
-  .akr-chip {
-    width: 100%;
-  }
+  .akr-accent { grid-area: accent; }
+  .akr-label { grid-area: label; }
+  .akr-delta { grid-area: delta; }
+  .akr-spark { grid-area: spark; }
+  .akr-value { grid-area: value; text-align: right; }
 }
 
 @media (prefers-reduced-motion: reduce) {

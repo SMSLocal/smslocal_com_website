@@ -1,18 +1,11 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
+import PlatformInvoiceSummary from '../components/PlatformInvoiceSummary.jsx'
 import TangleConvergeHero from '../components/TangleConvergeHero.jsx'
 import PlatformConsoleAnatomy from '../components/PlatformConsoleAnatomy.jsx'
 import OneAccountTicket from '../components/OneAccountTicket.jsx'
 import SwitchSteps from '../components/SwitchSteps.jsx'
 import StitchedSeamCompare from '../components/StitchedSeamCompare.jsx'
-
-const STATS = [
-  { value: '5→1', label: 'tools to manage', desc: 'CPaaS API, chatbot, campaigns, inbox and numbers become one platform.' },
-  { value: '1', label: 'invoice', desc: 'Every channel, seat and message on a single itemised bill.' },
-  { value: '1', label: 'customer record', desc: 'Each touchpoint resolves to the same profile, so context never resets.' },
-  { value: 'Days', label: 'to launch', desc: 'Go live without a multi-vendor integration project.' },
-]
 
 const TESTIMONIALS = [
   { quote: 'We replaced four separate vendors with SMSLocal and cut our monthly tooling bill sharply. One login, one invoice, one support team.', name: 'Meera Nair', role: 'Head of CX, Retail' },
@@ -57,10 +50,9 @@ function WhySmslocal() {
 
       <SwitchSteps />
 
-      <StatBand
+      <PlatformInvoiceSummary
         title="One platform, by the numbers"
         subtitle="What changes when five tools become one."
-        items={STATS}
       />
 
       <StitchedSeamCompare />

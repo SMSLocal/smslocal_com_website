@@ -3,7 +3,8 @@ import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import InboxThreadHero from '../components/InboxThreadHero.jsx'
 import InboxChannelHop from '../components/InboxChannelHop.jsx'
 import InboxTeamFeed from '../components/InboxTeamFeed.jsx'
-import InboxRoutingEngine from '../components/InboxRoutingEngine.jsx'
+import InboxRoutingRules from '../components/InboxRoutingRules.jsx'
+import InboxMetrics from '../components/InboxMetrics.jsx'
 
 const FAQS = [
   { q: 'Which channels land in the shared inbox?', a: 'WhatsApp, SMS, RCS, email, voice and social channels like Instagram and Messenger all arrive in one place. Every message from a customer joins the same thread, whatever channel it came in on.' },
@@ -34,7 +35,9 @@ function ProductsOmnichannelInbox() {
 
       <InboxTeamFeed />
 
-      <InboxRoutingEngine />
+      <InboxRoutingRules />
+
+      <InboxMetrics />
 
       <CTABanner
         title="Bring every conversation into one inbox"

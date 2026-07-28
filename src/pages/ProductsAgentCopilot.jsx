@@ -1,10 +1,11 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import ProblemAnnotatedInbox from '../components/ProblemAnnotatedInbox.jsx'
 import CopilotDraftDemo from '../components/CopilotDraftDemo.jsx'
 import CopilotAheadHero from '../components/CopilotAheadHero.jsx'
 import WhatsappStepsFlow from '../components/WhatsappStepsFlow.jsx'
-import WhyUsDividers from '../components/WhyUsDividers.jsx'
-import { IconPencil, IconBook, IconBolt, IconChat, IconClock, IconCheck, IconChart, IconUsers } from '../components/icons.jsx'
+import WhyItWorksScorecard from '../components/WhyItWorksScorecard.jsx'
+import { IconPencil, IconBook, IconBolt, IconChat } from '../components/icons.jsx'
 
 const STEPS = [
   { title: 'Connect your knowledge base', desc: 'Point the copilot at your help centre, docs and past resolved conversations.' },
@@ -18,13 +19,6 @@ const FEATURES = [
   { icon: <IconBook />, title: 'Surfaces knowledge-grounded answers', desc: 'Pulls the right policy, article or past resolution while your agent is still reading the message, so nobody has to switch tabs to find it.' },
   { icon: <IconBolt />, title: 'Summarises long threads instantly', desc: 'A ten-message thread becomes a two-line summary the moment an agent opens it, so context takes seconds, not minutes.' },
   { icon: <IconChat />, title: 'Works inside the inbox your team already uses', desc: 'Lives directly in the shared omnichannel inbox — no separate tool, no copy-pasting between windows.' },
-]
-
-const BENEFITS = [
-  { icon: <IconClock />, title: 'Faster first response', desc: 'A drafted reply is ready before the agent finishes reading, cutting the time from open to send.' },
-  { icon: <IconCheck />, title: 'More consistent answers', desc: 'Every drafted reply pulls from the same knowledge base, so tone and accuracy stay consistent across the whole team.' },
-  { icon: <IconChart />, title: 'Higher throughput per agent', desc: 'Less time spent hunting for the right answer means each agent handles more conversations without feeling rushed.' },
-  { icon: <IconUsers />, title: 'Faster ramp for new hires', desc: 'New agents lean on the copilot\'s drafts and summaries while they\'re still learning your policies and product.' },
 ]
 
 const FAQS = [
@@ -53,22 +47,10 @@ function ProductsAgentCopilot() {
         visual={<CopilotAheadHero />}
       />
 
-      <NarrativeCompare
-        variant="stacked"
+      <ProblemAnnotatedInbox
         eyebrow="The problem"
         heading={<>Every reply starts with the same search: "what did we say last time?"</>}
-        paragraphs={[
-          'An agent opens a conversation, scrolls through a long thread, switches to a help-centre tab to check the policy, then finally starts typing.',
-          'None of that searching is the actual job — the job is the reply. But it eats most of the time a conversation takes.',
-          'An AI agent copilot drafts the reply and surfaces the answer automatically — the agent reviews, edits if needed, and sends.',
-        ]}
-        leftItems={[
-          'Drafts a ready-to-send reply',
-          'Summarises the thread in two lines',
-          'Surfaces the right policy or article',
-          'Agent reviews, edits and sends',
-        ]}
-        alt
+        paragraphs={['The searching isn\'t the job — the reply is. The copilot removes the searching.']}
       />
 
       <CopilotDraftDemo
@@ -85,11 +67,10 @@ function ProductsAgentCopilot() {
         alt
       />
 
-      <WhyUsDividers
+      <WhyItWorksScorecard
         eyebrow="Why it works"
         title="Faster replies, without losing the human in the loop"
-        subtitle="Agents stay in control of every send — the copilot just removes the time spent searching for the answer."
-        items={BENEFITS}
+        subtitle="Agents stay in control of every send — the copilot just removes the time spent searching."
       />
 
       <CTABanner

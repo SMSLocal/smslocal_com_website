@@ -1,62 +1,19 @@
 import './InboxChannelHop.css'
-import { IconChat, IconMegaphone, IconMail, IconPhone, IconGlobe } from './icons.jsx'
+import { IconChat, IconMegaphone, IconMail, IconPhone, IconGlobe, IconCheck } from './icons.jsx'
 
-const NODES = [
-  {
-    key: 'wa',
-    label: 'WhatsApp',
-    icon: <IconChat />,
-    x: 8,
-    pos: 'top',
-    align: 'start',
-    who: 'Emma Clarke',
-    time: '9:02am',
-    snippet: 'Hey, is my order #4821 shipped yet?',
-  },
-  {
-    key: 'sms',
-    label: 'SMS',
-    icon: <IconMegaphone />,
-    x: 29,
-    pos: 'bottom',
-    who: 'SMSLocal',
-    time: '9:03am',
-    snippet: 'Yep! Tracking: 1Z999AA10123456784',
-  },
-  {
-    key: 'email',
-    label: 'Email',
-    icon: <IconMail />,
-    x: 50,
-    pos: 'top',
-    who: 'Emma Clarke',
-    time: '11:40am',
-    snippet: 'Re: Order #4821 — can I add a gift note?',
-  },
-  {
-    key: 'voice',
-    label: 'Voice',
-    icon: <IconPhone />,
-    x: 71,
-    pos: 'bottom',
-    who: 'SMSLocal',
-    time: '11:52am',
-    snippet: 'Call · 2:14 — note added, confirmed by phone',
-  },
-  {
-    key: 'ig',
-    label: 'Instagram',
-    icon: <IconGlobe />,
-    x: 92,
-    pos: 'top',
-    align: 'end',
-    who: 'Emma Clarke',
-    time: '2:15pm',
-    snippet: 'Got it today, thank you! 📦',
-  },
+const THREAD = [
+  { key: 'wa', channel: 'WhatsApp', icon: <IconChat />, who: 'Emma Clarke', side: 'in', time: '9:02am', text: 'Hey, is my order #4821 shipped yet?' },
+  { key: 'sms', channel: 'SMS', icon: <IconMegaphone />, who: 'SMSLocal', side: 'out', time: '9:03am', text: 'Yep! Tracking: 1Z999AA10123456784.' },
+  { key: 'email', channel: 'Email', icon: <IconMail />, who: 'Emma Clarke', side: 'in', time: '11:40am', text: 'Can you add a gift note before it arrives?' },
 ]
 
-const POINTS = '80,46 290,174 500,46 710,174 920,46'
+const CHANNEL_TILES = [
+  { key: 'wa', label: 'WhatsApp', icon: <IconChat />, note: 'Conversation starts here' },
+  { key: 'sms', label: 'SMS', icon: <IconMegaphone />, note: 'Auto-synced, no re-ask' },
+  { key: 'email', label: 'Email', icon: <IconMail />, note: 'Gift note attached' },
+  { key: 'voice', label: 'Voice', icon: <IconPhone />, note: 'Call · 2:14 logged' },
+  { key: 'ig', label: 'Instagram', icon: <IconGlobe />, note: 'Closed out here' },
+]
 
 function InboxChannelHop() {
   return (
@@ -69,51 +26,57 @@ function InboxChannelHop() {
           hops without ever splitting into a new ticket.
         </p>
 
-        <div className="ichop-stage">
-          <div className="ichop-glow" aria-hidden="true" />
+        <div className="ichop-bento">
+          <div className="ichop-cell ichop-cell-thread">
+            <div className="ichop-thread-head">
+              <span className="ichop-thread-avatar">EC</span>
+              <div>
+                <b>Emma Clarke</b>
+                <span>Ticket #4821 · 3 of 5 channels shown</span>
+              </div>
+              <span className="ichop-thread-live">Live</span>
+            </div>
 
-          <div className="ichop-ticket">
-            <span className="ichop-ticket-dot" />
-            Ticket #4821 · Emma Clarke — one thread, 5 hops, still open
-          </div>
-
-          <svg className="ichop-line" viewBox="0 0 1000 220" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="ichopGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stopColor="#4f5bd5" />
-                <stop offset="1" stopColor="#ec4899" />
-              </linearGradient>
-            </defs>
-            <polyline className="ichop-base" points={POINTS} />
-            <polyline className="ichop-flow" points={POINTS} />
-          </svg>
-
-          <div className="ichop-nodes">
-            {NODES.map((n) => (
-              <div
-                className={`ichop-node is-${n.pos}`}
-                key={n.key}
-                style={{ left: `${n.x}%`, top: n.pos === 'top' ? '20.9%' : '79.1%' }}
-              >
-                <span className={`ichop-dot dot-${n.key}`}>{n.icon}</span>
-                <span className="ichop-label">{n.label}</span>
-                <span className={`ichop-bubble is-${n.align || 'center'}`}>
-                  <span className="ichop-bubble-head">
-                    <b>{n.who}</b>
-                    <i>{n.time}</i>
-                  </span>
-                  {n.snippet}
-                </span>
+            {THREAD.map((m, i) => (
+              <div className="ichop-thread-msg" key={m.key}>
+                {i > 0 && <span className="ichop-thread-hop">continued on {m.channel}</span>}
+                <div className={`ichop-msg is-${m.side}`}>
+                  <span className={`ichop-chip chip-${m.key}`}>{m.icon}</span>
+                  <div className="ichop-msg-body">
+                    <div className="ichop-msg-meta">
+                      <b>{m.who}</b>
+                      <span className="ichop-msg-channel">{m.channel}</span>
+                      <i>{m.time}</i>
+                    </div>
+                    <p>{m.text}</p>
+                  </div>
+                </div>
               </div>
             ))}
+            <span className="ichop-thread-more">+ Voice and Instagram continue the same thread →</span>
+          </div>
+
+          {CHANNEL_TILES.map((t) => (
+            <div className={`ichop-cell ichop-cell-channel chip-${t.key}`} key={t.key}>
+              <span className="ichop-tile-icon">{t.icon}</span>
+              <b>{t.label}</b>
+              <span>{t.note}</span>
+            </div>
+          ))}
+
+          <div className="ichop-cell ichop-cell-stat">
+            <span className="ichop-stat-num">5</span>
+            <span className="ichop-stat-label">channels, one open thread</span>
+          </div>
+
+          <div className="ichop-cell ichop-cell-note">
+            <IconCheck />
+            <p>
+              <b>Context travels.</b> Order history, past replies and internal notes carry across
+              every hop — no one on your team ever asks the customer to repeat themselves.
+            </p>
           </div>
         </div>
-
-        <p className="ichop-caption">
-          <span className="ichop-caption-tag">Context travels</span>
-          Order history, past replies and internal notes carry across every hop — so no one on your
-          team ever asks the customer to repeat themselves.
-        </p>
       </div>
     </section>
   )

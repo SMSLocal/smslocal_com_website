@@ -60,25 +60,37 @@ function AnalyticsKpiRow() {
           Every channel rolled into one live scorecard — no exports to stitch together, no silos to reconcile.
         </p>
 
-        <div className="akr-row reveal">
-          {KPIS.map((k, i) => (
-            <div className={`akr-chip akr-chip--${k.dir}`} key={k.label} style={{ '--i': i }}>
-              <svg className="akr-spark" viewBox="0 0 70 28" preserveAspectRatio="none" aria-hidden="true">
-                <path
-                  className="akr-spark-line"
-                  d={k.spark}
-                  pathLength="1"
-                  style={{ animationDelay: `${0.15 + i * 0.14}s` }}
-                />
-              </svg>
-              <span className="akr-value">{k.value}</span>
-              <span className="akr-label">{k.label}</span>
-              <span className={`akr-delta akr-delta--${k.dir}`}>
-                {k.dir === 'up' ? <ArrowUp /> : <ArrowDown />}
-                {k.delta}
-              </span>
-            </div>
-          ))}
+        <div className="akr-list">
+          <div className="akr-list-top">
+            <span className="akr-live-dot" />
+            <span>Analytics · Live</span>
+            <span className="akr-range">Last 30 days</span>
+          </div>
+
+          <div className="akr-rows">
+            {KPIS.map((k, i) => (
+              <div className={`akr-row-item akr-row-item--${k.dir}`} key={k.label} style={{ '--i': i }}>
+                <span className="akr-accent" aria-hidden="true" />
+                <span className="akr-label">{k.label}</span>
+
+                <svg className="akr-spark" viewBox="0 0 70 28" preserveAspectRatio="none" aria-hidden="true">
+                  <path
+                    className="akr-spark-line"
+                    d={k.spark}
+                    pathLength="1"
+                    style={{ animationDelay: `${0.15 + i * 0.14}s` }}
+                  />
+                </svg>
+
+                <span className="akr-value">{k.value}</span>
+
+                <span className={`akr-delta akr-delta--${k.dir}`}>
+                  {k.dir === 'up' ? <ArrowUp /> : <ArrowDown />}
+                  {k.delta}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

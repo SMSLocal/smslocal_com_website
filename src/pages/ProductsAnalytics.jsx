@@ -1,7 +1,7 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import AnalyticsPulseHero from '../components/AnalyticsPulseHero.jsx'
-import AnalyticsKpiRow from '../components/AnalyticsKpiRow.jsx'
+import AnalyticsFunnel from '../components/AnalyticsFunnel.jsx'
 import AnalyticsPipeline from '../components/AnalyticsPipeline.jsx'
 import AnalyticsReportIndex from '../components/AnalyticsReportIndex.jsx'
 
@@ -42,7 +42,7 @@ function ProductsAnalytics() {
         visual={<AnalyticsPulseHero />}
       />
 
-      <AnalyticsKpiRow />
+      <AnalyticsFunnel />
 
       <AnalyticsPipeline />
 

@@ -1,53 +1,256 @@
-.sws-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem;
-  max-width: 1080px;
+.sws-console {
+  max-width: 1040px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 48px -24px rgba(21, 73, 137, 0.22);
+  overflow: hidden;
 }
 
-.sws-step {
-  padding-top: 1.1rem;
-  border-top: 2px solid var(--border);
+/* ---- left rail: step nav ---- */
+.sws-rail {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--bg-subtle);
 }
 
-.sws-num {
-  display: block;
-  font-size: 0.85rem;
+.sws-rail-item {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.1rem 1.3rem;
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sws-rail-item:last-child { border-bottom: none; }
+
+.sws-rail-item:hover {
+  background: rgba(79, 91, 213, 0.06);
+}
+
+.sws-rail-item.is-active {
+  background: #fff;
+  border-left-color: var(--blue);
+}
+
+/* ---- stepper track: badge + connecting line ---- */
+.sws-rail-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.sws-rail-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sws-rail-badge svg { width: 12px; height: 12px; color: #fff; }
+
+.sws-rail-line {
+  width: 1.5px;
+  flex: 1;
+  min-height: 1.4rem;
+  background: var(--border);
+  margin: 0.15rem 0;
+}
+
+.sws-rail-item.is-done .sws-rail-badge {
   background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  border-color: transparent;
+}
+
+.sws-rail-item.is-done .sws-rail-line {
+  background: linear-gradient(180deg, var(--blue), var(--border));
+}
+
+.sws-rail-item.is-active .sws-rail-badge {
+  border-color: var(--blue);
+  color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(79, 91, 213, 0.16);
+  animation: sws-badge-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sws-badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(79, 91, 213, 0.16); }
+  50% { box-shadow: 0 0 0 7px rgba(79, 91, 213, 0.06); }
+}
+
+.sws-rail-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+  padding-top: 0.15rem;
+}
+
+/* ---- right pane: active step detail ---- */
+.sws-pane {
+  position: relative;
+  overflow: hidden;
+}
+
+.sws-pane-glow {
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.sws-pane-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.sws-pane-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+
+.sws-pane-progress {
+  margin-left: auto;
+  width: 100px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-subtle-2);
+  overflow: hidden;
+}
+
+.sws-pane-progress span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  transition: width 0.4s ease;
+}
+
+.sws-pane-body {
+  position: relative;
+  padding: 2rem 1.8rem;
+}
+
+.sws-pane-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.sws-pane-icon svg { width: 22px; height: 22px; }
+
+.sws-pane-body h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.3rem;
+  color: var(--navy);
+}
+
+.sws-pane-body p {
+  margin: 0 0 1.5rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+.sws-migrate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.sws-migrate-chip {
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.32rem 0.8rem;
+}
+
+.sws-migrate-chip--old {
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border);
+  text-decoration: line-through;
+}
+
+.sws-migrate-chip--new {
+  color: #fff;
+  background: var(--gradient-brand);
+}
+
+.sws-pane-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
   margin-bottom: 0.6rem;
 }
 
-.sws-title {
-  font-size: 1.08rem;
+.sws-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sws-chip {
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--navy);
-  letter-spacing: -0.01em;
-  margin: 0 0 0.5rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
 }
 
-.sws-desc {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-@media (max-width: 860px) {
-  .sws-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem 1.75rem;
-  }
-}
-
-@media (max-width: 560px) {
-  .sws-grid {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
+@media (max-width: 780px) {
+  .sws-console { grid-template-columns: 1fr; }
+  .sws-rail { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .sws-rail-item { flex: 0 0 auto; border-bottom: none; border-left: none; border-top: 3px solid transparent; white-space: nowrap; }
+  .sws-rail-item.is-active { border-top-color: var(--blue); }
+  .sws-rail-track { flex-direction: row; align-self: auto; }
+  .sws-rail-line { width: 1.4rem; min-height: 0; height: 1.5px; margin: 0 0.15rem; }
+  .sws-pane-body { padding: 1.6rem 1.3rem; }
+  .sws-pane-progress { display: none; }
 }

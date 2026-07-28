@@ -1,0 +1,220 @@
+.pis-section { padding: 4rem 0 4.5rem; }
+
+.pis-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.pis-spread {
+  max-width: 1020px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 70px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---- left: one dominant hero number, no box ---- */
+.pis-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.pis-spread.is-active .pis-hero {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pis-hero-glow {
+  position: absolute;
+  top: -40px;
+  left: -50px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.16), transparent 70%);
+  filter: blur(10px);
+  animation: pis-glow-drift 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes pis-glow-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(12px, 10px) scale(1.12); }
+}
+
+.pis-hero strong {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(4.5rem, 9vw, 7rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pis-hero-arrow {
+  font-weight: 500;
+  margin: 0 0.05em;
+}
+
+/* five dots converging into one, looping */
+.pis-hero-dots {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 10px;
+  margin-top: 1rem;
+}
+
+.pis-hero-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: pis-dot-converge 3.2s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+
+.pis-hero-dots i:last-child {
+  background: var(--gradient-brand);
+  width: 8px;
+  height: 8px;
+}
+
+@keyframes pis-dot-converge {
+  0%, 100% { transform: translateX(0) scale(1); opacity: 0.85; }
+  55% { transform: translateX(14px) scale(0.6); opacity: 0.35; }
+  70% { transform: translateX(0) scale(1); opacity: 0.85; }
+}
+
+.pis-hero-label {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  max-width: 180px;
+}
+
+/* ---- connector: flowing dashed lines from hero to list ---- */
+.pis-connector {
+  width: 100%;
+  height: 100px;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.2s;
+}
+
+.pis-spread.is-active .pis-connector { opacity: 1; }
+
+.pis-connector path {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 6;
+  animation: pis-flow 1.6s linear infinite;
+}
+
+@keyframes pis-flow {
+  to { stroke-dashoffset: -16; }
+}
+
+/* ---- right: plain list, hairline dividers, no panel ---- */
+.pis-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.pis-row {
+  display: grid;
+  grid-template-columns: 34px auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity 0.5s ease var(--d, 0s), transform 0.5s ease var(--d, 0s), padding-left 0.25s ease;
+}
+
+.pis-spread.is-active .pis-row {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.pis-row:first-child { border-top: none; }
+
+.pis-row:hover {
+  padding-left: 0.4rem;
+}
+
+.pis-row-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.pis-row:hover .pis-row-ic {
+  background: var(--gradient-brand);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.pis-row-ic svg { width: 16px; height: 16px; }
+
+.pis-row-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.pis-row-copy strong {
+  display: block;
+  font-size: 0.94rem;
+  color: var(--navy);
+}
+
+.pis-row-copy p {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 780px) {
+  .pis-spread { grid-template-columns: 1fr; gap: 1.5rem; }
+  .pis-hero { align-items: center; text-align: center; }
+  .pis-hero-glow { left: 50%; transform: translateX(-50%); }
+  .pis-hero-dots { justify-content: center; }
+  .pis-hero-label { max-width: none; }
+  .pis-connector { display: none; }
+}
+
+@media (max-width: 480px) {
+  .pis-row { grid-template-columns: 30px auto; }
+  .pis-row-copy { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pis-hero-glow, .pis-hero-dots i, .pis-connector path { animation: none; }
+}

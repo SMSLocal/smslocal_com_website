@@ -1,22 +1,14 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FeatureGrid, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import OneAgentCore from '../components/OneAgentCore.jsx'
 import IndustryChips from '../components/IndustryChips.jsx'
 import {
-  IconMic, IconRefresh, IconChart, IconPhone, IconGlobe,
-  IconCart, IconDollar, IconCalendar, IconBook, IconBriefcase, IconShield, IconPackage,
+  IconCart, IconDollar, IconCalendar, IconBook, IconBriefcase, IconShield, IconPackage, IconGlobe,
 } from '../components/icons.jsx'
 import VoiceAgentMock from '../components/VoiceAgentMock.jsx'
-import VoiceOmniInboxMock from '../components/VoiceOmniInboxMock.jsx'
-
-const FEATURES = [
-  { icon: <IconMic />, title: 'Natural, two-way conversation', desc: 'Real speech in, real speech out — no menu tree, no "press 1 for sales". Interruptions and pauses don\'t break it.' },
-  { icon: <IconRefresh />, title: 'Understands the actual ask', desc: 'Listens for what the caller needs and resolves it directly, instead of routing by keypad choice.' },
-  { icon: <IconChart />, title: 'Transcript & sentiment, every call', desc: 'Every call is transcribed, summarized and scored automatically — searchable from your dashboard.' },
-  { icon: <IconRefresh />, title: 'Escalates the moment it should', desc: 'Detects a direct request for a human or rising frustration, and hands off before the caller has to ask twice.' },
-  { icon: <IconPhone />, title: 'Sits in front of your existing line', desc: 'Layer it over your current IVR and number, or let it replace the queue outright.' },
-  { icon: <IconGlobe />, title: 'Speaks the caller\'s language', desc: 'Hindi, English and more — the agent replies in the language the caller opened with.' },
-]
+import UnifiedInboxTimeline from '../components/UnifiedInboxTimeline.jsx'
+import VoiceCapabilitiesConsole from '../components/VoiceCapabilitiesConsole.jsx'
+import ImmersivePhoneSection from '../components/ImmersivePhoneSection.jsx'
 
 const INDUSTRIES = [
   { icon: <IconCart />, title: 'Ecommerce & retail', desc: 'Order status, delivery updates and return calls, resolved without a ticket.' },
@@ -78,21 +70,43 @@ function AiAgentsVoice() {
         ]}
       />
 
-      <FeatureGrid
-        eyebrow="Capabilities"
-        title={<>What the voice agent actually does</>}
-        subtitle="Not an IVR with a new voice — an agent that reasons over the call, resolves what it can, and hands off cleanly."
-        items={FEATURES}
-        variant="inline"
-        alt
-      />
+      <section className="section">
+        <div className="container">
+          <ImmersivePhoneSection
+            eyebrow="See it live"
+            title="A voice agent that never puts a caller on hold."
+            subtitle="Every call answered instantly, transcribed live, and handed off to a human the moment it should be — synced to your CRM automatically."
+            stats={[
+              { value: '<0.4s', label: 'Pickup time' },
+              { value: '24/7', label: 'Always on' },
+              { value: '3+', label: 'Languages' },
+              { value: '0', label: 'Missed calls' },
+            ]}
+            bullets={[
+              'Answers every call instantly — never rings busy',
+              'Speaks the caller’s language automatically',
+              'Transcribes, summarizes and logs every call',
+              'Escalates to a human with full context attached',
+            ]}
+          />
+        </div>
+      </section>
+
+      <section className="section section-alt">
+        <div className="container">
+          <span className="section-kicker">Capabilities</span>
+          <h2 className="section-title">What the voice agent actually does</h2>
+          <p className="section-subtitle">Not an IVR with a new voice — an agent that reasons over the call, resolves what it can, and hands off cleanly.</p>
+          <VoiceCapabilitiesConsole />
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">
           <span className="section-kicker">Unified inbox</span>
           <h2 className="section-title">Calls sit beside every other conversation</h2>
           <p className="section-subtitle">Voice, WhatsApp, SMS and email land in the same inbox, on the same customer record.</p>
-          <VoiceOmniInboxMock />
+          <UnifiedInboxTimeline />
         </div>
       </section>
 

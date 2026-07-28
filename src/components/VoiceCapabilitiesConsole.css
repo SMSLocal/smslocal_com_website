@@ -1,0 +1,141 @@
+.vmq {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+}
+
+.vmq-track {
+  display: flex;
+  width: max-content;
+  gap: 1.1rem;
+  animation: vmq-scroll 34s linear infinite;
+}
+
+.vmq:hover .vmq-track {
+  animation-play-state: paused;
+}
+
+@keyframes vmq-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.vmq-card {
+  flex: 0 0 auto;
+  width: 290px;
+  height: 210px;
+  padding: 1.3rem 1.4rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 10px 24px -18px rgba(21, 73, 137, 0.28);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.vmq-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -20px rgba(21, 73, 137, 0.35);
+}
+
+/* soft per-card tint, cycles every 6 so both marquee copies match */
+.vmq-card:nth-child(6n + 1) { background: rgba(79, 91, 213, 0.08); border-color: rgba(79, 91, 213, 0.18); }
+.vmq-card:nth-child(6n + 1):hover { border-color: rgba(79, 91, 213, 0.32); }
+.vmq-card:nth-child(6n + 1) .vmq-icon { background: rgba(79, 91, 213, 0.16); color: #4f5bd5; }
+
+.vmq-card:nth-child(6n + 2) { background: rgba(20, 184, 166, 0.08); border-color: rgba(20, 184, 166, 0.18); }
+.vmq-card:nth-child(6n + 2):hover { border-color: rgba(20, 184, 166, 0.32); }
+.vmq-card:nth-child(6n + 2) .vmq-icon { background: rgba(20, 184, 166, 0.16); color: #0d9488; }
+
+.vmq-card:nth-child(6n + 3) { background: rgba(251, 113, 133, 0.08); border-color: rgba(251, 113, 133, 0.18); }
+.vmq-card:nth-child(6n + 3):hover { border-color: rgba(251, 113, 133, 0.32); }
+.vmq-card:nth-child(6n + 3) .vmq-icon { background: rgba(251, 113, 133, 0.16); color: #e11d48; }
+
+.vmq-card:nth-child(6n + 4) { background: rgba(236, 72, 153, 0.08); border-color: rgba(236, 72, 153, 0.18); }
+.vmq-card:nth-child(6n + 4):hover { border-color: rgba(236, 72, 153, 0.32); }
+.vmq-card:nth-child(6n + 4) .vmq-icon { background: rgba(236, 72, 153, 0.16); color: #db2777; }
+
+.vmq-card:nth-child(6n + 5) { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.2); }
+.vmq-card:nth-child(6n + 5):hover { border-color: rgba(245, 158, 11, 0.34); }
+.vmq-card:nth-child(6n + 5) .vmq-icon { background: rgba(245, 158, 11, 0.18); color: #b45309; }
+
+.vmq-card:nth-child(6n + 6) { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.18); }
+.vmq-card:nth-child(6n + 6):hover { border-color: rgba(16, 185, 129, 0.32); }
+.vmq-card:nth-child(6n + 6) .vmq-icon { background: rgba(16, 185, 129, 0.16); color: #059669; }
+
+.vmq-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.vmq-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+}
+
+.vmq-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.vmq-icon svg { width: 18px; height: 18px; }
+
+.vmq-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.vmq-teaser {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  max-height: 40px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.2s ease, opacity 0.15s ease, margin 0.2s ease;
+}
+
+.vmq-more {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s ease 0.05s;
+}
+
+.vmq-card:hover .vmq-teaser {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+}
+
+.vmq-card:hover .vmq-more {
+  max-height: 120px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vmq-track { animation: none; }
+  .vmq { overflow-x: auto; }
+}
+
+@media (max-width: 640px) {
+  .vmq-card { width: 250px; height: 220px; }
+}

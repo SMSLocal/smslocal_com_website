@@ -4,12 +4,12 @@ const RULES = [
   {
     conds: [{ k: 'channel', v: 'WhatsApp' }, { k: 'topic', v: 'Billing' }],
     dest: 'Billing team',
-    sla: 'SLA 15m',
+    sla: '15m',
   },
   {
     conds: [{ k: 'channel', v: 'Voice' }, { k: 'time', v: 'After hours' }],
     dest: 'On-call + callback',
-    sla: 'SLA 5m',
+    sla: '5m',
   },
   {
     conds: [{ k: 'keyword', v: '“refund”' }, { k: 'order', op: '>', v: '$500' }],
@@ -23,12 +23,6 @@ const RULES = [
   },
 ]
 
-const Arrow = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M5 12h14M13 6l6 6-6 6" />
-  </svg>
-)
-
 function InboxRoutingRules() {
   return (
     <section className="section irules">
@@ -40,32 +34,46 @@ function InboxRoutingRules() {
           person the moment they arrive — no manual triage.
         </p>
 
-        <div className="irules-ladder">
-          {RULES.map((r, i) => (
-            <div className="irules-rule" key={i}>
-              <span className="irules-index">{String(i + 1).padStart(2, '0')}</span>
+        <div className="irules-table">
+          <span className="irules-count">{RULES.length} rules active</span>
 
-              <div className="irules-logic">
-                <span className="irules-kw">When</span>
-                {r.conds.map((c, ci) => (
-                  <span className="irules-frag" key={c.k}>
-                    {ci > 0 && <span className="irules-plus">and</span>}
-                    <span className="irules-cond">
+          <div className="irules-head-row">
+            <span className="irules-h-handle" />
+            <span className="irules-h-toggle" />
+            <span className="irules-h-if">If</span>
+            <span className="irules-h-then">Then route to</span>
+            <span className="irules-h-sla">SLA</span>
+          </div>
+
+          <div className="irules-rows">
+            {RULES.map((r, i) => (
+              <div className="irules-row" key={i}>
+                <span className="irules-accent" aria-hidden="true" />
+
+                <span className="irules-handle" aria-hidden="true">
+                  <i /><i /><i /><i /><i /><i />
+                </span>
+
+                <span className="irules-toggle" aria-hidden="true">
+                  <span className="irules-toggle-knob" />
+                </span>
+
+                <p className="irules-if-cell">
+                  {r.conds.map((c, ci) => (
+                    <span className="irules-cond" key={c.k}>
+                      {ci > 0 && <span className="irules-and">and</span>}
                       <span className="irules-ck">{c.k}</span>
                       <span className="irules-op">{c.op || '='}</span>
                       <span className="irules-cv">{c.v}</span>
                     </span>
-                  </span>
-                ))}
+                  ))}
+                </p>
 
-                <span className="irules-arrow"><Arrow /></span>
-
-                <span className="irules-kw irules-kw-then">Then</span>
                 <span className="irules-dest">{r.dest}</span>
                 <span className="irules-sla">{r.sla}</span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
