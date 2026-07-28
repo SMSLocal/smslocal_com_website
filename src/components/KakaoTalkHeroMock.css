@@ -1,7 +1,6 @@
-/* KakaoTalk hero — an AlimTalk template clearing approval (a ring closing
-   around a check), then sending and climbing to a live open-rate meter.
-   No enclosing frame: the sender chip, the card and the meter all float on
-   the page with their own soft shadows, nothing wraps them. */
+/* KakaoTalk hero — two moments crossfading, the way the homepage hero
+   cycles scenes. The verified-sender chip stays put; only the stage below
+   it swaps composition. No enclosing frame anywhere in the piece. */
 
 .kthero {
   position: relative;
@@ -11,11 +10,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
   font-family: inherit;
 }
 
-/* ---- verified sender chip ---- */
+/* ---- verified sender chip (persistent across both scenes) ---- */
 
 .kthero-sender {
   display: inline-flex;
@@ -44,14 +43,48 @@
   mask: url('/logos/kakaotalk.svg') center / contain no-repeat;
 }
 
-/* ---- the card: ring + template text ---- */
+/* ---- the stage: two scenes stacked, crossfading ---- */
+
+.kthero-stage {
+  position: relative;
+  width: 100%;
+  min-height: 234px;
+}
+
+.kthero-scene-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.kthero-scene-wrap.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.kthero-scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+/* ================= Moment 1 — AlimTalk ================= */
 
 .kthero-card {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.85rem;
   width: 100%;
-  padding: 1rem 1.15rem;
+  padding: 0.95rem 1.1rem;
   border-radius: 16px;
   background: #fff;
   border: 1px solid var(--border);
@@ -61,8 +94,8 @@
 .kthero-ring-wrap {
   position: relative;
   flex: none;
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
 }
 
 .kthero-ring {
@@ -97,10 +130,10 @@
   color: var(--success, #16a34a);
 }
 
-.kthero-ring-glyph svg { width: 20px; height: 20px; }
+.kthero-ring-glyph svg { width: 18px; height: 18px; }
 
 .kthero-ring-pct {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 800;
   color: var(--navy);
   font-variant-numeric: tabular-nums;
@@ -111,10 +144,11 @@
   flex-direction: column;
   gap: 0.3rem;
   min-width: 0;
+  text-align: left;
 }
 
 .kthero-card-label {
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -122,12 +156,10 @@
 }
 
 .kthero-card-text {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   line-height: 1.35;
   color: var(--navy);
 }
-
-/* ---- delivery line + count ---- */
 
 .kthero-line {
   position: relative;
@@ -168,64 +200,165 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* ---- open-rate meter ---- */
+/* ================= Moment 2 — FriendTalk ================= */
 
-.kthero-meter {
+.kthero-broadcast {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
+  align-items: flex-start;
+  gap: 0.4rem;
   width: 100%;
-  max-width: 260px;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 38px -22px rgba(16, 35, 63, 0.4);
+  text-align: left;
 }
 
-.kthero-meter.is-in {
-  opacity: 1;
-  transform: none;
-}
-
-.kthero-meter-track {
-  position: relative;
-  width: 100%;
-  height: 6px;
+.kthero-broadcast-tag {
+  display: inline-flex;
+  padding: 0.16rem 0.55rem;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.07);
-  overflow: hidden;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
-.kthero-meter-fill {
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
+.kthero-broadcast-text {
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--navy);
+}
+
+.kthero-figure {
+  margin-top: 0.1rem;
+  font-size: clamp(2.1rem, 6.5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
   background: var(--gradient-brand);
-  transition: width 0.1s linear;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.kthero-meter-label {
+.kthero-caption {
   font-size: 0.72rem;
   color: var(--text-secondary);
 }
 
-.kthero-meter-label b {
-  color: var(--success, #16a34a);
+.kthero-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.kthero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  transition: background 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.kthero-dot.is-lit {
+  background: var(--gradient-brand);
+  transform: scale(1.2);
+}
+
+.kthero-reply {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 280px;
+  padding: 0.5rem 0.65rem;
+  border-radius: 11px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 26px -22px rgba(16, 35, 63, 0.4);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+.kthero-reply.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.kthero-reply-av {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.6rem;
   font-weight: 700;
-  font-variant-numeric: tabular-nums;
+}
+
+.kthero-reply-text {
+  font-size: 0.76rem;
+  color: var(--navy);
+  text-align: left;
+}
+
+/* ---- crossfading caption below the stage ---- */
+
+.kthero-labels {
+  position: relative;
+  width: 100%;
+  min-height: 44px;
+}
+
+.kthero-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.kthero-label.is-active {
+  opacity: 1;
+}
+
+.kthero-label-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.kthero-label-desc {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
 }
 
 /* ---- narrow ---- */
 
 @media (max-width: 720px) {
   .kthero { max-width: 340px; }
-  .kthero-ring-wrap { width: 54px; height: 54px; }
+  .kthero-stage { min-height: 216px; }
+  .kthero-ring-wrap { width: 48px; height: 48px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .kthero-scene-wrap,
+  .kthero-label,
   .kthero-line-fill,
-  .kthero-meter,
-  .kthero-sent {
+  .kthero-sent,
+  .kthero-reply {
     transition: none;
   }
 }
