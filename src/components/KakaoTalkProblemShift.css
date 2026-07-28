@@ -51,12 +51,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ffcd00, var(--blue) 80%);
-  color: #3c1e1e;
+  background: var(--gradient-brand);
+  color: #fff;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.03em;
-  box-shadow: 0 10px 24px -6px rgba(255, 205, 0, 0.5), 0 0 0 4px var(--bg-subtle);
+  box-shadow: 0 10px 24px -6px rgba(79, 91, 213, 0.55), 0 0 0 4px var(--bg-subtle);
 }
 
 .kps-phone {
@@ -97,7 +97,7 @@
 }
 
 .kps-avatar--good {
-  background: linear-gradient(140deg, #ffcd00, var(--blue));
+  background: var(--gradient-brand);
 }
 
 .kps-name {
@@ -118,8 +118,8 @@
   width: 100%;
   font-size: 0.66rem;
   font-weight: 700;
-  color: #7a5e00;
-  background: #fff9db;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
   border-radius: 8px;
   padding: 0.3rem 0.5rem;
 }
@@ -149,8 +149,8 @@
 
 .kps-bubble--out {
   margin-left: auto;
-  background: #ffcd00;
-  color: #3c1e1e;
+  background: var(--gradient-brand);
+  color: #fff;
 }
 
 .kps-bubble--out.muted {
@@ -169,7 +169,7 @@
 }
 
 .kps-tag--good {
-  color: #7a5e00;
+  color: var(--blue);
 }
 
 @media (max-width: 900px) {
