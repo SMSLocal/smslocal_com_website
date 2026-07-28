@@ -1,0 +1,194 @@
+/* Two literal screens facing off — a Kakao Channel answering blind and alone,
+   vs. the same channel sitting in a shared inbox that already has the
+   customer's order history. */
+.kps-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.kps-heading {
+  margin: 1rem 0 0.8rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.kps-sub {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.kps-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+.kps-side {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.kps-vs {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffcd00, var(--blue) 80%);
+  color: #3c1e1e;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 24px -6px rgba(255, 205, 0, 0.5), 0 0 0 4px var(--bg-subtle);
+}
+
+.kps-phone {
+  width: 100%;
+  height: 100%;
+  max-width: 270px;
+  border-radius: 22px;
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 0 20px 40px -20px rgba(16, 35, 63, 0.4);
+}
+
+.kps-phone--bad {
+  background: #e9edf2;
+}
+
+.kps-phone--good {
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.kps-phone-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.kps-avatar {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.kps-avatar--bad {
+  background: #b7c0cc;
+}
+
+.kps-avatar--good {
+  background: linear-gradient(140deg, #ffcd00, var(--blue));
+}
+
+.kps-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.kps-phone--bad .kps-name {
+  color: #64748b;
+}
+
+.kps-phone--good .kps-name {
+  color: var(--navy);
+}
+
+.kps-context {
+  flex: none;
+  width: 100%;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #7a5e00;
+  background: #fff9db;
+  border-radius: 8px;
+  padding: 0.3rem 0.5rem;
+}
+
+.kps-bubble {
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  max-width: 90%;
+}
+
+.kps-bubble:last-child {
+  margin-bottom: 0;
+}
+
+.kps-bubble--in {
+  background: var(--bg-subtle);
+  color: var(--navy);
+}
+
+.kps-phone--bad .kps-bubble--in {
+  background: #d7dde5;
+}
+
+.kps-bubble--out {
+  margin-left: auto;
+  background: #ffcd00;
+  color: #3c1e1e;
+}
+
+.kps-bubble--out.muted {
+  background: #b7c0cc;
+  color: #fff;
+}
+
+.kps-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.kps-tag--bad {
+  color: var(--coral);
+}
+
+.kps-tag--good {
+  color: #7a5e00;
+}
+
+@media (max-width: 900px) {
+  .kps-inner {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .kps-stage {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    gap: 3.5rem;
+  }
+
+  .kps-vs {
+    position: static;
+    transform: none;
+    margin: -0.6rem auto;
+  }
+}

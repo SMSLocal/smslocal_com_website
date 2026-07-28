@@ -1,7 +1,8 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FeatureGrid, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, FeatureGrid, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconMail, IconLink, IconBrain, IconShield, IconBolt, IconChat } from '../components/icons.jsx'
 import KakaoTalkHeroMock from '../components/KakaoTalkHeroMock.jsx'
+import KakaoTalkProblemShift from '../components/KakaoTalkProblemShift.jsx'
 
 const CAPABILITIES = [
   { icon: <IconBolt />, title: 'AlimTalk notices', desc: 'Send order confirmations, shipping updates and appointment reminders as verified AlimTalk notices — the notification surface Korean customers already trust.' },
@@ -54,29 +55,10 @@ function KakaoTalkBusinessMessaging() {
         visual={<KakaoTalkHeroMock />}
       />
 
-      <NarrativeCompare
-        variant="columns"
+      <KakaoTalkProblemShift
         eyebrow="The problem"
-        heading={<>A KakaoTalk notice lives in its own app. Everything you know about the customer doesn't.</>}
-        paragraphs={[
-          'Send a notice or broadcast through a disconnected tool, and every reply lands with no order history, no past chats and no context — a blank screen for whoever answers it.',
-          <>Bring KakaoTalk into <strong>one shared inbox</strong>, and every reply opens against the full conversation across every channel.</>,
-        ]}
-        leftLabel="KakaoTalk on its own"
-        leftItems={[
-          'A separate login just for Kakao Channel',
-          'No customer history behind a reply',
-          'A different bill and API to manage',
-          'No fallback when a notice can’t be delivered',
-        ]}
-        rightLabel="KakaoTalk on SMSLocal"
-        rightItems={[
-          'AlimTalk and FriendTalk from one platform',
-          'Full customer history on every reply',
-          'One API, one wallet, one invoice',
-          'Automatic fallback to SMS or WhatsApp',
-        ]}
-        alt
+        heading={<>A Kakao Channel reply lives in its own app. Everything you know about the customer doesn't.</>}
+        subtitle="Bring KakaoTalk into one shared inbox and every reply opens against the full conversation — not a blank screen."
       />
 
       <FeatureGrid
