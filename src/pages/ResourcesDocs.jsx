@@ -7,23 +7,23 @@ import PayloadFieldAnatomy from '../components/PayloadFieldAnatomy.jsx'
 /* ---------- data ---------- */
 
 const METRICS = [
-  { v: '1', l: 'header authenticates every call' },
-  { v: '5', l: 'endpoints cover the whole API' },
-  { v: '<200ms', l: 'median response, globally' },
-  { v: '24/7', l: 'delivery + inbound webhooks' },
+  { v: '1', l: 'endpoint handles send and status' },
+  { v: '1', l: 'Token header authenticates every call' },
+  { v: '160', l: 'chars per message (70 for Unicode)' },
+  { v: '24/7', l: 'status callbacks, pushed as they happen' },
 ]
 
 const STEPS = [
-  { n: '01', t: 'Authenticate', d: 'Drop your access key into a Token header. It is scoped, so you can rotate or revoke it without touching the rest.' },
-  { n: '02', t: 'Send', d: 'POST a sender, recipient and content. Every send returns a unique msgid in the response, instantly.' },
-  { n: '03', t: 'Track', d: 'Fetch a message by its id, or let webhooks push delivery receipts and inbound replies straight to you.' },
+  { n: '01', t: 'Authenticate', d: 'Send your access key as a Token header, with Content-Type: application/json, on every request.' },
+  { n: '02', t: 'Send', d: 'POST a from, to and content. The response comes back with a msgid and an errorcode immediately.' },
+  { n: '03', t: 'Track', d: 'We POST or GET a status report to your callback URL the moment a message reaches its final state.' },
 ]
 
 const SAMPLES = [
   {
     label: 'cURL',
     lines: [
-      { k: 'curl -X POST https://secure.smslocal.com/…/sms \\' },
+      { k: 'curl -X POST https://secure.smslocal.com/api/service/enterprise-service/external/sms \\' },
       { k: '  -H ', s: '"Token: $SMSLOCAL_TOKEN"', t: ' \\' },
       { k: '  -H ', s: '"Content-Type: application/json"', t: ' \\' },
       { k: "  -d '{" },
@@ -64,51 +64,40 @@ const SAMPLES = [
 ]
 
 const RESPONSE_FIELDS = [
-  { name: 'msgid', type: 'uuid', desc: 'Unique ID minted for every message — the handle you use to check status later.' },
-  { name: 'direction', type: 'enum', desc: 'mt for messages you send, mo for the replies you receive.' },
-  { name: 'errorcode', type: 'int', desc: '0 means accepted; any non-zero value tells you exactly what went wrong.' },
+  { name: 'msgid', type: 'uuid', desc: 'Unique ID minted for every message on creation — the handle you use to check its status later.' },
+  { name: 'from / to', type: 'string', desc: 'Sender (a number or an up-to-11-character alphanumeric ID) and the recipient number.' },
+  { name: 'datacoding', type: 'int', desc: 'GSM7 or Unicode. Unicode caps a single part at 70 characters instead of 160 — go over and it concatenates into billed parts.' },
+  { name: 'direction', type: 'enum', desc: 'mt for messages you send (mobile terminated), mo for the ones you receive (mobile originated).' },
+  { name: 'errorcode', type: 'int', desc: 'Present on both the send response and every status report — tells you exactly how a message resolved.' },
 ]
 
 const ENDPOINT_GROUPS = [
   {
     label: 'Send',
     endpoints: [
-      { method: 'POST', path: '/external/sms', desc: 'Send a message and get back a message ID.', returns: 'message ID' },
+      { method: 'POST', path: '/external/sms', desc: 'Send a message and get back a msgid and errorcode immediately.', returns: 'msgid + errorcode' },
     ],
   },
   {
     label: 'Track',
     endpoints: [
-      { method: 'GET', path: '/external/sms/{msgid}', desc: 'Fetch one message and its delivery status.', returns: 'delivery status' },
-      { method: 'GET', path: '/external/sms', desc: 'List recent messages, filtered and paged.', returns: 'message list' },
-    ],
-  },
-  {
-    label: 'Receive',
-    endpoints: [
-      { method: 'POST', path: '/external/webhook', desc: 'Register a URL for delivery + inbound events.', returns: 'subscription' },
-    ],
-  },
-  {
-    label: 'Account',
-    endpoints: [
-      { method: 'GET', path: '/external/balance', desc: 'Check the remaining credit on your account.', returns: 'credit left' },
+      { method: 'GET', path: '/external/sms', desc: 'Look up a message you already sent to check its current status.', returns: 'message + status' },
     ],
   },
 ]
 
 const EVENTS = [
-  { tag: 'delivered', text: 'msgid 9f2a · errorcode 0', tone: 'ok' },
-  { tag: 'inbound', text: 'reply "STOP" · direction mo', tone: 'in' },
-  { tag: 'failed', text: 'msgid 4c81 · errorcode 21', tone: 'bad' },
+  { tag: 'delivered', text: 'msgid 9f2a7c10 · status Delivrd', tone: 'ok' },
+  { tag: 'inbound', text: 'reply received · direction mo', tone: 'in' },
+  { tag: 'failed', text: 'msgid 4c81e2 · status Failed', tone: 'bad' },
 ]
 
 const FAQS = [
-  { q: 'How do I authenticate requests?', a: 'Pass your access key in a Token header on every request, along with Content-Type: application/json. Keys are scoped, so one can be rotated or revoked without touching the others.' },
-  { q: 'How do I check whether a message was delivered?', a: 'Every send returns a unique message ID (msgid). Poll the status endpoint with that ID, or subscribe to a webhook to have delivery status pushed to you as it changes.' },
-  { q: 'How do I receive replies?', a: 'Inbound messages arrive as events with direction "mo". Configure a webhook URL and they are POSTed to it in real time, tied to the original conversation.' },
-  { q: 'What happens if my webhook is down?', a: 'The platform expects a 200 OK from your endpoint. If it does not acknowledge, delivery is retried according to the retry policy so events are not silently lost.' },
-  { q: 'Which languages have SDKs?', a: 'Official SDKs are available for common backend languages, and the REST API works with any HTTP client otherwise.' },
+  { q: 'How do I authenticate requests?', a: 'Pass your access key in a Token header on every request — Token: {accessKey} — along with Content-Type: application/json.' },
+  { q: 'How do I check whether a message was delivered?', a: 'Every send returns a msgid. Point us at a callback URL and we POST or GET a status report to it the moment the message reaches its final state — subdate, donedate and the resulting status code included.' },
+  { q: 'What does the "direction" field mean?', a: 'mt (mobile terminated) is a message you sent; mo (mobile originated) is a reply you received. Both use the same message object shape.' },
+  { q: "What happens if my callback URL doesn't respond with 200 OK?", a: 'Delivery is retried according to the retry policy — nothing is silently dropped, but an endpoint that never acknowledges will keep receiving retries.' },
+  { q: 'What is the character limit per message?', a: '160 characters on GSM7 encoding, or 70 on Unicode. Go past the limit and the message concatenates into multiple parts, each billed separately.' },
 ]
 
 /* ---------- code showcase (de-boxed, tabbed) ---------- */
@@ -186,7 +175,7 @@ function ResourcesDocs() {
         title={<>Ship your first message <span className="grad-word">in an afternoon</span></>}
         subtitle="A plain REST API for sending, tracking and receiving SMS — token auth, real-time webhooks and SDKs, with nothing exotic to learn."
         primaryCta={{ label: 'Get API Key', href: '/contact-us' }}
-        secondaryCta={{ label: 'View SMS API', href: '/sms-api' }}
+        secondaryCta={{ label: 'View Guides', href: '/resources/guides' }}
         visual={<PayloadFieldAnatomy />}
       />
 
@@ -249,8 +238,8 @@ function ResourcesDocs() {
       <section className="section rd-ep-section">
         <div className="container">
           <span className="section-kicker">Reference</span>
-          <h2 className="section-title">The endpoints you'll actually use</h2>
-          <p className="section-subtitle">Five calls cover sending, tracking and receiving — the same Token header on every one.</p>
+          <h2 className="section-title">One endpoint, two verbs</h2>
+          <p className="section-subtitle">POST to send, GET to check status — the same URL and the same Token header either way.</p>
 
           <div className="rd-api">
             {ENDPOINT_GROUPS.map((g) => (
@@ -281,8 +270,8 @@ function ResourcesDocs() {
       <section className="section section-alt rd-hooks-section">
         <div className="container">
           <span className="section-kicker">Webhooks</span>
-          <h2 className="section-title">Events, the moment they happen</h2>
-          <p className="section-subtitle">Point us at a URL and every delivery receipt, failure and inbound reply is POSTed to you in real time.</p>
+          <h2 className="section-title">Status reports, the moment they happen</h2>
+          <p className="section-subtitle">Set a callback URL and every delivery, failure and inbound reply lands there as a GET or POST — no polling required.</p>
 
           <div className="rd-stream">
             <div className="rd-stream-events">
