@@ -6,13 +6,6 @@ import PayloadFieldAnatomy from '../components/PayloadFieldAnatomy.jsx'
 
 /* ---------- data ---------- */
 
-const METRICS = [
-  { v: '1', l: 'endpoint handles send and status' },
-  { v: '1', l: 'Token header authenticates every call' },
-  { v: '160', l: 'chars per message (70 for Unicode)' },
-  { v: '24/7', l: 'status callbacks, pushed as they happen' },
-]
-
 const STEPS = [
   { n: '01', t: 'Authenticate', d: 'Send your access key as a Token header, with Content-Type: application/json, on every request.' },
   { n: '02', t: 'Send', d: 'POST a from, to and content. The response comes back with a msgid and an errorcode immediately.' },
@@ -178,20 +171,6 @@ function ResourcesDocs() {
         secondaryCta={{ label: 'View Guides', href: '/resources/guides' }}
         visual={<PayloadFieldAnatomy />}
       />
-
-      {/* de-boxed number strip */}
-      <section className="section rd-metrics-section">
-        <div className="container">
-          <div className="rd-metrics">
-            {METRICS.map((m) => (
-              <div className="rd-metric" key={m.l}>
-                <span className="rd-metric-v">{m.v}</span>
-                <span className="rd-metric-l">{m.l}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* quickstart — big ghost numerals */}
       <section className="section section-alt rd-steps-section">
