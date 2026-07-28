@@ -45,10 +45,11 @@ function GuideTrackPicker({ tracks = [] }) {
           </div>
 
           <div className="gtp-steps">
-            {(track.stops || []).map((s, i) => (
+            {(track.stops || []).map((s, i, arr) => (
               <div className="gtp-step" key={s}>
                 <span className="gtp-num">{i + 1}</span>
                 <span className="gtp-step-label">{s}</span>
+                {i < arr.length - 1 && <span className="gtp-step-arrow" aria-hidden="true" />}
               </div>
             ))}
           </div>

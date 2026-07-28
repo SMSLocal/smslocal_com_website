@@ -88,7 +88,8 @@
   color: var(--text-secondary);
 }
 
-/* numbered steps — no connecting lines */
+/* numbered steps — connected by an arrow chain, so the row reads as one
+   sequence to follow in order rather than four unrelated numbers */
 .gtp-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -96,6 +97,7 @@
 }
 
 .gtp-step {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,6 +106,8 @@
 }
 
 .gtp-num {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -124,8 +128,38 @@
   color: var(--navy);
 }
 
+/* the connector: a line across the row at number-height, plus a chevron
+   at the midpoint between each pair of steps */
+.gtp-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: calc(50% + 20px + 0.6rem);
+  right: calc(-50% + 20px + 0.6rem);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(79, 91, 213, 0.3), rgba(236, 72, 153, 0.3));
+}
+
+.gtp-step-arrow {
+  position: absolute;
+  /* centers the 8px rotated box on the connector line, which sits at
+     top:20px with a 2px height (line centre = 21px) */
+  top: 17px;
+  left: calc(100% + 0.4rem);
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
 @media (max-width: 680px) {
+  /* the row wraps to two columns here, which breaks the connector's
+     percentage math (it assumes a single row of 4) — simplest to drop it */
   .gtp-steps { grid-template-columns: 1fr 1fr; gap: 1.6rem 1rem; }
+  .gtp-step::before,
+  .gtp-step-arrow { display: none; }
 }
 
 @media (max-width: 400px) {
