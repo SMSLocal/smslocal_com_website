@@ -1,5 +1,5 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FeatureGrid, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, NarrativeCompare, FeatureGrid, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconMail, IconLink, IconBrain, IconShield, IconBolt, IconChat } from '../components/icons.jsx'
 import KakaoTalkHeroMock from '../components/KakaoTalkHeroMock.jsx'
 
@@ -20,6 +20,12 @@ const TESTIMONIALS = [
   { quote: 'AlimTalk notices land in the one app our customers actually check — open rates are nothing like email.', name: 'Ji-woo Han', role: 'Head of CX, D2C brand' },
   { quote: 'Getting our Kakao Channel verified felt intimidating until SMSLocal ran the whole process for us.', name: 'Marco Silva', role: 'Marketing Manager' },
   { quote: 'Having KakaoTalk sit beside WhatsApp and SMS in one inbox changed how fast our team actually replies.', name: 'Aiko Tanaka', role: 'Customer Experience Lead' },
+]
+
+const STEPS = [
+  { title: 'Verify your Kakao Channel', desc: 'We handle Kakao Channel verification and sender approval — name, category and identity confirmed.' },
+  { title: 'Design notices & broadcasts', desc: 'Build AlimTalk notice templates and FriendTalk broadcasts from templates or your own assets.' },
+  { title: 'Go live in one inbox', desc: 'Every notice reply and broadcast reply lands beside your other channels, answered by the same AI.' },
 ]
 
 const FAQS = [
@@ -80,13 +86,19 @@ function KakaoTalkBusinessMessaging() {
         items={CAPABILITIES}
       />
 
+      <HowItWorks
+        eyebrow="How it works"
+        title={<>Go live on KakaoTalk in three steps</>}
+        steps={STEPS}
+        alt
+      />
+
       <FeatureGrid
         variant="panel"
         eyebrow="Why us"
         title={<>Why brands run KakaoTalk on SMSLocal</>}
         subtitle="The same platform, inbox and AI that already run your other channels."
         items={WHY_US}
-        alt
       />
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} />
