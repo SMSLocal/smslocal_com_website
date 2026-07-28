@@ -78,8 +78,10 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: #fff;
-  color: var(--blue);
+  /* falls back to the default white/blue chip when an item passes no tint,
+     so existing pages (e.g. WhatsApp's Features) render unchanged */
+  background: var(--fmx-tint-bg, #fff);
+  color: var(--fmx-tint, var(--blue));
   margin-bottom: 1rem;
   box-shadow: 0 8px 20px -14px rgba(16, 35, 63, 0.3);
 }

@@ -206,147 +206,63 @@
   .rd-code-grid { grid-template-columns: 1fr; }
 }
 
-/* ---------- Response fields: an icon-led editorial glossary ----------
-   No monospace anywhere in this section, deliberately — the hero, the
-   quickstart path and the code showcase are all code-styled, so this one
-   reads as plain editorial: an icon, a human name, a sentence. */
-.rd-glossary {
-  max-width: 680px;
-  margin: 2.8rem auto 0;
+/* ---------- Endpoints: an icon-led pair, no code font ----------
+   Only two real endpoints exist, so this is a plain two-card row instead
+   of a ledger — an icon, the verb in color, a human name and sentence.
+   No monospace anywhere; the path itself isn't shown here at all, since
+   both endpoints already share it (stated once in the section subtitle). */
+.rd-ep-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+  max-width: 720px;
+  margin: 3rem auto 0;
+}
+.rd-ep-card {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
-.rd-glossary-row {
-  display: flex;
-  gap: 1.1rem;
-  padding: 1.3rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.rd-glossary-row:last-child { border-bottom: none; }
-
-.rd-glossary-icon {
-  flex: none;
+.rd-ep-icon {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(79, 91, 213, 0.12), rgba(236, 72, 153, 0.12));
-  color: var(--blue);
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: var(--rd-ep-tint-bg, var(--bg-subtle));
+  color: var(--rd-ep-tint, var(--blue));
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px -14px rgba(16, 35, 63, 0.3);
 }
-.rd-glossary-icon svg { width: 20px; height: 20px; }
+.rd-ep-icon svg { width: 21px; height: 21px; }
 
-.rd-glossary-text { min-width: 0; }
-.rd-glossary-head {
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--navy);
+.rd-ep-verb {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   margin-bottom: 0.35rem;
 }
-.rd-glossary-key {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+.rd-ep-label {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: var(--navy);
 }
-.rd-glossary-desc {
+.rd-ep-desc {
   margin: 0;
   font-size: 0.92rem;
   line-height: 1.6;
   color: var(--text-secondary);
 }
-
-@media (max-width: 560px) {
-  .rd-glossary-row { gap: 0.8rem; }
-  .rd-glossary-icon { width: 36px; height: 36px; }
-}
-
-/* ---------- Endpoints (API reference ledger) ---------- */
-.rd-api {
-  max-width: 860px;
-  margin: 3rem auto 0;
-}
-.rd-api-group { margin-bottom: 0.5rem; }
-.rd-api-glabel {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--teal);
-  padding-bottom: 0.7rem;
-  margin: 1.6rem 0 0.2rem;
-  border-bottom: 2px solid rgba(20, 184, 166, 0.28);
-}
-.rd-api-group:first-child .rd-api-glabel { margin-top: 0; }
-.rd-api-row {
-  position: relative;
-  padding: 1.05rem 1rem 1.05rem 1.2rem;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.2s ease;
-}
-.rd-api-row::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.9rem;
-  bottom: 0.9rem;
-  width: 2.5px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, var(--blue), var(--cyan));
-  opacity: 0;
-  transition: opacity 0.22s ease;
-}
-.rd-api-row:hover { background: rgba(79, 91, 213, 0.045); }
-.rd-api-row:hover::before { opacity: 1; }
-.rd-api-line {
-  display: flex;
-  align-items: baseline;
-  gap: 0.9rem;
-}
-.rd-api-call {
-  font-family: 'Cascadia Code', Consolas, monospace;
-  font-size: 1rem;
+.rd-ep-returns {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--navy);
-  white-space: nowrap;
-}
-.rd-api-verb {
   color: var(--text-secondary);
-  font-weight: 500;
-  margin-right: 0.65rem;
 }
-.rd-api-lead {
-  flex: 1;
-  min-width: 1.5rem;
-  align-self: center;
-  height: 0;
-  border-bottom: 1.5px dotted var(--border);
-}
-.rd-api-returns {
-  flex-shrink: 0;
-  font-size: 0.84rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  white-space: nowrap;
-}
-.rd-api-returns-arrow {
-  color: var(--teal);
-  font-weight: 700;
-  margin-right: 0.15rem;
-}
-.rd-api-desc {
-  margin: 0.4rem 0 0;
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-}
-@media (max-width: 680px) {
-  .rd-api-row { padding: 0.95rem 0.4rem 0.95rem 0.9rem; }
-  .rd-api-line { flex-wrap: wrap; gap: 0.4rem 0.7rem; }
-  .rd-api-call { white-space: normal; word-break: break-word; }
-  .rd-api-lead { display: none; }
-  .rd-api-returns { flex-basis: 100%; }
+
+@media (max-width: 620px) {
+  .rd-ep-pair { grid-template-columns: 1fr; gap: 2rem; max-width: 320px; }
 }
 
 /* ---------- Webhooks: event stream into your endpoint ---------- */

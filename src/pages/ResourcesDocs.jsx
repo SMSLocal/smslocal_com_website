@@ -3,7 +3,8 @@ import Seo from '../components/Seo.jsx'
 import './ResourcesDocs.css'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import PayloadFieldAnatomy from '../components/PayloadFieldAnatomy.jsx'
-import { IconLink, IconMail, IconUsers, IconRefresh, IconChat, IconShield } from '../components/icons.jsx'
+import FeatureMasonry from '../components/FeatureMasonry.jsx'
+import { IconLink, IconMail, IconUsers, IconRefresh, IconChat, IconShield, IconRocket, IconSearch } from '../components/icons.jsx'
 
 /* ---------- data ---------- */
 
@@ -67,27 +68,17 @@ const SAMPLES = [
 ]
 
 const RESPONSE_FIELDS = [
-  { name: 'msgid', label: 'Message ID', icon: <IconLink />, desc: 'Minted the moment a message is created — this is the handle you use to check its status later.' },
-  { name: 'from', label: 'Sender', icon: <IconMail />, desc: 'A phone number, or an alphanumeric ID up to 11 characters — whichever identity your recipients see.' },
-  { name: 'to', label: 'Recipient', icon: <IconUsers />, desc: 'The number the message is going to, including country code.' },
-  { name: 'datacoding', label: 'Encoding', icon: <IconRefresh />, desc: 'GSM7 fits 160 characters per part; switch to Unicode and that drops to 70 — go over, and it concatenates into extra billed parts.' },
-  { name: 'direction', label: 'Direction', icon: <IconChat />, desc: 'Every message is mt (you sent it) or mo (you received it) — the same shape either way.' },
-  { name: 'errorcode', label: 'Error Code', icon: <IconShield />, desc: 'Returned on the send response and every status report — 0 means accepted, anything else tells you exactly what went wrong.' },
+  { title: 'Message ID', icon: <IconLink />, tint: '#4f5bd5', tintBg: 'rgba(79, 91, 213, 0.12)', desc: 'msgid — minted the moment a message is created. This is the handle you use to check its status later.' },
+  { title: 'Sender', icon: <IconMail />, tint: '#ec4899', tintBg: 'rgba(236, 72, 153, 0.12)', desc: 'from — a phone number, or an alphanumeric ID up to 11 characters, whichever identity your recipients see.' },
+  { title: 'Recipient', icon: <IconUsers />, tint: '#14b8a6', tintBg: 'rgba(20, 184, 166, 0.12)', desc: 'to — the number the message is going to, including country code.' },
+  { title: 'Encoding', icon: <IconRefresh />, tint: '#8b5cf6', tintBg: 'rgba(139, 92, 246, 0.12)', desc: 'datacoding — GSM7 fits 160 characters per part; switch to Unicode and that drops to 70. Go over, and it concatenates into extra billed parts.' },
+  { title: 'Direction', icon: <IconChat />, tint: '#f59e0b', tintBg: 'rgba(245, 158, 11, 0.12)', desc: 'direction — every message is mt (you sent it) or mo (you received it), the same shape either way.' },
+  { title: 'Error Code', icon: <IconShield />, tint: '#fb7185', tintBg: 'rgba(251, 113, 133, 0.12)', desc: 'errorcode — returned on the send response and every status report. 0 means accepted; anything else tells you exactly what went wrong.' },
 ]
 
-const ENDPOINT_GROUPS = [
-  {
-    label: 'Send',
-    endpoints: [
-      { method: 'POST', path: '/external/sms', desc: 'Send a message and get back a msgid and errorcode immediately.', returns: 'msgid + errorcode' },
-    ],
-  },
-  {
-    label: 'Track',
-    endpoints: [
-      { method: 'GET', path: '/external/sms', desc: 'Look up a message you already sent to check its current status.', returns: 'message + status' },
-    ],
-  },
+const ENDPOINTS = [
+  { label: 'Send', verb: 'POST', icon: <IconRocket />, tint: '#4f5bd5', tintBg: 'rgba(79, 91, 213, 0.1)', desc: 'Send a message and get back a msgid and an errorcode immediately.', returns: 'msgid + errorcode' },
+  { label: 'Track', verb: 'GET', icon: <IconSearch />, tint: '#14b8a6', tintBg: 'rgba(20, 184, 166, 0.1)', desc: 'Look up a message you already sent to check its current status.', returns: 'message + status' },
 ]
 
 const EVENTS = [
@@ -216,55 +207,35 @@ function ResourcesDocs() {
       {/* send — de-boxed tabbed code + response */}
       <CodeShowcase />
 
-      {/* response object — an editorial glossary, no code font anywhere */}
-      <section className="section section-alt rd-fields-section">
-        <div className="container">
-          <span className="section-kicker">The message object</span>
-          <h2 className="section-title">Read a message top to bottom</h2>
-          <p className="section-subtitle">Send, status and inbound events all return the same shape — learn it once.</p>
+      {/* response object — the shared vertical-tabs masonry, same as WhatsApp's Features */}
+      <FeatureMasonry
+        eyebrow="The message object"
+        title={<>Read a message top to bottom</>}
+        subtitle="Send, status and inbound events all return the same shape — learn it once."
+        items={RESPONSE_FIELDS}
+        alt
+      />
 
-          <div className="rd-glossary keeps-own-width">
-            {RESPONSE_FIELDS.map((f) => (
-              <div className="rd-glossary-row" key={f.name}>
-                <span className="rd-glossary-icon">{f.icon}</span>
-                <div className="rd-glossary-text">
-                  <span className="rd-glossary-head">
-                    {f.label} <span className="rd-glossary-key">{f.name}</span>
-                  </span>
-                  <p className="rd-glossary-desc">{f.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* endpoints — method rows */}
+      {/* endpoints — an icon-led pair, no code font */}
       <section className="section rd-ep-section">
         <div className="container">
           <span className="section-kicker">Reference</span>
           <h2 className="section-title">One endpoint, two verbs</h2>
           <p className="section-subtitle">POST to send, GET to check status — the same URL and the same Token header either way.</p>
 
-          <div className="rd-api">
-            {ENDPOINT_GROUPS.map((g) => (
-              <div className="rd-api-group" key={g.label}>
-                <span className="rd-api-glabel">{g.label}</span>
-                {g.endpoints.map((e) => (
-                  <div className="rd-api-row" key={e.method + e.path}>
-                    <div className="rd-api-line">
-                      <code className="rd-api-call">
-                        <span className="rd-api-verb">{e.method}</span>
-                        <span className="rd-api-path">{e.path}</span>
-                      </code>
-                      <span className="rd-api-lead" aria-hidden="true" />
-                      <span className="rd-api-returns">
-                        <span className="rd-api-returns-arrow">→</span> {e.returns}
-                      </span>
-                    </div>
-                    <p className="rd-api-desc">{e.desc}</p>
-                  </div>
-                ))}
+          <div className="rd-ep-pair keeps-own-width">
+            {ENDPOINTS.map((e) => (
+              <div className="rd-ep-card" key={e.label}>
+                <span
+                  className="rd-ep-icon"
+                  style={{ '--rd-ep-tint': e.tint, '--rd-ep-tint-bg': e.tintBg }}
+                >
+                  {e.icon}
+                </span>
+                <span className="rd-ep-verb" style={{ color: e.tint }}>{e.verb}</span>
+                <h3 className="rd-ep-label">{e.label}</h3>
+                <p className="rd-ep-desc">{e.desc}</p>
+                <span className="rd-ep-returns">Returns {e.returns}</span>
               </div>
             ))}
           </div>

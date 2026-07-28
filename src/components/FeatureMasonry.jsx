@@ -25,7 +25,12 @@ function FeatureMasonry({ eyebrow, title, subtitle, items, alt }) {
                 <span className="fmx-label">{item.title}</span>
 
                 <div className="fmx-content">
-                  <span className="fmx-content-icon">{item.icon}</span>
+                  <span
+                    className="fmx-content-icon"
+                    style={item.tint ? { '--fmx-tint': item.tint, '--fmx-tint-bg': item.tintBg } : undefined}
+                  >
+                    {item.icon}
+                  </span>
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
