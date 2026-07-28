@@ -1,36 +1,23 @@
-/* KakaoTalk hero — a FriendTalk broadcast racing up, then an AlimTalk notice
-   card drops in with the payoff. One state machine drives the figure, the
-   dots and the notice, so nothing can drift out of sync.
-   Frameless: an edgeless glow, no panel holding it. */
+/* KakaoTalk hero — an AlimTalk template clearing approval (a ring closing
+   around a check), then sending and climbing to a live open-rate meter.
+   No enclosing frame: the sender chip, the card and the meter all float on
+   the page with their own soft shadows, nothing wraps them. */
 
-.ktmock {
+.kthero {
   position: relative;
   width: 100%;
-  max-width: 430px;
+  max-width: 440px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.85rem;
   font-family: inherit;
-  isolation: isolate;
 }
 
-.ktmock-glow {
-  position: absolute;
-  inset: -14% -12%;
-  z-index: -1;
-  background:
-    radial-gradient(42% 36% at 50% 34%, rgba(79, 91, 213, 0.2), transparent 70%),
-    radial-gradient(34% 30% at 20% 72%, rgba(236, 72, 153, 0.12), transparent 72%),
-    radial-gradient(32% 30% at 82% 66%, rgba(20, 184, 166, 0.13), transparent 72%);
-  filter: blur(10px);
-  pointer-events: none;
-}
+/* ---- verified sender chip ---- */
 
-/* ---- verified sender ---- */
-
-.ktmock-sender {
+.kthero-sender {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -42,186 +29,203 @@
   font-size: 0.66rem;
   font-weight: 700;
   color: var(--blue);
+  box-shadow: 0 8px 20px -14px rgba(16, 35, 63, 0.4);
 }
 
-/* The real KakaoTalk mark, brand yellow. Sourced from Simple Icons and
-   verified live against the current dataset before saving locally. */
-.ktmock-mark {
-  width: 19px;
-  height: 19px;
+/* The real KakaoTalk mark. Sourced from Simple Icons and verified live
+   against the current dataset before saving locally — kept in its own
+   brand yellow since this is the actual logo, not a re-skinned UI element. */
+.kthero-mark {
+  width: 17px;
+  height: 17px;
   flex: none;
   background: #ffcd00;
   -webkit-mask: url('/logos/kakaotalk.svg') center / contain no-repeat;
   mask: url('/logos/kakaotalk.svg') center / contain no-repeat;
 }
 
-/* ---- the figure ---- */
+/* ---- the card: ring + template text ---- */
 
-.ktmock-figure {
-  margin-top: 0.15rem;
-  font-size: clamp(2.9rem, 9.5vw, 3.9rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.055em;
-  font-variant-numeric: tabular-nums;
-  background: linear-gradient(135deg, var(--blue) 10%, var(--cyan) 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 12px 26px rgba(79, 91, 213, 0.26));
+.kthero-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 22px 46px -24px rgba(16, 35, 63, 0.42);
 }
 
-.ktmock-caption {
-  font-size: 0.74rem;
+.kthero-ring-wrap {
+  position: relative;
+  flex: none;
+  width: 64px;
+  height: 64px;
+}
+
+.kthero-ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.kthero-ring-track {
+  fill: none;
+  stroke: var(--bg-subtle-2, #f1f5f9);
+  stroke-width: 5;
+}
+
+.kthero-ring-fill {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear, stroke 0.3s ease;
+}
+
+.kthero-ring-fill.is-done {
+  stroke: var(--success, #16a34a);
+}
+
+.kthero-ring-glyph {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--success, #16a34a);
+}
+
+.kthero-ring-glyph svg { width: 20px; height: 20px; }
+
+.kthero-ring-pct {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.kthero-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.kthero-card-label {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-secondary);
 }
 
-.ktmock-caption b {
+.kthero-card-text {
+  font-size: 0.88rem;
+  line-height: 1.35;
   color: var(--navy);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
 }
 
-/* ---- friends lighting up ---- */
+/* ---- delivery line + count ---- */
 
-.ktmock-dots {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 0.45rem;
-}
-
-.ktmock-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(15, 23, 42, 0.1);
-  transition: background 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.25s ease;
-}
-
-.ktmock-dot.is-lit {
-  background: var(--gradient-brand);
-  box-shadow: 0 0 10px rgba(79, 91, 213, 0.5);
-  transform: scale(1.22);
-}
-
-/* ---- closing line ---- */
-
-.ktmock-line {
+.kthero-line {
   position: relative;
   width: 100%;
-  max-width: 250px;
-  height: 4px;
-  margin-top: 0.5rem;
+  max-width: 200px;
+  height: 3px;
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.07);
   overflow: hidden;
 }
 
-.ktmock-line-fill {
+.kthero-line-fill {
   position: absolute;
   inset: 0;
   border-radius: 999px;
   background: var(--gradient-brand);
+  transform: scaleX(0);
   transform-origin: left;
+  transition: transform 1.4s ease;
 }
 
-/* ---- AlimTalk notice card ---- */
-
-.ktmock-notice {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  width: 100%;
-  max-width: 320px;
-  min-height: 72px;
-  margin-top: 0.7rem;
-  padding: 0.7rem 0.8rem;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid var(--border);
-  box-shadow: 0 16px 32px -24px rgba(16, 35, 63, 0.4);
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.36s ease, transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+.kthero-line.is-in .kthero-line-fill {
+  transform: scaleX(1);
 }
 
-.ktmock-notice.is-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ktmock-notice-head {
-  display: flex;
-  align-items: center;
-}
-
-.ktmock-notice-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.18rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(79, 91, 213, 0.1);
-  color: var(--blue);
-  font-size: 0.62rem;
-  font-weight: 700;
-}
-
-.ktmock-notice-body {
-  font-size: 0.78rem;
-  color: var(--navy);
-  line-height: 1.35;
-}
-
-.ktmock-notice-body b {
-  color: var(--navy);
-}
-
-/* ---- payoff ---- */
-
-.ktmock-payoff {
-  font-size: 0.68rem;
+.kthero-sent {
+  font-size: 0.74rem;
   color: var(--text-secondary);
   opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.3s ease;
 }
 
-.ktmock-payoff b {
+.kthero-sent.is-in { opacity: 1; }
+
+.kthero-sent b {
+  color: var(--navy);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- open-rate meter ---- */
+
+.kthero-meter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  max-width: 260px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.kthero-meter.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.kthero-meter-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+}
+
+.kthero-meter-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  transition: width 0.1s linear;
+}
+
+.kthero-meter-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.kthero-meter-label b {
   color: var(--success, #16a34a);
   font-weight: 700;
-}
-
-.is-notice .ktmock-payoff,
-.is-hold .ktmock-payoff {
-  opacity: 1;
-  transform: translateY(0);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ---- narrow ---- */
 
 @media (max-width: 720px) {
-  .ktmock { max-width: 340px; }
-
-  .ktmock-figure { font-size: clamp(2.5rem, 12vw, 3.2rem); }
-  .ktmock-notice { max-width: 292px; min-height: 68px; }
-  .ktmock-dot { width: 8px; height: 8px; }
-  .ktmock-dots { gap: 4px; }
+  .kthero { max-width: 340px; }
+  .kthero-ring-wrap { width: 54px; height: 54px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ktmock-notice {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .ktmock-dot { transition: none; }
-
-  .ktmock-payoff {
-    opacity: 1;
-    transform: none;
+  .kthero-line-fill,
+  .kthero-meter,
+  .kthero-sent {
     transition: none;
   }
 }

@@ -1,15 +1,10 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, FeatureGrid, HowItWorks, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconMail, IconLink, IconBrain, IconShield, IconBolt, IconChat } from '../components/icons.jsx'
+import { Hero, FeatureGrid, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { IconMail, IconLink, IconBrain } from '../components/icons.jsx'
 import KakaoTalkHeroMock from '../components/KakaoTalkHeroMock.jsx'
 import KakaoTalkProblemShift from '../components/KakaoTalkProblemShift.jsx'
-
-const CAPABILITIES = [
-  { icon: <IconBolt />, title: 'AlimTalk notices', desc: 'Send order confirmations, shipping updates and appointment reminders as verified AlimTalk notices — the notification surface Korean customers already trust.' },
-  { icon: <IconChat />, title: 'FriendTalk broadcasts', desc: 'Reach everyone who has added your Kakao Channel with rich, branded broadcasts — images, buttons and coupons included.' },
-  { icon: <IconMail />, title: 'Two-way channel chat', desc: 'Every reply to a notice or broadcast opens as a real conversation in your shared inbox, not a dead end.' },
-  { icon: <IconShield />, title: 'Verified Kakao Channel', desc: 'We handle Kakao Channel verification and sender approval end-to-end, so broadcasts go out under a trusted business identity.' },
-]
+import KakaoTalkCapabilityGrid from '../components/KakaoTalkCapabilityGrid.jsx'
+import KakaoTalkStepsTimeline from '../components/KakaoTalkStepsTimeline.jsx'
 
 const WHY_US = [
   { icon: <IconMail />, title: 'One inbox, every channel', desc: 'KakaoTalk sits beside SMS, WhatsApp and every other channel in the same shared inbox.' },
@@ -61,14 +56,9 @@ function KakaoTalkBusinessMessaging() {
         subtitle="Bring KakaoTalk into one shared inbox and every reply opens against the full conversation — not a blank screen."
       />
 
-      <FeatureGrid
-        eyebrow="Capabilities"
-        title={<>Everything a Kakao Channel can really do</>}
-        subtitle="Notices, broadcasts and two-way chat — all verified, all in one inbox."
-        items={CAPABILITIES}
-      />
+      <KakaoTalkCapabilityGrid />
 
-      <HowItWorks
+      <KakaoTalkStepsTimeline
         eyebrow="How it works"
         title={<>Go live on KakaoTalk in three steps</>}
         steps={STEPS}
