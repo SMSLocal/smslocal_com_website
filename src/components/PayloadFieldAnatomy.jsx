@@ -1,20 +1,22 @@
 import './PayloadFieldAnatomy.css'
 
 /**
- * Docs hero visual — an annotated "specimen" of one delivery-status webhook
- * payload. Each field of the response object sends a gradient leader line out
- * to a floating type-pill (its wire type) and a plain-language note. The
- * status value runs one queued -> sent -> delivered beat and holds; errorcode
- * stays 0. Frameless: only the small chips carry shadow, nothing wraps it.
- * Genre (leader-line callouts to type labels) is used on no other page.
+ * Docs hero visual — an annotated "specimen" of the real send-response
+ * message object (msgid, from, to, datacoding, direction, errorcode — the
+ * same fields documented in the message-object section further down the
+ * page). Each field sends a gradient leader line out to a floating
+ * type-pill and a plain-language note. The direction value alternates
+ * mt/mo — both real, documented values — and errorcode stays 0. Frameless:
+ * only the small chips carry shadow, nothing wraps it. Genre (leader-line
+ * callouts to type labels) is used on no other page.
  */
 const FIELDS = [
-  { k: 'msgid', v: '"0f3e-8ac1-77d0"', cls: 'str', type: 'string · UUID', desc: 'unique per message' },
-  { k: 'to', v: '"+14155550142"', cls: 'str', type: 'E.164', desc: 'recipient MSISDN' },
-  { k: 'direction', v: '"mt"', cls: 'str', type: 'enum', desc: 'mt = mobile-terminated' },
-  { k: 'status', v: null, cls: 'str', type: 'enum', desc: null },
-  { k: 'errorcode', v: '0', cls: 'int', type: 'int', desc: '0 = no error' },
-  { k: 'ts', v: '"2026-07-18T09:14:02Z"', cls: 'str', type: 'ISO 8601', desc: 'delivery timestamp' },
+  { k: 'msgid', v: '"0f3e-8ac1-77d0"', cls: 'str', type: 'uuid', desc: 'minted on creation' },
+  { k: 'from', v: '"SMSLOCAL"', cls: 'str', type: '≤ 11 chars', desc: 'sender ID or number' },
+  { k: 'to', v: '"+14155550142"', cls: 'str', type: 'string', desc: 'recipient number' },
+  { k: 'datacoding', v: '0', cls: 'int', type: 'GSM7 / Unicode', desc: '0 = GSM7, 160 chars' },
+  { k: 'direction', v: null, cls: 'str', type: 'enum', desc: null },
+  { k: 'errorcode', v: '0', cls: 'int', type: 'int', desc: '0 = accepted' },
 ]
 
 function PayloadFieldAnatomy() {
@@ -22,7 +24,7 @@ function PayloadFieldAnatomy() {
     <figure className="pfa" aria-hidden="true">
       <span className="pfa-source">
         <span className="pfa-source-key" />
-        200 · webhook payload · Token auth
+        201 · send response · Token auth
       </span>
 
       <span className="pfa-brace pfa-brace--open">{'{'}</span>
@@ -34,12 +36,11 @@ function PayloadFieldAnatomy() {
             <div className="pfa-field">
               <span className="pfa-k">&quot;{f.k}&quot;</span>
               <span className="pfa-p">:</span>
-              {f.k === 'status' ? (
+              {f.k === 'direction' ? (
                 <span className="pfa-v pfa-v--live">
                   &quot;<span className="pfa-words">
-                    <span className="pfa-word pfa-word--q">queued</span>
-                    <span className="pfa-word pfa-word--s">sent</span>
-                    <span className="pfa-word pfa-word--d">delivered</span>
+                    <span className="pfa-word pfa-word--q">mt</span>
+                    <span className="pfa-word pfa-word--d">mo</span>
                   </span>&quot;
                 </span>
               ) : (
@@ -53,8 +54,8 @@ function PayloadFieldAnatomy() {
 
             <div className="pfa-annot">
               <span className="pfa-type">{f.type}</span>
-              {f.k === 'status' ? (
-                <span className="pfa-desc">queued · sent · <b>delivered</b></span>
+              {f.k === 'direction' ? (
+                <span className="pfa-desc">mt = sent · <b>mo</b> = received</span>
               ) : (
                 <span className="pfa-desc">{f.desc}</span>
               )}
