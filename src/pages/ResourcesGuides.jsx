@@ -5,7 +5,7 @@ import { FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import GuideTrackPicker from '../components/GuideTrackPicker.jsx'
 import GuidesMapHero from '../components/GuidesMapHero.jsx'
 import {
-  IconRocket, IconChat, IconRobot, IconBrain, IconCode, IconCheck,
+  IconRocket, IconChat, IconRobot, IconBrain, IconCode,
   IconBook, IconClock, IconPencil,
 } from '../components/icons.jsx'
 
@@ -140,15 +140,37 @@ function ResourcesGuides() {
             <Link to="/resources/docs" className="btn btn-primary">Read the guide</Link>
           </div>
 
-          <ol className="gd-chapters">
-            {CHAPTERS.map((c, i) => (
-              <li className="gd-chapter" key={c}>
-                <span className="gd-chapter-num">{String(i + 1).padStart(2, '0')}</span>
-                <span className="gd-chapter-text">{c}</span>
-                <span className="gd-chapter-check" aria-hidden="true"><IconCheck /></span>
-              </li>
-            ))}
-          </ol>
+          {/* A real document preview, not a plain checklist — chapter one is
+              open with an actual content line, the rest are collapsed
+              outline rows, and a reading-progress bar replaces what used to
+              be misleading "done" checkmarks on chapters nobody has read. */}
+          <div className="gd-doc">
+            <div className="gd-doc-bar">
+              <span className="gd-doc-dot" /><span className="gd-doc-dot" /><span className="gd-doc-dot" />
+              <span className="gd-doc-url">guides.smslocal.com/first-message</span>
+            </div>
+
+            <ol className="gd-doc-toc">
+              {CHAPTERS.map((c, i) => (
+                <li className={i === 0 ? 'gd-doc-item is-open' : 'gd-doc-item'} key={c}>
+                  <span className="gd-doc-row">
+                    <span className="gd-doc-num">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="gd-doc-text">{c}</span>
+                  </span>
+                  {i === 0 && (
+                    <p className="gd-doc-preview">
+                      “Head to Settings → API Keys and copy your access key — you’ll paste it into the Token header on every request that follows.”
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ol>
+
+            <div className="gd-doc-progress">
+              <span className="gd-doc-progress-track"><span className="gd-doc-progress-fill" /></span>
+              <span className="gd-doc-progress-label">Chapter 1 of {CHAPTERS.length}</span>
+            </div>
+          </div>
         </div>
       </section>
 
