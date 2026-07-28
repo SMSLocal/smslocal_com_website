@@ -3,6 +3,7 @@ import Seo from '../components/Seo.jsx'
 import './ResourcesDocs.css'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import PayloadFieldAnatomy from '../components/PayloadFieldAnatomy.jsx'
+import { IconLink, IconMail, IconUsers, IconRefresh, IconChat, IconShield } from '../components/icons.jsx'
 
 /* ---------- data ---------- */
 
@@ -66,12 +67,12 @@ const SAMPLES = [
 ]
 
 const RESPONSE_FIELDS = [
-  { name: 'msgid', v: '"0f3e-8ac1-77d0"', type: 'uuid', desc: 'minted on creation, your handle for checking status later' },
-  { name: 'from', v: '"SMSLOCAL"', type: 'string', desc: 'sender — a number or up to 11 alphanumeric chars' },
-  { name: 'to', v: '"+14155550142"', type: 'string', desc: 'recipient number' },
-  { name: 'datacoding', v: '0', type: 'int', desc: 'GSM7 (160 chars) or Unicode (70) — over that, it concatenates' },
-  { name: 'direction', v: '"mt"', type: 'enum', desc: 'mt = you sent it, mo = you received it' },
-  { name: 'errorcode', v: '0', type: 'int', desc: 'on every send + status report — 0 is accepted' },
+  { name: 'msgid', label: 'Message ID', icon: <IconLink />, desc: 'Minted the moment a message is created — this is the handle you use to check its status later.' },
+  { name: 'from', label: 'Sender', icon: <IconMail />, desc: 'A phone number, or an alphanumeric ID up to 11 characters — whichever identity your recipients see.' },
+  { name: 'to', label: 'Recipient', icon: <IconUsers />, desc: 'The number the message is going to, including country code.' },
+  { name: 'datacoding', label: 'Encoding', icon: <IconRefresh />, desc: 'GSM7 fits 160 characters per part; switch to Unicode and that drops to 70 — go over, and it concatenates into extra billed parts.' },
+  { name: 'direction', label: 'Direction', icon: <IconChat />, desc: 'Every message is mt (you sent it) or mo (you received it) — the same shape either way.' },
+  { name: 'errorcode', label: 'Error Code', icon: <IconShield />, desc: 'Returned on the send response and every status report — 0 means accepted, anything else tells you exactly what went wrong.' },
 ]
 
 const ENDPOINT_GROUPS = [
@@ -215,28 +216,25 @@ function ResourcesDocs() {
       {/* send — de-boxed tabbed code + response */}
       <CodeShowcase />
 
-      {/* response object — a real JSON object, read as inline comments */}
+      {/* response object — an editorial glossary, no code font anywhere */}
       <section className="section section-alt rd-fields-section">
         <div className="container">
           <span className="section-kicker">The message object</span>
           <h2 className="section-title">Read a message top to bottom</h2>
           <p className="section-subtitle">Send, status and inbound events all return the same shape — learn it once.</p>
 
-          <div className="rd-obj keeps-own-width">
-            <span className="rd-obj-brace">{'{'}</span>
-            {RESPONSE_FIELDS.map((f, i) => (
-              <div className="rd-obj-line" key={f.name}>
-                <span className="rd-obj-code">
-                  <span className="rd-obj-key">&quot;{f.name}&quot;</span>
-                  <span className="rd-obj-punct">: </span>
-                  <span className="rd-obj-val">{f.v}</span>
-                  {i < RESPONSE_FIELDS.length - 1 && <span className="rd-obj-punct">,</span>}
-                </span>
-                <span className="rd-obj-type">{f.type}</span>
-                <span className="rd-obj-comment">// {f.desc}</span>
+          <div className="rd-glossary keeps-own-width">
+            {RESPONSE_FIELDS.map((f) => (
+              <div className="rd-glossary-row" key={f.name}>
+                <span className="rd-glossary-icon">{f.icon}</span>
+                <div className="rd-glossary-text">
+                  <span className="rd-glossary-head">
+                    {f.label} <span className="rd-glossary-key">{f.name}</span>
+                  </span>
+                  <p className="rd-glossary-desc">{f.desc}</p>
+                </div>
               </div>
             ))}
-            <span className="rd-obj-brace">{'}'}</span>
           </div>
         </div>
       </section>

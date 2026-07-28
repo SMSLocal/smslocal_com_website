@@ -206,60 +206,59 @@
   .rd-code-grid { grid-template-columns: 1fr; }
 }
 
-/* ---------- Response fields: a real JSON object, read as inline comments ----------
-   Light, not the hero's leader-line card and not a dark code block — a plain
-   object literal on the page, each line's comment doubling as the field's
-   plain-language description. Distinct from every other artifact on this
-   page (hero radiates outward to labels; quickstart floats chips on a line;
-   this one is just code, annotated the way code actually gets annotated). */
-.rd-obj {
-  max-width: 640px;
-  margin: 2.6rem auto 0;
-  font-family: 'Cascadia Code', Consolas, ui-monospace, monospace;
-  font-size: 0.86rem;
+/* ---------- Response fields: an icon-led editorial glossary ----------
+   No monospace anywhere in this section, deliberately — the hero, the
+   quickstart path and the code showcase are all code-styled, so this one
+   reads as plain editorial: an icon, a human name, a sentence. */
+.rd-glossary {
+  max-width: 680px;
+  margin: 2.8rem auto 0;
+  display: flex;
+  flex-direction: column;
 }
-.rd-obj-brace {
-  display: block;
-  color: #94a3b8;
-  font-weight: 300;
-}
-.rd-obj-line {
-  display: grid;
-  grid-template-columns: minmax(0, max-content) auto;
-  align-items: baseline;
-  column-gap: 0.6rem;
-  row-gap: 0.15rem;
-  padding: 0.5rem 0 0.5rem 1.4rem;
+.rd-glossary-row {
+  display: flex;
+  gap: 1.1rem;
+  padding: 1.3rem 0;
   border-bottom: 1px solid var(--border);
 }
-.rd-obj-line:last-of-type { border-bottom: none; }
-.rd-obj-code { white-space: nowrap; }
-.rd-obj-key { color: var(--navy); font-weight: 700; }
-.rd-obj-punct { color: #94a3b8; }
-.rd-obj-val { color: var(--blue); }
-.rd-obj-type {
-  justify-self: start;
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: var(--bg-subtle);
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
+.rd-glossary-row:last-child { border-bottom: none; }
+
+.rd-glossary-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(79, 91, 213, 0.12), rgba(236, 72, 153, 0.12));
+  color: var(--blue);
 }
-.rd-obj-comment {
-  grid-column: 1 / -1;
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.82rem;
+.rd-glossary-icon svg { width: 20px; height: 20px; }
+
+.rd-glossary-text { min-width: 0; }
+.rd-glossary-head {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+.rd-glossary-key {
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  line-height: 1.5;
+}
+.rd-glossary-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 560px) {
-  .rd-obj-line { grid-template-columns: 1fr; row-gap: 0.35rem; }
-  .rd-obj-type { justify-self: start; }
+  .rd-glossary-row { gap: 0.8rem; }
+  .rd-glossary-icon { width: 36px; height: 36px; }
 }
 
 /* ---------- Endpoints (API reference ledger) ---------- */
