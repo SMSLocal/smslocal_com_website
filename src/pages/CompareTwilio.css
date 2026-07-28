@@ -79,7 +79,8 @@
 /* Hero visual â€” two floating cards + gradient morph connector */
 .twl-hero-visual {
   position: relative; display: flex; flex-direction: column; align-items: center;
-  width: 100%; max-width: 360px; margin: 0 auto;
+  /* fills its hero column so the visual's right edge lands on the container line */
+  width: 100%; margin: 0;
 }
 
 .twl-code {

@@ -262,6 +262,32 @@ img {
   font-size: 1.05rem;
 }
 
+/* ==========================================================================
+   Site-wide vertical alignment
+   --------------------------------------------------------------------------
+   The header, footer and every `.container` share one content line (1280px
+   box, 1.5rem gutter). Section *artifacts*, though, were each given their own
+   max-width — 900, 940, 960, 980, 1000, 1040px — and centred themselves, so
+   every band started on a different edge and the page read as ragged.
+
+   This snaps each section's visual block back to the container line. Prose
+   keeps its narrower measure: kickers, titles and subtitles are meant to be
+   centred and short, and stretching them to 1232px would wreck the reading
+   line. Only applied from 1080px up — below that the container is already
+   narrower than these max-widths, and components' own responsive rules
+   (which this would otherwise outrank) need to keep working.
+
+   Specificity is deliberately high (7 classes) so component CSS loaded after
+   this file still loses. Opt a block out with `.keeps-own-width`.
+   ========================================================================== */
+@media (min-width: 1080px) {
+  .section > .container > *:not(.section-kicker):not(.section-title):not(.section-subtitle):not(.section-head):not(.keeps-own-width) {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 720px) {
   .section {
     padding: 3.75rem 0;

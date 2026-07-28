@@ -1,5 +1,5 @@
 .fvi-container {
-  max-width: 820px;
+  max-width: var(--container);
 }
 
 .fvi-list {

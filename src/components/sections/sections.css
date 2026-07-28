@@ -2060,7 +2060,8 @@
 }
 
 /* Variant: columns — box-less, divided two-column comparison under a centred intro */
-.ncols-inner { max-width: 980px; }
+/* No narrower max-width: the two columns sit on the sitewide container line. */
+.ncols-inner { max-width: var(--container); }
 
 .ncols-head {
   max-width: 700px;
@@ -2183,7 +2184,7 @@
 }
 
 /* Variant: paths — two call journeys, chained step-by-step */
-.npaths-inner { max-width: 980px; }
+.npaths-inner { max-width: var(--container); }
 
 .npaths-head {
   max-width: 700px;
