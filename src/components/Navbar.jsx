@@ -4,7 +4,7 @@ import './Navbar.css'
 import {
   IconMegaphone, IconChat, IconBolt, IconPhone, IconRobot, IconGlobe, IconLink, IconShield,
   IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCalendar, IconReceipt, IconCart, IconDollar,
-  IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu,
+  IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu, IconMail,
 } from './icons.jsx'
 import BrandLogo from './BrandLogo.jsx'
 
@@ -24,6 +24,7 @@ const CHANNELS = [
   { t: 'RCS Broadcasting', d: 'Branded rich messages at scale', i: <IconBolt />, href: '/channels/rcs-broadcasting' },
   { t: 'Voice', d: 'IVR, routing, recording & numbers', i: <IconPhone />, href: '/channels/voice' },
   { t: 'Virtual Numbers (DID)', d: 'Local & toll-free, 100+ countries', i: <IconGlobe />, href: '/numbers/did' },
+  { t: 'Email', d: 'Transactional & bulk email, one API', i: <IconMail />, href: '/channels/email' },
 ]
 
 const SOCIAL_APPS = [
@@ -31,6 +32,10 @@ const SOCIAL_APPS = [
   { t: 'Instagram', d: 'DMs answered instantly', i: <IconGlobe />, href: '/channels/instagram' },
   { t: 'Messenger', d: 'Facebook Messenger, 24/7', i: <IconLink />, href: '/channels/messenger' },
   { t: 'Web Chat', d: 'Customisable widget, answered by AI', i: <IconCode />, href: '/channels/web-chat' },
+  { t: 'Viber', d: 'Verified broadcasts & two-way chat', i: <IconChat />, href: '/channels/viber' },
+  { t: 'Telegram', d: 'Bots & business messaging at scale', i: <IconRobot />, href: '/channels/telegram' },
+  { t: 'LINE', d: 'Official Account, rich messages & menus', i: <IconMenu />, href: '/channels/line' },
+  { t: 'Apple Messages', d: 'Rich links, Apple Pay & reactions', i: <IconMic />, href: '/channels/apple-messages' },
 ]
 
 const AI_AGENTS = [

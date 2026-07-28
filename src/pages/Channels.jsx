@@ -21,10 +21,10 @@ const GROUPS = [
       { icon: <IconChat />, title: 'WhatsApp Business API', desc: 'Official, verified WhatsApp with broadcasts and two-way chat.', href: '/channels/whatsapp' },
       { icon: <IconGlobe />, title: 'Instagram DM API', desc: 'Automate and manage Instagram DMs for support and sales.', href: '/channels/instagram' },
       { icon: <IconChat />, title: 'Facebook Messenger', desc: 'Persistent menu, quick replies and AI for your Facebook Page.', href: '/channels/messenger' },
-      { icon: <IconPhone />, title: 'Viber Business', desc: 'Verified broadcasts and two-way chat, plus Viber voice calls.', href: '/viber-business-messages' },
-      { icon: <IconChat />, title: 'Telegram for Business', desc: 'Bots, buttons and broadcasts on Telegram, fully hosted for you.', href: '/telegram-business' },
-      { icon: <IconChat />, title: 'Apple Messages', desc: 'Native iMessage chat with list pickers and Apple Pay.', href: '/apple-messages-for-business' },
-      { icon: <IconChat />, title: 'LINE Business', desc: 'Flex messages, rich menu and loyalty for your LINE account.', href: '/line-business-messaging' },
+      { icon: <IconPhone />, title: 'Viber Business', desc: 'Verified broadcasts and two-way chat, plus Viber voice calls.', href: '/channels/viber' },
+      { icon: <IconChat />, title: 'Telegram for Business', desc: 'Bots, buttons and broadcasts on Telegram, fully hosted for you.', href: '/channels/telegram' },
+      { icon: <IconChat />, title: 'Apple Messages', desc: 'Native iMessage chat with list pickers and Apple Pay.', href: '/channels/apple-messages' },
+      { icon: <IconChat />, title: 'LINE Business', desc: 'Flex messages, rich menu and loyalty for your LINE account.', href: '/channels/line' },
       { icon: <IconUsers />, title: 'Social media inbox', desc: 'Every social DM and comment in one shared team inbox.', href: '/channels/social' },
     ],
   },
@@ -33,7 +33,7 @@ const GROUPS = [
     items: [
       { icon: <IconPhone />, title: 'Voice calling', desc: 'Cloud voice — IVR, routing, recording and a programmable API.', href: '/channels/voice' },
       { icon: <IconGlobe />, title: 'Virtual numbers (DID)', desc: 'Local, toll-free & mobile numbers in 100+ countries, voice + SMS.', href: '/numbers/did' },
-      { icon: <IconMail />, title: 'Email API', desc: 'Transactional and bulk email, combined with SMS in one API.', href: '/email-api' },
+      { icon: <IconMail />, title: 'Email API', desc: 'Transactional and bulk email, combined with SMS in one API.', href: '/channels/email' },
     ],
   },
 ]

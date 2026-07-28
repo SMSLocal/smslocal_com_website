@@ -1,0 +1,255 @@
+/* "Email run alone" stack ledger for /email-api. Light, animated, responsive. */
+
+.eal-lead { max-width: 760px; }
+
+.eal {
+  position: relative;
+  max-width: 560px;
+  margin: 3rem auto 0;
+}
+
+/* soft ambient glow behind the card, for depth */
+.eal-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(79, 91, 213, 0.35), transparent 65%),
+    radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.3), transparent 65%);
+  animation: eal-glow-pulse 8s ease-in-out infinite;
+}
+@keyframes eal-glow-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* receipt-style ledger */
+.eal-ledger {
+  position: relative;
+  z-index: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem 1.6rem 1.3rem;
+  box-shadow: 0 26px 54px -32px rgba(16, 35, 63, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.eal-ledger:hover {
+  box-shadow: 0 34px 64px -30px rgba(16, 35, 63, 0.5);
+  transform: translateY(-2px);
+}
+.eal-ledger.is-merged {
+  box-shadow: 0 30px 60px -28px rgba(26, 161, 106, 0.35);
+}
+
+.eal-ledger-head {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+}
+
+.eal-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 0;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: eal-row-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes eal-row-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.eal-dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+.eal-dot--alone {
+  background: rgba(84, 89, 95, 0.35);
+  animation: eal-dot-pulse 2.4s ease-in-out infinite;
+}
+@keyframes eal-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.35); }
+  50% { box-shadow: 0 0 0 5px rgba(251, 113, 133, 0); }
+}
+
+.eal-line { flex: 1; min-width: 180px; display: flex; flex-direction: column; }
+.eal-line strong { font-size: 0.92rem; font-weight: 700; color: var(--navy); }
+.eal-line em { font-style: normal; font-weight: 700; color: var(--coral, #fb7185); }
+.eal-line span { font-size: 0.78rem; color: var(--text-secondary); }
+
+.eal-row--alone .eal-line strong { color: var(--text-secondary); }
+
+.eal-row--alone {
+  max-height: 100px;
+  transition: max-height 0.4s ease, opacity 0.35s ease, padding 0.4s ease, margin 0.4s ease;
+  overflow: hidden;
+}
+.eal-row--alone.is-collapsing {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
+.eal-badge {
+  flex: none;
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  padding: 0.24rem 0.55rem;
+  border-radius: 999px;
+}
+.eal-badge--extra {
+  color: var(--coral, #fb7185);
+  background: rgba(251, 113, 133, 0.1);
+}
+
+.eal-sep {
+  height: 0;
+  border-top: 1.5px dashed var(--border);
+  margin: 0.5rem 0;
+  transition: opacity 0.3s ease, margin 0.3s ease;
+}
+.eal-ledger.is-merged .eal-sep {
+  opacity: 0;
+  margin: 0;
+}
+
+.eal-total {
+  position: relative;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+  text-align: right;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  opacity: 0;
+  animation: eal-row-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
+}
+.eal-total s {
+  position: relative;
+  text-decoration: none;
+}
+.eal-total s::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 1.5px;
+  background: rgba(251, 113, 133, 0.7);
+  animation: eal-strike 0.5s ease-out both;
+  animation-delay: calc(var(--d, 0s) + 0.35s);
+}
+@keyframes eal-strike {
+  to { width: 100%; }
+}
+.eal-total-merged {
+  display: inline-block;
+  color: var(--success, #1aa16a);
+  animation: eal-merged-pop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes eal-merged-pop {
+  from { opacity: 0; transform: scale(0.9); }
+  60% { transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.eal-merge-btn {
+  display: block;
+  margin: 1.1rem auto 0;
+  padding: 0.6rem 1.3rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 26px -14px rgba(79, 91, 213, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.eal-merge-btn:hover { transform: translateY(-2px); }
+.eal-merge-btn:active { transform: translateY(0) scale(0.97); }
+.eal-ledger.is-merged .eal-merge-btn {
+  background: linear-gradient(90deg, var(--success, #1aa16a), #14b87f);
+  box-shadow: 0 12px 26px -14px rgba(26, 161, 106, 0.5);
+}
+
+/* resolution line */
+.eal-fix {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  max-width: 480px;
+  margin: 1.6rem auto 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--navy);
+  opacity: 0;
+  animation: eal-row-in 0.5s ease both;
+  animation-delay: var(--d, 0s);
+}
+
+.eal-fix strong { color: var(--navy); }
+
+.eal-fix-mark {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  animation: eal-mark-bob 2.2s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+@keyframes eal-mark-bob {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eal-row, .eal-total, .eal-fix { animation: none; opacity: 1; }
+  .eal-dot--alone, .eal-fix-mark, .eal-glow, .eal-total-merged { animation: none; }
+  .eal-total s::after { animation: none; width: 100%; }
+  .eal-ledger, .eal-row--alone, .eal-sep, .eal-merge-btn { transition: none; }
+}
+
+@media (max-width: 560px) {
+  .eal { max-width: 100%; padding: 0 0.5rem; }
+  .eal-ledger { padding: 1.25rem 1.1rem 1.1rem; }
+  .eal-row { gap: 0.6rem; }
+  .eal-line { min-width: 140px; }
+  .eal-badge { margin-left: auto; }
+  .eal-total { text-align: left; }
+  .eal-fix { text-align: left; }
+  .eal-merge-btn { width: 100%; }
+}

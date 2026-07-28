@@ -59,6 +59,11 @@ import WebChat from './pages/WebChat.jsx'
 import CompareBird from './pages/CompareBird.jsx'
 import ComparePlivo from './pages/ComparePlivo.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
+import ViberBusinessMessages from './pages/ViberBusinessMessages.jsx'
+import TelegramBusiness from './pages/TelegramBusiness.jsx'
+import LineBusinessMessaging from './pages/LineBusinessMessaging.jsx'
+import AppleMessagesForBusiness from './pages/AppleMessagesForBusiness.jsx'
+import EmailApi from './pages/EmailApi.jsx'
 
 function App() {
   return (
@@ -92,6 +97,11 @@ function App() {
           <Route path="/channels/rcs" element={<RcsBusinessMessaging />} />
           <Route path="/channels/instagram" element={<InstagramMessagingApi />} />
           <Route path="/channels/messenger" element={<FacebookMessengerApi />} />
+          <Route path="/channels/viber" element={<ViberBusinessMessages />} />
+          <Route path="/channels/telegram" element={<TelegramBusiness />} />
+          <Route path="/channels/line" element={<LineBusinessMessaging />} />
+          <Route path="/channels/apple-messages" element={<AppleMessagesForBusiness />} />
+          <Route path="/channels/email" element={<EmailApi />} />
 
           <Route path="/agentic-ai" element={<AiAgentsPlatform />} />
           <Route path="/ai-agents/customer-service" element={<AiAgentsCustomerService />} />

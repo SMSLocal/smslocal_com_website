@@ -1,0 +1,107 @@
+/* Usage donut rings for /line-business-messaging. Data-viz, de-boxed. */
+
+.lud-lead { max-width: 780px; }
+
+.lud-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 2.6rem auto 1.6rem;
+}
+
+/* leaderboard-style usage bars — one clearly in use, the rest visibly idle */
+.lub {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.lub-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 3.2rem 4.5rem;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.6;
+}
+.lub-row.is-used { opacity: 1; }
+
+.lub-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+}
+
+.lub-track {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(16, 35, 63, 0.07);
+  overflow: hidden;
+}
+.lub-fill {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  border-radius: inherit;
+  background: rgba(16, 35, 63, 0.35);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: lub-grow 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+.lub-row.is-used .lub-fill {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+}
+@keyframes lub-grow {
+  to { transform: scaleX(1); }
+}
+
+.lub-pct {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+.lub-pct i { font-size: 0.7rem; font-style: normal; font-weight: 700; margin-left: 0.05rem; color: var(--text-secondary); }
+
+.lub-status {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-align: left;
+}
+.lub-row.is-used .lub-status {
+  color: transparent;
+  background: linear-gradient(120deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.lud-punch {
+  max-width: 560px;
+  margin: 2.6rem auto 0;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.lud-punch strong { color: var(--navy); }
+
+@media (max-width: 560px) {
+  .lub-row { grid-template-columns: 84px 1fr 2.6rem; }
+  .lub-status { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lub-fill { animation: none; transform: scaleX(1); }
+}

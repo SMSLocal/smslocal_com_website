@@ -1,0 +1,263 @@
+/* "What you get" — a rotating deck. The three mocks stack with depth and take
+   turns at the front on a 12s loop; the copy on the left swaps with whichever
+   mock is showing. No columns, no alternating rows. */
+
+.vbcap-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.vbcap-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.6rem;
+}
+
+.vbcap-title {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.6rem, 2.9vw, 2.2rem);
+  line-height: 1.18;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.vbcap-sub {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* the caption area holds all three, one visible at a time */
+.vbcap-captions {
+  position: relative;
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  min-height: 148px;
+}
+
+.vbcap-caption {
+  position: absolute;
+  inset: 1.5rem 0 auto;
+  opacity: 0;
+  animation: vbcap-caption 12s calc(var(--i) * -4s) infinite;
+}
+/* visible for the first third of the loop, so the first caption is already up
+   on load rather than fading in from nothing */
+@keyframes vbcap-caption {
+  0%, 29% { opacity: 1; transform: none; }
+  33%, 96% { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.vbcap-caption h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+.vbcap-caption p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 44ch;
+}
+
+/* ---- the deck ---- */
+
+.vbcap-deck {
+  position: relative;
+  height: 320px;
+}
+
+/* every slot is the same box, so the three mocks read as one size */
+.vbcap-slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 230px;
+  margin-top: -115px;
+  margin-left: -200px;
+  animation: vbcap-deck 12s calc(var(--i) * -4s) infinite;
+}
+
+/* front → back-right → back-further → front again */
+@keyframes vbcap-deck {
+  0%, 30% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+  33%, 63% {
+    transform: translate(38px, 26px) scale(0.93);
+    opacity: 0.92;
+    z-index: 2;
+  }
+  66%, 96% {
+    transform: translate(76px, 52px) scale(0.86);
+    opacity: 0.8;
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+    z-index: 3;
+  }
+}
+
+.vbcap-slot .vbcap-mock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1.3rem 1.5rem;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 26px 50px -28px rgba(16, 35, 63, 0.5);
+}
+
+@media (max-width: 860px) {
+  .vbcap-inner {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+  .vbcap-deck { height: 280px; }
+  .vbcap-slot { width: 300px; margin-left: -150px; height: 210px; margin-top: -105px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vbcap-caption,
+  .vbcap-slot { animation: none; }
+  .vbcap-caption { position: relative; inset: auto; opacity: 1; margin-bottom: 1.2rem; }
+  .vbcap-captions { min-height: 0; }
+  .vbcap-slot:nth-child(2) { transform: translate(38px, 26px) scale(0.93); z-index: 2; }
+  .vbcap-slot:nth-child(3) { transform: translate(76px, 52px) scale(0.86); z-index: 1; }
+}
+
+.vbcap-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--blue);
+  margin-bottom: 0.8rem;
+}
+.vbcap-icon svg { width: 22px; height: 22px; }
+
+.vbcap-mock {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.vbcap-sender-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.vbcap-sender-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+.vbcap-sender-row strong {
+  font-size: 0.92rem;
+  color: var(--navy);
+}
+
+.vbcap-sender-tick {
+  color: var(--blue);
+  font-size: 0.7rem;
+}
+
+.vbcap-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.vbcap-tag {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+}
+
+.vbcap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.84rem;
+  color: var(--navy);
+  padding: 0.3rem 0;
+}
+
+.vbcap-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.vbcap-pill {
+  flex: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.vbcap-pill.sent {
+  background: rgba(79, 91, 213, 0.12);
+  color: var(--blue);
+}
+
+.vbcap-pill.replied {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+}
+
+.vbcap-footer {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+/* sample broadcast body inside the verified mock */
+.vbcap-preview {
+  margin-top: 0.2rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.vbcap-channel {
+  flex: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}

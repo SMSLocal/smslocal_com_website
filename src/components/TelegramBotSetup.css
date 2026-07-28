@@ -1,0 +1,150 @@
+/* Auto-advancing full-width slide — one setup step at a time, crossfading
+   into the next, each with its own chat snippet. Site theme accent only
+   (--blue/--cyan gradient), no third-party brand colors. */
+
+.tgb-slide {
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+
+.tgb-slide-frame {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  min-height: 300px;
+  animation: tgbSlideIn 0.4s ease both;
+}
+
+@keyframes tgbSlideIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.tgb-slide-copy { position: relative; }
+
+.tgb-slide-ghost {
+  display: block;
+  font-size: 5.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(79, 91, 213, 0.12);
+  margin-bottom: 0.5rem;
+}
+
+.tgb-slide-copy h3 { margin: 0 0 0.7rem; font-size: 1.6rem; color: var(--navy); }
+.tgb-slide-copy p { margin: 0; color: var(--text-secondary); line-height: 1.65; font-size: 1.02rem; }
+
+.tgb-slide-chat {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 44px -28px rgba(21, 73, 137, 0.3);
+  overflow: hidden;
+}
+
+.tgb-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.3rem;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.tgb-avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--gradient-brand);
+}
+
+.tgb-head strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+
+.tgb-verified {
+  font-size: 0.68rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.tgb-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.2rem 1.3rem;
+  min-height: 160px;
+}
+
+.tgb-msg {
+  width: fit-content;
+  max-width: 85%;
+  padding: 0.55rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  animation: tgbIn 0.3s ease both;
+}
+
+@keyframes tgbIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.tgb-msg.user {
+  align-self: flex-end;
+  background: var(--gradient-brand);
+  color: #fff;
+  border-bottom-right-radius: 3px;
+}
+
+.tgb-msg.bot {
+  align-self: flex-start;
+  background: var(--bg-subtle);
+  color: var(--navy);
+  border-bottom-left-radius: 3px;
+}
+
+.tgb-msg.system {
+  align-self: center;
+  max-width: 95%;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  font-weight: 700;
+  text-align: center;
+}
+
+.tgb-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.25rem;
+}
+
+.tgb-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.tgb-dot--active {
+  background: var(--gradient-brand);
+  transform: scale(1.35);
+}
+
+@media (max-width: 780px) {
+  .tgb-slide-frame { grid-template-columns: 1fr; gap: 2rem; min-height: 0; }
+  .tgb-slide-ghost { font-size: 4rem; }
+}

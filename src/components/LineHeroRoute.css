@@ -1,0 +1,154 @@
+.lnr {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.5rem 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* soft dotted background texture, like the reference */
+.lnr-dots {
+  position: absolute;
+  inset: -20px;
+  z-index: -1;
+  background-image: radial-gradient(rgba(79, 91, 213, 0.16) 1.4px, transparent 1.4px);
+  background-size: 18px 18px;
+  border-radius: 32px;
+  mask-image: radial-gradient(circle at center, #000 55%, transparent 90%);
+}
+
+/* greeting bubble */
+.lnr-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 20px 40px -22px rgba(16, 35, 63, 0.35);
+  z-index: 2;
+}
+.lnr-bubble-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #4f5bd5, #14b8a6);
+}
+.lnr-bubble-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+/* dashed branch lines */
+.lnr-branches {
+  width: 100%;
+  max-width: 420px;
+  height: 110px;
+  margin-top: -4px;
+}
+
+/* flowing dashes — signal travelling from the greeting down to each card */
+.lnr-branch-line {
+  animation: lnr-dash-flow 0.7s linear infinite;
+}
+@keyframes lnr-dash-flow {
+  to { stroke-dashoffset: -13; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lnr-branch-line { animation: none; }
+}
+
+/* option cards */
+.lnr-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-top: -8px;
+}
+.lnr-card-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.lnr-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.9rem 0.5rem;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 34px -22px rgba(16, 35, 63, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lnr-card:hover { transform: translateY(-3px); }
+.lnr-card-label {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  opacity: 0.75;
+}
+.lnr-card-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.lnr-card.is-teal { background: linear-gradient(160deg, rgba(20, 184, 166, 0.14), rgba(20, 184, 166, 0.04)), #fff; }
+.lnr-card.is-teal .lnr-card-label,
+.lnr-card.is-teal .lnr-card-title { color: #0d9488; }
+.lnr-card.is-coral { background: linear-gradient(160deg, rgba(251, 113, 133, 0.14), rgba(251, 113, 133, 0.04)), #fff; }
+.lnr-card.is-coral .lnr-card-label,
+.lnr-card.is-coral .lnr-card-title { color: #e11d48; }
+.lnr-card.is-purple { background: linear-gradient(160deg, rgba(139, 92, 246, 0.14), rgba(139, 92, 246, 0.04)), #fff; }
+.lnr-card.is-purple .lnr-card-label,
+.lnr-card.is-purple .lnr-card-title { color: #7c3aed; }
+
+.lnr-route {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.lnr-route--live {
+  color: #e11d48;
+  font-weight: 800;
+  animation: lnr-pulse 1.4s ease-in-out infinite;
+}
+@keyframes lnr-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* skip pill */
+.lnr-skip {
+  margin-top: 1.6rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #b45309;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .lnr-cards { gap: 0.5rem; }
+  .lnr-card-title { font-size: 0.78rem; white-space: normal; text-align: center; }
+  .lnr-skip { font-size: 0.68rem; padding: 0.5rem 0.9rem; text-align: center; }
+}
