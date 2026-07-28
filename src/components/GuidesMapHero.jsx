@@ -12,16 +12,29 @@ import { IconPlug, IconBolt, IconRobot, IconRocket } from './icons.jsx'
  * not a card, not a chat thread, not a hub-and-spoke diagram.
  */
 
-const NODES = [
-  { icon: <IconPlug />, title: 'Connect a channel', x: 9, y: 82 },
-  { icon: <IconBolt />, title: 'Configure a sender', x: 34, y: 54 },
-  { icon: <IconRobot />, title: 'Build a flow', x: 63, y: 60 },
-  { icon: <IconRocket />, title: 'Go live', x: 90, y: 14 },
+// Coordinates are in the 460x400 viewBox; each node's %-position (used for
+// its HTML overlay) is derived from the SAME numbers so the route and the
+// icons always line up exactly. Control points sit at the horizontal
+// midpoint of each segment at each endpoint's own height — a "sigmoid"
+// bezier that climbs monotonically left-to-right with no reflected (S)
+// curves, so the line can't loop back on itself.
+const PTS = [
+  { x: 40, y: 330 },
+  { x: 160, y: 250 },
+  { x: 300, y: 180 },
+  { x: 420, y: 60 },
 ]
-
-const PATH_D = 'M 41 328 C 90 328, 110 250, 156 216 S 250 190, 290 240 S 370 130, 414 56'
-// Approximate arc-length fractions where the path passes each node's (x%,y%)
-const NODE_T = [0, 0.34, 0.63, 1]
+const NODES = PTS.map(({ x, y }, i) => ({
+  icon: [<IconPlug />, <IconBolt />, <IconRobot />, <IconRocket />][i],
+  title: ['Connect a channel', 'Configure a sender', 'Build a flow', 'Go live'][i],
+  x: (x / 460) * 100,
+  y: (y / 400) * 100,
+}))
+const PATH_D = PTS.slice(1).reduce((d, p, i) => {
+  const prev = PTS[i]
+  const midX = (prev.x + p.x) / 2
+  return `${d} C ${midX} ${prev.y}, ${midX} ${p.y}, ${p.x} ${p.y}`
+}, `M ${PTS[0].x} ${PTS[0].y}`)
 
 const LOOP_MS = 7000
 
@@ -32,9 +45,11 @@ function GuidesMapHero() {
     let raf
     const start = Date.now()
     const tick = () => {
+      // t is always < 1 (it's a modulo), so bucket by equal shares of the
+      // loop rather than checking t >= 1 — that comparison can never be
+      // true, which is exactly why the last node never lit up before.
       const t = ((Date.now() - start) % LOOP_MS) / LOOP_MS
-      let i = 0
-      for (let n = 0; n < NODE_T.length; n++) if (t >= NODE_T[n]) i = n
+      const i = Math.min(NODES.length - 1, Math.floor(t * NODES.length))
       setActive(i)
       raf = setTimeout(tick, 120)
     }
@@ -57,16 +72,9 @@ function GuidesMapHero() {
             <stop offset="1" stopColor="var(--cyan)" />
           </linearGradient>
         </defs>
-        <path d={PATH_D} fill="none" stroke="var(--border)" strokeWidth="3" strokeDasharray="1 10" strokeLinecap="round" />
-        <path
-          d={PATH_D}
-          fill="none"
-          stroke="url(#gmap-line)"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeDasharray="600"
-          style={{ strokeDashoffset: 600 - 600 * (NODE_T[active] ?? 0) - 40, transition: 'stroke-dashoffset 0.5s ease' }}
-        />
+        {/* the full route is always drawn — no guessed arc-length reveal that
+            could stop short of the last node */}
+        <path d={PATH_D} fill="none" stroke="url(#gmap-line)" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
         <circle r="6" fill="var(--blue)">
           <animateMotion dur={`${LOOP_MS / 1000}s`} repeatCount="indefinite" path={PATH_D} />
         </circle>
