@@ -132,7 +132,7 @@ const PLATFORM = [
 ]
 
 const RESOURCES = [
-  { t: 'User Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
+  { t: 'Developer Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
   { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog' },
   { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides' },
   { t: 'Case studies', d: 'Real customer results', i: <IconChart />, href: '/resources/case-studies' },
