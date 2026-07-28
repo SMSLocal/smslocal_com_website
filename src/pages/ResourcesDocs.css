@@ -3,63 +3,108 @@
    Prefix rd- to stay self-contained. Brand gradient: --blue -> --cyan.
    ===================================================================== */
 
-/* ---------- Quickstart: big ghost numerals ---------- */
-.rd-steps {
+/* ---------- Quickstart: a floating path — one line, three real waypoints ----------
+   Light, frameless: no panel anywhere. A single gradient line runs the width
+   of the artifact; each waypoint is a plain white chip (small shadow only)
+   floating above the line for odd stages and below it for even ones, so the
+   eye zigzags along the line instead of reading three parallel boxes. */
+.rd-qs-path {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem 1.5rem;
-  max-width: 980px;
-  margin: 3rem auto 0;
-  position: relative;
+  max-width: 900px;
+  margin: 3.5rem auto 0;
 }
-.rd-steps::before {
-  content: '';
+.rd-qs-path-line {
   position: absolute;
-  top: 34px;
-  left: 14%;
-  right: 14%;
+  top: 108px;
+  left: 8%;
+  right: 8%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(79, 91, 213,.25), rgba(236,72,153,.25));
-  z-index: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0.35;
 }
-.rd-step {
+
+.rd-qs-point {
   position: relative;
-  z-index: 1;
+  display: grid;
+  grid-template-rows: 92px 14px 92px auto;
+  justify-items: center;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: rd-qs-rise 0.5s ease forwards;
+  animation-delay: calc(0.1s + var(--i) * 0.16s);
+}
+.rd-qs-point-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.rd-qs-point-dot {
+  align-self: center;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 0 5px var(--bg-subtle);
+}
+.rd-qs-point-d {
+  margin: 0.9rem 0 0;
+  max-width: 22ch;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
   text-align: center;
+}
+
+/* the floating chip: white, small shadow, no border-heavy panel look */
+.rd-qs-chip {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: rd-rise 0.55s ease forwards;
-  animation-delay: calc(0.1s + var(--i) * 0.14s);
+  gap: 0.3rem;
+  width: 100%;
+  max-width: 210px;
+  padding: 0.65rem 0.8rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 16px 32px -20px rgba(16, 35, 63, 0.32);
+  text-align: left;
 }
-.rd-step-n {
-  font-size: 3.4rem;
+.rd-qs-chip-n {
+  font-size: 0.64rem;
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: 0.06em;
+  color: var(--blue);
 }
-.rd-step-t {
-  margin: 0.7rem 0 0.5rem;
-  font-size: 1.15rem;
+.rd-qs-chip-cmd {
+  font-family: 'Cascadia Code', Consolas, ui-monospace, monospace;
+  font-size: 0.78rem;
   color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.rd-step-d {
-  margin: 0;
-  max-width: 26ch;
-  font-size: 0.9rem;
+.rd-qs-chip-out {
+  font-family: 'Cascadia Code', Consolas, ui-monospace, monospace;
+  font-size: 0.72rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-@keyframes rd-rise { to { opacity: 1; transform: none; } }
+
+@keyframes rd-qs-rise { to { opacity: 1; transform: none; } }
+
 @media (max-width: 720px) {
-  .rd-steps { grid-template-columns: 1fr; gap: 1.6rem; max-width: 420px; }
-  .rd-steps::before { display: none; }
+  .rd-qs-path { grid-template-columns: 1fr; max-width: 280px; gap: 2.2rem; }
+  .rd-qs-path-line { display: none; }
+  .rd-qs-point { grid-template-rows: auto 14px auto auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rd-qs-point { animation: none; opacity: 1; transform: none; }
 }
 
 /* ---------- Code showcase (de-boxed dark block + response) ---------- */
@@ -401,8 +446,8 @@
 
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .rd-step, .rd-code-resp-dot, .rd-event, .rd-stream-pulse, .rd-stream-node-dot {
+  .rd-code-resp-dot, .rd-event, .rd-stream-pulse, .rd-stream-node-dot {
     animation: none;
   }
-  .rd-step, .rd-event { opacity: 1; transform: none; }
+  .rd-event { opacity: 1; transform: none; }
 }

@@ -7,9 +7,18 @@ import PayloadFieldAnatomy from '../components/PayloadFieldAnatomy.jsx'
 /* ---------- data ---------- */
 
 const STEPS = [
-  { n: '01', t: 'Authenticate', d: 'Send your access key as a Token header, with Content-Type: application/json, on every request.' },
-  { n: '02', t: 'Send', d: 'POST a from, to and content. The response comes back with a msgid and an errorcode immediately.' },
-  { n: '03', t: 'Track', d: 'We POST or GET a status report to your callback URL the moment a message reaches its final state.' },
+  {
+    n: '01', t: 'Authenticate', d: 'Send your access key as a Token header, with Content-Type: application/json, on every request.',
+    cmd: 'Token: sk_live_9f2a7c10', out: 'Content-Type: application/json ✓',
+  },
+  {
+    n: '02', t: 'Send', d: 'POST a from, to and content. The response comes back with a msgid and an errorcode immediately.',
+    cmd: 'POST /external/sms', out: '{ msgid: "9f2a7c10", errorcode: 0 }',
+  },
+  {
+    n: '03', t: 'Track', d: 'We POST or GET a status report to your callback URL the moment a message reaches its final state.',
+    cmd: 'GET /report?status=Delivrd', out: '200 OK',
+  },
 ]
 
 const SAMPLES = [
@@ -172,21 +181,32 @@ function ResourcesDocs() {
         visual={<PayloadFieldAnatomy />}
       />
 
-      {/* quickstart — big ghost numerals */}
+      {/* quickstart — a floating path: one line, three real waypoints */}
       <section className="section section-alt rd-steps-section">
         <div className="container">
           <span className="section-kicker">Quickstart</span>
           <h2 className="section-title">Three moves, start to delivered</h2>
           <p className="section-subtitle">Every integration is the same short arc — authenticate, send, then track.</p>
 
-          <div className="rd-steps">
-            {STEPS.map((s, i) => (
-              <div className="rd-step" style={{ '--i': i }} key={s.n}>
-                <span className="rd-step-n">{s.n}</span>
-                <h3 className="rd-step-t">{s.t}</h3>
-                <p className="rd-step-d">{s.d}</p>
-              </div>
-            ))}
+          <div className="rd-qs-path keeps-own-width">
+            <span className="rd-qs-path-line" aria-hidden="true" />
+            {STEPS.map((s, i) => {
+              const chip = (
+                <div className="rd-qs-chip">
+                  <span className="rd-qs-chip-n">{s.n} · {s.t}</span>
+                  <span className="rd-qs-chip-cmd">{s.cmd}</span>
+                  <span className="rd-qs-chip-out">{s.out}</span>
+                </div>
+              )
+              return (
+                <div className="rd-qs-point" style={{ '--i': i }} key={s.n}>
+                  <span className="rd-qs-point-slot">{i % 2 === 0 ? chip : null}</span>
+                  <span className="rd-qs-point-dot" />
+                  <span className="rd-qs-point-slot">{i % 2 === 1 ? chip : null}</span>
+                  <p className="rd-qs-point-d">{s.d}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
