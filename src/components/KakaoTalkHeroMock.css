@@ -1,0 +1,227 @@
+/* KakaoTalk hero — a FriendTalk broadcast racing up, then an AlimTalk notice
+   card drops in with the payoff. One state machine drives the figure, the
+   dots and the notice, so nothing can drift out of sync.
+   Frameless: an edgeless glow, no panel holding it. */
+
+.ktmock {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: inherit;
+  isolation: isolate;
+}
+
+.ktmock-glow {
+  position: absolute;
+  inset: -14% -12%;
+  z-index: -1;
+  background:
+    radial-gradient(42% 36% at 50% 34%, rgba(255, 205, 0, 0.22), transparent 70%),
+    radial-gradient(34% 30% at 20% 72%, rgba(236, 72, 153, 0.1), transparent 72%),
+    radial-gradient(32% 30% at 82% 66%, rgba(79, 91, 213, 0.12), transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+/* ---- verified sender ---- */
+
+.ktmock-sender {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.75rem 0.28rem 0.3rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #7a5e00;
+}
+
+/* The real KakaoTalk mark, brand yellow. Sourced from Simple Icons and
+   verified live against the current dataset before saving locally. */
+.ktmock-mark {
+  width: 19px;
+  height: 19px;
+  flex: none;
+  background: #ffcd00;
+  -webkit-mask: url('/logos/kakaotalk.svg') center / contain no-repeat;
+  mask: url('/logos/kakaotalk.svg') center / contain no-repeat;
+}
+
+/* ---- the figure ---- */
+
+.ktmock-figure {
+  margin-top: 0.15rem;
+  font-size: clamp(2.9rem, 9.5vw, 3.9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(135deg, #c9a100 8%, var(--blue) 55%, var(--cyan) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 12px 26px rgba(255, 205, 0, 0.28));
+}
+
+.ktmock-caption {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+.ktmock-caption b {
+  color: var(--navy);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- friends lighting up ---- */
+
+.ktmock-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.45rem;
+}
+
+.ktmock-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.1);
+  transition: background 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
+}
+
+.ktmock-dot.is-lit {
+  background: linear-gradient(140deg, #ffcd00, var(--cyan));
+  box-shadow: 0 0 10px rgba(255, 205, 0, 0.55);
+  transform: scale(1.22);
+}
+
+/* ---- closing line ---- */
+
+.ktmock-line {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  height: 4px;
+  margin-top: 0.5rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.07);
+  overflow: hidden;
+}
+
+.ktmock-line-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffcd00, var(--cyan));
+  transform-origin: left;
+}
+
+/* ---- AlimTalk notice card ---- */
+
+.ktmock-notice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 320px;
+  min-height: 72px;
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 32px -24px rgba(16, 35, 63, 0.4);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.36s ease, transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ktmock-notice.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ktmock-notice-head {
+  display: flex;
+  align-items: center;
+}
+
+.ktmock-notice-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: #fff9db;
+  color: #7a5e00;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.ktmock-notice-body {
+  font-size: 0.78rem;
+  color: var(--navy);
+  line-height: 1.35;
+}
+
+.ktmock-notice-body b {
+  color: var(--navy);
+}
+
+/* ---- payoff ---- */
+
+.ktmock-payoff {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.ktmock-payoff b {
+  color: var(--success, #16a34a);
+  font-weight: 700;
+}
+
+.is-notice .ktmock-payoff,
+.is-hold .ktmock-payoff {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- narrow ---- */
+
+@media (max-width: 720px) {
+  .ktmock { max-width: 340px; }
+
+  .ktmock-figure { font-size: clamp(2.5rem, 12vw, 3.2rem); }
+  .ktmock-notice { max-width: 292px; min-height: 68px; }
+  .ktmock-dot { width: 8px; height: 8px; }
+  .ktmock-dots { gap: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ktmock-notice {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .ktmock-dot { transition: none; }
+
+  .ktmock-payoff {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

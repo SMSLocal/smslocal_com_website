@@ -64,6 +64,7 @@ import TelegramBusiness from './pages/TelegramBusiness.jsx'
 import LineBusinessMessaging from './pages/LineBusinessMessaging.jsx'
 import AppleMessagesForBusiness from './pages/AppleMessagesForBusiness.jsx'
 import EmailApi from './pages/EmailApi.jsx'
+import KakaoTalkBusinessMessaging from './pages/KakaoTalkBusinessMessaging.jsx'
 
 function App() {
   return (
@@ -102,6 +103,7 @@ function App() {
           <Route path="/channels/line" element={<LineBusinessMessaging />} />
           <Route path="/channels/apple-messages" element={<AppleMessagesForBusiness />} />
           <Route path="/channels/email" element={<EmailApi />} />
+          <Route path="/channels/kakaotalk" element={<KakaoTalkBusinessMessaging />} />
 
           <Route path="/agentic-ai" element={<AiAgentsPlatform />} />
           <Route path="/ai-agents/customer-service" element={<AiAgentsCustomerService />} />

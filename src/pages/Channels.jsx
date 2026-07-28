@@ -25,6 +25,7 @@ const GROUPS = [
       { icon: <IconChat />, title: 'Telegram for Business', desc: 'Bots, buttons and broadcasts on Telegram, fully hosted for you.', href: '/channels/telegram' },
       { icon: <IconChat />, title: 'Apple Messages', desc: 'Native iMessage chat with list pickers and Apple Pay.', href: '/channels/apple-messages' },
       { icon: <IconChat />, title: 'LINE Business', desc: 'Flex messages, rich menu and loyalty for your LINE account.', href: '/channels/line' },
+      { icon: <IconBolt />, title: 'KakaoTalk Business', desc: 'AlimTalk notices and FriendTalk broadcasts on a verified Kakao Channel.', href: '/channels/kakaotalk' },
       { icon: <IconUsers />, title: 'Social media inbox', desc: 'Every social DM and comment in one shared team inbox.', href: '/channels/social' },
     ],
   },
@@ -73,7 +74,7 @@ function Channels() {
       <Hero
         eyebrow="Channels"
         title={<>Every messaging channel your customers use, in <span className="grad-word">one platform</span></>}
-        subtitle="SMS, WhatsApp, RCS, Voice, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE, email and virtual numbers — one account, one inbox, one customer record."
+        subtitle="SMS, WhatsApp, RCS, Voice, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE, KakaoTalk, email and virtual numbers — one account, one inbox, one customer record."
         primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
         stats={[

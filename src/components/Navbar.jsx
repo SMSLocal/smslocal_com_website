@@ -36,6 +36,7 @@ const SOCIAL_APPS = [
   { t: 'Telegram', d: 'Bots & business messaging at scale', i: <IconRobot />, href: '/channels/telegram' },
   { t: 'LINE', d: 'Official Account, rich messages & menus', i: <IconMenu />, href: '/channels/line' },
   { t: 'Apple Messages', d: 'Rich links, Apple Pay & reactions', i: <IconMic />, href: '/channels/apple-messages' },
+  { t: 'KakaoTalk', d: 'AlimTalk notices & FriendTalk broadcasts', i: <IconBolt />, href: '/channels/kakaotalk' },
 ]
 
 const AI_AGENTS = [
