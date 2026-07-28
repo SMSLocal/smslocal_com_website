@@ -66,11 +66,12 @@ const SAMPLES = [
 ]
 
 const RESPONSE_FIELDS = [
-  { name: 'msgid', type: 'uuid', desc: 'Unique ID minted for every message on creation — the handle you use to check its status later.' },
-  { name: 'from / to', type: 'string', desc: 'Sender (a number or an up-to-11-character alphanumeric ID) and the recipient number.' },
-  { name: 'datacoding', type: 'int', desc: 'GSM7 or Unicode. Unicode caps a single part at 70 characters instead of 160 — go over and it concatenates into billed parts.' },
-  { name: 'direction', type: 'enum', desc: 'mt for messages you send (mobile terminated), mo for the ones you receive (mobile originated).' },
-  { name: 'errorcode', type: 'int', desc: 'Present on both the send response and every status report — tells you exactly how a message resolved.' },
+  { name: 'msgid', v: '"0f3e-8ac1-77d0"', type: 'uuid', desc: 'minted on creation, your handle for checking status later' },
+  { name: 'from', v: '"SMSLOCAL"', type: 'string', desc: 'sender — a number or up to 11 alphanumeric chars' },
+  { name: 'to', v: '"+14155550142"', type: 'string', desc: 'recipient number' },
+  { name: 'datacoding', v: '0', type: 'int', desc: 'GSM7 (160 chars) or Unicode (70) — over that, it concatenates' },
+  { name: 'direction', v: '"mt"', type: 'enum', desc: 'mt = you sent it, mo = you received it' },
+  { name: 'errorcode', v: '0', type: 'int', desc: 'on every send + status report — 0 is accepted' },
 ]
 
 const ENDPOINT_GROUPS = [
@@ -214,21 +215,28 @@ function ResourcesDocs() {
       {/* send — de-boxed tabbed code + response */}
       <CodeShowcase />
 
-      {/* response object — editorial field breakdown */}
+      {/* response object — a real JSON object, read as inline comments */}
       <section className="section section-alt rd-fields-section">
         <div className="container">
           <span className="section-kicker">The message object</span>
           <h2 className="section-title">Read a message top to bottom</h2>
           <p className="section-subtitle">Send, status and inbound events all return the same shape — learn it once.</p>
 
-          <div className="rd-fields">
-            {RESPONSE_FIELDS.map((f) => (
-              <div className="rd-field" key={f.name}>
-                <span className="rd-field-name">{f.name}</span>
-                <span className="rd-field-type">{f.type}</span>
-                <p className="rd-field-desc">{f.desc}</p>
+          <div className="rd-obj keeps-own-width">
+            <span className="rd-obj-brace">{'{'}</span>
+            {RESPONSE_FIELDS.map((f, i) => (
+              <div className="rd-obj-line" key={f.name}>
+                <span className="rd-obj-code">
+                  <span className="rd-obj-key">&quot;{f.name}&quot;</span>
+                  <span className="rd-obj-punct">: </span>
+                  <span className="rd-obj-val">{f.v}</span>
+                  {i < RESPONSE_FIELDS.length - 1 && <span className="rd-obj-punct">,</span>}
+                </span>
+                <span className="rd-obj-type">{f.type}</span>
+                <span className="rd-obj-comment">// {f.desc}</span>
               </div>
             ))}
+            <span className="rd-obj-brace">{'}'}</span>
           </div>
         </div>
       </section>

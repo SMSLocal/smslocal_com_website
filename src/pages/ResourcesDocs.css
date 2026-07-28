@@ -206,49 +206,60 @@
   .rd-code-grid { grid-template-columns: 1fr; }
 }
 
-/* ---------- Response fields (editorial rows, left rail) ---------- */
-.rd-fields {
-  max-width: 820px;
+/* ---------- Response fields: a real JSON object, read as inline comments ----------
+   Light, not the hero's leader-line card and not a dark code block — a plain
+   object literal on the page, each line's comment doubling as the field's
+   plain-language description. Distinct from every other artifact on this
+   page (hero radiates outward to labels; quickstart floats chips on a line;
+   this one is just code, annotated the way code actually gets annotated). */
+.rd-obj {
+  max-width: 640px;
   margin: 2.6rem auto 0;
-  display: flex;
-  flex-direction: column;
+  font-family: 'Cascadia Code', Consolas, ui-monospace, monospace;
+  font-size: 0.86rem;
 }
-.rd-field {
+.rd-obj-brace {
+  display: block;
+  color: #94a3b8;
+  font-weight: 300;
+}
+.rd-obj-line {
   display: grid;
-  grid-template-columns: minmax(120px, 180px) auto;
-  grid-template-areas: 'name type' 'desc desc';
-  align-items: center;
-  gap: 0.3rem 0.7rem;
-  padding: 1.15rem 0 1.15rem 1.1rem;
-  border-left: 2px solid transparent;
+  grid-template-columns: minmax(0, max-content) auto;
+  align-items: baseline;
+  column-gap: 0.6rem;
+  row-gap: 0.15rem;
+  padding: 0.5rem 0 0.5rem 1.4rem;
   border-bottom: 1px solid var(--border);
-  transition: border-color .2s ease;
 }
-.rd-field:hover { border-left-color: var(--blue); }
-.rd-field:last-child { border-bottom: none; }
-.rd-field-name {
-  grid-area: name;
-  font-family: 'Cascadia Code', Consolas, monospace;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--navy);
-}
-.rd-field-type {
-  grid-area: type;
+.rd-obj-line:last-of-type { border-bottom: none; }
+.rd-obj-code { white-space: nowrap; }
+.rd-obj-key { color: var(--navy); font-weight: 700; }
+.rd-obj-punct { color: #94a3b8; }
+.rd-obj-val { color: var(--blue); }
+.rd-obj-type {
   justify-self: start;
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--blue);
-  background: rgba(79, 91, 213, 0.1);
-  padding: 0.14rem 0.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  padding: 0.1rem 0.5rem;
   border-radius: 999px;
 }
-.rd-field-desc {
-  grid-area: desc;
-  margin: 0.15rem 0 0;
-  font-size: 0.9rem;
+.rd-obj-comment {
+  grid-column: 1 / -1;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .rd-obj-line { grid-template-columns: 1fr; row-gap: 0.35rem; }
+  .rd-obj-type { justify-self: start; }
 }
 
 /* ---------- Endpoints (API reference ledger) ---------- */
