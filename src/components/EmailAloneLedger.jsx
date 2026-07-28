@@ -19,7 +19,7 @@ function EmailAloneLedger({ eyebrow, heading, paragraphs = [] }) {
         {heading && <h2 className="section-title">{heading}</h2>}
         {paragraphs.map((p, i) => <p className="section-subtitle eal-lead" key={i}>{p}</p>)}
 
-        <div className="eal">
+        <div className="eal keeps-own-width">
           <span className="eal-glow" aria-hidden="true" />
 
           <div className={`eal-ledger${merged ? ' is-merged' : ''}`}>

@@ -16,7 +16,7 @@ function LineUsageRings({ eyebrow, heading, paragraphs = [], caption, meters = [
 
         {caption && <span className="lud-caption">{caption}</span>}
 
-        <div className="lub">
+        <div className="lub keeps-own-width">
           {meters.map((m, i) => (
             <div className={m.pct >= 50 ? 'lub-row is-used' : 'lub-row'} key={m.name} style={{ '--d': `${i * 0.09}s` }}>
               <span className="lub-name">{m.name}</span>

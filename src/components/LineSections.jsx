@@ -141,7 +141,7 @@ export function CapabilitySpotlight({ eyebrow, title, subtitle, items, alt }) {
           {subtitle && <p className="ln-head-sub">{subtitle}</p>}
         </div>
 
-        <div className="ln-demo-stage">
+        <div className="ln-demo-stage keeps-own-width">
           <div className="ln-demo-phone">
             <span className="ln-demo-notch" aria-hidden="true" />
             <div className="ln-demo-screen">
