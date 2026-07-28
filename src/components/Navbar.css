@@ -32,7 +32,7 @@
 }
 
 .navbar-inner {
-  max-width: 1280px;
+  max-width: var(--container);
   margin: 0 auto;
   padding: 0.75rem 1.5rem;
   display: grid;
@@ -554,23 +554,17 @@
   }
 }
 
-/* Resources two-panel flyout with a dedicated Compare section */
+/* Resources flyout — one column; Compare is a single link to its parent page */
 .resources-mega {
   display: grid;
-  grid-template-columns: minmax(210px, 1fr) minmax(238px, 1fr);
-  gap: 0 1.1rem;
-  min-width: 528px;
+  grid-template-columns: minmax(250px, 1fr);
+  min-width: 288px;
   padding: calc(1rem + 4px) 1.1rem 1rem;
 }
 
 .resources-mega-panel {
   display: flex;
   flex-direction: column;
-}
-
-.resources-mega-panel--compare {
-  border-left: 1px solid var(--border);
-  padding-left: 1.1rem;
 }
 
 .resources-mega-eyebrow {
@@ -592,47 +586,10 @@
   gap: 0.1rem;
 }
 
-.compare-menu-link {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.45rem 0.5rem;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: background 0.15s ease;
-}
-
-.compare-menu-link:hover {
-  background: rgba(79, 91, 213, 0.08);
-}
-
-.compare-menu-logo.cmp-logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  box-shadow: none;
-}
-
-.compare-menu-logo.cmp-logo img { width: 17px; height: 17px; }
-.compare-menu-logo.cmp-logo--mono { font-size: 0.58rem; }
-
-.compare-menu-all {
-  margin-top: 0.4rem;
-  padding: 0.4rem 0.5rem;
-}
-
 @media (max-width: 900px) {
   .resources-mega {
     grid-template-columns: 1fr;
     min-width: 0;
     padding: 0.5rem 0 0;
-    gap: 0.75rem;
-  }
-
-  .resources-mega-panel--compare {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid var(--border);
-    padding-top: 0.75rem;
   }
 }

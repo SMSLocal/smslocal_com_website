@@ -23,7 +23,7 @@
   --agd-card-w: 460px;
   --agd-shift: 60%;
   position: relative;
-  max-width: 1180px;
+  max-width: var(--container);
   margin: 0 auto;
   display: flex;
   align-items: center;

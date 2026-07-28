@@ -23,7 +23,10 @@
   --success: #16a34a;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --container: 1180px;
+  /* Single sitewide content boundary. Must match the Tailwind `max-w-7xl`
+     (1280px) used by TopBar/Navbar/Footer/home sections so every page's
+     content aligns to one vertical line. Change here, not per-component. */
+  --container: 1280px;
   /* The real font stacks live under the same names the ported homepage's
      globals.css uses (--font-geist / --font-instrument, set by next/font
      there). --font-sans/--font-serif are aliases for the plain-CSS inner

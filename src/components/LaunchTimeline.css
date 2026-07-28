@@ -21,7 +21,7 @@
 /* ================= wrap ================= */
 .lnt-wrap {
   position: relative;
-  max-width: 1180px;
+  max-width: var(--container);
   margin: 0 auto;
 }
 

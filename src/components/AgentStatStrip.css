@@ -7,7 +7,7 @@
 .ash-head h2 { margin: 0.6rem 0 0; }
 
 .ash-console {
-  max-width: 1180px;
+  max-width: var(--container);
   margin: 0 auto;
   background: #fff;
   border: 1px solid var(--border);

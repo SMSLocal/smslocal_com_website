@@ -70,7 +70,7 @@
 
 /* Hero split (text left, visual right) */
 .hero-split-inner {
-  max-width: 1180px;
+  max-width: var(--container);
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 3rem;

@@ -1,5 +1,5 @@
 .wrap {
-  max-width: 1180px;
+  max-width: var(--container);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -660,7 +660,7 @@
 }
 
 .relatedWrap {
-  max-width: 1180px;
+  max-width: var(--container);
   margin: 0 auto 88px;
   padding: 0 24px;
 }

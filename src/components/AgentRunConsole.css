@@ -21,7 +21,7 @@
 /* ================= shell ================= */
 .arc-shell {
   position: relative;
-  max-width: 1180px;
+  max-width: var(--container);
   margin: 0 auto;
   border-radius: 20px;
   overflow: hidden;

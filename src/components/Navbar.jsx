@@ -6,7 +6,6 @@ import {
   IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCalendar, IconReceipt, IconCart, IconDollar,
   IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu,
 } from './icons.jsx'
-import { CompareLogo } from './CompareLogo.jsx'
 import BrandLogo from './BrandLogo.jsx'
 
 // A small static dot in place of the old chevron. Deliberately inert: it never
@@ -133,17 +132,11 @@ const PLATFORM = [
 ]
 
 const RESOURCES = [
+  { t: 'User Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
   { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog' },
   { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides' },
-  { t: 'Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
   { t: 'Case studies', d: 'Real customer results', i: <IconChart />, href: '/resources/case-studies' },
-]
-
-const COMPARE = [
-  { name: 'Twilio', domain: 'twilio.com', href: '/compare/twilio', d: 'Developer communications APIs' },
-  { name: 'Bird', domain: 'bird.com', href: '/compare/bird', d: 'Marketing & CX messaging' },
-  { name: 'Plivo', domain: 'plivo.com', href: '/compare/plivo', d: 'Communications APIs' },
-  { name: 'Infobip', domain: 'infobip.com', href: '/compare/infobip', d: 'Global omnichannel CPaaS' },
+  { t: 'Compare SMSLocal', d: 'SMSLocal vs Twilio, Bird & more', i: <IconGlobe />, href: '/compare' },
 ]
 
 // Every route reachable from each top-level menu, so a trigger can highlight
@@ -155,7 +148,7 @@ const MENU_ROUTES = {
   products: categoryRoutes(PRODUCT_CATEGORIES),
   platform: PLATFORM.map((i) => i.href),
   solutions: categoryRoutes(SOLUTION_CATEGORIES),
-  resources: [...RESOURCES.map((i) => i.href), ...COMPARE.map((c) => c.href), '/compare'],
+  resources: RESOURCES.map((i) => i.href),
 }
 
 // startsWith so nested pages count too — /blog/a-post lights up Resources, and
@@ -333,23 +326,6 @@ function Navbar() {
                         <li key={item.t}><ItemLink item={item} onNavigate={closeAll} /></li>
                       ))}
                     </ul>
-                  </div>
-                  <div className="resources-mega-panel resources-mega-panel--compare">
-                    <span className="resources-mega-eyebrow">Compare SMSLocal</span>
-                    <ul>
-                      {COMPARE.map((c) => (
-                        <li key={c.name}>
-                          <Link to={c.href} onClick={closeAll} className="compare-menu-link">
-                            <CompareLogo name={c.name} domain={c.domain} className="compare-menu-logo" />
-                            <span className="item-text">
-                              <span className="item-title">SMSLocal vs {c.name}</span>
-                              <span className="item-desc">{c.d}</span>
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link to="/compare" className="view-all compare-menu-all" onClick={closeAll}>See all comparisons →</Link>
                   </div>
                 </div>
               </div>
