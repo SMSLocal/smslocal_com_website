@@ -1,0 +1,108 @@
+/* Guides hero — a winding learning-path map. No card, no frame: the SVG
+   route and its HTML node overlays float directly on the page. */
+
+.gmap {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 460 / 400;
+  margin: 0 auto;
+}
+
+.gmap-stat {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 10px 22px -14px rgba(16, 35, 63, 0.35);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  z-index: 2;
+}
+.gmap-stat strong { color: var(--navy); }
+
+.gmap-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- nodes overlaid on the route ---- */
+.gmap-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.gmap-node-dot {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  box-shadow: 0 10px 22px -14px rgba(16, 35, 63, 0.35);
+  transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.gmap-node-dot svg { width: 17px; height: 17px; }
+
+.gmap-node-label {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  box-shadow: 0 6px 16px -12px rgba(16, 35, 63, 0.3);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.gmap-node.is-done .gmap-node-dot {
+  color: var(--success, #16a34a);
+  border-color: rgba(22, 163, 74, 0.3);
+}
+
+.gmap-node.is-active .gmap-node-dot {
+  color: #fff;
+  border-color: transparent;
+  background: var(--gradient-brand);
+  box-shadow: 0 14px 28px -12px rgba(79, 91, 213, 0.55);
+  transform: scale(1.14);
+}
+.gmap-node.is-active .gmap-node-label {
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ---- live step caption ---- */
+.gmap-progress {
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .gmap { max-width: 320px; }
+  .gmap-node-dot { width: 34px; height: 34px; }
+  .gmap-node-label { font-size: 0.62rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gmap-node-dot,
+  .gmap-node-label {
+    transition: none;
+  }
+}

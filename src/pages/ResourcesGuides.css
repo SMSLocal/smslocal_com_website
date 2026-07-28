@@ -55,108 +55,6 @@
   background: var(--cyan);
 }
 
-/* ---- Learning trail (non-container) ---- */
-.gd-trail {
-  position: relative;
-  min-height: 340px;
-  padding: 0.5rem 0 0.5rem 2.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.4rem;
-}
-
-.gd-trail-line {
-  position: absolute;
-  left: calc(2.75rem + 21px);
-  top: 14px;
-  bottom: 34px;
-  width: 2px;
-  background-image: linear-gradient(var(--border) 60%, transparent 0);
-  background-size: 2px 10px;
-  background-repeat: repeat-y;
-}
-
-.gd-trail-progress {
-  position: absolute;
-  left: calc(2.75rem + 16px);
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: linear-gradient(120deg, var(--blue), var(--cyan));
-  box-shadow: 0 0 0 6px rgba(79, 91, 213, 0.14);
-  animation: gd-travel 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-
-@keyframes gd-travel {
-  0%, 8%    { transform: translateY(0); }
-  30%, 38%  { transform: translateY(96px); }
-  58%, 66%  { transform: translateY(192px); }
-  86%, 100% { transform: translateY(288px); }
-}
-
-.gd-trail-stop {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.gd-trail-node {
-  width: 44px;
-  height: 44px;
-  flex: none;
-  border-radius: 14px;
-  background: #fff;
-  border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  box-shadow: 0 10px 24px -14px rgba(16, 35, 63, 0.35);
-  z-index: 1;
-}
-
-.gd-trail-ic {
-  display: grid;
-  place-items: center;
-  color: var(--blue);
-}
-
-.gd-trail-ic svg { width: 20px; height: 20px; }
-
-.gd-trail-stop-1 .gd-trail-ic { color: #8b5cf6; }
-.gd-trail-stop-2 .gd-trail-ic { color: var(--cyan); }
-.gd-trail-stop-3 .gd-trail-ic { color: var(--coral); }
-
-.gd-trail-chip {
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: var(--navy);
-}
-
-.gd-trail-flag {
-  position: absolute;
-  left: 2.75rem;
-  bottom: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  background: linear-gradient(120deg, var(--blue), var(--cyan));
-  box-shadow: 0 12px 26px -12px rgba(79, 91, 213, 0.6);
-  animation: gd-pop 6s ease-in-out infinite;
-}
-
-.gd-trail-flag svg { width: 20px; height: 20px; }
-
-@keyframes gd-pop {
-  0%, 82%   { transform: scale(1); }
-  88%       { transform: scale(1.18); }
-  94%, 100% { transform: scale(1); }
-}
-
 @media (max-width: 900px) {
   .gd-hero-inner { grid-template-columns: 1fr; }
   .gd-hero-copy .hero-actions,
@@ -165,7 +63,6 @@
   .gd-hero-copy { text-align: center; }
   .gd-hero-copy .hero-actions,
   .gd-hero-meta { justify-content: center; }
-  .gd-trail { max-width: 340px; margin: 0 auto; }
 }
 
 /* ---------- Tracks (railway rails) ---------- */
@@ -572,11 +469,3 @@
   .gd-anatomy-strip { grid-template-columns: 1fr; }
 }
 
-/* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .gd-trail-progress,
-  .gd-trail-flag {
-    animation: none;
-  }
-  .gd-trail-progress { top: 296px; }
-}

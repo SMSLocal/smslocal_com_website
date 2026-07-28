@@ -3,9 +3,10 @@ import Seo from '../components/Seo.jsx'
 import './ResourcesGuides.css'
 import { FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import GuideTrackPicker from '../components/GuideTrackPicker.jsx'
+import GuidesMapHero from '../components/GuidesMapHero.jsx'
 import {
   IconRocket, IconChat, IconRobot, IconBrain, IconCode, IconCheck,
-  IconBook, IconClock, IconBolt, IconPencil, IconPlug,
+  IconBook, IconClock, IconPencil,
 } from '../components/icons.jsx'
 
 /* ---- Learning tracks (railway rails) ---- */
@@ -113,23 +114,7 @@ function ResourcesGuides() {
             </div>
           </div>
 
-          {/* Non-container animated learning trail */}
-          <div className="gd-trail" aria-hidden="true">
-            <span className="gd-trail-line" />
-            <span className="gd-trail-progress" />
-            {[
-              { ic: <IconPlug />, label: 'Connect a channel' },
-              { ic: <IconBolt />, label: 'Configure a sender' },
-              { ic: <IconRobot />, label: 'Build a flow' },
-              { ic: <IconRocket />, label: 'Go live' },
-            ].map((n, i) => (
-              <div className={`gd-trail-stop gd-trail-stop-${i}`} key={n.label}>
-                <span className="gd-trail-node"><span className="gd-trail-ic">{n.ic}</span></span>
-                <span className="gd-trail-chip">{n.label}</span>
-              </div>
-            ))}
-            <span className="gd-trail-flag gd-trail-flag-done"><IconCheck /></span>
-          </div>
+          <GuidesMapHero />
         </div>
       </section>
 
