@@ -30,6 +30,21 @@
   height: 100%;
 }
 
+/* ---- the travelling marker — plain HTML, positioned by the same %
+   coordinates as the node it's currently at, so it can never desync from
+   the highlight below ---- */
+.gmap-marker {
+  position: absolute;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 0 5px rgba(79, 91, 213, 0.16);
+  transform: translate(-50%, -50%);
+  transition: left 1.6s ease, top 1.6s ease;
+}
+
 /* ---- nodes overlaid on the route ---- */
 .gmap-node {
   position: absolute;
@@ -102,7 +117,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .gmap-node-dot,
-  .gmap-node-label {
+  .gmap-node-label,
+  .gmap-marker {
     transition: none;
   }
 }

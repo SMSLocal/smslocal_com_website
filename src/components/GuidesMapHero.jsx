@@ -75,10 +75,17 @@ function GuidesMapHero() {
         {/* the full route is always drawn — no guessed arc-length reveal that
             could stop short of the last node */}
         <path d={PATH_D} fill="none" stroke="url(#gmap-line)" strokeWidth="3" strokeLinecap="round" opacity="0.9" />
-        <circle r="6" fill="var(--blue)">
-          <animateMotion dur={`${LOOP_MS / 1000}s`} repeatCount="indefinite" path={PATH_D} />
-        </circle>
       </svg>
+
+      {/* Driven by the exact same `active` state as the node highlight below
+          — not an independent SMIL timeline (animateMotion), which runs on
+          its own clock outside React and has no guarantee of staying in
+          sync, or of playing at all in every browser. One state, one thing
+          moving because of it. */}
+      <span
+        className="gmap-marker"
+        style={{ left: `${NODES[active].x}%`, top: `${NODES[active].y}%` }}
+      />
 
       {NODES.map((n, i) => (
         <div
