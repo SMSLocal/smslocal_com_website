@@ -1,0 +1,67 @@
+/* "Why SMSLocal" — 3-column block with icon badges, replicated from
+   acepeak.com/pricing's "Why Acepeak" section. Vertical dividers between
+   columns (horizontal on mobile), no card fills. */
+
+.pwhy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: 2.6rem auto 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pwhy-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 2.2rem 1.8rem;
+  text-align: left;
+}
+
+.pwhy-item + .pwhy-item {
+  border-top: 1px solid var(--border);
+}
+
+.pwhy-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  border: 1px solid;
+}
+
+.pwhy-icon svg { width: 20px; height: 20px; }
+
+.pwhy-icon--primary { background: rgba(79, 91, 213, 0.1); color: var(--blue); border-color: rgba(79, 91, 213, 0.25); }
+.pwhy-icon--teal { background: rgba(20, 184, 166, 0.1); color: var(--teal); border-color: rgba(20, 184, 166, 0.25); }
+.pwhy-icon--coral { background: rgba(251, 113, 133, 0.1); color: var(--coral); border-color: rgba(251, 113, 133, 0.25); }
+
+.pwhy-title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+.pwhy-body {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 641px) {
+  .pwhy-item + .pwhy-item {
+    border-top: 0;
+    border-left: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 640px) {
+  .pwhy-grid { grid-template-columns: 1fr; }
+}

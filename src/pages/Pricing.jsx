@@ -1,125 +1,171 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import BundlePriceHero from '../components/BundlePriceHero.jsx'
-import PricingTrustBar from '../components/PricingTrustBar.jsx'
-import PlanIncludesShowcase from '../components/PlanIncludesShowcase.jsx'
+import PricingTrialCard from '../components/PricingTrialCard.jsx'
 import PricingTiers from '../components/PricingTiers.jsx'
-import PricingCompare from '../components/PricingCompare.jsx'
-import { IconChat, IconRobot, IconUsers, IconChart } from '../components/icons.jsx'
-
-// NOTE: All prices, allowances and limits below are PLACEHOLDERS to confirm.
-const TRUST = [
-  { value: '1', label: 'Plan family', desc: 'One transparent bundle — not a maze of add-ons and modules.' },
-  { value: '6+', label: 'Channels included', desc: 'WhatsApp, RCS, SMS, voice, email and social in every tier.' },
-  { value: '$0', label: 'Setup & hidden fees', desc: 'No onboarding charge, no per-channel surcharge, no surprises.' },
-  { value: '14-day', label: 'Free trial', desc: 'Run the full platform before a card is ever required.' },
-]
-
-const INCLUDED = [
-  {
-    label: 'Every channel',
-    icon: <IconChat />,
-    items: ['WhatsApp Business', 'RCS business messaging', 'SMS & OTP', 'Voice', 'Email', 'Instagram, Messenger & social'],
-  },
-  {
-    label: 'Agentic AI',
-    icon: <IconRobot />,
-    items: ['The AI agent, on by default', 'Natural-language understanding', 'Autonomous actions & tools', 'Human handoff when needed'],
-  },
-  {
-    label: 'Teamwork',
-    icon: <IconUsers />,
-    items: ['Shared omnichannel inbox', 'Broadcasting & campaigns', 'Roles & assignment', 'Notes & collaboration'],
-  },
-  {
-    label: 'Scale & insight',
-    icon: <IconChart />,
-    items: ['Analytics & reporting', 'Integrations & open API', 'Contact management', 'Templates & automations'],
-  },
-]
+import PricingCompareAccordion from '../components/PricingCompareAccordion.jsx'
+import PricingWhyUs from '../components/PricingWhyUs.jsx'
+import { IconChat, IconBolt, IconRocket, IconBriefcase } from '../components/icons.jsx'
 
 // Placeholder USD tiers — confirm before publishing.
 const PLANS = [
   {
     name: 'Starter',
-    tagline: 'Everything to get going, free forever.',
-    price: '$0',
-    period: '/mo',
-    cta: 'Start Free',
+    icon: <IconChat />,
+    accent: 'teal',
+    tagline: 'Everything to get going, no contracts.',
+    bestFor: 'Solo founders and small teams who want a real messaging setup without a sales call.',
+    fitTag: 'No contracts',
+    price: '$10',
+    annualPrice: '$10',
+    period: 'min. purchase',
+    billedNote: '$0.0822 per SMS · United States',
+    cta: 'Get Started',
     href: '/signup',
+    // Every tier lists the FULL set of what you get (not "everything in X,
+    // plus"), so the ladder of value is visible at a glance. `upgrade: true`
+    // marks what improves versus the tier below it.
     features: [
       'Agentic AI agent included',
       'All channels: WhatsApp, RCS, SMS, voice, email, social',
       'Shared team inbox',
       'Up to 500 conversations / mo',
       '1 team seat',
+      'Contact management',
+      'Delivery tracking',
       'Community support',
     ],
   },
   {
     name: 'Growth',
+    icon: <IconBolt />,
+    accent: 'primary',
     tagline: 'For teams turning conversations into revenue.',
-    price: '$49',
-    period: '/mo',
+    bestFor: 'Growing teams running broadcasts and campaigns who need more seats and standard analytics.',
+    fitTag: '5 team seats',
+    price: '$25',
+    annualPrice: '$25',
+    period: 'min. purchase',
+    billedNote: '$0.0822 per SMS · United States',
     highlighted: true,
-    cta: 'Start Free Trial',
+    cta: 'Get Started',
     href: '/signup',
     features: [
-      'Everything in Starter',
-      '2,500 conversations / mo',
-      '5 team seats',
-      'Broadcasting & campaigns',
-      'Standard analytics',
-      'Email support',
+      'Agentic AI agent included',
+      'All channels: WhatsApp, RCS, SMS, voice, email, social',
+      'Shared team inbox',
+      { label: '2,500 conversations / mo', upgrade: true },
+      { label: '5 team seats', upgrade: true },
+      'Contact management',
+      'Delivery tracking',
+      { label: 'Broadcasting & campaigns', upgrade: true },
+      { label: 'Standard analytics', upgrade: true },
+      { label: 'Email support', upgrade: true },
     ],
   },
   {
     name: 'Scale',
+    icon: <IconRocket />,
+    accent: 'coral',
     tagline: 'High volume, deeper insight, priority care.',
-    price: '$199',
-    period: '/mo',
-    cta: 'Start Free Trial',
+    bestFor: 'High-volume teams that need advanced analytics, custom AI training and priority support.',
+    fitTag: '20 team seats',
+    price: '$50',
+    annualPrice: '$50',
+    period: 'min. purchase',
+    billedNote: '$0.0822 per SMS · United States',
+    cta: 'Get Started',
     href: '/signup',
     features: [
-      'Everything in Growth',
-      '15,000 conversations / mo',
-      '20 team seats',
-      'Advanced analytics & exports',
-      'Custom agent training',
-      'Priority support',
+      'Agentic AI agent included',
+      'All channels: WhatsApp, RCS, SMS, voice, email, social',
+      'Shared team inbox',
+      { label: '15,000 conversations / mo', upgrade: true },
+      { label: '20 team seats', upgrade: true },
+      'Contact management',
+      'Delivery tracking',
+      'Broadcasting & campaigns',
+      { label: 'Advanced analytics & exports', upgrade: true },
+      { label: 'Custom agent training', upgrade: true },
+      { label: 'Integrations & open API', upgrade: true },
+      { label: 'Priority support', upgrade: true },
     ],
   },
   {
     name: 'Enterprise',
+    icon: <IconBriefcase />,
+    accent: 'dark',
     tagline: 'Unlimited scale, security and a team behind you.',
+    bestFor: 'Large teams that need SSO, unlimited seats and a dedicated success manager.',
+    fitTag: 'Unlimited seats',
     price: 'Custom',
+    annualPrice: 'Custom',
     period: '',
+    billedNote: 'Get a custom bulk SMS quote',
     cta: 'Contact Sales',
     href: '/contact-us',
     features: [
-      'Everything in Scale',
-      'Unlimited conversations',
-      'Unlimited seats',
-      'SSO & advanced security',
-      'Dedicated success manager',
-      'SLA-backed support',
+      'Agentic AI agent included',
+      'All channels: WhatsApp, RCS, SMS, voice, email, social',
+      'Shared team inbox',
+      { label: 'Unlimited conversations', upgrade: true },
+      { label: 'Unlimited team seats', upgrade: true },
+      'Contact management',
+      'Delivery tracking',
+      'Broadcasting & campaigns',
+      'Advanced analytics & exports',
+      'Custom agent training',
+      'Integrations & open API',
+      { label: 'SSO & advanced security', upgrade: true },
+      { label: 'Dedicated success manager', upgrade: true },
+      { label: 'SLA-backed support', upgrade: true },
     ],
   },
 ]
 
-const TIER_ROWS = [
-  { feature: 'Agentic AI agent', col1: true, col2: true, col3: true },
-  { feature: 'All channels (WhatsApp, RCS, SMS, voice, email, social)', col1: true, col2: true, col3: true },
-  { feature: 'Shared omnichannel inbox', col1: true, col2: true, col3: true },
-  { feature: 'Broadcasting & campaigns', col1: true, col2: true, col3: true },
-  { feature: 'Included conversations / mo', col1: '2,500', col2: '15,000', col3: 'Custom' },
-  { feature: 'Team seats', col1: '5', col2: '20', col3: 'Unlimited' },
-  { feature: 'Analytics & reporting', col1: 'Standard', col2: 'Advanced', col3: 'Advanced + export' },
-  { feature: 'Integrations & open API', col1: true, col2: true, col3: true },
-  { feature: 'Custom AI agent training', col1: false, col2: true, col3: true },
-  { feature: 'SSO & advanced security', col1: false, col2: false, col3: true },
-  { feature: 'Dedicated success manager', col1: false, col2: false, col3: true },
-  { feature: 'Support', col1: 'Email', col2: 'Priority', col3: 'SLA-backed' },
+// Four columns: Starter, Growth, Scale, Enterprise — grouped into categories,
+// modelled on acepeak.com/pricing's collapsible side-by-side compare table.
+const COMPARE_CATEGORIES = [
+  {
+    label: 'Channels & messaging',
+    rows: [
+      { feature: 'WhatsApp, RCS, SMS & OTP', col1: true, col2: true, col3: true, col4: true },
+      { feature: 'Voice, email & social channels', col1: true, col2: true, col3: true, col4: true },
+      { feature: 'Broadcasting & campaigns', col1: false, col2: true, col3: true, col4: true },
+      { feature: 'Included conversations / mo', col1: '500', col2: '2,500', col3: '15,000', col4: 'Custom' },
+    ],
+  },
+  {
+    label: 'AI & automation',
+    rows: [
+      { feature: 'Agentic AI agent', col1: true, col2: true, col3: true, col4: true },
+      { feature: 'Natural-language understanding & tools', col1: true, col2: true, col3: true, col4: true },
+      { feature: 'Custom AI agent training', col1: false, col2: false, col3: true, col4: true },
+    ],
+  },
+  {
+    label: 'Team & inbox',
+    rows: [
+      { feature: 'Shared omnichannel inbox', col1: true, col2: true, col3: true, col4: true },
+      { feature: 'Team seats', col1: '1', col2: '5', col3: '20', col4: 'Unlimited' },
+      { feature: 'Roles & assignment', col1: false, col2: true, col3: true, col4: true },
+    ],
+  },
+  {
+    label: 'Analytics & integrations',
+    rows: [
+      { feature: 'Analytics & reporting', col1: 'Basic', col2: 'Standard', col3: 'Advanced', col4: 'Advanced + export' },
+      { feature: 'Integrations & open API', col1: false, col2: true, col3: true, col4: true },
+    ],
+  },
+  {
+    label: 'Security & support',
+    rows: [
+      { feature: 'SSO & advanced security', col1: false, col2: false, col3: false, col4: true },
+      { feature: 'Dedicated success manager', col1: false, col2: false, col3: false, col4: true },
+      { feature: 'Support', col1: 'Community', col2: 'Email', col3: 'Priority', col4: 'SLA-backed' },
+    ],
+  },
 ]
 
 const FAQS = [
@@ -156,15 +202,7 @@ function Pricing() {
         visual={<BundlePriceHero />}
       />
 
-      <PricingTrustBar items={TRUST} />
-
-      <PlanIncludesShowcase
-        eyebrow="Every plan includes"
-        title={<>The same full platform in every tier</>}
-        subtitle="Tiers change your volume, seats and support — never which channels or capabilities you get. Even the free plan runs the whole stack."
-        ribbon={<>One price &middot; every capability &middot; even on Free</>}
-        groups={INCLUDED}
-      />
+      <PricingTrialCard />
 
       <PricingTiers
         title="One plan family. Four sizes."
@@ -172,13 +210,16 @@ function Pricing() {
         plans={PLANS}
       />
 
-      <PricingCompare
-        eyebrow="Plan by plan"
-        title="What changes as you scale"
-        subtitle="The platform is identical across tiers — these are the volume, seat and support differences between the paid plans."
-        colLabels={['Growth', 'Scale', 'Enterprise']}
-        rows={TIER_ROWS}
+      <PricingCompareAccordion
+        eyebrow="Side-by-side"
+        title="Compare every feature, side by side."
+        subtitle="Every plan, every category, no fine print hidden in a footer."
+        colLabels={['Starter', 'Growth', 'Scale', 'Enterprise']}
+        priceLabels={['$10 min.', '$25 min.', '$50 min.', 'Talk to sales']}
+        categories={COMPARE_CATEGORIES}
       />
+
+      <PricingWhyUs />
 
       <CTABanner
         title="Start free, upgrade when you're ready"

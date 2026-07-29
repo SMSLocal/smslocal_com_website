@@ -1,11 +1,64 @@
-/* Premium pricing ladder for /pricing. Light throughout; premium via depth. */
+/* Pricing tiers for /pricing — card anatomy replicated from
+   acepeak.com/pricing, themed in this project's own tokens. */
+
+.ptiers-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  margin: 1.8rem auto 0;
+  padding: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.ptiers-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  height: 46px;
+  padding: 0 1.3rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.ptiers-toggle-btn.is-active {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(15, 23, 42, 0.35);
+}
+
+.ptiers-toggle-save {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: #ffd166;
+}
+
+/* ---- card grid ---- */
 
 .ptiers {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.4rem;
-  max-width: 1140px;
-  margin: 3.2rem auto 0;
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 3rem auto 0;
   align-items: stretch;
 }
 
@@ -13,202 +66,240 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 2rem 1.7rem;
+  border-radius: 24px;
+  padding: 1.8rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* ---- free tier: deliberately plain, airy, quiet ---- */
-.ptier--free {
-  background: transparent;
-  border-color: var(--border);
+.ptier:hover { transform: translateY(-4px); }
+
+.ptier--pop {
+  border-color: color-mix(in srgb, var(--blue) 45%, var(--border));
+  box-shadow: 0 30px 60px -30px rgba(79, 91, 213, 0.35);
 }
 
-/* ---- paid tiers: escalating polish via gradient ring + elevation ---- */
-.ptier--popular,
-.ptier--premium,
-.ptier--top {
-  border: 0;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(150deg, var(--blue), var(--cyan)) border-box;
-  border: 2px solid transparent;
-}
-
-.ptier--popular { box-shadow: 0 26px 50px -28px rgba(79, 91, 213, 0.45); }
-.ptier--premium {
-  box-shadow: 0 30px 58px -28px rgba(79, 91, 213, 0.5);
-  transform: translateY(-6px);
-}
-.ptier--top {
-  box-shadow: 0 36px 70px -30px rgba(79, 91, 213, 0.55);
-  transform: translateY(-10px);
-}
-
-/* soft gradient glow behind the top tier only */
-.ptier--top::after {
+.ptier--pop::before {
   content: '';
   position: absolute;
-  inset: -14px -8px -18px;
-  border-radius: 30px;
-  background: linear-gradient(150deg, rgba(79, 91, 213, 0.22), rgba(236, 72, 153, 0.18));
-  filter: blur(26px);
-  z-index: -1;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(80% 50% at 50% 0%, rgba(79, 91, 213, 0.08), transparent 60%);
 }
 
-/* ---- flag ribbon ---- */
+.ptier > * { position: relative; z-index: 1; }
+
 .ptier-flag {
   position: absolute;
-  top: -0.85rem;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 0.66rem;
+  z-index: 2;
+  right: 1.15rem;
+  top: 1.15rem;
+  font-size: 0.6rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  padding: 0.34rem 0.85rem;
+  background: var(--gradient-brand);
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
-  box-shadow: 0 10px 20px -10px rgba(79, 91, 213, 0.7);
 }
 
-.ptier-flag--top {
-  background: #fff;
-  color: var(--blue);
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(135deg, var(--blue), var(--cyan)) border-box;
+/* ---- icon badge, per-accent color ---- */
+
+.ptier-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  border: 1px solid;
 }
+
+.ptier-icon svg { width: 20px; height: 20px; }
+
+.ptier--teal .ptier-icon { background: rgba(20, 184, 166, 0.1); color: var(--teal); border-color: rgba(20, 184, 166, 0.25); }
+.ptier--primary .ptier-icon { background: rgba(79, 91, 213, 0.1); color: var(--blue); border-color: rgba(79, 91, 213, 0.25); }
+.ptier--coral .ptier-icon { background: rgba(251, 113, 133, 0.1); color: var(--coral); border-color: rgba(251, 113, 133, 0.25); }
+.ptier--dark .ptier-icon { background: var(--ink); color: #fff; border-color: var(--ink); }
 
 /* ---- head ---- */
-.ptier-head { min-height: 3.9rem; }
 
 .ptier-name {
-  margin: 0 0 0.35rem;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.01em;
+  margin: 1rem 0 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.55rem;
+  color: var(--ink);
 }
 
 .ptier-tag {
-  margin: 0;
+  margin: 0.4rem 0 0;
   font-size: 0.8rem;
-  line-height: 1.45;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
 /* ---- price ---- */
+
+.ptier-price-block { margin: 1.3rem 0 0; }
+
 .ptier-price {
-  margin: 1.1rem 0 1.3rem;
+  margin: 0;
   display: flex;
   align-items: baseline;
   gap: 0.3rem;
 }
 
 .ptier-amount {
-  font-size: 2.7rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: var(--navy);
+  color: var(--ink);
 }
 
 .ptier-period {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
 }
 
-/* paid tiers get a gradient price; free stays plain navy (simplicity) */
-.ptier--popular .ptier-amount,
-.ptier--premium .ptier-amount,
-.ptier--top .ptier-amount {
-  background: linear-gradient(120deg, var(--blue), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.ptier-billed {
+  margin-top: 0.4rem;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
 }
+
+/* ---- fit tag pill ---- */
+
+.ptier-fittag {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: 0.9rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ptier--teal .ptier-fittag { color: var(--teal); border-color: rgba(20, 184, 166, 0.3); background: rgba(20, 184, 166, 0.08); }
+.ptier--primary .ptier-fittag { color: var(--blue); border-color: rgba(79, 91, 213, 0.3); background: rgba(79, 91, 213, 0.08); }
+.ptier--coral .ptier-fittag { color: var(--coral); border-color: rgba(251, 113, 133, 0.3); background: rgba(251, 113, 133, 0.08); }
+.ptier--dark .ptier-fittag { color: var(--ink); border-color: var(--border); background: var(--bg-subtle); }
 
 /* ---- CTA ---- */
+
 .ptier-cta {
-  display: block;
-  text-align: center;
-  padding: 0.72rem 1rem;
-  border-radius: 12px;
-  font-size: 0.88rem;
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  height: 42px;
+  border-radius: 999px;
+  font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.ptier-cta--ghost {
-  color: var(--navy);
   border: 1.5px solid var(--border);
+  color: var(--ink);
   background: #fff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
-.ptier-cta--ghost:hover { border-color: var(--blue); color: var(--blue); }
 
-.ptier-cta--solid {
+.ptier-cta:hover { background: var(--bg-subtle); }
+
+.ptier--pop .ptier-cta,
+.ptier--dark .ptier-cta {
+  border-color: transparent;
   color: #fff;
-  border: 1.5px solid transparent;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  box-shadow: 0 14px 26px -14px rgba(79, 91, 213, 0.7);
 }
-.ptier-cta--solid:hover {
+
+.ptier--pop .ptier-cta { background: var(--gradient-brand); }
+.ptier--dark .ptier-cta { background: var(--ink); }
+
+.ptier--pop .ptier-cta:hover,
+.ptier--dark .ptier-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 34px -14px rgba(79, 91, 213, 0.8);
+  box-shadow: 0 16px 28px -14px rgba(79, 91, 213, 0.6);
+}
+
+/* ---- best-for line ---- */
+
+.ptier-bestfor {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.ptier-bestfor strong {
+  font-style: normal;
+  color: var(--navy);
+}
+
+/* ---- "everything in X, plus" chip ---- */
+
+.ptier-plus {
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
 /* ---- features ---- */
+
 .ptier-feats {
   list-style: none;
-  margin: 1.6rem 0 0;
-  padding: 1.5rem 0 0;
-  border-top: 1px solid var(--border);
+  margin: 0.9rem 0 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.6rem;
 }
 
 .ptier-feat {
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.85rem;
-  line-height: 1.45;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* what this tier improves on the one below it — carried by weight/colour so
+   the value ladder is visible without adding another chip or badge */
+.ptier-feat.is-upgrade {
+  font-weight: 700;
   color: var(--navy);
 }
 
 .ptier-check {
   flex: none;
-  width: 18px;
-  height: 18px;
-  margin-top: 0.05rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--blue), var(--cyan));
-  color: #fff;
+  width: 15px;
+  height: 15px;
+  margin-top: 0.1rem;
+  color: var(--teal);
 }
 
-.ptier-check svg { width: 10px; height: 10px; }
+.ptier-check svg { width: 15px; height: 15px; }
 
-/* free tier: quieter check to read as simple */
-.ptier--free .ptier-check {
-  background: rgba(16, 35, 63, 0.06);
-  color: var(--navy);
-}
+.ptier--pop .ptier-check { color: var(--blue); }
+.ptier--coral .ptier-check { color: var(--coral); }
 
 @media (max-width: 1000px) {
-  .ptiers { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.4rem; }
-  .ptier--premium, .ptier--top { transform: none; }
-  .ptier--top::after { display: none; }
+  .ptiers { grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+  .ptier:hover { transform: none; }
 }
 
 @media (max-width: 560px) {
