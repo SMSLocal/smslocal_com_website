@@ -60,12 +60,12 @@ const CHAPTERS = [
 
 /* ---- Popular guides (ranked) ---- */
 const POPULAR = [
-  { title: 'Set up the WhatsApp Business API', desc: 'Connect a number, verify your business and send your first template.', level: 'Intermediate', time: '12 min', href: '/channels/whatsapp' },
-  { title: 'Send SMS from your own backend', desc: 'Authenticate, POST a message and read the response — in cURL, Node or Python.', level: 'Developer', time: '8 min', href: '/sms-api' },
-  { title: 'Build a chatbot flow that converts', desc: 'Branch on replies, collect input and route to the right answer.', level: 'Intermediate', time: '15 min', href: '/chatbot/builder' },
-  { title: 'Launch an RCS broadcast campaign', desc: 'Rich cards, carousels and suggested replies on Android — step by step.', level: 'Intermediate', time: '10 min', href: '/channels/rcs' },
-  { title: 'Deploy your first AI agent', desc: 'Connect a knowledge source, set guardrails and go live in a sandbox first.', level: 'Advanced', time: '18 min', href: '/ai-agents/agent-builder' },
-  { title: 'Handle delivery receipts with webhooks', desc: 'Receive real-time status events and inbound replies at your endpoint.', level: 'Developer', time: '9 min', href: '/resources/docs' },
+  { title: 'Set up the WhatsApp Business API', desc: 'Connect a number, verify your business and send your first template.', level: 'Intermediate', time: '12 min', reads: 18400, href: '/channels/whatsapp' },
+  { title: 'Send SMS from your own backend', desc: 'Authenticate, POST a message and read the response — in cURL, Node or Python.', level: 'Developer', time: '8 min', reads: 15200, href: '/resources/docs' },
+  { title: 'Build a chatbot flow that converts', desc: 'Branch on replies, collect input and route to the right answer.', level: 'Intermediate', time: '15 min', reads: 11850, href: '/ai-agents/agent-builder' },
+  { title: 'Launch an RCS broadcast campaign', desc: 'Rich cards, carousels and suggested replies on Android — step by step.', level: 'Intermediate', time: '10 min', reads: 8300, href: '/channels/rcs' },
+  { title: 'Deploy your first AI agent', desc: 'Connect a knowledge source, set guardrails and go live in a sandbox first.', level: 'Advanced', time: '18 min', reads: 6900, href: '/ai-agents/agent-builder' },
+  { title: 'Handle delivery receipts with webhooks', desc: 'Receive real-time status events and inbound replies at your endpoint.', level: 'Developer', time: '9 min', reads: 5100, href: '/resources/docs' },
 ]
 
 /* ---- What's inside every guide ---- */
@@ -182,22 +182,29 @@ function ResourcesGuides() {
           <p className="section-subtitle">A good place to start if you’re not sure where to.</p>
 
           <div className="gd-rank-list">
-            {POPULAR.map((g, i) => (
-              <Link to={g.href} className="gd-rank" key={g.title}>
-                <span className="gd-rank-num">{String(i + 1).padStart(2, '0')}</span>
-                <span className="gd-rank-body">
-                  <span className="gd-rank-title">{g.title}</span>
-                  <span className="gd-rank-desc">{g.desc}</span>
-                </span>
-                <span className="gd-rank-meta">
-                  <span className="gd-rank-level">{g.level}</span>
-                  <span className="gd-rank-time"><IconClock /> {g.time}</span>
-                </span>
-                <span className="gd-rank-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                </span>
-              </Link>
-            ))}
+            {POPULAR.map((g, i) => {
+              const pct = Math.round((g.reads / POPULAR[0].reads) * 100)
+              return (
+                <Link to={g.href} className="gd-rank" key={g.title}>
+                  <span className="gd-rank-stat">
+                    <span className="gd-rank-reads">{g.reads.toLocaleString()}</span>
+                    <span className="gd-rank-reads-label">reads this month</span>
+                    <span className="gd-rank-bar"><span className="gd-rank-bar-fill" style={{ width: `${pct}%` }} /></span>
+                  </span>
+                  <span className="gd-rank-body">
+                    <span className="gd-rank-title">{g.title}</span>
+                    <span className="gd-rank-desc">{g.desc}</span>
+                  </span>
+                  <span className="gd-rank-meta">
+                    <span className="gd-rank-level">{g.level}</span>
+                    <span className="gd-rank-time"><IconClock /> {g.time}</span>
+                  </span>
+                  <span className="gd-rank-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                  </span>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
