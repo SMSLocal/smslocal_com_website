@@ -41,7 +41,7 @@ function About() {
     <>
       <Seo
         title="About SMSLocal — Our Story and Our Mission"
-        description="SMSLocal is one platform for SMS, WhatsApp, RCS and more, plus no-code chatbots and agentic AI agents. Learn our story, values and what we're building next."
+        description="SMSLocal is one platform for SMS, WhatsApp, RCS and more, plus no-code chatbots and agentic AI. Learn our story, values and what we're building next."
       />
 
       <Hero

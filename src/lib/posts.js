@@ -419,7 +419,7 @@ export const posts = [
     date: "Jul 09, 2026",
     readTime: "4 min read",
     excerpt:
-      "See how a shared inbox for text replies cuts first-response time, resolves tickets without a phone call, and boosts customer satisfaction for support teams.",
+      "See how a shared inbox for text replies cuts first-response time, resolves support tickets faster, and boosts customer satisfaction for teams.",
     dek: "See how a shared inbox for text replies cuts response times, resolves issues faster, and boosts customer satisfaction scores.",
     author: authors.sarah,
     tags: ["Two-Way Messaging", "Support"],
@@ -610,7 +610,7 @@ export const posts = [
     date: "Jun 22, 2026",
     readTime: "6 min read",
     excerpt:
-      "A practical walkthrough of SMSLocal's REST API and pre-built integrations for CRM, helpdesk, and e-commerce tools — most teams are sending within the hour.",
+      "A practical walkthrough of the REST API and pre-built integrations for CRM, helpdesk, and e-commerce tools most teams adopt within the hour.",
     dek: "A practical walkthrough of the REST API and pre-built integrations for e-commerce and helpdesk tools — no custom backend required.",
     author: authors.sarah,
     tags: ["API", "Integrations", "Developers"],

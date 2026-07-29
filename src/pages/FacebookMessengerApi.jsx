@@ -65,7 +65,7 @@ function FacebookMessengerApi() {
     <>
       <Seo
         title="Facebook Messenger API & Chat Automation"
-        description="Automate Facebook Messenger conversations with our Messenger API. Send, receive and route conversations for support and sales, all from one shared inbox."
+        description="Automate Facebook Messenger conversations with our Messenger API. Send, receive and route conversations for support and sales from one shared inbox."
         keywords={['Facebook Messenger API', 'Messenger API', 'Messenger automation', 'Facebook Messenger business messaging', 'Messenger inbox API']}
       />
 

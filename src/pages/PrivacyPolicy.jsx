@@ -35,7 +35,7 @@ function PrivacyPolicy() {
     <>
       <Seo
         title="SMSLocal Privacy Policy & Data Practices"
-        description="Read SMSLocal's Privacy Policy to learn what personal, sensitive and anonymous data we collect, how we use and protect it, and the privacy rights you have."
+        description="Read SMSLocal's Privacy Policy to learn what personal, sensitive and anonymous data we collect, how we use and protect it, and your privacy rights."
       />
 
       <section className="section privacy-section">

@@ -43,7 +43,7 @@ function AiAgentsSupport() {
     <>
       <Seo
         title="AI Support Agent for Ticket Deflection Work"
-        description="Deflect and resolve tier-one questions with an AI support agent that reads your help centre, replies on every channel and escalates the rest with context."
+        description="Deflect and resolve tier-one questions with an AI agent that reads your help centre, replies on every channel and escalates the rest with context."
         keywords={['AI support agent', 'tier-one ticket deflection', 'AI helpdesk agent', 'support ticket automation']}
       />
 

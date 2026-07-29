@@ -4,6 +4,35 @@
 
 .prate-section .container { text-align: center; }
 
+.prate-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 2rem;
+  text-align: left;
+}
+
+.prate-head-left .section-kicker,
+.prate-head-left .section-title {
+  text-align: left;
+  margin-left: 0;
+}
+
+.prate-head-right {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .prate-head {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+}
+
 .prate {
   max-width: 780px;
   margin: 2.6rem auto 0;

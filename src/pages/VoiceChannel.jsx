@@ -33,7 +33,7 @@ function VoiceChannel() {
     <>
       <Seo
         title="Cloud Voice Calling for Every Business Team"
-        description="Programmable inbound and outbound voice with IVR, smart routing, click-to-call, recording, SIP and global numbers, on the same platform as your messaging."
+        description="Programmable inbound and outbound voice with IVR, smart routing, click-to-call, recording, SIP and global numbers, on the same platform as messaging."
         keywords={['cloud voice calling', 'voice API', 'programmable voice', 'IVR', 'call routing', 'click to call', 'call recording', 'SIP trunking', 'business phone numbers']}
       />
 

@@ -46,11 +46,15 @@ function PricingRateCalculator() {
   return (
     <section className="section prate-section">
       <div className="container">
-        <span className="section-kicker">SMS rate calculator</span>
-        <h2 className="section-title">See exactly what you pay, before you pay it</h2>
-        <p className="section-subtitle">
-          Pick a country and currency, then see the live rate and how many messages your budget buys.
-        </p>
+        <div className="prate-head">
+          <div className="prate-head-left">
+            <span className="section-kicker">SMS rate calculator</span>
+            <h2 className="section-title">See exactly what you pay, before you pay it</h2>
+          </div>
+          <p className="prate-head-right">
+            Pick a country and currency, then see the live rate and how many messages your budget buys.
+          </p>
+        </div>
 
         <div className="prate">
           <div className="prate-controls">

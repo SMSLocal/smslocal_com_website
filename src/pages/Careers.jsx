@@ -27,7 +27,7 @@ function Careers() {
     <>
       <Seo
         title="Careers at SMSLocal — Join Our Growing Team"
-        description="Join the team building SMSLocal's messaging, chatbot and agentic AI platform. We're remote-friendly, fast-moving and customer-obsessed — see our open teams."
+        description="Join the team building SMSLocal's messaging, chatbot and agentic AI platform. We're remote-friendly, fast-moving and customer-obsessed — see open teams."
       />
 
       <Hero

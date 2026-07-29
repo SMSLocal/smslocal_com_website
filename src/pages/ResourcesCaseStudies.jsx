@@ -110,7 +110,7 @@ function ResourcesCaseStudies() {
     <>
       <Seo
         title="Customer Case Studies & Success Stories"
-        description="Real results from teams running messaging, chatbots and AI agents on SMSLocal — see how ecommerce, healthcare, fintech and logistics teams cut response times."
+        description="Real results from teams running messaging, chatbots and AI agents on SMSLocal — see how ecommerce, healthcare and fintech teams cut response times."
         keywords={['SMSLocal case studies', 'messaging automation results', 'WhatsApp AI agent case study', 'SMS marketing ROI', 'customer success stories']}
       />
 

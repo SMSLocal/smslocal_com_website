@@ -24,7 +24,7 @@ const COMPETITORS = {
     seo: {
       title: 'SMSLocal vs Bird: Omnichannel Messaging & AI',
       description:
-        'SMSLocal vs Bird (formerly MessageBird): all-in-one omnichannel messaging with no-code chatbots and agentic AI, versus Bird’s marketing and CX messaging suite.',
+        'SMSLocal vs Bird (formerly MessageBird): all-in-one messaging with no-code chatbots and agentic AI, versus Bird’s marketing and CX messaging suite.',
       keywords: ['SMSLocal vs Bird', 'Bird alternative', 'MessageBird alternative', 'Bird competitor', 'CX messaging comparison'],
     },
     hero: {

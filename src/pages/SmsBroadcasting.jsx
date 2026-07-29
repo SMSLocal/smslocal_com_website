@@ -44,7 +44,7 @@ function SmsBroadcasting() {
     <>
       <Seo
         title="A2P SMS Broadcasting & Bulk Marketing Campaigns"
-        description="Run SMS broadcasting at scale with segmentation, personalisation, link tracking, STOP and HELP handling and delivery receipts, with AI answering the replies."
+        description="Run SMS broadcasting at scale with segmentation, personalisation, link tracking, STOP/HELP handling and delivery receipts, with AI answering replies."
         keywords={['SMS broadcasting', 'A2P SMS', 'bulk SMS marketing', 'SMS broadcast campaigns']}
       />
 

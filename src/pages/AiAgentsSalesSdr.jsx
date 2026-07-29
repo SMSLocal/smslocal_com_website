@@ -52,7 +52,7 @@ function AiAgentsSalesSdr() {
     <>
       <Seo
         title="AI Sales Agent & AI SDR for Outbound Sales"
-        description="Automate prospecting and outreach with an AI SDR. Research leads, personalize messages, follow up automatically, and book meetings across email and messaging."
+        description="Automate prospecting and outreach with an AI SDR. Research leads, personalize messages, follow up automatically, and book meetings across channels."
       />
 
       <Hero

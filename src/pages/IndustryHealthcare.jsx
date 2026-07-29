@@ -48,7 +48,7 @@ function IndustryHealthcare() {
     <>
       <Seo
         title="Agentic AI for Healthcare Communication"
-        description="Handle appointments, reminders and patient questions with agentic AI for healthcare, using consent-aware conversations and strict role-based access control."
+        description="Handle appointments, reminders and patient questions with agentic AI for healthcare, using consent-aware conversations and role-based access control."
         keywords={['AI for healthcare', 'agentic AI healthcare', 'patient communication AI', 'healthcare AI agent']}
       />
 
