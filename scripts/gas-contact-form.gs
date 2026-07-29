@@ -26,7 +26,7 @@ const RECIPIENTS = [
   'websiteleads001@gmail.com',
   'info@smslocal.com',
   'sk3group2@gmail.com',
-].join(',')
+]
 
 function doPost(e) {
   try {
@@ -50,10 +50,25 @@ function doPost(e) {
       'Reason: ' + reason + '\n\n' +
       'Message:\n' + message
 
-    GmailApp.sendEmail(RECIPIENTS, subject, body, {
-      replyTo: email,
-      name: 'SMSLocal Website',
+    // One sendEmail call per recipient, not one comma-joined "to" list — so a
+    // single bad/rejecting address can't affect delivery to the others, and
+    // failures are attributable to a specific address instead of an
+    // all-or-nothing bounce report.
+    const failures = []
+    RECIPIENTS.forEach(function (recipient) {
+      try {
+        GmailApp.sendEmail(recipient, subject, body, {
+          replyTo: email,
+          name: 'SMSLocal Website',
+        })
+      } catch (sendErr) {
+        failures.push({ recipient: recipient, error: String(sendErr) })
+      }
     })
+
+    if (failures.length > 0) {
+      return jsonOutput({ ok: false, error: 'Failed for: ' + JSON.stringify(failures) })
+    }
 
     return jsonOutput({ ok: true })
   } catch (err) {
