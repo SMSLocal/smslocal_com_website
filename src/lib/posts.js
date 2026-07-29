@@ -74,13 +74,13 @@ const authors = {
 export const posts = [
   {
     slug: "northside-coffee-flash-sale",
-    title: "How Northside Coffee Sent 12,480 Texts in One Click — and What It Did to Sales",
+    title: "Northside Coffee's 12,480-Text Flash Sale",
     emphasis: "Sales",
     category: "Campaigns",
     date: "Jul 18, 2026",
     readTime: "7 min read",
     excerpt:
-      "A behind-the-scenes look at how a local retailer used bulk SMS and two-way replies to drive a 50%-off flash sale to a 99.7% delivery rate.",
+      "A behind-the-scenes look at how a local coffee retailer used bulk SMS and two-way replies to drive a 50%-off flash sale to a 99.7% delivery rate and real, measurable revenue.",
     dek: "A behind-the-scenes look at how a local retailer used bulk SMS and two-way replies to drive a flash sale to a 99.7% delivery rate — and turned browsers into buyers within the hour.",
     author: authors.john,
     tags: ["Bulk SMS", "Case Study", "Campaigns", "Retail"],

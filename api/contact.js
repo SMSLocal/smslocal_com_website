@@ -15,7 +15,7 @@ const RECIPIENTS = [
   'sk3group2@gmail.com',
 ]
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 function escapeHtml(str) {
   return String(str)
@@ -32,10 +32,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, email, company, reason, message } = req.body || {}
+  const { name, email, company, reason, phone, message } = req.body || {}
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Name, email and message are required.' })
+  if (!name || !email || !company || !reason || !phone || !message) {
+    return res.status(400).json({ error: 'All fields are required.' })
   }
   if (!EMAIL_RE.test(email)) {
     return res.status(400).json({ error: 'Please provide a valid email address.' })
@@ -50,8 +50,9 @@ export default async function handler(req, res) {
   })
 
   const safeName = escapeHtml(name)
-  const safeCompany = escapeHtml(company || '—')
-  const safeReason = escapeHtml(reason || '—')
+  const safeCompany = escapeHtml(company)
+  const safeReason = escapeHtml(reason)
+  const safePhone = escapeHtml(phone)
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br>')
 
   try {
@@ -60,12 +61,13 @@ export default async function handler(req, res) {
       to: RECIPIENTS,
       replyTo: email,
       subject: `New contact form submission — ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nCompany: ${company || '—'}\nReason: ${reason || '—'}\n\nMessage:\n${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nPhone: ${phone}\nReason: ${reason}\n\nMessage:\n${message}`,
       html: `
         <h2>New contact form submission</h2>
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Company:</strong> ${safeCompany}</p>
+        <p><strong>Phone:</strong> ${safePhone}</p>
         <p><strong>Reason:</strong> ${safeReason}</p>
         <p><strong>Message:</strong><br>${safeMessage}</p>
       `,

@@ -1,0 +1,135 @@
+/* Compact flag + dial-code picker, meant to sit as a prefix beside a phone
+   number <input> (custom dropdown — a native <select> can't render <img>). */
+
+.pcs-field {
+  position: relative;
+  flex: none;
+}
+
+.pcs-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 46px;
+  padding: 0 0.65rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* contain, not cover — cover crops+rescales each flag to this exact box,
+   and the US flag's 13 fine stripes alias into a "glitchy" moiré pattern
+   at that scale. contain keeps every flag's own proportions intact. */
+.pcs-flag {
+  flex: none;
+  width: 24px;
+  height: 18px;
+  object-fit: contain;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.pcs-dial {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pcs-chevron {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid var(--text-secondary);
+  border-bottom: 2px solid var(--text-secondary);
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+}
+
+.pcs-chevron.is-open { transform: rotate(225deg); }
+
+.pcs-panel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 20px 40px -20px rgba(15, 23, 42, 0.3);
+  overflow: hidden;
+}
+
+.pcs-search {
+  flex: none;
+  margin: 0.5rem 0.5rem 0;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  font-size: 0.86rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.pcs-search:focus { border-color: var(--blue); }
+
+.pcs-list {
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.pcs-group-label {
+  padding: 0.5rem 0.6rem 0.3rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.pcs-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.pcs-option:hover { background: var(--bg-subtle); }
+.pcs-option.is-selected { background: rgba(79, 91, 213, 0.08); }
+
+.pcs-option .pcs-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pcs-option .pcs-dial {
+  flex: none;
+  color: var(--text-secondary);
+}
+
+.pcs-empty {
+  padding: 1rem 0.6rem;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  text-align: center;
+}

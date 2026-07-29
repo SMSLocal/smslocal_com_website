@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import { EcosystemGrid, FAQ } from '../components/sections/Sections.jsx'
 import { IconChart, IconUsers, IconHandshake, IconChat, IconMail, IconPhone, IconClock, IconGlobe } from '../components/icons.jsx'
+import PhoneCountrySelect from '../components/PhoneCountrySelect.jsx'
+import { DIAL_CODES } from '../data/dialCodes.js'
 import './Contact.css'
 
 const OPTIONS = [
@@ -28,6 +30,7 @@ const FAQS = [
 function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState('')
+  const [dialCode, setDialCode] = useState(DIAL_CODES[0].code)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -35,11 +38,13 @@ function Contact() {
     setErrorMsg('')
 
     const form = e.target
+    const dial = DIAL_CODES.find((c) => c.code === dialCode)?.dial || ''
     const payload = {
       name: form['contact-name'].value,
       email: form['contact-email'].value,
       company: form['contact-company'].value,
       reason: form['contact-reason'].value,
+      phone: `${dial} ${form['contact-phone'].value}`.trim(),
       message: form['contact-message'].value,
     }
 
@@ -53,6 +58,7 @@ function Contact() {
       if (!res.ok) throw new Error(data.error || 'Something went wrong.')
       setStatus('sent')
       form.reset()
+      setDialCode(DIAL_CODES[0].code)
     } catch (err) {
       setStatus('error')
       setErrorMsg(err.message || 'Something went wrong. Please try again.')
@@ -102,18 +108,42 @@ function Contact() {
                 </div>
                 <div className="contact-field">
                   <label htmlFor="contact-email">Work email</label>
-                  <input id="contact-email" type="email" placeholder="you@company.com" required />
+                  <input
+                    id="contact-email"
+                    type="email"
+                    placeholder="you@company.com"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    title="Enter a valid email address, e.g. you@company.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="contact-form-split">
+                <div className="contact-field">
+                  <label htmlFor="contact-phone">Phone number</label>
+                  <div className="contact-phone-row">
+                    <PhoneCountrySelect value={dialCode} onChange={setDialCode} />
+                    <input
+                      id="contact-phone"
+                      type="tel"
+                      inputMode="tel"
+                      placeholder="555 123 4567"
+                      pattern="[0-9\s()-]{6,}"
+                      title="Enter a valid phone number"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="contact-field">
+                  <label htmlFor="contact-company">Company name</label>
+                  <input id="contact-company" type="text" placeholder="Company name" required />
                 </div>
               </div>
 
               <div className="contact-field">
-                <label htmlFor="contact-company">Company name</label>
-                <input id="contact-company" type="text" placeholder="Company name" />
-              </div>
-
-              <div className="contact-field">
                 <label htmlFor="contact-reason">What's this about?</label>
-                <select id="contact-reason" defaultValue="">
+                <select id="contact-reason" defaultValue="" required>
                   <option value="" disabled>Select a reason</option>
                   <option value="sales">Sales</option>
                   <option value="support">Support</option>
@@ -124,7 +154,7 @@ function Contact() {
 
               <div className="contact-field">
                 <label htmlFor="contact-message">Message</label>
-                <textarea id="contact-message" rows={4} placeholder="Tell us a bit about what you need…" required />
+                <textarea id="contact-message" rows={3} placeholder="Tell us a bit about what you need…" required />
               </div>
 
               <div className="contact-form-actions">

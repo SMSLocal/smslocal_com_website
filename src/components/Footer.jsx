@@ -6,22 +6,27 @@ import {
   YoutubeIcon,
 } from './home/SocialIcons.jsx'
 import NightBackdrop from './home/NightBackdrop.jsx'
-import {
-  PRODUCT_CATEGORIES,
-  SOLUTION_CATEGORIES,
-  PLATFORM,
-  RESOURCES_LEFT,
-  RESOURCES_RIGHT,
-} from './Navbar.jsx'
+import { PLATFORM, RESOURCES_LEFT, RESOURCES_RIGHT } from './Navbar.jsx'
 
-// Mirrors the header's own nav data (imported from Navbar.jsx, not
-// duplicated) so the footer never drifts out of sync with what the header
-// mega-menus actually contain. Each column links to a category's "view all"
-// page rather than every individual item — the header holds the full list.
+// A compact footer: the important pages from each header section, not every
+// single one (that made the footer too tall — see the git history for the
+// full-expansion version this replaced). Individual page hrefs are pulled
+// from Navbar.jsx's own data where practical (Platform, Resources) so those
+// two columns can't drift from the header; Products/Solutions highlights are
+// hand-picked distinct pages rather than category names, because two
+// category pairs in the header share one "view all" hub href each
+// (Channels & Broadcasting / Social & Apps -> /channels, By industry / By
+// team & services -> /solutions) — using the category label would duplicate
+// that href twice in the same column. No href repeats anywhere below.
 const COLUMNS = [
   {
     title: 'Products',
-    links: PRODUCT_CATEGORIES.map((c) => ({ t: c.label, href: c.viewAllHref })),
+    links: [
+      { t: 'AI Agents', href: '/ai-agents' },
+      { t: 'WhatsApp Business API', href: '/channels/whatsapp' },
+      { t: 'SMS Broadcasting', href: '/channels/sms-broadcasting' },
+      { t: 'Voice', href: '/channels/voice' },
+    ],
   },
   {
     title: 'Platform',
@@ -29,7 +34,12 @@ const COLUMNS = [
   },
   {
     title: 'Solutions',
-    links: SOLUTION_CATEGORIES.map((c) => ({ t: c.label, href: c.viewAllHref })),
+    links: [
+      { t: 'All Solutions', href: '/solutions' },
+      { t: 'Retail & eCommerce', href: '/industry/retail' },
+      { t: 'Customer Support', href: '/ai-agents/customer-service' },
+      { t: 'Booking & Scheduling', href: '/ai-agents/booking' },
+    ],
   },
   {
     title: 'Resources',
@@ -60,7 +70,7 @@ function Footer() {
     <footer className="home-tw relative overflow-hidden border-t border-border bg-foreground text-white">
       <NightBackdrop />
       <div className="relative mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_repeat(5,1fr)]">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
           <div>
             {/* Knocked out to solid white. The logo's own indigo drops to 1.67
                 contrast on this background — parts of it would disappear. */}

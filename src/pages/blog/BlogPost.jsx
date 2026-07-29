@@ -20,7 +20,7 @@ function BlogPost() {
 
   return (
     <div className="blog-scope">
-      <Seo title={`${post.title} | Blog`} description={post.excerpt} />
+      <Seo title={post.title} description={post.excerpt} />
 
       <div className={styles.wrap}>
         <Link to="/blog" className={styles.breadcrumb}>
