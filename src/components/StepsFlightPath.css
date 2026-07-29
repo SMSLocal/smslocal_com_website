@@ -1,6 +1,14 @@
+.sfp-section .section-title {
+  font-size: 2.35rem;
+}
+
+.sfp-section .section-subtitle {
+  font-size: 1.15rem;
+}
+
 .sfp-flow {
-  max-width: 940px;
-  margin: 2.6rem auto 0;
+  max-width: 1160px;
+  margin: 1.4rem auto 0;
 }
 
 .sfp-path {
@@ -12,7 +20,7 @@
 
 /* glowing traveller — base rests at the final stop */
 .sfp-glow {
-  transform: translate(875px, 80px);
+  transform: translate(875px, 60px);
   transform-box: view-box;
   transform-origin: 0 0;
 }
@@ -22,7 +30,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.4rem;
-  margin-top: 1.4rem;
+  margin-top: 0.6rem;
 }
 
 .sfp-label {
@@ -49,14 +57,14 @@
 .sfp-label h3 {
   margin: 0 0 0.45rem;
   color: var(--navy);
-  font-size: 1.04rem;
+  font-size: 1.16rem;
   letter-spacing: -0.01em;
 }
 
 .sfp-label p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.55;
   max-width: 220px;
 }
@@ -70,13 +78,13 @@
   }
 
   @keyframes sfp-travel {
-    0% { transform: translate(125px, 160px); opacity: 0; }
+    0% { transform: translate(125px, 60px); opacity: 0; }
     6% { opacity: 1; }
-    30% { transform: translate(375px, 80px); opacity: 1; }
-    55% { transform: translate(625px, 160px); opacity: 1; }
-    80% { transform: translate(875px, 80px); opacity: 1; }
-    90% { transform: translate(875px, 80px); opacity: 0; }
-    100% { transform: translate(125px, 160px); opacity: 0; }
+    30% { transform: translate(375px, 60px); opacity: 1; }
+    55% { transform: translate(625px, 60px); opacity: 1; }
+    80% { transform: translate(875px, 60px); opacity: 1; }
+    90% { transform: translate(875px, 60px); opacity: 0; }
+    100% { transform: translate(125px, 60px); opacity: 0; }
   }
 
   .sfp-node {

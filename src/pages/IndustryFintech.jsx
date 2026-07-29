@@ -1,38 +1,17 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import FeatureVerticalIndex from '../components/FeatureVerticalIndex.jsx'
-import StepsSignal from '../components/StepsSignal.jsx'
-import WhyUsTargetRing from '../components/WhyUsTargetRing.jsx'
-import { IconDollar, IconShield, IconBell, IconCheck, IconClock, IconChart, IconBolt, IconLink } from '../components/icons.jsx'
-import AgenticWorkflowMock from '../components/AgenticWorkflowMock.jsx'
-
-const STEPS = [
-  { title: 'Connect your core systems', desc: 'Link your banking core, card processor and CRM through our REST API or pre-built integrations.' },
-  { title: 'Set access boundaries', desc: 'Define exactly what data and actions the agent can touch, with role-based access from day one.' },
-  { title: 'Go live with logging on', desc: 'Launch across SMS and WhatsApp with every automated action written to an auditable trail.' },
-  { title: 'Review and refine', desc: 'Use the audit log to see exactly what the agent did, and tune guardrails as you scale.' },
-]
-
-const STATS = [
-  { value: '100%', label: 'Actions logged', desc: 'Every automated step is written to an auditable trail — no black-box decisions.' },
-  { value: '24/7', label: 'Account support', desc: 'Balance checks, transaction queries and alerts answered around the clock.' },
-  { value: '<1s', label: 'First response time', desc: 'Time-sensitive alerts, like a suspicious transaction, reach the customer instantly.' },
-  { value: 'SOC 2', label: 'Aligned security posture', desc: 'Role-based access and encrypted data handling built for regulated environments.' },
-]
-
-const FEATURES = [
-  { icon: <IconDollar />, title: 'Onboarding & KYC support', desc: 'Guides applicants through document upload and status questions without a call to support.' },
-  { icon: <IconBell />, title: 'Real-time transaction alerts', desc: 'Fraud flags, large transactions and low-balance warnings sent the moment they happen, across SMS and WhatsApp.' },
-  { icon: <IconShield />, title: 'Auditable by design', desc: 'Every action the agent takes — a balance lookup, a card freeze — is logged and reviewable for compliance.' },
-  { icon: <IconLink />, title: 'Connects to your core systems', desc: 'Integrates with your banking core, card processor and CRM through 200+ integrations and an open REST API.' },
-]
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import ProblemVerificationRace from '../components/ProblemVerificationRace.jsx'
+import FeatureStackPicker from '../components/FeatureStackPicker.jsx'
+import DeploymentTimeline from '../components/DeploymentTimeline.jsx'
+import WhyUsSpotlightGrid from '../components/WhyUsSpotlightGrid.jsx'
+import { IconClock, IconShield, IconChart, IconLink } from '../components/icons.jsx'
+import FintechAgentHeroMock from '../components/FintechAgentHeroMock.jsx'
 
 const BENEFITS = [
-  { icon: <IconClock />, title: 'Always-on account support', desc: 'A locked card or a failed transfer gets answered at 2am the same as at 2pm.' },
-  { icon: <IconBolt />, title: 'Faster fraud response', desc: 'Suspicious activity alerts reach the customer in seconds, not after a batch email run.' },
-  { icon: <IconChart />, title: 'Lower cost per resolution', desc: 'Routine account queries resolve without a live agent, cutting cost while keeping response quality high.' },
-  { icon: <IconCheck />, title: 'Consent-aware by default', desc: 'Access controls and audit logs mean every automated interaction is defensible to a regulator.' },
+  { icon: <IconClock />, desc: 'Routine account questions answered any hour, without adding to the queue.' },
+  { icon: <IconShield />, title: 'Compliance-ready' },
+  { icon: <IconChart />, title: 'Lower cost to serve' },
+  { icon: <IconLink />, title: 'Works with your stack' },
 ]
 
 const FAQS = [
@@ -58,55 +37,29 @@ function IndustryFintech() {
         subtitle="Support onboarding, transactions and time-sensitive alerts across SMS and WhatsApp — with every automated action logged, and role-based access built in from day one."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
         secondaryCta={{ label: 'Enterprise Security', href: '/platform/security' }}
-        visual={<AgenticWorkflowMock />}
+        visual={<FintechAgentHeroMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <NarrativeCompare
-        variant="flanked"
+      <ProblemVerificationRace
         eyebrow="The problem"
-        heading={<>Financial support can't afford a black box.</>}
-        paragraphs={[
-          "Generic chatbots either can't touch real account data, or they touch it without leaving a trail — neither works for a regulated business.",
-          'Agentic AI for fintech acts on real account data and logs every step, so support stays fast without becoming a compliance risk.',
-        ]}
-        leftLabel="Generic chatbot"
-        leftItems={[
-          "Can't touch real account data",
-          'No audit trail on what it did',
-          'Same script regardless of risk',
-          'Escalates everything sensitive',
-        ]}
-        rightLabel="Agentic AI for fintech"
-        rightItems={[
-          'Acts on real account data safely',
-          'Every action logged and reviewable',
-          'Role-based access, set by you',
-          'Escalates only what needs sign-off',
-        ]}
+        heading="It's hard to verify a customer's account details before you can even help them."
         alt
       />
 
-      <FeatureVerticalIndex
+      <FeatureStackPicker
         eyebrow="Features"
-        title="Support built for money, not just messages"
-        subtitle="From onboarding to fraud alerts, every interaction is fast, accurate and defensible."
-        items={FEATURES}
+        title="Built for regulated servicing"
       />
 
-      <StepsSignal
+      <DeploymentTimeline
         eyebrow="How it works"
-        title="Live with full audit logging in four steps"
-        subtitle="From connecting your core systems to a fully reviewable action trail."
-        steps={STEPS}
+        title="Deploy with oversight, end to end"
         alt
       />
 
-      <WhyUsTargetRing
-        eyebrow="Why it works"
-        title="Speed and compliance, not one or the other"
-        subtitle="Customers get instant answers on real account data, while every action stays logged and reviewable."
+      <WhyUsSpotlightGrid
+        eyebrow="Why us"
+        title="Why finance teams trust our AI agents"
         items={BENEFITS}
       />
 

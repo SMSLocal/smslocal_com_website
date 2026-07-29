@@ -1,0 +1,168 @@
+/* SMS rate calculator for /pricing — new design, real rate data.
+   Plain flow, no absolute-positioned overlays (see the
+   css-invisible-element-debugging memory for why). */
+
+.prate-section .container { text-align: center; }
+
+.prate {
+  max-width: 780px;
+  margin: 2.6rem auto 0;
+  padding: 2rem clamp(1.2rem, 4vw, 2.4rem) 2.2rem;
+  border-radius: 22px;
+  background: var(--bg-subtle);
+  text-align: left;
+}
+
+.prate-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.prate-currency {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.prate-currency-btn {
+  height: 38px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.prate-currency-btn.is-active {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.prate-unavailable {
+  margin: 0 0 1.2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid rgba(251, 113, 133, 0.25);
+  font-size: 0.82rem;
+  color: var(--coral);
+}
+
+/* ---- table ---- */
+
+.prate-table {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.prate-table-desc {
+  margin: 0;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.prate-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prate-row:last-child { border-bottom: 0; }
+
+.prate-head {
+  background: var(--bg-subtle);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.prate-amount {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.prate-rate {
+  font-variant-numeric: tabular-nums;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.prate-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.prate-row--custom {
+  background: linear-gradient(180deg, rgba(79, 91, 213, 0.06), rgba(236, 72, 153, 0.04));
+}
+
+.prate-custom-input {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  height: 38px;
+  padding: 0 0.7rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--blue);
+  background: #fff;
+  width: fit-content;
+}
+
+.prate-custom-symbol {
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.prate-custom-input input {
+  width: 90px;
+  border: 0;
+  outline: none;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: transparent;
+}
+
+.prate-count--custom {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.prate-foot {
+  margin: 1rem 0 0;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 560px) {
+  .prate-row { grid-template-columns: 1fr 1fr; }
+  .prate-head span:last-child,
+  .prate-row > span:last-child { text-align: right; }
+  .prate-rate { display: none; }
+  .prate-head span:nth-child(2) { display: none; }
+}

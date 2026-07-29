@@ -1,0 +1,176 @@
+.cra {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.cra-scene {
+  position: relative;
+  width: 100%;
+}
+
+.cra-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.cra-track {
+  stroke: var(--border);
+}
+
+.cra-fill {
+  stroke: url(#craGrad);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cra.is-on .cra-fill {
+  stroke-dashoffset: 0;
+}
+
+.cra-node {
+  opacity: 0;
+  transform: scale(0.4);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--i) * 0.5s + 0.3s);
+}
+
+.cra.is-on .cra-node {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cra-node-ring {
+  fill: #fff;
+  stroke: var(--blue);
+}
+
+.cra-node-core {
+  fill: var(--blue);
+}
+
+.cra-readout {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 20px 40px -24px rgba(16, 35, 63, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
+}
+
+.cra.is-on .cra-readout {
+  opacity: 1;
+}
+
+.cra-spark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  margin-bottom: 0.3rem;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.cra-pct {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cra-pct i {
+  font-style: normal;
+  font-size: 1.1rem;
+  color: var(--blue);
+}
+
+.cra-pct-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.cra-label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transition-delay: calc(var(--i) * 0.5s + 0.5s);
+}
+
+.cra.is-on .cra-label {
+  opacity: 1;
+}
+
+.cra-label-t {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.cra-label-s {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.cra-label--bl {
+  left: 0%;
+  bottom: -6%;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cra-label--tl {
+  left: 22%;
+  top: -2%;
+  transform: translate(-50%, 0);
+  align-items: center;
+  text-align: center;
+}
+
+.cra-label--tr {
+  left: 78%;
+  top: -2%;
+  transform: translate(-50%, 0);
+  align-items: center;
+  text-align: center;
+}
+
+.cra-label--br {
+  right: 0%;
+  bottom: -6%;
+  align-items: flex-end;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cra-fill,
+  .cra-node,
+  .cra-readout,
+  .cra-label {
+    transition: none;
+  }
+}

@@ -9,10 +9,10 @@ import './StepsFlightPath.css'
  * the final stop; motion only sets the dot travelling.
  */
 const NODES = [
-  [125, 160],
-  [375, 80],
-  [625, 160],
-  [875, 80],
+  [125, 60],
+  [375, 60],
+  [625, 60],
+  [875, 60],
 ]
 
 function StepsFlightPath({ eyebrow, title, subtitle, steps, alt }) {
@@ -24,7 +24,7 @@ function StepsFlightPath({ eyebrow, title, subtitle, steps, alt }) {
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
 
         <div className="sfp-flow">
-          <svg className="sfp-path" viewBox="0 0 1000 240" fill="none" aria-hidden="true">
+          <svg className="sfp-path" viewBox="0 0 1000 120" fill="none" aria-hidden="true">
             <defs>
               <linearGradient id="sfpGrad" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
                 <stop offset="0" stopColor="#4f5bd5" />
@@ -38,7 +38,7 @@ function StepsFlightPath({ eyebrow, title, subtitle, steps, alt }) {
 
             <path
               className="sfp-curve"
-              d="M125 160 C 230 160, 270 80, 375 80 C 480 80, 520 160, 625 160 C 730 160, 770 80, 875 80"
+              d="M125 60 L 875 60"
               stroke="url(#sfpGrad)"
               strokeWidth="2.5"
               strokeLinecap="round"
@@ -52,7 +52,7 @@ function StepsFlightPath({ eyebrow, title, subtitle, steps, alt }) {
               </g>
             ))}
 
-            <g className="sfp-glow" transform="translate(875 80)">
+            <g className="sfp-glow" transform="translate(875 60)">
               <circle r="17" fill="url(#sfpGlow)" />
               <circle r="7" fill="url(#sfpGrad)" />
             </g>

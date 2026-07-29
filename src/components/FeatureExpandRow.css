@@ -1,0 +1,139 @@
+.fer-section .section-title {
+  font-size: 2.35rem;
+}
+
+.fer-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fer-row {
+  display: flex;
+  gap: 1.2rem;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+  height: 300px;
+}
+
+.fer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--bg-subtle);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.6rem;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    flex-grow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition-delay: calc(var(--fer-i) * 0.1s);
+}
+
+.fer-section.reveal-visible .fer-card {
+  opacity: 1;
+  transform: none;
+}
+
+.fer-row:hover .fer-card {
+  flex-grow: 1;
+}
+
+.fer-row:hover .fer-card:hover {
+  flex-grow: 2.6;
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: 0 30px 56px -30px rgba(16, 35, 63, 0.32);
+}
+
+.fer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  margin-bottom: 1.1rem;
+  flex: none;
+}
+
+.fer-card--lavender .fer-icon { background: rgba(79, 91, 213, 0.12); color: var(--blue); }
+.fer-card--mint .fer-icon { background: rgba(20, 184, 166, 0.12); color: var(--teal); }
+.fer-card--coral .fer-icon { background: rgba(251, 113, 133, 0.12); color: var(--coral); }
+.fer-card--pink .fer-icon { background: rgba(236, 73, 153, 0.12); color: var(--cyan); }
+
+.fer-card h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.fer-desc-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  width: 100%;
+  max-width: 260px;
+}
+
+.fer-card:hover .fer-desc-wrap {
+  grid-template-rows: 1fr;
+}
+
+.fer-desc-wrap p {
+  overflow: hidden;
+  margin: 0;
+  padding-top: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.05s, padding-top 0.4s ease;
+}
+
+.fer-card:hover .fer-desc-wrap p {
+  opacity: 1;
+  padding-top: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .fer-row {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .fer-card {
+    flex: 1 1 calc(50% - 0.6rem);
+    height: 220px;
+  }
+
+  .fer-row:hover .fer-card,
+  .fer-row:hover .fer-card:hover {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .fer-card {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fer-card {
+    opacity: 1;
+    transform: none;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+}

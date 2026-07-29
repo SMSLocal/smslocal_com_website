@@ -1,24 +1,16 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import FeatureGlow from '../components/FeatureGlow.jsx'
-import BuildJourneyStepper from '../components/BuildJourneyStepper.jsx'
-import WhyUsDividers from '../components/WhyUsDividers.jsx'
+import IndustryCarousel from '../components/IndustryCarousel.jsx'
+import StepsChevron from '../components/StepsChevron.jsx'
+import WhyUsTiltBadges from '../components/WhyUsTiltBadges.jsx'
 import { IconMic, IconBell, IconChart, IconCheck, IconClock, IconUsers, IconBolt, IconGlobe, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
-import WhatsappHeroMock from '../components/WhatsappHeroMock.jsx'
+import MediaBroadcastHeroMock from '../components/MediaBroadcastHeroMock.jsx'
 
 const STEPS = [
   { icon: <IconPlug />, title: 'Connect ticketing & billing', desc: 'Link your ticketing platform, billing system and subscriber database.' },
   { icon: <IconGear />, title: 'Train on your catalogue', desc: 'The agent learns your content, events and subscription plans.' },
   { icon: <IconRocket />, title: 'Go live across channels', desc: 'Launch on your app, WhatsApp and SMS ready for peak traffic from day one.' },
   { icon: <IconCheck />, title: 'Recommendations run automatically', desc: 'Renewal reminders and personalised suggestions start the moment subscriber data connects.' },
-]
-
-const STATS = [
-  { value: '10x', label: 'Peak volume handled', desc: 'A ticket on-sale or premiere night spike gets the same instant response as a quiet weekday.' },
-  { value: '24/7', label: 'Subscriber support', desc: 'Billing, access and account questions resolved at any hour, on any channel.' },
-  { value: '<1s', label: 'First response time', desc: 'No queue for the moment your audience is most engaged and most likely to churn if ignored.' },
-  { value: '2x', label: 'Re-engagement lift', desc: 'Personalised recommendation and renewal broadcasts that actually get opened.' },
 ]
 
 const FEATURES = [
@@ -58,18 +50,15 @@ function IndustryMedia() {
         subtitle="Support ticketing, billing and subscriber questions instantly across every channel — and turn recommendation and renewal messaging into a growth engine, not an afterthought."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<WhatsappHeroMock />}
+        visual={<MediaBroadcastHeroMock />}
       />
 
-      <StatBand items={STATS} />
-
       <NarrativeCompare
-        variant="rows"
+        variant="resolve"
         eyebrow="The problem"
         heading={<>Audience attention peaks exactly when support can least keep up.</>}
         paragraphs={[
-          'A ticket drop, a premiere or a trending release brings a flood of the same questions all at once — and a human team staffed for an average day can\'t absorb it.',
-          'Agentic AI for media and entertainment scales instantly with demand, no matter how sharp the spike.',
+          'A ticket drop or premiere brings a flood of the same questions at once — agentic AI scales instantly, no matter how sharp the spike.',
         ]}
         leftLabel="Staffed for average volume"
         leftItems={[
@@ -88,14 +77,15 @@ function IndustryMedia() {
         alt
       />
 
-      <FeatureGlow
+      <IndustryCarousel
+        className="mfeat-carousel"
         eyebrow="Features"
         title="Built for spikes, not just steady traffic"
         subtitle="From a ticketing rush to a renewal reminder, one agent covers the whole subscriber lifecycle."
         items={FEATURES}
       />
 
-      <BuildJourneyStepper
+      <StepsChevron
         eyebrow="How it works"
         title="Ready for peak volume in four steps"
         subtitle="From connecting your ticketing data to recommendations that run themselves."
@@ -103,7 +93,7 @@ function IndustryMedia() {
         alt
       />
 
-      <WhyUsDividers
+      <WhyUsTiltBadges
         eyebrow="Why it works"
         title="Every spike becomes an opportunity, not an outage"
         subtitle="Instant support and timely recommendations turn peak moments into retention, not churn."

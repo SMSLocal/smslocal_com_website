@@ -1,20 +1,29 @@
-.scv-grid {
+.schv-section .section-title {
+  font-size: 2.35rem;
+}
+
+.schv-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+}
+
+.schv-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
   margin-top: 3.5rem;
 }
 
-.scv-step {
+.schv-step {
   position: relative;
   text-align: center;
 }
 
-.scv-step:not(:last-child)::after {
+.schv-step:not(:last-child)::after {
   content: '\203A';
   position: absolute;
   top: 24px;
-  right: -1.85rem;
+  right: -1.4rem;
   transform: translateY(-50%);
   font-size: 2.1rem;
   font-weight: 800;
@@ -22,7 +31,7 @@
   color: var(--border);
 }
 
-.scv-icon {
+.schv-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -35,32 +44,41 @@
   box-shadow: 0 14px 26px -14px rgba(79, 91, 213, 0.5);
 }
 
-.scv-step--1 .scv-icon { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 14px 26px -14px rgba(20, 184, 166, 0.5); }
-.scv-step--2 .scv-icon { background: linear-gradient(135deg, var(--coral), var(--cyan)); box-shadow: 0 14px 26px -14px rgba(251, 113, 133, 0.5); }
-.scv-step--3 .scv-icon { background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 14px 26px -14px rgba(236, 72, 153, 0.5); }
+.schv-step--1 .schv-icon { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 14px 26px -14px rgba(20, 184, 166, 0.5); }
+.schv-step--2 .schv-icon { background: linear-gradient(135deg, var(--coral), var(--cyan)); box-shadow: 0 14px 26px -14px rgba(251, 113, 133, 0.5); }
+.schv-step--3 .schv-icon { background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 14px 26px -14px rgba(236, 72, 153, 0.5); }
 
-.scv-icon svg { width: 20px; height: 20px; }
+.schv-icon svg { width: 20px; height: 20px; }
 
-.scv-step h3 {
-  margin: 0 0 0.55rem;
+.schv-step h3 {
+  max-width: 180px;
+  margin: 0 auto 0.55rem;
   color: var(--navy);
-  font-size: 1.06rem;
+  font-size: 1.18rem;
   letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
-.scv-step p {
+.schv-step p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.92rem;
+  font-size: 1.02rem;
   line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 @media (max-width: 720px) {
-  .scv-grid {
+  .schv-grid {
     grid-template-columns: 1fr;
     gap: 2.25rem;
   }
-  .scv-step:not(:last-child)::after {
+  .schv-step:not(:last-child)::after {
     content: '\2039';
     top: auto;
     bottom: -1.7rem;

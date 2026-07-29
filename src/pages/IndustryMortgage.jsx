@@ -1,24 +1,24 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import FeatureSpotlight from '../components/FeatureSpotlight.jsx'
-import WhatsappStepsFlow from '../components/WhatsappStepsFlow.jsx'
-import WhyUsChecks from '../components/WhyUsChecks.jsx'
-import { IconReceipt, IconBell, IconClock, IconCheck, IconChart, IconBolt, IconUsers, IconLink } from '../components/icons.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import FeatureFormulaIndustry from '../components/FeatureFormulaIndustry.jsx'
+import StepsRibbonCards from '../components/StepsRibbonCards.jsx'
+import WhyUsReasonRows from '../components/WhyUsReasonRows.jsx'
+import ProblemInboxSplit from '../components/ProblemInboxSplit.jsx'
+import { IconReceipt, IconBell, IconClock, IconLink, IconMail, IconCalendar } from '../components/icons.jsx'
 import SdrCampaignMock from '../components/SdrCampaignMock.jsx'
+
+const INBOX_ROWS = [
+  { icon: <IconClock />, title: 'New Application Waiting', time: '1d' },
+  { icon: <IconBell />, title: '3 Days, No Update', time: '2d' },
+  { icon: <IconMail />, title: 'Same Reminder Again', time: '3d' },
+  { icon: <IconCalendar />, title: 'Missing Doc #4', time: '4d' },
+]
 
 const STEPS = [
   { title: 'Connect your LOS', desc: 'Link your loan origination system and CRM along with SMS and WhatsApp.' },
   { title: 'Train on your process', desc: 'The agent learns your qualification criteria and document requirements.' },
   { title: 'Go live for intake', desc: 'Launch conversational pre-qualification and status lookups across channels.' },
   { title: 'Reminders run automatically', desc: 'Document and status reminders start the moment a file enters underwriting.' },
-]
-
-const STATS = [
-  { value: '50%', label: 'Faster pre-qualification', desc: 'Automated conversational intake gets borrowers pre-qualified without a scheduled call.' },
-  { value: '24/7', label: 'Borrower support', desc: 'Document status and application questions answered instantly, any hour.' },
-  { value: '<1s', label: 'First response time', desc: 'No waiting for a loan officer callback for a routine status update.' },
-  { value: '35%', label: 'Fewer missed documents', desc: 'Automated reminders keep document submissions on track toward closing.' },
 ]
 
 const FEATURES = [
@@ -28,11 +28,33 @@ const FEATURES = [
   { icon: <IconLink />, title: 'Connects to your LOS', desc: 'Integrates with your loan origination system and CRM through 200+ integrations and an open REST API.' },
 ]
 
-const BENEFITS = [
-  { icon: <IconClock />, title: 'No after-hours gap', desc: 'A borrower checking document status on a Sunday gets an instant, accurate answer.' },
-  { icon: <IconBolt />, title: 'Faster time to close', desc: 'Automated reminders and instant status updates keep files moving instead of stalling on missing paperwork.' },
-  { icon: <IconChart />, title: 'Higher loan officer capacity', desc: 'Routine status and document questions resolve automatically, freeing officers for underwriting conversations.' },
-  { icon: <IconCheck />, title: 'Consistent borrower experience', desc: 'Every borrower gets the same accurate, fast answer regardless of channel or time of day.' },
+const REASONS = [
+  {
+    title: 'Faster time to close',
+    stat: { value: '50%', label: 'Faster' },
+    checks: ['Automated reminders keep files moving', 'Instant status updates, no callback'],
+    bestFor: 'High-volume lending teams',
+  },
+  {
+    title: 'Available 24/7',
+    stat: { value: '24/7', label: 'Uptime' },
+    checks: ['Status checks any hour', 'No after-hours gap'],
+    bestFor: 'Borrowers who won\'t wait',
+    highlighted: true,
+    badge: 'Most relied on',
+  },
+  {
+    title: 'Fewer missed documents',
+    stat: { value: '35%', label: 'Fewer missed' },
+    checks: ['Automated document reminders', 'Files keep moving to close'],
+    bestFor: 'Officers juggling many files',
+  },
+  {
+    title: 'Consistent borrower experience',
+    stat: { value: '100%', label: 'Consistent' },
+    checks: ['Same accurate answer, every channel', 'SMS, WhatsApp, web'],
+    bestFor: 'Multi-channel lending programs',
+  },
 ]
 
 const FAQS = [
@@ -61,41 +83,22 @@ function IndustryMortgage() {
         visual={<SdrCampaignMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <NarrativeCompare
-        variant="columns"
+      <ProblemInboxSplit
         eyebrow="The problem"
-        heading={<>Most loans don't die on rate — they die on silence.</>}
-        paragraphs={[
-          'A borrower who can\'t get a status update starts shopping other lenders, and a missing document sitting unrequested for a week can stall a whole file.',
-          'Agentic AI for mortgage chases documents and answers status questions automatically.',
-        ]}
-        leftLabel="Manual chasing"
-        leftItems={[
-          'Status updates need a phone call',
-          'Missing documents sit unrequested',
-          'Officers chase files between underwriting',
-          'Borrowers go quiet and shop elsewhere',
-        ]}
-        rightLabel="Agentic AI for mortgage"
-        rightItems={[
-          'Real underwriting status, on demand',
-          'Document reminders sent automatically',
-          'Officers focus on underwriting, not chasing',
-          'Borrowers stay engaged to close',
-        ]}
+        heading={<>Most loans don&rsquo;t die on rate — they die on silence.</>}
+        paragraph={<>A borrower who can&rsquo;t get a status update starts shopping other lenders — an agent closes that gap by <strong>answering the moment a borrower asks</strong>, so officers spend their time underwriting, not chasing.</>}
+        badge="4 stalled"
+        rows={INBOX_ROWS}
         alt
       />
 
-      <FeatureSpotlight
+      <FeatureFormulaIndustry
         eyebrow="Features"
-        title="Covers the whole path from application to close"
-        subtitle="From pre-qualification to the final document, one agent keeps borrowers informed."
+        title={<>Everything you need to move a loan forward</>}
         items={FEATURES}
       />
 
-      <WhatsappStepsFlow
+      <StepsRibbonCards
         eyebrow="How it works"
         title="Live for intake and status updates in four steps"
         subtitle="From connecting your loan origination system to reminders that run themselves."
@@ -103,11 +106,10 @@ function IndustryMortgage() {
         alt
       />
 
-      <WhyUsChecks
+      <WhyUsReasonRows
         eyebrow="Why it works"
         title="Faster closings, less manual chasing"
-        subtitle="Automated reminders and instant status updates keep files moving without adding staff."
-        items={BENEFITS}
+        items={REASONS}
       />
 
       <CTABanner

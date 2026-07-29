@@ -1,10 +1,11 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconSearch, IconPencil, IconCalendar, IconRefresh, IconBolt, IconChart, IconLink, IconUsers, IconClock, IconBell, IconMail } from '../components/icons.jsx'
-import SdrFunnelVisual from '../components/SdrFunnelVisual.jsx'
-import StepsGrowCircles from '../components/StepsGrowCircles.jsx'
-import WhyUsBento from '../components/WhyUsBento.jsx'
-import FeatureRelay from '../components/FeatureRelay.jsx'
+import SdrProspectPipelineHeroMock from '../components/SdrProspectPipelineHeroMock.jsx'
+import ProblemStalledInbox from '../components/ProblemStalledInbox.jsx'
+import FeatureExpandRow from '../components/FeatureExpandRow.jsx'
+import StepsSdrSpine from '../components/StepsSdrSpine.jsx'
+import WhyUsSdrPulse from '../components/WhyUsSdrPulse.jsx'
 
 const FEATURES = [
   { icon: <IconSearch />, title: 'Lead research', desc: 'Automatically enriches and prioritizes leads before outreach.' },
@@ -24,6 +25,19 @@ const WHY_US = [
   { icon: <IconChart />, title: 'Higher reply rates', desc: 'Personalization at scale outperforms generic sequences.' },
   { icon: <IconLink />, title: 'CRM-native', desc: 'Syncs activity and meeting bookings back to your CRM automatically.' },
   { icon: <IconUsers />, title: 'Human-in-the-loop', desc: 'Reps can review and approve messages before they send.' },
+]
+
+const WHY_ITEMS = [
+  'Why leads sit in a queue',
+  'Why outreach reads the same to everyone',
+  'Why one meeting takes five emails',
+]
+
+const SYMPTOM_ITEMS = [
+  { icon: <IconClock />, label: 'New Lead Waiting' },
+  { icon: <IconBell />, label: '3 Days, No Reply' },
+  { icon: <IconMail />, label: 'Same Template Again' },
+  { icon: <IconCalendar />, label: 'Reschedule Email #4' },
 ]
 
 const FAQS = [
@@ -47,36 +61,23 @@ function AiAgentsSalesSdr() {
         subtitle="Research leads, personalize outreach and book meetings automatically — across email, SMS and WhatsApp."
         primaryCta={{ label: 'Deploy an AI SDR', href: '/contact-us' }}
         secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
-        visual={<SdrFunnelVisual />}
+        visual={<SdrProspectPipelineHeroMock />}
       />
 
-      <NarrativeCompare
-        variant="collage"
+      <ProblemStalledInbox
         eyebrow="The problem"
         heading={<>Most leads go cold before a human ever replies.</>}
-        paragraphs={[
-          'A new lead comes in, and it sits in a queue — waiting for a rep to finish another call, research the company, and write a first message. By the time that happens, the lead has often moved on.',
-          <>An AI SDR closes that gap — <strong>researching and reaching out the moment a lead arrives</strong> — so reps spend their time on qualified conversations, not the queue.</>,
-        ]}
-        leftItems={[
-          'Why leads sit in a queue',
-          'Why outreach reads the same to everyone',
-          'Why one meeting takes five emails',
-        ]}
-        rightItems={[
-          { icon: <IconClock />, label: 'New Lead Waiting' },
-          { icon: <IconBell />, label: '3 Days, No Reply' },
-          { icon: <IconMail />, label: 'Same Template Again' },
-          { icon: <IconCalendar />, label: 'Reschedule Email #4' },
-        ]}
+        paragraph={<>An AI SDR closes that gap — <strong>researching and reaching out the moment a lead arrives</strong> — so reps spend their time on qualified conversations, not the queue.</>}
+        whyItems={WHY_ITEMS}
+        symptomItems={SYMPTOM_ITEMS}
         alt
       />
 
-      <FeatureRelay eyebrow="Features" title={<>Everything an SDR does, automated</>} items={FEATURES} />
+      <FeatureExpandRow eyebrow="Features" title={<>Everything an SDR does, automated</>} subtitle="Research, outreach, booking and follow-up — one agent, every step." items={FEATURES} />
 
-      <StepsGrowCircles eyebrow="How it works" title={<>Launch AI-powered outreach in three steps</>} steps={STEPS} alt />
+      <StepsSdrSpine eyebrow="How it works" title={<>Launch AI-powered outreach in three steps</>} steps={STEPS} alt />
 
-      <WhyUsBento eyebrow="Why us" title={<>Why sales teams use our AI SDR</>} items={WHY_US} />
+      <WhyUsSdrPulse eyebrow="Why us" title={<>Why sales teams use our AI SDR</>} subtitle="Built for reps who need pipeline, not more busywork." items={WHY_US} />
 
       <CTABanner
         title="Put prospecting on autopilot"

@@ -18,6 +18,11 @@ const BOOKINGS = [
   { col: 4, t: '2:00', l: 'Discovery' },
   { col: 0, t: '3:30', l: 'Onboarding' },
   { col: 2, t: '4:00', l: 'Check-in' },
+  { col: 1, t: '4:30', l: 'Upsell' },
+  { col: 4, t: '9:30', l: 'Arrival' },
+  { col: 3, t: '1:30', l: 'Transfer' },
+  { col: 0, t: '5:00', l: 'Wrap-up' },
+  { col: 2, t: '5:30', l: 'Confirm' },
 ]
 
 function BookingCalendarMock() {
@@ -70,6 +75,21 @@ function BookingCalendarMock() {
             </div>
           )
         })}
+      </div>
+
+      <div className="bcm-footer">
+        <div className="bcm-footer-stat">
+          <strong>{count}</strong>
+          <span>Booked this week</span>
+        </div>
+        <div className="bcm-footer-stat">
+          <strong>0</strong>
+          <span>Awaiting reply</span>
+        </div>
+        <div className="bcm-footer-stat">
+          <strong>40+</strong>
+          <span>Languages live</span>
+        </div>
       </div>
     </div>
   )

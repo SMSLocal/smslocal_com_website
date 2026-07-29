@@ -1,26 +1,11 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
 import ProblemFlipDeck from '../components/ProblemFlipDeck.jsx'
-import FeatureGlow from '../components/FeatureGlow.jsx'
-import BuildJourneyStepper from '../components/BuildJourneyStepper.jsx'
+import StoreFeatureShowcase from '../components/StoreFeatureShowcase.jsx'
+import BuildJourneyStepperIndustry from '../components/BuildJourneyStepperIndustry.jsx'
 import WhyUsChecks from '../components/WhyUsChecks.jsx'
-import { IconCart, IconRefresh, IconGlobe, IconCheck, IconClock, IconChart, IconBolt, IconPackage, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
-import AgentInboxMock from '../components/AgentInboxMock.jsx'
-
-const STATS = [
-  { value: '93%', label: 'Cart recovery lift', desc: 'Automated WhatsApp and SMS nudges bring shoppers back to checkout before the sale is gone.' },
-  { value: '24/7', label: 'Order support coverage', desc: 'Status, returns and exchange questions answered around the clock, no shift gaps.' },
-  { value: '<1s', label: 'First response time', desc: 'Instant replies at peak traffic, from a flash sale to a holiday rush.' },
-  { value: '3x', label: 'Broadcast reach vs email', desc: 'SMS and WhatsApp campaigns land in an inbox shoppers actually open.' },
-]
-
-const FEATURES = [
-  { icon: <IconCart />, title: 'Order & return automation', desc: 'Looks up order status, initiates returns and processes exchanges directly inside the chat — no ticket, no wait.' },
-  { icon: <IconRefresh />, title: 'Cart recovery that converts', desc: 'Triggers a personalised WhatsApp or SMS the moment a cart goes cold, with the exact items and a one-tap link back to checkout.' },
-  { icon: <IconGlobe />, title: 'One agent, every channel', desc: 'The same AI agent answers on your website, WhatsApp, SMS and Instagram DMs, so shoppers get a consistent answer wherever they ask.' },
-  { icon: <IconChart />, title: 'Segmented broadcast campaigns', desc: 'Send flash sales, restock alerts and loyalty offers to the right segment, with delivery receipts and opt-out handling built in.' },
-]
+import { IconCheck, IconClock, IconBolt, IconPackage, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
+import StoreAgentHeroMock from '../components/StoreAgentHeroMock.jsx'
 
 const BENEFITS = [
   { icon: <IconClock />, title: 'Never miss peak traffic', desc: 'Handles Black Friday-level volume the same way it handles a quiet Tuesday — no queue, no dropped chats.' },
@@ -59,10 +44,8 @@ function IndustryRetail() {
         subtitle="Answer product questions, recover abandoned carts and resolve order issues automatically — across WhatsApp, SMS, RCS and web chat, with a human handoff when it truly matters."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<AgentInboxMock />}
+        visual={<StoreAgentHeroMock />}
       />
-
-      <StatBand items={STATS} />
 
       <ProblemFlipDeck
         eyebrow="The problem"
@@ -76,14 +59,12 @@ function IndustryRetail() {
         alt
       />
 
-      <FeatureGlow
+      <StoreFeatureShowcase
         eyebrow="Features"
-        title="Built for the moments that make or lose a sale"
-        subtitle="From the first product question to the post-purchase return, one agent covers the whole shopping journey."
-        items={FEATURES}
+        title="Built for online stores"
       />
 
-      <BuildJourneyStepper
+      <BuildJourneyStepperIndustry
         eyebrow="How it works"
         title="Live in four steps"
         subtitle="From connecting your store to recovering your first cart, with no scripting required."

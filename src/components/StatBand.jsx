@@ -13,6 +13,7 @@ function StatBand({ title, subtitle, items, alt }) {
         <div className="stat-band-panel">
           {items.map((item) => (
             <div className="stat-band-col" key={item.label}>
+              {item.icon && <span className="stat-band-icon">{item.icon}</span>}
               <strong className="stat-band-value">{item.value}</strong>
               <span className="stat-band-label">{item.label}</span>
               <p className="stat-band-desc">{item.desc}</p>

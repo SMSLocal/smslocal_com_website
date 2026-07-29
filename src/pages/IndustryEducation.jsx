@@ -1,12 +1,11 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import ProblemFlipDeck from '../components/ProblemFlipDeck.jsx'
-import FeatureSpotlight from '../components/FeatureSpotlight.jsx'
-import WhatsappStepsFlow from '../components/WhatsappStepsFlow.jsx'
-import WhyUsSplitGrid from '../components/WhyUsSplitGrid.jsx'
+import ProblemReceiptSwap from '../components/ProblemReceiptSwap.jsx'
+import FeatureChatQA from '../components/FeatureChatQA.jsx'
+import StepsFlightPath from '../components/StepsFlightPath.jsx'
+import WhyItWorksCarousel from '../components/WhyItWorksCarousel.jsx'
 import { IconBook, IconGlobe, IconBell, IconCheck, IconClock, IconUsers, IconBolt, IconChart } from '../components/icons.jsx'
-import SmsChatMock from '../components/SmsChatMock.jsx'
+import EducationAdmissionsHeroMock from '../components/EducationAdmissionsHeroMock.jsx'
 
 const STEPS = [
   { title: 'Connect your admissions data', desc: 'Link your CRM or SIS so the agent can answer from real programme and deadline data.' },
@@ -15,18 +14,11 @@ const STEPS = [
   { title: 'Follow up automatically', desc: 'Deadline and fee reminders start running the moment an applicant enters the funnel.' },
 ]
 
-const STATS = [
-  { value: '35%', label: 'Higher enrolment follow-through', desc: 'Automated nudges keep applicants moving from enquiry to enrolled, without a staff member chasing each one.' },
-  { value: '24/7', label: 'Admissions support', desc: 'Prospective students get answers on programmes and deadlines at any hour.' },
-  { value: '<1s', label: 'First response time', desc: 'No waiting for office hours — questions get answered the moment they\'re asked.' },
-  { value: '40+', label: 'Languages supported', desc: 'International applicants get answers in their own language automatically.' },
-]
-
 const FEATURES = [
-  { icon: <IconBook />, title: 'Admissions Q&A on autopilot', desc: 'Answers programme, deadline and requirement questions instantly, grounded in your actual admissions data.' },
-  { icon: <IconBell />, title: 'Fee & deadline reminders', desc: 'Automated SMS and WhatsApp reminders for application deadlines, fee due dates and document submissions.' },
-  { icon: <IconGlobe />, title: 'Multilingual admissions', desc: 'Detects and responds in the applicant\'s language, no separate workflow needed per market.' },
-  { icon: <IconUsers />, title: 'Enrolment follow-through', desc: 'Nudges accepted students through remaining steps — deposits, orientation, housing — until they\'re actually enrolled.' },
+  { icon: <IconBook />, question: 'Which programmes still have spots for Fall intake?', title: 'Admissions Q&A on autopilot', desc: 'Answers programme, deadline and requirement questions instantly, grounded in your actual admissions data.' },
+  { icon: <IconBell />, question: 'When is my application fee due?', title: 'Fee & deadline reminders', desc: 'Automated SMS and WhatsApp reminders for application deadlines, fee due dates and document submissions.' },
+  { icon: <IconGlobe />, question: '¿Cuáles son los requisitos de admisión?', title: 'Multilingual admissions', desc: 'Detects and responds in the applicant\'s language, no separate workflow needed per market.' },
+  { icon: <IconUsers />, question: 'I was accepted — what do I do next?', title: 'Enrolment follow-through', desc: 'Nudges accepted students through remaining steps — deposits, orientation, housing — until they\'re actually enrolled.' },
 ]
 
 const BENEFITS = [
@@ -59,39 +51,37 @@ function IndustryEducation() {
         subtitle="Answer admissions questions, send deadline reminders and follow up on every application — around the clock, in the applicant's own language."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<SmsChatMock />}
+        visual={<EducationAdmissionsHeroMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <ProblemFlipDeck
+      <ProblemReceiptSwap
         eyebrow="The problem"
-        heading="Admissions season shouldn't run on office hours."
-        paragraph="Prospective students ask their most important questions evenings, weekends, the night before a deadline. Flip the switch to see what changes."
-        pairs={[
-          { before: 'Applicant status means a manual lookup', after: 'Status answered instantly from real data' },
-          { before: 'Deadlines get missed without a nudge', after: 'Fee and deadline reminders send themselves' },
-          { before: 'International applicants wait for a translator', after: 'Answers arrive in their own language' },
-        ]}
+        heading="A campus visit for an admissions question is a visit that shouldn't happen."
+        paragraph="Most routine admissions questions still route to a queue or a front-desk visit, even though none of them need a human decision."
+        before={{
+          title: 'Front Desk Queue',
+          rows: ['Programme requirements', 'Application status', 'Deadline lookup', 'Fee balance'],
+        }}
+        after={{ title: 'Admissions AI', row: 'Every question answered', time: '0:04' }}
         alt
       />
 
-      <FeatureSpotlight
+      <FeatureChatQA
         eyebrow="Features"
         title="Covers the whole admissions journey"
         subtitle="From the first programme question to enrolment day, one agent keeps every applicant moving."
         items={FEATURES}
       />
 
-      <WhatsappStepsFlow
+      <StepsFlightPath
         eyebrow="How it works"
-        title="Live before your next application cycle in four steps"
+        title="Live before your next application cycle"
         subtitle="From connecting your admissions data to automated follow-up."
         steps={STEPS}
         alt
       />
 
-      <WhyUsSplitGrid
+      <WhyItWorksCarousel
         eyebrow="Why it works"
         title="More enrolments, less manual follow-up"
         subtitle="Automated reminders and instant answers keep applicants engaged through the whole funnel."

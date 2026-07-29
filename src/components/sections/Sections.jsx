@@ -127,7 +127,7 @@ export function HowItWorks({ title, steps, alt, variant, eyebrow = 'How it works
   )
 }
 
-export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, leftItems, rightLabel, rightItems, alt, variant, stat }) {
+export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, leftItems, rightLabel, rightItems, alt, variant, stat, className }) {
   if (variant === 'convert') {
     return (
       <section className={alt ? 'section section-alt' : 'section'}>
@@ -159,6 +159,56 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
               <ul className="nconv-list check">
                 {rightItems.map((item) => (
                   <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (variant === 'resolve') {
+    return (
+      <section className={alt ? 'section section-alt nstm-section' : 'section nstm-section'}>
+        <div className="container nstm-inner">
+          <div className="nstm-head">
+            {eyebrow && <span className="section-kicker">{eyebrow}</span>}
+            <h2 className="nstm-heading">{hl(heading)}</h2>
+            {paragraphs.map((p, i) => (
+              <p className="nstm-paragraph" key={i}>{p}</p>
+            ))}
+          </div>
+
+          <div className="nstm-row">
+            <div className="nstm-card nstm-card--bad">
+              <span className="nstm-card-label">{leftLabel}</span>
+              <ul className="nstm-list">
+                {leftItems.map((item, i) => (
+                  <li key={item} style={{ '--nstm-i': i }}>
+                    <span className="nstm-ic nstm-ic--x" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <span className="nstm-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </span>
+
+            <div className="nstm-card nstm-card--good">
+              <span className="nstm-card-label accent">{rightLabel}</span>
+              <ul className="nstm-list">
+                {rightItems.map((item, i) => (
+                  <li key={item} style={{ '--nstm-i': i }}>
+                    <span className="nstm-ic nstm-ic--check" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12l5.5 5.5L20 6" /></svg>
+                    </span>
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -313,8 +363,9 @@ export function NarrativeCompare({ eyebrow, heading, paragraphs, leftLabel, left
   }
 
   if (variant === 'columns') {
+    const sectionClass = ['section', alt ? 'section-alt' : '', className || ''].filter(Boolean).join(' ')
     return (
-      <section className={alt ? 'section section-alt' : 'section'}>
+      <section className={sectionClass}>
         <div className="container ncols-inner">
           <div className="ncols-head">
             {eyebrow && <span className="section-kicker">{eyebrow}</span>}

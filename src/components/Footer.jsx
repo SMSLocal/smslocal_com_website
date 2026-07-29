@@ -6,35 +6,34 @@ import {
   YoutubeIcon,
 } from './home/SocialIcons.jsx'
 import NightBackdrop from './home/NightBackdrop.jsx'
+import {
+  PRODUCT_CATEGORIES,
+  SOLUTION_CATEGORIES,
+  PLATFORM,
+  RESOURCES_LEFT,
+  RESOURCES_RIGHT,
+} from './Navbar.jsx'
 
-// Ported from the reference site's footer. The reference hard-codes href="#" on
-// every link; the real routes from this project's own footer are kept instead,
-// so the footer stays navigable on all pages.
+// Mirrors the header's own nav data (imported from Navbar.jsx, not
+// duplicated) so the footer never drifts out of sync with what the header
+// mega-menus actually contain. Each column links to a category's "view all"
+// page rather than every individual item — the header holds the full list.
 const COLUMNS = [
   {
-    title: 'Product',
-    links: [
-      { t: 'Channels', href: '/channels' },
-      { t: 'Two-way messaging', href: '/channels/social' },
-      { t: 'Integrations & API', href: '/integrations' },
-    ],
+    title: 'Products',
+    links: PRODUCT_CATEGORIES.map((c) => ({ t: c.label, href: c.viewAllHref })),
+  },
+  {
+    title: 'Platform',
+    links: PLATFORM.slice(0, 4).map((i) => ({ t: i.t, href: i.href })),
   },
   {
     title: 'Solutions',
-    links: [
-      { t: 'Booking & scheduling', href: '/ai-agents/booking' },
-      { t: 'School & campus', href: '/resources/case-studies' },
-      { t: 'Why SMSLocal', href: '/why-smslocal' },
-    ],
+    links: SOLUTION_CATEGORIES.map((c) => ({ t: c.label, href: c.viewAllHref })),
   },
   {
     title: 'Resources',
-    links: [
-      { t: 'Blog', href: '/blog' },
-      { t: 'Help Center', href: '/resources/docs' },
-      { t: 'Pricing', href: '/pricing' },
-      { t: 'Support', href: '/contact-us' },
-    ],
+    links: [...RESOURCES_LEFT, ...RESOURCES_RIGHT].map((i) => ({ t: i.t, href: i.href })),
   },
   {
     title: 'Company',
@@ -42,8 +41,6 @@ const COLUMNS = [
       { t: 'About Us', href: '/about-us' },
       { t: 'Careers', href: '/careers' },
       { t: 'Partners', href: '/partnerships' },
-      { t: 'Contact', href: '/contact-us' },
-      { t: 'Privacy Policy', href: '/privacy-policy' },
     ],
   },
 ]
@@ -63,7 +60,7 @@ function Footer() {
     <footer className="home-tw relative overflow-hidden border-t border-border bg-foreground text-white">
       <NightBackdrop />
       <div className="relative mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_repeat(5,1fr)]">
           <div>
             {/* Knocked out to solid white. The logo's own indigo drops to 1.67
                 contrast on this background — parts of it would disappear. */}
@@ -119,14 +116,11 @@ function Footer() {
           <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>
           {/* py-1 clears the 24px WCAG 2.5.8 tap minimum */}
           <div className="flex gap-6">
-            <Link to="/terms" className="inline-block py-1 hover:text-primary">
-              Terms
+            <Link to="/terms-and-conditions" className="inline-block py-1 hover:text-primary">
+              Terms and Conditions
             </Link>
             <Link to="/privacy-policy" className="inline-block py-1 hover:text-primary">
               Privacy
-            </Link>
-            <Link to="/privacy-policy" className="inline-block py-1 hover:text-primary">
-              Cookies
             </Link>
           </div>
         </div>

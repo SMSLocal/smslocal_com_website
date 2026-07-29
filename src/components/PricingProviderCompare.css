@@ -1,0 +1,164 @@
+/* Provider comparison for /pricing — new design, real content.
+   Plain flow, no absolute-positioned overlays. */
+
+.pprov-section .container { text-align: center; }
+
+.pprov-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1.2rem;
+  max-width: 780px;
+  margin: 2.2rem auto 0;
+  text-align: left;
+}
+
+.pprov-currency {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.pprov-currency-btn {
+  height: 38px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.pprov-currency-btn.is-active {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.pprov-unavailable {
+  max-width: 780px;
+  margin: 1.4rem auto 0;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid rgba(251, 113, 133, 0.25);
+  font-size: 0.82rem;
+  color: var(--coral);
+  text-align: left;
+}
+
+.pprov-board {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 780px;
+  margin: 1.6rem auto 0;
+  text-align: left;
+}
+
+.pprov-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1.6rem;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.pprov-row--lead {
+  border-color: color-mix(in srgb, var(--blue) 40%, var(--border));
+  background: linear-gradient(180deg, rgba(79, 91, 213, 0.05), rgba(236, 72, 153, 0.03));
+}
+
+.pprov-note {
+  grid-column: 1 / -1;
+  margin: 0.7rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.pprov-row--lead .pprov-note { color: var(--navy); font-weight: 600; }
+
+.pprov-desc {
+  grid-column: 1 / -1;
+  margin: 0.4rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.pprov-name-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pprov-crown {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--gradient-brand);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+}
+
+.pprov-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.pprov-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.pprov-stat-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.pprov-row--lead .pprov-stat-value {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pprov-stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.pprov-foot {
+  max-width: 780px;
+  margin: 1.2rem auto 0;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 620px) {
+  .pprov-row { grid-template-columns: 1fr 1fr; }
+  .pprov-name-col { grid-column: 1 / -1; }
+}

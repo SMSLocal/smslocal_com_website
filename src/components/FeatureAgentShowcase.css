@@ -1,0 +1,321 @@
+.fas-section .section-title {
+  font-size: 2.35rem;
+}
+
+.fas-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fas-top-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+}
+
+.fas-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.5rem;
+  box-shadow: 0 22px 42px -30px rgba(16, 35, 63, 0.28);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  transition-delay: calc(var(--fas-i) * 0.1s);
+}
+
+.fas-section.reveal-visible .fas-card,
+.fas-section.reveal-visible .fas-wide-card {
+  opacity: 1;
+  transform: none;
+}
+
+.fas-card:hover {
+  box-shadow: 0 28px 50px -28px rgba(16, 35, 63, 0.32);
+  transform: translateY(-4px);
+}
+
+.fas-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.16rem;
+  letter-spacing: -0.01em;
+}
+
+.fas-card p {
+  margin: 0 0 1.2rem;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.fas-visual {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  padding: 0.9rem 1rem;
+}
+
+.fas-visual-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* channels visual */
+.fas-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--success);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.fas-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: fas-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes fas-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.fas-channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.fas-channel-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.fas-channel-dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.fas-channel-dot--on { background: var(--success); }
+.fas-channel-dot--wait { background: var(--coral); }
+
+.fas-status {
+  margin-left: auto;
+  font-size: 0.62rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.18rem 0.5rem;
+}
+
+.fas-status--on { background: rgba(22, 163, 74, 0.12); color: var(--success); }
+.fas-status--wait { background: rgba(251, 113, 133, 0.12); color: var(--coral); }
+
+/* resolved visual */
+.fas-resolved-count {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.fas-bar {
+  position: relative;
+  display: flex;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--border);
+  margin-bottom: 0.7rem;
+}
+
+.fas-bar-seg {
+  height: 100%;
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fas-bar-seg--resolved { width: 65%; background: var(--blue); }
+.fas-bar-seg--progress { width: 20%; background: var(--coral); }
+.fas-bar-seg--escalated { width: 15%; background: var(--border); }
+
+.fas-legend {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.fas-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.fas-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.fas-dot--resolved { background: var(--blue); }
+.fas-dot--progress { background: var(--coral); }
+.fas-dot--escalated { background: var(--border); }
+
+/* escalation visual */
+.fas-priority {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--coral);
+  background: rgba(251, 113, 133, 0.12);
+  border-radius: 999px;
+  padding: 0.18rem 0.5rem;
+}
+
+.fas-escalation-title {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.fas-escalation-desc {
+  margin: 0 0 0.8rem;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.fas-escalation-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--border);
+}
+
+.fas-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.fas-context-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+/* wide card — learns your business */
+.fas-wide-card {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 2.4rem;
+  max-width: 1180px;
+  margin: 1.4rem auto 0;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.2rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: 0.3s;
+}
+
+.fas-wide-copy h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.fas-wide-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.fas-visual--sources {
+  background: #fff;
+}
+
+.fas-source-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.fas-source-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: calc(var(--fas-i) * 0.12s + 0.4s);
+}
+
+.fas-section.reveal-visible .fas-source-row {
+  opacity: 1;
+  transform: none;
+}
+
+.fas-source-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+}
+
+@media (max-width: 900px) {
+  .fas-top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .fas-wide-card {
+    grid-template-columns: 1fr;
+  }
+}

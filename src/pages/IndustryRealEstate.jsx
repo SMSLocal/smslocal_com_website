@@ -1,24 +1,17 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import FeatureReveal from '../components/FeatureReveal.jsx'
-import BuilderJourneyPath from '../components/BuilderJourneyPath.jsx'
-import WhyUsTargetRing from '../components/WhyUsTargetRing.jsx'
-import { IconHandshake, IconCalendar, IconGlobe, IconCheck, IconClock, IconChart, IconBolt, IconChat, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
-import MessengerHeroMock from '../components/MessengerHeroMock.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import ProblemLeadRace from '../components/ProblemLeadRace.jsx'
+import FeatureCapabilityScroll from '../components/FeatureCapabilityScroll.jsx'
+import StepsProgressBuild from '../components/StepsProgressBuild.jsx'
+import WhyUsBenefitRibbon from '../components/WhyUsBenefitRibbon.jsx'
+import { IconHandshake, IconCalendar, IconCheck, IconClock, IconChart, IconBolt, IconChat } from '../components/icons.jsx'
+import RealEstateLeadScoreHeroMock from '../components/RealEstateLeadScoreHeroMock.jsx'
 
 const STEPS = [
-  { icon: <IconPlug />, title: 'Connect your listings & calendar', desc: 'Link your listing feed and agent calendars along with WhatsApp, SMS and web chat.' },
-  { icon: <IconGear />, title: 'Train on your inventory', desc: 'The agent learns your listings, pricing and qualification questions.' },
-  { icon: <IconRocket />, title: 'Go live for enquiries', desc: 'Launch instant lead capture and qualification across every channel.' },
-  { icon: <IconCheck />, title: 'Viewings book themselves', desc: 'Conversational scheduling starts confirming showings from day one.' },
-]
-
-const STATS = [
-  { value: '2x', label: 'Lead response speed', desc: 'Instant replies to new enquiries, well before a lead moves on to the next listing.' },
-  { value: '24/7', label: 'Buyer & renter support', desc: 'Listing and viewing questions answered around the clock, on any channel.' },
-  { value: '<1s', label: 'First response time', desc: 'No lag between a lead submitting a form and getting a real answer.' },
-  { value: '30%', label: 'More viewings booked', desc: 'Conversational scheduling turns interest into a confirmed appointment on the spot.' },
+  { title: 'Connect your listings & calendar', desc: 'Link your listing feed and agent calendars along with WhatsApp, SMS and web chat.' },
+  { title: 'Train on your inventory', desc: 'The agent learns your listings, pricing and qualification questions.' },
+  { title: 'Go live for enquiries', desc: 'Launch instant lead capture and qualification across every channel.' },
+  { title: 'Viewings book themselves', desc: 'Conversational scheduling starts confirming showings from day one.' },
 ]
 
 const FEATURES = [
@@ -58,52 +51,32 @@ function IndustryRealEstate() {
         subtitle="Capture, qualify and respond to every enquiry instantly, recommend the right listings and book viewings — across web chat, WhatsApp, SMS and voice."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
-        visual={<MessengerHeroMock />}
+        visual={<RealEstateLeadScoreHeroMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <NarrativeCompare
-        variant="flanked"
+      <ProblemLeadRace
         eyebrow="The problem"
         heading={<>The first agent to reply usually wins the lead.</>}
-        paragraphs={[
-          'A buyer browsing listings at night rarely waits until morning — if nobody replies fast, they\'re already messaging the next agent.',
-          'Agentic AI for real estate responds, qualifies and books the viewing instantly, so the fastest reply is always yours.',
-        ]}
-        leftLabel="Manual follow-up"
-        leftItems={[
-          'Enquiries wait until office hours',
-          'Qualifying takes a phone call',
-          'Scheduling means an email chain',
-          "Leads go cold overnight",
-        ]}
-        rightLabel="Agentic AI for real estate"
-        rightItems={[
-          'Every enquiry answered instantly',
-          'Qualifies budget and timeline in chat',
-          'Books viewings against live availability',
-          'No lead waits past the first message',
-        ]}
+        paragraph="A buyer browsing listings at night rarely waits until morning — if nobody replies fast, they're already messaging the next agent. Agentic AI for real estate responds, qualifies and books the viewing instantly, so the fastest reply is always yours."
         alt
       />
 
-      <FeatureReveal
+      <FeatureCapabilityScroll
         eyebrow="Features"
         title="Covers the full lead-to-viewing journey"
         subtitle="From the first message to a confirmed showing, one agent keeps every lead moving."
         items={FEATURES}
       />
 
-      <BuilderJourneyPath
+      <StepsProgressBuild
         eyebrow="How it works"
         title="Live for enquiries in four steps"
-        subtitle="From connecting your listings to viewings that book themselves."
+        subtitle="Watch readiness build — each stage provisions one more piece."
         steps={STEPS}
         alt
       />
 
-      <WhyUsTargetRing
+      <WhyUsBenefitRibbon
         eyebrow="Why it works"
         title="Faster replies, more booked viewings"
         subtitle="Instant qualification and conversational scheduling turn more enquiries into showings."

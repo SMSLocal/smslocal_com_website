@@ -1,32 +1,38 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import ProblemFlipDeck from '../components/ProblemFlipDeck.jsx'
-import FeatureGlow from '../components/FeatureGlow.jsx'
-import BuildJourneyStepper from '../components/BuildJourneyStepper.jsx'
-import WhyUsUnderline from '../components/WhyUsUnderline.jsx'
-import { IconPhone, IconBell, IconReceipt, IconCheck, IconClock, IconChart, IconBolt, IconGlobe, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
-import VoiceOmniInboxMock from '../components/VoiceOmniInboxMock.jsx'
+import ProblemIvrMaze from '../components/ProblemIvrMaze.jsx'
+import FeatureBroadcastShowcase from '../components/FeatureBroadcastShowcase.jsx'
+import StepsAnimatedPanel from '../components/StepsAnimatedPanel.jsx'
+import WhyUsDashList from '../components/WhyUsDashList.jsx'
+import { IconCheck, IconClock, IconChart, IconBolt } from '../components/icons.jsx'
+import TelecomNetworkHeroMock from '../components/TelecomNetworkHeroMock.jsx'
 
 const STEPS = [
-  { icon: <IconPlug />, title: 'Connect billing & OSS/BSS', desc: 'Link your billing platform and network systems along with every channel.' },
-  { icon: <IconGear />, title: 'Train on your plans', desc: 'The agent learns your plan catalogue, billing logic and outage data.' },
-  { icon: <IconRocket />, title: 'Go live across channels', desc: 'Launch on SMS, RCS, WhatsApp and voice from a single, consistent brain.' },
-  { icon: <IconCheck />, title: 'Alerts run automatically', desc: 'Outage and maintenance broadcasts start the moment network data updates.' },
+  { title: 'Connect billing & OSS/BSS', desc: 'Link your billing platform and network systems along with every channel.' },
+  { title: 'Train on your plans', desc: 'The agent learns your plan catalogue, billing logic and outage data.' },
+  { title: 'Go live across channels', desc: 'Launch on SMS, RCS, WhatsApp and voice from a single, consistent brain.' },
+  { title: 'Alerts run automatically', desc: 'Outage and maintenance broadcasts start the moment network data updates.' },
 ]
 
-const STATS = [
-  { value: '60%', label: 'Fewer billing tickets', desc: 'Automated billing lookups and plan questions resolve without reaching a live agent.' },
-  { value: '24/7', label: 'Support coverage', desc: 'Outages, billing and plan questions answered instantly, any hour.' },
-  { value: '<1s', label: 'First response time', desc: 'No IVR maze — instant replies across SMS, RCS, WhatsApp and voice.' },
-  { value: '5', label: 'Channels, one agent', desc: 'SMS, RCS, WhatsApp, voice and web chat answered from a single, consistent brain.' },
+const FEATURE_TYPES = [
+  { title: 'Billing questions resolved instantly', desc: 'Real balance, plan and charges, explained in the chat' },
+  { title: 'Proactive outage notifications', desc: 'Broadcasts before the support queue floods' },
+  { title: 'Voice AI for phone support', desc: 'Natural speech, routed to a human only when needed' },
+  { title: 'Omnichannel by default', desc: 'SMS, RCS, WhatsApp and voice share one account view' },
 ]
 
-const FEATURES = [
-  { icon: <IconReceipt />, title: 'Billing questions resolved instantly', desc: 'Looks up real account balance, plan details and charges, and explains them clearly inside the chat.' },
-  { icon: <IconBell />, title: 'Proactive outage notifications', desc: 'Broadcasts outage and maintenance alerts to affected customers before the support queue floods.' },
-  { icon: <IconPhone />, title: 'Voice AI for phone support', desc: 'Handles inbound calls with natural speech, routing to a human only when the request truly needs one.' },
-  { icon: <IconGlobe />, title: 'Omnichannel by default', desc: 'SMS, RCS, WhatsApp and voice all answer from the same account data, so nothing contradicts.' },
+const FEATURE_MESSAGES = [
+  { sender: 'NOVA MOBILE', time: '14:02', text: 'Your balance is $84.20 — $12 of that is a roaming charge from March 2. Full breakdown: smsl.co/bill' },
+  { sender: 'NOVA MOBILE', time: '19:45', text: "We're aware of an issue affecting sign-ins in your area. Live updates: smsl.co/status" },
+  { sender: 'NOVA MOBILE', time: '11:20', text: "Confirmed by phone — you're switched to the Unlimited Plus plan, effective next cycle." },
+  { sender: 'NOVA MOBILE', time: '09:15', text: 'Picking up where you left off on chat — your request is already up to date here on WhatsApp.' },
+]
+
+const FEATURE_STATS = [
+  { value: '60%', label: 'fewer billing tickets' },
+  { value: '9s', label: 'to reach the whole base' },
+  { value: '<1s', label: 'first response time' },
+  { value: '5', label: 'channels, one agent' },
 ]
 
 const BENEFITS = [
@@ -59,39 +65,45 @@ function IndustryTelecom() {
         subtitle="Resolve billing, plan and outage questions instantly across SMS, RCS, WhatsApp and voice — with proactive alerts that deflect the flood before it hits your queue."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
         secondaryCta={{ label: 'Voice AI Agent', href: '/voice-ai-agents' }}
-        visual={<VoiceOmniInboxMock />}
+        visual={<TelecomNetworkHeroMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <ProblemFlipDeck
+      <ProblemIvrMaze
         eyebrow="The problem"
-        heading="Nobody calls a telecom provider for fun — the IVR shouldn't make it worse."
-        paragraph="Every outage, billing cycle and plan promotion sends the same wave of questions into a queue built for average, not peak, volume. Flip the switch to see what changes."
-        pairs={[
-          { before: 'Billing questions mean five IVR menus', after: 'Billing answered instantly, in the chat' },
-          { before: 'Outages flood the queue with the same question', after: 'Outage alerts go out before anyone has to ask' },
-          { before: 'Every channel sees a different account view', after: 'Voice and chat share the same account data' },
+        heading={<>Nobody calls a telecom provider for fun — the IVR shouldn&rsquo;t make it worse.</>}
+        paragraph="Every outage, billing cycle and plan promotion sends the same wave of questions into a queue built for average, not peak, volume. Agentic AI answers before the call even needs to happen."
+        menu={[
+          'Press 1 for billing',
+          'Press 2 to report an outage',
+          'Press 3 for plans & upgrades',
+          'Press 0 to repeat this menu',
         ]}
+        resolved={'"Why is my bill $12 higher this month?" — Answered in 4 seconds, no hold music.'}
         alt
       />
 
-      <FeatureGlow
+      <FeatureBroadcastShowcase
         eyebrow="Features"
         title="Covers billing, outages and everything between"
         subtitle="From a plan question to an outage notification, one agent handles it across every channel."
-        items={FEATURES}
+        typesLabel="Feature"
+        types={FEATURE_TYPES}
+        messagesLabel="Conversation"
+        messagesCountLabel="moments"
+        messages={FEATURE_MESSAGES}
+        statsLabel="What it drives"
+        stats={FEATURE_STATS}
+        caption="Four different moments, one consistent account view — across SMS, RCS, WhatsApp and voice."
       />
 
-      <BuildJourneyStepper
+      <StepsAnimatedPanel
         eyebrow="How it works"
         title="Live across every channel in four steps"
-        subtitle="From connecting your billing and OSS/BSS systems to alerts that run themselves."
         steps={STEPS}
         alt
       />
 
-      <WhyUsUnderline
+      <WhyUsDashList
         eyebrow="Why it works"
         title="Lower cost to serve, higher satisfaction"
         subtitle="Instant, accurate answers across every channel reduce both ticket volume and customer frustration."

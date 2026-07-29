@@ -1,12 +1,12 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import { IconSearch, IconGear, IconUsers, IconBrain, IconRocket, IconPlug, IconShield } from '../components/icons.jsx'
-import ConsultingArcHero from '../components/ConsultingArcHero.jsx'
-import LastMileContrast from '../components/LastMileContrast.jsx'
-import EngagementRoadmap from '../components/EngagementRoadmap.jsx'
-import DeliverablesRows from '../components/DeliverablesRows.jsx'
-import OutcomeStats from '../components/OutcomeStats.jsx'
-import PartnerCore from '../components/PartnerCore.jsx'
+import { IconSearch, IconGear, IconUsers, IconBrain, IconRocket, IconPlug, IconShield, IconClock, IconCheck, IconGlobe } from '../components/icons.jsx'
+import ConsultingReadinessArc from '../components/ConsultingReadinessArc.jsx'
+import ProblemDemoProduction from '../components/ProblemDemoProduction.jsx'
+import EngagementTimeline from '../components/EngagementTimeline.jsx'
+import DeliverablesGroups from '../components/DeliverablesGroups.jsx'
+import OutcomeQuadrant from '../components/OutcomeQuadrant.jsx'
+import WhyPartnerRows from '../components/WhyPartnerRows.jsx'
 
 const PHASES = [
   { duration: 'Week 1–2', title: 'Discover & scope', desc: 'We map your use cases, data and systems, then pick the highest-ROI place to start and define what success looks like.', exit: 'Signed-off scope & KPIs' },
@@ -44,10 +44,10 @@ const REASONS = [
 ]
 
 const STATS = [
-  { value: '4–6 wks', label: 'POC to first result', desc: 'Typical time from kickoff to a working proof of concept running on your real data.' },
-  { value: '100%', label: 'Source handed over', desc: 'Full code, prompts and documentation transferred at the end of every engagement.' },
-  { value: '5', label: 'Channels supported', desc: 'SMS, WhatsApp, voice, RCS and email connected to a single production workflow.' },
-  { value: '30-day', label: 'Launch support', desc: 'Every engagement includes a post-launch support window, with ongoing support available on request.' },
+  { icon: <IconClock />, value: '4–6 wks', label: 'POC to first result', desc: 'Typical time from kickoff to a working proof of concept running on your real data.' },
+  { icon: <IconCheck />, value: '100%', label: 'Source handed over', desc: 'Full code, prompts and documentation transferred at the end of every engagement.' },
+  { icon: <IconGlobe />, value: '5', label: 'Channels supported', desc: 'SMS, WhatsApp, voice, RCS and email connected to a single production workflow.' },
+  { icon: <IconShield />, value: '30-day', label: 'Launch support', desc: 'Every engagement includes a post-launch support window, with ongoing support available on request.' },
 ]
 
 const FAQS = [
@@ -79,57 +79,58 @@ function ServicesAiConsulting() {
           { value: '100%', label: 'Yours to keep' },
           { value: '5', label: 'Channels supported' },
         ]}
-        visual={<ConsultingArcHero />}
+        visual={<ConsultingReadinessArc />}
       />
 
-      <LastMileContrast
+      <ProblemDemoProduction
         eyebrow="The last-mile problem"
-        heading={<>A working demo is not a working product.</>}
-        paragraphs={[
-          'Most AI projects stall in the gap between an impressive proof of concept and something a business can actually run — integrations, evaluations, guardrails, ownership and change management all still have to happen.',
-          'We do that last mile with you: scoping the right use case, building against your real systems, and handing your team something they can operate and extend.',
-        ]}
-        leftLabel="Where projects stall"
-        leftItems={[
-          'A demo that never touches real data',
-          'No evals, so quality is a guess',
-          'One-off scripts nobody can maintain',
-          'The vendor owns all the knowledge',
-        ]}
-        rightLabel="How we finish"
-        rightItems={[
+        headingLines={['A working demo is', 'not a working product.']}
+        checklist={[
           'Built against your live systems',
           'Evals and guardrails from day one',
           'Documented, maintainable, and yours',
-          'Your team trained to own it',
         ]}
+        leftItems={[
+          'Demo-only data',
+          'Manual scripts',
+          'Vendor holds the keys',
+          'No ownership',
+        ]}
+        rightItems={[
+          'Live agent, monitored',
+          'Evals & guardrails',
+          'Owned by your team',
+          'Documented handover',
+        ]}
+        caption="From proof of concept to production."
       />
 
-      <EngagementRoadmap
+      <EngagementTimeline
         eyebrow="The engagement"
         title={<>How an engagement runs</>}
-        subtitle="A clear path from scoping to a supported production launch, with an exit criterion at every phase so you always know what you are getting."
+        subtitle="A clear path from scoping to a supported production launch."
         phases={PHASES}
       />
 
-      <DeliverablesRows
+      <DeliverablesGroups
         eyebrow="What you get"
         title={<>What you walk away with</>}
-        subtitle="Every engagement produces working software and the knowledge to run it, grouped across strategy, build and enablement."
+        subtitle="Every engagement produces working software and the knowledge to run it."
         groups={DELIVERABLES}
         note={<>Everything we build is <strong>yours to keep</strong> — full source, prompts and documentation are handed over, with no lock-in.</>}
       />
 
-      <OutcomeStats
+      <OutcomeQuadrant
+        eyebrow="The outcomes"
         title="What good looks like"
         subtitle="Outcome-focused numbers from real AI onboarding and consulting work."
         items={STATS}
       />
 
-      <PartnerCore
+      <WhyPartnerRows
         eyebrow="Why partner with us"
         title={<>Why teams partner with us</>}
-        subtitle="Senior, hands-on delivery that treats production — not a demo — as the finish line."
+        subtitle="Senior, hands-on delivery that treats production as the finish line."
         items={REASONS}
       />
 

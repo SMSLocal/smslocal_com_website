@@ -1,0 +1,210 @@
+.fahm-window {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.fahm-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.fahm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 10px 24px -16px rgba(16, 35, 63, 0.3);
+}
+
+.fahm-pill-ic {
+  display: inline-flex;
+  color: var(--blue);
+}
+
+.fahm-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--success);
+  font-variant-numeric: tabular-nums;
+}
+
+.fahm-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+  animation: fahm-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes fahm-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.3); }
+  50% { box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.06); }
+}
+
+.fahm-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.fahm-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fahm-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.28);
+  padding: 0.85rem 1rem;
+}
+
+.fahm-customer {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.fahm-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.fahm-customer-t { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; min-width: 0; }
+.fahm-customer-t strong { font-size: 0.86rem; color: var(--navy); }
+.fahm-customer-t span { font-size: 0.72rem; color: var(--text-secondary); }
+
+.fahm-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex: none;
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--success);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+.fahm-balance {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 8%, #fff), color-mix(in srgb, var(--cyan) 8%, #fff));
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.fahm-balance-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.fahm-balance-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.fahm-audit {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem 0.9rem;
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.28);
+}
+
+.fahm-audit-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.65rem;
+}
+
+.fahm-audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.fahm-audit-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.fahm-audit-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.fahm-audit-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.fahm-audit-time {
+  flex: none;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fahm-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .fahm-live-dot {
+    animation: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .fahm-window { max-width: 340px; }
+}

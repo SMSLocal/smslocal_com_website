@@ -1,11 +1,13 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FeatureGrid, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StepsDateFlow from '../components/StepsDateFlow.jsx'
-import WhyUsAgenda from '../components/WhyUsAgenda.jsx'
-import BookingCalendarMock from '../components/BookingCalendarMock.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import ProblemChannelConverge from '../components/ProblemChannelConverge.jsx'
+import FeatureCapabilityTabs from '../components/FeatureCapabilityTabs.jsx'
+import StepsZigzagFlow from '../components/StepsZigzagFlow.jsx'
+import WhyUsAgendaPanel from '../components/WhyUsAgendaPanel.jsx'
+import BookingTimelineHeroMock from '../components/BookingTimelineHeroMock.jsx'
 import {
   IconCalendar, IconClock, IconRefresh, IconBell, IconCheck, IconGlobe,
-  IconLink, IconBrain, IconUsers, IconChart, IconGear, IconRocket,
+  IconLink, IconBrain, IconUsers, IconChart,
 } from '../components/icons.jsx'
 
 const FEATURES = [
@@ -54,42 +56,24 @@ function AiAgentsBooking() {
         subtitle="Let customers book, reschedule and confirm appointments right inside the chat — an agent that checks live availability, prevents double bookings, and reminds so slots don't go empty."
         primaryCta={{ label: 'Deploy a Booking Agent', href: '/contact-us' }}
         secondaryCta={{ label: 'See all AI Agents', href: '/ai-agents' }}
-        visual={<BookingCalendarMock />}
+        visual={<BookingTimelineHeroMock />}
       />
 
-      <NarrativeCompare
-        variant="flanked"
+      <ProblemChannelConverge
         eyebrow="The problem"
         heading={<>Every booking that needs a human is a booking you can lose.</>}
-        paragraphs={[
-          'Phone tag, forms that get abandoned, and "we\'ll call you back to confirm" all leak intent. The customer was ready to book — but the friction sent them somewhere faster.',
-          <>A booking agent closes that gap: <strong>it confirms in the moment the customer asks</strong>, on the channel they\'re already using, with no waiting and no double bookings.</>,
-        ]}
-        leftLabel="Manual scheduling"
-        leftItems={[
-          'Requests wait for office hours',
-          'Phone tag and back-and-forth emails',
-          'Double bookings and clashes',
-          'No-shows from forgotten slots',
-        ]}
-        rightLabel="AI booking agent"
-        rightItems={[
-          'Confirms 24/7, in seconds',
-          'One conversation, done in-chat',
-          'Live availability, zero clashes',
-          'Automatic reminders cut no-shows',
-        ]}
+        paragraph="Phone tag, forms that get abandoned, and hold-for-confirmation all leak intent that a booking agent captures the moment it's asked."
         alt
       />
 
-      <FeatureGrid
+      <FeatureCapabilityTabs
         eyebrow="Capabilities"
         title={<>Everything it takes to run bookings on autopilot</>}
-        subtitle="From the first question to the reminder before the appointment — the agent handles the whole journey."
+        subtitle="From the first question to the reminder before the appointment."
         items={FEATURES}
       />
 
-      <StepsDateFlow
+      <StepsZigzagFlow
         eyebrow="How it works"
         title={<>Live in three steps</>}
         subtitle="Connect, configure, deploy — no code, no scheduling headaches."
@@ -97,7 +81,7 @@ function AiAgentsBooking() {
         alt
       />
 
-      <WhyUsAgenda
+      <WhyUsAgendaPanel
         eyebrow="Why it works"
         title={<>Built to book, not just chat</>}
         subtitle="A booking agent that fits how your customers ask and how your business runs."

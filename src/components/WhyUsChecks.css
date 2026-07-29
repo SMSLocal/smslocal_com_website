@@ -8,6 +8,27 @@
 
 .wuc-item {
   text-align: left;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
+  border-radius: var(--radius-lg);
+  padding: 0.9rem;
+  margin: -0.9rem;
+}
+
+.wuc-section.reveal-visible .wuc-item {
+  opacity: 1;
+  transform: none;
+}
+
+.wuc-item:nth-child(1) { transition-delay: 0.05s; }
+.wuc-item:nth-child(2) { transition-delay: 0.15s; }
+.wuc-item:nth-child(3) { transition-delay: 0.25s; }
+.wuc-item:nth-child(4) { transition-delay: 0.35s; }
+
+.wuc-item:hover {
+  background: #fff;
+  box-shadow: 0 18px 34px -24px rgba(16, 35, 63, 0.28);
 }
 
 .wuc-head {
@@ -27,6 +48,12 @@
   border-radius: 50%;
   border: 1.5px solid var(--blue);
   color: var(--blue);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.wuc-item:hover .wuc-check {
+  transform: scale(1.15) rotate(-8deg);
+  box-shadow: 0 0 0 6px color-mix(in srgb, currentColor 15%, transparent);
 }
 
 .wuc-item--1 .wuc-check { border-color: var(--teal); color: var(--teal); }

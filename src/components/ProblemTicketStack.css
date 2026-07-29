@@ -1,0 +1,288 @@
+.pts-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.pts-copy {
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pts-section.reveal-visible .pts-copy {
+  opacity: 1;
+  transform: none;
+}
+
+.pts-heading {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 1rem 0 1rem;
+}
+
+.pts-paragraph {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 340px;
+}
+
+.pts-paragraph strong {
+  color: var(--navy);
+}
+
+.pts-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s;
+}
+
+.pts-section.reveal-visible .pts-visual {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- left: alert + manual stack ---- */
+.pts-stack-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1.05;
+  min-width: 0;
+}
+
+.pts-alert {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #dc2626;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.pts-alert-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+  animation: pts-pulse-bad 1.6s ease-in-out infinite;
+}
+
+@keyframes pts-pulse-bad {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3); }
+  50% { box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.06); }
+}
+
+.pts-manual-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.6rem;
+}
+
+.pts-stack {
+  position: relative;
+  height: 160px;
+}
+
+.pts-card {
+  position: absolute;
+  left: 0;
+  right: 1%;
+  height: 52px;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.55rem 0.9rem 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 16px 30px -20px rgba(16, 35, 63, 0.35);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  transform-origin: left top;
+  animation: pts-sway 6s ease-in-out infinite;
+}
+
+/* Text sits at the TOP of each card, and each card is offset just far enough
+   (22px) that the card in front only ever covers the blank bottom portion of
+   the one behind — never the text row itself — so every name stays fully
+   readable even though the cards visually overlap. */
+.pts-card--0 { top: 0; transform: rotate(-11deg); opacity: 0.78; z-index: 1; animation-delay: 0s; }
+.pts-card--1 { top: 22px; transform: rotate(-6deg); opacity: 0.86; z-index: 2; animation-delay: 0.4s; }
+.pts-card--2 { top: 44px; transform: rotate(-2deg); opacity: 0.93; z-index: 3; animation-delay: 0.8s; }
+.pts-card--3 { top: 66px; transform: rotate(3deg); opacity: 1; z-index: 4; animation-delay: 1.2s; box-shadow: 0 20px 38px -18px rgba(16, 35, 63, 0.4); }
+
+@keyframes pts-sway {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: 1.2deg; }
+}
+
+.pts-card-dot {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  flex: none;
+}
+
+.pts-card-text {
+  max-width: 100%;
+  padding-right: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ---- connector arrow ---- */
+.pts-arrow {
+  flex: none;
+  width: 54px;
+  height: 40px;
+}
+
+/* ---- right: AI agent card ---- */
+.pts-agent {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 24px 44px -28px rgba(16, 35, 63, 0.3);
+}
+
+.pts-agent-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.pts-agent-list {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pts-agent-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--navy);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.pts-section.reveal-visible .pts-agent-list li {
+  opacity: 1;
+  transform: none;
+}
+
+.pts-agent-list li:nth-child(1) { transition-delay: 0.3s; }
+.pts-agent-list li:nth-child(2) { transition-delay: 0.42s; }
+.pts-agent-list li:nth-child(3) { transition-delay: 0.54s; }
+.pts-agent-list li:nth-child(4) { transition-delay: 0.66s; }
+
+.pts-agent-check {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.pts-agent-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
+}
+
+.pts-agent-footer strong {
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.pts-agent-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+  animation: pts-pulse-good 1.8s ease-in-out infinite;
+}
+
+@keyframes pts-pulse-good {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.3); }
+  50% { box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.06); }
+}
+
+@media (max-width: 900px) {
+  .pts-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .pts-visual {
+    flex-direction: column;
+  }
+
+  .pts-arrow {
+    transform: rotate(90deg);
+  }
+
+  .pts-paragraph {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pts-copy,
+  .pts-visual,
+  .pts-agent-list li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pts-alert-dot,
+  .pts-agent-live,
+  .pts-card {
+    animation: none;
+  }
+}

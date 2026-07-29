@@ -1,19 +1,14 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FeatureGrid, WhyUs, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import ProblemTicketOutcome from '../components/ProblemTicketOutcome.jsx'
+import FeatureAgentShowcase from '../components/FeatureAgentShowcase.jsx'
+import WhyUsPulseGrid from '../components/WhyUsPulseGrid.jsx'
+import IndustryPastelCarousel from '../components/IndustryPastelCarousel.jsx'
 import {
   IconBrain, IconGlobe, IconCheck, IconUsers, IconClock, IconChart, IconBolt,
   IconRefresh, IconCart, IconDollar, IconPackage, IconBook, IconShield, IconBriefcase,
 } from '../components/icons.jsx'
-import AgentWorkflowMock from '../components/AgentWorkflowMock.jsx'
-import IndustryCarousel from '../components/IndustryCarousel.jsx'
-
-const STATS = [
-  { value: '24/7', label: 'Always-on coverage', desc: 'Resolves queries around the clock, with no shift gaps or holiday queues.' },
-  { value: '7', label: 'Channels, one agent', desc: 'WhatsApp, SMS, email, voice, web, Instagram and Messenger from one brain.' },
-  { value: '<1s', label: 'First response', desc: 'Sub-second replies at any volume — no customer waits in line for a bot.' },
-  { value: '100%', label: 'Context on handoff', desc: 'Every escalation carries the full conversation history to your human team.' },
-]
+import ResolutionWorkflowHeroMock from '../components/ResolutionWorkflowHeroMock.jsx'
 
 const FEATURES = [
   { icon: <IconGlobe />, title: 'Answers across every channel', desc: 'Handles chat, email, voice and social from one place — grounded in your knowledge base, so every customer gets the same accurate answer.' },
@@ -64,19 +59,14 @@ function AiAgentsCustomerService() {
         subtitle="Deflect repetitive tickets across every channel with an agent that answers from your data, takes real action, and escalates the rest with full context."
         primaryCta={{ label: 'Deploy an Agent', href: '/contact-us' }}
         secondaryCta={{ label: 'Chatbot vs AI Agent', href: '/chatbot-vs-ai-agent' }}
-        visual={<AgentWorkflowMock />}
+        visual={<ResolutionWorkflowHeroMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <NarrativeCompare
-        variant="statement"
+      <ProblemTicketOutcome
         eyebrow="The problem"
         heading={<>Most "AI support" still just replies. It doesn't resolve.</>}
         paragraphs={[
-          "A lot of AI customer service tools are really a chatbot with a better vocabulary — they can explain your refund policy fluently, but they can't actually issue the refund.",
-          'So the conversation still ends the same way it always did: a ticket, a wait, a human doing the part that actually mattered.',
-          <>An AI agent worth deploying <strong>takes the action, not just explains it</strong> — checking the order, issuing the refund, updating the record, inside the conversation itself.</>,
+          <>Most "AI support" can explain your refund policy fluently but can't actually issue the refund — so the conversation still ends the same way it always did: a ticket, a wait, a human doing the part that mattered. A real agent <strong>takes the action</strong>, inside the conversation itself.</>,
         ]}
         leftLabel="AI that replies"
         leftItems={[
@@ -95,15 +85,14 @@ function AiAgentsCustomerService() {
         alt
       />
 
-      <FeatureGrid
+      <FeatureAgentShowcase
+        eyebrow="Features"
         title={<>Four things that separate an agent from a bot</>}
-        subtitle="A bot answers the easy questions. An agent finishes the job — across every channel, grounded in your data."
+        subtitle="A bot answers the easy questions. An agent finishes the job, grounded in your data."
         items={FEATURES}
-        variant="divided"
       />
 
-      <WhyUs
-        variant="split"
+      <WhyUsPulseGrid
         eyebrow="Why it works"
         title={<>Speed and accuracy, together</>}
         subtitle="Customers get fast, accurate answers at any hour — and your team focuses on the conversations that genuinely need a person."
@@ -111,7 +100,7 @@ function AiAgentsCustomerService() {
         alt
       />
 
-      <IndustryCarousel
+      <IndustryPastelCarousel
         eyebrow="Industries"
         title={<>Built for every support-heavy team</>}
         subtitle="One agent, tuned to the workflows and policies of your industry."

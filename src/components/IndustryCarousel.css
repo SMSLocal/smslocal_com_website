@@ -77,6 +77,31 @@
   line-height: 1.6;
 }
 
+.mfeat-carousel .section-title {
+  font-size: 2.35rem;
+}
+
+.mfeat-carousel .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+}
+
+.mfeat-carousel .icar-card h3 {
+  font-size: 1.16rem;
+}
+
+.mfeat-carousel .icar-card {
+  max-width: 440px;
+}
+
+.mfeat-carousel .icar-card p {
+  font-size: 1.1rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 .icar-arrow {
   position: absolute;
   top: 50%;

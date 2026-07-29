@@ -1,0 +1,321 @@
+.sahm-window {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.sahm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 10px 24px -16px rgba(16, 35, 63, 0.3);
+}
+
+.sahm-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex: none;
+  box-shadow: 0 0 0 3px rgba(79, 91, 213, 0.3);
+  animation: sahm-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sahm-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(79, 91, 213, 0.35); }
+  50% { box-shadow: 0 0 0 5px rgba(79, 91, 213, 0.08); }
+}
+
+.sahm-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.sahm-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fixed height reserved permanently (not collapsed to 0 when hidden) so the
+   window's total height never changes across stages — a changing height here
+   would reflow the whole two-column hero grid and visibly shift the heading
+   and CTAs next to it. */
+.sahm-typing {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 30px;
+  padding: 0 0.8rem;
+  border-radius: 14px;
+  border-bottom-right-radius: 4px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 30px -22px rgba(16, 35, 63, 0.28);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.sahm-typing.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sahm-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  flex: none;
+}
+
+.sahm-typing.is-visible span {
+  animation: sahm-typing-dot 1s ease-in-out infinite;
+}
+
+.sahm-typing span:nth-child(2) { animation-delay: 0.15s; }
+.sahm-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes sahm-typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sahm-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .sahm-pill-dot {
+    animation: none;
+  }
+
+  .sahm-typing {
+    display: none;
+  }
+}
+
+.sahm-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.28);
+  padding: 0.85rem 1rem;
+}
+
+.sahm-order {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.sahm-order-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex: none;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.sahm-order-ic svg { width: 17px; height: 17px; }
+
+.sahm-order-t { display: flex; flex-direction: column; gap: 0.1rem; }
+.sahm-order-t strong { font-size: 0.86rem; color: var(--navy); }
+.sahm-order-t span { font-size: 0.72rem; color: var(--text-secondary); }
+
+.sahm-track {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem 0.85rem;
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.28);
+}
+
+.sahm-track-bar {
+  height: 3px;
+  border-radius: 999px;
+  background: var(--border);
+  margin: 0 8px 0.65rem;
+  overflow: hidden;
+}
+
+.sahm-track-bar span {
+  display: block;
+  height: 100%;
+  background: var(--gradient-brand);
+  border-radius: 999px;
+}
+
+.sahm-track-steps {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sahm-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.sahm-step-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+}
+
+.sahm-step.is-done .sahm-step-dot {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.sahm-step-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.25;
+}
+
+.sahm-step.is-done .sahm-step-label { color: var(--navy); }
+
+.sahm-bubble {
+  align-self: flex-end;
+  max-width: 78%;
+  padding: 0.6rem 0.85rem;
+  border-radius: 14px;
+  border-bottom-right-radius: 4px;
+  font-size: 0.8rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--navy);
+  box-shadow: 0 14px 30px -22px rgba(16, 35, 63, 0.28);
+}
+
+.sahm-reco-lead {
+  margin: 0 0 0.7rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.sahm-product {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.sahm-product-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  flex: none;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+}
+
+.sahm-product-ic svg { width: 18px; height: 18px; }
+
+.sahm-product-t { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; min-width: 0; }
+.sahm-product-t strong { font-size: 0.82rem; color: var(--navy); }
+
+.sahm-product-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+.sahm-product-rating svg { color: #f5b400; }
+
+.sahm-product-buy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.sahm-product-buy strong { font-size: 0.86rem; color: var(--navy); }
+
+.sahm-add {
+  border: none;
+  cursor: pointer;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--gradient-brand);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  white-space: nowrap;
+}
+
+.sahm-chips {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sahm-chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.sahm-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 0.55rem 0.55rem 1rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  box-shadow: 0 14px 30px -22px rgba(16, 35, 63, 0.28);
+}
+
+.sahm-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+@media (max-width: 400px) {
+  .sahm-window { max-width: 340px; }
+}

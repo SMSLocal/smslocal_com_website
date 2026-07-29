@@ -1,7 +1,20 @@
+.wmet-section .section-title {
+  font-size: 2.35rem;
+}
+
+.wmet-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .wmet-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  max-width: 1000px;
+  gap: 1.2rem;
+  max-width: 1040px;
   margin: 2.6rem auto 0;
 }
 
@@ -10,15 +23,15 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0.2rem 1.1rem;
-}
-
-.wmet-row > .wmet-cell + .wmet-cell {
-  border-left: 1px solid var(--border);
+  padding: 1.8rem 1.3rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px -32px rgba(16, 35, 63, 0.22);
 }
 
 .wmet-figure {
-  font-size: 2.9rem;
+  font-size: 2.2rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -29,43 +42,55 @@
   color: transparent;
 }
 
+.wmet-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  margin-top: 0.9rem;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+}
+
+.wmet-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
 .wmet-cell h3 {
   margin: 0.75rem 0 0.4rem;
   color: var(--navy);
-  font-size: 1rem;
+  font-size: 1.14rem;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .wmet-cell p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.86rem;
+  font-size: 1rem;
   line-height: 1.55;
   max-width: 220px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 @media (max-width: 820px) {
   .wmet-row {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.6rem 0;
-  }
-
-  .wmet-row > .wmet-cell + .wmet-cell {
-    border-left: none;
-  }
-
-  .wmet-row > .wmet-cell:nth-child(even) {
-    border-left: 1px solid var(--border);
+    gap: 1.4rem;
   }
 }
 
 @media (max-width: 460px) {
   .wmet-row {
     grid-template-columns: 1fr;
-    gap: 2.4rem;
-  }
-
-  .wmet-row > .wmet-cell:nth-child(even) {
-    border-left: none;
   }
 }

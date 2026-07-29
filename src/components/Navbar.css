@@ -555,14 +555,20 @@
 /* Resources flyout — one column; Compare is a single link to its parent page */
 .resources-mega {
   display: grid;
-  grid-template-columns: minmax(250px, 1fr);
-  min-width: 288px;
+  grid-template-columns: repeat(2, minmax(230px, 1fr));
+  gap: 0 1.25rem;
+  min-width: 520px;
   padding: calc(1rem + 4px) 1.1rem 1rem;
 }
 
 .resources-mega-panel {
   display: flex;
   flex-direction: column;
+}
+
+.resources-mega-panel + .resources-mega-panel {
+  border-left: 1px solid var(--border);
+  padding-left: 1.25rem;
 }
 
 .resources-mega-eyebrow {
@@ -589,5 +595,13 @@
     grid-template-columns: 1fr;
     min-width: 0;
     padding: 0.5rem 0 0;
+  }
+
+  .resources-mega-panel + .resources-mega-panel {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 0.75rem;
+    margin-top: 0.5rem;
   }
 }

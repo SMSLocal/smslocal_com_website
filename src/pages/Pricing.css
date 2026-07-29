@@ -1,0 +1,7 @@
+/* Page-scoped hero override for /pricing only — the shared .hero class is
+   used by ~15 other pages, so this must not leak beyond .pricing-page. */
+
+.pricing-page .hero {
+  background: color-mix(in srgb, var(--blue) 8%, #fff);
+  padding-bottom: 3rem;
+}

@@ -2,7 +2,7 @@ import './WhyUsTiltBadges.css'
 
 function WhyUsTiltBadges({ eyebrow, title, subtitle, items, alt }) {
   return (
-    <section className={alt ? 'section section-alt' : 'section'}>
+    <section className={alt ? 'section section-alt wtb2-section' : 'section wtb2-section'}>
       <div className="container">
         {eyebrow && <span className="section-kicker">{eyebrow}</span>}
         {title && <h2 className="section-title">{title}</h2>}

@@ -1,0 +1,167 @@
+.pto-heading {
+  font-size: 2.35rem;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0.8rem auto 1.2rem;
+  max-width: 980px;
+  text-align: center;
+}
+
+.pto-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: none;
+  margin: 0 auto 2.6rem;
+  text-align: center;
+}
+
+.pto-paragraphs p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pto-tickets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pto-ticket {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 46px -32px rgba(16, 35, 63, 0.28);
+  padding: 1.2rem 1.4rem 1.4rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pto-section.reveal-visible .pto-ticket {
+  opacity: 1;
+  transform: none;
+}
+
+.pto-ticket--resolved {
+  transition-delay: 0.15s;
+}
+
+.pto-ticket-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.9rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pto-ticket-head span:first-child {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pto-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.pto-status--open {
+  background: rgba(251, 113, 133, 0.12);
+  color: var(--coral);
+}
+
+.pto-status--resolved {
+  background: rgba(20, 184, 166, 0.12);
+  color: var(--teal);
+}
+
+.pto-spinner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(251, 113, 133, 0.35);
+  border-top-color: var(--coral);
+  animation: pto-spin 0.9s linear infinite;
+}
+
+@keyframes pto-spin {
+  to { transform: rotate(360deg); }
+}
+
+.pto-ticket-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.pto-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.pto-row--bad {
+  color: var(--text-secondary);
+  opacity: 0.75;
+}
+
+.pto-row--good {
+  color: var(--navy);
+}
+
+.pto-row-mark {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.pto-row--bad .pto-row-mark {
+  background: rgba(251, 113, 133, 0.12);
+  color: var(--coral);
+}
+
+.pto-row--good .pto-row-mark {
+  background: rgba(20, 184, 166, 0.12);
+  color: var(--teal);
+}
+
+@media (max-width: 780px) {
+  .pto-tickets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pto-ticket {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pto-spinner {
+    animation: none;
+  }
+}

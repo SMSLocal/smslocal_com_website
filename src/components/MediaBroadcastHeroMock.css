@@ -1,0 +1,162 @@
+.mbh-console {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  background: linear-gradient(165deg, #fff, color-mix(in srgb, var(--blue) 6%, #fff));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.4rem 0;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -30px rgba(16, 35, 63, 0.28);
+}
+
+.mbh-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+}
+
+.mbh-onair {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(251, 113, 133, 0.12);
+  color: var(--coral);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+}
+
+.mbh-onair-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.25);
+  animation: mbh-onair-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes mbh-onair-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(251, 113, 133, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(251, 113, 133, 0.05); }
+}
+
+.mbh-event {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  animation: mbh-event-in 0.4s ease;
+}
+
+@keyframes mbh-event-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Equalizer — each bar oscillates on its own timing so the whole strip
+   reads as live audio/traffic rather than a static bar chart. */
+.mbh-wave {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3px;
+  height: 84px;
+  padding: 0 0.2rem;
+}
+
+.mbh-wave-bar {
+  flex: 1;
+  min-width: 2px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+  height: calc(18% + var(--mbh-seed) * 70%);
+  animation: mbh-wave-bounce calc(0.9s + var(--mbh-seed) * 1.1s) ease-in-out infinite;
+  animation-delay: calc(var(--mbh-i) * 0.03s);
+  transform-origin: bottom;
+}
+
+@keyframes mbh-wave-bounce {
+  0%, 100% { transform: scaleY(0.55); opacity: 0.75; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+.mbh-channels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin: 1.1rem 0 1.2rem;
+}
+
+.mbh-channel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.65rem 0.7rem;
+  box-shadow: 0 10px 20px -16px rgba(16, 35, 63, 0.2);
+}
+
+.mbh-channel-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.mbh-channel strong {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ticker — a genuine marquee, distinct from the reveal-in-place lists used
+   by every other hero mock on the site. */
+.mbh-ticker {
+  position: relative;
+  overflow: hidden;
+  margin: 0 -1.4rem;
+  padding: 0.6rem 0;
+  background: color-mix(in srgb, var(--blue) 5%, #fff);
+  border-top: 1px solid var(--border);
+}
+
+.mbh-ticker-track {
+  display: flex;
+  gap: 2.2rem;
+  width: max-content;
+  animation: mbh-ticker-scroll 22s linear infinite;
+}
+
+.mbh-ticker-item {
+  flex: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  padding-left: 1.4rem;
+}
+
+@keyframes mbh-ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mbh-onair-dot,
+  .mbh-wave-bar,
+  .mbh-ticker-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .mbh-console { max-width: 340px; }
+}

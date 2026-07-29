@@ -1,0 +1,334 @@
+.eahm-window {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Ambient education iconography — reinforces the theme at a glance without
+   competing with the live journey card. */
+.eahm-float {
+  position: absolute;
+  z-index: -1;
+  display: inline-flex;
+  color: var(--blue);
+  opacity: 0.16;
+  animation: eahm-float-bob 5s ease-in-out infinite;
+}
+
+.eahm-float--cap {
+  top: -2.2rem;
+  left: -1.8rem;
+  width: 44px;
+  height: 44px;
+}
+
+.eahm-float--book {
+  bottom: 1.5rem;
+  right: -2.4rem;
+  width: 38px;
+  height: 38px;
+  color: var(--coral);
+  animation-delay: 1.4s;
+}
+
+.eahm-float--globe {
+  top: 40%;
+  right: -3rem;
+  width: 30px;
+  height: 30px;
+  color: var(--teal);
+  animation-delay: 2.6s;
+}
+
+.eahm-float svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes eahm-float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 640px) {
+  .eahm-float {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eahm-float {
+    animation: none;
+  }
+}
+
+.eahm-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.eahm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 10px 24px -16px rgba(16, 35, 63, 0.3);
+}
+
+.eahm-pill-ic {
+  display: inline-flex;
+  color: var(--blue);
+}
+
+.eahm-lang {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  min-width: 64px;
+  justify-content: center;
+  animation: eahm-lang-in 0.4s ease;
+}
+
+@keyframes eahm-lang-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eahm-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.eahm-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eahm-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.28);
+  padding: 0.85rem 1rem;
+}
+
+.eahm-applicant {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.eahm-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.eahm-applicant-t { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; min-width: 0; }
+.eahm-applicant-t strong { font-size: 0.86rem; color: var(--navy); }
+.eahm-applicant-t span { font-size: 0.72rem; color: var(--text-secondary); }
+
+.eahm-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--success);
+  font-variant-numeric: tabular-nums;
+}
+
+.eahm-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+  animation: eahm-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes eahm-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.3); }
+  50% { box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.06); }
+}
+
+.eahm-deadline {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 8%, #fff), color-mix(in srgb, var(--cyan) 8%, #fff));
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.eahm-deadline-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.eahm-deadline-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+/* Funnel: four stages, a connecting line fills as the active applicant
+   progresses further through admissions. */
+.eahm-funnel {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.3rem;
+}
+
+.eahm-funnel::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0.9rem;
+  right: 0.9rem;
+  height: 2px;
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.eahm-funnel-stop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.eahm-funnel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--border);
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+
+.eahm-funnel-stop.is-done .eahm-funnel-dot {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-color: transparent;
+  transform: scale(1.15);
+}
+
+.eahm-funnel-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: color 0.4s ease;
+}
+
+.eahm-funnel-stop.is-done .eahm-funnel-label {
+  color: var(--navy);
+}
+
+.eahm-journey {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.1rem 0.9rem;
+  box-shadow: 0 20px 40px -28px rgba(16, 35, 63, 0.28);
+}
+
+.eahm-journey-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.65rem;
+}
+
+.eahm-journey-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.eahm-journey-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.eahm-journey-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.eahm-journey-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.eahm-journey-time {
+  flex: none;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eahm-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .eahm-live-dot,
+  .eahm-lang {
+    animation: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .eahm-window { max-width: 340px; }
+}

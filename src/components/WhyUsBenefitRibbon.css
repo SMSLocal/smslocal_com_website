@@ -1,0 +1,106 @@
+.wbr-section .section-title {
+  font-size: 2.35rem;
+}
+
+.wbr-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wbr-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+}
+
+.wbr-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.3rem 1.4rem;
+  overflow: hidden;
+  box-shadow: 0 22px 42px -30px rgba(16, 35, 63, 0.28);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  transition-delay: calc(var(--wbr-i) * 0.1s);
+}
+
+.wbr-section.reveal-visible .wbr-card {
+  opacity: 1;
+  transform: none;
+}
+
+.wbr-card:hover {
+  box-shadow: 0 28px 50px -28px rgba(16, 35, 63, 0.32);
+  transform: translateY(-4px);
+}
+
+.wbr-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.wbr-card--blue .wbr-bar { background: var(--blue); }
+.wbr-card--cyan .wbr-bar { background: var(--cyan); }
+.wbr-card--coral .wbr-bar { background: var(--coral); }
+.wbr-card--teal .wbr-bar { background: var(--teal); }
+
+.wbr-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 0.9rem;
+  background: var(--bg-subtle);
+}
+
+.wbr-card--blue .wbr-icon { color: var(--blue); }
+.wbr-card--cyan .wbr-icon { color: var(--cyan); }
+.wbr-card--coral .wbr-icon { color: var(--coral); }
+.wbr-card--teal .wbr-icon { color: var(--teal); }
+
+.wbr-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.wbr-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .wbr-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .wbr-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wbr-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

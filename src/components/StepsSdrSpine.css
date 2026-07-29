@@ -1,0 +1,312 @@
+.sss-section .section-title {
+  font-size: 2.35rem;
+}
+
+.sss-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sss-panel {
+  position: relative;
+  max-width: 1100px;
+  margin: 3.2rem auto 0;
+}
+
+.sss-spine {
+  position: absolute;
+  top: 13px;
+  left: calc((100% - (var(--sss-cols, 3) - 1) * 1.8rem) / (var(--sss-cols, 3) * 2));
+  right: calc((100% - (var(--sss-cols, 3) - 1) * 1.8rem) / (var(--sss-cols, 3) * 2));
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan), var(--coral));
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.4s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+}
+
+.sss-section.reveal-visible .sss-spine {
+  opacity: 0.4;
+  transform: scaleX(1);
+}
+
+.sss-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--sss-cols, 3), 1fr);
+  gap: 1.8rem;
+  margin-bottom: 2.2rem;
+}
+
+.sss-step {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--sss-i) * 0.13s);
+}
+
+.sss-section.reveal-visible .sss-step {
+  opacity: 1;
+  transform: none;
+}
+
+.sss-num {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin: 0 auto 0.75rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--blue);
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.sss-section.section-alt .sss-num {
+  background: var(--bg-subtle);
+}
+
+.sss-step--1 .sss-num { color: var(--cyan); border-color: var(--cyan); }
+.sss-step--2 .sss-num { color: var(--coral); border-color: var(--coral); }
+.sss-step--3 .sss-num { color: var(--teal); border-color: var(--teal); }
+
+.sss-step h3 {
+  margin: 0 0 0.35rem;
+  color: var(--navy);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.sss-step p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.sss-preview-row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--sss-cols, 3), 1fr);
+  gap: 1.8rem;
+}
+
+.sss-preview-col {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--sss-i) * 0.13s + 0.15s);
+}
+
+.sss-section.reveal-visible .sss-preview-col {
+  opacity: 1;
+  transform: none;
+}
+
+.sss-preview {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.3rem 1.4rem;
+  min-height: 200px;
+  box-shadow: 0 22px 42px -30px rgba(16, 35, 63, 0.28);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.sss-preview-col:hover .sss-preview {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 50px -28px rgba(16, 35, 63, 0.32);
+}
+
+.sss-preview h4 {
+  margin: 0 0 0.9rem;
+  color: var(--navy);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.sss-preview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.sss-preview-head h4 {
+  margin: 0;
+}
+
+.sss-preview-head svg {
+  color: var(--text-secondary);
+}
+
+/* Step 1 — form preview */
+.sss-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.sss-field-row span {
+  color: var(--text-secondary);
+}
+
+.sss-field-row strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.sss-save-btn {
+  display: block;
+  text-align: center;
+  margin-top: 1.1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Step 2 — CRM connection preview */
+.sss-preview--crm p {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.sss-connected {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--border);
+  margin-bottom: 0.7rem;
+  transition: color 0.4s ease;
+}
+
+.sss-connected.is-connected {
+  color: var(--success);
+}
+
+.sss-sync-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--blue);
+  background: rgba(79, 91, 213, 0.1);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+}
+
+/* Step 3 — outreach queue preview */
+.sss-launch-btn {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--gradient-brand);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+}
+
+.sss-queue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sss-queue-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: calc(var(--sss-qi) * 0.15s + 0.3s);
+}
+
+.sss-section.reveal-visible .sss-queue-row {
+  opacity: 1;
+  transform: none;
+}
+
+.sss-queue-avatar {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+
+.sss-queue-avatar--0 { background: var(--blue); }
+.sss-queue-avatar--1 { background: var(--coral); }
+.sss-queue-avatar--2 { background: var(--teal); }
+
+.sss-queue-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.sss-queue-status {
+  flex: none;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+}
+
+.sss-queue-status.is-sent {
+  color: var(--success);
+  background: rgba(22, 163, 74, 0.1);
+}
+
+@media (max-width: 700px) {
+  .sss-row,
+  .sss-preview-row {
+    grid-template-columns: 1fr;
+    row-gap: 2.2rem;
+  }
+
+  .sss-spine {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sss-spine,
+  .sss-step,
+  .sss-preview-col,
+  .sss-queue-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

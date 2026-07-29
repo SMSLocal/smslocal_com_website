@@ -16,7 +16,7 @@ const REDUCED =
 function WhyUsMetrics({ eyebrow, title, subtitle, items, alt }) {
   const ref = useRef(null)
   const started = useRef(false)
-  const [vals, setVals] = useState(() => items.map((m) => (REDUCED ? m.value : 0)))
+  const [vals, setVals] = useState(() => items.map((m) => (REDUCED ? m.stat.value : 0)))
 
   useEffect(() => {
     if (REDUCED) return
@@ -31,9 +31,9 @@ function WhyUsMetrics({ eyebrow, title, subtitle, items, alt }) {
       const step = (now) => {
         const t = Math.min(1, (now - start) / dur)
         const e = 1 - Math.pow(1 - t, 3)
-        setVals(items.map((m) => m.value * e))
+        setVals(items.map((m) => m.stat.value * e))
         if (t < 1) requestAnimationFrame(step)
-        else setVals(items.map((m) => m.value))
+        else setVals(items.map((m) => m.stat.value))
       }
       requestAnimationFrame(step)
     }
@@ -62,13 +62,14 @@ function WhyUsMetrics({ eyebrow, title, subtitle, items, alt }) {
 
         <div className="wmet-row" ref={ref}>
           {items.map((m, i) => (
-            <div className="wmet-cell" key={m.heading}>
+            <div className="wmet-cell" key={m.title}>
               <span className="wmet-figure">
-                {m.prefix || ''}
+                {m.stat.prefix || ''}
                 {Math.round(vals[i]).toLocaleString()}
-                {m.suffix || ''}
+                {m.stat.suffix || ''}
               </span>
-              <h3>{m.heading}</h3>
+              {m.icon && <span className="wmet-icon">{m.icon}</span>}
+              <h3>{m.title}</h3>
               <p>{m.desc}</p>
             </div>
           ))}

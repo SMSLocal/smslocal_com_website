@@ -1,0 +1,551 @@
+.fsw-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.fsw-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fsw-row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.fsw-row:hover {
+  background: rgba(79, 91, 213, 0.04);
+}
+
+.fsw-row.is-active {
+  border-color: rgba(79, 91, 213, 0.3);
+  background: rgba(79, 91, 213, 0.06);
+  box-shadow: 0 14px 28px -22px rgba(79, 91, 213, 0.4);
+}
+
+.fsw-row-ic {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(79, 91, 213, 0.1);
+  color: var(--blue);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Each feature gets its own accent, using only this site's existing palette
+   (--blue/--teal/--coral/--cyan) — the same multi-hue rotation already used
+   by FeatureGlow and FeatureVerticalIndex elsewhere on the site — carried
+   through the row icon, the active dash, the big panel icon and its glow. */
+.fsw-row-ic--0 { color: var(--blue); }
+.fsw-row-ic--1 { color: var(--teal); }
+.fsw-row-ic--2 { color: var(--coral); }
+.fsw-row-ic--3 { color: var(--cyan); }
+
+.fsw-row.is-active .fsw-row-ic--0 { background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; }
+.fsw-row.is-active .fsw-row-ic--1 { background: linear-gradient(135deg, var(--teal), var(--blue)); color: #fff; }
+.fsw-row.is-active .fsw-row-ic--2 { background: linear-gradient(135deg, var(--coral), var(--cyan)); color: #fff; }
+.fsw-row.is-active .fsw-row-ic--3 { background: linear-gradient(135deg, var(--cyan), var(--blue)); color: #fff; }
+
+.fsw-row-ic svg { width: 16px; height: 16px; }
+
+.fsw-row-t {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.fsw-row-t strong {
+  font-size: 1.05rem;
+  color: var(--navy);
+}
+
+.fsw-row-t span {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.fsw-row-dash {
+  flex: none;
+  align-self: center;
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+}
+
+.fsw-row:nth-child(1) .fsw-row-dash { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+.fsw-row:nth-child(2) .fsw-row-dash { background: linear-gradient(90deg, var(--teal), var(--blue)); }
+.fsw-row:nth-child(3) .fsw-row-dash { background: linear-gradient(90deg, var(--coral), var(--cyan)); }
+.fsw-row:nth-child(4) .fsw-row-dash { background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+
+/* ---- right panel ---- */
+.fsw-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.fsw-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.fsw-glow--0 { background: radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--blue) 14%, transparent), transparent 70%); }
+.fsw-glow--1 { background: radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 70%); }
+.fsw-glow--2 { background: radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--coral) 14%, transparent), transparent 70%); }
+.fsw-glow--3 { background: radial-gradient(60% 55% at 50% 45%, color-mix(in srgb, var(--cyan) 14%, transparent), transparent 70%); }
+
+.fsw-panel-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  animation: fsw-panel-in 0.4s ease both;
+}
+
+@keyframes fsw-panel-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.fsw-panel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  color: #fff;
+}
+
+.fsw-panel-icon--0 { background: linear-gradient(135deg, var(--blue), var(--cyan)); box-shadow: 0 24px 44px -18px rgba(79, 91, 213, 0.55); }
+.fsw-panel-icon--1 { background: linear-gradient(135deg, var(--teal), var(--blue)); box-shadow: 0 24px 44px -18px rgba(20, 184, 166, 0.55); }
+.fsw-panel-icon--2 { background: linear-gradient(135deg, var(--coral), var(--cyan)); box-shadow: 0 24px 44px -18px rgba(251, 113, 133, 0.55); }
+.fsw-panel-icon--3 { background: linear-gradient(135deg, var(--cyan), var(--blue)); box-shadow: 0 24px 44px -18px rgba(236, 72, 153, 0.5); }
+
+.fsw-panel-icon svg { width: 34px; height: 34px; }
+
+.fsw-panel-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.fsw-panel-label--0 { color: var(--blue); }
+.fsw-panel-label--1 { color: var(--teal); }
+.fsw-panel-label--2 { color: var(--coral); }
+.fsw-panel-label--3 { color: var(--cyan); }
+
+@keyframes fsw-pill-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.fsw-pill-ic {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.fsw-pill-ic--teal { background: color-mix(in srgb, var(--teal) 12%, #fff); color: var(--teal); }
+.fsw-pill-ic--coral { background: color-mix(in srgb, var(--coral) 14%, #fff); color: var(--coral); }
+
+/* Itinerary updates — one route card instead of separate floating pills */
+.fsw-itinerary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.fsw-itinerary-route {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease both;
+}
+
+.fsw-itinerary-code {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.fsw-itinerary-line {
+  flex: 1;
+  position: relative;
+  height: 1px;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fsw-itinerary-plane {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  color: #fff;
+}
+
+.fsw-itinerary-flight {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease 0.15s both;
+}
+
+.fsw-itinerary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  box-shadow: 0 14px 28px -18px rgba(16, 35, 63, 0.35);
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease 0.3s both;
+}
+
+.fsw-itinerary-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Booking automation — mini calendar with the booked range highlighted */
+.fsw-calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fsw-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.7rem;
+}
+
+.fsw-calendar-day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0;
+  animation: fsw-pill-in 0.35s ease both;
+}
+
+.fsw-calendar-day:nth-child(n) { animation-delay: calc(var(--i, 0) * 0.03s); }
+
+.fsw-calendar-day.is-booked {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 10px 20px -10px rgba(79, 91, 213, 0.5);
+}
+
+.fsw-calendar-range {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.7rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 14px 28px -18px rgba(16, 35, 63, 0.35);
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease 0.3s both;
+}
+
+/* Guest support — a contained chat widget, not just floating bubbles */
+.fsw-chatcard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -22px rgba(16, 35, 63, 0.35);
+  overflow: hidden;
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease both;
+}
+
+.fsw-chatcard-head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: color-mix(in srgb, var(--coral) 6%, #fff);
+  border-bottom: 1px solid var(--border);
+}
+
+.fsw-chatcard-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+  animation: fsw-dot-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes fsw-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.3); }
+  50% { box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.06); }
+}
+
+.fsw-chatcard-lang {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--coral);
+  background: color-mix(in srgb, var(--coral) 12%, #fff);
+  border-radius: 999px;
+  padding: 0.22rem 0.5rem;
+}
+
+.fsw-chatcard-lang svg { width: 10px; height: 10px; }
+
+.fsw-chatcard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.9rem;
+}
+
+.fsw-chat-bubble {
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  border-radius: 14px;
+  max-width: 86%;
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease both;
+}
+
+.fsw-chat-bubble--in {
+  align-self: flex-start;
+  background: var(--bg-subtle);
+  color: var(--navy);
+  border-bottom-left-radius: 4px;
+  animation-delay: 0.1s;
+}
+
+.fsw-chat-bubble--out {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--coral), var(--cyan));
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  animation-delay: 0.35s;
+}
+
+.fsw-typing {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.6rem 0.75rem;
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease 0.6s both;
+}
+
+.fsw-typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  animation: fsw-typing-dot 1s ease-in-out infinite;
+}
+
+.fsw-typing span:nth-child(2) { animation-delay: 0.15s; }
+.fsw-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fsw-typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+
+/* Trip reminders — a stack of phone-style notification banners, layered
+   with depth so it reads differently from the guest-support chat widget. */
+.fsw-notif-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+
+.fsw-notif {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 14px 28px -18px rgba(16, 35, 63, 0.35);
+  opacity: 0;
+  animation: fsw-pill-in 0.4s ease both;
+}
+
+.fsw-notif--1 {
+  margin-bottom: -0.6rem;
+  animation: fsw-notif-back-in 0.4s ease 0.05s both;
+}
+
+@keyframes fsw-notif-back-in {
+  from { opacity: 0; transform: scale(0.9) translateY(14px); }
+  to { opacity: 0.7; transform: scale(0.96) translateY(6px); }
+}
+
+.fsw-notif--0 {
+  position: relative;
+  z-index: 1;
+  animation-delay: 0.25s;
+}
+
+.fsw-notif-ic {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--cyan) 12%, #fff);
+  color: var(--cyan);
+}
+
+.fsw-notif--0 .fsw-notif-ic {
+  background: rgba(251, 191, 36, 0.18);
+  color: #d97706;
+}
+
+.fsw-notif-t {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.fsw-notif-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.fsw-notif-row strong {
+  font-size: 0.86rem;
+  color: var(--navy);
+}
+
+.fsw-notif-time {
+  flex: none;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.fsw-notif-t > span {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .fsw-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fsw-panel {
+    min-height: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fsw-panel-inner,
+  .fsw-calendar-day,
+  .fsw-calendar-range,
+  .fsw-chatcard,
+  .fsw-chat-bubble,
+  .fsw-typing,
+  .fsw-notif,
+  .fsw-itinerary-route,
+  .fsw-itinerary-flight,
+  .fsw-itinerary-rows {
+    animation: none;
+    opacity: 1;
+  }
+
+  .fsw-notif--1 {
+    transform: none;
+    opacity: 1;
+  }
+
+  .fsw-chatcard-dot {
+    animation: none;
+  }
+}

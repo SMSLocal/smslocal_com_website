@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './IndustryCarousel.css'
 
-function IndustryCarousel({ eyebrow, title, subtitle, items }) {
+function IndustryCarousel({ eyebrow, title, subtitle, items, className }) {
   const [index, setIndex] = useState(0)
   const timerRef = useRef(null)
   const n = items.length
@@ -36,7 +36,7 @@ function IndustryCarousel({ eyebrow, title, subtitle, items }) {
   )
 
   return (
-    <section className="section icar-section">
+    <section className={className ? `section icar-section ${className}` : 'section icar-section'}>
       <div className="container">
         {eyebrow && <span className="section-kicker">{eyebrow}</span>}
         {title && <h2 className="section-title">{title}</h2>}

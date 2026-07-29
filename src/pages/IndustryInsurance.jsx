@@ -1,31 +1,40 @@
 import Seo from '../components/Seo.jsx'
 import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import FeatureVerticalIndex from '../components/FeatureVerticalIndex.jsx'
-import StepsSignal from '../components/StepsSignal.jsx'
-import WhyUsSpotlight from '../components/WhyUsSpotlight.jsx'
-import { IconShield, IconRefresh, IconBell, IconCheck, IconClock, IconChart, IconBolt, IconReceipt } from '../components/icons.jsx'
+import FeatureShowcaseSplit from '../components/FeatureShowcaseSplit.jsx'
+import StepsNumberedRows from '../components/StepsNumberedRows.jsx'
+import WhyUsMetrics from '../components/WhyUsMetrics.jsx'
+import { IconShield, IconRefresh, IconBell, IconCheck, IconClock, IconChart, IconBolt, IconReceipt, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
 import AgentWorkflowMock from '../components/AgentWorkflowMock.jsx'
 
 const STEPS = [
-  { title: 'Connect policy & claims systems', desc: 'Link your policy admin and claims platforms along with SMS and WhatsApp.' },
-  { title: 'Train on your products', desc: 'The agent learns your coverage types, quote logic and claims workflow.' },
-  { title: 'Go live for quotes & claims', desc: 'Launch conversational quoting and claims status lookups across channels.' },
-  { title: 'Renewals run automatically', desc: 'Reminder and cross-sell broadcasts start the moment policy data connects.' },
+  { icon: <IconPlug />, title: 'Connect policy & claims systems', desc: 'Link your policy admin and claims platforms along with SMS and WhatsApp.' },
+  { icon: <IconGear />, title: 'Train on your products', desc: 'The agent learns your coverage types, quote logic and claims workflow.' },
+  { icon: <IconRocket />, title: 'Go live for quotes & claims', desc: 'Launch conversational quoting and claims status lookups across channels.' },
+  { icon: <IconCheck />, title: 'Renewals run automatically', desc: 'Reminder and cross-sell broadcasts start the moment policy data connects.' },
 ]
 
-const STATS = [
-  { value: '45%', label: 'Faster claims updates', desc: 'Automated status checks and document requests keep claims moving without a phone call.' },
-  { value: '24/7', label: 'Policy support', desc: 'Coverage and quote questions answered instantly, any hour, any day.' },
-  { value: '<1s', label: 'First response time', desc: 'No hold queue for a policyholder checking a claim or requesting a quote.' },
-  { value: '2x', label: 'Renewal & cross-sell lift', desc: 'Timely, targeted broadcasts that improve retention instead of getting ignored.' },
-]
+const FEATURED = {
+  icon: <IconRefresh />,
+  title: 'Claims status on demand',
+  desc: 'Looks up real claim status and requests missing documents directly inside the chat, no adjuster callback needed.',
+  panel: {
+    title: 'Live claims feed',
+    badge: 'Real-time',
+    rows: [
+      { label: 'Claim #1204 · Auto', value: 'In review' },
+      { label: 'Claim #1198 · Home', value: 'Approved' },
+      { label: 'Claim #1187 · Auto', value: 'Doc requested', valueTone: 'muted' },
+    ],
+    footerLabel: 'Last synced',
+    footerValue: 'Just now',
+  },
+  channels: ['WhatsApp', 'Web', 'SMS'],
+}
 
-const FEATURES = [
-  { icon: <IconReceipt />, title: 'Quotes without the wait', desc: 'Walks prospects through a quote conversationally and hands off to an agent only when it should.' },
-  { icon: <IconRefresh />, title: 'Claims status on demand', desc: 'Looks up real claim status and requests missing documents directly inside the chat, no adjuster callback needed.' },
-  { icon: <IconBell />, title: 'Renewal & lapse reminders', desc: 'Automated SMS and WhatsApp reminders ahead of renewal, reducing policy lapses that hurt retention.' },
-  { icon: <IconChart />, title: 'Cross-sell, done right', desc: 'Surfaces relevant coverage gaps based on actual policy data, not a blanket promotional blast.' },
+const SIDE_FEATURES = [
+  { icon: <IconReceipt />, title: 'Quotes without the wait', desc: 'Walks prospects through a quote conversationally and hands off to an agent only when it should.', tags: ['QUOTE SENT'] },
+  { icon: <IconBell />, title: 'Renewal & lapse reminders', desc: 'Automated SMS and WhatsApp reminders ahead of renewal, reducing policy lapses that hurt retention.', tags: ['REMINDER SENT'] },
+  { icon: <IconChart />, title: 'Cross-sell, done right', desc: 'Surfaces relevant coverage gaps based on actual policy data, not a blanket promotional blast.', tags: ['MATCH FOUND'] },
 ]
 
 const BENEFITS = [
@@ -61,15 +70,13 @@ function IndustryInsurance() {
         visual={<AgentWorkflowMock />}
       />
 
-      <StatBand items={STATS} />
-
       <NarrativeCompare
-        variant="paths"
+        variant="columns"
+        className="ins-problem"
         eyebrow="The problem"
         heading={<>Nobody wants to wait on hold after a claim.</>}
         paragraphs={[
-          'Insurance support happens at the worst possible moment — after an accident, a loss, a lapse — exactly when a phone tree feels the most frustrating.',
-          'Agentic AI for insurance answers with real policy and claims data instantly — quoting, updating and reminding without the wait.',
+          'Insurance support happens at the worst possible moment — agentic AI answers with real policy and claims data instantly.',
         ]}
         leftLabel="The old path"
         leftItems={['File a claim', 'Wait for a callback', 'Chase a document', 'Wonder about status']}
@@ -78,14 +85,15 @@ function IndustryInsurance() {
         alt
       />
 
-      <FeatureVerticalIndex
+      <FeatureShowcaseSplit
         eyebrow="Features"
         title="Covers the full policy lifecycle"
         subtitle="From the first quote to renewal, one agent keeps policyholders informed automatically."
-        items={FEATURES}
+        featured={FEATURED}
+        items={SIDE_FEATURES}
       />
 
-      <StepsSignal
+      <StepsNumberedRows
         eyebrow="How it works"
         title="Live across quotes and claims in four steps"
         subtitle="From connecting your policy systems to renewals that run themselves."
@@ -93,7 +101,7 @@ function IndustryInsurance() {
         alt
       />
 
-      <WhyUsSpotlight
+      <WhyUsMetrics
         eyebrow="Why it works"
         title="Faster answers, stronger retention"
         subtitle="Instant claims updates and timely renewal reminders keep policyholders engaged, not frustrated."

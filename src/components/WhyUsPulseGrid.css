@@ -1,0 +1,128 @@
+.wpg-section .section-title {
+  font-size: 2.35rem;
+}
+
+.wpg-section .section-subtitle {
+  font-size: 1.15rem;
+  max-width: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wpg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+}
+
+.wpg-card {
+  position: relative;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem 1.4rem 1.6rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  transition-delay: calc(var(--wpg-i) * 0.1s);
+}
+
+.wpg-section.reveal-visible .wpg-card {
+  opacity: 1;
+  transform: none;
+}
+
+.wpg-card:hover {
+  box-shadow: 0 24px 44px -28px rgba(16, 35, 63, 0.3);
+}
+
+.wpg-icon-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 1rem;
+}
+
+.wpg-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(79, 91, 213, 0.3);
+  animation: wpg-pulse 2.4s ease-out infinite;
+}
+
+.wpg-card:nth-child(2) .wpg-icon-ring { border-color: rgba(236, 73, 153, 0.3); animation-delay: 0.3s; }
+.wpg-card:nth-child(3) .wpg-icon-ring { border-color: rgba(251, 113, 133, 0.3); animation-delay: 0.6s; }
+.wpg-card:nth-child(4) .wpg-icon-ring { border-color: rgba(20, 184, 166, 0.3); animation-delay: 0.9s; }
+
+@keyframes wpg-pulse {
+  0% { transform: scale(0.85); opacity: 1; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.wpg-icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #fff;
+}
+
+.wpg-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.wpg-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.wpg-underline {
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin: 1.1rem auto 0;
+  border-radius: 999px;
+  background: var(--gradient-brand);
+  transition: width 0.3s ease;
+}
+
+.wpg-card:hover .wpg-underline {
+  width: 56px;
+}
+
+@media (max-width: 900px) {
+  .wpg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .wpg-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wpg-icon-ring {
+    animation: none;
+  }
+}

@@ -42,6 +42,8 @@ import Pricing from './pages/Pricing.jsx'
 import WhySmslocal from './pages/WhySmslocal.jsx'
 import ServicesAiConsulting from './pages/ServicesAiConsulting.jsx'
 import Solutions from './pages/Solutions.jsx'
+import Terms from './pages/Terms.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import IndustryRetail from './pages/IndustryRetail.jsx'
 import IndustryTravel from './pages/IndustryTravel.jsx'
 import IndustryFintech from './pages/IndustryFintech.jsx'
@@ -142,6 +144,8 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           {/* old paths -> sheet canonical URLs */}
           <Route path="/whatsapp-business-api" element={<Navigate to="/channels/whatsapp" replace />} />

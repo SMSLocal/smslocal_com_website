@@ -1,0 +1,136 @@
+/* Shared country picker with real flag images — custom dropdown, not a
+   native <select> (which can't render an <img> inside its options). */
+
+.cfs-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 0 1 300px;
+  min-width: 220px;
+}
+
+.cfs-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.cfs-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  height: 46px;
+  padding: 0 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cfs-flag {
+  flex: none;
+  width: 22px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.cfs-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cfs-chevron {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--text-secondary);
+  border-bottom: 2px solid var(--text-secondary);
+  transform: rotate(45deg);
+  transition: transform 0.18s ease;
+}
+
+.cfs-chevron.is-open { transform: rotate(225deg); }
+
+.cfs-panel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 20px 40px -20px rgba(15, 23, 42, 0.3);
+  overflow: hidden;
+}
+
+.cfs-search {
+  flex: none;
+  margin: 0.5rem 0.5rem 0;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  font-size: 0.86rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.cfs-search:focus { border-color: var(--blue); }
+
+.cfs-list {
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  /* scrollbar is essential here — this list can hold ~195 items */
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.cfs-group-label {
+  padding: 0.5rem 0.6rem 0.3rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.cfs-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cfs-option:hover { background: var(--bg-subtle); }
+.cfs-option.is-selected { background: rgba(79, 91, 213, 0.08); }
+.cfs-option .cfs-name { font-weight: 600; }
+
+.cfs-empty {
+  padding: 1rem 0.6rem;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  text-align: center;
+}

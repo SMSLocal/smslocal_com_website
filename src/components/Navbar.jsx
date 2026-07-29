@@ -47,7 +47,7 @@ const AI_AGENTS = [
   { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/ai-agents/agent-builder' },
 ]
 
-const PRODUCT_CATEGORIES = [
+export const PRODUCT_CATEGORIES = [
   {
     key: 'agents',
     label: 'AI Agents',
@@ -103,7 +103,7 @@ const SOL_TEAM = [
   { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/services/ai-consulting' },
 ]
 
-const SOLUTION_CATEGORIES = [
+export const SOLUTION_CATEGORIES = [
   {
     key: 'industry',
     label: 'By industry',
@@ -127,7 +127,7 @@ const SOLUTION_CATEGORIES = [
 ]
 
 // --- Simple dropdowns ----------------------------------------------------
-const PLATFORM = [
+export const PLATFORM = [
   { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/why-smslocal' },
   { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform' },
   { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox' },
@@ -137,11 +137,15 @@ const PLATFORM = [
   { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security' },
 ]
 
-const RESOURCES = [
+export const RESOURCES_LEFT = [
   { t: 'Developer Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
-  { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog' },
   { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides' },
   { t: 'Case studies', d: 'Real customer results', i: <IconChart />, href: '/resources/case-studies' },
+]
+
+export const RESOURCES_RIGHT = [
+  { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog' },
+  { t: 'Contact Us', d: 'Talk to our team', i: <IconMail />, href: '/contact-us' },
   { t: 'Compare SMSLocal', d: 'SMSLocal vs Twilio, Bird & more', i: <IconGlobe />, href: '/compare' },
 ]
 
@@ -154,7 +158,7 @@ const MENU_ROUTES = {
   products: categoryRoutes(PRODUCT_CATEGORIES),
   platform: PLATFORM.map((i) => i.href),
   solutions: categoryRoutes(SOLUTION_CATEGORIES),
-  resources: RESOURCES.map((i) => i.href),
+  resources: [...RESOURCES_LEFT, ...RESOURCES_RIGHT].map((i) => i.href),
 }
 
 // startsWith so nested pages count too — /blog/a-post lights up Resources, and
@@ -328,7 +332,15 @@ function Navbar() {
                   <div className="resources-mega-panel">
                     <span className="resources-mega-eyebrow">Resources</span>
                     <ul>
-                      {RESOURCES.map((item) => (
+                      {RESOURCES_LEFT.map((item) => (
+                        <li key={item.t}><ItemLink item={item} onNavigate={closeAll} /></li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="resources-mega-panel">
+                    <span className="resources-mega-eyebrow">&nbsp;</span>
+                    <ul>
+                      {RESOURCES_RIGHT.map((item) => (
                         <li key={item.t}><ItemLink item={item} onNavigate={closeAll} /></li>
                       ))}
                     </ul>
@@ -348,14 +360,14 @@ function Navbar() {
           </div>
 
           <div className="nav-auth mobile-only">
-            <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Sign up</a>
-            <Link to="/signup" className="btn btn-primary" onClick={closeAll}>Get Started</Link>
+            <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Log in</a>
+            <Link to="/signup" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
           </div>
         </nav>
 
         <div className="nav-auth desktop-only">
-          <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Sign up</a>
-          <Link to="/contact-us" className="btn btn-primary" onClick={closeAll}>Get Started</Link>
+          <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Log in</a>
+          <Link to="/signup" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
         </div>
       </div>
     </header>

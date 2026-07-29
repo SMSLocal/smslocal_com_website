@@ -1,10 +1,10 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, NarrativeCompare, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
-import FeatureReveal from '../components/FeatureReveal.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import ProblemTicketStack from '../components/ProblemTicketStack.jsx'
+import FeatureShowcasePanel from '../components/FeatureShowcasePanel.jsx'
 import BuilderJourneyPath from '../components/BuilderJourneyPath.jsx'
-import WhyUsUnderline from '../components/WhyUsUnderline.jsx'
-import { IconGlobe, IconCalendar, IconRefresh, IconClock, IconChat, IconCheck, IconBolt, IconUsers, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
+import WhyUsSpotlightGrid from '../components/WhyUsSpotlightGrid.jsx'
+import { IconClock, IconCheck, IconBolt, IconUsers, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
 import BookingCalendarMock from '../components/BookingCalendarMock.jsx'
 
 const STEPS = [
@@ -14,25 +14,11 @@ const STEPS = [
   { icon: <IconCheck />, title: 'Alerts run automatically', desc: 'Delay, gate-change and check-in alerts start pushing the moment itinerary data updates.' },
 ]
 
-const STATS = [
-  { value: '40+', label: 'Languages supported', desc: 'Answer travellers in their own language, automatically detected from the conversation.' },
-  { value: '24/7', label: 'Booking support', desc: 'Itinerary changes and booking questions resolved at any hour, in any timezone.' },
-  { value: '<1s', label: 'First response time', desc: 'No hold music — instant replies whether it is a flight delay or a room upgrade request.' },
-  { value: '2x', label: 'Direct booking uplift', desc: 'Proactive itinerary and offer broadcasts that bring travellers back to book direct.' },
-]
-
-const FEATURES = [
-  { icon: <IconCalendar />, title: 'Bookings & itinerary changes', desc: 'Reschedules, cancellations and upgrades handled inside the chat, checked against live availability.' },
-  { icon: <IconGlobe />, title: 'Multilingual by default', desc: 'Detects the traveller\'s language and responds naturally, no separate bot per market required.' },
-  { icon: <IconRefresh />, title: 'Proactive trip updates', desc: 'Gate changes, delay alerts and check-in reminders pushed automatically across SMS, WhatsApp and RCS.' },
-  { icon: <IconChat />, title: 'One agent, every channel', desc: 'The same agent answers on your website, WhatsApp and SMS, with a consistent view of every reservation.' },
-]
-
 const BENEFITS = [
   { icon: <IconClock />, title: 'No timezone gaps', desc: 'A guest asking about check-in at 3am gets the same instant, accurate answer as one asking at 3pm.' },
-  { icon: <IconBolt />, title: 'Fewer missed connections', desc: 'Automatic delay and gate-change alerts reach travellers before they have to ask.' },
-  { icon: <IconUsers />, title: 'Frees your agents for the hard cases', desc: 'Routine itinerary questions resolve themselves, so your team handles the complex rebookings.' },
-  { icon: <IconCheck />, title: 'Consistent across every property', desc: 'One agent trained on your policies answers the same way whether the guest is on WhatsApp or the website.' },
+  { icon: <IconBolt />, title: 'Fewer missed connections', desc: 'Automatic delay and gate-change alerts reach travellers before they even have to think to ask.' },
+  { icon: <IconUsers />, title: 'Frees your agents', desc: 'Routine itinerary questions resolve themselves, so your team can focus on the complex rebookings.' },
+  { icon: <IconCheck />, title: 'Consistent everywhere', desc: 'One agent trained on your policies answers the same way whether the guest is on WhatsApp or the web.' },
 ]
 
 const FAQS = [
@@ -61,38 +47,16 @@ function IndustryTravel() {
         visual={<BookingCalendarMock />}
       />
 
-      <StatBand items={STATS} />
-
-      <NarrativeCompare
-        variant="columns"
+      <ProblemTicketStack
         eyebrow="The problem"
-        heading={<>A delayed flight shouldn't mean a flooded support queue.</>}
-        paragraphs={[
-          'Travel support spikes exactly when your team is least able to handle it — a storm, a delay, a fully booked weekend — and every guest wants the same answer at the same time.',
-          'Agentic AI for travel checks the real itinerary and takes the real action before the guest has to call.',
-        ]}
-        leftLabel="Static FAQ bot"
-        leftItems={[
-          "Can't look up a specific itinerary",
-          'Same generic answer for every guest',
-          'No proactive alerts when plans change',
-          'Escalates everything, resolves nothing',
-        ]}
-        rightLabel="Agentic AI for travel"
-        rightItems={[
-          'Checks the real itinerary and availability',
-          'Rebooks, confirms and alerts automatically',
-          'Answers in the guest\'s own language',
-          'Escalates only when it truly should',
-        ]}
+        heading={<>Most guest support is just &ldquo;where&rsquo;s my booking?&rdquo; on repeat.</>}
+        paragraph={<>The same handful of questions pile up in a queue — while a travel agent <strong>resolves them instantly</strong>, connected to your real itinerary data.</>}
         alt
       />
 
-      <FeatureReveal
+      <FeatureShowcasePanel
         eyebrow="Features"
-        title="Everything a booking desk does, always on"
-        subtitle="From the first enquiry to the return flight, one agent covers the whole trip."
-        items={FEATURES}
+        title="Built for travel and guests"
       />
 
       <BuilderJourneyPath
@@ -103,7 +67,7 @@ function IndustryTravel() {
         alt
       />
 
-      <WhyUsUnderline
+      <WhyUsSpotlightGrid
         eyebrow="Why it works"
         title="Guests get answers, your team gets their time back"
         subtitle="Routine itinerary questions resolve automatically, freeing your team for the bookings that need real judgement."
