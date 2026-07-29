@@ -218,15 +218,41 @@ function ResourcesGuides() {
             Same promise on all of them, whether it’s your first SMS or a production AI agent.
           </p>
 
-          <div className="gd-anatomy-strip">
-            {ANATOMY.map((a, i) => (
-              <div className="gd-anatomy-item" key={a.title}>
-                <span className="gd-anatomy-icon">{a.icon}</span>
-                <span className="gd-anatomy-title">{a.title}</span>
-                <span className="gd-anatomy-desc">{a.desc}</span>
-                {i < ANATOMY.length - 1 && <span className="gd-anatomy-link" aria-hidden="true" />}
+          {/* One realistic guide page, not four repeated tiles — each real
+              part of it (the step heading, a code block, a screenshot, the
+              time badge) carries its own small label. */}
+          <div className="gd-anatomy-page keeps-own-width">
+            <div className="gd-anatomy-block">
+              <span className="gd-anatomy-tag"><span className="gd-anatomy-tag-ic">{ANATOMY[0].icon}</span>{ANATOMY[0].title}</span>
+              <span className="gd-anatomy-stepnum">Step 03</span>
+              <h4 className="gd-anatomy-heading">Compose and send your first message</h4>
+              <p className="gd-anatomy-note">{ANATOMY[0].desc}</p>
+            </div>
+
+            <div className="gd-anatomy-block">
+              <span className="gd-anatomy-tag"><span className="gd-anatomy-tag-ic">{ANATOMY[1].icon}</span>{ANATOMY[1].title}</span>
+              <pre className="gd-anatomy-code">
+                <code>
+                  <span className="gd-anatomy-code-k">POST</span> /external/sms{'\n'}
+                  {'{ '}<span className="gd-anatomy-code-s">"to"</span>: <span className="gd-anatomy-code-s">"+14155550123"</span>{' }'}
+                </code>
+              </pre>
+              <p className="gd-anatomy-note">{ANATOMY[1].desc}</p>
+            </div>
+
+            <div className="gd-anatomy-block">
+              <span className="gd-anatomy-tag"><span className="gd-anatomy-tag-ic">{ANATOMY[2].icon}</span>{ANATOMY[2].title}</span>
+              <div className="gd-anatomy-shot">
+                <span className="gd-anatomy-shot-bar" />
+                <span className="gd-anatomy-shot-cursor" />
               </div>
-            ))}
+              <p className="gd-anatomy-note">{ANATOMY[2].desc}</p>
+            </div>
+
+            <div className="gd-anatomy-foot">
+              <span className="gd-anatomy-tag"><span className="gd-anatomy-tag-ic">{ANATOMY[3].icon}</span>{ANATOMY[3].title}</span>
+              <span className="gd-anatomy-time"><IconClock /> 8 min to done</span>
+            </div>
           </div>
         </div>
       </section>
