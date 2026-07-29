@@ -52,8 +52,8 @@ function WhatsappBusinessApi() {
   return (
     <>
       <Seo
-        title="WhatsApp Business API Provider"
-        description="Official WhatsApp Business API access. Send bulk broadcasts, templates and two-way chats at scale with fast onboarding and transparent pricing."
+        title="WhatsApp Business API Provider for Companies"
+        description="Official WhatsApp Business API access to send bulk broadcasts, templates and two-way chats at scale, with fast onboarding and transparent pricing."
         keywords={['WhatsApp Business API', 'WhatsApp API', 'bulk WhatsApp', 'WhatsApp Business API provider', 'WhatsApp broadcast', 'WhatsApp BSP']}
       />
 

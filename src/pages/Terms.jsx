@@ -40,8 +40,8 @@ function Terms() {
   return (
     <>
       <Seo
-        title="Terms and Conditions"
-        description="Terms and Conditions for using SMSLocal's website and services."
+        title="SMSLocal Terms and Conditions of Service"
+        description="Terms and Conditions governing use of SMSLocal's website and services, covering licensing, content liability, hyperlinking, disclaimers and refund policy."
       />
 
       <section className="section terms-section">

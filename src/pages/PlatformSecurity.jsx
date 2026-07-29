@@ -34,8 +34,8 @@ function PlatformSecurity() {
   return (
     <>
       <Seo
-        title="Enterprise Security & Compliance"
-        description="See how SMSLocal protects customer data — encryption in transit and at rest, SOC 2 Type II, ISO 27001, GDPR, HIPAA and CCPA compliance, role-based access control, SSO/SAML and full audit logging."
+        title="Enterprise Security & Compliance Platform"
+        description="See how SMSLocal protects customer data with encryption, SOC 2 Type II, GDPR and HIPAA compliance, role-based access control, SSO/SAML and full audit logging."
         keywords={['enterprise security', 'SOC 2', 'GDPR compliance', 'data security', 'RBAC', 'SSO']}
       />
 

@@ -1,30 +1,4 @@
-import nodemailer from 'nodemailer'
-
-const RECIPIENTS = [
-  'amrin@mycountrymobile.com',
-  'jasmine@mycountrymobile.com',
-  'sk3group@gmail.com',
-  'sk3group1@gmail.com',
-  'furkan@mycountrymobile.com',
-  'sadik@mycountrymobile.com',
-  'akil@mycountrymobile.com',
-  'firoz@mycountrymobile.com',
-  'naheead@mycountrymobile.com',
-  'websiteleads001@gmail.com',
-  'info@smslocal.com',
-  'sk3group2@gmail.com',
-]
-
 const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;')
-}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -41,37 +15,38 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Please provide a valid email address.' })
   }
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  })
-
-  const safeName = escapeHtml(name)
-  const safeCompany = escapeHtml(company)
-  const safeReason = escapeHtml(reason)
-  const safePhone = escapeHtml(phone)
-  const safeMessage = escapeHtml(message).replace(/\n/g, '<br>')
+  if (!process.env.GAS_WEB_APP_URL) {
+    console.error('Contact form: GAS_WEB_APP_URL is not configured.')
+    return res.status(500).json({ error: 'Failed to send message. Please try again later.' })
+  }
 
   try {
-    await transporter.sendMail({
-      from: `"SMSLocal Website" <${process.env.GMAIL_USER}>`,
-      to: RECIPIENTS,
-      replyTo: email,
-      subject: `New contact form submission — ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nPhone: ${phone}\nReason: ${reason}\n\nMessage:\n${message}`,
-      html: `
-        <h2>New contact form submission</h2>
-        <p><strong>Name:</strong> ${safeName}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Company:</strong> ${safeCompany}</p>
-        <p><strong>Phone:</strong> ${safePhone}</p>
-        <p><strong>Reason:</strong> ${safeReason}</p>
-        <p><strong>Message:</strong><br>${safeMessage}</p>
-      `,
+    const gasRes = await fetch(process.env.GAS_WEB_APP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: process.env.GAS_SHARED_SECRET,
+        name,
+        email,
+        company,
+        reason,
+        phone,
+        message,
+      }),
+      redirect: 'follow',
     })
+
+    const text = await gasRes.text()
+    let data
+    try {
+      data = JSON.parse(text)
+    } catch {
+      throw new Error(`Apps Script returned a non-JSON response: ${text.slice(0, 200)}`)
+    }
+
+    if (!gasRes.ok || !data.ok) {
+      throw new Error(data.error || `Apps Script responded with status ${gasRes.status}`)
+    }
 
     return res.status(200).json({ ok: true })
   } catch (err) {

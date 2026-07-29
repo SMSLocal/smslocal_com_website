@@ -22,9 +22,9 @@ const COMPETITORS = {
     domain: 'bird.com',
     category: 'Marketing & CX messaging (formerly MessageBird)',
     seo: {
-      title: 'SMSLocal vs Bird',
+      title: 'SMSLocal vs Bird: Omnichannel Messaging & AI',
       description:
-        'SMSLocal vs Bird (formerly MessageBird): all-in-one omnichannel messaging, no-code chatbots and agentic AI with transparent bundled pricing, versus Bird’s marketing and CX messaging suite.',
+        'SMSLocal vs Bird (formerly MessageBird): all-in-one omnichannel messaging with no-code chatbots and agentic AI, versus Bird’s marketing and CX messaging suite.',
       keywords: ['SMSLocal vs Bird', 'Bird alternative', 'MessageBird alternative', 'Bird competitor', 'CX messaging comparison'],
     },
     hero: {
@@ -66,9 +66,9 @@ const COMPETITORS = {
     domain: 'twilio.com',
     category: 'CPaaS / communications APIs',
     seo: {
-      title: 'SMSLocal vs Twilio',
+      title: 'SMSLocal vs Twilio: No-Code Messaging & AI',
       description:
-        'SMSLocal vs Twilio: an all-in-one, no-code messaging platform with managed onboarding, a shared inbox and AI included, versus Twilio’s developer-first communications APIs.',
+        'SMSLocal vs Twilio: an all-in-one, no-code messaging platform with managed onboarding and agentic AI, versus Twilio’s developer-first communications APIs.',
       keywords: ['SMSLocal vs Twilio', 'Twilio alternative', 'no-code Twilio alternative', 'CPaaS comparison', 'Twilio without code'],
     },
     hero: {
@@ -110,9 +110,9 @@ const COMPETITORS = {
     domain: 'plivo.com',
     category: 'Communications APIs',
     seo: {
-      title: 'SMSLocal vs Plivo',
+      title: 'SMSLocal vs Plivo: No-Code Messaging & AI',
       description:
-        'SMSLocal vs Plivo: an all-in-one, no-code messaging and agentic AI platform that ships as a finished product, versus Plivo’s developer-first communications APIs.',
+        'SMSLocal vs Plivo: an all-in-one, no-code messaging and agentic AI platform that ships ready to use, versus Plivo’s developer-first communications APIs.',
       keywords: ['SMSLocal vs Plivo', 'Plivo alternative', 'Plivo competitor', 'CPaaS comparison', 'no-code Plivo alternative'],
     },
     hero: {
@@ -154,9 +154,9 @@ const COMPETITORS = {
     domain: 'infobip.com',
     category: 'Global omnichannel CPaaS',
     seo: {
-      title: 'SMSLocal vs Infobip',
+      title: 'SMSLocal vs Infobip: No-Code Messaging & AI',
       description:
-        'SMSLocal vs Infobip: an all-in-one, no-code messaging and AI platform with transparent pricing for growing teams, versus Infobip’s enterprise-scale global CPaaS.',
+        'SMSLocal vs Infobip: an all-in-one, no-code messaging and AI platform with transparent pricing for growing teams, versus Infobip’s enterprise-scale CPaaS.',
       keywords: ['SMSLocal vs Infobip', 'Infobip alternative', 'Infobip competitor', 'CPaaS comparison', 'omnichannel messaging alternative'],
     },
     hero: {

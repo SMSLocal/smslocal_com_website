@@ -161,8 +161,8 @@ function ResourcesDocs() {
   return (
     <>
       <Seo
-        title="Developer Docs"
-        description="API and developer reference for SMSLocal — authentication, SMS endpoints, delivery status, webhooks and SDKs."
+        title="SMSLocal Developer Docs & API Reference"
+        description="API and developer reference for SMSLocal — authentication, SMS endpoints, delivery status, webhooks and SDKs, with code samples in cURL, Node and Python."
       />
 
       <Hero

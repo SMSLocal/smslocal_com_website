@@ -71,8 +71,8 @@ function TelegramBusiness() {
   return (
     <>
       <Seo
-        title="Telegram Business Messaging & Bot API"
-        description="Automate Telegram at scale — two-way messaging, bots and interactive formats integrated with your CRM and other channels."
+        title="Telegram Business Messaging & Bot API Tools"
+        description="Automate Telegram at scale with two-way messaging, bots and interactive formats, integrated with your CRM, shared inbox and other messaging channels."
         keywords={['Telegram for business', 'Telegram Bot API', 'Telegram business messaging', 'Telegram chatbot API', 'Telegram API integration']}
       />
 

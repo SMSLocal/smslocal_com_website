@@ -12,7 +12,6 @@
   "dependencies": {
     "dotted-map": "^3.1.0",
     "lucide-react": "^1.25.0",
-    "nodemailer": "^9.0.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",

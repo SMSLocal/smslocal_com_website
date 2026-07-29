@@ -228,8 +228,8 @@ function Signup() {
   return (
     <>
       <Seo
-        title="Start Free Trial"
-        description="Create your free SMSLocal account — send bulk SMS, build chatbots and deploy AI agents in minutes."
+        title="Start Your Free SMSLocal Trial Account Today"
+        description="Create your free SMSLocal account and send SMS, WhatsApp, RCS and voice messages, build chatbots and deploy AI agents in minutes — no card required."
       />
 
       <section className="signup-split-page">

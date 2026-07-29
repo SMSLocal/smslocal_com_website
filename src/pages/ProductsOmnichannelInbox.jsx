@@ -17,8 +17,8 @@ function ProductsOmnichannelInbox() {
   return (
     <>
       <Seo
-        title="Omnichannel Shared Inbox — One Team Inbox for Every Channel"
-        description="One shared inbox where WhatsApp, SMS, email, voice and social conversations land together with full context. Assign, @mention, add private notes and route with SLAs — as a team."
+        title="Omnichannel Shared Inbox for Every Channel"
+        description="One shared inbox where WhatsApp, SMS, email, voice and social conversations land together with full context. Assign, mention, note and route with SLAs."
         keywords={['shared inbox', 'omnichannel inbox', 'team inbox', 'customer conversations']}
       />
 

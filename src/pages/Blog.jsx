@@ -124,8 +124,8 @@ function Blog() {
   return (
     <>
       <Seo
-        title="Blog & Articles"
-        description="Guides, playbooks and product updates on SMS, WhatsApp, chatbots and agentic AI from the SMSLocal team."
+        title="Blog & Articles on Messaging and AI Agents"
+        description="Guides, playbooks and product updates on SMS, WhatsApp, chatbots and agentic AI from the SMSLocal team, written for people building real messaging programs."
       />
 
       <Hero

@@ -23,7 +23,7 @@ function Pricing() {
     <div className="pricing-page">
       <Seo
         title="Pricing — Pay Only For The SMS You Send"
-        description="SMSLocal pricing is simple: pay only for the text messages you send, with no hidden fees or contracts. See live per-country rates, top up in USD or EUR, and calculate exactly how many messages your budget buys."
+        description="SMSLocal pricing is simple: pay only for messages you send, with no hidden fees or contracts. See live per-country rates and calculate what your budget buys."
         keywords={['SMSLocal pricing', 'SMS rates', 'bulk SMS pricing', 'per-SMS pricing', 'SMS cost calculator', 'no contract SMS pricing']}
       />
 

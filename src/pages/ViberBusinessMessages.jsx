@@ -37,8 +37,8 @@ function ViberBusinessMessages() {
   return (
     <>
       <Seo
-        title="Viber Business Messages & API"
-        description="Send verified Viber broadcasts and manage two-way business chats via our Viber API — rich media, automated replies and one shared inbox."
+        title="Viber Business Messages & API for Brands"
+        description="Send verified Viber broadcasts and manage two-way business chats via our Viber API, with rich media, automated replies and one shared team inbox."
         keywords={['Viber Business Messages', 'Viber API', 'Viber business account', 'Viber broadcast messages', 'Viber for business']}
       />
 

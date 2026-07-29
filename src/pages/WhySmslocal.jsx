@@ -25,8 +25,8 @@ function WhySmslocal() {
   return (
     <>
       <Seo
-        title="Why SMSLocal - One Platform, Not a Stitched-Together Stack"
-        description="Most teams bolt a CPaaS API to a chatbot tool, a campaign tool, an inbox and a number vendor. SMSLocal replaces the whole stack with one account - one bill, one login, one customer record."
+        title="Why SMSLocal - One Platform, Not a Stack"
+        description="Most teams bolt a CPaaS API to a chatbot tool, a campaign tool, an inbox and a number vendor. SMSLocal replaces the stack with one bill and one login."
         keywords={['why smslocal', 'one messaging platform', 'CPaaS consolidation', 'replace messaging stack', 'unified customer engagement platform', 'one bill one login']}
       />
 

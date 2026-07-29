@@ -80,7 +80,7 @@ export const posts = [
     date: "Jul 18, 2026",
     readTime: "7 min read",
     excerpt:
-      "A behind-the-scenes look at how a local coffee retailer used bulk SMS and two-way replies to drive a 50%-off flash sale to a 99.7% delivery rate and real, measurable revenue.",
+      "A behind-the-scenes look at how a local coffee shop used bulk SMS and two-way replies to turn a flash sale into a 99.7% delivery rate and real revenue.",
     dek: "A behind-the-scenes look at how a local retailer used bulk SMS and two-way replies to drive a flash sale to a 99.7% delivery rate — and turned browsers into buyers within the hour.",
     author: authors.john,
     tags: ["Bulk SMS", "Case Study", "Campaigns", "Retail"],
@@ -205,7 +205,7 @@ export const posts = [
     date: "Jul 16, 2026",
     readTime: "5 min read",
     excerpt:
-      "Steal these proven message formats for promotions, reminders, and alerts that customers open in seconds.",
+      "Steal these ten proven message formats for promotions, reminders, and alerts, built from real SMSLocal campaigns customers actually open and answer.",
     dek: "Steal these proven message formats for promotions, reminders, and alerts — built from thousands of real SMSLocal campaigns.",
     author: authors.john,
     tags: ["Bulk SMS", "Templates", "Marketing"],
@@ -311,13 +311,13 @@ export const posts = [
   },
   {
     slug: "multi-step-sms-flows",
-    title: "Building Multi-Step SMS Flows: Cart Abandonment to Win-Back",
+    title: "Multi-Step SMS Flows: Cart to Win-Back Sequence",
     emphasis: "Win-Back",
     category: "Automation",
     date: "Jul 12, 2026",
     readTime: "6 min read",
     excerpt:
-      "A step-by-step guide to setting up triggered follow-ups that recover lost sales automatically.",
+      "A step-by-step guide to building triggered SMS flows that recover abandoned carts automatically, from the first nudge to the final win-back offer.",
     dek: "A step-by-step guide to setting up triggered follow-ups that recover lost sales automatically, from the first abandoned cart to the final win-back text.",
     author: authors.sarah,
     tags: ["Automation", "Campaigns", "E-commerce"],
@@ -413,13 +413,13 @@ export const posts = [
   },
   {
     slug: "two-way-sms-vs-blasts",
-    title: "Why Two-Way SMS Outperforms One-Way Blasts for Support",
+    title: "Two-Way SMS Beats One-Way Blasts for Support",
     emphasis: "Support",
     category: "Two-Way Messaging",
     date: "Jul 09, 2026",
     readTime: "4 min read",
     excerpt:
-      "See how a shared inbox for text replies cuts response times and boosts customer satisfaction.",
+      "See how a shared inbox for text replies cuts first-response time, resolves tickets without a phone call, and boosts customer satisfaction for support teams.",
     dek: "See how a shared inbox for text replies cuts response times, resolves issues faster, and boosts customer satisfaction scores.",
     author: authors.sarah,
     tags: ["Two-Way Messaging", "Support"],
@@ -506,13 +506,13 @@ export const posts = [
   },
   {
     slug: "reading-carrier-delivery-reports",
-    title: "Reading Your Carrier Delivery Report: A Field Guide",
+    title: "Reading Your Carrier Delivery Report: The Basics",
     emphasis: "Field Guide",
     category: "Analytics",
     date: "Jul 04, 2026",
     readTime: "5 min read",
     excerpt:
-      "Understand delivery rate, carrier breakdown, and avg. speed metrics so you can optimize every send.",
+      "A practical guide to delivery rate, carrier breakdown, and average speed metrics, so you know when to worry, when to shrug it off, and what to fix next.",
     dek: "Understand delivery rate, carrier breakdown, and average speed metrics so you can optimize every campaign you send.",
     author: authors.david,
     tags: ["Analytics", "Reporting"],
@@ -604,13 +604,13 @@ export const posts = [
   },
   {
     slug: "api-integrations-crm",
-    title: "API & Integrations: Connecting SMSLocal to Your CRM in Minutes",
+    title: "Connecting Your CRM to SMSLocal with the API",
     emphasis: "Minutes",
     category: "Bulk SMS",
     date: "Jun 22, 2026",
     readTime: "6 min read",
     excerpt:
-      "A practical walkthrough of the REST API and pre-built integrations for e-commerce and helpdesk tools.",
+      "A practical walkthrough of SMSLocal's REST API and pre-built integrations for CRM, helpdesk, and e-commerce tools — most teams are sending within the hour.",
     dek: "A practical walkthrough of the REST API and pre-built integrations for e-commerce and helpdesk tools — no custom backend required.",
     author: authors.sarah,
     tags: ["API", "Integrations", "Developers"],
@@ -707,7 +707,7 @@ export const posts = [
     date: "Jun 18, 2026",
     readTime: "5 min read",
     excerpt:
-      "Text messages get opened in minutes, not days. Here's the data behind why SMS consistently outperforms email for time-sensitive offers.",
+      "Text messages get opened within minutes, not days. Here's the data behind why SMS consistently beats email open rates for time-sensitive campaigns.",
     dek: "Text messages get opened in minutes, not days. Here's the data behind why SMS consistently outperforms email for time-sensitive offers.",
     author: authors.john,
     tags: ["Campaigns", "Marketing", "Benchmarks"],
@@ -803,13 +803,13 @@ export const posts = [
   },
   {
     slug: "compliance-checklist-tcpa",
-    title: "The 2026 SMS Compliance Checklist Every Business Needs",
+    title: "The 2026 SMS Compliance Checklist, Simplified",
     emphasis: "Needs",
     category: "Analytics",
     date: "Jun 14, 2026",
     readTime: "6 min read",
     excerpt:
-      "Opt-in language, quiet hours, opt-out handling — a practical checklist to keep your SMS program compliant and your delivery rates high.",
+      "Opt-in language, quiet hours, and opt-out handling — a practical 2026 checklist that keeps your SMS program compliant and your delivery rates high.",
     dek: "Opt-in language, quiet hours, opt-out handling — a practical checklist to keep your SMS program compliant and your delivery rates high.",
     author: authors.priya,
     tags: ["Compliance", "Analytics", "Best Practices"],
@@ -908,13 +908,13 @@ export const posts = [
   },
   {
     slug: "segmentation-that-converts",
-    title: "Segmentation That Converts: Beyond First-Name Personalization",
+    title: "Segmentation That Converts: Beyond First Names",
     emphasis: "Personalization",
     category: "Automation",
     date: "Jun 10, 2026",
     readTime: "5 min read",
     excerpt:
-      "Basic personalization is table stakes. Here's how top SMSLocal accounts segment by behavior, not just demographics, to lift conversion.",
+      "Basic first-name personalization is table stakes. Here's how top SMSLocal accounts segment by recency, frequency, and engagement to lift conversion.",
     dek: "Basic personalization is table stakes. Here's how top SMSLocal accounts segment by behavior, not just demographics, to lift conversion.",
     author: authors.emily,
     tags: ["Automation", "Segmentation", "Marketing"],
@@ -1007,7 +1007,7 @@ export const posts = [
     date: "Jun 05, 2026",
     readTime: "4 min read",
     excerpt:
-      "A simple two-message reminder flow that local restaurants use to confirm bookings and fill last-minute cancellations.",
+      "A simple two-message reminder flow that local restaurants use to confirm bookings, catch errors early, and fill last-minute cancellations quickly.",
     dek: "A simple two-message reminder flow that local restaurants use to confirm bookings and fill last-minute cancellations.",
     author: authors.david,
     tags: ["Campaigns", "Reminders", "Hospitality"],
@@ -1104,13 +1104,13 @@ export const posts = [
   },
   {
     slug: "helpdesk-over-sms",
-    title: "Running a Full Helpdesk Over SMS: A Practical Setup Guide",
+    title: "Running a Full Support Helpdesk Over SMS",
     emphasis: "Setup Guide",
     category: "Two-Way Messaging",
     date: "May 30, 2026",
     readTime: "6 min read",
     excerpt:
-      "Tickets, routing, and response-time tracking — how support teams run a complete helpdesk without customers ever leaving their texting app.",
+      "Tickets, keyword routing, and response-time tracking — how support teams run a complete helpdesk over SMS without customers leaving their texting app.",
     dek: "Tickets, routing, and response-time tracking — how support teams run a complete helpdesk without customers ever leaving their texting app.",
     author: authors.sarah,
     tags: ["Two-Way Messaging", "Support", "Helpdesk"],

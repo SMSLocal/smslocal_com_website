@@ -67,8 +67,8 @@ function AiAgentsOverview() {
   return (
     <>
       <Seo
-        title="AI Agents for Every Conversation"
-        description="Deploy AI agents that resolve support, close sales, book appointments and qualify leads — grounded in your data, taking real action across 300+ apps, with clean human handoff."
+        title="AI Agents for Every Business Conversation"
+        description="Deploy AI agents that resolve support, close sales and qualify leads — grounded in your data, taking real action across 300+ apps, with clean human handoff."
         keywords={['AI agents', 'agentic AI', 'autonomous AI agents', 'AI agent for support and sales']}
       />
 

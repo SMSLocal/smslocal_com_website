@@ -17,7 +17,7 @@ function Home() {
     // this page only — the plain-CSS inner pages must not inherit it.
     <div className="home-tw">
       <Seo
-        title="Bulk SMS Services for Businesses"
+        title="Bulk SMS Marketing & Business Messaging Platform"
         description="Launch SMS campaigns, alerts, and promotions in seconds. No apps, no coding, no integration needed. Connect effortlessly and grow your business with SMSLocal."
         keywords={['bulk SMS', 'SMS API', 'business SMS', 'SMS marketing', 'SMS campaigns', 'text message marketing']}
       />

@@ -34,8 +34,8 @@ function PrivacyPolicy() {
   return (
     <>
       <Seo
-        title="Privacy Policy"
-        description="Privacy Policy for SMSLocal's website and services."
+        title="SMSLocal Privacy Policy & Data Practices"
+        description="Read SMSLocal's Privacy Policy to learn what personal, sensitive and anonymous data we collect, how we use and protect it, and the privacy rights you have."
       />
 
       <section className="section privacy-section">

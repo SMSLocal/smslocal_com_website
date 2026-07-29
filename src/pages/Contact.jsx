@@ -68,8 +68,8 @@ function Contact() {
   return (
     <>
       <Seo
-        title="Contact Us"
-        description="Get in touch with SMSLocal — sales, support, partnerships or general inquiries."
+        title="Contact SMSLocal — Sales & Support Team"
+        description="Get in touch with SMSLocal for sales, support, partnerships or general inquiries. Our team typically replies within one business day, worldwide, 24/7."
       />
 
       <section className="section contact-hero-section">

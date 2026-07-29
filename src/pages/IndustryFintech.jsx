@@ -26,7 +26,7 @@ function IndustryFintech() {
   return (
     <>
       <Seo
-        title="Agentic AI for Fintech and Digital Banking Support"
+        title="Agentic AI for Fintech and Banking Support"
         description="Support onboarding, transactions and alerts with secure agentic AI for fintech, backed by audit logs, access controls and omnichannel broadcasting at scale."
         keywords={['AI for fintech', 'agentic AI fintech', 'digital banking AI', 'fintech AI agent']}
       />

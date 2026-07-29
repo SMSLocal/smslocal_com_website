@@ -33,8 +33,8 @@ function AiAgentsVoice() {
   return (
     <>
       <Seo
-        title="Voice AI Agent for Calls"
-        description="A voice AI agent that holds a natural phone conversation, resolves repetitive calls on its own, and hands off the rest to a human with a full transcript attached."
+        title="Voice AI Agent for Phone Conversations Today"
+        description="A voice AI agent that holds a natural phone conversation, resolves repetitive calls on its own, and hands off the rest to a human with a full transcript."
         keywords={['AI voice agent', 'AI phone agent', 'voicebot', 'conversational voice AI', 'voice AI for customer service']}
       />
 

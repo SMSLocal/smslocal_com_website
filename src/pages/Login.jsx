@@ -14,8 +14,8 @@ function Login() {
   return (
     <>
       <Seo
-        title="Log In"
-        description="Log in to your SMSLocal account to manage campaigns, chatbots and AI agents."
+        title="Log In to Your SMSLocal Business Account"
+        description="Log in to your SMSLocal account to manage SMS campaigns, WhatsApp conversations, chatbot flows and AI agents from a single, secure central dashboard."
       />
 
       <section className="section auth-section">

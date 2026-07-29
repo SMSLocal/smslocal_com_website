@@ -60,8 +60,8 @@ function DidNumbers() {
   return (
     <>
       <Seo
-        title="DID & Virtual Phone Numbers in 100+ Countries"
-        description="Get local, national, toll-free and mobile virtual (DID) numbers in 100+ countries in minutes. Route inbound voice and SMS to your team, apps and CRM — keep your number with porting."
+        title="DID & Virtual Phone Numbers, 100+ Countries"
+        description="Get local, national, toll-free and mobile virtual numbers in 100+ countries in minutes. Route inbound voice and SMS to your team, your apps and your CRM."
         keywords={['DID numbers', 'virtual phone numbers', 'virtual numbers', 'toll-free numbers', 'local phone numbers', 'number porting', 'inbound voice and SMS', 'local presence dialing']}
       />
 
