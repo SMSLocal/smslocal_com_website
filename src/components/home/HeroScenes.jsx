@@ -10,6 +10,9 @@ import {
   Headset,
   ShoppingBag,
   ChartColumn,
+  Bot,
+  Sparkles,
+  CreditCard,
 } from "lucide-react";
 
 const SCENES = [
@@ -17,6 +20,10 @@ const SCENES = [
   {
     title: "Two-Way Messaging",
     desc: "Customers reply — managed in a shared inbox",
+  },
+  {
+    title: "AI Agent",
+    desc: "Understands, decides, and replies automatically",
   },
   {
     title: "Campaign Automation",
@@ -29,19 +36,19 @@ const SCENES = [
   { title: "API & Integrations", desc: "REST API plus pre-built integrations" },
 ];
 
-/** `scene-pop` and `scene-fade` both share the carousel's 16s clock, so an
+/** `scene-pop` and `scene-fade` both share the carousel's 19.2s clock, so an
  *  element's delay must be its own scene's offset plus a small stagger. Keep
  *  staggers under ~0.4s or the exit lands after the scene has already gone.
- *  Scenes 1-2 pop (scale + opacity); scenes 3+ fade (opacity only). */
+ *  Scenes 1-3 pop (scale + opacity); scenes 4+ fade (opacity only). */
 const sceneDelay = (sceneId, stagger) => `${sceneId * 3.2 + stagger}s`;
 
 /** Delivery confirmations that pop out around the phone, then retract as
  *  scene 2 takes over. */
 const POPUPS = [
   { text: "+1 555 0134", pos: "left-[2%] top-[14%]", stagger: 0.05 },
-  { text: "+44 7700 9001", pos: "right-[1%] top-[25%]", stagger: 0.15 },
+  { text: "+44 7700 9001", pos: "right-[1%] top-[14%]", stagger: 0.15 },
   { text: "+61 400 12 345", pos: "left-[5%] bottom-[15%]", stagger: 0.25 },
-  { text: "+49 151 2345 67", pos: "right-[4%] bottom-[26%]", stagger: 0.35 },
+  { text: "+49 151 2345 67", pos: "right-[4%] bottom-[15%]", stagger: 0.35 },
 ];
 
 /** Scene 2's two-way conversation. Bubbles hug their text, so each is anchored
@@ -73,7 +80,27 @@ const CHATS = [
   },
 ];
 
-/** Scene 3's automation flow: two triggers feeding one rule, which fans out to
+/** Scene 3's autonomous resolution — a single vertical timeline under the
+ *  agent, each step landing in chronological order top-to-bottom. Vertical
+ *  order alone carries the sequence, so no per-bubble numbering is needed. */
+const AGENT_STEPS = [
+  { icon: Search, text: "Detected: refund request", top: "30%", stagger: 0.1 },
+  {
+    icon: ShoppingBag,
+    text: "Looked up the order in store",
+    top: "47%",
+    stagger: 0.2,
+  },
+  {
+    icon: CreditCard,
+    text: "Refund issued automatically",
+    top: "64%",
+    stagger: 0.3,
+  },
+  { icon: Send, text: "Customer notified", top: "81%", stagger: 0.4 },
+];
+
+/** Scene 4's automation flow: two triggers feeding one rule, which fans out to
  *  three actions. Positions are centres on the 560x400 stage. */
 const FLOW_TRIGGERS = [
   { label: "New sign-up", pos: "left-[16.4%] top-[19%]", stagger: 0.12 },
@@ -113,7 +140,7 @@ const CARRIERS = [
   { n: "T-Mobile", p: 19 },
 ];
 
-/** Scene 5's connected apps — one per integration category, and one per ring.
+/** Scene 6's connected apps — one per integration category, and one per ring.
  *  Generic icons rather than third-party logos; we don't ship those marks.
  *  Positions are centres on the 560x400 stage, solved to sit exactly on each
  *  ring while clearing the card stack and each other. */
@@ -288,7 +315,7 @@ function PhoneMock() {
 function ChatBubble({ size, className, rotate = 0, delay = 0, slower = false }) {
   return (
     <span
-      className={`pointer-events-none absolute ${className}`}
+      className={`animate-bubble-scene2-only pointer-events-none absolute ${className}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
       <span
@@ -299,7 +326,7 @@ function ChatBubble({ size, className, rotate = 0, delay = 0, slower = false }) 
           width={size}
           height={size}
           viewBox="0 0 40 40"
-          className="drop-shadow-lg"
+          className="drop-shadow-md"
           aria-hidden
         >
           <path
@@ -327,22 +354,16 @@ function PhoneStage() {
       >
         <defs>
           <linearGradient id="bulkBubbleGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="var(--brand-start)" />
-            <stop offset="100%" stopColor="var(--brand-end)" />
+            <stop
+              offset="0%"
+              stopColor="color-mix(in srgb, var(--brand-start) 32%, white)"
+            />
+            <stop
+              offset="100%"
+              stopColor="color-mix(in srgb, var(--brand-end) 32%, white)"
+            />
           </linearGradient>
         </defs>
-        <ellipse
-          cx="292"
-          cy="200"
-          rx="238"
-          ry="152"
-          fill="none"
-          stroke="var(--brand-start)"
-          strokeOpacity="0.3"
-          strokeWidth="2"
-          strokeDasharray="7 9"
-          className="animate-dash-flow"
-        />
       </svg>
 
       <ChatBubble size={28} className="left-[13%] top-[2%]" rotate={-12} />
@@ -387,14 +408,13 @@ function SceneVisual({ id }) {
         {POPUPS.map(({ text, pos, stagger }) => (
           <span key={text} className={`pointer-events-none absolute ${pos}`}>
             <span
-              className="animate-scene-pop flex items-center gap-2 whitespace-nowrap rounded-lg bg-white px-3 py-2 shadow-lg shadow-slate-900/10 ring-1 ring-black/5"
+              className="animate-scene-pop flex items-center gap-2.5 whitespace-nowrap rounded-full bg-white/90 px-4 py-2.5 shadow-xl shadow-emerald-500/15 ring-1 ring-black/5 blur-[1.1px]"
               style={{ animationDelay: sceneDelay(0, stagger) }}
             >
-              <Check
-                className="h-3.5 w-3.5 shrink-0 text-emerald-500"
-                strokeWidth={3}
-              />
-              <span className="font-mono text-[12px] text-foreground">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500">
+                <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
+              </span>
+              <span className="font-mono text-[12px] font-semibold text-foreground">
                 {text}
               </span>
             </span>
@@ -403,7 +423,7 @@ function SceneVisual({ id }) {
 
         {/* the message itself — centring on the wrapper so the pop's scale()
             doesn't fight the -translate-y-1/2 */}
-        <div className="absolute left-1/2 top-1/2 w-[64%] -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute left-1/2 top-1/2 z-20 w-[64%] -translate-x-1/2 -translate-y-1/2">
           <div
             className="animate-scene-pop rounded-2xl bg-white p-4 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
             style={{ animationDelay: sceneDelay(0, 0) }}
@@ -446,7 +466,7 @@ function SceneVisual({ id }) {
         {CHATS.map(({ id: cid, text, out, pos, stagger }) => (
           <span
             key={cid}
-            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
+            className={`pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2 ${pos}`}
           >
             <span
               className={`animate-scene-pop flex w-max max-w-[260px] items-center gap-2.5 rounded-2xl px-4 py-3 shadow-xl ${
@@ -469,7 +489,7 @@ function SceneVisual({ id }) {
         ))}
 
         {/* the reply being typed — same centre-on-the-edge anchoring */}
-        <span className="pointer-events-none absolute left-[66%] top-[80.75%] -translate-x-1/2 -translate-y-1/2">
+        <span className="pointer-events-none absolute left-[66%] top-[80.75%] z-20 -translate-x-1/2 -translate-y-1/2">
           <span
             className="animate-scene-pop inline-flex items-center gap-1 rounded-full bg-white px-3.5 py-3 shadow-xl shadow-slate-900/10 ring-1 ring-black/5"
             style={{ animationDelay: sceneDelay(1, 0.41) }}
@@ -487,8 +507,88 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 3 — Automation: triggers feed one rule, which fans out to three actions
+  // 3 — AI Agent: the agent (hub, centre-top) fans out to the steps it took
+  // resolving one inbound message on its own — each pops in as its own
+  // bubble, in chronological order, closing with the outcome at the bottom.
   if (id === 2) {
+    return (
+      <div className="relative mx-auto h-full w-full max-w-[560px]">
+        {/* the rail — one simple line down the spine, fading in once with the
+            agent rather than redrawing per step */}
+        <svg
+          viewBox="0 0 560 400"
+          className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
+          style={{ animationDelay: sceneDelay(2, 0.02) }}
+          aria-hidden
+        >
+          <path
+            d="M280,84 V362"
+            fill="none"
+            stroke="var(--brand-start)"
+            strokeOpacity="0.4"
+            strokeWidth="2.5"
+            strokeDasharray="5 7"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* the agent — head of the timeline, thinking continuously while the
+            scene runs */}
+        <span className="pointer-events-none absolute left-1/2 top-[9%] -translate-x-1/2 -translate-y-1/2">
+          <span
+            className="animate-scene-pop flex flex-col items-center gap-1.5"
+            style={{ animationDelay: sceneDelay(2, 0) }}
+          >
+            <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand text-white shadow-xl shadow-primary/25">
+              <span className="animate-pulse-soft absolute -inset-2 rounded-full border-2 border-brand-start/30" />
+              <Bot className="h-6 w-6" strokeWidth={2} />
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-black/5">
+                <Sparkles className="h-3 w-3 text-brand-end" />
+              </span>
+            </span>
+            <span className="text-[12px] font-semibold tracking-tight text-heading">
+              AI Agent
+            </span>
+          </span>
+        </span>
+
+        {/* the steps it takes, landing one by one down the timeline — vertical
+            order alone carries the sequence, so nothing needs a number */}
+        {AGENT_STEPS.map(({ icon: Icon, text, top, stagger }) => (
+          <span
+            key={text}
+            className="pointer-events-none absolute left-1/2 w-max -translate-x-1/2 -translate-y-1/2"
+            style={{ top }}
+          >
+            <span
+              className="animate-scene-pop flex items-center gap-2.5 whitespace-nowrap rounded-full bg-white px-4 py-2.5 shadow-xl shadow-emerald-500/10 ring-1 ring-black/5"
+              style={{ animationDelay: sceneDelay(2, stagger) }}
+            >
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500">
+                <Icon className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
+              </span>
+              <span className="text-[12.5px] font-medium leading-snug text-foreground">
+                {text}
+              </span>
+            </span>
+          </span>
+        ))}
+
+        {/* the outcome — foot of the timeline, once every step has landed */}
+        <span className="pointer-events-none absolute left-1/2 top-[95%] -translate-x-1/2 -translate-y-1/2">
+          <span
+            className="animate-scene-pop flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-[12.5px] font-semibold text-white shadow-xl shadow-primary/25"
+            style={{ animationDelay: sceneDelay(2, 0.5) }}
+          >
+            <Check className="h-3.5 w-3.5" strokeWidth={3} /> Auto-resolved
+          </span>
+        </span>
+      </div>
+    );
+  }
+
+  // 4 — Automation: triggers feed one rule, which fans out to three actions
+  if (id === 3) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
         {/* connectors: stem down from the rule, a bus, then three drops.
@@ -496,7 +596,7 @@ function SceneVisual({ id }) {
         <svg
           viewBox="0 0 560 400"
           className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-          style={{ animationDelay: sceneDelay(2, 0.24) }}
+          style={{ animationDelay: sceneDelay(3, 0.24) }}
           aria-hidden
         >
           <g
@@ -531,7 +631,7 @@ function SceneVisual({ id }) {
           >
             <span
               className="animate-scene-fade block whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold text-foreground shadow-lg shadow-slate-900/10 ring-1 ring-black/5"
-              style={{ animationDelay: sceneDelay(2, stagger) }}
+              style={{ animationDelay: sceneDelay(3, stagger) }}
             >
               {label}
             </span>
@@ -542,7 +642,7 @@ function SceneVisual({ id }) {
         <span className="pointer-events-none absolute left-1/2 top-[19%] -translate-x-1/2 -translate-y-1/2">
           <span
             className="animate-scene-fade flex h-[88px] w-[88px] flex-col items-center justify-center gap-1 rounded-3xl bg-gradient-brand text-white shadow-xl shadow-primary/25"
-            style={{ animationDelay: sceneDelay(2, 0.05) }}
+            style={{ animationDelay: sceneDelay(3, 0.05) }}
           >
             <Workflow className="h-7 w-7" strokeWidth={2} />
             <span className="text-[11px] font-semibold tracking-tight">
@@ -559,7 +659,7 @@ function SceneVisual({ id }) {
           >
             <span
               className="animate-scene-fade flex w-[132px] flex-col items-center gap-2 rounded-2xl bg-white px-3 py-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5"
-              style={{ animationDelay: sceneDelay(2, stagger) }}
+              style={{ animationDelay: sceneDelay(3, stagger) }}
             >
               <span
                 className={`flex h-11 w-11 items-center justify-center rounded-xl ${chip}`}
@@ -581,18 +681,18 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 4 — Analytics. Sparse composition, but with real numbers on it: two cards,
+  // 5 — Analytics. Sparse composition, but with real numbers on it: two cards,
   // a soft panel and a big lens, placed by CENTRE on the 560x400 stage:
   //   dashboard (150,92) · report (168,298) · panel (408,196) · lens (250,190)
   // The lens straddles all three, which is what gives the composition depth.
-  if (id === 3) {
+  if (id === 4) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
         {/* thin decorative thread, top-left */}
         <svg
           viewBox="0 0 560 400"
           className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-          style={{ animationDelay: sceneDelay(3, 0.04) }}
+          style={{ animationDelay: sceneDelay(4, 0.04) }}
           aria-hidden
         >
           <defs>
@@ -603,7 +703,7 @@ function SceneVisual({ id }) {
                 width="560"
                 height="400"
                 className="animate-scene-wipe"
-                style={{ animationDelay: sceneDelay(3, 0.04) }}
+                style={{ animationDelay: sceneDelay(4, 0.04) }}
               />
             </clipPath>
           </defs>
@@ -623,7 +723,7 @@ function SceneVisual({ id }) {
         <span className="pointer-events-none absolute left-[72.9%] top-[49%] -translate-x-1/2 -translate-y-1/2">
           <span
             className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(3, 0.02) }}
+            style={{ animationDelay: sceneDelay(4, 0.02) }}
           >
             <span className="animate-float-slower relative block h-[232px] w-[252px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-start/[0.09] to-brand-end/[0.09] ring-1 ring-black/[0.04]">
               <span className="absolute left-5 top-5 text-left">
@@ -654,7 +754,7 @@ function SceneVisual({ id }) {
                       width="252"
                       height="232"
                       className="animate-scene-wipe"
-                      style={{ animationDelay: sceneDelay(3, 0.14) }}
+                      style={{ animationDelay: sceneDelay(4, 0.14) }}
                     />
                   </clipPath>
                 </defs>
@@ -681,7 +781,7 @@ function SceneVisual({ id }) {
         <span className="pointer-events-none absolute left-[26.8%] top-[23%] -translate-x-1/2 -translate-y-1/2">
           <span
             className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(3, 0.08) }}
+            style={{ animationDelay: sceneDelay(4, 0.08) }}
           >
             <span className="animate-float-slow block w-[252px] rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5">
               <span className="flex gap-1.5">
@@ -691,7 +791,9 @@ function SceneVisual({ id }) {
               </span>
 
               <span className="mt-3.5 flex items-center gap-3">
-                <span className="h-10 w-10 shrink-0 rounded-full bg-gradient-brand opacity-85" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white opacity-85">
+                  <ChartColumn className="h-4.5 w-4.5" strokeWidth={2.25} />
+                </span>
                 <span className="min-w-0 flex-1 text-left">
                   <span className="block text-[13px] font-semibold text-heading">
                     Delivery report
@@ -726,7 +828,7 @@ function SceneVisual({ id }) {
         <span className="pointer-events-none absolute left-[30%] top-[74.5%] -translate-x-1/2 -translate-y-1/2">
           <span
             className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(3, 0.16) }}
+            style={{ animationDelay: sceneDelay(4, 0.16) }}
           >
             <span className="animate-float-slower block w-[212px] rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5">
               <span className="block text-left text-[12px] font-semibold text-heading">
@@ -743,7 +845,7 @@ function SceneVisual({ id }) {
                         className="animate-scene-bar block h-full rounded-full bg-gradient-brand"
                         style={{
                           width: `${c.p + 45}%`,
-                          animationDelay: sceneDelay(3, 0.22 + i * 0.08),
+                          animationDelay: sceneDelay(4, 0.22 + i * 0.08),
                         }}
                       />
                     </span>
@@ -761,7 +863,7 @@ function SceneVisual({ id }) {
         <span className="pointer-events-none absolute left-[44.6%] top-[47.5%] -translate-x-1/2 -translate-y-1/2">
           <span
             className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(3, 0.26) }}
+            style={{ animationDelay: sceneDelay(4, 0.26) }}
           >
             <span className="animate-float-slow relative block h-[132px] w-[132px]">
               {/* handle: -rotate-45 points down-RIGHT (plain rotate-45 swings it
@@ -784,7 +886,7 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 5 — API & Integrations: connected apps on the left, long sweeping arcs into
+  // 6 — API & Integrations: connected apps on the left, long sweeping arcs into
   // a stack of endpoint cards, and a request card overlapping the stack.
   // Only the top card carries detail; the two behind it fall back to
   // placeholders so the eye lands on the live request.
@@ -794,7 +896,7 @@ function SceneVisual({ id }) {
       <svg
         viewBox="0 0 560 400"
         className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-        style={{ animationDelay: sceneDelay(4, 0.06) }}
+        style={{ animationDelay: sceneDelay(5, 0.06) }}
         aria-hidden
       >
         <defs>
@@ -809,7 +911,7 @@ function SceneVisual({ id }) {
               width="560"
               height="400"
               className="animate-scene-wipe"
-              style={{ animationDelay: sceneDelay(4, 0.06) }}
+              style={{ animationDelay: sceneDelay(5, 0.06) }}
             />
           </clipPath>
         </defs>
@@ -846,7 +948,7 @@ function SceneVisual({ id }) {
           >
             <span
               className="animate-scene-fade block"
-              style={{ animationDelay: sceneDelay(4, stagger) }}
+              style={{ animationDelay: sceneDelay(5, stagger) }}
             >
               {/* The float wrapper is `relative` and the caption is absolute, so
                 the tile itself stays centred on its ring — letting the caption
@@ -875,7 +977,7 @@ function SceneVisual({ id }) {
           >
             <span
               className="animate-scene-fade block"
-              style={{ animationDelay: sceneDelay(4, stagger) }}
+              style={{ animationDelay: sceneDelay(5, stagger) }}
             >
               <span
                 className={`relative flex w-[300px] items-center gap-4 overflow-hidden rounded-2xl px-5 py-5 ${shell} ${
@@ -951,7 +1053,7 @@ function SceneVisual({ id }) {
       <span className="pointer-events-none absolute left-[31%] top-[77.75%] -translate-x-1/2 -translate-y-1/2">
         <span
           className="animate-scene-fade block"
-          style={{ animationDelay: sceneDelay(4, 0.3) }}
+          style={{ animationDelay: sceneDelay(5, 0.3) }}
         >
           <span className="animate-float-slower relative block w-[310px] overflow-hidden rounded-2xl bg-white p-4 shadow-2xl shadow-slate-900/10 ring-1 ring-brand-start/[0.14]">
             {/* Accent on the TOP + RIGHT edges, mirroring the live card's
@@ -1055,16 +1157,16 @@ export default function HeroScenes() {
             xl    1280+  column 592  -> 560*1.00 = 560 */}
       <div className="relative mx-auto -my-[84px] flex h-[400px] w-[560px] shrink-0 origin-left scale-[0.58] items-center justify-center sm:my-0 sm:scale-100 lg:-my-[36px] lg:scale-[0.82] xl:my-0 xl:scale-100">
         {/* stationary across scenes 1 and 2 — only the pop-ups and chats change */}
-        <div className="animate-stage-1-2 pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="animate-stage-1-2 pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
           <PhoneStage />
         </div>
 
         {SCENES.map(({ title }, i) => {
-          // Scenes 1-4 are driven entirely by `scene-pop`/`scene-fade` on their
+          // Scenes 1-5 are driven entirely by `scene-pop`/`scene-fade` on their
           // own elements, so their wrapper must NOT fade: the wrapper's fade-out
           // finishes at 6.40s while the pops are still retracting until ~6.9s,
           // which clipped the pop-in and left it looking like a plain fade.
-          const popDriven = i <= 3;
+          const popDriven = i <= 4;
           return (
             <div
               key={title}

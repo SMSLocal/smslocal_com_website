@@ -24,6 +24,14 @@ import OutcomesShowcase from "./OutcomesShowcase";
 
 const FEATURES = [
   {
+    icon: Bot,
+    tag: "New",
+    eyebrow: "AI Agent",
+    title: "Always-on AI agent",
+    subtitle: "Human-like replies, 24/7",
+    desc: "Human-like replies across WhatsApp, SMS, RCS, and voice, 24/7 — trained on your business.",
+  },
+  {
     icon: Send,
     tag: "Most used",
     eyebrow: "Bulk SMS",
@@ -70,14 +78,6 @@ const FEATURES = [
     title: "Reporting",
     subtitle: "Know exactly what's working",
     desc: "Monitor delivery, clicks, and replies in real time with carrier-level analytics.",
-  },
-  {
-    icon: Bot,
-    tag: "New",
-    eyebrow: "AI Agent",
-    title: "Always-on AI agent",
-    subtitle: "Human-like replies, 24/7",
-    desc: "Human-like replies across WhatsApp, SMS, RCS, and voice, 24/7 — trained on your business.",
   },
   {
     icon: Workflow,

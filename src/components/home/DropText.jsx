@@ -64,6 +64,26 @@ export default function DropText({
         // that only applies below sm, so the same heading can wrap at a
         // different word on narrow screens.
         if (seg.br) return <br key={si} className={seg.className} />;
+        if (seg.node) {
+          const idx = wi++;
+          return (
+            <span key={si}>
+              <span
+                className={`inline-block ${seg.className ?? ""}`}
+                style={{
+                  transition:
+                    "transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.65s ease",
+                  transitionDelay: `${idx * step}ms`,
+                  transform: shown ? "translateY(0)" : "translateY(-0.6em)",
+                  opacity: shown ? 1 : 0,
+                }}
+              >
+                {seg.node}
+              </span>
+              {si < segments.length - 1 ? " " : ""}
+            </span>
+          );
+        }
         const words = (seg.text ?? "").split(" ");
         return (
           <span key={si}>

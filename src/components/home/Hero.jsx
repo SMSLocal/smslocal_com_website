@@ -1,5 +1,6 @@
 import DropText from "./DropText";
 import HeroScenes from "./HeroScenes";
+import RotatingWord from "./RotatingWord";
 
 export default function Hero() {
   return (
@@ -28,16 +29,18 @@ export default function Hero() {
           <DropText
             as="h1"
             className="mt-6 text-4xl font-medium leading-tight tracking-tight text-heading sm:text-5xl lg:text-[3.25rem]"
-            /* Breaking after "for" gives two lines at every width. The break
-               used to sit before "at Scale", which needed 443px on mobile and
-               640px on desktop for line one — wider than either column, so it
-               wrapped to three ragged lines on both. This way line one is
-               272px mobile / 394px desktop, and line two 304px / 440px. */
             segments={[
-              { text: "One Platform for" },
+              { text: "The Agentic AI Platform." },
               { br: true },
-              { text: "Bulk SMS", className: "grad-word" },
-              { text: "at Scale" },
+              { text: "Built for" },
+              {
+                node: (
+                  <RotatingWord
+                    words={["Support", "Sales", "Agents"]}
+                    className="grad-word"
+                  />
+                ),
+              },
             ]}
           />
 

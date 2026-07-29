@@ -210,12 +210,12 @@
 
 @keyframes scene5 {
   0% { opacity: 0; transform: translateY(12px); }
-  3% { opacity: 1; transform: translateY(0); }
-  17% { opacity: 1; transform: translateY(0); }
-  20% { opacity: 0; transform: translateY(-12px); }
+  2.5% { opacity: 1; transform: translateY(0); }
+  14.17% { opacity: 1; transform: translateY(0); }
+  16.67% { opacity: 0; transform: translateY(-12px); }
   100% { opacity: 0; transform: translateY(-12px); }
 }
-.animate-scene-5 { animation: scene5 16s ease-in-out infinite both; }
+.animate-scene-5 { animation: scene5 19.2s ease-in-out infinite both; }
 
 @keyframes dot-fill {
   0%, 72%, 100% { opacity: 0.16; transform: scale(0.7); }
@@ -223,45 +223,64 @@
 }
 .animate-dot-fill { animation: dot-fill 2.6s ease-in-out infinite both; }
 
+/* The handset + orbit + bubbles are shared by scenes 1 and 2, so they must sit
+   perfectly still while only the pop-ups and chat bubbles swap over. This spans
+   both scenes' slots (0.48s -> 6.4s of the 19.2s loop) instead of fading per
+   scene the way `scene5` does. */
 @keyframes stage-1-2 {
   0% { opacity: 0; transform: translateY(12px); }
-  3% { opacity: 1; transform: translateY(0); }
-  37% { opacity: 1; transform: translateY(0); }
-  40% { opacity: 0; transform: translateY(-12px); }
+  2.5% { opacity: 1; transform: translateY(0); }
+  30.83% { opacity: 1; transform: translateY(0); }
+  33.33% { opacity: 0; transform: translateY(-12px); }
   100% { opacity: 0; transform: translateY(-12px); }
 }
-.animate-stage-1-2 { animation: stage-1-2 16s ease-in-out infinite both; }
+.animate-stage-1-2 { animation: stage-1-2 19.2s ease-in-out infinite both; }
 
+/* Same 19.2s clock as `stage-1-2`, but only visible during scene 2's slot
+   (3.2s -> 6.4s) — for decor that should be absent while scene 1 shows. */
+@keyframes bubble-scene2-only {
+  0%, 16.67% { opacity: 0; }
+  20% { opacity: 1; }
+  30.83% { opacity: 1; }
+  33.33%, 100% { opacity: 0; }
+}
+.animate-bubble-scene2-only { animation: bubble-scene2-only 19.2s ease-in-out infinite both; }
+
+/* Scene pop: an element pops OUT as its scene arrives and pops back IN as the
+   scene hands over to the next one.
+   Runs on the same 19.2s clock as `scene5` on purpose — a shorter period (like
+   bubble-in's 4.8s) drifts against the carousel and makes elements vanish
+   mid-scene. Set animation-delay to (sceneIndex * 3.2s + a small stagger). */
 @keyframes scene-pop {
   0% { opacity: 0; transform: scale(0.4); }
-  4% { opacity: 1; transform: scale(1.06); }
-  6.5% { opacity: 1; transform: scale(1); }
-  18% { opacity: 1; transform: scale(1); }
-  21% { opacity: 0; transform: scale(0.35); }
+  3.33% { opacity: 1; transform: scale(1.06); }
+  5.42% { opacity: 1; transform: scale(1); }
+  15% { opacity: 1; transform: scale(1); }
+  17.5% { opacity: 0; transform: scale(0.35); }
   100% { opacity: 0; transform: scale(0.35); }
 }
-.animate-scene-pop { animation: scene-pop 16s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both; }
+.animate-scene-pop { animation: scene-pop 19.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both; }
 
 @keyframes scene-fade {
   0% { opacity: 0; }
-  5% { opacity: 1; }
-  18% { opacity: 1; }
-  21% { opacity: 0; }
+  4.17% { opacity: 1; }
+  15% { opacity: 1; }
+  17.5% { opacity: 0; }
   100% { opacity: 0; }
 }
-.animate-scene-fade { animation: scene-fade 16s ease-in-out infinite both; }
+.animate-scene-fade { animation: scene-fade 19.2s ease-in-out infinite both; }
 
 @keyframes scene-wipe {
-  0%, 3% { transform: scaleX(0); }
-  11%, 100% { transform: scaleX(1); }
+  0%, 2.5% { transform: scaleX(0); }
+  9.17%, 100% { transform: scaleX(1); }
 }
-.animate-scene-wipe { transform-origin: left; animation: scene-wipe 16s ease-out infinite both; }
+.animate-scene-wipe { transform-origin: left; animation: scene-wipe 19.2s ease-out infinite both; }
 
 @keyframes scene-bar {
-  0%, 5% { transform: scaleX(0); }
-  17%, 100% { transform: scaleX(1); }
+  0%, 4.17% { transform: scaleX(0); }
+  14.17%, 100% { transform: scaleX(1); }
 }
-.animate-scene-bar { transform-origin: left; animation: scene-bar 16s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both; }
+.animate-scene-bar { transform-origin: left; animation: scene-bar 19.2s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both; }
 
 @keyframes bubble-in {
   0%, 100% { opacity: 0; transform: translateY(10px) scale(0.94); }
