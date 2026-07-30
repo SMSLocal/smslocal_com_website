@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fff8fb"/><stop offset="100%" stop-color="#fdecf4"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Same Two Letters, Two Meanings</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#db2777"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#db2777" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="322" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="168" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IG</text>
+    <rect x="68" y="352" width="300" height="3" fill="#db2777"/>
+    <text x="68" y="404" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Context decides which</text>
+    <text x="68" y="446" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">one you are reading.</text>
+    
+    <text x="588" y="196" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="62" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IG</text>
+    <path d="M614,214 L614,292 L928,292" fill="none"
+          stroke="#d9dfe9" stroke-width="2.4"/>
+    <path d="M614,292 L614,296 L662,296" fill="none"
+            stroke="#db2777" stroke-width="2.6"/>
+          <circle cx="614" cy="296" r="7" fill="#db2777"/>
+          <text x="680" y="308" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="38" font-weight="400"
+    fill="#db2777" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">I guess</text>
+          <text x="680" y="342" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">RELUCTANT AGREEMENT</text><path d="M614,292 L614,400 L662,400" fill="none"
+            stroke="#d9dfe9" stroke-width="2.6"/>
+          <circle cx="614" cy="400" r="7" fill="#5b6478"/>
+          <text x="680" y="412" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="38" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Instagram</text>
+          <text x="680" y="446" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">THE PLATFORM</text>
+    
+  <rect x="68" y="512" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">VERY COMMON</text><text x="734" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">READ THE SENTENCE</text>
+</svg>

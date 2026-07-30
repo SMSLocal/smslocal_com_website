@@ -1,3 +1,15 @@
+// One source of truth for the social profiles — both TopBar and Footer render
+// this list, so a changed handle only has to be fixed here. YouTube uses the
+// @handle form rather than /channel/UCgmlq4miXjgGXUkrbJ49B4g; both resolve to
+// the same channel.
+export const SOCIAL_LINKS = [
+  { label: 'Facebook', href: 'https://www.facebook.com/smslocal.official', Icon: FacebookIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/sms_local', Icon: InstagramIcon },
+  { label: 'X', href: 'https://twitter.com/smslocal01', Icon: XIcon },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sms-local', Icon: LinkedinIcon },
+  { label: 'YouTube', href: 'https://www.youtube.com/@smslocal', Icon: YoutubeIcon },
+]
+
 export function FacebookIcon({ className }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -12,6 +24,14 @@ export function InstagramIcon({ className }) {
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function XIcon({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18.24 2.25h3.31l-7.23 8.26L22.82 21.75h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z" />
     </svg>
   );
 }

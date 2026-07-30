@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fffafd"/><stop offset="100%" stop-color="#fdeef5"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A Short Word That Carries Weight</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#d64584"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#d64584" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="322" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="168" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">FRL</text>
+    <rect x="68" y="352" width="320" height="3" fill="#d64584"/>
+    <text x="68" y="412" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="50" font-weight="400"
+    fill="#d64584" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“For real.”</text>
+    <text x="68" y="460" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="28" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Used to agree, and mean it.</text>
+
+    <text x="568" y="186" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#d64584" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">HOW IT READS</text>
+    <rect x="568" y="204" width="388" height="1.4" fill="#d9dfe9"/>
+    <rect x="568" y="242" width="24" height="3" fill="#d64584"/>
+          <text x="604" y="250" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">AGREEING</text>
+          <text x="568" y="294" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“FRL, that was the best.”</text><rect x="568" y="326" width="24" height="3" fill="#d64584"/>
+          <text x="604" y="334" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ASKING</text>
+          <text x="568" y="378" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“FRL? You are serious?”</text><rect x="568" y="410" width="24" height="3" fill="#d64584"/>
+          <text x="604" y="418" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SOFTENING</text>
+          <text x="568" y="462" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“FRL though, it was close.”</text>
+    
+  <rect x="68" y="514" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="554" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CASUAL REGISTER</text><text x="734" y="554" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CHAT AND SOCIAL</text>
+</svg>

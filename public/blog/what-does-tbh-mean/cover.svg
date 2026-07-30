@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f6fbff"/><stop offset="100%" stop-color="#e8f3fb"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The Word That Prefaces Honesty</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#0369a1"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#0369a1" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="322" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="164" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TBH</text>
+    <rect x="68" y="352" width="320" height="3" fill="#0369a1"/>
+    <text x="68" y="408" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="46" font-weight="400"
+    fill="#0369a1" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“To be honest.”</text>
+    <text x="68" y="452" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A softener before a frank take.</text>
+    <text x="566" y="210" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IN A SENTENCE</text>
+    <rect x="566" y="238" width="390" height="4" rx="2" fill="#0369a1" opacity="0.3"/>
+    <text x="566" y="300" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#0369a1" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TBH,</text>
+    <text x="672" y="300" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">I liked the</text>
+    <text x="566" y="346" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">first one better.</text>
+    <rect x="566" y="386" width="390" height="4" rx="2" fill="#0369a1" opacity="0.3"/>
+    <text x="566" y="434" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SIGNALS CANDOUR, NOT CONFLICT</text>
+    
+  <rect x="68" y="508" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="548" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CHAT AND SOCIAL</text><text x="734" y="548" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SOFTENS THE BLOW</text>
+</svg>

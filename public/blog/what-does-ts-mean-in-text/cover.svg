@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fff8f9"/><stop offset="100%" stop-color="#fdeaee"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Ten Readings and Counting</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#be123c"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#be123c" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="326" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="170" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TS</text>
+    <rect x="68" y="356" width="300" height="3" fill="#be123c"/>
+    <text x="68" y="414" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Two letters doing far</text>
+    <text x="68" y="454" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">too many jobs at once.</text>
+    <text x="560" y="178" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A FEW OF THEM</text>
+    <text x="560" y="226" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="24" font-weight="400"
+    fill="#be123c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">01</text>
+          <text x="614" y="226" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">This stuff</text>
+          <rect x="560" y="244" width="396" height="1.4" fill="#d9dfe9"/><text x="560" y="284" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="24" font-weight="400"
+    fill="#be123c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">02</text>
+          <text x="614" y="284" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Tough situation</text>
+          <rect x="560" y="302" width="396" height="1.4" fill="#d9dfe9"/><text x="560" y="342" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="24" font-weight="400"
+    fill="#be123c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">03</text>
+          <text x="614" y="342" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Talking stage</text>
+          <rect x="560" y="360" width="396" height="1.4" fill="#d9dfe9"/><text x="560" y="400" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="24" font-weight="400"
+    fill="#be123c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">04</text>
+          <text x="614" y="400" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Take screenshot</text>
+          <rect x="560" y="418" width="396" height="1.4" fill="#d9dfe9"/><text x="560" y="458" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="24" font-weight="400"
+    fill="#be123c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">05</text>
+          <text x="614" y="458" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Time stamp</text>
+          <rect x="560" y="476" width="396" height="1.4" fill="#d9dfe9"/>
+    
+  <rect x="68" y="508" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="548" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CONTEXT DECIDES</text><text x="734" y="548" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ASK IF IT MATTERS</text>
+</svg>

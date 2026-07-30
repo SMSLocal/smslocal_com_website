@@ -395,11 +395,6 @@
     "dial": "+353"
   },
   {
-    "code": "IL",
-    "name": "Israel",
-    "dial": "+972"
-  },
-  {
     "code": "IT",
     "name": "Italy",
     "dial": "+39"
@@ -658,6 +653,11 @@
     "code": "PW",
     "name": "Palau",
     "dial": "+680"
+  },
+  {
+    "code": "PS",
+    "name": "Palestine",
+    "dial": "+970"
   },
   {
     "code": "PA",

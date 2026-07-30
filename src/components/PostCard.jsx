@@ -3,9 +3,15 @@ import styles from './PostCard.module.css'
 
 function PostCard({ post, compact = false }) {
   return (
-    <Link to={`/blog/${post.slug}`} className={styles.card}>
+    <Link to={post.routePath ?? `/blog/${post.slug}`} className={styles.card}>
       <div className={`${styles.thumb} ${compact ? styles.thumbCompact : ''}`}>
-        <span className={styles.cat}>{post.category}</span>
+        {post.cover && (
+          <img className={styles.thumbImage} src={post.cover} alt="" loading="lazy" />
+        )}
+        {/* The banner artwork labels its own topic, so a second overlaid badge
+            just collided with it. Keep the badge only as a fallback when a post
+            has no cover of its own. */}
+        {!post.cover && <span className={styles.cat}>{post.category}</span>}
       </div>
       <div className={`${styles.body} ${compact ? styles.bodyCompact : ''}`}>
         <div className={styles.meta}>
@@ -14,7 +20,9 @@ function PostCard({ post, compact = false }) {
         <h3 className={`${styles.title} ${compact ? styles.titleCompact : ''}`}>
           {post.title}
         </h3>
-        {!compact && <p className={styles.excerpt}>{post.excerpt}</p>}
+        {/* Compact cards carry the description too — without it they read as
+            an unfinished title-only tile. Clamped to 4 lines in CSS. */}
+        <p className={styles.excerpt}>{post.excerpt}</p>
         {!compact && (
           <div className={styles.footer}>
             <div className={styles.author}>

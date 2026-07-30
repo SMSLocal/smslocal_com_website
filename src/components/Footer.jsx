@@ -1,10 +1,5 @@
 import { Link } from 'react-router-dom'
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  YoutubeIcon,
-} from './home/SocialIcons.jsx'
+import { SOCIAL_LINKS } from './home/SocialIcons.jsx'
 import NightBackdrop from './home/NightBackdrop.jsx'
 import { PLATFORM, RESOURCES_LEFT, RESOURCES_RIGHT } from './Navbar.jsx'
 
@@ -55,13 +50,6 @@ const COLUMNS = [
   },
 ]
 
-const SOCIALS = [
-  { label: 'Facebook', Icon: FacebookIcon },
-  { label: 'Instagram', Icon: InstagramIcon },
-  { label: 'YouTube', Icon: YoutubeIcon },
-  { label: 'LinkedIn', Icon: LinkedinIcon },
-]
-
 function Footer() {
   return (
     // home-tw scopes the Tailwind element reset (styles/home-tailwind.css) to
@@ -87,10 +75,12 @@ function Footer() {
             </p>
             {/* h-11 w-11 hit areas with -m-2.5 so the icons sit where they did */}
             <div className="mt-5 flex items-center gap-8">
-              {SOCIALS.map(({ label, Icon }) => (
+              {SOCIAL_LINKS.map(({ label, href, Icon }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="-m-2.5 flex h-11 w-11 items-center justify-center text-white/60 hover:text-primary"
                 >
@@ -121,6 +111,13 @@ function Footer() {
             </div>
           ))}
         </div>
+
+        {/* Registered office, full width directly under the link columns rather
+            than in the brand column — it reads as one line here instead of
+            wrapping to three inside a max-w-xs column. */}
+        <address className="mt-1 max-w-xs text-sm not-italic leading-relaxed text-white/60">
+          8 Temasek Boulevard, #32-01 Suntec Tower Three, Singapore
+        </address>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>

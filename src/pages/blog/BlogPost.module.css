@@ -30,6 +30,16 @@
   color: var(--text);
 }
 
+/* Soft purple wash behind the hero. Tinted from --blue (#4f5bd5), the theme's
+   own purple, rather than a new hue. The padding-top is load-bearing: without
+   it the breadcrumb's top margin collapses straight through the band and the
+   tint starts below it. */
+.heroBand {
+  padding-top: 8px;
+  background: var(--blog-hero-tint);
+  border-bottom: 1px solid var(--blog-hero-edge);
+}
+
 /* Header + cover visual sit side by side, spanning the full nav width */
 .headerGrid {
   display: grid;
@@ -43,11 +53,14 @@
   min-width: 0;
 }
 
+/* Matches the sitewide `.eyebrow` palette (theme.css): no fill, pink hairline
+   border, secondary-grey label. */
 .catPill {
   display: inline-flex;
   align-items: center;
-  background: var(--brand-soft);
-  color: var(--brand);
+  background: transparent;
+  border: 1px solid var(--cyan);
+  color: var(--text-secondary);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -103,6 +116,17 @@
   margin-bottom: 3px;
 }
 
+.bylineLink {
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.bylineLink:hover {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .bylineRole {
   font-weight: 600;
   color: var(--muted);
@@ -127,34 +151,18 @@
   flex-shrink: 0;
 }
 
-.share {
-  display: flex;
-  gap: 10px;
-}
-
-.share a {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--muted);
-  transition: all 0.15s;
-}
-
-.share a:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-}
-
 /* Right-column visual card that sits beside the header text */
 .coverCard {
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 24px 48px -28px rgba(15, 23, 42, 0.18);
+}
+
+.coverImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .cover {
@@ -175,16 +183,23 @@
   display: grid;
   grid-template-columns: 1fr 300px;
   align-items: start;
-  gap: 56px;
-  margin-top: 8px;
+  gap: 40px;
+  margin-top: 36px;
 }
 
+/* One measure for every block in the article column — prose, tag row and FAQ
+   all share it, so widening the text can't leave them misaligned. Sized to
+   fill most of the run to the sidebar while keeping a clear channel: at the
+   1280px container this ends ~90px short of the TOC, on top of the 40px grid
+   gap. The column's left edge is untouched and stays flush with the header
+   logo. */
 .content {
   min-width: 0;
+  --article-measure: 840px;
 }
 
 .prose {
-  max-width: 720px;
+  max-width: var(--article-measure);
   padding: 32px 0 24px;
   font-size: 17px;
   color: var(--text);
@@ -192,7 +207,7 @@
 
 .prose p {
   margin-bottom: 22px;
-  color: #334155;
+  color: var(--text);
 }
 
 .prose h2 {
@@ -209,8 +224,98 @@
   margin: 32px 0 14px;
 }
 
-.prose ul {
+.prose h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 26px 0 12px;
+}
+
+.prose ul,
+.prose ol {
   margin: 0 0 22px 22px;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(21, 73, 137, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--brand);
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Imported article imagery — full content width, matching the cover card */
+.figure {
+  margin: 28px 0 30px;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 34px 0;
+}
+
+/* Wide comparison tables scroll on their own instead of the page */
+.tableScroll {
+  margin: 28px 0 30px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text);
+}
+
+.table thead th {
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody tr:nth-child(even) td {
+  background: var(--bg);
 }
 
 /* Anchor targets for tag-pill jump links (see BodyBlocks.tsx block-{i} ids) */
@@ -220,7 +325,7 @@
 
 .prose li {
   margin-bottom: 10px;
-  color: #334155;
+  color: var(--text);
 }
 
 .quote {
@@ -270,37 +375,74 @@
   margin-top: 4px;
 }
 
-/* Inline mid-article CTA: heading + copy on the left, button pinned right */
+/* Inline mid-article CTA — the light counterpart to the dark closing band, so
+   the two read as a hierarchy rather than two competing panels. A white card
+   with a gradient rail down its edge, not a heavy tinted rectangle. */
 .inlineCta {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 24px;
-  background: var(--brand-soft);
-  border: 1px solid rgba(21, 73, 137, 0.18);
+  gap: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 24px 28px;
+  padding: 24px 28px 24px 32px;
   margin: 36px 0;
+  box-shadow: 0 18px 36px -26px rgba(15, 23, 42, 0.25);
+}
+
+.inlineCta::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--grad);
+}
+
+/* Brand wash bleeding in behind the button end of the card. */
+.inlineCta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 120% at 100% 50%, rgba(79, 91, 213, 0.1), transparent 70%);
+}
+
+.inlineCtaBody {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
 }
 
 .inlineCtaHeading {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--heading);
+  margin-bottom: 6px;
 }
 
 .inlineCtaText {
   font-size: 14px;
+  line-height: 1.55;
   color: var(--muted);
   margin-bottom: 0;
 }
 
-.inlineCtaButton {
+/* Two classes: `.blog-scope a { color: inherit }` outranks a lone module class
+   and was painting this label navy on the gradient instead of white. */
+.inlineCta .inlineCtaButton {
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 7px;
   border-radius: 999px;
   background: var(--grad);
   color: #fff;
@@ -308,10 +450,19 @@
   font-size: 14px;
   padding: 12px 22px;
   white-space: nowrap;
+  box-shadow: 0 10px 24px -10px rgba(79, 91, 213, 0.55);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.inlineCta .inlineCtaButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px -10px rgba(79, 91, 213, 0.65);
 }
 
 .tags {
-  max-width: 720px;
+  max-width: var(--article-measure);
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
@@ -355,12 +506,20 @@
   position: relative;
 }
 
-.toc::before {
-  content: "";
-  display: block;
-  height: 4px;
+/* Reading progress, in place of the static gradient rule that used to sit
+   here — same brand stripe, but it now reports something. */
+.tocProgressTrack {
+  height: 3px;
   flex-shrink: 0;
-  background: linear-gradient(90deg, var(--brand), #4f5bd5, #ec4899);
+  background: var(--bg-subtle-2);
+}
+
+.tocProgressBar {
+  display: block;
+  height: 100%;
+  background: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 
 .tocLabel {
@@ -373,7 +532,7 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text);
-  padding: 18px 20px 12px;
+  padding: 16px 18px 12px;
 }
 
 .tocLabel svg {
@@ -381,84 +540,51 @@
   color: var(--brand);
 }
 
-.tocScroll {
-  background: var(--bg);
-  padding: 8px 12px;
+.tocPercent {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
 }
 
-.toc ul {
+/* Vertical rail: the track is the list's own left border and the active item
+   repaints its own 2px segment of it, so the marker can never drift out of
+   sync the way an absolutely-positioned indicator would. */
+.tocList {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  margin: 0 18px 18px;
+  padding: 0;
+  border-left: 2px solid var(--border);
 }
 
-.toc li a {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+/* Two classes: `.blog-scope a { color: inherit }` outranks a lone module
+   class and would otherwise flatten every link to the inherited colour. */
+.toc .tocLink {
+  display: block;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  padding: 8px 0 8px 14px;
   font-size: 13.5px;
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--muted);
-  line-height: 1.4;
-  padding: 9px 10px;
-  border-radius: 10px;
   transition:
     color 0.15s ease,
-    background 0.15s ease;
+    border-color 0.15s ease;
 }
 
-.toc li a:hover {
+.toc .tocLink:hover {
   color: var(--brand);
+  border-left-color: rgba(21, 73, 137, 0.35);
 }
 
-.tocNum {
-  flex-shrink: 0;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-}
-
-.tocActive {
-  background: var(--surface);
-  color: var(--text) !important;
-  box-shadow: 0 6px 16px -8px rgba(15, 23, 42, 0.25);
-}
-
-.tocActive .tocNum {
-  color: var(--brand);
-}
-
-.tocCta {
-  flex-shrink: 0;
-  padding: 16px 20px 20px;
-  border-top: 1px solid var(--border);
-}
-
-.tocCtaHeading {
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.tocCtaText {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 14px;
-}
-
-.tocCtaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border-radius: 999px;
-  background: var(--grad);
-  color: #fff;
+.toc .tocLinkActive {
+  color: var(--heading);
   font-weight: 600;
-  font-size: 13px;
-  padding: 11px 16px;
+  border-left-color: var(--brand);
 }
 
 /* Sidebar promo cards, stacked below the TOC */
@@ -512,7 +638,7 @@
 
 .offerBanner {
   flex-shrink: 0;
-  background: linear-gradient(135deg, #154989 0%, #4f5bd5 60%, #ec4899 130%);
+  background: var(--grad);
   border-radius: 20px;
   padding: 20px 22px;
   text-align: center;
@@ -536,9 +662,12 @@
   color: #fff;
 }
 
-/* FAQ */
+/* FAQ — same accordion behaviour and palette as the sitewide FAQ section
+   (components/sections/sections.css), narrowed to the 720px article measure
+   so the questions line up with the body copy above them instead of running
+   wide and leaving each row half empty. */
 .faqSection {
-  max-width: 760px;
+  max-width: var(--article-measure);
   margin: 8px 0 8px;
 }
 
@@ -547,6 +676,7 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
+  scroll-margin-top: 96px;
 }
 
 .faqList {
@@ -559,75 +689,158 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 18px 20px;
+  padding: 2px 20px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
-.faqItem[open] {
-  border-color: rgba(21, 73, 137, 0.25);
+.faqItemOpen {
+  border-color: rgba(21, 73, 137, 0.3);
+  background: var(--bg-subtle-2);
 }
 
 .faqQuestion {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  text-align: left;
+  font: inherit;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text);
   cursor: pointer;
-  list-style: none;
 }
 
-.faqQuestion::-webkit-details-marker {
-  display: none;
-}
-
-.faqIcon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+.faqCaret {
+  flex: none;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: var(--brand-soft);
+  border: 1px solid rgba(21, 73, 137, 0.3);
   color: var(--brand);
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
+  font-size: 17px;
+  line-height: 1;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
-.faqItem[open] .faqIcon {
-  transform: rotate(45deg);
+.faqItemOpen .faqCaret {
+  background: var(--brand-soft);
+}
+
+/* 0fr → 1fr animates the row open against its own content height: no magic
+   max-height number, and a long answer can never be clipped. Same mechanism
+   as the sitewide FAQ in components/sections/sections.css. */
+.faqAnswerWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faqItemOpen .faqAnswerWrap {
+  grid-template-rows: 1fr;
+}
+
+/* Also what lets the row collapse to 0 — a grid item's `min-height: auto`
+   would otherwise hold it open at content height. */
+.faqAnswerInner {
+  overflow: hidden;
 }
 
 .faqAnswer {
   font-size: 14px;
   color: var(--muted);
-  margin-top: 12px;
   line-height: 1.6;
+  margin: 0 0 16px;
+  padding-right: 44px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
 }
 
+.faqItemOpen .faqAnswer {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faqAnswerWrap,
+  .faqAnswer {
+    transition: none;
+  }
+}
+
+/* Closing CTA — the sitewide `.cta-night` treatment (ink base lit by two brand
+   glows) instead of a flat gradient band. The gradient version was unreadable
+   twice over: theme.css colours every h1–h6 with --heading, so the title
+   painted navy on blue, and the white pill inherited white text. A dark base
+   with a gradient button makes both legible by construction. */
 .ctaBand {
-  background: linear-gradient(135deg, #154989 0%, #4f5bd5 60%, #ec4899 130%);
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
   border-radius: 28px;
-  padding: 48px 40px;
+  padding: 56px 40px;
   text-align: center;
-  color: #fff;
   margin: 48px 0 64px;
 }
 
-.ctaBand h2 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  letter-spacing: -0.01em;
+.ctaGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(42% 55% at 50% 0%, rgba(79, 91, 213, 0.35), transparent 70%),
+    radial-gradient(38% 50% at 50% 100%, rgba(236, 72, 153, 0.18), transparent 70%);
 }
 
-.ctaBand p {
-  color: rgba(255, 255, 255, 0.85);
+.ctaInner {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.ctaBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Two classes throughout this block: a single module class loses to
+   theme.css's `h1–h6` and to `.blog-scope a { color: inherit }`. */
+.ctaBand .ctaTitle {
+  margin: 18px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.ctaBand .ctaText {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.62);
   font-size: 15px;
-  margin-bottom: 24px;
+  line-height: 1.6;
 }
 
 .ctaButtons {
@@ -635,28 +848,55 @@
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 28px;
 }
 
-.btnWhite {
-  background: #fff;
-  color: var(--brand);
-  font-weight: 700;
-  font-size: 14px;
-  border-radius: 999px;
-  padding: 13px 26px;
-  border: none;
-  cursor: pointer;
-}
-
-.btnOutlineWhite {
-  background: transparent;
+.ctaBand .ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--grad);
   color: #fff;
   font-weight: 600;
   font-size: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
   padding: 13px 26px;
-  cursor: pointer;
+  box-shadow: 0 12px 30px -10px rgba(79, 91, 213, 0.5);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ctaBand .ctaPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px -10px rgba(79, 91, 213, 0.6);
+}
+
+.ctaBand .ctaPrimary svg {
+  transition: transform 0.25s ease;
+}
+
+.ctaBand .ctaPrimary:hover svg {
+  transform: translateX(2px);
+}
+
+.ctaBand .ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 13px 26px;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.ctaBand .ctaGhost:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .relatedWrap {

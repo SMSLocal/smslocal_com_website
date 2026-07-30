@@ -4,27 +4,56 @@
   padding: 0 24px;
 }
 
-.hero {
-  padding: 72px 0 48px;
-  text-align: center;
+/* Full-bleed hero band: an overall soft purple wash, lit by scattered glow
+   patches. Every colour is a theme token — --blue (#4f5bd5) for the purple,
+   --navy (#154989) for the deeper pools, --cyan (#ec4899) for a little warmth
+   — so the section gains depth without introducing a new hue. */
+.heroBand {
   position: relative;
   overflow: hidden;
+  background: var(--blog-hero-tint);
+  border-bottom: 1px solid var(--blog-hero-edge);
+  padding-bottom: 8px;
 }
 
-.hero::before {
-  content: "";
+/* Patch placement is a legibility constraint, not just taste: the headline and
+   subtitle are centred, so the deeper pools sit out in the corners where they
+   can never pool behind text. The subtitle uses --text-secondary, which only
+   starts at ~4.6:1, so a deep patch under it would have pushed it below AA. */
+.heroGlow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(60% 50% at 50% -10%, rgba(21, 73, 137, 0.09), rgba(0, 0, 0, 0) 60%);
   pointer-events: none;
+  background-image:
+    /* broad soft pool rising behind the headline */
+    radial-gradient(46% 50% at 50% -10%, rgba(79, 91, 213, 0.18), transparent 70%),
+    /* soft patches out to either side */
+    radial-gradient(26% 38% at 6% 14%, rgba(79, 91, 213, 0.12), transparent 72%),
+    radial-gradient(24% 34% at 94% 20%, rgba(236, 72, 153, 0.09), transparent 72%),
+    /* the deeper accents, tucked into the bottom corners */
+    radial-gradient(14% 20% at 92% 88%, rgba(21, 73, 137, 0.11), transparent 74%),
+    radial-gradient(13% 18% at 8% 90%, rgba(79, 91, 213, 0.13), transparent 76%);
 }
 
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 72px 0 48px;
+  text-align: center;
+}
+
+/* Matches the sitewide `.eyebrow` palette (theme.css): no fill, pink hairline
+   border, secondary-grey label. */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--brand-soft);
-  color: var(--brand);
+  background: transparent;
+  border: 1px solid var(--cyan);
+  /* A shade darker than plain --text-secondary: the hero's purple wash costs
+     roughly half a point of contrast, which took 12px bold text just under
+     AA. Mixed from existing tokens rather than introducing a new grey. */
+  color: color-mix(in srgb, var(--text-secondary), var(--ink) 30%);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -40,25 +69,30 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.08;
-  color: var(--text);
+  color: var(--heading);
   position: relative;
 }
 
 .hero p {
   max-width: 560px;
   margin: 20px auto 0;
-  color: var(--muted);
+  /* Same half-point of contrast the wash costs the badge — plain --muted
+     landed at 4.2:1 over the glow, just under AA for 17px body text. */
+  color: color-mix(in srgb, var(--text-secondary), var(--ink) 30%);
   font-size: 17px;
   position: relative;
 }
 
+/* Sits inside the hero band, so it needs to stack above the glow layer. */
 .toolbar {
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin: 40px 0 32px;
+  margin: 8px 0 32px;
 }
 
 .search {
@@ -120,6 +154,8 @@
   color: #fff;
 }
 
+/* `center`, not `stretch`: a stretched media column takes its height from the
+   body text, which overrode the 16:9 frame below and cropped the cover. */
 .featured {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
@@ -129,26 +165,40 @@
   border-radius: 24px;
   padding: 12px;
   margin-bottom: 56px;
-  align-items: stretch;
+  align-items: center;
 }
 
+/* Same 16:9 canvas as the grid cards, so the 1024x576 cover shows whole. */
 .featuredMedia {
   border-radius: 18px;
   background: var(--grad);
-  min-height: 280px;
+  aspect-ratio: 1024 / 576;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
 }
 
+.featuredImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bottom-up scrim: darkens the corner the badge sits in so it stays legible
+   over any cover photo, and still reads as depth over the gradient fallback. */
 .featuredMedia::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.25), transparent 60%);
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.5), transparent 45%);
 }
 
+/* Solid navy, not a translucent wash — an 18%-white fill disappeared into
+   light cover photos. Navy over the brand gradient too: at 12px the
+   gradient's pink end only reaches 3.5:1 against white, navy reaches 9:1. */
 .featuredMedia .tag {
   position: relative;
   z-index: 1;
@@ -158,10 +208,10 @@
   font-size: 12px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--brand);
   padding: 6px 14px;
   border-radius: 999px;
-  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px -6px rgba(15, 23, 42, 0.55);
 }
 
 .featuredBody {
@@ -223,26 +273,81 @@
   text-align: center;
 }
 
+/* Night treatment lifted from the homepage CTABanner (components/home/
+   CTABanner.jsx): an ink base lit by two soft brand glows, rather than the
+   flat saturated gradient this used to be — far calmer, and it makes the
+   white headline legible by construction instead of by override. */
 .newsletter {
-  background: linear-gradient(135deg, #154989 0%, #4f5bd5 60%, #ec4899 130%);
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
   border-radius: 28px;
-  padding: 56px 40px;
+  padding: 64px 40px;
   text-align: center;
-  color: #fff;
   margin: 24px 0 88px;
 }
 
+/* All three layers the homepage banner stacks, in its order: the shared
+   NightBackdrop's navy rise, then its faded dot grid, then the blue/pink
+   brand glows from CTABanner itself. */
+.newsletterGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(42% 55% at 50% 0%, rgba(79, 91, 213, 0.35), transparent 70%),
+    radial-gradient(38% 50% at 50% 100%, rgba(236, 72, 153, 0.18), transparent 70%),
+    radial-gradient(50% 60% at 50% 0%, rgba(21, 73, 137, 0.25), transparent 70%);
+}
+
+.newsletterGlow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 30%, #000 40%, transparent 78%);
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 30%, #000 40%, transparent 78%);
+}
+
+.newsletterInner {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.newsletterBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* The colour is load-bearing: theme.css paints every h1–h6 with --heading,
+   which beats the white this band merely *inherits* down. */
 .newsletter h2 {
   font-size: 30px;
   font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-bottom: 10px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 18px 0 0;
+  color: #fff;
 }
 
 .newsletter p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 15px;
-  margin-bottom: 26px;
+  line-height: 1.6;
+  margin: 12px 0 0;
 }
 
 .newsletterForm {
@@ -250,36 +355,59 @@
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 28px;
 }
 
+/* Translucent field rather than a solid white block, which would read as a
+   bright hole punched in the dark band. */
 .newsletterForm input {
-  border: none;
   outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
   border-radius: 999px;
-  padding: 14px 20px;
+  padding: 13px 20px;
   font: inherit;
   font-size: 14px;
   width: 300px;
   max-width: 100%;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
-.newsletterForm button {
+.newsletterForm input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.newsletterForm input:focus {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.newsletterButton {
   border: none;
   border-radius: 999px;
-  background: #0f172a;
+  background: var(--grad);
   color: #fff;
-  padding: 14px 26px;
+  padding: 13px 28px;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
+  box-shadow: 0 12px 30px -10px rgba(79, 91, 213, 0.5);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.newsletterButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px -10px rgba(79, 91, 213, 0.6);
 }
 
 @media (max-width: 900px) {
   .featured {
     grid-template-columns: 1fr;
-  }
-  .featuredMedia {
-    min-height: 200px;
   }
   .grid {
     grid-template-columns: repeat(2, 1fr);

@@ -17,16 +17,36 @@
   border-color: rgba(21, 73, 137, 0.25);
 }
 
+/* 16:9 canvas, matching the 1024x576 covers the import pipeline produces.
+   A fixed height cropped the top and bottom off every cover, because the
+   card is wider than 160px tall at every breakpoint — an aspect ratio keeps
+   the frame in step with the column width instead. */
 .thumb {
-  height: 160px;
+  position: relative;
+  aspect-ratio: 1024 / 576;
   background: linear-gradient(135deg, rgba(21, 73, 137, 0.12), rgba(236, 72, 153, 0.12));
   display: flex;
   align-items: flex-start;
   padding: 16px;
 }
 
+/* Imported posts bring their own cover; the gradient stays as the fallback */
+.thumbImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cat {
+  position: relative;
+}
+
+/* Compact cards (related posts) keep the same 16:9 frame — only the body
+   padding and title size shrink. */
 .thumbCompact {
-  height: 140px;
+  aspect-ratio: 1024 / 576;
 }
 
 .cat {
@@ -70,17 +90,32 @@
   font-size: 16px;
 }
 
+/* Exactly four lines — never more, never fewer — so every card gives away the
+   same amount and the cut-off invites the click.
+   The fixed height is load-bearing, and `flex: 1` is deliberately absent: a
+   growing box let a card with a one-line title hand its spare space to the
+   excerpt, which then rendered five lines because the clamp only trims what
+   actually overflows the box. Pinning the height to 4 line-boxes makes the
+   clamp unconditional and keeps every card's text block the same size. */
 .excerpt {
   font-size: 14px;
+  line-height: 1.55;
+  height: calc(1.55em * 4);
   color: var(--muted);
-  flex: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
 }
 
+/* `auto` rather than a fixed margin: the excerpt above is now a fixed height,
+   so this is what keeps the byline flush with the bottom of a stretched card. */
 .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: auto;
   padding-top: 14px;
   border-top: 1px solid var(--border);
 }

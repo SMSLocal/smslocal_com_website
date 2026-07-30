@@ -1,8 +1,8 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { ArrowLeft, Calendar, Clock } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
 import PostCard from '../../components/PostCard.jsx'
-import { findTagAnchor, getPostBySlug, getRelatedPosts } from '../../lib/posts.js'
+import { findTagAnchor, getPostBySlug, getRelatedPosts, titleParts } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
 import TableOfContents from './TableOfContents.jsx'
 import SidebarPromos from './SidebarPromos.jsx'
@@ -20,20 +20,40 @@ function BlogPost() {
 
   return (
     <div className="blog-scope">
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo
+        title={post.metaTitle ? undefined : post.title}
+        exactTitle={post.metaTitle}
+        description={post.metaDescription ?? post.excerpt}
+        keywords={post.keywords}
+        canonical={`${window.location.origin}${post.routePath ?? `/blog/${post.slug}`}`}
+        ogImage={post.cover}
+        ogType="article"
+        publishedTime={post.publishedISO}
+        modifiedTime={post.modifiedISO}
+      />
 
-      <div className={styles.wrap}>
-        <Link to="/blog" className={styles.breadcrumb}>
-          <ArrowLeft size={14} strokeWidth={2.5} />
-          All Posts
-        </Link>
+      {/* Hero sits in its own full-bleed band so its tint runs edge to edge,
+          while the copy inside stays on the shared 1280px measure. */}
+      <div className={styles.heroBand}>
+        <div className={styles.wrap}>
+          <Link to="/blog" className={styles.breadcrumb}>
+            <ArrowLeft size={14} strokeWidth={2.5} />
+            All Posts
+          </Link>
 
-        <div className={styles.headerGrid}>
+          <div className={styles.headerGrid}>
           <div className={styles.header}>
             <span className={styles.catPill}>{post.category}</span>
             <h1>
-              {post.title.replace(post.emphasis, '')}
-              <span className="serifItalic">{post.emphasis}</span>
+              {/* Geist + Instrument Serif italic in one headline, as on the
+                  homepage heroes. Body headings stay single-family. */}
+              {(({ before, accent, after }) => (
+                <>
+                  {before}
+                  {accent && <span className="serifItalic">{accent}</span>}
+                  {after}
+                </>
+              ))(titleParts(post.title))}
             </h1>
 
             <div className={styles.byline}>
@@ -41,7 +61,20 @@ function BlogPost() {
                 <div className={styles.avatar}>{post.author.initials}</div>
                 <div>
                   <div className={styles.bylineName}>
-                    {post.author.name} <span className={styles.bylineRole}>· {post.author.role}</span>
+                    {/* Imported bylines link to the author profile the source links to */}
+                    {post.author.url ? (
+                      <a
+                        className={styles.bylineLink}
+                        href={post.author.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {post.author.name}
+                      </a>
+                    ) : (
+                      post.author.name
+                    )}{' '}
+                    <span className={styles.bylineRole}>· {post.author.role}</span>
                   </div>
                   <div className={styles.bylineMeta}>
                     <span className={styles.bylineMetaItem}>
@@ -55,21 +88,24 @@ function BlogPost() {
                   </div>
                 </div>
               </div>
-              <div className={styles.share}>
-                <a href="#" title="Share on X">𝕏</a>
-                <a href="#" title="Share on LinkedIn">in</a>
-                <a href="#" title="Copy link">🔗</a>
-              </div>
             </div>
           </div>
 
-          <div className={styles.coverCard}>
-            <div className={styles.cover} />
+            <div className={styles.coverCard}>
+              {post.cover ? (
+                <img className={styles.coverImage} src={post.cover} alt={post.coverAlt ?? post.title} />
+              ) : (
+                <div className={styles.cover} />
+              )}
+            </div>
           </div>
         </div>
+      </div>
 
+      <div className={styles.wrap}>
         <div className={styles.layout}>
-          <div className={styles.content}>
+          {/* id is the measuring stick for the TOC's reading-progress bar */}
+          <div id="article-body" className={styles.content}>
             <div className={styles.prose}>
               <BodyBlocks blocks={post.body} />
             </div>
@@ -103,15 +139,26 @@ function BlogPost() {
         </div>
 
         <div className={styles.ctaBand}>
-          <h2>Ready to run a campaign like this?</h2>
-          <p>Launch your first bulk SMS campaign in minutes — no apps, no coding, no integration needed.</p>
-          <div className={styles.ctaButtons}>
-            <Link to="/signup" className={styles.btnWhite}>
-              Create Free Trial Account
-            </Link>
-            <Link to="/contact-us" className={styles.btnOutlineWhite}>
-              Book a demo
-            </Link>
+          <span className={styles.ctaGlow} aria-hidden="true" />
+          <div className={styles.ctaInner}>
+            <span className={styles.ctaBadge}>
+              <Sparkles size={13} strokeWidth={2} />
+              Get Started
+            </span>
+            <h2 className={styles.ctaTitle}>Start sending with SMSLocal</h2>
+            <p className={styles.ctaText}>
+              Bulk SMS, two-way replies and delivery reporting from one dashboard — no apps, no
+              code, free to start.
+            </p>
+            <div className={styles.ctaButtons}>
+              <Link to="/signup" className={styles.ctaPrimary}>
+                Create Free Trial Account
+                <ArrowRight size={15} strokeWidth={2.2} />
+              </Link>
+              <Link to="/contact-us" className={styles.ctaGhost}>
+                Book a demo
+              </Link>
+            </div>
           </div>
         </div>
       </div>

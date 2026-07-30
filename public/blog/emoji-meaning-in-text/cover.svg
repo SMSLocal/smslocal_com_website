@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fffcf5"/><stop offset="100%" stop-color="#fdf3e2"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The Same Words, Read Three Ways</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#d97706"/>
+    <text x="68" y="178" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT MEANINGS</text>
+    <text x="68" y="268" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="92" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Emoji</text>
+    <text x="68" y="352" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="92" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Meanings</text>
+    <rect x="68" y="386" width="420" height="1.4" fill="#d9dfe9"/>
+    <text x="68" y="432" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Over 230 entries, and the tone</text>
+    <text x="68" y="468" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">shifts with the sentence.</text>
+    <g transform="translate(639.2, 268)">
+        <circle cx="0" cy="0" r="52" fill="#f59e0b"/>
+        <circle cx="-18" cy="-15" r="7" fill="#ffffff"/>
+        <circle cx="18" cy="-15" r="7" fill="#ffffff"/>
+        <path d="M-17,6 Q0,24 17,6" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none"/>
+      </g>
+      <text x="639.2" y="360" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WARM</text><g transform="translate(740, 268)">
+        <circle cx="0" cy="0" r="52" fill="#8b93a7"/>
+        <circle cx="-18" cy="-15" r="7" fill="#ffffff"/>
+        <circle cx="18" cy="-15" r="7" fill="#ffffff"/>
+        <path d="M-17,13 L17,13" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none"/>
+      </g>
+      <text x="740" y="360" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">FLAT</text><g transform="translate(840.8, 268)">
+        <circle cx="0" cy="0" r="52" fill="#6366f1"/>
+        <circle cx="-18" cy="-15" r="7" fill="#ffffff"/>
+        <circle cx="18" cy="-15" r="7" fill="#ffffff"/>
+        <path d="M-17,19 Q0,1 17,19" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none"/>
+      </g>
+      <text x="840.8" y="360" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">UNSURE</text>
+    <text x="740" y="424" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#d97706" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ONE PHRASE, THREE TONES</text>
+    
+  <rect x="68" y="500" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="540" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">230+ ENTRIES</text><text x="734" y="540" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CONTEXT SETS THE TONE</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f4fcfa"/><stop offset="100%" stop-color="#e5f5f2"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Three Readings, One Abbreviation</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#0f766e"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#0f766e" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="322" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="164" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">NFS</text>
+    <rect x="68" y="352" width="320" height="3" fill="#0f766e"/>
+    <text x="68" y="408" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Listings, chats and posts</text>
+    <text x="68" y="448" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">each pull it a different way.</text>
+    <text x="600" y="200" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">DEPENDING ON WHERE</text>
+    <rect x="600" y="226" width="206" height="53" rx="26.5"
+        fill="#ffffff" stroke="#0f766e" stroke-width="3"/>
+        <text x="703" y="257" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#0f766e" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Not For Sale</text><rect x="600" y="302" width="206" height="53" rx="26.5"
+        fill="#ffffff" stroke="#d9dfe9" stroke-width="2.2"/>
+        <text x="703" y="333" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Not For Sure</text><rect x="600" y="378" width="233" height="53" rx="26.5"
+        fill="#ffffff" stroke="#d9dfe9" stroke-width="2.2"/>
+        <text x="716.5" y="409" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">No Funny Stuff</text>
+    
+  <rect x="68" y="512" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">MARKETPLACE AND CHAT</text><text x="734" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ASK IF UNSURE</text>
+</svg>

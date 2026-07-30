@@ -8,10 +8,10 @@ import { IconClock, IconShield, IconChart, IconLink } from '../components/icons.
 import FintechAgentHeroMock from '../components/FintechAgentHeroMock.jsx'
 
 const BENEFITS = [
-  { icon: <IconClock />, desc: 'Routine account questions answered any hour, without adding to the queue.' },
-  { icon: <IconShield />, title: 'Compliance-ready' },
-  { icon: <IconChart />, title: 'Lower cost to serve' },
-  { icon: <IconLink />, title: 'Works with your stack' },
+  { icon: <IconClock />, title: '24/7 coverage', desc: 'Routine account questions answered any hour, without adding to the queue.' },
+  { icon: <IconShield />, title: 'Compliance-ready', desc: 'Every automated action is logged with role-based access built in from day one.' },
+  { icon: <IconChart />, title: 'Lower cost to serve', desc: 'Deflect routine servicing volume from your team without adding headcount.' },
+  { icon: <IconLink />, title: 'Works with your stack', desc: 'Connects to your core banking and card platforms to trigger real actions.' },
 ]
 
 const FAQS = [

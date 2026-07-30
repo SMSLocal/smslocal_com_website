@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { Sparkles } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
 import PostCard from '../../components/PostCard.jsx'
 import { categories, getAllPosts, getFeaturedPost } from '../../lib/posts.js'
@@ -38,21 +39,30 @@ function BlogIndex() {
         description="Playbooks, product updates and best practices on SMS marketing and customer messaging to help you reach more customers over text and grow your business."
       />
 
-      <main className={styles.wrap}>
-        <section className={styles.hero}>
-          <span className={styles.badge}>SMSLOCAL RESOURCES</span>
-          <h1>
-            Insights on <span className="serifItalic">SMS Marketing</span>
-            <br />
-            &amp; Customer Messaging
-          </h1>
-          <p>
-            Playbooks, product updates, and best practices to help you reach more customers over
-            text.
-          </p>
-        </section>
+      <main>
+        {/* Hero gets its own full-bleed band so the purple wash and its glow
+            patches run edge to edge, with the copy still on the 1280 measure. */}
+        <div className={styles.heroBand}>
+          <span className={styles.heroGlow} aria-hidden="true" />
+          <div className={styles.wrap}>
+            <section className={styles.hero}>
+              <span className={styles.badge}>SMSLOCAL RESOURCES</span>
+              <h1>
+                Insights on <span className="serifItalic">SMS Marketing</span>
+                <br />
+                &amp; Customer Messaging
+              </h1>
+              <p>
+                Playbooks, product updates, and best practices to help you reach more customers over
+                text.
+              </p>
+            </section>
+          </div>
 
-        <div className={styles.toolbar}>
+          {/* Search + category filters ride inside the band too, so the wash
+              covers the whole "browse" zone rather than stopping mid-way. */}
+          <div className={styles.wrap}>
+            <div className={styles.toolbar}>
           <div className={styles.search}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="11" cy="11" r="7" />
@@ -77,10 +87,16 @@ function BlogIndex() {
               </button>
             ))}
           </div>
+            </div>
+          </div>
         </div>
 
-        <Link to={`/blog/${featured.slug}`} className={styles.featured}>
+        <div className={styles.wrap}>
+        <Link to={featured.routePath ?? `/blog/${featured.slug}`} className={styles.featured}>
           <div className={styles.featuredMedia}>
+            {featured.cover && (
+              <img className={styles.featuredImage} src={featured.cover} alt="" />
+            )}
             <span className={styles.tag}>Featured</span>
           </div>
           <div className={styles.featuredBody}>
@@ -105,16 +121,28 @@ function BlogIndex() {
           <p className={styles.empty}>No articles match your search.</p>
         )}
 
+        {/* Same night treatment as the homepage CTABanner: ink base, two brand
+            glows, badge, white headline, gradient action. */}
         <div className={styles.newsletter}>
-          <h2>Get SMS marketing tips in your inbox</h2>
-          <p>
-            Join thousands of businesses getting playbooks, benchmarks, and product updates from
-            SMSLocal.
-          </p>
-          <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="you@company.com" required />
-            <button type="submit">Subscribe</button>
-          </form>
+          <span className={styles.newsletterGlow} aria-hidden="true" />
+          <div className={styles.newsletterInner}>
+            <span className={styles.newsletterBadge}>
+              <Sparkles size={13} strokeWidth={2} />
+              Newsletter
+            </span>
+            <h2>Get SMS marketing tips in your inbox</h2>
+            <p>
+              Join thousands of businesses getting playbooks, benchmarks, and product updates from
+              SMSLocal.
+            </p>
+            <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
+              <input type="email" placeholder="you@company.com" required />
+              <button type="submit" className={styles.newsletterButton}>
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
         </div>
       </main>
     </div>

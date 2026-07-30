@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fdf8fe"/><stop offset="100%" stop-color="#f9ecfb"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Disbelief, in Three Letters</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#c026d3"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#c026d3" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="324" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="164" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SMH</text>
+    <rect x="68" y="354" width="340" height="3" fill="#c026d3"/>
+    <text x="68" y="412" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A shrug you can type.</text>
+    <text x="68" y="456" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Mild, almost always.</text>
+    <text x="608" y="236" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="60" font-weight="400"
+    fill="#c026d3" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">S</text>
+        <rect x="666" y="218" width="26" height="2" fill="#d9dfe9"/>
+        <text x="706" y="228" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Shaking</text><text x="608" y="320" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="60" font-weight="400"
+    fill="#c026d3" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">M</text>
+        <rect x="666" y="302" width="26" height="2" fill="#d9dfe9"/>
+        <text x="706" y="312" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">My</text><text x="608" y="404" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="60" font-weight="400"
+    fill="#c026d3" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">H</text>
+        <rect x="666" y="386" width="26" height="2" fill="#d9dfe9"/>
+        <text x="706" y="396" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Head</text>
+    
+  <rect x="68" y="512" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">MILD EXASPERATION</text><text x="734" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">VERY COMMON</text>
+</svg>

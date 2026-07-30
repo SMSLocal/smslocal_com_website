@@ -3,6 +3,21 @@
    onto the site theme in styles/theme.css. Scoped to .blog-scope so the
    redefinition of --muted (a text colour here, a background elsewhere on
    the site) can't leak into the rest of the app. */
+/* One source of truth for the blog hero wash, on :root because the breadcrumb
+   strip that shares it lives outside .blog-scope (Layout.jsx renders it as a
+   sibling of the routed page, so it can't inherit from the page's own scope). */
+:root {
+  --blog-hero-tint: rgba(79, 91, 213, 0.06);
+  --blog-hero-edge: rgba(79, 91, 213, 0.12);
+}
+
+/* The breadcrumb strip sits directly above the hero band, so it has to carry
+   the same wash or the band reads as a short, arbitrarily clipped block.
+   `:has()` scopes this to blog routes without touching any other page. */
+main:has(> .blog-scope) > .breadcrumbs {
+  background: var(--blog-hero-tint);
+}
+
 .blog-scope {
   --bg: var(--bg-subtle);
   --surface: #ffffff;
@@ -36,10 +51,19 @@
   color: inherit;
 }
 
-/* Title accent used by both blog templates (`<span className="serifItalic">`). */
+/* Title accent used by both blog templates (`<span className="serifItalic">`).
+   Same treatment as the sitewide `.grad-word` in theme.css — Instrument Serif
+   italic filled with the brand gradient, not a flat navy — so a blog headline
+   reads like every other page headline. */
 .blog-scope .serifItalic {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: var(--brand);
+  letter-spacing: normal;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.12em;
+  margin-right: -0.06em;
 }

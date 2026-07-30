@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fffafa"/><stop offset="100%" stop-color="#fdeeee"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">When One Inbox Takes Every Message</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#dc2626"/>
+    <text x="68" y="178" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#dc2626" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SMS SECURITY</text>
+    <text x="68" y="272" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="92" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SMS</text>
+    <text x="68" y="356" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="92" font-weight="400"
+    fill="#dc2626" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Bombing</text>
+    <rect x="68" y="390" width="420" height="1.4" fill="#d9dfe9"/>
+    <text x="68" y="438" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A flood of texts, sent to drown</text>
+    <text x="68" y="474" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">the one that mattered.</text>
+    <text x="566" y="186" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">MESSAGES PER MINUTE</text>
+    <rect x="566" y="394" width="34" height="8" rx="8"
+        fill="#dc2626" opacity="0.31166666666666665"/><rect x="614" y="394" width="34" height="8" rx="8"
+        fill="#dc2626" opacity="0.32625"/><rect x="662" y="388.05" width="34" height="13.95" rx="8"
+        fill="#dc2626" opacity="0.3525"/><rect x="710" y="375.65" width="34" height="26.349999999999998" rx="8"
+        fill="#dc2626" opacity="0.39916666666666667"/><rect x="758" y="353.95" width="34" height="48.050000000000004" rx="8"
+        fill="#dc2626" opacity="0.48083333333333333"/><rect x="806" y="318.3" width="34" height="83.7" rx="8"
+        fill="#dc2626" opacity="0.615"/><rect x="854" y="254.75" width="34" height="147.25" rx="8"
+        fill="#dc2626" opacity="0.8541666666666665"/><rect x="902" y="216" width="34" height="186" rx="8"
+        fill="#dc2626" opacity="1"/>
+    <rect x="566" y="408" width="390" height="2.4" fill="#dc2626"/>
+    <text x="566" y="462" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="58" font-weight="400"
+    fill="#dc2626" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">1,284</text>
+    <text x="700" y="458" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IN UNDER TEN MINUTES</text>
+    
+  <rect x="68" y="502" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="542" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">BLOCK AND REPORT</text><text x="734" y="542" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">NEVER REPLY</text>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f7f9ff"/><stop offset="100%" stop-color="#eaf0fe"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A Code That Works Once</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#1d4ed8"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="322" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="164" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">OTP</text>
+    <rect x="68" y="352" width="320" height="3" fill="#1d4ed8"/>
+    <text x="68" y="408" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“One-time password.”</text>
+    <text x="68" y="452" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Also “one true pairing”, online.</text>
+    <text x="566" y="216" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ENTER THE CODE</text>
+    <rect x="566" y="244" width="62" height="74" rx="14"
+        fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+        <text x="597" y="302" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="40" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">4</text><rect x="642" y="244" width="62" height="74" rx="14"
+        fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+        <text x="673" y="302" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="40" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">1</text><rect x="718" y="244" width="62" height="74" rx="14"
+        fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+        <text x="749" y="302" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="40" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">9</text><rect x="794" y="244" width="62" height="74" rx="14"
+        fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+        <text x="825" y="302" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="40" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">2</text><rect x="870" y="244" width="62" height="74" rx="14"
+        fill="none" stroke="#d9dfe9" stroke-width="2.4"/>
+        
+    <text x="566" y="372" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">EXPIRES IN 10 MINUTES</text>
+    <text x="566" y="428" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Never forward it to anyone.</text>
+    
+  <rect x="68" y="508" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="548" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SECURITY CODE</text><text x="734" y="548" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ALSO FANDOM SLANG</text>
+</svg>

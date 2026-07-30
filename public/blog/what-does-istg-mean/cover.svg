@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fffafa"/><stop offset="100%" stop-color="#fdeeee"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Four Letters, One Emphatic Promise</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#b91c1c"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#b91c1c" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="310" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="150" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ISTG</text>
+    <rect x="68" y="340" width="360" height="3" fill="#b91c1c"/>
+    <text x="68" y="396" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="28" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Used to stress you mean it —</text>
+    <text x="68" y="434" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="28" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">and often, to joke.</text>
+    <text x="610" y="200" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="58" font-weight="400"
+    fill="#b91c1c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">I</text>
+        <rect x="668" y="182" width="26" height="2" fill="#d9dfe9"/>
+        <text x="708" y="192" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">I</text><text x="610" y="276" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="58" font-weight="400"
+    fill="#b91c1c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">S</text>
+        <rect x="668" y="258" width="26" height="2" fill="#d9dfe9"/>
+        <text x="708" y="268" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Swear</text><text x="610" y="352" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="58" font-weight="400"
+    fill="#b91c1c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">T</text>
+        <rect x="668" y="334" width="26" height="2" fill="#d9dfe9"/>
+        <text x="708" y="344" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">To</text><text x="610" y="428" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="58" font-weight="400"
+    fill="#b91c1c" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">G</text>
+        <rect x="668" y="410" width="26" height="2" fill="#d9dfe9"/>
+        <text x="708" y="420" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="34" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">God</text>
+    
+  <rect x="68" y="512" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STRONG EMPHASIS</text><text x="734" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">OFTEN PLAYFUL</text>
+</svg>

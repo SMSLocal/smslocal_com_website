@@ -8,8 +8,15 @@ function dialCode(c) {
   return c.idd.root + suffix
 }
 
+// Explicit overrides to the default independent/unMember filter below —
+// Israel (IL) is excluded and Palestine (PS) is included by client request,
+// regardless of what world-countries' independent/unMember flags say.
+const EXCLUDE_CODES = ['IL']
+const EXTRA_CODES = ['PS']
+
 const list = countries
-  .filter((c) => c.independent !== false || c.unMember)
+  .filter((c) => (c.independent !== false || c.unMember) && !EXCLUDE_CODES.includes(c.cca2))
+  .concat(countries.filter((c) => EXTRA_CODES.includes(c.cca2)))
   .map((c) => ({ code: c.cca2, name: c.name.common, dial: dialCode(c) }))
   .filter((c) => c.dial)
   .filter((c, i, arr) => arr.findIndex((x) => x.code === c.code) === i)

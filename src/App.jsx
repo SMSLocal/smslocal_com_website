@@ -135,6 +135,8 @@ function App() {
 
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          {/* Imported archive: one article publishes under /resources/insights */}
+          <Route path="/resources/insights/:slug" element={<BlogPost />} />
           <Route path="/resources/guides" element={<ResourcesGuides />} />
           <Route path="/resources/docs" element={<ResourcesDocs />} />
           <Route path="/resources/case-studies" element={<ResourcesCaseStudies />} />
@@ -158,6 +160,8 @@ function App() {
           <Route path="/about" element={<Navigate to="/about-us" replace />} />
           <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
           <Route path="/partners" element={<Navigate to="/partnerships" replace />} />
+          {/* Imported posts link their CTA at the WordPress signup path */}
+          <Route path="/register" element={<Navigate to="/signup" replace />} />
 
           <Route path="*" element={<ComingSoon />} />
         </Route>

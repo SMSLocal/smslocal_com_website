@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f8f8ff"/><stop offset="100%" stop-color="#ecedfd"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Ending a Chat Without Closing It</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#4338ca"/>
+    <text x="68" y="182" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#4338ca" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEXT SLANG</text>
+    <text x="68" y="316" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="152" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TTYL</text>
+    <rect x="68" y="346" width="360" height="3" fill="#4338ca"/>
+    <text x="68" y="402" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#4338ca" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“Talk to you later.”</text>
+    <text x="68" y="448" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="28" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A pause, not a goodbye.</text>
+    <circle cx="780" cy="288" r="132" fill="#ffffff" stroke="#d9dfe9" stroke-width="3"/>
+    <line x1="780" y1="170"
+      x2="780" y2="186"
+      stroke="#4338ca" stroke-width="4" stroke-linecap="round"/><line x1="839" y1="185.80900235343626"
+      x2="834" y2="194.46925639128062"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="882.1909976465638" y1="229"
+      x2="873.5307436087194" y2="234"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="898" y1="288"
+      x2="882" y2="288"
+      stroke="#4338ca" stroke-width="4" stroke-linecap="round"/><line x1="882.1909976465638" y1="347"
+      x2="873.5307436087194" y2="342"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="839" y1="390.19099764656374"
+      x2="834" y2="381.5307436087194"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="780" y1="406"
+      x2="780" y2="390"
+      stroke="#4338ca" stroke-width="4" stroke-linecap="round"/><line x1="721" y1="390.1909976465638"
+      x2="726" y2="381.5307436087194"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="677.8090023534362" y1="347"
+      x2="686.4692563912806" y2="342"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="662" y1="288"
+      x2="678" y2="288"
+      stroke="#4338ca" stroke-width="4" stroke-linecap="round"/><line x1="677.8090023534362" y1="229"
+      x2="686.4692563912806" y2="234"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/><line x1="721" y1="185.80900235343626"
+      x2="726" y2="194.46925639128062"
+      stroke="#d9dfe9" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="780" y1="288" x2="725.128630416218" y2="256.32"
+      stroke="#101a33" stroke-width="7" stroke-linecap="round"/>
+    <line x1="780" y1="288" x2="854.7531702802452" y2="233.6886426881755"
+      stroke="#4338ca" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="780" cy="288" r="7" fill="#4338ca"/>
+    <text x="780" y="462" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#4338ca" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">LATER, NOT NEVER</text>
+    
+  <rect x="68" y="506" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="546" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">FRIENDLY SIGN-OFF</text><text x="734" y="546" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STILL IN USE</text>
+</svg>

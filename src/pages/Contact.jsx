@@ -1,18 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
-import { EcosystemGrid, FAQ } from '../components/sections/Sections.jsx'
-import { IconChart, IconUsers, IconHandshake, IconChat, IconMail, IconPhone, IconClock, IconGlobe } from '../components/icons.jsx'
+import { FAQ } from '../components/sections/Sections.jsx'
+import { IconMail, IconPhone, IconClock, IconGlobe } from '../components/icons.jsx'
 import PhoneCountrySelect from '../components/PhoneCountrySelect.jsx'
 import { DIAL_CODES } from '../data/dialCodes.js'
+import TrustBar from '../components/home/TrustBar.jsx'
+import ContactSupportConsole from '../components/ContactSupportConsole.jsx'
+import ContactRoutingHub from '../components/ContactRoutingHub.jsx'
 import './Contact.css'
-
-const OPTIONS = [
-  { icon: <IconChart />, title: 'Talk to Sales', desc: 'Get a walkthrough of the platform and find the right plan for your team.', href: 'mailto:sales@smslocal.com' },
-  { icon: <IconUsers />, title: 'Get Support', desc: 'Already a customer? Reach our support team for help with your account.', href: 'mailto:support@smslocal.com' },
-  { icon: <IconHandshake />, title: 'Partnerships', desc: 'Interested in reselling or integrating with SMSLocal? Let\'s talk.', href: '/partnerships' },
-  { icon: <IconChat />, title: 'General Inquiries', desc: 'Anything else — press, feedback or just a question.', href: 'mailto:hello@smslocal.com' },
-]
 
 const CHANNELS = [
   { icon: <IconMail />, tint: 'blue', label: 'Email', value: 'hello@smslocal.com', href: 'mailto:hello@smslocal.com' },
@@ -179,12 +175,16 @@ function Contact() {
         </div>
       </section>
 
-      <EcosystemGrid
-        title={<>How can we help?</>}
-        subtitle="Pick the team that fits what you need."
-        items={OPTIONS}
-        alt
-      />
+      {/* home-tw scopes the Tailwind element reset (styles/home-tailwind.css)
+          to this subtree — TrustBar is a Tailwind component, this page is
+          otherwise plain CSS. */}
+      <div className="home-tw">
+        <TrustBar />
+      </div>
+
+      <ContactSupportConsole />
+
+      <ContactRoutingHub />
 
       <FAQ title={<>Contact — frequently asked questions</>} items={FAQS} />
     </>

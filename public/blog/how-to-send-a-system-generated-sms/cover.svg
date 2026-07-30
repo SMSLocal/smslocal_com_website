@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f4fcfa"/><stop offset="100%" stop-color="#e5f5f2"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A Message No One Types</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#0f766e"/>
+    <text x="68" y="176" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#0f766e" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SMS API</text>
+    <text x="68" y="268" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="84" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Automated</text>
+    <text x="68" y="348" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="84" font-weight="400"
+    fill="#0f766e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SMS</text>
+    <rect x="68" y="382" width="480" height="1.4" fill="#d9dfe9"/>
+    <text x="68" y="428" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Your app makes one call.</text>
+    <text x="68" y="466" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The text goes out on its own.</text>
+    <rect x="596" y="142" width="350" height="92" rx="24"
+          fill="#ffffff" stroke="#d9dfe9" stroke-width="2.6"/>
+        <text x="626" y="184" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Event</text>
+        <text x="626" y="214" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IN YOUR APP</text>
+        <path d="M771,242 L771,260"
+             stroke="#d9dfe9" stroke-width="2.6" fill="none"/>
+           <polyline points="763,250 771,262 779,250"
+             stroke="#d9dfe9" stroke-width="2.6" fill="none"/><rect x="596" y="272" width="350" height="92" rx="24"
+          fill="#ffffff" stroke="#d9dfe9" stroke-width="2.6"/>
+        <text x="626" y="314" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">API call</text>
+        <text x="626" y="344" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ONE REQUEST</text>
+        <path d="M771,372 L771,390"
+             stroke="#d9dfe9" stroke-width="2.6" fill="none"/>
+           <polyline points="763,380 771,392 779,380"
+             stroke="#d9dfe9" stroke-width="2.6" fill="none"/><rect x="596" y="402" width="350" height="92" rx="24"
+          fill="#0f766e" stroke="#0f766e" stroke-width="2.6"/>
+        <text x="626" y="444" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" font-weight="400"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Delivered</text>
+        <text x="626" y="474" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ffffff" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TO THE HANDSET</text>
+        
+    
+  <rect x="68" y="500" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="540" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TRIGGERED BY CODE</text><text x="734" y="540" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">DELIVERY REPORTED BACK</text>
+</svg>

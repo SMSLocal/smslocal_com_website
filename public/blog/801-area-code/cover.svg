@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <defs>
+  <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#f7f9ff"/><stop offset="100%" stop-color="#eaf0fe"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="512" cy="300" rx="620" ry="420" fill="url(#glow)"/>
+    
+  <text x="512" y="60" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#101a33" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Utah’s Original Area Code</text>
+  <rect x="206" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="598" y="86" width="220" height="1.4" fill="#d9dfe9"/>
+  <rect x="505" y="80" width="14" height="14" transform="rotate(45 512 87)" fill="#1d4ed8"/>
+    <text x="68" y="180" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">AREA CODE</text>
+    <text x="68" y="320" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="172" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">801</text>
+    <rect x="68" y="350" width="400" height="1.4" fill="#d9dfe9"/>
+    <text x="68" y="390" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">NOW OVERLAID BY</text>
+    <text x="68" y="460" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="64" font-weight="400"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">385</text>
+    <text x="190" y="454" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="27" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">same region, same dialling</text>
+    <g transform="translate(525.2988263617214, 55.258200421306015) scale(1.0231718326813122)"><path d="M224,204.7L243.7,207.9L239.8,232L275.6,237.3L269.2,282.5L266.3,303L266.2,305.7L262.3,333.9L234.8,329.8L167.9,318.4L191,198.8L224,204.7Z" fill="#1d4ed8"
+        stroke="#ffffff" stroke-width="3.3229999999999995" opacity="1"/><path d="M139,187.8L191,198.8L167.9,318.4L164.2,337.6L161.5,341.3L159.6,341.1L157.8,337.8L150.7,337.3L149.1,351.5L149.7,356.4L149.3,361L147.5,364L129,336.1L118.7,320.6L104.6,299.5L87.2,273.3L69.1,246.2L76.9,216.3L87.4,175.4L109.9,181.2L139,187.8Z" fill="#c9efe2"
+        stroke="#ffffff" stroke-width="2.345647058823529" opacity="0.8"/><path d="M295.8,239.8L335.2,244.5L365.4,247.2L401.4,249.9L399.9,274.2L395.4,347.5L377.2,346.1L351.7,344.2L303.6,339.3L293.1,337.9L262.3,333.9L266.2,305.7L266.3,303L269.2,282.5L275.6,237.3L295.8,239.8Z" fill="#f9d4e6"
+        stroke="#ffffff" stroke-width="2.345647058823529" opacity="0.8"/><path d="M288.3,140.9L342,147.4L373.5,150.5L369.5,198.7L365.4,247.2L335.2,244.5L295.8,239.8L275.6,237.3L239.8,232L243.7,207.9L253.1,148.5L255.1,135.9L288.3,140.9Z" fill="#ded5fa"
+        stroke="#ffffff" stroke-width="2.345647058823529" opacity="0.8"/></g>
+      
+    
+    <circle cx="769.5299428227506" cy="324.55702678302737" r="24" fill="#1d4ed8" opacity="0.16"/>
+    <circle cx="769.5299428227506" cy="324.55702678302737" r="10" fill="#1d4ed8" stroke="#ffffff" stroke-width="3.5"/>
+      <path d="M769.5299428227506,298.55702678302737 L769.5299428227506,262.55702678302737" stroke="#1d4ed8" stroke-width="1.8" fill="none"/>
+      <text x="769.5299428227506" y="250.55702678302737" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WASATCH FRONT</text>
+    
+  <rect x="68" y="512" width="888" height="1.4" fill="#d9dfe9"/>
+  <text x="290" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">MOUNTAIN TIME</text><text x="734" y="552" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="23" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TEN-DIGIT DIALLING</text>
+</svg>

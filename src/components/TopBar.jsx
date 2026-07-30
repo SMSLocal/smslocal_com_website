@@ -1,18 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone } from 'lucide-react'
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedinIcon,
-  YoutubeIcon,
-} from './home/SocialIcons.jsx'
-
-const SOCIALS = [
-  { label: 'Facebook', Icon: FacebookIcon },
-  { label: 'Instagram', Icon: InstagramIcon },
-  { label: 'YouTube', Icon: YoutubeIcon },
-  { label: 'LinkedIn', Icon: LinkedinIcon },
-]
+import { SOCIAL_LINKS } from './home/SocialIcons.jsx'
 
 // Promo strip above the navbar. Deliberately a plain block with no sticky /
 // fixed positioning: it scrolls away with the page while .navbar (position:
@@ -38,8 +26,15 @@ function TopBar() {
             +1 559 549 5149
           </a>
           <div className="flex items-center gap-3 text-muted-foreground">
-            {SOCIALS.map(({ label, Icon }) => (
-              <a key={label} href="#" aria-label={label} className="hover:text-primary">
+            {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="hover:text-primary"
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}

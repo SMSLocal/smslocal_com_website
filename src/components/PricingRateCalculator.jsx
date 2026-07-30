@@ -8,15 +8,11 @@ import './PricingRateCalculator.css'
  * live smslocal.com/pricing page: a country selector, a USD/EUR toggle, a
  * preset-amount rate table, and a live "type an amount, see the SMS count"
  * calculator row. New visual design in this project's theme; the rate data
- * itself is real, fetched from the live site (see the trailing note).
- *
- * Only United States carries a verified real rate — see RATES in
- * ../data/pricingCountries.js for the currently-used figure and sourcing
- * note. The live site's other "popular countries" (UK, UAE, Australia,
- * Spain) did not return a fetchable per-country rate through this tool's
- * country-selector widget, so — rather than inventing numbers for them —
- * they're listed as selectable but show a "request rate" state instead of
- * a fabricated figure.
+ * itself is real, fetched directly from the live site's own pricing
+ * backend on 2026-07-30 — see RATES in ../data/pricingCountries.js for the
+ * full table and sourcing note. A handful of countries (HR, KI, MH, FM,
+ * PW, VA) have no rate on the live site either, so they still show the
+ * "request rate" state below rather than a fabricated figure.
  */
 
 const AMOUNTS = [10, 25, 50, 100]
