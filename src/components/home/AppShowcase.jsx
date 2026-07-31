@@ -84,7 +84,7 @@ export default function AppShowcase() {
             </div>
             <p className="mt-6 text-xl font-semibold leading-snug tracking-tight sm:text-2xl">
               <span className="grad-word">
-                Voice calls, IVR, and voice bots
+                Omnichannel inbox, AI agents, and bulk messaging
               </span>{" "}
               <span className="text-foreground">
                 sync with your CRM and every other integration you rely on.
