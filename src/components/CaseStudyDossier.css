@@ -1,0 +1,379 @@
+/* Customer records — quote-first, story on demand. */
+
+.csd {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 4.5rem;
+  margin-top: 3.4rem;
+  align-items: start;
+}
+
+/* ---------- rail: quiet, names only ---------- */
+.csd-rail {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 110px;
+  border-left: 2px solid var(--border);
+}
+
+.csd-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 0 0.9rem 1.2rem;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* progress track — shows when the next customer is due */
+.csd-row-track {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  overflow: hidden;
+}
+
+.csd-row-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-brand);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.22s ease;
+}
+
+/* manual / paused: the active marker just sits full height */
+.csd-row.is-active .csd-row-fill { transform: scaleY(1); }
+
+/* auto-rotating: it fills over the dwell time */
+.csd-row-fill.is-running {
+  animation-name: csd-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes csd-fill {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.csd-row:focus { outline: none; }
+
+.csd-row:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csd-row-fill.is-running { animation: none; transform: scaleY(1); }
+}
+
+.csd-row-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.csd-row-ind {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  opacity: 0.75;
+}
+
+.csd-row:hover .csd-row-name { color: var(--navy); }
+.csd-row.is-active .csd-row-name { color: var(--navy); }
+
+/* ---------- record ---------- */
+.csd-record {
+  min-width: 0;
+  max-width: 760px;
+  animation: csd-in 0.32s ease;
+}
+
+@keyframes csd-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* company mark + credential, side by side */
+.csd-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+/* Height-locked, with a width cap — the marks run from 1.2:1 (Applimore) to
+   3.9:1 (Jenny-Fashion), so the widest one hits the cap and letterboxes
+   rather than dwarfing the others. */
+.csd-logo {
+  height: 66px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.csd-lockup .csd-verified {
+  padding-left: 1.1rem;
+  border-left: 1px solid var(--border);
+}
+
+.csd-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.csd-verified svg { width: 16px; height: 16px; fill: var(--success); }
+.csd-verified .csd-tick {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* the one thing that matters at first read */
+.csd-quote {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.csd-by {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.csd-by-mono {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--gradient-brand);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4.5px var(--border);
+}
+
+.csd-by-init { line-height: 1; }
+
+/* covers the monogram when the photo loads */
+.csd-by-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.csd-by-who { display: flex; flex-direction: column; gap: 0.12rem; }
+.csd-by-who strong { font-size: 0.93rem; font-weight: 700; color: var(--navy); }
+.csd-by-who span { font-size: 0.79rem; color: var(--text-secondary); }
+
+/* single supporting fact — only where the customer gave one */
+.csd-headline {
+  margin: 1.8rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.csd-headline strong {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-right: 0.35rem;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* disclosure */
+.csd-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.9rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.csd-more-ico {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  position: relative;
+  transition: transform 0.24s ease;
+}
+
+.csd-more-ico::before,
+.csd-more-ico::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.csd-more-ico::after { transform: translate(-50%, -50%) rotate(90deg); transition: opacity 0.24s ease; }
+.csd-more.is-open .csd-more-ico::after { opacity: 0; }
+
+/* the deferred detail */
+.csd-story {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  animation: csd-in 0.28s ease;
+}
+
+.csd-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  margin-bottom: 2.2rem;
+}
+
+.csd-block-cap {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.csd-block p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.72;
+  color: var(--text-secondary);
+}
+
+.csd-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0 2.5rem;
+}
+
+.csd-results li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.6rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.csd-results li::before {
+  content: '';
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  transform: translateY(-2px);
+}
+
+.csd-results li.has-val::before { display: none; }
+
+.csd-results strong {
+  flex: none;
+  min-width: 3rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+
+.csd-src {
+  margin: 1.8rem 0 0;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .csd { grid-template-columns: 1fr; gap: 2.4rem; }
+  .csd-rail {
+    position: static;
+    flex-direction: row;
+    border-left: 0;
+    border-bottom: 2px solid var(--border);
+    overflow-x: auto;
+  }
+  .csd-row { padding: 0.7rem 1.4rem 0.9rem 0; }
+  .csd-row-track {
+    left: 0;
+    right: 1.4rem;
+    top: auto;
+    bottom: -2px;
+    width: auto;
+    height: 2px;
+  }
+  .csd-row-fill {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .csd-row.is-active .csd-row-fill { transform: scaleX(1); }
+  .csd-row-fill.is-running { animation-name: csd-fill-x; }
+
+  @keyframes csd-fill-x {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  .csd-row-ind { display: none; }
+  .csd-story-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+}
+
+@media (max-width: 620px) {
+  .csd-quote { font-size: 1.6rem; }
+  .csd-headline strong { font-size: 1.35rem; }
+}

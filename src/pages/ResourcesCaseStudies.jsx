@@ -1,108 +1,207 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import StatBand from '../components/StatBand.jsx'
+import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import CaseStudiesGrowthHero from '../components/CaseStudiesGrowthHero.jsx'
-import CaseStudySpotlight from '../components/CaseStudySpotlight.jsx'
-import CaseStudyShowcase from '../components/CaseStudyShowcase.jsx'
+import CaseStudyDossier from '../components/CaseStudyDossier.jsx'
+import CaseStudyOnRecord from '../components/CaseStudyOnRecord.jsx'
+import CaseStudyReviews from '../components/CaseStudyReviews.jsx'
 import RolloutTimeline from '../components/RolloutTimeline.jsx'
 
-const IMPACT = [
-  { value: '30 sec', label: 'Median first response', desc: 'Down from hours, once routine questions were handled by an AI agent instead of a queue.' },
-  { value: '3.4x', label: 'More conversations handled', desc: 'The same teams kept up with growing volume without adding headcount.' },
-  { value: '71%', label: 'Auto-resolved on average', desc: 'Share of chats closed end-to-end by messaging automation and AI agents.' },
-  { value: '6 wks', label: 'Typical time to results', desc: 'From first message sent to a measurable shift in the numbers that matter.' },
+/* Customer accounts as published on smslocal.com/case-study — the challenge,
+   solution, reported results and signed quote each company gave us. */
+const RECORDS = [
+  {
+    company: 'Check Point',
+    mono: 'CP',
+    logo: '/logos/checkpoint.png',
+    avatar: '/avatars/checkpoint.jpg',
+    industry: 'Cybersecurity solutions',
+    products: 'Bulk SMS, delivery reporting',
+    tenure: 'Ongoing',
+    challenge:
+      'Check Point needed to reach customers and partners timely and efficiently with updates, alerts, and promotional messages.',
+    solution:
+      'Partnered with SMSLocal for bulk SMS services, leveraging their user-friendly platform and high delivery rates.',
+    stack: ['Bulk SMS', 'Alerts & updates', 'Promotional campaigns', 'Delivery reports'],
+    results: [
+      { text: 'Sent timely alerts and updates to customers and partners' },
+      { text: 'Improved customer engagement and satisfaction levels' },
+      { text: 'Ran successful promotional campaigns via SMS' },
+      { text: 'Achieved a significant increase in sales and revenue' },
+      { text: 'Gained the ability to track and analyse campaign performance' },
+      { text: 'Detailed reports on delivery status, open rates and response rates' },
+    ],
+    quote: {
+      text: 'SMSLocal helps us connect over 700 buildings and 16,000 conference rooms worldwide.',
+      author: 'Mr. Crystino Ronald',
+      role: 'Check Point · Cybersecurity solutions',
+    },
+  },
+  {
+    company: 'Applimore',
+    mono: 'AP',
+    logo: '/logos/applimore.png',
+    avatar: '/avatars/applimore.jpg',
+    industry: 'Mobile app development',
+    products: 'SMS marketing, segmentation, analytics',
+    tenure: 'Over a year',
+    challenge:
+      'Applimore sought cost-effective customer communication methods and recognised that many users preferred receiving updates via text message. The company needed a way to increase engagement with its large user base across its e-commerce, healthcare and entertainment applications.',
+    solution:
+      'Applimore partnered with SMSLocal to implement SMS marketing — creating and scheduling personalised messages, segmenting the user base for targeted campaigns, tracking delivery and reporting on campaign performance.',
+    stack: ['Personalised messaging', 'Scheduling', 'Audience segmentation', 'Delivery tracking', 'Campaign analytics'],
+    results: [
+      { text: 'Significant increase in customer engagement and retention' },
+      { text: 'Better able to inform users about app updates, promotions and key information' },
+      { text: 'Campaigns optimised by monitoring open rates and click-through rates' },
+      { text: 'Data-driven insights that identified customer messaging preferences' },
+    ],
+    quote: {
+      text: 'We have been using SMSLocal for over a year now, and we have had an excellent experience with their service. Their platform is easy to use, and we have found it to be a cost-effective way to communicate with our customers.',
+      author: 'Mr. Joseph R. Woods',
+      role: 'Applimore · Mobile app development',
+    },
+  },
+  {
+    company: 'NewConnect World',
+    mono: 'NW',
+    logo: '/logos/newconnect-world.png',
+    avatar: '/avatars/newconnect-world.jpg',
+    industry: 'E-commerce · electronic gadgets and accessories',
+    products: 'Bulk SMS, personalised discount codes',
+    tenure: 'Several months',
+    challenge:
+      'The company needed to reach a large customer base and increase sales during the festive season through targeted marketing campaigns.',
+    solution:
+      'NewConnect World partnered with SMSLocal to execute a bulk SMS campaign. They uploaded their customer list, and SMSLocal helped create customised SMS messages with a unique discount code for each customer, including call-to-action messaging.',
+    stack: ['Bulk SMS', 'Customer list upload', 'Unique discount codes', 'Call-to-action messaging'],
+    results: [
+      { text: 'A significant increase in website traffic and sales during the festive season' },
+      { text: 'Customers appreciated the personalised approach and felt valued by the company' },
+      { text: 'Consistently high delivery rates on messages sent' },
+    ],
+    quote: {
+      text: 'I have been using SMSLocal for my business for several months now and I am extremely satisfied with their services. Additionally, the delivery rates of my messages have been consistently high.',
+      author: 'Mr. Mike J. Buckley',
+      role: 'NewConnect World · E-commerce',
+    },
+  },
+  {
+    company: 'Jenny Fashion',
+    mono: 'JF',
+    logo: '/logos/jenny-fashion.png',
+    avatar: '/avatars/jenny-fashion.jpg',
+    industry: 'Online fashion retail',
+    products: 'SMS marketing, segmentation, transactional alerts',
+    tenure: 'Ongoing',
+    challenge:
+      'Jenny Fashion needed to increase customer engagement and drive sales through more effective communication channels.',
+    solution:
+      'The company implemented SMSLocal’s SMS marketing platform — running targeted campaigns to segmented customer groups, using advanced segmentation based on customer preferences and purchase history, and sending time-sensitive alerts such as order confirmations, shipping updates and abandoned-cart reminders.',
+    stack: ['Targeted campaigns', 'Purchase-history segmentation', 'Order confirmations', 'Shipping updates', 'Abandoned-cart reminders'],
+    headline: {
+      value: '25%',
+      text: 'more website traffic, and a 20% increase in sales, after switching on targeted SMS.',
+    },
+    results: [
+      { value: '25%', text: 'Increase in website traffic' },
+      { value: '20%', text: 'Increase in sales' },
+      { text: 'Positive customer feedback on the personalised SMS communications' },
+    ],
+    quote: {
+      text: 'I was hesitant to use SMS marketing for my business, but SMSLocal has made it so easy and effective. The platform is user-friendly and the delivery rates are impressive.',
+      author: 'Ms. Tina P. Jackson',
+      role: 'Jenny Fashion · Online fashion retail',
+    },
+  },
 ]
 
-const SPOTLIGHT = {
-  tag: 'Featured · Ecommerce',
-  company: 'A growing D2C brand',
-  sector: 'Direct-to-consumer retail · 40k orders/month',
-  metric: { value: '38%', label: 'of abandoned carts recovered on WhatsApp' },
-  sub: [
-    { value: '30 sec', label: 'Reply time' },
-    { value: '24/7', label: 'Coverage' },
-    { value: '3', label: 'Languages' },
-  ],
-  stages: [
-    {
-      kicker: 'Challenge',
-      head: 'Order questions piled up faster than the team could reply',
-      body: 'Customers asked about shipping, sizing and returns across email and Instagram DMs. Replies took hours, carts were abandoned before anyone could help, and a small support team was drowning during every sale.',
-    },
-    {
-      kicker: 'Approach',
-      head: 'A WhatsApp AI agent on top of one shared inbox',
-      body: 'We moved order updates to WhatsApp and put an AI agent in front of the queue — grounded in the store’s catalogue and policies. It answers instantly, nudges abandoned carts with a personal message, and hands anything sensitive to a human with full context.',
-    },
-    {
-      kicker: 'Result',
-      head: 'Faster replies, more recovered revenue, calmer team',
-      body: 'First-response time dropped from hours to about 30 seconds, more than a third of abandoned carts were recovered, and the support team stopped copy-pasting the same answers all day — without hiring for the next peak.',
-    },
-  ],
-  quote: {
-    text: 'Switching our order updates to WhatsApp and adding an AI agent for replies changed our response time completely — and we recover carts we used to just lose.',
-    author: 'Priya Nair · Growth Marketer, D2C brand',
-  },
-}
-
-const STUDIES = [
+/* Statements as published on the case-study index. */
+const ON_RECORD = [
   {
-    tag: 'Healthcare',
-    head: 'A clinic network cut no-shows with automated reminders',
-    desc: 'Appointment confirmations and reminders were automated across SMS and WhatsApp, with easy reschedule links — so fewer slots went empty and front-desk staff spent less time on the phone.',
-    value: '−59%',
-    label: 'No-show rate',
+    area: 'Omnichannel contact centre',
+    company: 'Check Point',
+    mono: 'CP',
+    logo: '/logos/checkpoint.png',
+    industry: 'Cybersecurity solutions',
+    quote: 'SMSLocal’s omnichannel contact centre solution has been instrumental in enabling us to deliver consistent and seamless CX across multiple communication channels.',
   },
   {
-    tag: 'Fintech',
-    head: 'A fintech startup deflected routine account questions',
-    desc: 'A compliant support AI agent now handles balance, KYC and card queries with full audit logging, escalating edge cases to humans — so the support team focuses on the conversations that actually need them.',
-    value: '68%',
-    label: 'Tickets auto-resolved',
+    area: 'Workforce management',
+    company: 'Applimore',
+    mono: 'AP',
+    logo: '/logos/applimore.png',
+    industry: 'Mobile app development',
+    quote: 'SMSLocal’s workforce management tools have been a huge asset for our call centre operations.',
+    note: 'We’re now able to forecast staffing needs far more reliably than before.',
   },
   {
-    tag: 'Travel',
-    head: 'A travel platform automated booking changes in 3 languages',
-    desc: 'Guests get instant answers on itineraries, changes and refunds in their own language, across WhatsApp and web chat, with human handoff for complex trips — around the clock, across time zones.',
-    value: '24/7',
-    label: 'Multilingual guest support',
-  },
-  {
-    tag: 'Logistics',
-    head: 'A courier sent proactive delivery updates over RCS',
-    desc: 'Branded, verified delivery notifications went out over RCS with automatic SMS fallback, cutting “where is my order?” contacts and the failed-delivery attempts that come from customers never seeing a plain text.',
-    value: '−41%',
-    label: 'WISMO contacts',
-  },
-  {
-    tag: 'Education',
-    head: 'An ed-tech platform lifted course enrolment with SMS journeys',
-    desc: 'Timed SMS and WhatsApp sequences nudged sign-ups through onboarding, reminded them of live sessions and re-engaged dormant learners — turning a one-off blast into a measurable enrolment lift.',
-    value: '2.1x',
-    label: 'Enrolment conversion',
-  },
-  {
-    tag: 'Financial services',
-    head: 'A lender verified users faster with reliable OTP',
-    desc: 'High-deliverability OTP over direct carrier routes replaced a flaky provider, so one-time passcodes land in seconds worldwide — fewer drop-offs at sign-up and fewer support tickets about codes that never arrive.',
-    value: '99.4%',
-    label: 'OTP delivery rate',
+    area: 'Predictive dialler & call routing',
+    company: 'Jenny Fashion',
+    mono: 'JF',
+    logo: '/logos/jenny-fashion.png',
+    industry: 'Online fashion retail',
+    quote: 'The predictive dialler and intelligent call routing have helped our reps focus on the most promising leads.',
+    note: 'We really appreciated SMSLocal’s flexibility throughout the rollout.',
   },
 ]
 
-const TESTIMONIALS = [
-  { quote: 'Automated reminders across SMS and WhatsApp brought our no-show rate down within the first month — the front desk noticed the difference immediately.', name: 'Dr. Amit Rao', role: 'Operations Lead, Clinic Network' },
-  { quote: 'Our support AI agent now resolves most account questions on its own, with full audit logging for compliance. It freed the team to handle the hard cases.', name: 'Sara Bianchi', role: 'Head of Support, Fintech' },
-  { quote: 'One platform for SMS, WhatsApp and RCS meant we could roll out proactive delivery updates without stitching three vendors together.', name: 'Lucas Meyer', role: 'CTO, Logistics' },
+/* Star-rated reviews from the carousel on the live case-study index. */
+const REVIEWS = [
+  {
+    stars: 5,
+    quote: 'What I like most about SMSLocal is their ability to provide real-time delivery reports, which allows me to track the success of my SMS campaigns. I also appreciate their customer support team, who are always available to answer any questions I have and provide assistance whenever I need it.',
+    author: 'Mr. Crystino Ronald',
+    company: 'Check Point',
+    industry: 'Cybersecurity solutions',
+    logo: '/logos/checkpoint.png',
+  },
+  {
+    stars: 5,
+    quote: 'I have been using SMSLocal for my business for several months now and I am extremely satisfied with their services. Additionally, the delivery rates of my messages have been consistently high, ensuring that my customers receive the information they need in a timely manner.',
+    author: 'Mr. Mike J. Buckley',
+    company: 'NewConnect World',
+    industry: 'E-commerce',
+    logo: '/logos/newconnect-world.png',
+  },
+  {
+    stars: 5,
+    quote: 'We have been using SMSLocal for over a year now, and we have had an excellent experience with their service. Their platform is easy to use, and we have found it to be a cost-effective way to communicate with our customers.',
+    author: 'Mr. Joseph R. Woods',
+    company: 'Applimore',
+    industry: 'Mobile app development',
+    logo: '/logos/applimore.png',
+  },
+  {
+    stars: 5,
+    quote: 'I was hesitant to use SMS marketing for my business, but SMSLocal has made it so easy and effective. The platform is user-friendly and the delivery rates are impressive. I’m now able to keep my customers informed about new products and promotions in a way that’s convenient for them.',
+    author: 'Ms. Tina P. Jackson',
+    company: 'Jenny Fashion',
+    industry: 'Online fashion retail',
+    logo: '/logos/jenny-fashion.png',
+  },
 ]
 
 const FAQS = [
-  { q: 'Are these real customer results?', a: 'They’re representative outcomes drawn from the kinds of deployments teams run on SMSLocal across ecommerce, healthcare, fintech, travel and logistics. Company names are generalised for privacy — we’ll share directly relevant, named references on request.' },
-  { q: 'How quickly do teams usually see results?', a: 'Most see a measurable shift within about six weeks — often sooner for a focused use case like abandoned-cart recovery or appointment reminders, where you can go live in days and read the numbers almost immediately.' },
-  { q: 'Which channels and products drive these outcomes?', a: 'A mix — bulk SMS and OTP, WhatsApp and RCS broadcasting, and AI agents on top of a shared inbox. The common thread is running them from one platform, one customer record and one API rather than stitching vendors together.' },
-  { q: 'Can you build a case for my industry?', a: 'Yes. Tell us your use case and the metric you care about — response time, no-shows, deflection, conversion — and we’ll map a relevant example and a starting point for your own rollout.' },
-  { q: 'Do results hold as volume grows?', a: 'That’s the point of automating at the platform layer — the AI agents and broadcast tooling handle rising volume without a matching rise in headcount, which is exactly where these teams saw the biggest gains.' },
+  {
+    q: 'Are these real customers?',
+    a: 'Yes. Check Point, Applimore and Jenny Fashion are live SMSLocal accounts, and each case study is published with that company’s permission. The challenge, solution and results on this page are their own account of the work — we don’t write outcomes on a customer’s behalf.',
+  },
+  {
+    q: 'Where do the numbers come from?',
+    a: 'Every figure shown is one the customer reported themselves — Jenny Fashion’s 25% lift in website traffic and 20% lift in sales, for example, come from their own analytics after the SMS programme went live. Where a customer described an outcome without a number, we quote it as they described it rather than attaching a figure to it.',
+  },
+  {
+    q: 'Can I speak to a reference customer?',
+    a: 'Usually, yes. Tell us your industry and use case and we’ll try to connect you with a customer running something comparable, subject to their availability and consent.',
+  },
+  {
+    q: 'How quickly did these companies see results?',
+    a: 'It varies with the use case. Transactional messaging like order confirmations and delivery alerts starts producing data within days of going live; engagement and retention gains of the kind Applimore describes built up over the year they’ve been on the platform.',
+  },
+  {
+    q: 'Can you build a case for my industry?',
+    a: 'Tell us your use case and the metric you care about — response time, engagement, deliverability, conversion — and we’ll map the closest customer story we have and a starting point for your own rollout.',
+  },
 ]
 
 function ResourcesCaseStudies() {
@@ -110,52 +209,52 @@ function ResourcesCaseStudies() {
     <>
       <Seo
         title="Customer Case Studies & Success Stories"
-        description="Real results from teams running messaging, chatbots and AI agents on SMSLocal — see how ecommerce, healthcare and fintech teams cut response times."
-        keywords={['SMSLocal case studies', 'messaging automation results', 'WhatsApp AI agent case study', 'SMS marketing ROI', 'customer success stories']}
+        description="Real SMSLocal customers in their own words — how Check Point, Applimore and Jenny Fashion use SMS to reach customers, lift engagement and grow sales."
+        keywords={['SMSLocal case studies', 'SMS marketing case study', 'bulk SMS success stories', 'Check Point SMSLocal', 'Jenny Fashion SMS marketing']}
       />
 
       <Hero
         eyebrow="Case Studies"
-        title={<><span className="grad-word">Real results</span>, across every industry</>}
-        subtitle="See how teams in ecommerce, healthcare, fintech, travel and logistics use SMSLocal to answer faster, resolve more and grow — without adding headcount."
+        title={<><span className="grad-word">Real results</span>, in our customers&rsquo; words</>}
+        subtitle="Experience firsthand how SMSLocal is revolutionising the way global enterprises communicate and deliver exceptional customer experiences — told by the companies that did it."
         primaryCta={{ label: 'Get Started', href: '/contact-us' }}
         secondaryCta={{ label: 'See Solutions', href: '/products' }}
         visual={<CaseStudiesGrowthHero />}
       />
 
-      <StatBand
-        title={<>The numbers behind the stories</>}
-        subtitle="Aggregate outcomes teams typically see once messaging and AI agents run on one platform."
-        items={IMPACT}
+      <CaseStudyDossier
+        eyebrow="Customer stories"
+        title={<>Four customers, on the record</>}
+        subtitle="Pick a company to read what they said — and open the full account when you want the detail."
+        items={RECORDS}
         alt
       />
 
-      <CaseStudySpotlight
-        eyebrow="Featured story"
-        title={<>How one D2C brand turned replies into recovered revenue</>}
-        subtitle="A closer look at the challenge, the approach and the outcome behind one deployment."
-        study={SPOTLIGHT}
+      <CaseStudyReviews
+        eyebrow="Rated by our customers"
+        title={<>Five stars, four businesses</>}
+        subtitle="Short reviews from the same teams — on delivery rates, reporting and the support behind them."
+        items={REVIEWS}
       />
 
-      <CaseStudyShowcase
-        eyebrow="More case studies"
-        title={<>Stories from every corner of the platform</>}
-        subtitle="Six teams, six industries, one common thread — running messaging and AI agents from a single platform."
-        items={STUDIES}
+      <CaseStudyOnRecord
+        eyebrow="Why brands big &amp; small love SMSLocal"
+        title={<>Elsewhere on the platform</>}
+        subtitle="The same companies on the other parts of SMSLocal they use day to day."
+        items={ON_RECORD}
+        footnote="Each statement is published with the customer's written permission and attributed to the company that gave it. We don't publish anonymous or composite quotes."
         alt
       />
 
       <RolloutTimeline />
 
-      <Testimonials title={<>In their own words</>} items={TESTIMONIALS} />
-
       <CTABanner
         title="See what SMSLocal could do for your team"
-        subtitle="Tell us about your use case and the metric you care about — we’ll show you a relevant example and a starting point."
+        subtitle="Tell us about your use case and the metric you care about — we&rsquo;ll show you the closest customer story we have and a starting point."
         cta={{ label: 'Get Started', href: '/contact-us' }}
       />
 
-      <FAQ title={<>Case studies — frequently asked questions</>} items={FAQS} alt />
+      <FAQ title={<>Case studies &mdash; frequently asked questions</>} items={FAQS} alt />
     </>
   )
 }

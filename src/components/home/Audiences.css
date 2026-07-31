@@ -1,0 +1,11 @@
+/* Some brand favicons (Zendesk, HubSpot) are a solid square with no built-in
+   padding, so their sharp corners poke past the tile's rounded edge at this
+   size. More inner padding plus a real corner radius on the image itself
+   keeps every logo — padded or edge-to-edge — inside the same boundary. */
+.audiences-crm-tile .applogo--img {
+  padding: 8px;
+}
+
+.audiences-crm-tile .applogo--img img {
+  border-radius: 12px;
+}

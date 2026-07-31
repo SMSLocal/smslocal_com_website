@@ -5,8 +5,8 @@ const LOGO_COLORS = ['#4f5bd5', '#ec4899', '#fb7185', '#154989', '#8b5cf6']
 // App name -> brand domain (used to fetch the real logo). Default is slug + ".com".
 const LOGO_DOMAINS = {
   'Google Drive': 'google.com', 'Google Calendar': 'google.com', 'Google Analytics': 'google.com',
-  'GA4': 'google.com', 'Gmail': 'google.com', 'BigQuery': 'google.com',
-  'Microsoft Teams': 'microsoft.com', 'Outlook': 'microsoft.com', 'Outlook Calendar': 'microsoft.com',
+  'GA4': 'google.com', 'Gmail': 'google.com', 'BigQuery': 'google.com', 'Google Workspace': 'google.com',
+  'Microsoft Teams': 'teams.microsoft.com', 'Outlook': 'microsoft.com', 'Outlook Calendar': 'microsoft.com',
   'OneDrive': 'microsoft.com', 'SharePoint': 'microsoft.com',
   'Amazon Seller': 'amazon.com', 'WhatsApp Business': 'whatsapp.com',
   'HubSpot Meetings': 'hubspot.com', 'HubSpot Marketing': 'hubspot.com',

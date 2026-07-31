@@ -1,77 +1,17 @@
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
-import {
-  Users2,
-  Hotel,
-  Briefcase,
-  HeartHandshake,
-  Stethoscope,
-  UserCheck,
-  GraduationCap,
-  Handshake,
-  Bell,
-} from "lucide-react";
+import AppLogo, { colorFor } from "../AppLogo.jsx";
+import "./Audiences.css";
 
-/**
- * Each audience is a circular badge with a short pill underneath. The long
- * per-audience paragraphs the card layout used don't fit this format — they're
- * condensed to the one thing SMS does for that group.
- */
-const AUDIENCES = [
-  {
-    icon: Users2,
-    title: "Customers & Clients",
-    role: "Reminders & updates",
-    tint: "text-indigo-500",
-  },
-  {
-    icon: Hotel,
-    title: "Guests",
-    role: "Bookings & inquiries",
-    tint: "text-sky-500",
-  },
-  {
-    icon: Briefcase,
-    title: "Employees",
-    role: "Internal alerts",
-    tint: "text-violet-500",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Donors",
-    role: "Campaign appeals",
-    tint: "text-pink-500",
-  },
-  {
-    icon: Stethoscope,
-    title: "Patients",
-    role: "Appointments",
-    tint: "text-emerald-500",
-  },
-  {
-    icon: UserCheck,
-    title: "Job applicants",
-    role: "Application status",
-    tint: "text-amber-500",
-  },
-  {
-    icon: GraduationCap,
-    title: "Students",
-    role: "Class updates",
-    tint: "text-blue-500",
-  },
-  {
-    icon: Handshake,
-    title: "Business partners",
-    role: "Partner notices",
-    tint: "text-rose-500",
-  },
-  {
-    icon: Bell,
-    title: "Subscribers & Members",
-    role: "Offers & news",
-    tint: "text-teal-500",
-  },
+const CRM_APPS = [
+  "Salesforce",
+  "Zendesk",
+  "Microsoft Teams",
+  "Google Workspace",
+  "HubSpot",
+  "Shopify",
+  "Slack",
+  "Zoho",
 ];
 
 export default function Audiences() {
@@ -82,9 +22,9 @@ export default function Audiences() {
           <SectionHeading
             align="left"
             badge="Built For Every Audience"
-            title="Reach Audiences Who Prefer"
-            highlight="Text-Based Communication"
-            description="Text messaging has become the most efficient and preferred way for businesses to connect. Here's why various groups favor SMS communication over other channels."
+            title="Integrations powered by"
+            highlight="agentic AI"
+            description="SMSLocal connects with all the apps you need—Salesforce, Zendesk, Microsoft Teams, Google Workspace, and more. With custom widgets, custom APIs, and custom actions, our agentic AI handles CRM integration and takes real actions on your behalf, so support, sales, and everything in between runs smoothly."
           />
 
           {/* A tight icon cloud, per the reference — no visible labels. The
@@ -111,19 +51,25 @@ export default function Audiences() {
             />
 
             <div className="relative flex flex-wrap justify-center gap-4 sm:gap-5">
-              {AUDIENCES.map(({ icon: Icon, title, role, tint }, i) => (
-                <Reveal key={title} delay={i * 60}>
+              {CRM_APPS.map((name, i) => (
+                <Reveal key={name} delay={i * 60}>
                   <span
-                    title={`${title} — ${role}`}
-                    className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-white shadow-lg shadow-slate-900/[0.07] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-start/15"
+                    title={name}
+                    className="audiences-crm-tile flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-white shadow-lg shadow-slate-900/[0.07] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-start/15"
                   >
-                    <Icon className={`h-7 w-7 ${tint}`} strokeWidth={1.75} />
-                    <span className="sr-only">
-                      {title} — {role}
-                    </span>
+                    <AppLogo name={name} color={colorFor(i)} size={64} className="h-16 w-16 !rounded-[18px]" />
+                    <span className="sr-only">{name}</span>
                   </span>
                 </Reveal>
               ))}
+              <Reveal delay={CRM_APPS.length * 60}>
+                <span
+                  title="And more"
+                  className="flex h-[72px] w-[72px] items-center justify-center rounded-[20px] bg-white text-sm font-semibold text-muted-foreground shadow-lg shadow-slate-900/[0.07] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-start/15"
+                >
+                  +more
+                </span>
+              </Reveal>
             </div>
           </div>
         </div>
