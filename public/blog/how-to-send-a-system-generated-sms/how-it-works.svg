@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#f5f3ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#7c3aed" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">UNDER THE HOOD</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">From Event</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">to Delivered Text</text>
+    
+      <rect x="64" y="250" width="190" height="150" rx="20" fill="#ffffff"/>
+      <path d="M260,325 l33.333333333333336,0 M281.3333333333333,318 l12,7 l-12,7" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="159" cy="294" r="24" fill="#7c3aed" opacity="0.14"/>
+      
+    <path d="M149.2,298.9 C149.2,289.1 152.7,280
+             159,280 C165.3,280 168.8,289.1 168.8,298.9
+             L171.6,303.1 L146.4,303.1 Z"
+          fill="none" stroke="#7c3aed" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <path d="M155.08,305.9 a3.9200000000000004,3.9200000000000004 0 0 0 7.840000000000001,0"
+          fill="none" stroke="#7c3aed" stroke-width="1.9600000000000002" stroke-linecap="round"/>
+      <text x="159" y="346" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="700"
+    fill="#5b21a6" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Trigger</text>
+      <text x="159" y="372" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="400"
+    fill="#5b6478" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">An event fires</text>
+      <rect x="299.33333333333337" y="250" width="190" height="150" rx="20" fill="#ffffff"/>
+      <path d="M495.33333333333337,325 l33.333333333333336,0 M516.6666666666667,318 l12,7 l-12,7" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="394.33333333333337" cy="294" r="24" fill="#7c3aed" opacity="0.14"/>
+      <rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(0, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(45, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(90, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(135, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(180, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(225, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(270, 394.33333333333337, 294)"/><rect x="392.9333333333334" y="277.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#7c3aed" transform="rotate(315, 394.33333333333337, 294)"/><circle cx="394.33333333333337" cy="294" r="10.08" fill="none" stroke="#7c3aed" stroke-width="1.9600000000000002"/>
+      <circle cx="394.33333333333337" cy="294" r="3.08" fill="#7c3aed"/>
+      <text x="394.33333333333337" y="346" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="700"
+    fill="#5b21a6" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">API Call</text>
+      <text x="394.33333333333337" y="372" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="400"
+    fill="#5b6478" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">JSON request sent</text>
+      <rect x="534.6666666666667" y="250" width="190" height="150" rx="20" fill="#ffffff"/>
+      <path d="M730.6666666666667,325 l33.333333333333336,0 M752.0000000000001,318 l12,7 l-12,7" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="629.6666666666667" cy="294" r="24" fill="#7c3aed" opacity="0.14"/>
+      
+    <circle cx="629.6666666666667" cy="294" r="3.08" fill="#7c3aed"/>
+    <path d="M622.6666666666667,287 A9.799999999999999,9.799999999999999 0 0 0 622.6666666666667,301"
+          fill="none" stroke="#7c3aed" stroke-width="1.82" stroke-linecap="round"/>
+    <path d="M636.6666666666667,287 A9.799999999999999,9.799999999999999 0 0 1 636.6666666666667,301"
+          fill="none" stroke="#7c3aed" stroke-width="1.82" stroke-linecap="round"/>
+    <path d="M616.3666666666668,280.7 A18.900000000000002,18.900000000000002 0 0 0 616.3666666666668,307.3"
+          fill="none" stroke="#7c3aed" stroke-width="1.4000000000000001" stroke-linecap="round" opacity="0.55"/>
+    <path d="M642.9666666666667,280.7 A18.900000000000002,18.900000000000002 0 0 1 642.9666666666667,307.3"
+          fill="none" stroke="#7c3aed" stroke-width="1.4000000000000001" stroke-linecap="round" opacity="0.55"/>
+      <text x="629.6666666666667" y="346" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="700"
+    fill="#5b21a6" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Gateway</text>
+      <text x="629.6666666666667" y="372" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="400"
+    fill="#5b6478" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Carrier delivers it</text>
+      <rect x="770" y="250" width="190" height="150" rx="20" fill="#7c3aed"/>
+      
+      <circle cx="865" cy="294" r="24" fill="#ffffff" opacity="1"/>
+      
+    <path d="M851,284.2 h28 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,2.8000000000000003
+             v12.6 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,2.8000000000000003 h-18.2
+             l-5.6000000000000005,7 v-7 h-7 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,-2.8000000000000003
+             v-12.6 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,-2.8000000000000003 Z"
+          fill="none" stroke="#7c3aed" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+      <text x="865" y="346" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Recipient</text>
+      <text x="865" y="372" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="400"
+    fill="#ede9fe" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Text arrives</text>
+    <rect x="64" y="448" width="483" height="46" rx="23" fill="#ffffff"
+        />
+      <text x="88" y="478.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">⚡ The whole trip happens in under a second</text>
+</svg>

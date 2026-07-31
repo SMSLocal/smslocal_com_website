@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fffbeb"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">KNOW THE TOOLS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Common SMS</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Bomber Tools</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    
+    <circle cx="84" cy="236" r="20" fill="#d97706" opacity="0.14"/>
+    
+    <path d="M72,227.6 h24 a2.4000000000000004,2.4000000000000004 0 0 1 2.4000000000000004,2.4000000000000004
+             v10.8 a2.4000000000000004,2.4000000000000004 0 0 1 -2.4000000000000004,2.4000000000000004 h-15.600000000000001
+             l-4.800000000000001,6 v-6 h-6 a2.4000000000000004,2.4000000000000004 0 0 1 -2.4000000000000004,-2.4000000000000004
+             v-10.8 a2.4000000000000004,2.4000000000000004 0 0 1 2.4000000000000004,-2.4000000000000004 Z"
+          fill="none" stroke="#d97706" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <text x="118" y="236" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Android apps that mass-text a number</text>
+    <circle cx="84" cy="312" r="20" fill="#d97706" opacity="0.14"/>
+    
+    <circle cx="84" cy="312" r="2.64" fill="#d97706"/>
+    <path d="M78,306 A8.399999999999999,8.399999999999999 0 0 0 78,318"
+          fill="none" stroke="#d97706" stroke-width="1.56" stroke-linecap="round"/>
+    <path d="M90,306 A8.399999999999999,8.399999999999999 0 0 1 90,318"
+          fill="none" stroke="#d97706" stroke-width="1.56" stroke-linecap="round"/>
+    <path d="M72.6,300.6 A16.200000000000003,16.200000000000003 0 0 0 72.6,323.4"
+          fill="none" stroke="#d97706" stroke-width="1.2000000000000002" stroke-linecap="round" opacity="0.55"/>
+    <path d="M95.4,300.6 A16.200000000000003,16.200000000000003 0 0 1 95.4,323.4"
+          fill="none" stroke="#d97706" stroke-width="1.2000000000000002" stroke-linecap="round" opacity="0.55"/>
+    <text x="118" y="312" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Telegram bots that automate the bombing</text>
+    <circle cx="84" cy="388" r="20" fill="#d97706" opacity="0.14"/>
+    
+    <circle cx="82.56" cy="386.56" r="7.199999999999999" fill="none" stroke="#d97706" stroke-width="1.92"/>
+    <line x1="87.84" y1="391.84" x2="93.36" y2="397.36"
+          stroke="#d97706" stroke-width="2.16" stroke-linecap="round"/>
+    <text x="118" y="388" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Free websites needing just a phone number</text>
+    <circle cx="84" cy="464" r="20" fill="#d97706" opacity="0.14"/>
+    <rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(0, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(45, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(90, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(135, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(180, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(225, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(270, 84, 464)"/><rect x="82.8" y="450.2" width="2.4000000000000004" height="3.84" rx="0.6000000000000001"
+        fill="#d97706" transform="rotate(315, 84, 464)"/><circle cx="84" cy="464" r="8.64" fill="none" stroke="#d97706" stroke-width="1.6800000000000002"/>
+      <circle cx="84" cy="464" r="2.64" fill="#d97706"/>
+    <text x="118" y="464" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Developer tools sometimes repurposed</text>
+
+    <circle cx="800" cy="350" r="140" fill="#ffffff"/>
+    
+    <path d="M800,262 L858.9,370.5 L741.1,370.5 Z"
+          fill="none" stroke="#d97706" stroke-width="8.680000000000001" stroke-linejoin="round"/>
+    <line x1="800" y1="304.16" x2="800" y2="335.16" stroke="#d97706" stroke-width="9.299999999999999" stroke-linecap="round"/>
+    <circle cx="800" cy="353.76" r="5.58" fill="#d97706"/>
+    <text x="800" y="506" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">FREE &amp; EASY TO FIND</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fef9ec"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ACROSS PLATFORMS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Same Two Letters,</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Different Feel</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    <rect x="64" y="210" width="439" height="144" rx="20" fill="#ffffff"/>
+    <rect x="64" y="210" width="8" height="144" rx="4" fill="#d97706"/>
+    <circle cx="106" cy="254" r="24" fill="#d97706" opacity="0.12"/>
+    
+    <path d="M96.2,258.9 C96.2,249.1 99.7,240
+             106,240 C112.3,240 115.8,249.1 115.8,258.9
+             L118.6,263.1 L93.4,263.1 Z"
+          fill="none" stroke="#d97706" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <path d="M102.08,265.9 a3.9200000000000004,3.9200000000000004 0 0 0 7.840000000000001,0"
+          fill="none" stroke="#d97706" stroke-width="1.9600000000000002" stroke-linecap="round"/>
+    <text x="96" y="306" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Snapchat</text>
+    <text x="96" y="336" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Quick appreciation after a snap or streak</text><text x="96" y="361" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">help.</text><rect x="521" y="210" width="439" height="144" rx="20" fill="#ffffff"/>
+    <rect x="521" y="210" width="8" height="144" rx="4" fill="#d97706"/>
+    <circle cx="563" cy="254" r="24" fill="#d97706" opacity="0.12"/>
+    
+    <path d="M563,265.9
+             C547.6,253.3 555.3,240 563,249.1
+             C570.7,240 578.4,253.3 563,265.9 Z"
+          fill="none" stroke="#d97706" stroke-width="2.1" stroke-linejoin="round"/>
+    <text x="553" y="306" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Instagram</text>
+    <text x="553" y="336" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Replies to DMs, story reactions, and</text><text x="553" y="361" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">comments.</text><rect x="64" y="372" width="439" height="144" rx="20" fill="#ffffff"/>
+    <rect x="64" y="372" width="8" height="144" rx="4" fill="#d97706"/>
+    <circle cx="106" cy="416" r="24" fill="#d97706" opacity="0.12"/>
+    
+    <path d="M92,406.2 h28 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,2.8000000000000003
+             v12.6 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,2.8000000000000003 h-18.2
+             l-5.6000000000000005,7 v-7 h-7 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,-2.8000000000000003
+             v-12.6 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,-2.8000000000000003 Z"
+          fill="none" stroke="#d97706" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <text x="96" y="468" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WhatsApp</text>
+    <text x="96" y="498" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Quick gratitude in 1:1 and group chats.</text><rect x="521" y="372" width="439" height="144" rx="20" fill="#ffffff"/>
+    <rect x="521" y="372" width="8" height="144" rx="4" fill="#d97706"/>
+    <circle cx="563" cy="416" r="24" fill="#d97706" opacity="0.12"/>
+    <polygon points="563,402 566.4561772834797,411.24298007307533 576.3147912281321,411.6737620787507 568.5922123158155,417.8170199269247 571.2289935320946,427.3262379212493 563,421.88 554.7710064679054,427.3262379212493 557.4077876841845,417.8170199269247 549.6852087718678,411.6737620787507 559.5438227165203,411.24298007307533" fill="none" stroke="#d97706" stroke-width="1.82" stroke-linejoin="round"/>
+    <text x="553" y="468" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TikTok</text>
+    <text x="553" y="498" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Thanking commenters or live gift</text><text x="553" y="523" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">senders.</text>
+</svg>

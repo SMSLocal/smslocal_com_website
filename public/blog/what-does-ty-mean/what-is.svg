@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eefcf3"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#16a34a" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WHAT IT MEANS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#15803d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A Two-Letter</text>
+    <text x="60" y="176" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#16a34a" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Way to Say Thanks</text>
+    <rect x="64" y="206" width="500" height="1.4" fill="#d9dfe9"/>
+    <text x="64" y="250" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">“TY” is a popular text and internet</text><text x="64" y="281" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">abbreviation for “thank you” — quick, casual,</text><text x="64" y="312" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">and used everywhere from texts to comme…</text>
+
+    <text x="64" y="396" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">LETTERS</text>
+          <text x="220" y="396" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#15803d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">2</text><text x="64" y="442" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STANDS FOR</text>
+          <text x="220" y="442" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#15803d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Thank You</text><text x="64" y="488" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TONE</text>
+          <text x="220" y="488" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#15803d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Casual</text>
+
+    
+    <g transform="rotate(-8, 800, 290)">
+      <circle cx="800" cy="290" r="126" fill="none" stroke="#16a34a" stroke-width="4" stroke-dasharray="3 10" stroke-linecap="round"/>
+      <circle cx="800" cy="290" r="102" fill="#ffffff"/>
+      <text x="800" y="320" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="92" font-weight="400"
+    fill="#16a34a" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TY</text>
+      <text x="800" y="360" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#15803d" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">THANKS!</text>
+    </g>
+</svg>

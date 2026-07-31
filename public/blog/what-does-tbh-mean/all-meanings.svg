@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fffbeb"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ONE ABBREVIATION</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Five Meanings</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">of &quot;TBH&quot;</text>
+    
+        <circle cx="84" cy="210" r="20" fill="#d97706" opacity="0.14"/>
+        
+    <circle cx="84" cy="210" r="12" fill="#d97706"/>
+    <path d="M78.96,210.24 L82.8,214.32 L89.28,206.16"
+          fill="none" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="118" y="216" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">To Be Honest</text>
+        <text x="370" y="216" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A candid, straightforward opinion.</text>
+        <circle cx="84" cy="280" r="20" fill="#d97706" opacity="0.14"/>
+        
+    <path d="M75.6,284.2 C75.6,275.8 78.6,268
+             84,268 C89.4,268 92.4,275.8 92.4,284.2
+             L94.8,287.8 L73.2,287.8 Z"
+          fill="none" stroke="#d97706" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <path d="M80.64,290.2 a3.3600000000000003,3.3600000000000003 0 0 0 6.720000000000001,0"
+          fill="none" stroke="#d97706" stroke-width="1.6800000000000002" stroke-linecap="round"/>
+        <text x="118" y="286" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">To Be Heard</text>
+        <text x="370" y="286" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Wanting your voice acknowledged.</text>
+        <circle cx="84" cy="350" r="20" fill="#d97706" opacity="0.14"/>
+        <polygon points="84,338 86.96243767155407,345.9225543483503 95.41267819554184,346.2917960675006 88.79332484212757,351.55744565164974 91.05342302750968,359.7082039324994 84,355.04 76.94657697249032,359.7082039324994 79.20667515787243,351.55744565164974 72.58732180445816,346.2917960675006 81.03756232844593,345.9225543483503" fill="none" stroke="#d97706" stroke-width="1.56" stroke-linejoin="round"/>
+        <text x="118" y="356" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The Big Hit</text>
+        <text x="370" y="356" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Something hugely popular right now.</text>
+        <circle cx="84" cy="420" r="20" fill="#d97706" opacity="0.14"/>
+        
+    <path d="M84,408 L95.4,429 L72.6,429 Z"
+          fill="none" stroke="#d97706" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <line x1="84" y1="416.16" x2="84" y2="422.16" stroke="#d97706" stroke-width="1.7999999999999998" stroke-linecap="round"/>
+    <circle cx="84" cy="425.76" r="1.08" fill="#d97706"/>
+        <text x="118" y="426" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Take Back Hope</text>
+        <text x="370" y="426" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Feeling discouraged, ready to give up.</text>
+        <circle cx="84" cy="490" r="20" fill="#d97706" opacity="0.14"/>
+        
+    <circle cx="84" cy="490" r="2.64" fill="#d97706"/>
+    <path d="M78,484 A8.399999999999999,8.399999999999999 0 0 0 78,496"
+          fill="none" stroke="#d97706" stroke-width="1.56" stroke-linecap="round"/>
+    <path d="M90,484 A8.399999999999999,8.399999999999999 0 0 1 90,496"
+          fill="none" stroke="#d97706" stroke-width="1.56" stroke-linecap="round"/>
+    <path d="M72.6,478.6 A16.200000000000003,16.200000000000003 0 0 0 72.6,501.4"
+          fill="none" stroke="#d97706" stroke-width="1.2000000000000002" stroke-linecap="round" opacity="0.55"/>
+    <path d="M95.4,478.6 A16.200000000000003,16.200000000000003 0 0 1 95.4,501.4"
+          fill="none" stroke="#d97706" stroke-width="1.2000000000000002" stroke-linecap="round" opacity="0.55"/>
+        <text x="118" y="496" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">To Be Hyped</text>
+        <text x="370" y="496" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Excited and pumped for something.</text>
+</svg>

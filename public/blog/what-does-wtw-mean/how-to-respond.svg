@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#f5f3ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#7c3aed" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CONTEXT MATTERS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">One Question,</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Three Replies</text>
+    
+    <circle cx="190" cy="360" r="110" fill="#7c3aed" opacity="0.1"/>
+    <circle cx="190" cy="360" r="96" fill="#ffffff" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 6"/>
+    <text x="190" y="374" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="30" font-weight="700"
+    fill="#7c3aed" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WTW?</text>
+    
+      <line x1="284.6" y1="325" x2="346" y2="260" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="3 5" opacity="0.6"/>
+      <circle cx="346" cy="260" r="4" fill="#1d4ed8"/>
+      <text x="360" y="240" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CASUAL CHECK-IN</text>
+      <text x="360" y="268" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">&quot;Not much, just relaxing!&quot;</text>
+      <line x1="284.6" y1="360" x2="346" y2="360" stroke="#d97706" stroke-width="2" stroke-dasharray="3 5" opacity="0.6"/>
+      <circle cx="346" cy="360" r="4" fill="#d97706"/>
+      <text x="360" y="340" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SURPRISE REACTION</text>
+      <text x="360" y="368" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">&quot;WTW! I didn't expect that!&quot;</text>
+      <line x1="284.6" y1="395" x2="346" y2="460" stroke="#16a34a" stroke-width="2" stroke-dasharray="3 5" opacity="0.6"/>
+      <circle cx="346" cy="460" r="4" fill="#16a34a"/>
+      <text x="360" y="440" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#16a34a" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STYLE OR SHOW PICK</text>
+      <text x="360" y="468" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">&quot;Go with something comfy!&quot;</text>
+    <rect x="64" y="506" width="438.59999999999997" height="44" rx="22" fill="#ffffff"
+        />
+      <text x="88" y="535.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">💭 Same 3 letters, totally different reply</text>
+</svg>

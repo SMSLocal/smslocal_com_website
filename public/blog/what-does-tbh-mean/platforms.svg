@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eff6ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SAME WORD, 3 APPS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1e40af" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TBH Across</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Social Media</text>
+    
+    <rect x="660" y="186" width="260" height="316" rx="40" fill="#ffffff" stroke="#d9dfe9" stroke-width="2"/>
+    <rect x="762" y="206" width="56" height="8" rx="4" fill="#d9dfe9"/>
+    
+      <line x1="64" y1="248" x2="654" y2="248" stroke="#d9dfe9" stroke-width="2" stroke-dasharray="3 5"/>
+      <circle cx="64" cy="248" r="4" fill="#ca8a04"/>
+      <text x="84" y="228" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#ca8a04" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SNAPCHAT</text>
+      <text x="84" y="254" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Compliment games in stories</text>
+      <rect x="676" y="212" width="228" height="72" rx="16" fill="#ca8a04"/>
+      <text x="694" y="255" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">❄️ 3-day streak!</text>
+      <line x1="64" y1="344" x2="654" y2="344" stroke="#d9dfe9" stroke-width="2" stroke-dasharray="3 5"/>
+      <circle cx="64" cy="344" r="4" fill="#db2777"/>
+      <text x="84" y="324" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#db2777" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">INSTAGRAM</text>
+      <text x="84" y="350" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">&quot;Like for a TBH&quot; posts</text>
+      <rect x="676" y="308" width="228" height="72" rx="16" fill="#db2777"/>
+      <text x="694" y="351" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">❤️ 248 likes</text>
+      <line x1="64" y1="440" x2="654" y2="440" stroke="#d9dfe9" stroke-width="2" stroke-dasharray="3 5"/>
+      <circle cx="64" cy="440" r="4" fill="#16a34a"/>
+      <text x="84" y="420" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#16a34a" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WHATSAPP</text>
+      <text x="84" y="446" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Honest chats with friends</text>
+      <rect x="676" y="404" width="228" height="72" rx="16" fill="#16a34a"/>
+      <text x="694" y="447" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">💬 TBH, miss you!</text>
+</svg>

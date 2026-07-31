@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eff6ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SAME SHAPE</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1e40af" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Any Language,</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Same 3 Steps</text>
+    
+    <rect x="64" y="210" width="432" height="290" rx="18" fill="#ffffff"/>
+    <circle cx="90" cy="234" r="6" fill="#f87171"/>
+    <circle cx="110" cy="234" r="6" fill="#fbbf24"/>
+    <circle cx="130" cy="234" r="6" fill="#34d399"/>
+    <text x="90" y="268" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">PYTHON — REQUESTS</text>
+    <rect x="90" y="294" width="120" height="14" rx="4" fill="#db2777" opacity="0.8"/><rect x="90" y="326" width="260" height="14" rx="4" fill="#94a3b8" opacity="0.8"/><rect x="90" y="358" width="200" height="14" rx="4" fill="#1d4ed8" opacity="0.8"/><rect x="90" y="390" width="300" height="14" rx="4" fill="#94a3b8" opacity="0.8"/><rect x="90" y="422" width="180" height="14" rx="4" fill="#16a34a" opacity="0.8"/>
+    
+    <rect x="528" y="210" width="432" height="290" rx="18" fill="#ffffff"/>
+    <circle cx="554" cy="234" r="6" fill="#f87171"/>
+    <circle cx="574" cy="234" r="6" fill="#fbbf24"/>
+    <circle cx="594" cy="234" r="6" fill="#34d399"/>
+    <text x="554" y="268" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="16" font-weight="700"
+    fill="#7c3aed" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">PHP — CURL</text>
+    <rect x="554" y="294" width="140" height="14" rx="4" fill="#db2777" opacity="0.8"/><rect x="554" y="326" width="280" height="14" rx="4" fill="#94a3b8" opacity="0.8"/><rect x="554" y="358" width="220" height="14" rx="4" fill="#1d4ed8" opacity="0.8"/><rect x="554" y="390" width="260" height="14" rx="4" fill="#94a3b8" opacity="0.8"/><rect x="554" y="422" width="160" height="14" rx="4" fill="#16a34a" opacity="0.8"/>
+</svg>

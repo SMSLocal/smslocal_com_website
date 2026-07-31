@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
 import PostCard from '../../components/PostCard.jsx'
-import { findTagAnchor, getPostBySlug, getRelatedPosts, titleParts } from '../../lib/posts.js'
+import { getPostBySlug, getRelatedPosts, titleParts } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
 import TableOfContents from './TableOfContents.jsx'
 import SidebarPromos from './SidebarPromos.jsx'
@@ -108,25 +108,6 @@ function BlogPost() {
           <div id="article-body" className={styles.content}>
             <div className={styles.prose}>
               <BodyBlocks blocks={post.body} />
-            </div>
-
-            <div className={styles.tags}>
-              {post.tags.map((tag) => {
-                const anchor = findTagAnchor(post.body, tag)
-                return anchor ? (
-                  <a key={tag} href={`#${anchor}`} className={styles.tagChip}>
-                    {tag}
-                  </a>
-                ) : (
-                  <Link
-                    key={tag}
-                    to={`/blog?search=${encodeURIComponent(tag)}`}
-                    className={styles.tagChip}
-                  >
-                    {tag}
-                  </Link>
-                )
-              })}
             </div>
 
             <FaqSection faqs={post.faqs} />

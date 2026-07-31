@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fdf6ee"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STEP 1</text><text x="60" y="120" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#8a4a12" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Check Your</text><text x="60" y="170" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Network Connection</text><rect x="64" y="200" width="560" height="1.4" fill="#d9dfe9"/><text x="64" y="236" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A weak or unstable network is often the real cause —</text><text x="64" y="266" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">not a block at all.</text><text x="64" y="328" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TRY THIS</text><rect x="64" y="354" width="187.41" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Airplane mode</text><path d="M259.40999999999997,374 L277.40999999999997,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="269.40999999999997,366 279.40999999999997,374 269.40999999999997,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="285.40999999999997" y="354" width="204.83999999999997" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="303.40999999999997" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Better coverage</text><path d="M498.24999999999994,374 L516.25,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="508.25,366 518.25,374 508.25,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="64" y="414" width="194.54999999999998" height="40" rx="20" fill="#d97706"
+        />
+      <text x="82" y="441.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Contact carrier</text>
+    <circle cx="790" cy="300" r="118" fill="#ffffff"/>
+    
+    <rect x="734.2" y="311.7" width="24.8" height="27.900000000000002" rx="4.96" fill="#d97706" opacity="0.4"/>
+    <rect x="771.4" y="290" width="24.8" height="49.6" rx="4.96" fill="#d97706" opacity="0.7"/>
+    <rect x="808.6" y="259" width="24.8" height="80.60000000000001" rx="4.96" fill="#d97706"/>
+    <text x="790" y="430" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WEAK SIGNAL</text>
+    <text x="790" y="466" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The most common fix</text>
+</svg>

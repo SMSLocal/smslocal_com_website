@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eef7f5"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STEP 3</text><text x="60" y="120" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Turn Off</text><text x="60" y="170" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Wi-Fi Calling</text><rect x="64" y="200" width="560" height="1.4" fill="#d9dfe9"/><text x="64" y="236" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Wi-Fi calling can interfere with delivery — disabling</text><text x="64" y="266" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">it often clears the error.</text><text x="64" y="328" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ANDROID</text><rect x="64" y="354" width="233.19" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Network &amp; Internet</text><path d="M305.19,374 L323.19,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="315.19,366 325.19,374 315.19,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="331.19" y="354" width="78.21" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="349.19" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SIM</text><path d="M417.4,374 L435.4,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="427.4,366 437.4,374 427.4,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="443.4" y="354" width="172.29" height="40" rx="20" fill="#14b8a6"
+        />
+      <text x="461.4" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Wi-Fi Calling</text><text x="64" y="438" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IPHONE</text><rect x="64" y="464" width="125.45999999999998" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="491.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Settings</text><path d="M197.45999999999998,484 L215.45999999999998,484" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="207.45999999999998,476 217.45999999999998,484 207.45999999999998,492"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="223.45999999999998" y="464" width="102.15" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="241.45999999999998" y="491.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Phone</text><path d="M333.61,484 L351.61,484" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="343.61,476 353.61,484 343.61,492"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="359.61" y="464" width="172.29" height="40" rx="20" fill="#14b8a6"
+        />
+      <text x="377.61" y="491.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Wi-Fi Calling</text>
+    <circle cx="790" cy="300" r="118" fill="#ffffff"/>
+    
+    <circle cx="790" cy="334.64" r="8.06" fill="#14b8a6"/>
+    <path d="M763.96,309.84 A37.199999999999996,37.199999999999996 0 0 1 816.04,309.84"
+          fill="none" stroke="#14b8a6" stroke-width="8.680000000000001" stroke-linecap="round"/>
+    <path d="M741.64,285.04 A68.2,68.2 0 0 1 838.36,285.04"
+          fill="none" stroke="#14b8a6" stroke-width="8.680000000000001" stroke-linecap="round" opacity="0.7"/>
+    <path d="M721.8,259 A96.10000000000001,96.10000000000001 0 0 1 858.2,259"
+          fill="none" stroke="#14b8a6" stroke-width="8.680000000000001" stroke-linecap="round" opacity="0.4"/>
+    <text x="790" y="430" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WI-FI CALLING OFF</text>
+    
+</svg>

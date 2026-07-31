@@ -35,7 +35,7 @@ function blockText(block) {
     case "stats":
       return block.items.map((s) => s.label).join(" ");
     case "cta":
-      return `${block.heading} ${block.text}`;
+      return `${richToText(block.heading)} ${richToText(block.text)}`;
     case "img":
       return block.alt ?? "";
     case "table":

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eef7f5"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SETUP</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Six Steps to</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Your First Send</text>
+    
+        <text x="64" y="205" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="22" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">01</text>
+        <text x="112" y="205" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="700"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Pick an API</text>
+        <text x="320" y="205" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Look for JSON support and delivery reports</text>
+        <rect x="64" y="229" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="273" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="22" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">02</text>
+        <text x="112" y="273" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="700"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Get your key</text>
+        <text x="320" y="273" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Generate an access key from your dashboard</text>
+        <rect x="64" y="297" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="341" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="22" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">03</text>
+        <text x="112" y="341" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="700"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Define the trigger</text>
+        <text x="320" y="341" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Decide exactly what event should fire a text</text>
+        <rect x="64" y="365" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="409" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="22" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">04</text>
+        <text x="112" y="409" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="700"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Template it</text>
+        <text x="320" y="409" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Write the text once with placeholders</text>
+        <rect x="64" y="433" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="477" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="22" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">05</text>
+        <text x="112" y="477" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="700"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Send the request</text>
+        <text x="320" y="477" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">POST the number, message, and API key</text>
+        <rect x="64" y="501" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="545" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="22" font-weight="400"
+    fill="#14b8a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">06</text>
+        <text x="112" y="545" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="700"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Confirm delivery</text>
+        <text x="320" y="545" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="19" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Check the delivery report and store the result</text>
+        
+</svg>

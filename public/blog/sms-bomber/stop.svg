@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eff6ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SIX WAYS TO RESPOND</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1e40af" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Stop It Before</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1d4ed8" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">It Spreads</text>
+    <rect x="64" y="210" width="439" height="96.66666666666667" rx="18" fill="#ffffff"/>
+    <circle cx="100" cy="246" r="20" fill="#1d4ed8"/>
+    <text x="100" y="253" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="18" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">01</text>
+    <text x="132" y="244" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Limit Personal Info</text><rect x="521" y="210" width="439" height="96.66666666666667" rx="18" fill="#ffffff"/>
+    <circle cx="557" cy="246" r="20" fill="#1d4ed8"/>
+    <text x="557" y="253" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="18" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">02</text>
+    <text x="589" y="244" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Avoid Suspicious Links</text><rect x="64" y="324.6666666666667" width="439" height="96.66666666666667" rx="18" fill="#ffffff"/>
+    <circle cx="100" cy="360.6666666666667" r="20" fill="#1d4ed8"/>
+    <text x="100" y="367.6666666666667" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="18" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">03</text>
+    <text x="132" y="358.6666666666667" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Use Strong Passwords</text><rect x="521" y="324.6666666666667" width="439" height="96.66666666666667" rx="18" fill="#ffffff"/>
+    <circle cx="557" cy="360.6666666666667" r="20" fill="#1d4ed8"/>
+    <text x="557" y="367.6666666666667" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="18" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">04</text>
+    <text x="589" y="358.6666666666667" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Recognize the Signs</text><rect x="64" y="439.33333333333337" width="439" height="96.66666666666667" rx="18" fill="#ffffff"/>
+    <circle cx="100" cy="475.33333333333337" r="20" fill="#1d4ed8"/>
+    <text x="100" y="482.33333333333337" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="18" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">05</text>
+    <text x="132" y="473.33333333333337" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Block the Sender</text><rect x="521" y="439.33333333333337" width="439" height="96.66666666666667" rx="18" fill="#ffffff"/>
+    <circle cx="557" cy="475.33333333333337" r="20" fill="#1d4ed8"/>
+    <text x="557" y="482.33333333333337" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="18" font-weight="700"
+    fill="#ffffff" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">06</text>
+    <text x="589" y="473.33333333333337" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Report the Incident</text>
+</svg>

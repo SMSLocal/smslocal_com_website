@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#f5f3ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#7c3aed" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">FOUR PATTERNS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Ways SMS</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Bombing Happens</text>
+    
+        <text x="64" y="220" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">01</text>
+        <text x="112" y="220" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Random</text>
+        <text x="300" y="220" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Testing a tool on a stranger's number just for curiosity.</text>
+        <rect x="64" y="250" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="320" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">02</text>
+        <text x="112" y="320" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Targeted</text>
+        <text x="300" y="320" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Aimed at one person as revenge, bullying, or harassment.</text>
+        <rect x="64" y="350" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="420" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">03</text>
+        <text x="112" y="420" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Automated</text>
+        <text x="300" y="420" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Scripts blast thousands of texts with zero manual effort.</text>
+        <rect x="64" y="450" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="520" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#7c3aed" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">04</text>
+        <text x="112" y="520" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#5b21a6" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Phishing</text>
+        <text x="300" y="520" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Fraudulent links disguised as a bank or delivery alert.</text>
+        
+</svg>

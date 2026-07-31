@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fdeff6"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ec4899" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">COMMON USES</text>
+    <rect x="696.12" y="40" width="249.20000000000002" height="36" rx="18" fill="#ec4899"
+        />
+      <text x="714.12" y="65.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">9 Documented Cases</text>
+    <rect x="64" y="92" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="110" cy="159" r="24" fill="#ffffff"/>
+    
+    <rect x="98.8" y="158.3" width="22.400000000000002" height="16.099999999999998" rx="3.08"
+          fill="none" stroke="#ec4899" stroke-width="1.9600000000000002"/>
+    <path d="M103,158.3 L103,152
+             A7,7 0 0 1 117,152 L117,158.3"
+          fill="none" stroke="#ec4899" stroke-width="1.9600000000000002"/>
+    <circle cx="110" cy="164.88" r="1.68" fill="#ec4899"/>
+    <text x="146" y="167" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">2FA &amp; OTP Codes</text><rect x="368" y="92" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="414" cy="159" r="24" fill="#ffffff"/>
+    
+    <path d="M404.2,163.9 C404.2,154.1 407.7,145
+             414,145 C420.3,145 423.8,154.1 423.8,163.9
+             L426.6,168.1 L401.4,168.1 Z"
+          fill="none" stroke="#ec4899" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <path d="M410.08,170.9 a3.9200000000000004,3.9200000000000004 0 0 0 7.840000000000001,0"
+          fill="none" stroke="#ec4899" stroke-width="1.9600000000000002" stroke-linecap="round"/>
+    <text x="450" y="167" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Account Alerts</text><rect x="672" y="92" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="718" cy="159" r="24" fill="#ffffff"/>
+    
+    <path d="M705.4,156.2 L722.2,145 L732,154.8 L720.8,171.6 Z"
+          fill="none" stroke="#ec4899" stroke-width="1.82" stroke-linejoin="round"/>
+    <circle cx="718.7" cy="151.3" r="1.9600000000000002" fill="#ec4899"/>
+    <text x="754" y="167" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Promo Offers</text><rect x="64" y="240" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="110" cy="307" r="24" fill="#ffffff"/>
+    
+    <path d="M96,297.2 h28 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,2.8000000000000003
+             v12.6 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,2.8000000000000003 h-18.2
+             l-5.6000000000000005,7 v-7 h-7 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,-2.8000000000000003
+             v-12.6 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,-2.8000000000000003 Z"
+          fill="none" stroke="#ec4899" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <text x="146" y="315" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Customer Support</text><rect x="368" y="240" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="414" cy="307" r="24" fill="#ffffff"/>
+    
+    <rect x="403.5" y="307" width="5.6000000000000005" height="9.799999999999999" rx="1.12" fill="#ec4899"/>
+    <rect x="411.2" y="301.4" width="5.6000000000000005" height="15.400000000000002" rx="1.12" fill="#ec4899"/>
+    <rect x="418.9" y="296.5" width="5.6000000000000005" height="20.3" rx="1.12" fill="#ec4899"/>
+    <text x="450" y="315" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Surveys &amp; Polls</text><rect x="672" y="240" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="718" cy="307" r="24" fill="#ffffff"/>
+    
+    <rect x="704" y="296.5" width="28" height="23.099999999999998" rx="3.08"
+          fill="none" stroke="#ec4899" stroke-width="1.82"/>
+    <line x1="704" y1="304.2" x2="732" y2="304.2" stroke="#ec4899" stroke-width="1.82"/>
+    <line x1="711" y1="292.3" x2="711" y2="299.3" stroke="#ec4899" stroke-width="1.82" stroke-linecap="round"/>
+    <line x1="725" y1="292.3" x2="725" y2="299.3" stroke="#ec4899" stroke-width="1.82" stroke-linecap="round"/>
+    <text x="754" y="315" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Event Reminders</text><rect x="64" y="388" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="110" cy="455" r="24" fill="#ffffff"/>
+    <rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(0, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(45, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(90, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(135, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(180, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(225, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(270, 110, 455)"/><rect x="108.6" y="438.9" width="2.8000000000000003" height="4.48" rx="0.7000000000000001"
+        fill="#ec4899" transform="rotate(315, 110, 455)"/><circle cx="110" cy="455" r="10.08" fill="none" stroke="#ec4899" stroke-width="1.9600000000000002"/>
+      <circle cx="110" cy="455" r="3.08" fill="#ec4899"/>
+    <text x="146" y="463" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Account Updates</text><rect x="368" y="388" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="414" cy="455" r="24" fill="#ffffff"/>
+    
+    <path d="M414,441 L427.3,465.5 L400.7,465.5 Z"
+          fill="none" stroke="#ec4899" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <line x1="414" y1="450.52" x2="414" y2="457.52" stroke="#ec4899" stroke-width="2.1" stroke-linecap="round"/>
+    <circle cx="414" cy="461.72" r="1.26" fill="#ec4899"/>
+    <text x="450" y="463" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Security Alerts</text><rect x="672" y="388" width="288" height="134" rx="20" fill="#ffffff"/>
+    <circle cx="718" cy="455" r="24" fill="#ffffff"/>
+    <polygon points="718,441 721.4561772834797,450.24298007307533 731.3147912281321,450.6737620787507 723.5922123158155,456.8170199269247 726.2289935320946,466.3262379212493 718,460.88 709.7710064679054,466.3262379212493 712.4077876841845,456.8170199269247 704.6852087718678,450.6737620787507 714.5438227165203,450.24298007307533" fill="none" stroke="#ec4899" stroke-width="1.82" stroke-linejoin="round"/>
+    <text x="754" y="463" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Contests &amp; Sweeps</text>
+    <text x="512" y="552" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="20" font-weight="400"
+    fill="#9d1f5f" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">One number, nine kinds of messages.</text>
+</svg>

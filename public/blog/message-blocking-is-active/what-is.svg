@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fdf3f3"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#e0575f" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WHAT IT MEANS</text>
+    <text x="60" y="120" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#7a2020" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Your Carrier Is</text>
+    <text x="60" y="170" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="44" font-weight="400"
+    fill="#e0575f" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Blocking the Message</text>
+    <rect x="64" y="202" width="500" height="1.4" fill="#d9dfe9"/>
+    <text x="64" y="246" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The error means your mobile carrier is</text><text x="64" y="277" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">preventing your message from reaching the</text><text x="64" y="308" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">recipient — the message never left the networ…</text>
+    <rect x="64" y="372" width="238.2" height="42" rx="21" fill="#ffffff"
+        />
+      <text x="84" y="400.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#7a2020" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Not a bug in the app</text>
+
+    <circle cx="800" cy="290" r="128" fill="#ffffff"/>
+    
+    <path d="M742,229.4 h116 a11.600000000000001,11.600000000000001 0 0 1 11.600000000000001,11.600000000000001
+             v52.2 a11.600000000000001,11.600000000000001 0 0 1 -11.600000000000001,11.600000000000001 h-75.4
+             l-23.200000000000003,29 v-29 h-29 a11.600000000000001,11.600000000000001 0 0 1 -11.600000000000001,-11.600000000000001
+             v-52.2 a11.600000000000001,11.600000000000001 0 0 1 11.600000000000001,-11.600000000000001 Z"
+          fill="none" stroke="#e0575f" stroke-width="8.120000000000001" stroke-linejoin="round"/>
+    
+    <circle cx="864" cy="222" r="26" fill="#e0575f"/>
+    <line x1="850" y1="208" x2="878" y2="236" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <line x1="878" y1="208" x2="850" y2="236" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <text x="800" y="434" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#e0575f" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">NOT DELIVERED</text>
+</svg>

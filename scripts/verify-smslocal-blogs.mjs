@@ -88,7 +88,7 @@ function postText(post) {
         b.rows.forEach((row) => row.forEach((c) => parts.push(richText(c))))
         break
       case 'cta':
-        parts.push(b.heading, b.text, b.buttonText)
+        parts.push(richText(b.heading), richText(b.text), b.buttonText)
         break
       default:
         break

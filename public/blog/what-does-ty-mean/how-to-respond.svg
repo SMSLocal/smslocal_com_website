@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eff6ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#2563eb" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">HOW TO REPLY</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#1e40af" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Three Ways to</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#2563eb" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Respond to TY</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    
+    <circle cx="84" cy="228" r="20" fill="#2563eb" opacity="0.14"/>
+    
+    <path d="M72,219.6 h24 a2.4000000000000004,2.4000000000000004 0 0 1 2.4000000000000004,2.4000000000000004
+             v10.8 a2.4000000000000004,2.4000000000000004 0 0 1 -2.4000000000000004,2.4000000000000004 h-15.600000000000001
+             l-4.800000000000001,6 v-6 h-6 a2.4000000000000004,2.4000000000000004 0 0 1 -2.4000000000000004,-2.4000000000000004
+             v-10.8 a2.4000000000000004,2.4000000000000004 0 0 1 2.4000000000000004,-2.4000000000000004 Z"
+          fill="none" stroke="#2563eb" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <text x="118" y="228" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Say &quot;You're welcome!&quot; or a kind reply</text>
+    <circle cx="84" cy="298" r="20" fill="#2563eb" opacity="0.14"/>
+    
+    <path d="M84,308.2
+             C70.8,297.4 77.4,286 84,293.8
+             C90.6,286 97.2,297.4 84,308.2 Z"
+          fill="none" stroke="#2563eb" stroke-width="1.7999999999999998" stroke-linejoin="round"/>
+    <text x="118" y="298" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Reply with an emoji — quick and warm</text>
+    <circle cx="84" cy="368" r="20" fill="#2563eb" opacity="0.14"/>
+    
+    <circle cx="84" cy="368" r="12" fill="#2563eb"/>
+    <path d="M78.96,368.24 L82.8,372.32 L89.28,364.16"
+          fill="none" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="118" y="368" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Keep it casual — save formal wording for work</text>
+
+    
+    <rect x="620" y="180" width="336" height="90" rx="26" fill="#ffffff"/>
+    <text x="656" y="232" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TY so much! 🙏</text>
+    <path d="M660,270 L660,296 L692,270 Z" fill="#ffffff"/>
+    <rect x="620" y="320" width="336" height="90" rx="26" fill="#2563eb"/>
+    <text x="656" y="372" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="400"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">You're welcome! 😊</text>
+    <path d="M916,320 L916,294 L884,320 Z" fill="#2563eb"/>
+</svg>

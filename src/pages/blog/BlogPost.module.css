@@ -461,29 +461,6 @@
   box-shadow: 0 14px 30px -10px rgba(79, 91, 213, 0.65);
 }
 
-.tags {
-  max-width: var(--article-measure);
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 8px 0 8px;
-}
-
-.tagChip {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  padding: 7px 16px;
-  border-radius: 999px;
-}
-
-.tagChip:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-}
-
 /* Sidebar / table of contents — the whole stack (TOC + promo cards) is
    sticky and flows together as one block, no internal scrollbars. */
 .sidebar {

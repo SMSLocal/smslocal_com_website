@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fffbeb"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#d97706" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WHO FEELS IT</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Business and</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Economic Impact</text>
+    
+        <text x="64" y="220" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">01</text>
+        <text x="112" y="220" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Healthcare</text>
+        <text x="340" y="220" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Updating systems for patient communication.</text>
+        <rect x="64" y="250" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="320" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">02</text>
+        <text x="112" y="320" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Finance</text>
+        <text x="340" y="320" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Adapting financial services and alerts.</text>
+        <rect x="64" y="350" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="420" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">03</text>
+        <text x="112" y="420" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Technology</text>
+        <text x="340" y="420" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Fueling Utah's growing tech and startup scene.</text>
+        <rect x="64" y="450" width="832" height="1.4" fill="#d9dfe9"/>
+        <text x="64" y="520" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="26" font-weight="400"
+    fill="#d97706" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">04</text>
+        <text x="112" y="520" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="26" font-weight="700"
+    fill="#92400e" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Overall Growth</text>
+        <text x="340" y="520" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">New numbers support relocations and expansion.</text>
+        
+</svg>

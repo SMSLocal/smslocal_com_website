@@ -14,6 +14,9 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { COVER_SPECS, coverPath } from './lib/cover-specs.mjs'
+import { applyInnerImageCuration } from './lib/inner-image-specs.mjs'
+import { CONTENT_OVERRIDES } from './lib/content-overrides.mjs'
+import { applyLinkCuration } from './lib/link-specs.mjs'
 import { decodeEntities, hasClass, parseHtml, textOf } from './lib/mini-html.mjs'
 
 const ROOT = path.join(import.meta.dirname, '..')
@@ -24,7 +27,33 @@ const ORIGIN = 'https://www.smslocal.com'
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36'
 
 /** Images reused across posts are site chrome (arrows, badges), not content. */
-const DECORATIVE_RE = /arrow-right|arrow-left|(^|[/-])icon|new-sms-local-logo|placeholder/i
+// SMS-LOCAL-Banner-Image-2 is a generic product-dashboard screenshot the
+// source theme tacks onto the end of nearly every post (29 of 32) — a closer
+// CTA graphic, never content tied to that post's actual topic. right-arrows
+// is a 64x64 UI chevron icon (alt="icon box") that the site's own CSS then
+// stretches to full article width — the filename check alone missed it since
+// it's "right-arrows", not "arrow-right"/"arrow-left".
+const DECORATIVE_RE =
+  /arrow-right|arrow-left|right-arrow|left-arrow|(^|[/-])icon|new-sms-local-logo|placeholder|SMS-LOCAL-Banner-Image/i
+
+/**
+ * A filename-pattern denylist misses new variants every time (this is the
+ * second one). Anything this small in its ORIGINAL dimensions is UI chrome,
+ * not body content — no real content photo in this archive is anywhere near
+ * this size — so it backstops the regex regardless of what it's called.
+ */
+const DECORATIVE_MAX_DIMENSION = 100
+
+/**
+ * WordPress core replaces every emoji character with a small `<img
+ * class="emoji" src=".../core/emoji/.../1f60a.svg" alt="😊">` for older-
+ * browser compatibility. The `alt` carries the original character, so the
+ * fix is to inline that text back in — not draw the icon as a full-width
+ * body image, which is what made "😊" render as a page-tall glyph.
+ */
+function isEmojiImage(node) {
+  return hasClass(node, 'emoji') || /\/core\/emoji\//.test(node.attrs.src ?? '')
+}
 
 const warnings = []
 const internalLinks = new Set()
@@ -80,7 +109,11 @@ function inline(nodes, ctx) {
         break
       }
       case 'img': {
-        // An image inside a paragraph — hoisted out by the block walker.
+        if (isEmojiImage(n)) {
+          push(decodeEntities(n.attrs.alt ?? ''))
+          break
+        }
+        // A real image inside a paragraph — hoisted out by the block walker.
         ctx.hoistedImages.push(n)
         break
       }
@@ -315,14 +348,19 @@ function tableBlock(node, ctx) {
 function imageBlock(node, ctx) {
   const src = node.attrs.src
   if (!src) return null
+  // Should already have been caught inline (see isEmojiImage in inline()); a
+  // stray one reaching block level would otherwise render as a page-tall glyph.
+  if (isEmojiImage(node)) return null
   const abs = src.startsWith('http') ? src : new URL(src, ORIGIN).href
   if (DECORATIVE_RE.test(abs)) return null
+
+  const w = Number(node.attrs.width) || null
+  const h = Number(node.attrs.height) || null
+  if (w && h && w <= DECORATIVE_MAX_DIMENSION && h <= DECORATIVE_MAX_DIMENSION) return null
 
   const local = ctx.queueImage(abs)
   if (!local) return null
 
-  const w = Number(node.attrs.width) || null
-  const h = Number(node.attrs.height) || null
   return {
     type: 'img',
     src: local,
@@ -440,7 +478,10 @@ function buildBody(widgets, ctx) {
   let pendingPromo = []
 
   const flushPromo = () => {
-    for (const text of pendingPromo) blocks.push({ type: 'p', rich: [text] })
+    // Not folded into a `cta` block (that schema's heading/text are plain,
+    // matching every other CTA): the promo becomes an ordinary paragraph, so
+    // any link it carried — dropped here until this fix — survives.
+    for (const { text, rich } of pendingPromo) blocks.push({ type: 'p', rich: rich ?? [text] })
     pendingPromo = []
   }
 
@@ -456,7 +497,7 @@ function buildBody(widgets, ctx) {
           loneText.split(/\s+/).length <= PROMO_WORD_LIMIT &&
           !lone.rich.some((r) => typeof r !== 'string' && r.a)
         ) {
-          pendingPromo.push(loneText)
+          pendingPromo.push({ text: loneText, rich: lone.rich })
           break
         }
         flushPromo()
@@ -464,17 +505,24 @@ function buildBody(widgets, ctx) {
         break
       }
       case 'heading': {
-        const text = textOf(widgetContainer(node)).replace(/\s+/g, ' ').trim()
-        if (!text) break
         const tag = headingWidgetTag(node)
         // h1 is the page title, already rendered by the post header.
         if (tag === 'h1') break
         if (/^h[2-6]$/.test(tag)) {
+          const text = textOf(widgetContainer(node)).replace(/\s+/g, ' ').trim()
+          if (!text) break
           flushPromo()
           blocks.push({ type: tag === 'h5' || tag === 'h6' ? 'h4' : tag, text, anchor: null })
           break
         }
-        pendingPromo.push(text)
+        // Non-semantic (span) heading widgets are styled promo/CTA lines in
+        // the source, not real headings — but some still carry a real inline
+        // link (e.g. "…more guides on popular acronyms…"), which a plain
+        // textOf() would silently drop.
+        const rich = inline(widgetContainer(node).children, ctx)
+        const text = richText(rich).replace(/\s+/g, ' ').trim()
+        if (!text) break
+        pendingPromo.push({ text, rich })
         break
       }
       case 'image': {
@@ -506,12 +554,16 @@ function buildBody(widgets, ctx) {
           flushPromo()
           break
         }
-        const [heading, ...rest] = pendingPromo
+        const [first, ...rest] = pendingPromo
         pendingPromo = []
+        // Rich, not plain text: the source sometimes links a phrase inside
+        // this banner copy (e.g. "…more guides on popular acronyms…") and
+        // that link must survive into the rendered CTA.
+        const restRich = rest.flatMap((p, idx) => (idx === 0 ? p.rich : [' ', ...p.rich]))
         blocks.push({
           type: 'cta',
-          heading: heading ?? btn.text,
-          text: rest.join(' ').trim(),
+          heading: first?.rich ?? [btn.text],
+          text: restRich,
           buttonText: btn.text,
           buttonHref: btn.href,
           buttonExternal: btn.external,
@@ -545,7 +597,13 @@ function dedupeBlocks(blocks) {
   const out = []
   for (const b of blocks) {
     const prev = out[out.length - 1]
-    if (b.type === 'cta' && prev?.type === 'cta' && prev.heading === b.heading && prev.buttonText === b.buttonText) continue
+    if (
+      b.type === 'cta' &&
+      prev?.type === 'cta' &&
+      richText(prev.heading) === richText(b.heading) &&
+      prev.buttonText === b.buttonText
+    )
+      continue
     if (b.type === 'hr' && (!prev || prev.type === 'hr')) continue
     out.push(b)
   }
@@ -653,7 +711,10 @@ function readTime(blocks, faqs) {
     else if (b.type === 'table') {
       if (b.head) b.head.forEach(count)
       b.rows.forEach((row) => row.forEach(count))
-    } else if (b.type === 'cta') words += `${b.heading} ${b.text}`.split(/\s+/).length
+    } else if (b.type === 'cta') {
+      count(b.heading)
+      count(b.text)
+    }
   }
   for (const f of faqs) {
     words += f.q.split(/\s+/).length
@@ -729,8 +790,30 @@ async function main() {
 
     const tree = parseHtml(api.content.rendered)
     const widgets = collectWidgets(tree)
-    const { blocks, faqs } = buildBody(widgets, ctx)
+    let { blocks, faqs } = buildBody(widgets, ctx)
+    // Full-content override: some source pages are too thin to reshape (a
+    // couple of boilerplate paragraphs, no FAQ) — swap in original,
+    // researched copy instead. No-op for any post without an entry.
+    const override = CONTENT_OVERRIDES[slug]
+    if (override) {
+      blocks = override.body
+      faqs = override.faqs ?? faqs
+    }
+    // Per-post override: trim/remap/add internal & external content links so
+    // every post carries exactly 2 internal and 1 external — the scraped
+    // originals mostly link to blog posts and product pages this site
+    // hasn't built locally. No-op for any post without an entry.
+    ;({ blocks, faqs } = applyLinkCuration(slug, blocks, faqs))
+    // Per-post override: drop/replace specific in-body images so every post
+    // lands on exactly 7 (client requirement), same pattern as COVER_SPECS
+    // overriding the hero banner. No-op for any post without an entry.
+    blocks = applyInnerImageCuration(slug, blocks, { warn: ctx.warn })
     const meta = metaFromPage(pageHtml)
+    if (override) {
+      if (override.metaTitle) meta.metaTitle = override.metaTitle
+      if (override.metaDescription) meta.metaDescription = override.metaDescription
+      if (override.keywords) meta.keywords = override.keywords
+    }
     const byline = bylineFromPage(pageHtml)
     const { words, readTime: rt } = readTime(blocks, faqs)
     if (!byline.dateText) ctx.warn('no rendered byline date; falling back to the API publish date')

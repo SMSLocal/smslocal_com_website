@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eaf2fb"/>
+  <circle cx="150" cy="500" r="220" fill="#d7e6f7" opacity="0.6"/>
+    <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#2563a8" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">BENEFITS</text>
+    <text x="60" y="138" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="48" font-weight="400"
+    fill="#154989" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Why Go Local</text>
+    <text x="60" y="192" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="48" font-weight="400"
+    fill="#2563a8" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">with a 216 Number</text>
+    <rect x="64" y="222" width="380" height="1.4" fill="#d9dfe9"/>
+    <text x="64" y="266" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A local 216 number boosts</text><text x="64" y="298" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">credibility, visibility, trust, and</text><text x="64" y="330" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="23" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">sales.</text>
+    <rect x="64" y="400" width="196.6" height="42" rx="21" fill="#ffffff"
+        />
+      <text x="84" y="428.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#154989" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Cleveland, Ohio</text>
+    <rect x="520" y="64" width="211" height="215" rx="20" fill="#ffffff"/>
+    <rect x="520" y="64" width="8" height="215" rx="4" fill="#2563a8"/>
+    <circle cx="562" cy="108" r="24" fill="#2563a8" opacity="0.12"/>
+    
+    <path d="M562,94 L573.9,99.6 L573.9,111.5
+             C573.9,119.9 567.6,124.1 562,126.2
+             C556.4,124.1 550.1,119.9 550.1,111.5
+             L550.1,99.6 Z" fill="none" stroke="#2563a8" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <path d="M556.96,109.4 L560.88,113.88 L568.16,104.92"
+          fill="none" stroke="#2563a8" stroke-width="2.24" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="552" y="160" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Increased</text><text x="552" y="186.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Credibility</text>
+    <text x="552" y="216.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Feels like a real,</text><text x="552" y="241.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">local Cleveland…</text><rect x="749" y="64" width="211" height="215" rx="20" fill="#ffffff"/>
+    <rect x="749" y="64" width="8" height="215" rx="4" fill="#2563a8"/>
+    <circle cx="791" cy="108" r="24" fill="#2563a8" opacity="0.12"/>
+    
+    <circle cx="791" cy="108" r="3.08" fill="#2563a8"/>
+    <path d="M784,101 A9.799999999999999,9.799999999999999 0 0 0 784,115"
+          fill="none" stroke="#2563a8" stroke-width="1.82" stroke-linecap="round"/>
+    <path d="M798,101 A9.799999999999999,9.799999999999999 0 0 1 798,115"
+          fill="none" stroke="#2563a8" stroke-width="1.82" stroke-linecap="round"/>
+    <path d="M777.7,94.7 A18.900000000000002,18.900000000000002 0 0 0 777.7,121.3"
+          fill="none" stroke="#2563a8" stroke-width="1.4000000000000001" stroke-linecap="round" opacity="0.55"/>
+    <path d="M804.3,94.7 A18.900000000000002,18.900000000000002 0 0 1 804.3,121.3"
+          fill="none" stroke="#2563a8" stroke-width="1.4000000000000001" stroke-linecap="round" opacity="0.55"/>
+    <text x="781" y="160" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Improved</text><text x="781" y="186.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Visibility</text>
+    <text x="781" y="216.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Easier to find</text><text x="781" y="241.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">and remember i…</text><rect x="520" y="297" width="211" height="215" rx="20" fill="#ffffff"/>
+    <rect x="520" y="297" width="8" height="215" rx="4" fill="#2563a8"/>
+    <circle cx="562" cy="341" r="24" fill="#2563a8" opacity="0.12"/>
+    
+    <path d="M562,352.9
+             C546.6,340.3 554.3,327 562,336.1
+             C569.7,327 577.4,340.3 562,352.9 Z"
+          fill="none" stroke="#2563a8" stroke-width="2.1" stroke-linejoin="round"/>
+    <text x="552" y="393" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Enhanced</text><text x="552" y="419.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Customer Tr…</text>
+    <text x="552" y="449.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Signals you're</text><text x="552" y="474.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">reachable and a…</text><rect x="749" y="297" width="211" height="215" rx="20" fill="#ffffff"/>
+    <rect x="749" y="297" width="8" height="215" rx="4" fill="#2563a8"/>
+    <circle cx="791" cy="341" r="24" fill="#2563a8" opacity="0.12"/>
+    
+    <path d="M777,331.2 h28 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,2.8000000000000003
+             v12.6 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,2.8000000000000003 h-18.2
+             l-5.6000000000000005,7 v-7 h-7 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,-2.8000000000000003
+             v-12.6 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,-2.8000000000000003 Z"
+          fill="none" stroke="#2563a8" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <text x="781" y="393" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Better</text><text x="781" y="419.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Engagement</text>
+    <text x="781" y="449.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Encourages</text><text x="781" y="474.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">more calls, text…</text>
+</svg>

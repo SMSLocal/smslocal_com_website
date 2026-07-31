@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fdf2f8"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#db2777" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WHY IT WORKS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#9d174d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Read Almost</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#db2777" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Instantly</text>
+
+    <text x="64" y="360" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="120" font-weight="400"
+    fill="#db2777" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">98%</text>
+    <text x="64" y="392" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="18" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">OF TEXTS GET READ</text>
+    
+    <circle cx="440" cy="240" r="20" fill="#db2777" opacity="0.14"/>
+    
+    <path d="M431.6,244.2 C431.6,235.8 434.6,228
+             440,228 C445.4,228 448.4,235.8 448.4,244.2
+             L450.8,247.8 L429.2,247.8 Z"
+          fill="none" stroke="#db2777" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <path d="M436.64,250.2 a3.3600000000000003,3.3600000000000003 0 0 0 6.720000000000001,0"
+          fill="none" stroke="#db2777" stroke-width="1.6800000000000002" stroke-linecap="round"/>
+    <text x="474" y="240" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Delivered and opened within minutes</text>
+    <circle cx="440" cy="318" r="20" fill="#db2777" opacity="0.14"/>
+    
+    <path d="M440,328.2
+             C426.8,317.4 433.4,306 440,313.8
+             C446.6,306 453.2,317.4 440,328.2 Z"
+          fill="none" stroke="#db2777" stroke-width="1.7999999999999998" stroke-linejoin="round"/>
+    <text x="474" y="318" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Personalized to each customer</text>
+    <circle cx="440" cy="396" r="20" fill="#db2777" opacity="0.14"/>
+    
+    <circle cx="440" cy="396" r="12" fill="#db2777"/>
+    <path d="M434.96,396.24 L438.8,400.32 L445.28,392.16"
+          fill="none" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="474" y="396" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Easy to track opens and replies</text>
+
+    <rect x="64" y="478" width="514.4" height="44" rx="22" fill="#ffffff"
+        />
+      <text x="88" y="507.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#9d174d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">🎯 Great for promos, drops, and loyalty rewards</text>
+</svg>

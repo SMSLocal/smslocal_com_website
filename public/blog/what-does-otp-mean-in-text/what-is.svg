@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eef2fc"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f5bd5" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ONE TERM, FOUR MEANINGS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#154989" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">What &quot;OTP&quot;</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#4f5bd5" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Actually Means</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    <rect x="64" y="200" width="439" height="149" rx="20" fill="#ffffff"/>
+    <rect x="64" y="200" width="8" height="149" rx="4" fill="#4f5bd5"/>
+    <circle cx="106" cy="244" r="24" fill="#4f5bd5" opacity="0.12"/>
+    
+    <rect x="94.8" y="243.3" width="22.400000000000002" height="16.099999999999998" rx="3.08"
+          fill="none" stroke="#4f5bd5" stroke-width="1.9600000000000002"/>
+    <path d="M99,243.3 L99,237
+             A7,7 0 0 1 113,237 L113,243.3"
+          fill="none" stroke="#4f5bd5" stroke-width="1.9600000000000002"/>
+    <circle cx="106" cy="249.88" r="1.68" fill="#4f5bd5"/>
+    <text x="96" y="296" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">One-Time Password</text>
+    <text x="96" y="326" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A short-lived security code for logins.</text><rect x="521" y="200" width="439" height="149" rx="20" fill="#ffffff"/>
+    <rect x="521" y="200" width="8" height="149" rx="4" fill="#4f5bd5"/>
+    <circle cx="563" cy="244" r="24" fill="#4f5bd5" opacity="0.12"/>
+    
+    <path d="M563,255.9
+             C547.6,243.3 555.3,230 563,239.1
+             C570.7,230 578.4,243.3 563,255.9 Z"
+          fill="none" stroke="#4f5bd5" stroke-width="2.1" stroke-linejoin="round"/>
+    <text x="553" y="296" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">One True Pairing</text>
+    <text x="553" y="326" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A fan’s favorite couple, fictional or real.</text><rect x="64" y="367" width="439" height="149" rx="20" fill="#ffffff"/>
+    <rect x="64" y="367" width="8" height="149" rx="4" fill="#4f5bd5"/>
+    <circle cx="106" cy="411" r="24" fill="#4f5bd5" opacity="0.12"/>
+    
+    <path d="M92,401.2 h28 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,2.8000000000000003
+             v12.6 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,2.8000000000000003 h-18.2
+             l-5.6000000000000005,7 v-7 h-7 a2.8000000000000003,2.8000000000000003 0 0 1 -2.8000000000000003,-2.8000000000000003
+             v-12.6 a2.8000000000000003,2.8000000000000003 0 0 1 2.8000000000000003,-2.8000000000000003 Z"
+          fill="none" stroke="#4f5bd5" stroke-width="1.9600000000000002" stroke-linejoin="round"/>
+    <text x="96" y="463" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">On The Phone</text>
+    <text x="96" y="493" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Busy on a call — an informal use.</text><rect x="521" y="367" width="439" height="149" rx="20" fill="#ffffff"/>
+    <rect x="521" y="367" width="8" height="149" rx="4" fill="#4f5bd5"/>
+    <circle cx="563" cy="411" r="24" fill="#4f5bd5" opacity="0.12"/>
+    
+    <path d="M550.4,408.2 L567.2,397 L577,406.8 L565.8,423.6 Z"
+          fill="none" stroke="#4f5bd5" stroke-width="1.82" stroke-linejoin="round"/>
+    <circle cx="563.7" cy="403.3" r="1.9600000000000002" fill="#4f5bd5"/>
+    <text x="553" y="463" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">One-Time Offer</text>
+    <text x="553" y="493" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A limited-time deal in marketing.</text>
+</svg>

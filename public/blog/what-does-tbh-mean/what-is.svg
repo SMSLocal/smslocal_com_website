@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fdf2f8"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#db2777" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">THE BASICS</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#9d174d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">What &quot;TBH&quot;</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#db2777" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Really Means</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    <text x="64" y="232" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Short for 'to be honest' — a heads-up that</text><text x="64" y="261" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">what's coming is genuine, whether it's kind,</text><text x="64" y="290" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">blunt, or somewhere in between.</text>
+    <rect x="620" y="180" width="320" height="64" rx="22" fill="#db2777" opacity="1.00"/>
+        <text x="652" y="218" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="20" font-weight="400"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TBH, you're talented!</text><rect x="620" y="264" width="320" height="64" rx="22" fill="#db2777" opacity="0.84"/>
+        <text x="652" y="302" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="20" font-weight="400"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TBH, that movie was slow.</text><rect x="620" y="348" width="320" height="64" rx="22" fill="#db2777" opacity="0.68"/>
+        <text x="652" y="386" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="20" font-weight="400"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TBH, I hate broccoli 😅</text>
+    <rect x="64" y="470" width="419" height="48" rx="24" fill="#ffffff"
+        />
+      <text x="88" y="501.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#9d174d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">🗣️ Honest, kind, or playful — your call</text>
+</svg>

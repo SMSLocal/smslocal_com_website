@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fef2f2"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#dc2626" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">WATCH FOR</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#7f1d1d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Signs of a</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#dc2626" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Scam Call or Text</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    
+    <circle cx="86" cy="246" r="22" fill="#dc2626" opacity="0.14"/>
+    
+    <circle cx="86" cy="246" r="13" fill="#dc2626"/>
+    <line x1="81.32" y1="241.32" x2="90.68" y2="250.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="90.68" y1="241.32" x2="81.32" y2="250.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="122" y="254" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Requests for passwords or PINs</text>
+    <circle cx="86" cy="312" r="22" fill="#dc2626" opacity="0.14"/>
+    
+    <circle cx="86" cy="312" r="13" fill="#dc2626"/>
+    <line x1="81.32" y1="307.32" x2="90.68" y2="316.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="90.68" y1="307.32" x2="81.32" y2="316.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="122" y="320" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Urgent or threatening language</text>
+    <circle cx="86" cy="378" r="22" fill="#dc2626" opacity="0.14"/>
+    
+    <circle cx="86" cy="378" r="13" fill="#dc2626"/>
+    <line x1="81.32" y1="373.32" x2="90.68" y2="382.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="90.68" y1="373.32" x2="81.32" y2="382.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="122" y="386" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Poor audio or sloppy texts</text>
+    <circle cx="86" cy="444" r="22" fill="#dc2626" opacity="0.14"/>
+    
+    <circle cx="86" cy="444" r="13" fill="#dc2626"/>
+    <line x1="81.32" y1="439.32" x2="90.68" y2="448.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="90.68" y1="439.32" x2="81.32" y2="448.68" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="122" y="452" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Messages from unknown senders</text>
+    <rect x="64" y="498" width="398.20000000000005" height="44" rx="22" fill="#ffffff"
+        />
+      <text x="86" y="527.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#7f1d1d" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">🛡️ When unsure, hang up and verify</text>
+</svg>

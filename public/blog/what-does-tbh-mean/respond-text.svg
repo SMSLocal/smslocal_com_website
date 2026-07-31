@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#f0fdf4"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#16a34a" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">REPLYING WELL</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#166534" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">How to Respond</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#16a34a" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">to a &quot;TBH&quot;</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    
+    <circle cx="86" cy="246" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="246" r="13" fill="#16a34a"/>
+    <path d="M80.54,246.26 L84.7,250.68 L91.72,241.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="254" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Thank them for a kind compliment</text>
+    <circle cx="86" cy="312" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="312" r="13" fill="#16a34a"/>
+    <path d="M80.54,312.26 L84.7,316.68 L91.72,307.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="320" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Share your own opinion, respectfully</text>
+    <circle cx="86" cy="378" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="378" r="13" fill="#16a34a"/>
+    <path d="M80.54,378.26 L84.7,382.68 L91.72,373.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="386" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Address insults calmly, or just ignore</text>
+    <rect x="64" y="498" width="413.6" height="44" rx="22" fill="#ffffff"
+        />
+      <text x="86" y="527.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#166534" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">💬 Keep it kind, even when it's honest</text>
+</svg>

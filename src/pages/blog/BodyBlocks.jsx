@@ -169,8 +169,14 @@ function BodyBlocks({ blocks }) {
             return (
               <div key={i} className={styles.inlineCta}>
                 <div className={styles.inlineCtaBody}>
-                  <div className={styles.inlineCtaHeading}>{block.heading}</div>
-                  {block.text && <p className={styles.inlineCtaText}>{block.text}</p>}
+                  <div className={styles.inlineCtaHeading}>
+                    <RichText rich={block.heading} />
+                  </div>
+                  {block.text?.length > 0 && (
+                    <p className={styles.inlineCtaText}>
+                      <RichText rich={block.text} />
+                    </p>
+                  )}
                 </div>
                 {block.buttonExternal ? (
                   <a

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#e9f8f5"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IS IT SAFE?</text>
+
+    <circle cx="188" cy="240" r="112" fill="#d3f0ea"/>
+    
+    <path d="M188,166 L244.1,192.4 L244.1,248.5
+             C244.1,288.1 214.4,307.9 188,317.8
+             C161.6,307.9 131.9,288.1 131.9,248.5
+             L131.9,192.4 Z" fill="none" stroke="#14b8a6" stroke-width="9.24" stroke-linejoin="round"/>
+    <path d="M164.24,238.6 L182.72,259.72 L217.04,217.48"
+          fill="none" stroke="#14b8a6" stroke-width="10.56" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="188" y="398" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TRUSTED SENDER</text>
+
+    <line x1="356" y1="96" x2="356" y2="452" stroke="#d9dfe9" stroke-width="2"/>
+
+    <text x="392" y="116" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#14b8a6" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SIGNS IT'S SAFE</text>
+    
+    <circle cx="412" cy="181.44" r="20" fill="#14b8a6" opacity="0.14"/>
+    
+    <circle cx="412" cy="181.44" r="12" fill="#14b8a6"/>
+    <path d="M406.96,181.68 L410.8,185.76 L417.28,177.6"
+          fill="none" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="446" y="176" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Registered with</text><text x="446" y="202.88" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">carriers</text>
+    <circle cx="412" cy="263.2" r="20" fill="#14b8a6" opacity="0.14"/>
+    
+    <circle cx="412" cy="263.2" r="12" fill="#14b8a6"/>
+    <path d="M406.96,263.44 L410.8,267.52 L417.28,259.36"
+          fill="none" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="446" y="257.76" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Used by known</text><text x="446" y="284.64" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">companies</text>
+    <circle cx="412" cy="339.52" r="20" fill="#14b8a6" opacity="0.14"/>
+    
+    <circle cx="412" cy="339.52" r="12" fill="#14b8a6"/>
+    <path d="M406.96,339.76 L410.8,343.84 L417.28,335.68"
+          fill="none" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="446" y="339.52" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Reply STOP anytime</text>
+
+    <line x1="686" y1="96" x2="686" y2="452" stroke="#d9dfe9" stroke-width="2"/>
+
+    <text x="716" y="116" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#b45252" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">RED FLAGS</text>
+    
+    <circle cx="736" cy="181.44" r="20" fill="#b45252" opacity="0.14"/>
+    
+    <circle cx="736" cy="181.44" r="12" fill="#b45252"/>
+    <line x1="731.68" y1="177.12" x2="740.32" y2="185.76" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round"/>
+    <line x1="740.32" y1="177.12" x2="731.68" y2="185.76" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round"/>
+    <text x="770" y="176" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Asks for passwords or</text><text x="770" y="202.88" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">codes</text>
+    <circle cx="736" cy="263.2" r="20" fill="#b45252" opacity="0.14"/>
+    
+    <circle cx="736" cy="263.2" r="12" fill="#b45252"/>
+    <line x1="731.68" y1="258.88" x2="740.32" y2="267.52" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round"/>
+    <line x1="740.32" y1="258.88" x2="731.68" y2="267.52" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round"/>
+    <text x="770" y="257.76" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Creates urgent</text><text x="770" y="284.64" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">pressure</text>
+    <circle cx="736" cy="344.96" r="20" fill="#b45252" opacity="0.14"/>
+    
+    <circle cx="736" cy="344.96" r="12" fill="#b45252"/>
+    <line x1="731.68" y1="340.64" x2="740.32" y2="349.28" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round"/>
+    <line x1="740.32" y1="340.64" x2="731.68" y2="349.28" stroke="#ffffff" stroke-width="2.4000000000000004" stroke-linecap="round"/>
+    <text x="770" y="339.52" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Requests payment</text><text x="770" y="366.4" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">details</text>
+
+    <text x="64" y="470" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TRUSTED BY</text>
+    <rect x="64" y="486" width="131.8" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="513.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Shop Pay</text><rect x="207.8" y="486" width="100.60000000000001" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="225.8" y="513.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Twilio</text><rect x="320.40000000000003" y="486" width="141.2" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="338.40000000000003" y="513.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Robinhood</text><rect x="473.6" y="486" width="166.79999999999998" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="491.6" y="513.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#0f6b60" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">The Frye Co.</text>
+</svg>

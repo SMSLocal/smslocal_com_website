@@ -21,14 +21,9 @@ export default function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-2 lg:pb-20 lg:pt-12">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.2em]">
-            <span className="text-primary">Powering</span>{" "}
-            <span className="text-secondary">20,000+ businesses worldwide</span>
-          </p>
-
           <DropText
             as="h1"
-            className="mt-6 text-4xl font-medium leading-tight tracking-tight text-heading sm:text-5xl lg:text-[3.25rem]"
+            className="text-4xl font-medium leading-tight tracking-tight text-heading sm:text-5xl lg:text-[3.25rem]"
             segments={[
               { text: "The Agentic AI Platform." },
               { br: true },
@@ -45,9 +40,11 @@ export default function Hero() {
           />
 
           <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Launch SMS campaigns, alerts, and promotions in seconds. Simply log
-            in from any web browser — no apps, no coding, no integration needed.
-            Connect effortlessly and grow your business.
+            The agentic AI platform built for sales, support, and everywhere
+            your customers reach out. Send bulk SMS, WhatsApp, and RCS
+            campaigns, unify every conversation in one omnichannel inbox, and
+            let AI chatbots, agents, and voice handle the rest — all
+            connected to the apps you already use.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fef2f2"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#dc2626" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">HOW TO REPLY</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#991b1b" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Confirm It,</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#dc2626" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Then Move On</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    <text x="64" y="232" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">These codes confirm it’s really you — a quick</text><text x="64" y="262" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">&quot;got it&quot; is all a reply needs.</text>
+
+    <rect x="616" y="180" width="344" height="88" rx="26" fill="#ffffff"/>
+    <text x="650" y="232" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Your OTP code is 123456.</text>
+    <path d="M650,268 L650,294 L682,268 Z" fill="#ffffff"/>
+    <rect x="616" y="318" width="344" height="88" rx="26" fill="#dc2626"/>
+    <text x="650" y="370" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Got it, thanks!</text>
+    <path d="M926,318 L926,292 L894,318 Z" fill="#dc2626"/>
+
+    <rect x="64" y="460" width="472.00000000000006" height="46" rx="23" fill="#991b1b"
+        />
+      <text x="86" y="490.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">⚠️ Real companies never ask for your OTP</text>
+</svg>

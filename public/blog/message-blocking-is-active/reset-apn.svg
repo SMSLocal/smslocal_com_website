@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#fdeef6"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ec4899" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STEP 10</text><text x="60" y="120" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#9d1f5f" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Reset Your</text><text x="60" y="170" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#ec4899" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">APN Settings</text><rect x="64" y="200" width="560" height="1.4" fill="#d9dfe9"/><text x="64" y="236" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A corrupted Access Point Name can block</text><text x="64" y="266" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">connectivity — resetting restores the default.</text><text x="64" y="328" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ec4899" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ANDROID</text><rect x="64" y="354" width="233.19" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Network &amp; Internet</text><path d="M305.19,374 L323.19,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="315.19,366 325.19,374 315.19,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="331.19" y="354" width="83.25" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="349.19" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">APN</text><path d="M422.44,374 L440.44,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="432.44,366 442.44,374 432.44,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="64" y="414" width="204.83999999999997" height="40" rx="20" fill="#ec4899"
+        />
+      <text x="82" y="441.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Reset to default</text><text x="64" y="498" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ec4899" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">IPHONE</text><rect x="64" y="524" width="117.48" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="551.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Cellular</text><path d="M189.48000000000002,544 L207.48000000000002,544" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="199.48000000000002,536 209.48000000000002,544 199.48000000000002,552"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="215.48000000000002" y="524" width="172.92000000000002" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="233.48000000000002" y="551.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Cellular Data</text><path d="M396.40000000000003,544 L414.40000000000003,544" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="406.40000000000003,536 416.40000000000003,544 406.40000000000003,552"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="422.40000000000003" y="524" width="97.95" height="40" rx="20" fill="#ec4899"
+        />
+      <text x="440.40000000000003" y="551.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Reset</text>
+    <circle cx="790" cy="300" r="118" fill="#ffffff"/>
+    <rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(0, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(45, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(90, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(135, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(180, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(225, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(270, 790, 290)"/><rect x="783.8" y="218.7" width="12.4" height="19.84" rx="3.1"
+        fill="#ec4899" transform="rotate(315, 790, 290)"/><circle cx="790" cy="290" r="44.64" fill="none" stroke="#ec4899" stroke-width="8.680000000000001"/>
+      <circle cx="790" cy="290" r="13.64" fill="#ec4899"/>
+    <text x="790" y="430" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ec4899" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">RESTART AFTER RESETTING</text>
+    
+</svg>

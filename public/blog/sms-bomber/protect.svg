@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#f0fdf4"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#16a34a" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STAY AHEAD</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#166534" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Protect Yourself</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#16a34a" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Before It Starts</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    
+    <circle cx="86" cy="236" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="236" r="13" fill="#16a34a"/>
+    <path d="M80.54,236.26 L84.7,240.68 L91.72,231.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="244" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Limit sharing your number publicly</text>
+    <circle cx="86" cy="294" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="294" r="13" fill="#16a34a"/>
+    <path d="M80.54,294.26 L84.7,298.68 L91.72,289.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="302" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Turn on built-in spam filters</text>
+    <circle cx="86" cy="352" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="352" r="13" fill="#16a34a"/>
+    <path d="M80.54,352.26 L84.7,356.68 L91.72,347.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="360" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Block the sender immediately</text>
+    <circle cx="86" cy="410" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="410" r="13" fill="#16a34a"/>
+    <path d="M80.54,410.26 L84.7,414.68 L91.72,405.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="418" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Loop in your mobile carrier</text>
+    <circle cx="86" cy="468" r="22" fill="#16a34a" opacity="0.14"/>
+    
+    <circle cx="86" cy="468" r="13" fill="#16a34a"/>
+    <path d="M80.54,468.26 L84.7,472.68 L91.72,463.84"
+          fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="476" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Report persistent attacks to authorities</text>
+    <rect x="64" y="508" width="334" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="86" y="535.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="600"
+    fill="#166534" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">🔒 A few habits go a long way</text>
+</svg>

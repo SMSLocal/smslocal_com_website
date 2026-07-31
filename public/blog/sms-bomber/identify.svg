@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eef2ff"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f46e5" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">TRACE THE SOURCE</text>
+    <text x="60" y="128" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#3730a3" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Who's Behind</text>
+    <text x="60" y="174" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="40" font-weight="400"
+    fill="#4f46e5" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">the Flood?</text>
+    <rect x="64" y="190" width="500" height="1.4" fill="#d9dfe9"/>
+    
+    <circle cx="84" cy="233" r="20" fill="#4f46e5" opacity="0.14"/>
+    
+    <circle cx="82.56" cy="231.56" r="7.199999999999999" fill="none" stroke="#4f46e5" stroke-width="1.92"/>
+    <line x1="87.84" y1="236.84" x2="93.36" y2="242.36"
+          stroke="#4f46e5" stroke-width="2.16" stroke-linecap="round"/>
+    <text x="118" y="233" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Check the message for clues or patterns</text>
+    <circle cx="84" cy="311" r="20" fill="#4f46e5" opacity="0.14"/>
+    
+    <rect x="73.2" y="315.2" width="4.800000000000001" height="5.4" rx="0.96" fill="#4f46e5" opacity="0.4"/>
+    <rect x="80.4" y="311" width="4.800000000000001" height="9.600000000000001" rx="0.96" fill="#4f46e5" opacity="0.7"/>
+    <rect x="87.6" y="305" width="4.800000000000001" height="15.600000000000001" rx="0.96" fill="#4f46e5"/>
+    <text x="118" y="311" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Ask your mobile carrier to trace the source</text>
+    <circle cx="84" cy="389" r="20" fill="#4f46e5" opacity="0.14"/>
+    
+    <path d="M84,377 L94.2,381.8 L94.2,392
+             C94.2,399.2 88.8,402.8 84,404.6
+             C79.2,402.8 73.8,399.2 73.8,392
+             L73.8,381.8 Z" fill="none" stroke="#4f46e5" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <path d="M79.68,390.2 L83.04,394.04 L89.28,386.36"
+          fill="none" stroke="#4f46e5" stroke-width="1.92" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="118" y="389" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Run an anti-spam app to flag the sender</text>
+    <circle cx="84" cy="467" r="20" fill="#4f46e5" opacity="0.14"/>
+    
+    <path d="M84,455 L95.4,476 L72.6,476 Z"
+          fill="none" stroke="#4f46e5" stroke-width="1.6800000000000002" stroke-linejoin="round"/>
+    <line x1="84" y1="463.16" x2="84" y2="469.16" stroke="#4f46e5" stroke-width="1.7999999999999998" stroke-linecap="round"/>
+    <circle cx="84" cy="472.76" r="1.08" fill="#4f46e5"/>
+    <text x="118" y="467" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Report persistent attacks to authorities</text>
+
+    <circle cx="800" cy="340" r="140" fill="#ffffff"/>
+    
+    <circle cx="792.32" cy="308.32" r="38.4" fill="none" stroke="#4f46e5" stroke-width="10.24"/>
+    <line x1="820.48" y1="336.48" x2="849.92" y2="365.92"
+          stroke="#4f46e5" stroke-width="11.52" stroke-linecap="round"/>
+    <text x="800" y="498" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f46e5" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">EVERY CLUE COUNTS</text>
+</svg>

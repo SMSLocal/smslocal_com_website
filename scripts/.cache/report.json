@@ -3,7 +3,10 @@
   "[emoji-meaning-in-text] skipped interactive <select> control",
   "[how-to-send-a-system-generated-sms] no rendered byline date; falling back to the API publish date",
   "[how-to-send-a-system-generated-sms] no rendered author box",
-  "[sms-bomber] skipped raw html embed widget"
+  "[message-blocking-is-active] inner-image curation landed on 8 images, expected 7",
+  "[sms-bomber] skipped raw html embed widget",
+  "[what-does-ty-mean] inner-image curation landed on 4 images, expected 7",
+  "[what-does-wtw-mean] inner-image curation landed on 6 images, expected 7"
  ],
  "internalLinks": [
   "/about-us/author/",

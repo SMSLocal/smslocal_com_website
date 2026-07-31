@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eef2fc"/>
+  
+    <circle cx="758" cy="290" r="260" fill="#dfe5fa" opacity="0.5"/>
+    <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f5bd5" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">SHORT CODE FORMAT</text>
+
+    
+    <text x="228" y="108" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A STANDARD NUMBER</text>
+    <text x="228" y="172" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="36" font-weight="400"
+    fill="#5b6478" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">(559) 555-1234</text>
+    <line x1="168" y1="222" x2="288" y2="222" stroke="#d9dfe9" stroke-width="2"/>
+    <text x="228" y="250" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#5b6478" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">VS</text>
+    <line x1="168" y1="266" x2="288" y2="266" stroke="#d9dfe9" stroke-width="2"/>
+    <text x="228" y="314" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">A SHORT CODE</text>
+    <rect x="107" y="330" width="42" height="54" rx="10"
+            fill="#ffffff" stroke="#4f5bd5" stroke-width="2.4"/>
+          <text x="128" y="355.2" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="20.16" font-weight="400"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">2</text><rect x="157" y="330" width="42" height="54" rx="10"
+            fill="#ffffff" stroke="#4f5bd5" stroke-width="2.4"/>
+          <text x="178" y="355.2" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="20.16" font-weight="400"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">2</text><rect x="207" y="330" width="42" height="54" rx="10"
+            fill="#ffffff" stroke="#4f5bd5" stroke-width="2.4"/>
+          <text x="228" y="355.2" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="20.16" font-weight="400"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">3</text><rect x="257" y="330" width="42" height="54" rx="10"
+            fill="#ffffff" stroke="#4f5bd5" stroke-width="2.4"/>
+          <text x="278" y="355.2" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="20.16" font-weight="400"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">9</text><rect x="307" y="330" width="42" height="54" rx="10"
+            fill="#ffffff" stroke="#4f5bd5" stroke-width="2.4"/>
+          <text x="328" y="355.2" font-family="'Instrument Serif', 'Times New Roman', Times, serif" font-size="20.16" font-weight="400"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">5</text>
+
+    <rect x="64" y="428" width="396" height="108" rx="22" fill="#ffffff"/>
+    <rect x="88" y="452" width="95" height="34" rx="17" fill="#4f5bd5"
+        />
+      <text x="104" y="476.2" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">22395</text>
+    <text x="88" y="508" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">&quot;Your verification code is 4192.&quot;</text>
+
+    <line x1="512" y1="86" x2="512" y2="470" stroke="#d9dfe9" stroke-width="2"/>
+
+    
+    <circle cx="582" cy="150" r="22" fill="#4f5bd5" opacity="0.14"/>
+    
+    <circle cx="582" cy="150" r="2.86" fill="#4f5bd5"/>
+    <path d="M575.5,143.5 A9.1,9.1 0 0 0 575.5,156.5"
+          fill="none" stroke="#4f5bd5" stroke-width="1.69" stroke-linecap="round"/>
+    <path d="M588.5,143.5 A9.1,9.1 0 0 1 588.5,156.5"
+          fill="none" stroke="#4f5bd5" stroke-width="1.69" stroke-linecap="round"/>
+    <path d="M569.65,137.65 A17.55,17.55 0 0 0 569.65,162.35"
+          fill="none" stroke="#4f5bd5" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+    <path d="M594.35,137.65 A17.55,17.55 0 0 1 594.35,162.35"
+          fill="none" stroke="#4f5bd5" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+    <text x="618" y="158" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">One sender, every carrier</text>
+    <circle cx="582" cy="258" r="22" fill="#4f5bd5" opacity="0.14"/>
+    
+    <rect x="571.6" y="257.35" width="20.8" height="14.95" rx="2.86"
+          fill="none" stroke="#4f5bd5" stroke-width="1.8200000000000003"/>
+    <path d="M575.5,257.35 L575.5,251.5
+             A6.5,6.5 0 0 1 588.5,251.5 L588.5,257.35"
+          fill="none" stroke="#4f5bd5" stroke-width="1.8200000000000003"/>
+    <circle cx="582" cy="263.46" r="1.56" fill="#4f5bd5"/>
+    <text x="618" y="266" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Delivers OTPs for 2FA logins</text>
+    <circle cx="582" cy="366" r="22" fill="#4f5bd5" opacity="0.14"/>
+    
+    <path d="M569,356.9 h26 a2.6,2.6 0 0 1 2.6,2.6
+             v11.700000000000001 a2.6,2.6 0 0 1 -2.6,2.6 h-16.900000000000002
+             l-5.2,6.5 v-6.5 h-6.5 a2.6,2.6 0 0 1 -2.6,-2.6
+             v-11.700000000000001 a2.6,2.6 0 0 1 2.6,-2.6 Z"
+          fill="none" stroke="#4f5bd5" stroke-width="1.8200000000000003" stroke-linejoin="round"/>
+    <text x="618" y="374" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="24" font-weight="400"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">No area code to dial</text>
+    <rect x="560" y="462" width="396" height="3" fill="#dfe5fa"/>
+    <text x="560" y="500" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Same number reaches every phone,</text>
+    <text x="560" y="528" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="21" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">on any network.</text>
+</svg>

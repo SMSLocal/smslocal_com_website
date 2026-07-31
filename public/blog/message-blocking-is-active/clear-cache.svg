@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img">
+  <rect width="1024" height="576" fill="#eef2fc"/>
+  <text x="64" y="58" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f5bd5" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">STEP 9</text><text x="60" y="120" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#154989" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Clear the</text><text x="60" y="170" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="42" font-weight="400"
+    fill="#4f5bd5" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Messages Cache</text><rect x="64" y="200" width="560" height="1.4" fill="#d9dfe9"/><text x="64" y="236" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Clearing app cache fixes messaging glitches — your</text><text x="64" y="266" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+    fill="#5b6478" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">texts themselves are untouched.</text><text x="64" y="328" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f5bd5" text-anchor="start" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">ANDROID</text><rect x="64" y="354" width="125.45999999999998" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="82" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Settings</text><path d="M197.45999999999998,374 L215.45999999999998,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="207.45999999999998,366 217.45999999999998,374 207.45999999999998,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="223.45999999999998" y="354" width="89.55000000000001" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="241.45999999999998" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Apps</text><path d="M321.01,374 L339.01,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="331.01,366 341.01,374 331.01,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="347.01" y="354" width="144.14999999999998" height="40" rx="20" fill="#ffffff"
+        />
+      <text x="365.01" y="381.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#101a33" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Messages</text><path d="M499.15999999999997,374 L517.16,374" stroke="#d9dfe9" stroke-width="2.4" fill="none"/>
+        <polyline points="509.15999999999997,366 519.16,374 509.15999999999997,382"
+          stroke="#d9dfe9" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="64" y="414" width="206.72999999999996" height="40" rx="20" fill="#4f5bd5"
+        />
+      <text x="82" y="441.56" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" text-anchor="start" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Storage &amp; cache</text>
+    <circle cx="790" cy="300" r="118" fill="#ffffff"/>
+    
+    <path d="M746.6,255.9 L833.4,255.9
+             L824.1,345.8 L755.9,345.8 Z"
+          fill="none" stroke="#4f5bd5" stroke-width="8.06" stroke-linejoin="round"/>
+    <line x1="731.1" y1="255.9" x2="848.9" y2="255.9"
+          stroke="#4f5bd5" stroke-width="8.06" stroke-linecap="round"/>
+    <path d="M771.4,255.9 L776.36,237.3 L803.64,237.3 L808.6,255.9"
+          fill="none" stroke="#4f5bd5" stroke-width="8.06" stroke-linejoin="round"/>
+    <line x1="790" y1="272.64" x2="790" y2="328.44" stroke="#4f5bd5" stroke-width="6.2" stroke-linecap="round"/>
+    <text x="790" y="430" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700"
+    fill="#4f5bd5" text-anchor="middle" letter-spacing="2" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">CACHE CLEARED</text>
+    <text x="790" y="466" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="20" font-weight="400"
+    fill="#5b6478" text-anchor="middle" letter-spacing="0" opacity="1" font-variant-numeric="lining-nums" font-feature-settings="'lnum' 1, 'onum' 0">Messages are not deleted</text>
+</svg>
