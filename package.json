@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/gen-page-dates.mjs && vite",
-    "build": "node scripts/gen-page-dates.mjs && vite build",
+    "build": "node scripts/gen-page-dates.mjs && vite build && npm run build:ssr && node scripts/prerender.mjs",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "lint": "oxlint",
     "preview": "vite preview"
   },

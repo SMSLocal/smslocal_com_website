@@ -68,9 +68,14 @@ import AppleMessagesForBusiness from './pages/AppleMessagesForBusiness.jsx'
 import EmailApi from './pages/EmailApi.jsx'
 import KakaoTalkBusinessMessaging from './pages/KakaoTalkBusinessMessaging.jsx'
 
-function App() {
+/**
+ * `router` lets the prerender entry swap in StaticRouter, which renders without
+ * browser history; the browser keeps the BrowserRouter default. Remaining props
+ * pass through to it (StaticRouter needs `location`).
+ */
+function App({ router: Router = BrowserRouter, ...routerProps }) {
   return (
-    <BrowserRouter>
+    <Router {...routerProps}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -166,7 +171,7 @@ function App() {
           <Route path="*" element={<ComingSoon />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   )
 }
 
