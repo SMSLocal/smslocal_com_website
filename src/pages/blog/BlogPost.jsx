@@ -4,7 +4,7 @@ import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import PostCard from '../../components/PostCard.jsx'
-import { flattenRich, getPostBySlug, getRelatedPosts, titleParts } from '../../lib/posts.js'
+import { getPostBySlug, getRelatedPosts, richToText, titleParts } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
 import TableOfContents from './TableOfContents.jsx'
 import SidebarPromos from './SidebarPromos.jsx'
@@ -28,7 +28,7 @@ function BlogPost() {
         exactTitle={post.metaTitle}
         description={post.metaDescription ?? post.excerpt}
         keywords={post.keywords}
-        canonical={`${window.location.origin}${post.routePath ?? `/blog/${post.slug}`}`}
+        canonical={url}
         ogImage={post.cover}
         ogType="article"
         publishedTime={post.publishedISO}
@@ -72,7 +72,7 @@ function BlogPost() {
               name: faq.q,
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: faq.rich ? flattenRich(faq.rich) : faq.a,
+                text: faq.rich ? richToText(faq.rich) : faq.a,
               },
             })),
           }}

@@ -207,14 +207,3 @@ export const categories = [
   "All",
   ...[...new Set(allPosts.map((p) => p.category))].sort((a, b) => a.localeCompare(b)),
 ];
-
-/**
- * A rich-text run (see RichText in BodyBlocks.jsx: a string, or `{ b }` / `{ i }`
- * / `{ a, c }`) flattened to plain text, for JSON-LD — schema values can't carry
- * markup, so FAQ answers have to be unwrapped before they go in.
- */
-export function flattenRich(rich) {
-  return rich
-    .map((node) => (typeof node === "string" ? node : flattenRich(node.b ?? node.i ?? node.c ?? [])))
-    .join("");
-}

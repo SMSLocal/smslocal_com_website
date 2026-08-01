@@ -1,8 +1,8 @@
-// Writes a real HTML file per static route into dist/, so the JSON-LD, headings
-// and body copy are in the served document instead of appearing only after the
-// client bundle runs. Vercel's SPA rewrite in vercel.json only fires when no
-// file matches, so dist/pricing/index.html wins for /pricing while unlisted
-// routes (blog posts, the 404) still fall through to the SPA shell.
+// Writes a real HTML file per route into dist/, so the JSON-LD, head tags,
+// headings and body copy are in the served document instead of appearing only
+// after the client bundle runs. Vercel's SPA rewrite in vercel.json only fires
+// when no file matches, so dist/pricing/index.html wins for /pricing while
+// anything unlisted (the 404) still falls through to the shell.
 //
 // Runs after both `vite build` and the SSR build — see the build script.
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -20,14 +20,44 @@ if (!template.includes(MOUNT)) {
 
 const { render } = await import(new URL('../dist-ssr/entry-server.js', import.meta.url))
 
-// The same 65 static routes the date map covers: both derive from App.jsx, so a
-// route added there flows into each without a second list to keep in sync.
-const routes = Object.keys(JSON.parse(readFileSync(join(root, 'src/data/pageDates.generated.json'), 'utf8')))
+// Seo/Canonical render their tags inside the tree, and renderToString of a
+// partial tree emits them where they sit rather than in <head>. React hoists
+// them once the client takes over; for the static file they have to be moved.
+const HEAD_TAGS =
+  /<title>[\s\S]*?<\/title>|<meta\s+(?:name|property)="[^"]*"[^>]*>|<link\s+rel="canonical"[^>]*>/g
+
+function buildPage(body) {
+  // Marked so the client can drop them once React has rendered its own copies —
+  // React hoists its tags into <head> without noticing these, and two <title>
+  // elements is invalid HTML with no defined winner. See Canonical.jsx.
+  const lifted = (body.match(HEAD_TAGS) ?? []).map((tag) =>
+    tag.replace(/^<(\w+)/, '<$1 data-prerendered'),
+  )
+  const rest = body.replace(HEAD_TAGS, '')
+  // The template ships a placeholder <title>; drop it when the page rendered
+  // its own, or the document ends up with two and the browser keeps the stub.
+  const base = lifted.some((tag) => tag.startsWith('<title'))
+    ? template.replace(/<title>[\s\S]*?<\/title>/, '')
+    : template
+  return base
+    .replace('</head>', () => `${lifted.join('')}</head>`)
+    .replace(MOUNT, () => `<div id="root">${rest}</div>`)
+}
+
+// Both lists derive from generated data, so a route added in App.jsx or a post
+// added to the archive flows in without a second list to keep in sync.
+const staticRoutes = Object.keys(
+  JSON.parse(readFileSync(join(root, 'src/data/pageDates.generated.json'), 'utf8')),
+)
+const postRoutes = JSON.parse(
+  readFileSync(join(root, 'src/data/importedPosts.generated.json'), 'utf8'),
+).map((post) => post.routePath ?? `/blog/${post.slug}`)
+const routes = [...staticRoutes, ...postRoutes]
 
 // dist/index.html stops being a neutral shell once "/" is prerendered into it,
 // so the SPA rewrite gets its own copy to fall back to — otherwise every route
-// without a file (blog posts, 404s) would serve homepage markup to anything
-// that doesn't run JS. noindex because it's a real URL with no real content.
+// without a file would serve homepage markup to anything that doesn't run JS.
+// noindex because it's a real URL with no real content.
 writeFileSync(
   join(dist, 'spa.html'),
   template.replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>'),
@@ -47,11 +77,13 @@ for (const route of routes) {
   }
   const file = route === '/' ? join(dist, 'index.html') : join(dist, route, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
-  writeFileSync(file, template.replace(MOUNT, `<div id="root">${body}</div>`))
+  writeFileSync(file, buildPage(body))
   written += 1
 }
 
-console.log(`prerender — ${written}/${routes.length} routes written to dist/`)
+console.log(
+  `prerender — ${written}/${routes.length} routes (${staticRoutes.length} static, ${postRoutes.length} posts)`,
+)
 if (failed.length) {
   console.warn(`prerender — ${failed.length} route(s) fell back to the SPA shell:`)
   for (const f of failed) console.warn(`  ${f}`)
