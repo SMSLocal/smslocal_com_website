@@ -1,4 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
+import JsonLd from './JsonLd.jsx'
+import { SITE_ORIGIN } from './Canonical.jsx'
+import { getPostBySlug } from '../lib/posts.js'
 import './Breadcrumbs.css'
 
 // Friendly labels for path segments that a naive "un-hyphenate + capitalize"
@@ -61,12 +64,20 @@ function Breadcrumbs({ lastLabel }) {
   if (pathname === '/') return null
 
   const segments = pathname.split('/').filter(Boolean)
+
+  // On /blog/:slug and /resources/insights/:slug the final segment is a post
+  // slug — titleizing it would put a mangled title in both the visible trail and
+  // the JSON-LD below, where it wouldn't match the article's own schema.
+  const isPost = /^\/(blog|resources\/insights)\/[^/]+$/.test(pathname)
+  const postTitle = isPost ? getPostBySlug(segments[segments.length - 1])?.title : null
+  const finalLabel = lastLabel ?? postTitle
+
   const crumbs = [{ label: 'Home', href: '/' }]
   let acc = ''
   segments.forEach((seg, i) => {
     acc += `/${seg}`
     const isLast = i === segments.length - 1
-    crumbs.push({ label: isLast && lastLabel ? lastLabel : titleize(seg), href: acc })
+    crumbs.push({ label: isLast && finalLabel ? finalLabel : titleize(seg), href: acc })
   })
 
   const jsonLd = {
@@ -76,13 +87,13 @@ function Breadcrumbs({ lastLabel }) {
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      item: `https://smslocal-com-website.vercel.app${c.href}`,
+      item: `${SITE_ORIGIN}${c.href}`,
     })),
   }
 
   return (
     <nav className="breadcrumbs" aria-label="Breadcrumb">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLd data={jsonLd} />
       <ol className="breadcrumbs-list">
         {crumbs.map((c, i) => {
           const isLast = i === crumbs.length - 1

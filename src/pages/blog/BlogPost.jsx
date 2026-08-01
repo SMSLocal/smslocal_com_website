@@ -1,8 +1,10 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
+import JsonLd from '../../components/JsonLd.jsx'
+import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import PostCard from '../../components/PostCard.jsx'
-import { getPostBySlug, getRelatedPosts, titleParts } from '../../lib/posts.js'
+import { flattenRich, getPostBySlug, getRelatedPosts, titleParts } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
 import TableOfContents from './TableOfContents.jsx'
 import SidebarPromos from './SidebarPromos.jsx'
@@ -17,6 +19,7 @@ function BlogPost() {
   if (!post) return <Navigate to="/blog" replace />
 
   const related = getRelatedPosts(post.slug)
+  const url = `${SITE_ORIGIN}${post.routePath ?? `/blog/${post.slug}`}`
 
   return (
     <div className="blog-scope">
@@ -31,6 +34,50 @@ function BlogPost() {
         publishedTime={post.publishedISO}
         modifiedTime={post.modifiedISO}
       />
+
+      {/* Dates are the post's own — the imported archive keeps the source
+          publish/modify timestamps — so datePublished and dateModified agree
+          with the byline the reader sees. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          '@id': `${url}#article`,
+          mainEntityOfPage: url,
+          headline: post.title,
+          description: post.metaDescription ?? post.excerpt,
+          image: post.cover ? `${SITE_ORIGIN}${post.cover}` : undefined,
+          datePublished: post.publishedISO,
+          dateModified: post.modifiedISO ?? post.publishedISO,
+          author: {
+            '@type': 'Person',
+            name: post.author.name,
+            url: post.author.url || undefined,
+          },
+          publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+          articleSection: post.category,
+          keywords: post.keywords?.length ? post.keywords : undefined,
+          wordCount: post.words,
+        }}
+      />
+
+      {post.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            '@id': `${url}#faq`,
+            mainEntity: post.faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.rich ? flattenRich(faq.rich) : faq.a,
+              },
+            })),
+          }}
+        />
+      )}
 
       {/* Hero sits in its own full-bleed band so its tint runs edge to edge,
           while the copy inside stays on the shared 1280px measure. */}

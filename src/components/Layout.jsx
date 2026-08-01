@@ -4,6 +4,7 @@ import TopBar from './TopBar.jsx'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
 import Canonical from './Canonical.jsx'
+import SiteSchema from './SiteSchema.jsx'
 import Breadcrumbs from './Breadcrumbs.jsx'
 import { useScrollReveal } from '../hooks/useScrollReveal.js'
 
@@ -18,6 +19,7 @@ function Layout() {
   return (
     <div className="page-shell">
       <Canonical />
+      <SiteSchema />
       <TopBar />
       <Navbar />
       <main>

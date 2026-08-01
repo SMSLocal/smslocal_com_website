@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 // Production domain this site deploys to (see deployment-flow-rule memory —
 // `main` builds to this exact host). Canonicals must be absolute URLs.
-const SITE_ORIGIN = 'https://smslocal-com-website.vercel.app'
+export const SITE_ORIGIN = 'https://smslocal-com-website.vercel.app'
 
 /**
  * Renders nothing — sets/updates <link rel="canonical"> in <head> to the
