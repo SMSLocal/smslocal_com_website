@@ -1,0 +1,160 @@
+/* Sliding row of portrait country cards. */
+
+.viewport {
+  overflow: hidden;
+  /* Room for a card to grow on hover without being clipped by the overflow
+     that makes the marquee work. Negative margin keeps the row optically
+     aligned with the section text despite that padding. */
+  padding: 18px 0 26px;
+  margin: -18px 0 -26px;
+  /* Fade the cards out at both ends so they enter and leave rather than being
+     chopped off at the container edge. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: slide 46s linear infinite;
+}
+/* -50% exactly: the list is rendered twice, so at that point the second copy
+   sits where the first began and the restart is invisible. */
+@keyframes slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.viewport:hover .track,
+.viewport:focus-within .track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+  .viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  flex: none;
+  width: 206px;
+  height: 268px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+.card:hover,
+.card:focus-visible {
+  transform: scale(1.07);
+  border-color: rgba(79, 91, 213, 0.5);
+  box-shadow: 0 20px 44px -22px rgba(79, 91, 213, 0.75);
+  z-index: 2;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.flag {
+  width: 34px;
+  height: 26px;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12);
+}
+.iso {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.dial {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--brand-start);
+  font-variant-numeric: tabular-nums;
+}
+.name {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.pop {
+  margin-top: auto;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* The reveal. Sits over the card, so nothing on the track shifts. */
+.more {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 16px 20px 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 22%);
+  transform: translateY(101%);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+.card:hover .more,
+.card:focus-visible .more {
+  transform: translateY(0);
+  opacity: 1;
+}
+.fmt {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--ink);
+}
+.ops {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+.cta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand-start);
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    width: 178px;
+    height: 244px;
+    padding: 16px;
+  }
+  .dial {
+    font-size: 29px;
+  }
+  .more {
+    padding: 14px 16px 16px;
+  }
+}

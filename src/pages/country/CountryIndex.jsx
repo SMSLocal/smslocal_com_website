@@ -5,6 +5,7 @@ import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import { publishedCountries, allCountries, fmt } from '../../lib/countries.js'
 import HeroStage from './HeroStage.jsx'
+import PopularStrip from './PopularStrip.jsx'
 import styles from './CountryCode.module.css'
 import index from './CountryIndex.module.css'
 
@@ -74,16 +75,10 @@ function CountryIndex() {
           <div className={styles.kicker}>Researched markets</div>
           <h2 className={styles.h2}>Full SMS guides</h2>
           <p className={styles.sub}>
-            These markets have verified sender ID, operator and regulatory detail.
+            These markets have verified sender ID, operator and regulatory detail. Hover a card to
+            see its number format and networks.
           </p>
-          <div className={styles.related}>
-            {publishedCountries.map((c) => (
-              <Link className={styles.relCard} to={`/country-code/${c.slug}/`} key={c.slug}>
-                <div className={styles.relName}>{c.name}</div>
-                <div className={styles.relDial}>{c.dial}</div>
-              </Link>
-            ))}
-          </div>
+          <PopularStrip countries={publishedCountries} />
         </div>
       </section>
 
