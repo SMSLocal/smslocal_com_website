@@ -48,9 +48,9 @@ function Row({ c, linked }) {
 
 function CountryDirectory({ countries, published }) {
   const [query, setQuery] = useState('')
-  // Asia open to start, so the section reads as expandable rather than as five
-  // inert bars.
-  const [openSet, setOpenSet] = useState(() => new Set(['Asia']))
+  // One at a time — opening a continent closes whichever was open. Asia starts
+  // open so the section reads as expandable rather than as five inert bars.
+  const [openRegion, setOpenRegion] = useState('Asia')
 
   const q = query.trim().toLowerCase()
 
@@ -72,13 +72,8 @@ function CountryDirectory({ countries, published }) {
     return { groups: byRegion, total: matches.length }
   }, [countries, q])
 
-  const toggle = (region) =>
-    setOpenSet((prev) => {
-      const next = new Set(prev)
-      if (next.has(region)) next.delete(region)
-      else next.add(region)
-      return next
-    })
+  // Clicking the open one closes it, so the list can be fully collapsed.
+  const toggle = (region) => setOpenRegion((prev) => (prev === region ? null : region))
 
   return (
     <div>
@@ -104,7 +99,7 @@ function CountryDirectory({ countries, published }) {
             const list = groups.get(region) ?? []
             if (!list.length) return null
             // While searching, a section with hits is always open.
-            const open = q ? true : openSet.has(region)
+            const open = q ? true : openRegion === region
 
             return (
               <section className={styles.group} key={region}>
