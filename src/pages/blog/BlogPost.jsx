@@ -4,7 +4,7 @@ import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import PostCard from '../../components/PostCard.jsx'
-import { getPostBySlug, getRelatedPosts, richToText, titleParts } from '../../lib/posts.js'
+import { getPostBySlug, getRelatedPosts, richToText, titleParts, utcISO } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
 import TableOfContents from './TableOfContents.jsx'
 import SidebarPromos from './SidebarPromos.jsx'
@@ -31,8 +31,8 @@ function BlogPost() {
         canonical={url}
         ogImage={post.cover}
         ogType="article"
-        publishedTime={post.publishedISO}
-        modifiedTime={post.modifiedISO}
+        publishedTime={utcISO(post.publishedISO)}
+        modifiedTime={utcISO(post.modifiedISO)}
       />
 
       {/* Dates are the post's own — the imported archive keeps the source
@@ -47,8 +47,8 @@ function BlogPost() {
           headline: post.title,
           description: post.metaDescription ?? post.excerpt,
           image: post.cover ? `${SITE_ORIGIN}${post.cover}` : undefined,
-          datePublished: post.publishedISO,
-          dateModified: post.modifiedISO ?? post.publishedISO,
+          datePublished: utcISO(post.publishedISO),
+          dateModified: utcISO(post.modifiedISO ?? post.publishedISO),
           author: {
             '@type': 'Person',
             name: post.author.name,

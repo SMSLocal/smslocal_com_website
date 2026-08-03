@@ -207,3 +207,15 @@ export const categories = [
   "All",
   ...[...new Set(allPosts.map((p) => p.category))].sort((a, b) => a.localeCompare(b)),
 ];
+
+/**
+ * Tags an imported timestamp as UTC. The archive stores what the source
+ * WordPress API returns in `date`/`modified`, which carry no offset — but that
+ * API reports `date_gmt` identical to `date`, so the site runs at UTC and the
+ * values are already correct, just unmarked. Without the marker every consumer
+ * has to guess the offset, and Google's Rich Results Test flags it.
+ */
+export function utcISO(iso) {
+  if (!iso) return iso;
+  return /(?:Z|[+-]\d{2}:?\d{2})$/.test(iso) ? iso : `${iso}Z`;
+}
