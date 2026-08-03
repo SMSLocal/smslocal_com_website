@@ -2,20 +2,21 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './CountryDirectory.module.css'
 
-/** Largest first, so the sections a visitor most likely wants are nearest. */
+/** Largest first; the rail order is fixed so it never reorders under the cursor. */
 const CONTINENTS = ['Asia', 'Europe', 'Africa', 'Americas', 'Oceania']
 
 /**
- * The full 195-country reference, grouped into collapsible continents.
+ * Two-pane browser for the 195-country reference: continent rail on the left,
+ * that continent's countries on the right.
  *
- * A single A–Z run of 195 entries is a wall — everything is on screen whether
- * you want it or not. Collapsed continents put the whole world in five rows and
- * let you open only the region you care about.
+ * The pane is a fixed height and scrolls internally, so the section occupies
+ * the same space whichever continent is selected and never pushes the rest of
+ * the page around — which is what both the long A–Z list and the expanding
+ * accordions did.
  *
- * Searching overrides the open/closed state: a continent holding a match opens
- * itself, so results are never hidden behind a collapsed section. That is the
- * failure this pattern usually has, and the reason `open` is derived rather
- * than purely stateful.
+ * Searching switches the right pane to results across every continent and
+ * annotates the rail with per-continent hit counts, so a match is never hidden
+ * behind an unselected region.
  */
 function Row({ c, linked }) {
   const inner = (
@@ -33,50 +34,44 @@ function Row({ c, linked }) {
       <span className={styles.dial}>{c.dial}</span>
     </>
   )
-  return (
-    <li>
-      {linked ? (
-        <Link className={`${styles.row} ${styles.rowLink}`} to={`/country-code/${c.slug}/`}>
-          {inner}
-        </Link>
-      ) : (
-        <span className={styles.row}>{inner}</span>
-      )}
-    </li>
+  return linked ? (
+    <Link className={`${styles.row} ${styles.rowLink}`} to={`/country-code/${c.slug}/`}>
+      {inner}
+    </Link>
+  ) : (
+    <span className={styles.row}>{inner}</span>
   )
 }
 
 function CountryDirectory({ countries, published }) {
   const [query, setQuery] = useState('')
-  // One at a time — opening a continent closes whichever was open. Asia starts
-  // open so the section reads as expandable rather than as five inert bars.
-  const [openRegion, setOpenRegion] = useState('Asia')
-
+  const [region, setRegion] = useState('Asia')
   const q = query.trim().toLowerCase()
 
-  const { groups, total } = useMemo(() => {
-    const matches = q
-      ? countries.filter(
-          (c) =>
-            c.name.toLowerCase().includes(q) ||
-            c.dial.includes(q) ||
-            c.iso2.toLowerCase() === q ||
-            (c.iso3 ?? '').toLowerCase() === q,
-        )
-      : countries
-
-    const byRegion = new Map(CONTINENTS.map((r) => [r, []]))
-    for (const c of matches) {
-      if (byRegion.has(c.region)) byRegion.get(c.region).push(c)
-    }
-    return { groups: byRegion, total: matches.length }
+  const matches = useMemo(() => {
+    if (!q) return null
+    return countries.filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.dial.includes(q) ||
+        c.iso2.toLowerCase() === q ||
+        (c.iso3 ?? '').toLowerCase() === q,
+    )
   }, [countries, q])
 
-  // Clicking the open one closes it, so the list can be fully collapsed.
-  const toggle = (region) => setOpenRegion((prev) => (prev === region ? null : region))
+  const counts = useMemo(() => {
+    const source = matches ?? countries
+    const m = new Map(CONTINENTS.map((r) => [r, 0]))
+    for (const c of source) if (m.has(c.region)) m.set(c.region, m.get(c.region) + 1)
+    return m
+  }, [countries, matches])
+
+  // Searching shows hits from every continent at once; otherwise the pane
+  // shows the selected one.
+  const list = matches ?? countries.filter((c) => c.region === region)
 
   return (
-    <div>
+    <div className={styles.browser}>
       <div className={styles.toolbar}>
         <input
           className={styles.search}
@@ -87,50 +82,49 @@ function CountryDirectory({ countries, published }) {
           aria-label="Search countries"
         />
         <span className={styles.count}>
-          <strong>{total}</strong> of {countries.length}
+          <strong>{list.length}</strong> {matches ? 'found' : `in ${region}`}
         </span>
       </div>
 
-      {total === 0 ? (
-        <p className={styles.empty}>No country matches “{query}”.</p>
-      ) : (
-        <div className={styles.stack}>
-          {CONTINENTS.map((region) => {
-            const list = groups.get(region) ?? []
-            if (!list.length) return null
-            // While searching, a section with hits is always open.
-            const open = q ? true : openRegion === region
-
+      <div className={styles.panes}>
+        <nav className={styles.rail} aria-label="Continents">
+          {CONTINENTS.map((r) => {
+            const n = counts.get(r) ?? 0
+            const active = !matches && r === region
             return (
-              <section className={styles.group} key={region}>
-                <button
-                  type="button"
-                  className={styles.head}
-                  onClick={() => toggle(region)}
-                  aria-expanded={open}
-                  disabled={Boolean(q)}
-                >
-                  <span className={styles.headName}>{region}</span>
-                  <span className={styles.headCount}>{list.length}</span>
-                  <span className={`${styles.chev} ${open ? styles.chevOpen : ''}`} aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                      <path d="M6 9l6 6 6-6" />
-                    </svg>
-                  </span>
-                </button>
-
-                {open && (
-                  <ul className={styles.rows}>
-                    {list.map((c) => (
-                      <Row key={c.slug} c={c} linked={published.has(c.slug)} />
-                    ))}
-                  </ul>
-                )}
-              </section>
+              <button
+                key={r}
+                type="button"
+                className={`${styles.railItem} ${active ? styles.railItemOn : ''}`}
+                onClick={() => {
+                  setQuery('')
+                  setRegion(r)
+                }}
+                aria-current={active || undefined}
+              >
+                <span className={styles.railName}>{r}</span>
+                {/* While searching this shows hits per continent rather than
+                    the total, so the rail explains where results are. */}
+                <span className={`${styles.railCount} ${matches && n === 0 ? styles.railCountOff : ''}`}>
+                  {n}
+                </span>
+              </button>
             )
           })}
+        </nav>
+
+        <div className={styles.pane}>
+          {list.length === 0 ? (
+            <p className={styles.empty}>No country matches “{query}”.</p>
+          ) : (
+            <div className={styles.rows}>
+              {list.map((c) => (
+                <Row key={c.slug} c={c} linked={published.has(c.slug)} />
+              ))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }

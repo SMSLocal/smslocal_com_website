@@ -1,26 +1,37 @@
-/* A–Z country index. One dense artifact across the full measure, not a table
-   of mostly-empty rows. */
+/* Two-pane country browser: continent rail + scrolling list.
+   Fixed height by design — the section takes the same space whichever
+   continent is selected, so nothing below it moves when you switch. */
 
+.browser {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* --- toolbar ----------------------------------------------------------- */
 .toolbar {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
 }
 .search {
-  flex: 1 1 300px;
-  max-width: 400px;
-  padding: 12px 18px;
+  flex: 1 1 260px;
+  max-width: 380px;
+  padding: 10px 16px;
   border: 1px solid var(--border);
   border-radius: 999px;
   font: inherit;
-  background: #fff;
+  background: var(--bg-subtle);
   color: var(--ink);
 }
 .search:focus {
   outline: 2px solid var(--brand-start);
   outline-offset: 1px;
+  background: #fff;
 }
 .count {
   font-size: 13px;
@@ -31,89 +42,91 @@
   font-weight: 600;
 }
 
-/* --- continent accordions ---------------------------------------------- */
-.stack {
+/* --- panes ------------------------------------------------------------- */
+.panes {
   display: grid;
-  gap: 10px;
-}
-.group {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  grid-template-columns: 216px 1fr;
+  min-height: 0;
 }
 
-.head {
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  border-right: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+.railItem {
   display: flex;
   align-items: center;
-  gap: 12px;
-  width: 100%;
-  padding: 16px 20px;
-  background: none;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 14px;
   border: 0;
+  border-radius: var(--radius-md);
+  background: none;
   font: inherit;
-  text-align: left;
   cursor: pointer;
   color: var(--ink);
+  text-align: left;
 }
-.head:hover {
-  background: var(--cc-surface);
+.railItem:hover {
+  background: #fff;
 }
-/* Disabled while searching — the section is forced open then, so a toggle
-   would do nothing and shouldn't look clickable. */
-.head:disabled {
-  cursor: default;
-  background: none;
-}
-.head:focus-visible {
+.railItem:focus-visible {
   outline: 2px solid var(--brand-start);
   outline-offset: -2px;
 }
-.headName {
-  flex: 1 1 auto;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--heading);
+.railItemOn {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), inset 3px 0 0 var(--brand-start);
 }
-.headCount {
-  font-size: 12px;
+.railName {
+  font-size: 14px;
+  font-weight: 500;
+}
+.railItemOn .railName {
+  font-weight: 600;
+  color: var(--navy);
+}
+.railCount {
+  font-size: 11px;
   font-weight: 600;
   color: var(--brand-start);
   background: var(--cc-surface);
   border-radius: 999px;
-  padding: 3px 10px;
+  padding: 2px 8px;
   font-variant-numeric: tabular-nums;
 }
-.chev {
-  display: grid;
-  place-items: center;
+/* A continent with no search hits — dimmed rather than hidden, so the rail
+   keeps its shape while results are filtered. */
+.railCountOff {
   color: var(--text-secondary);
-  transition: transform 0.22s ease;
-}
-.chevOpen {
-  transform: rotate(180deg);
+  background: var(--muted);
 }
 
+/* Fixed height, internal scroll: the pane holds 46 or 14 countries in the
+   same space, so the page below never shifts. */
+.pane {
+  height: 420px;
+  overflow-y: auto;
+  padding: 12px 14px;
+}
 .rows {
-  list-style: none;
-  margin: 0;
-  padding: 4px 20px 18px;
-  columns: 3;
-  column-gap: 32px;
-  border-top: 1px solid var(--border);
+  columns: 2;
+  column-gap: 24px;
 }
 
 .row {
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 6px 8px;
+  padding: 7px 10px;
   border-radius: 6px;
   text-decoration: none;
   color: var(--ink);
   font-size: 14px;
-  /* Rows are inside a multi-column flow; without this a row can be split
-     across the column boundary. */
   break-inside: avoid;
 }
 .rowLink:hover {
@@ -162,22 +175,36 @@
 
 .empty {
   color: var(--text-secondary);
-  padding: 24px 0;
+  padding: 20px 6px;
+  margin: 0;
 }
 
-@media (max-width: 820px) {
-  .rows {
-    columns: 2;
+@media (max-width: 900px) {
+  /* The rail becomes a horizontal strip above the list — a 216px column plus
+     a two-column list does not fit a phone. */
+  .panes {
+    grid-template-columns: 1fr;
   }
-}
-@media (max-width: 560px) {
+  .rail {
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+  }
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+  .railItem {
+    flex: none;
+  }
+  .railItemOn {
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), inset 0 -3px 0 var(--brand-start);
+  }
   .rows {
     columns: 1;
   }
-  .rows {
-    padding: 4px 14px 14px;
-  }
-  .head {
-    padding: 14px 14px;
+  .pane {
+    height: 360px;
   }
 }
