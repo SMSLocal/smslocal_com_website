@@ -1,5 +1,6 @@
 import countries from '../data/countryPages.generated.json'
 import { COUNTRY_CONTENT, FEATURED } from '../data/countryContent.js'
+import { COUNTRY_INTROS } from '../data/countryIntros.js'
 
 /**
  * A country page is the generated facts plus, where a market has actually been
@@ -11,7 +12,10 @@ export function getCountry(slug) {
   const base = countries.find((c) => c.slug === slug)
   if (!base) return null
   const content = COUNTRY_CONTENT[slug] ?? null
-  return { ...base, ...content, researched: Boolean(content) }
+  // Researched markets carry their own intro; everything else gets the
+  // hand-written one. Neither is composed from a template.
+  const intro = content?.intro ?? COUNTRY_INTROS[slug] ?? null
+  return { ...base, ...content, intro, researched: Boolean(content) }
 }
 
 /**
