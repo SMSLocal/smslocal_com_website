@@ -6,6 +6,9 @@ import { researchedCountries, allCountries } from '../../lib/countries.js'
 import HeroStage from './HeroStage.jsx'
 import PopularStrip from './PopularStrip.jsx'
 import CountryDirectory from './CountryDirectory.jsx'
+import { NumberAnatomy, EncodingTable, NumberingChanges, FAQS } from './CountryHubSections.jsx'
+// The shared inner-page FAQ and CTA, in the order every other page uses them.
+import { FAQ, CTABanner } from '../../components/sections/Sections.jsx'
 import styles from './CountryCode.module.css'
 
 /**
@@ -33,6 +36,22 @@ function CountryIndex() {
           url: `${SITE_ORIGIN}/country-code/`,
           name: 'International country codes',
           isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+        }}
+      />
+
+      {/* Built from the same FAQS array the section renders, so the markup and
+          the visible answers cannot drift — mismatched FAQ schema is treated as
+          misleading structured data. */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          '@id': `${SITE_ORIGIN}/country-code/#faq`,
+          mainEntity: FAQS.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
         }}
       />
 
@@ -71,15 +90,60 @@ function CountryIndex() {
 
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={styles.wrap}>
+          <div className={styles.kicker}>How it works</div>
+          <h2 className={styles.h2}>What a country code actually is</h2>
+          <p className={styles.sub}>
+            Every number on this page is one part of a longer string. Here is what each part does,
+            and the three things that most often go wrong.
+          </p>
+          <NumberAnatomy />
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.wrap}>
           <div className={styles.kicker}>Reference</div>
           <h2 className={styles.h2}>All country calling codes</h2>
           <p className={styles.sub}>
-            Every calling code, A–Z. Countries with a published guide link through; the rest are
-            listed for reference.
+            Pick a continent, or search by name, code or ISO. Countries with a published guide link
+            through; the rest are listed for reference.
           </p>
           <CountryDirectory countries={allCountries} published={published} />
         </div>
       </section>
+
+      <section className={styles.section}>
+        <div className={styles.wrap}>
+          <div className={styles.kicker}>Cost</div>
+          <h2 className={styles.h2}>Why the same message costs more in some countries</h2>
+          <p className={styles.sub}>
+            Rarely the country code itself. Usually the alphabet — which decides how much text fits
+            in one billable segment.
+          </p>
+          <EncodingTable />
+        </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.wrap}>
+          <div className={styles.kicker}>Watch out</div>
+          <h2 className={styles.h2}>Changes that quietly break contact lists</h2>
+          <p className={styles.sub}>
+            Countries renumber and rename. Numbers collected before a change look perfectly valid
+            and simply never arrive.
+          </p>
+          <NumberingChanges />
+        </div>
+      </section>
+
+      <CTABanner
+        title={<>Send to every country code from one account</>}
+        subtitle="Direct routes, per-operator delivery reporting and sender ID handling — from one dashboard or one API call."
+        cta={{ label: 'Create a free account', href: '/signup/' }}
+        secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
+      />
+
+      <FAQ title={<>Country codes — frequently asked questions</>} items={FAQS} alt />
     </div>
   )
 }
