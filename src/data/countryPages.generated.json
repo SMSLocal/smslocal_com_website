@@ -1,0 +1,1952 @@
+[
+ {
+  "slug": "afghanistan",
+  "name": "Afghanistan",
+  "iso2": "AF",
+  "iso3": "AFG",
+  "dial": "+93",
+  "population": 29121286,
+  "areaKm2": 647500,
+  "gdpUsd": "20.65 Billion"
+ },
+ {
+  "slug": "albania",
+  "name": "Albania",
+  "iso2": "AL",
+  "iso3": "ALB",
+  "dial": "+355",
+  "population": 2986952,
+  "areaKm2": 28748,
+  "gdpUsd": "12.8 Billion"
+ },
+ {
+  "slug": "algeria",
+  "name": "Algeria",
+  "iso2": "DZ",
+  "iso3": "DZA",
+  "dial": "+213",
+  "population": 34586184,
+  "areaKm2": 2381740,
+  "gdpUsd": "215.7 Billion"
+ },
+ {
+  "slug": "andorra",
+  "name": "Andorra",
+  "iso2": "AD",
+  "iso3": "AND",
+  "dial": "+376",
+  "population": 84000,
+  "areaKm2": 468,
+  "gdpUsd": "4.8 Billion"
+ },
+ {
+  "slug": "angola",
+  "name": "Angola",
+  "iso2": "AO",
+  "iso3": "AGO",
+  "dial": "+244",
+  "population": 13068161,
+  "areaKm2": 1246700,
+  "gdpUsd": "124 Billion"
+ },
+ {
+  "slug": "antigua-and-barbuda",
+  "name": "Antigua and Barbuda",
+  "iso2": "AG",
+  "iso3": "ATG",
+  "dial": "+1268",
+  "population": 86754,
+  "areaKm2": 443,
+  "gdpUsd": "1.22 Billion"
+ },
+ {
+  "slug": "argentina",
+  "name": "Argentina",
+  "iso2": "AR",
+  "iso3": "ARG",
+  "dial": "+54",
+  "population": 41343201,
+  "areaKm2": 2766890,
+  "gdpUsd": "484.6 Billion"
+ },
+ {
+  "slug": "armenia",
+  "name": "Armenia",
+  "iso2": "AM",
+  "iso3": "ARM",
+  "dial": "+374",
+  "population": 2968000,
+  "areaKm2": 29800,
+  "gdpUsd": "10.44 Billion"
+ },
+ {
+  "slug": "australia",
+  "name": "Australia",
+  "iso2": "AU",
+  "iso3": "AUS",
+  "dial": "+61",
+  "population": 21515754,
+  "areaKm2": 7686850,
+  "gdpUsd": "1.488 Trillion"
+ },
+ {
+  "slug": "austria",
+  "name": "Austria",
+  "iso2": "AT",
+  "iso3": "AUT",
+  "dial": "+43",
+  "population": 8205000,
+  "areaKm2": 83858,
+  "gdpUsd": "417.9 Billion"
+ },
+ {
+  "slug": "azerbaijan",
+  "name": "Azerbaijan",
+  "iso2": "AZ",
+  "iso3": "AZE",
+  "dial": "+994",
+  "population": 8303512,
+  "areaKm2": 86600,
+  "gdpUsd": "76.01 Billion"
+ },
+ {
+  "slug": "bahamas",
+  "name": "Bahamas",
+  "iso2": "BS",
+  "iso3": "BHS",
+  "dial": "+1242",
+  "population": 301790,
+  "areaKm2": 13940,
+  "gdpUsd": "8.373 Billion"
+ },
+ {
+  "slug": "bahrain",
+  "name": "Bahrain",
+  "iso2": "BH",
+  "iso3": "BHR",
+  "dial": "+973",
+  "population": 738004,
+  "areaKm2": 665,
+  "gdpUsd": "28.36 Billion"
+ },
+ {
+  "slug": "bangladesh",
+  "name": "Bangladesh",
+  "iso2": "BD",
+  "iso3": "BGD",
+  "dial": "+880",
+  "population": 156118464,
+  "areaKm2": 144000,
+  "gdpUsd": "140.2 Billion"
+ },
+ {
+  "slug": "barbados",
+  "name": "Barbados",
+  "iso2": "BB",
+  "iso3": "BRB",
+  "dial": "+1246",
+  "population": 285653,
+  "areaKm2": 431,
+  "gdpUsd": "4.262 Billion"
+ },
+ {
+  "slug": "belarus",
+  "name": "Belarus",
+  "iso2": "BY",
+  "iso3": "BLR",
+  "dial": "+375",
+  "population": 9685000,
+  "areaKm2": 207600,
+  "gdpUsd": "69.24 Billion"
+ },
+ {
+  "slug": "belgium",
+  "name": "Belgium",
+  "iso2": "BE",
+  "iso3": "BEL",
+  "dial": "+32",
+  "population": 10403000,
+  "areaKm2": 30510,
+  "gdpUsd": "507.4 Billion"
+ },
+ {
+  "slug": "belize",
+  "name": "Belize",
+  "iso2": "BZ",
+  "iso3": "BLZ",
+  "dial": "+501",
+  "population": 314522,
+  "areaKm2": 22966,
+  "gdpUsd": "1.637 Billion"
+ },
+ {
+  "slug": "benin",
+  "name": "Benin",
+  "iso2": "BJ",
+  "iso3": "BEN",
+  "dial": "+229",
+  "population": 9056010,
+  "areaKm2": 112620,
+  "gdpUsd": "8.359 Billion"
+ },
+ {
+  "slug": "bhutan",
+  "name": "Bhutan",
+  "iso2": "BT",
+  "iso3": "BTN",
+  "dial": "+975",
+  "population": 699847,
+  "areaKm2": 47000,
+  "gdpUsd": "2.133 Billion"
+ },
+ {
+  "slug": "bolivia",
+  "name": "Bolivia",
+  "iso2": "BO",
+  "iso3": "BOL",
+  "dial": "+591",
+  "population": 9947418,
+  "areaKm2": 1098580,
+  "gdpUsd": "30.79 Billion"
+ },
+ {
+  "slug": "bosnia-and-herzegovina",
+  "name": "Bosnia and Herzegovina",
+  "iso2": "BA",
+  "iso3": "BIH",
+  "dial": "+387",
+  "population": 4590000,
+  "areaKm2": 51129,
+  "gdpUsd": "18.87 Billion"
+ },
+ {
+  "slug": "botswana",
+  "name": "Botswana",
+  "iso2": "BW",
+  "iso3": "BWA",
+  "dial": "+267",
+  "population": 2029307,
+  "areaKm2": 600370,
+  "gdpUsd": "15.53 Billion"
+ },
+ {
+  "slug": "brazil",
+  "name": "Brazil",
+  "iso2": "BR",
+  "iso3": "BRA",
+  "dial": "+55",
+  "population": 201103330,
+  "areaKm2": 8511965,
+  "gdpUsd": "2.19 Trillion"
+ },
+ {
+  "slug": "brunei",
+  "name": "Brunei",
+  "iso2": "BN",
+  "iso3": "BRN",
+  "dial": "+673",
+  "population": 395027,
+  "areaKm2": 5770,
+  "gdpUsd": "16.56 Billion"
+ },
+ {
+  "slug": "bulgaria",
+  "name": "Bulgaria",
+  "iso2": "BG",
+  "iso3": "BGR",
+  "dial": "+359",
+  "population": 7148785,
+  "areaKm2": 110910,
+  "gdpUsd": "53.7 Billion"
+ },
+ {
+  "slug": "burkina-faso",
+  "name": "Burkina Faso",
+  "iso2": "BF",
+  "iso3": "BFA",
+  "dial": "+226",
+  "population": 16241811,
+  "areaKm2": 274200,
+  "gdpUsd": "12.13 Billion"
+ },
+ {
+  "slug": "burundi",
+  "name": "Burundi",
+  "iso2": "BI",
+  "iso3": "BDI",
+  "dial": "+257",
+  "population": 9863117,
+  "areaKm2": 27830,
+  "gdpUsd": "2.676 Billion"
+ },
+ {
+  "slug": "cambodia",
+  "name": "Cambodia",
+  "iso2": "KH",
+  "iso3": "KHM",
+  "dial": "+855",
+  "population": 14453680,
+  "areaKm2": 181040,
+  "gdpUsd": "15.64 Billion"
+ },
+ {
+  "slug": "cameroon",
+  "name": "Cameroon",
+  "iso2": "CM",
+  "iso3": "CMR",
+  "dial": "+237",
+  "population": 19294149,
+  "areaKm2": 475440,
+  "gdpUsd": "27.88 Billion"
+ },
+ {
+  "slug": "canada",
+  "name": "Canada",
+  "iso2": "CA",
+  "iso3": "CAN",
+  "dial": "+1",
+  "population": 33679000,
+  "areaKm2": 9984670,
+  "gdpUsd": "1.825 Trillion"
+ },
+ {
+  "slug": "cape-verde",
+  "name": "Cape Verde",
+  "iso2": "CV",
+  "iso3": "CPV",
+  "dial": "+238",
+  "population": 508659,
+  "areaKm2": 4033,
+  "gdpUsd": "1.955 Billion"
+ },
+ {
+  "slug": "central-african-republic",
+  "name": "Central African Republic",
+  "iso2": "CF",
+  "iso3": "CAF",
+  "dial": "+236",
+  "population": 4844927,
+  "areaKm2": 622984,
+  "gdpUsd": "2.05 Billion"
+ },
+ {
+  "slug": "chad",
+  "name": "Chad",
+  "iso2": "TD",
+  "iso3": "TCD",
+  "dial": "+235",
+  "population": 10543464,
+  "areaKm2": 1284000,
+  "gdpUsd": "13.59 Billion"
+ },
+ {
+  "slug": "chile",
+  "name": "Chile",
+  "iso2": "CL",
+  "iso3": "CHL",
+  "dial": "+56",
+  "population": 16746491,
+  "areaKm2": 756950,
+  "gdpUsd": "281.7 Billion"
+ },
+ {
+  "slug": "china",
+  "name": "China",
+  "iso2": "CN",
+  "iso3": "CHN",
+  "dial": "+86",
+  "population": 1330044000,
+  "areaKm2": 9596960,
+  "gdpUsd": "9.33 Trillion"
+ },
+ {
+  "slug": "colombia",
+  "name": "Colombia",
+  "iso2": "CO",
+  "iso3": "COL",
+  "dial": "+57",
+  "population": 47790000,
+  "areaKm2": 1138910,
+  "gdpUsd": "369.2 Billion"
+ },
+ {
+  "slug": "comoros",
+  "name": "Comoros",
+  "iso2": "KM",
+  "iso3": "COM",
+  "dial": "+269",
+  "population": 773407,
+  "areaKm2": 2170,
+  "gdpUsd": "658 Million"
+ },
+ {
+  "slug": "costa-rica",
+  "name": "Costa Rica",
+  "iso2": "CR",
+  "iso3": "CRI",
+  "dial": "+506",
+  "population": 4516220,
+  "areaKm2": 51100,
+  "gdpUsd": "48.51 Billion"
+ },
+ {
+  "slug": "croatia",
+  "name": "Croatia",
+  "iso2": "HR",
+  "iso3": "HRV",
+  "dial": "+385",
+  "population": 4491000,
+  "areaKm2": 56542,
+  "gdpUsd": "59.14 Billion"
+ },
+ {
+  "slug": "cuba",
+  "name": "Cuba",
+  "iso2": "CU",
+  "iso3": "CUB",
+  "dial": "+53",
+  "population": 11423000,
+  "areaKm2": 110860,
+  "gdpUsd": "72.3 Billion"
+ },
+ {
+  "slug": "cyprus",
+  "name": "Cyprus",
+  "iso2": "CY",
+  "iso3": "CYP",
+  "dial": "+357",
+  "population": 1102677,
+  "areaKm2": 9250,
+  "gdpUsd": "21.78 Billion"
+ },
+ {
+  "slug": "czechia",
+  "name": "Czechia",
+  "iso2": "CZ",
+  "iso3": "CZE",
+  "dial": "+420",
+  "population": 10476000,
+  "areaKm2": 78866,
+  "gdpUsd": "194.8 Billion"
+ },
+ {
+  "slug": "denmark",
+  "name": "Denmark",
+  "iso2": "DK",
+  "iso3": "DNK",
+  "dial": "+45",
+  "population": 5484000,
+  "areaKm2": 43094,
+  "gdpUsd": "324.3 Billion"
+ },
+ {
+  "slug": "djibouti",
+  "name": "Djibouti",
+  "iso2": "DJ",
+  "iso3": "DJI",
+  "dial": "+253",
+  "population": 740528,
+  "areaKm2": 23000,
+  "gdpUsd": "1.459 Billion"
+ },
+ {
+  "slug": "dominica",
+  "name": "Dominica",
+  "iso2": "DM",
+  "iso3": "DMA",
+  "dial": "+1767",
+  "population": 72813,
+  "areaKm2": 754,
+  "gdpUsd": "495 Million"
+ },
+ {
+  "slug": "dominican-republic",
+  "name": "Dominican Republic",
+  "iso2": "DO",
+  "iso3": "DOM",
+  "dial": "+1",
+  "population": 9823821,
+  "areaKm2": 48730,
+  "gdpUsd": "59.27 Billion"
+ },
+ {
+  "slug": "dr-congo",
+  "name": "DR Congo",
+  "iso2": "CD",
+  "iso3": "COD",
+  "dial": "+243",
+  "population": 70916439,
+  "areaKm2": 2345410,
+  "gdpUsd": "18.56 Billion"
+ },
+ {
+  "slug": "ecuador",
+  "name": "Ecuador",
+  "iso2": "EC",
+  "iso3": "ECU",
+  "dial": "+593",
+  "population": 14790608,
+  "areaKm2": 283560,
+  "gdpUsd": "91.41 Billion"
+ },
+ {
+  "slug": "egypt",
+  "name": "Egypt",
+  "iso2": "EG",
+  "iso3": "EGY",
+  "dial": "+20",
+  "population": 80471869,
+  "areaKm2": 1001450,
+  "gdpUsd": "262 Billion"
+ },
+ {
+  "slug": "el-salvador",
+  "name": "El Salvador",
+  "iso2": "SV",
+  "iso3": "SLV",
+  "dial": "+503",
+  "population": 6052064,
+  "areaKm2": 21040,
+  "gdpUsd": "24.67 Billion"
+ },
+ {
+  "slug": "equatorial-guinea",
+  "name": "Equatorial Guinea",
+  "iso2": "GQ",
+  "iso3": "GNQ",
+  "dial": "+240",
+  "population": 1014999,
+  "areaKm2": 28051,
+  "gdpUsd": "17.08 Billion"
+ },
+ {
+  "slug": "eritrea",
+  "name": "Eritrea",
+  "iso2": "ER",
+  "iso3": "ERI",
+  "dial": "+291",
+  "population": 5792984,
+  "areaKm2": 121320,
+  "gdpUsd": "3.438 Billion"
+ },
+ {
+  "slug": "estonia",
+  "name": "Estonia",
+  "iso2": "EE",
+  "iso3": "EST",
+  "dial": "+372",
+  "population": 1291170,
+  "areaKm2": 45226,
+  "gdpUsd": "24.28 Billion"
+ },
+ {
+  "slug": "eswatini",
+  "name": "Eswatini",
+  "iso2": "SZ",
+  "iso3": "SWZ",
+  "dial": "+268",
+  "population": 1354051,
+  "areaKm2": 17363,
+  "gdpUsd": "3.807 Billion"
+ },
+ {
+  "slug": "ethiopia",
+  "name": "Ethiopia",
+  "iso2": "ET",
+  "iso3": "ETH",
+  "dial": "+251",
+  "population": 88013491,
+  "areaKm2": 1127127,
+  "gdpUsd": "47.34 Billion"
+ },
+ {
+  "slug": "fiji",
+  "name": "Fiji",
+  "iso2": "FJ",
+  "iso3": "FJI",
+  "dial": "+679",
+  "population": 875983,
+  "areaKm2": 18270,
+  "gdpUsd": "4.218 Billion"
+ },
+ {
+  "slug": "finland",
+  "name": "Finland",
+  "iso2": "FI",
+  "iso3": "FIN",
+  "dial": "+358",
+  "population": 5244000,
+  "areaKm2": 337030,
+  "gdpUsd": "259.6 Billion"
+ },
+ {
+  "slug": "france",
+  "name": "France",
+  "iso2": "FR",
+  "iso3": "FRA",
+  "dial": "+33",
+  "population": 64768389,
+  "areaKm2": 547030,
+  "gdpUsd": "2.739 Trillion"
+ },
+ {
+  "slug": "gabon",
+  "name": "Gabon",
+  "iso2": "GA",
+  "iso3": "GAB",
+  "dial": "+241",
+  "population": 1545255,
+  "areaKm2": 267667,
+  "gdpUsd": "19.97 Billion"
+ },
+ {
+  "slug": "gambia",
+  "name": "Gambia",
+  "iso2": "GM",
+  "iso3": "GMB",
+  "dial": "+220",
+  "population": 1593256,
+  "areaKm2": 11300,
+  "gdpUsd": "896 Million"
+ },
+ {
+  "slug": "georgia",
+  "name": "Georgia",
+  "iso2": "GE",
+  "iso3": "GEO",
+  "dial": "+995",
+  "population": 4630000,
+  "areaKm2": 69700,
+  "gdpUsd": "15.95 Billion"
+ },
+ {
+  "slug": "germany",
+  "name": "Germany",
+  "iso2": "DE",
+  "iso3": "DEU",
+  "dial": "+49",
+  "population": 81802257,
+  "areaKm2": 357021,
+  "gdpUsd": "3.593 Trillion"
+ },
+ {
+  "slug": "ghana",
+  "name": "Ghana",
+  "iso2": "GH",
+  "iso3": "GHA",
+  "dial": "+233",
+  "population": 24339838,
+  "areaKm2": 239460,
+  "gdpUsd": "45.55 Billion"
+ },
+ {
+  "slug": "greece",
+  "name": "Greece",
+  "iso2": "GR",
+  "iso3": "GRC",
+  "dial": "+30",
+  "population": 11000000,
+  "areaKm2": 131940,
+  "gdpUsd": "243.3 Billion"
+ },
+ {
+  "slug": "grenada",
+  "name": "Grenada",
+  "iso2": "GD",
+  "iso3": "GRD",
+  "dial": "+1473",
+  "population": 107818,
+  "areaKm2": 344,
+  "gdpUsd": "811 Million"
+ },
+ {
+  "slug": "guatemala",
+  "name": "Guatemala",
+  "iso2": "GT",
+  "iso3": "GTM",
+  "dial": "+502",
+  "population": 13550440,
+  "areaKm2": 108890,
+  "gdpUsd": "53.9 Billion"
+ },
+ {
+  "slug": "guinea",
+  "name": "Guinea",
+  "iso2": "GN",
+  "iso3": "GIN",
+  "dial": "+224",
+  "population": 10324025,
+  "areaKm2": 245857,
+  "gdpUsd": "6.544 Billion"
+ },
+ {
+  "slug": "guinea-bissau",
+  "name": "Guinea-Bissau",
+  "iso2": "GW",
+  "iso3": "GNB",
+  "dial": "+245",
+  "population": 1565126,
+  "areaKm2": 36120,
+  "gdpUsd": "880 Million"
+ },
+ {
+  "slug": "guyana",
+  "name": "Guyana",
+  "iso2": "GY",
+  "iso3": "GUY",
+  "dial": "+592",
+  "population": 748486,
+  "areaKm2": 214970,
+  "gdpUsd": "3.02 Billion"
+ },
+ {
+  "slug": "haiti",
+  "name": "Haiti",
+  "iso2": "HT",
+  "iso3": "HTI",
+  "dial": "+509",
+  "population": 9648924,
+  "areaKm2": 27750,
+  "gdpUsd": "8.287 Billion"
+ },
+ {
+  "slug": "honduras",
+  "name": "Honduras",
+  "iso2": "HN",
+  "iso3": "HND",
+  "dial": "+504",
+  "population": 7989415,
+  "areaKm2": 112090,
+  "gdpUsd": "18.88 Billion"
+ },
+ {
+  "slug": "hungary",
+  "name": "Hungary",
+  "iso2": "HU",
+  "iso3": "HUN",
+  "dial": "+36",
+  "population": 9982000,
+  "areaKm2": 93030,
+  "gdpUsd": "130.6 Billion"
+ },
+ {
+  "slug": "iceland",
+  "name": "Iceland",
+  "iso2": "IS",
+  "iso3": "ISL",
+  "dial": "+354",
+  "population": 308910,
+  "areaKm2": 103000,
+  "gdpUsd": "14.59 Billion"
+ },
+ {
+  "slug": "india",
+  "name": "India",
+  "iso2": "IN",
+  "iso3": "IND",
+  "dial": "+91",
+  "population": 1173108018,
+  "areaKm2": 3287590,
+  "gdpUsd": "1.67 Trillion"
+ },
+ {
+  "slug": "indonesia",
+  "name": "Indonesia",
+  "iso2": "ID",
+  "iso3": "IDN",
+  "dial": "+62",
+  "population": 242968342,
+  "areaKm2": 1919440,
+  "gdpUsd": "867.5 Billion"
+ },
+ {
+  "slug": "iran",
+  "name": "Iran",
+  "iso2": "IR",
+  "iso3": "IRN",
+  "dial": "+98",
+  "population": 76923300,
+  "areaKm2": 1648000,
+  "gdpUsd": "411.9 Billion"
+ },
+ {
+  "slug": "iraq",
+  "name": "Iraq",
+  "iso2": "IQ",
+  "iso3": "IRQ",
+  "dial": "+964",
+  "population": 29671605,
+  "areaKm2": 437072,
+  "gdpUsd": "221.8 Billion"
+ },
+ {
+  "slug": "ireland",
+  "name": "Ireland",
+  "iso2": "IE",
+  "iso3": "IRL",
+  "dial": "+353",
+  "population": 4622917,
+  "areaKm2": 70280,
+  "gdpUsd": "220.9 Billion"
+ },
+ {
+  "slug": "italy",
+  "name": "Italy",
+  "iso2": "IT",
+  "iso3": "ITA",
+  "dial": "+39",
+  "population": 60340328,
+  "areaKm2": 301230,
+  "gdpUsd": "2.068 Trillion"
+ },
+ {
+  "slug": "ivory-coast",
+  "name": "Ivory Coast",
+  "iso2": "CI",
+  "iso3": "CIV",
+  "dial": "+225",
+  "population": 21058798,
+  "areaKm2": 322460,
+  "gdpUsd": "28.28 Billion"
+ },
+ {
+  "slug": "jamaica",
+  "name": "Jamaica",
+  "iso2": "JM",
+  "iso3": "JAM",
+  "dial": "+1876",
+  "population": 2847232,
+  "areaKm2": 10991,
+  "gdpUsd": "14.39 Billion"
+ },
+ {
+  "slug": "japan",
+  "name": "Japan",
+  "iso2": "JP",
+  "iso3": "JPN",
+  "dial": "+81",
+  "population": 127288000,
+  "areaKm2": 377835,
+  "gdpUsd": "5.007 Trillion"
+ },
+ {
+  "slug": "jordan",
+  "name": "Jordan",
+  "iso2": "JO",
+  "iso3": "JOR",
+  "dial": "+962",
+  "population": 6407085,
+  "areaKm2": 92300,
+  "gdpUsd": "34.08 Billion"
+ },
+ {
+  "slug": "kazakhstan",
+  "name": "Kazakhstan",
+  "iso2": "KZ",
+  "iso3": "KAZ",
+  "dial": "+7",
+  "population": 15340000,
+  "areaKm2": 2717300,
+  "gdpUsd": "224.9 Billion"
+ },
+ {
+  "slug": "kenya",
+  "name": "Kenya",
+  "iso2": "KE",
+  "iso3": "KEN",
+  "dial": "+254",
+  "population": 40046566,
+  "areaKm2": 582650,
+  "gdpUsd": "45.31 Billion"
+ },
+ {
+  "slug": "kiribati",
+  "name": "Kiribati",
+  "iso2": "KI",
+  "iso3": "KIR",
+  "dial": "+686",
+  "population": 92533,
+  "areaKm2": 811,
+  "gdpUsd": "173 Million"
+ },
+ {
+  "slug": "kosovo",
+  "name": "Kosovo",
+  "iso2": "XK",
+  "iso3": "XKX",
+  "dial": "+383",
+  "population": 1800000,
+  "areaKm2": 10887,
+  "gdpUsd": "7.15 Billion"
+ },
+ {
+  "slug": "kuwait",
+  "name": "Kuwait",
+  "iso2": "KW",
+  "iso3": "KWT",
+  "dial": "+965",
+  "population": 2789132,
+  "areaKm2": 17820,
+  "gdpUsd": "179.5 Billion"
+ },
+ {
+  "slug": "kyrgyzstan",
+  "name": "Kyrgyzstan",
+  "iso2": "KG",
+  "iso3": "KGZ",
+  "dial": "+996",
+  "population": 5508626,
+  "areaKm2": 198500,
+  "gdpUsd": "7.234 Billion"
+ },
+ {
+  "slug": "laos",
+  "name": "Laos",
+  "iso2": "LA",
+  "iso3": "LAO",
+  "dial": "+856",
+  "population": 6368162,
+  "areaKm2": 236800,
+  "gdpUsd": "10.1 Billion"
+ },
+ {
+  "slug": "latvia",
+  "name": "Latvia",
+  "iso2": "LV",
+  "iso3": "LVA",
+  "dial": "+371",
+  "population": 2217969,
+  "areaKm2": 64589,
+  "gdpUsd": "30.38 Billion"
+ },
+ {
+  "slug": "lebanon",
+  "name": "Lebanon",
+  "iso2": "LB",
+  "iso3": "LBN",
+  "dial": "+961",
+  "population": 4125247,
+  "areaKm2": 10400,
+  "gdpUsd": "43.49 Billion"
+ },
+ {
+  "slug": "lesotho",
+  "name": "Lesotho",
+  "iso2": "LS",
+  "iso3": "LSO",
+  "dial": "+266",
+  "population": 1919552,
+  "areaKm2": 30355,
+  "gdpUsd": "2.457 Billion"
+ },
+ {
+  "slug": "liberia",
+  "name": "Liberia",
+  "iso2": "LR",
+  "iso3": "LBR",
+  "dial": "+231",
+  "population": 3685076,
+  "areaKm2": 111370,
+  "gdpUsd": "1.977 Billion"
+ },
+ {
+  "slug": "libya",
+  "name": "Libya",
+  "iso2": "LY",
+  "iso3": "LBY",
+  "dial": "+218",
+  "population": 6461454,
+  "areaKm2": 1759540,
+  "gdpUsd": "70.92 Billion"
+ },
+ {
+  "slug": "liechtenstein",
+  "name": "Liechtenstein",
+  "iso2": "LI",
+  "iso3": "LIE",
+  "dial": "+423",
+  "population": 35000,
+  "areaKm2": 160,
+  "gdpUsd": "5.113 Billion"
+ },
+ {
+  "slug": "lithuania",
+  "name": "Lithuania",
+  "iso2": "LT",
+  "iso3": "LTU",
+  "dial": "+370",
+  "population": 2944459,
+  "areaKm2": 65200,
+  "gdpUsd": "46.71 Billion"
+ },
+ {
+  "slug": "luxembourg",
+  "name": "Luxembourg",
+  "iso2": "LU",
+  "iso3": "LUX",
+  "dial": "+352",
+  "population": 497538,
+  "areaKm2": 2586,
+  "gdpUsd": "60.54 Billion"
+ },
+ {
+  "slug": "madagascar",
+  "name": "Madagascar",
+  "iso2": "MG",
+  "iso3": "MDG",
+  "dial": "+261",
+  "population": 21281844,
+  "areaKm2": 587040,
+  "gdpUsd": "10.53 Billion"
+ },
+ {
+  "slug": "malawi",
+  "name": "Malawi",
+  "iso2": "MW",
+  "iso3": "MWI",
+  "dial": "+265",
+  "population": 15447500,
+  "areaKm2": 118480,
+  "gdpUsd": "3.683 Billion"
+ },
+ {
+  "slug": "malaysia",
+  "name": "Malaysia",
+  "iso2": "MY",
+  "iso3": "MYS",
+  "dial": "+60",
+  "population": 28274729,
+  "areaKm2": 329750,
+  "gdpUsd": "312.4 Billion"
+ },
+ {
+  "slug": "maldives",
+  "name": "Maldives",
+  "iso2": "MV",
+  "iso3": "MDV",
+  "dial": "+960",
+  "population": 395650,
+  "areaKm2": 300,
+  "gdpUsd": "2.27 Billion"
+ },
+ {
+  "slug": "mali",
+  "name": "Mali",
+  "iso2": "ML",
+  "iso3": "MLI",
+  "dial": "+223",
+  "population": 13796354,
+  "areaKm2": 1240000,
+  "gdpUsd": "11.37 Billion"
+ },
+ {
+  "slug": "malta",
+  "name": "Malta",
+  "iso2": "MT",
+  "iso3": "MLT",
+  "dial": "+356",
+  "population": 403000,
+  "areaKm2": 316,
+  "gdpUsd": "9.541 Billion"
+ },
+ {
+  "slug": "marshall-islands",
+  "name": "Marshall Islands",
+  "iso2": "MH",
+  "iso3": "MHL",
+  "dial": "+692",
+  "population": 65859,
+  "areaKm2": 181,
+  "gdpUsd": "193 Million"
+ },
+ {
+  "slug": "mauritania",
+  "name": "Mauritania",
+  "iso2": "MR",
+  "iso3": "MRT",
+  "dial": "+222",
+  "population": 3205060,
+  "areaKm2": 1030700,
+  "gdpUsd": "4.183 Billion"
+ },
+ {
+  "slug": "mauritius",
+  "name": "Mauritius",
+  "iso2": "MU",
+  "iso3": "MUS",
+  "dial": "+230",
+  "population": 1294104,
+  "areaKm2": 2040,
+  "gdpUsd": "11.9 Billion"
+ },
+ {
+  "slug": "mexico",
+  "name": "Mexico",
+  "iso2": "MX",
+  "iso3": "MEX",
+  "dial": "+52",
+  "population": 112468855,
+  "areaKm2": 1972550,
+  "gdpUsd": "1.327 Trillion"
+ },
+ {
+  "slug": "micronesia",
+  "name": "Micronesia",
+  "iso2": "FM",
+  "iso3": "FSM",
+  "dial": "+691",
+  "population": 107708,
+  "areaKm2": 702,
+  "gdpUsd": "339 Million"
+ },
+ {
+  "slug": "moldova",
+  "name": "Moldova",
+  "iso2": "MD",
+  "iso3": "MDA",
+  "dial": "+373",
+  "population": 4324000,
+  "areaKm2": 33843,
+  "gdpUsd": "7.932 Billion"
+ },
+ {
+  "slug": "monaco",
+  "name": "Monaco",
+  "iso2": "MC",
+  "iso3": "MCO",
+  "dial": "+377",
+  "population": 32965,
+  "areaKm2": 2,
+  "gdpUsd": "5.748 Billion"
+ },
+ {
+  "slug": "mongolia",
+  "name": "Mongolia",
+  "iso2": "MN",
+  "iso3": "MNG",
+  "dial": "+976",
+  "population": 3086918,
+  "areaKm2": 1565000,
+  "gdpUsd": "11.14 Billion"
+ },
+ {
+  "slug": "montenegro",
+  "name": "Montenegro",
+  "iso2": "ME",
+  "iso3": "MNE",
+  "dial": "+382",
+  "population": 666730,
+  "areaKm2": 14026,
+  "gdpUsd": "4.518 Billion"
+ },
+ {
+  "slug": "morocco",
+  "name": "Morocco",
+  "iso2": "MA",
+  "iso3": "MAR",
+  "dial": "+212",
+  "population": 31627428,
+  "areaKm2": 446550,
+  "gdpUsd": "104.8 Billion"
+ },
+ {
+  "slug": "mozambique",
+  "name": "Mozambique",
+  "iso2": "MZ",
+  "iso3": "MOZ",
+  "dial": "+258",
+  "population": 22061451,
+  "areaKm2": 801590,
+  "gdpUsd": "14.67 Billion"
+ },
+ {
+  "slug": "myanmar",
+  "name": "Myanmar",
+  "iso2": "MM",
+  "iso3": "MMR",
+  "dial": "+95",
+  "population": 53414374,
+  "areaKm2": 678500,
+  "gdpUsd": "59.43 Billion"
+ },
+ {
+  "slug": "namibia",
+  "name": "Namibia",
+  "iso2": "NA",
+  "iso3": "NAM",
+  "dial": "+264",
+  "population": 2128471,
+  "areaKm2": 825418,
+  "gdpUsd": "12.3 Billion"
+ },
+ {
+  "slug": "nauru",
+  "name": "Nauru",
+  "iso2": "NR",
+  "iso3": "NRU",
+  "dial": "+674",
+  "population": 10065,
+  "areaKm2": 21,
+  "gdpUsd": null
+ },
+ {
+  "slug": "nepal",
+  "name": "Nepal",
+  "iso2": "NP",
+  "iso3": "NPL",
+  "dial": "+977",
+  "population": 28951852,
+  "areaKm2": 140800,
+  "gdpUsd": "19.34 Billion"
+ },
+ {
+  "slug": "netherlands",
+  "name": "Netherlands",
+  "iso2": "NL",
+  "iso3": "NLD",
+  "dial": "+31",
+  "population": 16645000,
+  "areaKm2": 41526,
+  "gdpUsd": "722.3 Billion"
+ },
+ {
+  "slug": "new-zealand",
+  "name": "New Zealand",
+  "iso2": "NZ",
+  "iso3": "NZL",
+  "dial": "+64",
+  "population": 4252277,
+  "areaKm2": 268680,
+  "gdpUsd": "181.1 Billion"
+ },
+ {
+  "slug": "nicaragua",
+  "name": "Nicaragua",
+  "iso2": "NI",
+  "iso3": "NIC",
+  "dial": "+505",
+  "population": 5995928,
+  "areaKm2": 129494,
+  "gdpUsd": "11.26 Billion"
+ },
+ {
+  "slug": "niger",
+  "name": "Niger",
+  "iso2": "NE",
+  "iso3": "NER",
+  "dial": "+227",
+  "population": 15878271,
+  "areaKm2": 1267000,
+  "gdpUsd": "7.304 Billion"
+ },
+ {
+  "slug": "nigeria",
+  "name": "Nigeria",
+  "iso2": "NG",
+  "iso3": "NGA",
+  "dial": "+234",
+  "population": 154000000,
+  "areaKm2": 923768,
+  "gdpUsd": "502 Billion"
+ },
+ {
+  "slug": "north-korea",
+  "name": "North Korea",
+  "iso2": "KP",
+  "iso3": "PRK",
+  "dial": "+850",
+  "population": 22912177,
+  "areaKm2": 120540,
+  "gdpUsd": "28 Billion"
+ },
+ {
+  "slug": "north-macedonia",
+  "name": "North Macedonia",
+  "iso2": "MK",
+  "iso3": "MKD",
+  "dial": "+389",
+  "population": 2062294,
+  "areaKm2": 25333,
+  "gdpUsd": "10.65 Billion"
+ },
+ {
+  "slug": "norway",
+  "name": "Norway",
+  "iso2": "NO",
+  "iso3": "NOR",
+  "dial": "+47",
+  "population": 5009150,
+  "areaKm2": 324220,
+  "gdpUsd": "515.8 Billion"
+ },
+ {
+  "slug": "oman",
+  "name": "Oman",
+  "iso2": "OM",
+  "iso3": "OMN",
+  "dial": "+968",
+  "population": 2967717,
+  "areaKm2": 212460,
+  "gdpUsd": "81.95 Billion"
+ },
+ {
+  "slug": "pakistan",
+  "name": "Pakistan",
+  "iso2": "PK",
+  "iso3": "PAK",
+  "dial": "+92",
+  "population": 184404791,
+  "areaKm2": 803940,
+  "gdpUsd": "236.5 Billion"
+ },
+ {
+  "slug": "palau",
+  "name": "Palau",
+  "iso2": "PW",
+  "iso3": "PLW",
+  "dial": "+680",
+  "population": 19907,
+  "areaKm2": 458,
+  "gdpUsd": "221 Million"
+ },
+ {
+  "slug": "palestine",
+  "name": "Palestine",
+  "iso2": "PS",
+  "iso3": "PSE",
+  "dial": "+970",
+  "population": 3800000,
+  "areaKm2": 5970,
+  "gdpUsd": "6.641 Billion"
+ },
+ {
+  "slug": "panama",
+  "name": "Panama",
+  "iso2": "PA",
+  "iso3": "PAN",
+  "dial": "+507",
+  "population": 3410676,
+  "areaKm2": 78200,
+  "gdpUsd": "40.62 Billion"
+ },
+ {
+  "slug": "papua-new-guinea",
+  "name": "Papua New Guinea",
+  "iso2": "PG",
+  "iso3": "PNG",
+  "dial": "+675",
+  "population": 6064515,
+  "areaKm2": 462840,
+  "gdpUsd": "16.1 Billion"
+ },
+ {
+  "slug": "paraguay",
+  "name": "Paraguay",
+  "iso2": "PY",
+  "iso3": "PRY",
+  "dial": "+595",
+  "population": 6375830,
+  "areaKm2": 406750,
+  "gdpUsd": "30.56 Billion"
+ },
+ {
+  "slug": "peru",
+  "name": "Peru",
+  "iso2": "PE",
+  "iso3": "PER",
+  "dial": "+51",
+  "population": 29907003,
+  "areaKm2": 1285220,
+  "gdpUsd": "210.3 Billion"
+ },
+ {
+  "slug": "philippines",
+  "name": "Philippines",
+  "iso2": "PH",
+  "iso3": "PHL",
+  "dial": "+63",
+  "population": 99900177,
+  "areaKm2": 300000,
+  "gdpUsd": "272.2 Billion"
+ },
+ {
+  "slug": "poland",
+  "name": "Poland",
+  "iso2": "PL",
+  "iso3": "POL",
+  "dial": "+48",
+  "population": 38500000,
+  "areaKm2": 312685,
+  "gdpUsd": "513.9 Billion"
+ },
+ {
+  "slug": "portugal",
+  "name": "Portugal",
+  "iso2": "PT",
+  "iso3": "PRT",
+  "dial": "+351",
+  "population": 10676000,
+  "areaKm2": 92391,
+  "gdpUsd": "219.3 Billion"
+ },
+ {
+  "slug": "qatar",
+  "name": "Qatar",
+  "iso2": "QA",
+  "iso3": "QAT",
+  "dial": "+974",
+  "population": 840926,
+  "areaKm2": 11437,
+  "gdpUsd": "213.1 Billion"
+ },
+ {
+  "slug": "republic-of-the-congo",
+  "name": "Republic of the Congo",
+  "iso2": "CG",
+  "iso3": "COG",
+  "dial": "+242",
+  "population": 3039126,
+  "areaKm2": 342000,
+  "gdpUsd": "14.25 Billion"
+ },
+ {
+  "slug": "romania",
+  "name": "Romania",
+  "iso2": "RO",
+  "iso3": "ROU",
+  "dial": "+40",
+  "population": 21959278,
+  "areaKm2": 237500,
+  "gdpUsd": "188.9 Billion"
+ },
+ {
+  "slug": "russia",
+  "name": "Russia",
+  "iso2": "RU",
+  "iso3": "RUS",
+  "dial": "+7",
+  "population": 140702000,
+  "areaKm2": 17100000,
+  "gdpUsd": "2.113 Trillion"
+ },
+ {
+  "slug": "rwanda",
+  "name": "Rwanda",
+  "iso2": "RW",
+  "iso3": "RWA",
+  "dial": "+250",
+  "population": 11055976,
+  "areaKm2": 26338,
+  "gdpUsd": "7.7 Billion"
+ },
+ {
+  "slug": "saint-kitts-and-nevis",
+  "name": "Saint Kitts and Nevis",
+  "iso2": "KN",
+  "iso3": "KNA",
+  "dial": "+1869",
+  "population": 51134,
+  "areaKm2": 261,
+  "gdpUsd": "767 Million"
+ },
+ {
+  "slug": "saint-lucia",
+  "name": "Saint Lucia",
+  "iso2": "LC",
+  "iso3": "LCA",
+  "dial": "+1758",
+  "population": 160922,
+  "areaKm2": 616,
+  "gdpUsd": "1.377 Billion"
+ },
+ {
+  "slug": "saint-vincent-and-the-grenadines",
+  "name": "Saint Vincent and the Grenadines",
+  "iso2": "VC",
+  "iso3": "VCT",
+  "dial": "+1784",
+  "population": 104217,
+  "areaKm2": 389,
+  "gdpUsd": "742 Million"
+ },
+ {
+  "slug": "samoa",
+  "name": "Samoa",
+  "iso2": "WS",
+  "iso3": "WSM",
+  "dial": "+685",
+  "population": 192001,
+  "areaKm2": 2944,
+  "gdpUsd": "705 Million"
+ },
+ {
+  "slug": "san-marino",
+  "name": "San Marino",
+  "iso2": "SM",
+  "iso3": "SMR",
+  "dial": "+378",
+  "population": 31477,
+  "areaKm2": 61,
+  "gdpUsd": "1.866 Billion"
+ },
+ {
+  "slug": "sao-tome-and-principe",
+  "name": "São Tomé and Príncipe",
+  "iso2": "ST",
+  "iso3": "STP",
+  "dial": "+239",
+  "population": 175808,
+  "areaKm2": 1001,
+  "gdpUsd": "311 Million"
+ },
+ {
+  "slug": "saudi-arabia",
+  "name": "Saudi Arabia",
+  "iso2": "SA",
+  "iso3": "SAU",
+  "dial": "+966",
+  "population": 25731776,
+  "areaKm2": 1960582,
+  "gdpUsd": "718.5 Billion"
+ },
+ {
+  "slug": "senegal",
+  "name": "Senegal",
+  "iso2": "SN",
+  "iso3": "SEN",
+  "dial": "+221",
+  "population": 12323252,
+  "areaKm2": 196190,
+  "gdpUsd": "15.36 Billion"
+ },
+ {
+  "slug": "serbia",
+  "name": "Serbia",
+  "iso2": "RS",
+  "iso3": "SRB",
+  "dial": "+381",
+  "population": 7344847,
+  "areaKm2": 88361,
+  "gdpUsd": "43.68 Billion"
+ },
+ {
+  "slug": "seychelles",
+  "name": "Seychelles",
+  "iso2": "SC",
+  "iso3": "SYC",
+  "dial": "+248",
+  "population": 88340,
+  "areaKm2": 455,
+  "gdpUsd": "1.271 Billion"
+ },
+ {
+  "slug": "sierra-leone",
+  "name": "Sierra Leone",
+  "iso2": "SL",
+  "iso3": "SLE",
+  "dial": "+232",
+  "population": 5245695,
+  "areaKm2": 71740,
+  "gdpUsd": "4.607 Billion"
+ },
+ {
+  "slug": "singapore",
+  "name": "Singapore",
+  "iso2": "SG",
+  "iso3": "SGP",
+  "dial": "+65",
+  "population": 4701069,
+  "areaKm2": 693,
+  "gdpUsd": "295.7 Billion"
+ },
+ {
+  "slug": "slovakia",
+  "name": "Slovakia",
+  "iso2": "SK",
+  "iso3": "SVK",
+  "dial": "+421",
+  "population": 5455000,
+  "areaKm2": 48845,
+  "gdpUsd": "96.96 Billion"
+ },
+ {
+  "slug": "slovenia",
+  "name": "Slovenia",
+  "iso2": "SI",
+  "iso3": "SVN",
+  "dial": "+386",
+  "population": 2007000,
+  "areaKm2": 20273,
+  "gdpUsd": "46.82 Billion"
+ },
+ {
+  "slug": "solomon-islands",
+  "name": "Solomon Islands",
+  "iso2": "SB",
+  "iso3": "SLB",
+  "dial": "+677",
+  "population": 559198,
+  "areaKm2": 28450,
+  "gdpUsd": "1.099 Billion"
+ },
+ {
+  "slug": "somalia",
+  "name": "Somalia",
+  "iso2": "SO",
+  "iso3": "SOM",
+  "dial": "+252",
+  "population": 10112453,
+  "areaKm2": 637657,
+  "gdpUsd": "2.372 Billion"
+ },
+ {
+  "slug": "south-africa",
+  "name": "South Africa",
+  "iso2": "ZA",
+  "iso3": "ZAF",
+  "dial": "+27",
+  "population": 49000000,
+  "areaKm2": 1219912,
+  "gdpUsd": "353.9 Billion"
+ },
+ {
+  "slug": "south-korea",
+  "name": "South Korea",
+  "iso2": "KR",
+  "iso3": "KOR",
+  "dial": "+82",
+  "population": 48422644,
+  "areaKm2": 98480,
+  "gdpUsd": "1.198 Trillion"
+ },
+ {
+  "slug": "south-sudan",
+  "name": "South Sudan",
+  "iso2": "SS",
+  "iso3": "SSD",
+  "dial": "+211",
+  "population": 8260490,
+  "areaKm2": 644329,
+  "gdpUsd": "11.77 Billion"
+ },
+ {
+  "slug": "spain",
+  "name": "Spain",
+  "iso2": "ES",
+  "iso3": "ESP",
+  "dial": "+34",
+  "population": 46505963,
+  "areaKm2": 504782,
+  "gdpUsd": "1.356 Trillion"
+ },
+ {
+  "slug": "sri-lanka",
+  "name": "Sri Lanka",
+  "iso2": "LK",
+  "iso3": "LKA",
+  "dial": "+94",
+  "population": 21513990,
+  "areaKm2": 65610,
+  "gdpUsd": "65.12 Billion"
+ },
+ {
+  "slug": "sudan",
+  "name": "Sudan",
+  "iso2": "SD",
+  "iso3": "SDN",
+  "dial": "+249",
+  "population": 35000000,
+  "areaKm2": 1861484,
+  "gdpUsd": "52.5 Billion"
+ },
+ {
+  "slug": "suriname",
+  "name": "Suriname",
+  "iso2": "SR",
+  "iso3": "SUR",
+  "dial": "+597",
+  "population": 492829,
+  "areaKm2": 163270,
+  "gdpUsd": "5.009 Billion"
+ },
+ {
+  "slug": "sweden",
+  "name": "Sweden",
+  "iso2": "SE",
+  "iso3": "SWE",
+  "dial": "+46",
+  "population": 9555893,
+  "areaKm2": 449964,
+  "gdpUsd": "552 Billion"
+ },
+ {
+  "slug": "switzerland",
+  "name": "Switzerland",
+  "iso2": "CH",
+  "iso3": "CHE",
+  "dial": "+41",
+  "population": 7581000,
+  "areaKm2": 41290,
+  "gdpUsd": "646.2 Billion"
+ },
+ {
+  "slug": "syria",
+  "name": "Syria",
+  "iso2": "SY",
+  "iso3": "SYR",
+  "dial": "+963",
+  "population": 22198110,
+  "areaKm2": 185180,
+  "gdpUsd": "64.7 Billion"
+ },
+ {
+  "slug": "tajikistan",
+  "name": "Tajikistan",
+  "iso2": "TJ",
+  "iso3": "TJK",
+  "dial": "+992",
+  "population": 7487489,
+  "areaKm2": 143100,
+  "gdpUsd": "8.513 Billion"
+ },
+ {
+  "slug": "tanzania",
+  "name": "Tanzania",
+  "iso2": "TZ",
+  "iso3": "TZA",
+  "dial": "+255",
+  "population": 41892895,
+  "areaKm2": 945087,
+  "gdpUsd": "31.94 Billion"
+ },
+ {
+  "slug": "thailand",
+  "name": "Thailand",
+  "iso2": "TH",
+  "iso3": "THA",
+  "dial": "+66",
+  "population": 67089500,
+  "areaKm2": 514000,
+  "gdpUsd": "400.9 Billion"
+ },
+ {
+  "slug": "timor-leste",
+  "name": "Timor-Leste",
+  "iso2": "TL",
+  "iso3": "TLS",
+  "dial": "+670",
+  "population": 1154625,
+  "areaKm2": 15007,
+  "gdpUsd": "6.129 Billion"
+ },
+ {
+  "slug": "togo",
+  "name": "Togo",
+  "iso2": "TG",
+  "iso3": "TGO",
+  "dial": "+228",
+  "population": 6587239,
+  "areaKm2": 56785,
+  "gdpUsd": "4.299 Billion"
+ },
+ {
+  "slug": "tonga",
+  "name": "Tonga",
+  "iso2": "TO",
+  "iso3": "TON",
+  "dial": "+676",
+  "population": 122580,
+  "areaKm2": 748,
+  "gdpUsd": "477 Million"
+ },
+ {
+  "slug": "trinidad-and-tobago",
+  "name": "Trinidad and Tobago",
+  "iso2": "TT",
+  "iso3": "TTO",
+  "dial": "+1868",
+  "population": 1228691,
+  "areaKm2": 5128,
+  "gdpUsd": "27.13 Billion"
+ },
+ {
+  "slug": "tunisia",
+  "name": "Tunisia",
+  "iso2": "TN",
+  "iso3": "TUN",
+  "dial": "+216",
+  "population": 10589025,
+  "areaKm2": 163610,
+  "gdpUsd": "48.38 Billion"
+ },
+ {
+  "slug": "turkiye",
+  "name": "Türkiye",
+  "iso2": "TR",
+  "iso3": "TUR",
+  "dial": "+90",
+  "population": 77804122,
+  "areaKm2": 780580,
+  "gdpUsd": "821.8 Billion"
+ },
+ {
+  "slug": "turkmenistan",
+  "name": "Turkmenistan",
+  "iso2": "TM",
+  "iso3": "TKM",
+  "dial": "+993",
+  "population": 4940916,
+  "areaKm2": 488100,
+  "gdpUsd": "40.56 Billion"
+ },
+ {
+  "slug": "tuvalu",
+  "name": "Tuvalu",
+  "iso2": "TV",
+  "iso3": "TUV",
+  "dial": "+688",
+  "population": 10472,
+  "areaKm2": 26,
+  "gdpUsd": "38 Million"
+ },
+ {
+  "slug": "uganda",
+  "name": "Uganda",
+  "iso2": "UG",
+  "iso3": "UGA",
+  "dial": "+256",
+  "population": 33398682,
+  "areaKm2": 236040,
+  "gdpUsd": "22.6 Billion"
+ },
+ {
+  "slug": "ukraine",
+  "name": "Ukraine",
+  "iso2": "UA",
+  "iso3": "UKR",
+  "dial": "+380",
+  "population": 45415596,
+  "areaKm2": 603700,
+  "gdpUsd": "175.5 Billion"
+ },
+ {
+  "slug": "united-arab-emirates",
+  "name": "United Arab Emirates",
+  "iso2": "AE",
+  "iso3": "ARE",
+  "dial": "+971",
+  "population": 4975593,
+  "areaKm2": 82880,
+  "gdpUsd": "390 Billion"
+ },
+ {
+  "slug": "united-kingdom",
+  "name": "United Kingdom",
+  "iso2": "GB",
+  "iso3": "GBR",
+  "dial": "+44",
+  "population": 62348447,
+  "areaKm2": 244820,
+  "gdpUsd": "2.49 Trillion"
+ },
+ {
+  "slug": "united-states",
+  "name": "United States",
+  "iso2": "US",
+  "iso3": "USA",
+  "dial": "+1",
+  "population": 310232863,
+  "areaKm2": 9629091,
+  "gdpUsd": "16.72 Trillion"
+ },
+ {
+  "slug": "uruguay",
+  "name": "Uruguay",
+  "iso2": "UY",
+  "iso3": "URY",
+  "dial": "+598",
+  "population": 3477000,
+  "areaKm2": 176220,
+  "gdpUsd": "57.11 Billion"
+ },
+ {
+  "slug": "uzbekistan",
+  "name": "Uzbekistan",
+  "iso2": "UZ",
+  "iso3": "UZB",
+  "dial": "+998",
+  "population": 27865738,
+  "areaKm2": 447400,
+  "gdpUsd": "55.18 Billion"
+ },
+ {
+  "slug": "vanuatu",
+  "name": "Vanuatu",
+  "iso2": "VU",
+  "iso3": "VUT",
+  "dial": "+678",
+  "population": 221552,
+  "areaKm2": 12200,
+  "gdpUsd": "828 Million"
+ },
+ {
+  "slug": "vatican-city",
+  "name": "Vatican City",
+  "iso2": "VA",
+  "iso3": "VAT",
+  "dial": "+3",
+  "population": 921,
+  "areaKm2": null,
+  "gdpUsd": null
+ },
+ {
+  "slug": "venezuela",
+  "name": "Venezuela",
+  "iso2": "VE",
+  "iso3": "VEN",
+  "dial": "+58",
+  "population": 27223228,
+  "areaKm2": 912050,
+  "gdpUsd": "367.5 Billion"
+ },
+ {
+  "slug": "vietnam",
+  "name": "Vietnam",
+  "iso2": "VN",
+  "iso3": "VNM",
+  "dial": "+84",
+  "population": 89571130,
+  "areaKm2": 329560,
+  "gdpUsd": "170 Billion"
+ },
+ {
+  "slug": "yemen",
+  "name": "Yemen",
+  "iso2": "YE",
+  "iso3": "YEM",
+  "dial": "+967",
+  "population": 23495361,
+  "areaKm2": 527970,
+  "gdpUsd": "43.89 Billion"
+ },
+ {
+  "slug": "zambia",
+  "name": "Zambia",
+  "iso2": "ZM",
+  "iso3": "ZMB",
+  "dial": "+260",
+  "population": 13460305,
+  "areaKm2": 752614,
+  "gdpUsd": "22.24 Billion"
+ },
+ {
+  "slug": "zimbabwe",
+  "name": "Zimbabwe",
+  "iso2": "ZW",
+  "iso3": "ZWE",
+  "dial": "+263",
+  "population": 11651858,
+  "areaKm2": 390580,
+  "gdpUsd": "10.48 Billion"
+ }
+]

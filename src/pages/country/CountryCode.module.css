@@ -1,0 +1,407 @@
+/* Country code pages. Section order varies per country (see variantOf), so the
+   styles here are per-section rather than per-position — nothing may assume it
+   is the first or last block on the page. */
+
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- hero ------------------------------------------------------------- */
+.heroBand {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(128deg, var(--navy) 0%, var(--brand-start) 62%, var(--brand-end) 145%);
+  color: #fff;
+  padding: 56px 0 64px;
+}
+.heroGlow {
+  position: absolute;
+  inset: auto -10% -60% auto;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 245, 160, 0.25), transparent 70%);
+  pointer-events: none;
+}
+.heroGrid {
+  position: relative;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: center;
+}
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 5px 11px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.heroGrid h1 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.lede {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 62ch;
+}
+
+/* The dial code, treated as the page's one hero artifact. */
+.dialCard {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(6px);
+}
+.dialCode {
+  font-size: clamp(44px, 6vw, 64px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.dialLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 8px;
+}
+.dialMeta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dialMeta div span {
+  display: block;
+}
+.dialMeta .k {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+.dialMeta .v {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* --- shared section chrome -------------------------------------------- */
+.section {
+  padding: 56px 0;
+}
+.sectionAlt {
+  background: var(--bg-subtle);
+}
+.kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-start);
+  margin-bottom: 10px;
+}
+.h2 {
+  margin: 0 0 10px;
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--heading);
+}
+.sub {
+  margin: 0 0 28px;
+  color: var(--text-secondary);
+  max-width: 70ch;
+  line-height: 1.65;
+}
+
+/* --- facts strip ------------------------------------------------------- */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+.fact {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+.factN {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+}
+.factL {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* --- operators --------------------------------------------------------- */
+.ops {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.op {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* --- rules: numbered rail --------------------------------------------- */
+.rules {
+  display: grid;
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.rule {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  background: #fff;
+  padding: 20px 22px;
+  align-items: start;
+}
+.ruleN {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--navy);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.ruleT {
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* --- sender ID callout ------------------------------------------------- */
+.callout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: start;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand-end);
+  border-radius: var(--radius-md);
+  padding: 24px 26px;
+}
+.calloutIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
+  color: #fff;
+  font-weight: 700;
+}
+.calloutBody h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--heading);
+}
+.calloutBody p {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+/* --- use cases --------------------------------------------------------- */
+.cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.case {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.case::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--gradient-brand);
+}
+.caseT {
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* --- dialling example -------------------------------------------------- */
+.dialExample {
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  font-variant-numeric: tabular-nums;
+}
+.dialExample code {
+  display: block;
+  font-size: clamp(18px, 2.4vw, 26px);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+.dialExample p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+/* --- related rail ------------------------------------------------------ */
+.related {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+.relCard {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.relCard:hover {
+  border-color: var(--brand-start);
+  transform: translateY(-2px);
+}
+.relName {
+  font-weight: 500;
+  color: var(--ink);
+}
+.relDial {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* --- unresearched note ------------------------------------------------- */
+.note {
+  background: var(--bg-subtle-2);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* --- CTA --------------------------------------------------------------- */
+.cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 44px 40px;
+  text-align: center;
+}
+.ctaGlow {
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.45), transparent 70%);
+  pointer-events: none;
+}
+.cta h2 {
+  position: relative;
+  margin: 0 0 10px;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 600;
+}
+.cta p {
+  position: relative;
+  margin: 0 auto 24px;
+  max-width: 56ch;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+}
+.ctaRow {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btnPrimary,
+.btnGhost {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.btnPrimary {
+  background: var(--gradient-brand);
+  color: #fff;
+}
+.btnGhost {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 18px;
+  }
+  .section {
+    padding: 40px 0;
+  }
+  .rule {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+    padding: 16px 16px;
+  }
+  .cta {
+    padding: 32px 22px;
+  }
+}

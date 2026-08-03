@@ -19,6 +19,8 @@ import CompareInfobip from './pages/CompareInfobip.jsx'
 import AiAgentsOverview from './pages/AiAgentsOverview.jsx'
 import BlogIndex from './pages/blog/BlogIndex.jsx'
 import BlogPost from './pages/blog/BlogPost.jsx'
+import CountryIndex from './pages/country/CountryIndex.jsx'
+import CountryCode from './pages/country/CountryCode.jsx'
 import ResourcesGuides from './pages/ResourcesGuides.jsx'
 import ResourcesDocs from './pages/ResourcesDocs.jsx'
 import ResourcesCaseStudies from './pages/ResourcesCaseStudies.jsx'
@@ -137,6 +139,9 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
           <Route path="/compare/bird" element={<CompareBird />} />
           <Route path="/compare/plivo" element={<ComparePlivo />} />
           <Route path="/compare/infobip" element={<CompareInfobip />} />
+
+          <Route path="/country-code" element={<CountryIndex />} />
+          <Route path="/country-code/:slug" element={<CountryCode />} />
 
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

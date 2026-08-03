@@ -5,7 +5,7 @@
 // anything unlisted (the 404) still falls through to the shell.
 //
 // Runs after both `vite build` and the SSR build — see the build script.
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
@@ -50,7 +50,16 @@ const pageDates = JSON.parse(readFileSync(join(root, 'src/data/pageDates.generat
 const posts = JSON.parse(readFileSync(join(root, 'src/data/importedPosts.generated.json'), 'utf8'))
 const staticRoutes = Object.keys(pageDates)
 const postRoutes = posts.map((post) => post.routePath ?? `/blog/${post.slug}`)
-const routes = [...staticRoutes, ...postRoutes]
+
+// Country pages are a dynamic route, so they aren't in pageDates. Only markets
+// with authored content get a page — countryContent.js is the source of truth
+// for which those are, so this list can't drift from what the pages can show.
+const countryContent = readFileSync(join(root, 'src/data/countryContent.js'), 'utf8')
+const countryRoutes = [...countryContent.matchAll(/^ {2}'?([a-z-]+)'?: \{$/gm)].map(
+  (m) => `/country-code/${m[1]}`,
+)
+
+const routes = [...staticRoutes, ...postRoutes, ...countryRoutes]
 
 // Sitemaps: an index at /sitemap.xml pointing at one sub-sitemap per content
 // type, matching how the pages are actually grouped. Only canonical URLs go in
@@ -63,9 +72,19 @@ const routes = [...staticRoutes, ...postRoutes]
 // browsers render a styled page. Crawlers ignore it and read the raw XML.
 const SITE = 'https://smslocal-com-website.vercel.app'
 const STYLE = '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
-const lastmodFor = (route) =>
-  pageDates[route] ??
-  (posts.find((p) => (p.routePath ?? `/blog/${p.slug}`) === route)?.modifiedISO ?? '').slice(0, 10)
+// Country pages have no per-page date of their own; they change when the
+// authored content does, so they inherit that file's mtime.
+const countryContentDate = statSync(join(root, 'src/data/countryContent.js'))
+  .mtime.toISOString()
+  .slice(0, 10)
+
+function lastmodFor(route) {
+  if (pageDates[route]) return pageDates[route]
+  const post = posts.find((p) => (p.routePath ?? `/blog/${p.slug}`) === route)
+  if (post?.modifiedISO) return post.modifiedISO.slice(0, 10)
+  if (route.startsWith('/country-code/')) return countryContentDate
+  return ''
+}
 
 const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
 
@@ -74,6 +93,7 @@ const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
 const groups = [
   { file: 'page-sitemap.xml', routes: staticRoutes },
   { file: 'post-sitemap.xml', routes: posts.map(routeOf) },
+  { file: 'country-code-sitemap.xml', routes: countryRoutes },
 ].filter((g) => g.routes.length)
 
 const urlsetFor = (list) =>
@@ -200,6 +220,7 @@ const sections = [
   ['By industry', take(startsWith('/solutions/industry'))],
   ['Services', take(startsWith('/solutions/services'))],
   ['Comparisons', take(startsWith('/compare'))],
+  ['Country codes', countryRoutes],
   ['Resources', take(startsWith('/resources', '/blog'))],
   ['Company', take(() => true)],
 ]
@@ -229,5 +250,5 @@ const llms = [
 
 writeFileSync(join(dist, 'llms.txt'), `${llms.trimEnd()}\n`)
 console.log(
-  `llms.txt — ${staticRoutes.length + posts.length} links across ${sections.filter(([, l]) => l.length).length + postsByCategory.size} sections`,
+  `llms.txt — ${routes.length} links across ${sections.filter(([, l]) => l.length).length + postsByCategory.size} sections`,
 )

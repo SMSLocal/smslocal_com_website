@@ -43,6 +43,7 @@ const COLUMNS = [
   {
     title: 'Company',
     links: [
+      { t: 'Country Codes', href: '/country-code/' },
       { t: 'About Us', href: '/about-us/' },
       { t: 'Careers', href: '/careers/' },
       { t: 'Partners', href: '/partnerships/' },
