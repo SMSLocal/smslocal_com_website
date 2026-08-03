@@ -103,16 +103,16 @@ export const PRODUCT_CATEGORIES = [
 
 // --- Solutions mega: three sub-divisions ----------------------------------
 const SOL_INDUSTRY = [
-  { t: 'Retail & eCommerce', d: 'Orders, cart recovery & returns', i: <IconCart />, href: '/industry/retail/' },
-  { t: 'Travel & Hospitality', d: 'Bookings & 24/7 guest support', i: <IconGlobe />, href: '/industry/travel-and-hospitality/' },
-  { t: 'Fintech', d: 'Onboarding, alerts & auditable actions', i: <IconDollar />, href: '/industry/fintech/' },
-  { t: 'Education', d: 'Admissions & student support', i: <IconBook />, href: '/industry/education/' },
-  { t: 'Media & Entertainment', d: 'Ticketing & subscriber care', i: <IconMic />, href: '/industry/media-entertainment/' },
-  { t: 'Healthcare', d: 'Scheduling, reminders & patient Q&A', i: <IconCalendar />, href: '/industry/healthcare/' },
-  { t: 'Insurance', d: 'Quotes, claims & renewals', i: <IconShield />, href: '/industry/insurance/' },
-  { t: 'Mortgage', d: 'Pre-qualification & borrower updates', i: <IconReceipt />, href: '/industry/mortgage/' },
-  { t: 'Telecom', d: 'Support, billing & outage alerts', i: <IconPhone />, href: '/industry/telecom/' },
-  { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/industry/real-estate/' },
+  { t: 'Retail & eCommerce', d: 'Orders, cart recovery & returns', i: <IconCart />, href: '/solutions/industry/retail/' },
+  { t: 'Travel & Hospitality', d: 'Bookings & 24/7 guest support', i: <IconGlobe />, href: '/solutions/industry/travel-and-hospitality/' },
+  { t: 'Fintech', d: 'Onboarding, alerts & auditable actions', i: <IconDollar />, href: '/solutions/industry/fintech/' },
+  { t: 'Education', d: 'Admissions & student support', i: <IconBook />, href: '/solutions/industry/education/' },
+  { t: 'Media & Entertainment', d: 'Ticketing & subscriber care', i: <IconMic />, href: '/solutions/industry/media-entertainment/' },
+  { t: 'Healthcare', d: 'Scheduling, reminders & patient Q&A', i: <IconCalendar />, href: '/solutions/industry/healthcare/' },
+  { t: 'Insurance', d: 'Quotes, claims & renewals', i: <IconShield />, href: '/solutions/industry/insurance/' },
+  { t: 'Mortgage', d: 'Pre-qualification & borrower updates', i: <IconReceipt />, href: '/solutions/industry/mortgage/' },
+  { t: 'Telecom', d: 'Support, billing & outage alerts', i: <IconPhone />, href: '/solutions/industry/telecom/' },
+  { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/solutions/industry/real-estate/' },
 ]
 
 // Team/use-case and Services share one category — Services was a single link,
@@ -121,7 +121,7 @@ const SOL_TEAM = [
   { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/products/ai-agents/customer-service/' },
   { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/products/ai-agents/sales/' },
   { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/products/ai-agents/booking/' },
-  { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/services/ai-consulting/' },
+  { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/solutions/services/ai-consulting/' },
 ]
 
 export const SOLUTION_CATEGORIES = [
@@ -151,9 +151,9 @@ export const SOLUTION_CATEGORIES = [
 // Platform-level pages only. The /products/* entries that used to sit here moved
 // to the Products mega (PRODUCT_TOOLS), so each menu now matches its URL prefix.
 export const PLATFORM = [
-  { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/why-smslocal/' },
+  { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/platform/why-smslocal/' },
   { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform/' },
-  { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/integrations/' },
+  { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/platform/integrations/' },
   { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security/' },
 ]
 

@@ -31,7 +31,7 @@ const COLUMNS = [
     title: 'Solutions',
     links: [
       { t: 'All Solutions', href: '/solutions/' },
-      { t: 'Retail & eCommerce', href: '/industry/retail/' },
+      { t: 'Retail & eCommerce', href: '/solutions/industry/retail/' },
       { t: 'Customer Support', href: '/products/ai-agents/customer-service/' },
       { t: 'Booking & Scheduling', href: '/products/ai-agents/booking/' },
     ],

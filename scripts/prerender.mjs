@@ -188,11 +188,17 @@ const take = (pred) => {
   return hit
 }
 
+// Hubs first (exact match), then each division. `take` removes what it claims,
+// so /products is claimed by Core before /products/ai-agents is scanned.
 const sections = [
-  ['Core', take((r) => ['/', '/pricing', '/products', '/platform', '/solutions', '/why-smslocal', '/integrations'].includes(r))],
-  ['Channels', take(startsWith('/channels', '/numbers'))],
-  ['AI agents', take(startsWith('/ai-agents', '/agentic-ai', '/voice-ai-agents', '/services'))],
-  ['By industry', take(startsWith('/industry'))],
+  ['Core', take((r) => ['/', '/pricing', '/products', '/platform', '/solutions'].includes(r))],
+  ['AI agents', take(startsWith('/products/ai-agents'))],
+  ['Channels', take(startsWith('/products/channels'))],
+  ['Social & apps', take(startsWith('/products/social-and-apps'))],
+  ['Inbox & analytics', take(startsWith('/products/inbox-and-analytics'))],
+  ['Platform', take(startsWith('/platform'))],
+  ['By industry', take(startsWith('/solutions/industry'))],
+  ['Services', take(startsWith('/solutions/services'))],
   ['Comparisons', take(startsWith('/compare'))],
   ['Resources', take(startsWith('/resources', '/blog'))],
   ['Company', take(() => true)],

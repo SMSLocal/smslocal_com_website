@@ -96,10 +96,10 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
           <Route path="/products/inbox-and-analytics/analytics" element={<ProductsAnalytics />} />
           <Route path="/products/inbox-and-analytics/omnichannel-inbox" element={<ProductsOmnichannelInbox />} />
           <Route path="/products/inbox-and-analytics/agent-copilot" element={<ProductsAgentCopilot />} />
-          <Route path="/integrations" element={<IntegrationsPage />} />
+          <Route path="/platform/integrations" element={<IntegrationsPage />} />
           <Route path="/pricing" element={<Pricing />} />
-          <Route path="/why-smslocal" element={<WhySmslocal />} />
-          <Route path="/services/ai-consulting" element={<ServicesAiConsulting />} />
+          <Route path="/platform/why-smslocal" element={<WhySmslocal />} />
+          <Route path="/solutions/services/ai-consulting" element={<ServicesAiConsulting />} />
 
           <Route path="/products/channels/whatsapp" element={<WhatsappBusinessApi />} />
           <Route path="/products/channels/rcs" element={<RcsBusinessMessaging />} />
@@ -121,16 +121,16 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
           <Route path="/products/ai-agents/agent-builder" element={<AiAgentsBuilder />} />
           <Route path="/products/ai-agents" element={<AiAgentsOverview />} />
 
-          <Route path="/industry/retail" element={<IndustryRetail />} />
-          <Route path="/industry/travel-and-hospitality" element={<IndustryTravel />} />
-          <Route path="/industry/fintech" element={<IndustryFintech />} />
-          <Route path="/industry/education" element={<IndustryEducation />} />
-          <Route path="/industry/media-entertainment" element={<IndustryMedia />} />
-          <Route path="/industry/healthcare" element={<IndustryHealthcare />} />
-          <Route path="/industry/insurance" element={<IndustryInsurance />} />
-          <Route path="/industry/mortgage" element={<IndustryMortgage />} />
-          <Route path="/industry/telecom" element={<IndustryTelecom />} />
-          <Route path="/industry/real-estate" element={<IndustryRealEstate />} />
+          <Route path="/solutions/industry/retail" element={<IndustryRetail />} />
+          <Route path="/solutions/industry/travel-and-hospitality" element={<IndustryTravel />} />
+          <Route path="/solutions/industry/fintech" element={<IndustryFintech />} />
+          <Route path="/solutions/industry/education" element={<IndustryEducation />} />
+          <Route path="/solutions/industry/media-entertainment" element={<IndustryMedia />} />
+          <Route path="/solutions/industry/healthcare" element={<IndustryHealthcare />} />
+          <Route path="/solutions/industry/insurance" element={<IndustryInsurance />} />
+          <Route path="/solutions/industry/mortgage" element={<IndustryMortgage />} />
+          <Route path="/solutions/industry/telecom" element={<IndustryTelecom />} />
+          <Route path="/solutions/industry/real-estate" element={<IndustryRealEstate />} />
 
           <Route path="/compare" element={<CompareHub />} />
           <Route path="/compare/twilio" element={<CompareTwilio />} />

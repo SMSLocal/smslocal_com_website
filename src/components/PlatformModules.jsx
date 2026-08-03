@@ -5,7 +5,7 @@ const MODULES = [
   { to: '/products/channels/', name: 'All channels', desc: 'SMS, WhatsApp, RCS, Voice, Email and more — one reach layer.' },
   { to: '/products/inbox-and-analytics/omnichannel-inbox/', name: 'Omnichannel shared inbox', desc: 'One queue where your whole team replies across every channel.' },
   { to: '/products/inbox-and-analytics/analytics/', name: 'Analytics & insights', desc: 'Delivery, replies and resolutions in a single reporting view.' },
-  { to: '/integrations/', name: 'Integrations', desc: 'Connect your CRM, helpdesk and store with one-click connectors.' },
+  { to: '/platform/integrations/', name: 'Integrations', desc: 'Connect your CRM, helpdesk and store with one-click connectors.' },
   { to: '/platform/security/', name: 'Enterprise security', desc: 'Roles, encryption and a full audit trail across the stack.' },
 ]
 

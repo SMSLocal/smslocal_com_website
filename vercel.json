@@ -208,6 +208,71 @@
       "source": "/voice-ai-agents/",
       "destination": "/products/ai-agents/voice/",
       "permanent": true
+    },
+    {
+      "source": "/industry/education/",
+      "destination": "/solutions/industry/education/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/fintech/",
+      "destination": "/solutions/industry/fintech/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/healthcare/",
+      "destination": "/solutions/industry/healthcare/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/insurance/",
+      "destination": "/solutions/industry/insurance/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/media-entertainment/",
+      "destination": "/solutions/industry/media-entertainment/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/mortgage/",
+      "destination": "/solutions/industry/mortgage/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/real-estate/",
+      "destination": "/solutions/industry/real-estate/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/retail/",
+      "destination": "/solutions/industry/retail/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/telecom/",
+      "destination": "/solutions/industry/telecom/",
+      "permanent": true
+    },
+    {
+      "source": "/industry/travel-and-hospitality/",
+      "destination": "/solutions/industry/travel-and-hospitality/",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/",
+      "destination": "/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-consulting/",
+      "destination": "/solutions/services/ai-consulting/",
+      "permanent": true
+    },
+    {
+      "source": "/why-smslocal/",
+      "destination": "/platform/why-smslocal/",
+      "permanent": true
     }
   ],
   "headers": [
