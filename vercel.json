@@ -14,14 +14,12 @@
       ]
     },
     {
-      "comment": "Browsers only apply the sitemap stylesheet when it is served as XSL.",
       "source": "/sitemap.xsl",
       "headers": [
         { "key": "Content-Type", "value": "text/xsl; charset=utf-8" }
       ]
     },
     {
-      "comment": "The SPA fallback shell must not be indexed. Its meta tag says so, but the blanket rule above would otherwise send a contradicting header.",
       "source": "/spa.html",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex" }
