@@ -43,7 +43,7 @@ function AiAgentsVoice() {
         title={<>An AI voice agent that actually <span className="grad-word">holds a conversation</span></>}
         subtitle="Natural, two-way phone conversations that resolve repetitive calls on the spot, and route the rest to a human — with the transcript, summary and sentiment already attached."
         primaryCta={{ label: 'Deploy a Voice Agent', href: '/contact-us/' }}
-        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/' }}
+        secondaryCta={{ label: 'See AI Agents', href: '/products/ai-agents/' }}
         visual={<VoiceAgentMock />}
       />
 

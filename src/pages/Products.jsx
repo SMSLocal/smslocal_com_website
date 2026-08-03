@@ -3,9 +3,9 @@ import { Hero, EcosystemGrid, WhyUs, FAQ, CTABanner } from '../components/sectio
 import { IconMail, IconChat, IconBrain, IconGlobe, IconLink, IconChart, IconUsers } from '../components/icons.jsx'
 
 const CHANNELS = [
-  { icon: <IconMail />, title: 'Messaging channels', desc: 'SMS, WhatsApp, RCS, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE and email — one platform, every inbox.', href: '/channels/' },
+  { icon: <IconMail />, title: 'Messaging channels', desc: 'SMS, WhatsApp, RCS, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE and email — one platform, every inbox.', href: '/products/channels/' },
   { icon: <IconChat />, title: 'No-code chatbots', desc: 'Design bot flows visually and deploy the same bot to WhatsApp, your website, SMS and social.', href: '/chatbot/' },
-  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve requests end to end — not just reply — across every channel.', href: '/ai-agents/' },
+  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve requests end to end — not just reply — across every channel.', href: '/products/ai-agents/' },
 ]
 
 const WHY_US = [

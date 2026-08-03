@@ -88,7 +88,7 @@ const CARDS_ROW2 = [
     title: 'Not just answers — action.',
     desc: 'Understands intent, connects to your tools, and takes real action to resolve — not just reply.',
     cta: 'Meet the agent',
-    href: '/agentic-ai/',
+    href: '/products/ai-agents/agentic-ai/',
     Mock: () => (
       <div className="mini-mock">
         <div className="mini-bubble user">Cancel my subscription</div>
@@ -100,7 +100,7 @@ const CARDS_ROW2 = [
     title: 'Agentic AI voice.',
     desc: 'Natural, low-latency voice AI that answers, qualifies and resolves calls — no hold music required.',
     cta: 'See demo',
-    href: '/voice-ai-agents/',
+    href: '/products/ai-agents/voice/',
     dark: true,
     Mock: VoiceMock,
   },
@@ -118,14 +118,14 @@ const CARDS_ROW3 = [
     title: 'Every channel, one record.',
     desc: 'SMS, WhatsApp, RCS, Email and more — one contact history, no matter the channel.',
     cta: 'See channels',
-    href: '/channels/',
+    href: '/products/channels/',
     Mock: ChannelIcons,
   },
   {
     title: 'Decides and escalates.',
     desc: 'Set the rules once — the agent knows exactly when to act and when to hand off.',
     cta: 'Explore automation',
-    href: '/ai-agents/agent-builder/',
+    href: '/products/ai-agents/agent-builder/',
     Mock: AutomationMock,
   },
 ]
@@ -139,14 +139,14 @@ function AgenticShowcase() {
             Agentic AI that takes action.
           </h2>
           <p className="agentic-subtitle">One platform for agents that answer, act and complete tasks across every channel.</p>
-          <Link to="/agentic-ai/" className="agentic-explore-link">Explore the platform →</Link>
+          <Link to="/products/ai-agents/agentic-ai/" className="agentic-explore-link">Explore the platform →</Link>
         </div>
 
         <div className="agentic-hero-card">
           <h3>One agent, every channel.</h3>
           <p>One or two agents, all your channels — WhatsApp, email, voice, Instagram and Messenger — grounded in your content, tucked in a human when needed.</p>
           <InboxMock />
-          <Link to="/agentic-ai/" className="btn btn-primary">Open the inbox →</Link>
+          <Link to="/products/ai-agents/agentic-ai/" className="btn btn-primary">Open the inbox →</Link>
         </div>
 
         <div className="agentic-row row-2">

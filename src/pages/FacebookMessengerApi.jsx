@@ -41,9 +41,9 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconChat />, title: 'Instagram, too', desc: 'Run Messenger alongside Instagram DMs from the same shared inbox.', href: '/channels/instagram/' },
-  { icon: <IconBolt />, title: 'WhatsApp Business API', desc: 'Add WhatsApp as a verified, branded channel next to Messenger.', href: '/channels/whatsapp/' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers Messenger can carry a conversation across every channel.', href: '/ai-agents/customer-service/' },
+  { icon: <IconChat />, title: 'Instagram, too', desc: 'Run Messenger alongside Instagram DMs from the same shared inbox.', href: '/products/social-and-apps/instagram/' },
+  { icon: <IconBolt />, title: 'WhatsApp Business API', desc: 'Add WhatsApp as a verified, branded channel next to Messenger.', href: '/products/channels/whatsapp/' },
+  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers Messenger can carry a conversation across every channel.', href: '/products/ai-agents/customer-service/' },
   { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design your persistent menu and reply flows visually, without writing code.', href: '/chatbot/builder/' },
 ]
 

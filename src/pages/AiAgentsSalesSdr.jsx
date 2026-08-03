@@ -60,7 +60,7 @@ function AiAgentsSalesSdr() {
         title={<>An AI SDR that prospects <span className="grad-word">while your team sells</span></>}
         subtitle="Research leads, personalize outreach and book meetings automatically — across email, SMS and WhatsApp."
         primaryCta={{ label: 'Deploy an AI SDR', href: '/contact-us/' }}
-        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/' }}
+        secondaryCta={{ label: 'See AI Agents', href: '/products/ai-agents/' }}
         visual={<SdrProspectPipelineHeroMock />}
       />
 

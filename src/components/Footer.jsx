@@ -17,10 +17,10 @@ const COLUMNS = [
   {
     title: 'Products',
     links: [
-      { t: 'AI Agents', href: '/ai-agents/' },
-      { t: 'WhatsApp Business API', href: '/channels/whatsapp/' },
-      { t: 'SMS Broadcasting', href: '/channels/sms-broadcasting/' },
-      { t: 'Voice', href: '/channels/voice/' },
+      { t: 'AI Agents', href: '/products/ai-agents/' },
+      { t: 'WhatsApp Business API', href: '/products/channels/whatsapp/' },
+      { t: 'SMS Broadcasting', href: '/products/channels/sms-broadcasting/' },
+      { t: 'Voice', href: '/products/channels/voice/' },
     ],
   },
   {
@@ -32,8 +32,8 @@ const COLUMNS = [
     links: [
       { t: 'All Solutions', href: '/solutions/' },
       { t: 'Retail & eCommerce', href: '/industry/retail/' },
-      { t: 'Customer Support', href: '/ai-agents/customer-service/' },
-      { t: 'Booking & Scheduling', href: '/ai-agents/booking/' },
+      { t: 'Customer Support', href: '/products/ai-agents/customer-service/' },
+      { t: 'Booking & Scheduling', href: '/products/ai-agents/booking/' },
     ],
   },
   {

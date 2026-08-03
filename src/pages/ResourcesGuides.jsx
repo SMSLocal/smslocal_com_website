@@ -60,11 +60,11 @@ const CHAPTERS = [
 
 /* ---- Popular guides (ranked) ---- */
 const POPULAR = [
-  { title: 'Set up the WhatsApp Business API', desc: 'Connect a number, verify your business and send your first template.', level: 'Intermediate', time: '12 min', reads: 18400, href: '/channels/whatsapp/' },
+  { title: 'Set up the WhatsApp Business API', desc: 'Connect a number, verify your business and send your first template.', level: 'Intermediate', time: '12 min', reads: 18400, href: '/products/channels/whatsapp/' },
   { title: 'Send SMS from your own backend', desc: 'Authenticate, POST a message and read the response — in cURL, Node or Python.', level: 'Developer', time: '8 min', reads: 15200, href: '/resources/docs/' },
-  { title: 'Build a chatbot flow that converts', desc: 'Branch on replies, collect input and route to the right answer.', level: 'Intermediate', time: '15 min', reads: 11850, href: '/ai-agents/agent-builder/' },
-  { title: 'Launch an RCS broadcast campaign', desc: 'Rich cards, carousels and suggested replies on Android — step by step.', level: 'Intermediate', time: '10 min', reads: 8300, href: '/channels/rcs/' },
-  { title: 'Deploy your first AI agent', desc: 'Connect a knowledge source, set guardrails and go live in a sandbox first.', level: 'Advanced', time: '18 min', reads: 6900, href: '/ai-agents/agent-builder/' },
+  { title: 'Build a chatbot flow that converts', desc: 'Branch on replies, collect input and route to the right answer.', level: 'Intermediate', time: '15 min', reads: 11850, href: '/products/ai-agents/agent-builder/' },
+  { title: 'Launch an RCS broadcast campaign', desc: 'Rich cards, carousels and suggested replies on Android — step by step.', level: 'Intermediate', time: '10 min', reads: 8300, href: '/products/channels/rcs/' },
+  { title: 'Deploy your first AI agent', desc: 'Connect a knowledge source, set guardrails and go live in a sandbox first.', level: 'Advanced', time: '18 min', reads: 6900, href: '/products/ai-agents/agent-builder/' },
   { title: 'Handle delivery receipts with webhooks', desc: 'Receive real-time status events and inbound replies at your endpoint.', level: 'Developer', time: '9 min', reads: 5100, href: '/resources/docs/' },
 ]
 

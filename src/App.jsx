@@ -82,44 +82,44 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
 
           <Route path="/products" element={<Products />} />
           <Route path="/solutions" element={<Solutions />} />
-          <Route path="/channels" element={<Channels />} />
-          <Route path="/channels/sms-broadcasting" element={<SmsBroadcasting />} />
-          <Route path="/channels/whatsapp-broadcasting" element={<WhatsappBroadcasting />} />
-          <Route path="/channels/rcs-broadcasting" element={<RcsBroadcasting />} />
-          <Route path="/channels/voice" element={<VoiceChannel />} />
-          <Route path="/channels/social" element={<SocialInbox />} />
-          <Route path="/channels/web-chat" element={<WebChat />} />
-          <Route path="/numbers/did" element={<DidNumbers />} />
+          <Route path="/products/channels" element={<Channels />} />
+          <Route path="/products/channels/sms-broadcasting" element={<SmsBroadcasting />} />
+          <Route path="/products/channels/whatsapp-broadcasting" element={<WhatsappBroadcasting />} />
+          <Route path="/products/channels/rcs-broadcasting" element={<RcsBroadcasting />} />
+          <Route path="/products/channels/voice" element={<VoiceChannel />} />
+          <Route path="/products/social-and-apps" element={<SocialInbox />} />
+          <Route path="/products/social-and-apps/web-chat" element={<WebChat />} />
+          <Route path="/products/channels/did" element={<DidNumbers />} />
 
           <Route path="/platform" element={<Platform />} />
           <Route path="/platform/security" element={<PlatformSecurity />} />
-          <Route path="/products/analytics" element={<ProductsAnalytics />} />
-          <Route path="/products/omnichannel-inbox" element={<ProductsOmnichannelInbox />} />
-          <Route path="/products/agent-copilot" element={<ProductsAgentCopilot />} />
+          <Route path="/products/inbox-and-analytics/analytics" element={<ProductsAnalytics />} />
+          <Route path="/products/inbox-and-analytics/omnichannel-inbox" element={<ProductsOmnichannelInbox />} />
+          <Route path="/products/inbox-and-analytics/agent-copilot" element={<ProductsAgentCopilot />} />
           <Route path="/integrations" element={<IntegrationsPage />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/why-smslocal" element={<WhySmslocal />} />
           <Route path="/services/ai-consulting" element={<ServicesAiConsulting />} />
 
-          <Route path="/channels/whatsapp" element={<WhatsappBusinessApi />} />
-          <Route path="/channels/rcs" element={<RcsBusinessMessaging />} />
-          <Route path="/channels/instagram" element={<InstagramMessagingApi />} />
-          <Route path="/channels/messenger" element={<FacebookMessengerApi />} />
-          <Route path="/channels/viber" element={<ViberBusinessMessages />} />
-          <Route path="/channels/telegram" element={<TelegramBusiness />} />
-          <Route path="/channels/line" element={<LineBusinessMessaging />} />
-          <Route path="/channels/apple-messages" element={<AppleMessagesForBusiness />} />
-          <Route path="/channels/email" element={<EmailApi />} />
-          <Route path="/channels/kakaotalk" element={<KakaoTalkBusinessMessaging />} />
+          <Route path="/products/channels/whatsapp" element={<WhatsappBusinessApi />} />
+          <Route path="/products/channels/rcs" element={<RcsBusinessMessaging />} />
+          <Route path="/products/social-and-apps/instagram" element={<InstagramMessagingApi />} />
+          <Route path="/products/social-and-apps/messenger" element={<FacebookMessengerApi />} />
+          <Route path="/products/social-and-apps/viber" element={<ViberBusinessMessages />} />
+          <Route path="/products/social-and-apps/telegram" element={<TelegramBusiness />} />
+          <Route path="/products/social-and-apps/line" element={<LineBusinessMessaging />} />
+          <Route path="/products/social-and-apps/apple-messages" element={<AppleMessagesForBusiness />} />
+          <Route path="/products/channels/email" element={<EmailApi />} />
+          <Route path="/products/social-and-apps/kakaotalk" element={<KakaoTalkBusinessMessaging />} />
 
-          <Route path="/agentic-ai" element={<AiAgentsPlatform />} />
-          <Route path="/ai-agents/customer-service" element={<AiAgentsCustomerService />} />
-          <Route path="/ai-agents/support" element={<AiAgentsSupport />} />
-          <Route path="/voice-ai-agents" element={<AiAgentsVoice />} />
-          <Route path="/ai-agents/sales" element={<AiAgentsSalesSdr />} />
-          <Route path="/ai-agents/booking" element={<AiAgentsBooking />} />
-          <Route path="/ai-agents/agent-builder" element={<AiAgentsBuilder />} />
-          <Route path="/ai-agents" element={<AiAgentsOverview />} />
+          <Route path="/products/ai-agents/agentic-ai" element={<AiAgentsPlatform />} />
+          <Route path="/products/ai-agents/customer-service" element={<AiAgentsCustomerService />} />
+          <Route path="/products/ai-agents/support" element={<AiAgentsSupport />} />
+          <Route path="/products/ai-agents/voice" element={<AiAgentsVoice />} />
+          <Route path="/products/ai-agents/sales" element={<AiAgentsSalesSdr />} />
+          <Route path="/products/ai-agents/booking" element={<AiAgentsBooking />} />
+          <Route path="/products/ai-agents/agent-builder" element={<AiAgentsBuilder />} />
+          <Route path="/products/ai-agents" element={<AiAgentsOverview />} />
 
           <Route path="/industry/retail" element={<IndustryRetail />} />
           <Route path="/industry/travel-and-hospitality" element={<IndustryTravel />} />
@@ -155,13 +155,13 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           {/* old paths -> sheet canonical URLs */}
-          <Route path="/whatsapp-business-api" element={<Navigate to="/channels/whatsapp/" replace />} />
-          <Route path="/rcs-business-messaging" element={<Navigate to="/channels/rcs/" replace />} />
-          <Route path="/instagram-messaging-api" element={<Navigate to="/channels/instagram/" replace />} />
-          <Route path="/facebook-messenger-api" element={<Navigate to="/channels/messenger/" replace />} />
-          <Route path="/ai-agents/voice" element={<Navigate to="/voice-ai-agents/" replace />} />
-          <Route path="/ai-agents/sales-sdr" element={<Navigate to="/ai-agents/sales/" replace />} />
-          <Route path="/ai-agents/builder" element={<Navigate to="/ai-agents/agent-builder/" replace />} />
+          <Route path="/whatsapp-business-api" element={<Navigate to="/products/channels/whatsapp/" replace />} />
+          <Route path="/rcs-business-messaging" element={<Navigate to="/products/channels/rcs/" replace />} />
+          <Route path="/instagram-messaging-api" element={<Navigate to="/products/social-and-apps/instagram/" replace />} />
+          <Route path="/facebook-messenger-api" element={<Navigate to="/products/social-and-apps/messenger/" replace />} />
+          <Route path="/ai-agents/voice" element={<Navigate to="/products/ai-agents/voice/" replace />} />
+          <Route path="/ai-agents/sales-sdr" element={<Navigate to="/products/ai-agents/sales/" replace />} />
+          <Route path="/ai-agents/builder" element={<Navigate to="/products/ai-agents/agent-builder/" replace />} />
           <Route path="/about" element={<Navigate to="/about-us/" replace />} />
           <Route path="/contact" element={<Navigate to="/contact-us/" replace />} />
           <Route path="/partners" element={<Navigate to="/partnerships/" replace />} />

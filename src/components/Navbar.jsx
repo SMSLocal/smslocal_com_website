@@ -18,43 +18,42 @@ function Dot() {
 
 // --- Product mega: three sub-divisions -----------------------------------
 const CHANNELS = [
-  { t: 'SMS Broadcasting', d: 'A2P bulk SMS at scale', i: <IconMegaphone />, href: '/channels/sms-broadcasting/' },
-  { t: 'WhatsApp Business API', d: 'Official WhatsApp messaging', i: <IconChat />, href: '/channels/whatsapp/' },
-  { t: 'WhatsApp Broadcasting', d: 'One broadcast, thousands of chats', i: <IconMegaphone />, href: '/channels/whatsapp-broadcasting/' },
-  { t: 'RCS Messaging', d: 'Rich cards & suggested replies', i: <IconBolt />, href: '/channels/rcs/' },
-  { t: 'RCS Broadcasting', d: 'Branded rich messages at scale', i: <IconBolt />, href: '/channels/rcs-broadcasting/' },
-  { t: 'Voice', d: 'IVR, routing, recording & numbers', i: <IconPhone />, href: '/channels/voice/' },
-  { t: 'Virtual Numbers (DID)', d: 'Local & toll-free, 100+ countries', i: <IconGlobe />, href: '/numbers/did/' },
-  { t: 'Email', d: 'Transactional & bulk email, one API', i: <IconMail />, href: '/channels/email/' },
+  { t: 'SMS Broadcasting', d: 'A2P bulk SMS at scale', i: <IconMegaphone />, href: '/products/channels/sms-broadcasting/' },
+  { t: 'WhatsApp Business API', d: 'Official WhatsApp messaging', i: <IconChat />, href: '/products/channels/whatsapp/' },
+  { t: 'WhatsApp Broadcasting', d: 'One broadcast, thousands of chats', i: <IconMegaphone />, href: '/products/channels/whatsapp-broadcasting/' },
+  { t: 'RCS Messaging', d: 'Rich cards & suggested replies', i: <IconBolt />, href: '/products/channels/rcs/' },
+  { t: 'RCS Broadcasting', d: 'Branded rich messages at scale', i: <IconBolt />, href: '/products/channels/rcs-broadcasting/' },
+  { t: 'Voice', d: 'IVR, routing, recording & numbers', i: <IconPhone />, href: '/products/channels/voice/' },
+  { t: 'Virtual Numbers (DID)', d: 'Local & toll-free, 100+ countries', i: <IconGlobe />, href: '/products/channels/did/' },
+  { t: 'Email', d: 'Transactional & bulk email, one API', i: <IconMail />, href: '/products/channels/email/' },
 ]
 
 const SOCIAL_APPS = [
-  { t: 'Social Inbox', d: 'Every social DM in one inbox', i: <IconUsers />, href: '/channels/social/' },
-  { t: 'Instagram', d: 'DMs answered instantly', i: <IconGlobe />, href: '/channels/instagram/' },
-  { t: 'Messenger', d: 'Facebook Messenger, 24/7', i: <IconLink />, href: '/channels/messenger/' },
-  { t: 'Web Chat', d: 'Customisable widget, answered by AI', i: <IconCode />, href: '/channels/web-chat/' },
-  { t: 'Viber', d: 'Verified broadcasts & two-way chat', i: <IconChat />, href: '/channels/viber/' },
-  { t: 'Telegram', d: 'Bots & business messaging at scale', i: <IconRobot />, href: '/channels/telegram/' },
-  { t: 'LINE', d: 'Official Account, rich messages & menus', i: <IconMenu />, href: '/channels/line/' },
-  { t: 'Apple Messages', d: 'Rich links, Apple Pay & reactions', i: <IconMic />, href: '/channels/apple-messages/' },
-  { t: 'KakaoTalk', d: 'AlimTalk notices & FriendTalk broadcasts', i: <IconBolt />, href: '/channels/kakaotalk/' },
+  { t: 'Social Inbox', d: 'Every social DM in one inbox', i: <IconUsers />, href: '/products/social-and-apps/' },
+  { t: 'Instagram', d: 'DMs answered instantly', i: <IconGlobe />, href: '/products/social-and-apps/instagram/' },
+  { t: 'Messenger', d: 'Facebook Messenger, 24/7', i: <IconLink />, href: '/products/social-and-apps/messenger/' },
+  { t: 'Web Chat', d: 'Customisable widget, answered by AI', i: <IconCode />, href: '/products/social-and-apps/web-chat/' },
+  { t: 'Viber', d: 'Verified broadcasts & two-way chat', i: <IconChat />, href: '/products/social-and-apps/viber/' },
+  { t: 'Telegram', d: 'Bots & business messaging at scale', i: <IconRobot />, href: '/products/social-and-apps/telegram/' },
+  { t: 'LINE', d: 'Official Account, rich messages & menus', i: <IconMenu />, href: '/products/social-and-apps/line/' },
+  { t: 'Apple Messages', d: 'Rich links, Apple Pay & reactions', i: <IconMic />, href: '/products/social-and-apps/apple-messages/' },
+  { t: 'KakaoTalk', d: 'AlimTalk notices & FriendTalk broadcasts', i: <IconBolt />, href: '/products/social-and-apps/kakaotalk/' },
 ]
 
 const AI_AGENTS = [
-  { t: 'AI Agents', d: 'AI agents for every conversation', i: <IconRobot />, href: '/ai-agents/' },
-  { t: 'Agentic AI', d: 'Takes action, not just answers', i: <IconBrain />, href: '/agentic-ai/' },
-  { t: 'AI Support Agent', d: 'Tier-one ticket deflection', i: <IconBook />, href: '/ai-agents/support/' },
-  { t: 'Voice AI Agent', d: 'Natural phone agent that resolves calls', i: <IconMic />, href: '/voice-ai-agents/' },
-  { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/ai-agents/agent-builder/' },
+  { t: 'AI Agents', d: 'AI agents for every conversation', i: <IconRobot />, href: '/products/ai-agents/' },
+  { t: 'Agentic AI', d: 'Takes action, not just answers', i: <IconBrain />, href: '/products/ai-agents/agentic-ai/' },
+  { t: 'AI Support Agent', d: 'Tier-one ticket deflection', i: <IconBook />, href: '/products/ai-agents/support/' },
+  { t: 'Voice AI Agent', d: 'Natural phone agent that resolves calls', i: <IconMic />, href: '/products/ai-agents/voice/' },
+  { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/products/ai-agents/agent-builder/' },
 ]
 
-// The three pages that actually live under /products/. They sat in the Platform
-// dropdown, which put the /products/* slugs in one menu and the Products label
-// on another — the menu a page appears under now follows its URL.
+// These sat in the Platform dropdown while carrying /products/ slugs. Moved to
+// Products, and now under their own division like every other product page.
 const PRODUCT_TOOLS = [
-  { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox/' },
-  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/agent-copilot/' },
-  { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/analytics/' },
+  { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/inbox-and-analytics/omnichannel-inbox/' },
+  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/inbox-and-analytics/agent-copilot/' },
+  { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/inbox-and-analytics/analytics/' },
 ]
 
 export const PRODUCT_CATEGORIES = [
@@ -65,7 +64,7 @@ export const PRODUCT_CATEGORIES = [
     icon: <IconBrain />,
     desc: 'Autonomous AI agents that connect to your tools and take action.',
     items: AI_AGENTS,
-    viewAllHref: '/ai-agents/',
+    viewAllHref: '/products/ai-agents/',
     viewAllLabel: 'View all AI Agents',
   },
   {
@@ -75,7 +74,7 @@ export const PRODUCT_CATEGORIES = [
     icon: <IconGlobe />,
     desc: 'Your core broadcasting channels, from one number and one API.',
     items: CHANNELS,
-    viewAllHref: '/channels/',
+    viewAllHref: '/products/channels/',
     viewAllLabel: 'View all Channels',
   },
   {
@@ -85,8 +84,10 @@ export const PRODUCT_CATEGORIES = [
     icon: <IconChat />,
     desc: 'Instagram, Messenger and a customisable web chat widget, answered by AI.',
     items: SOCIAL_APPS,
-    viewAllHref: '/channels/',
-    viewAllLabel: 'View all Channels',
+    // Social & Apps now has its own hub (the old Social Inbox page), so the two
+    // divisions no longer share /channels/ as a "view all" target.
+    viewAllHref: '/products/social-and-apps/',
+    viewAllLabel: 'View all Social & Apps',
   },
   {
     key: 'workspace',
@@ -117,9 +118,9 @@ const SOL_INDUSTRY = [
 // Team/use-case and Services share one category — Services was a single link,
 // too thin to hold its own rail entry.
 const SOL_TEAM = [
-  { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/ai-agents/customer-service/' },
-  { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/ai-agents/sales/' },
-  { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/ai-agents/booking/' },
+  { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/products/ai-agents/customer-service/' },
+  { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/products/ai-agents/sales/' },
+  { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/products/ai-agents/booking/' },
   { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/services/ai-consulting/' },
 ]
 

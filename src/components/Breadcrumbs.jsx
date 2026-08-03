@@ -18,6 +18,8 @@ const LABELS = {
   whatsapp: 'WhatsApp',
   'whatsapp-broadcasting': 'WhatsApp Broadcasting',
   'web-chat': 'Web Chat',
+  'social-and-apps': 'Social & Apps',
+  'inbox-and-analytics': 'Inbox & Analytics',
   did: 'Virtual Numbers (DID)',
   numbers: 'Numbers',
   'apple-messages': 'Apple Messages',

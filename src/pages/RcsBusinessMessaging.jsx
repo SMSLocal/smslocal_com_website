@@ -32,9 +32,9 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Send verified, branded RCS campaigns to your whole list at once — with SMS fallback built in.', href: '/channels/rcs/' },
+  { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Send verified, branded RCS campaigns to your whole list at once — with SMS fallback built in.', href: '/products/channels/rcs/' },
   { icon: <IconChat />, title: 'SMS broadcasting', desc: 'The universal safety net — when a device can’t receive RCS, the same send still lands as plain SMS.', href: '/bulk-sms/' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The AI layer that reads every reply, grounds its answer in your data, and closes the loop without a human.', href: '/ai-agents/customer-service/' },
+  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The AI layer that reads every reply, grounds its answer in your data, and closes the loop without a human.', href: '/products/ai-agents/customer-service/' },
   { icon: <IconMail />, title: 'Omnichannel inbox', desc: 'Every RCS reply lands right beside WhatsApp, SMS and social replies — all inside one shared team inbox.', href: '/chatbot/whatsapp/' },
 ]
 

@@ -43,7 +43,7 @@ function ProductsAgentCopilot() {
         title={<>An AI copilot that drafts the reply <span className="grad-word">before you finish reading</span></>}
         subtitle="Speed up every conversation with an AI agent copilot that drafts responses, summarises long threads and surfaces knowledge-grounded answers — right inside the reply box your team already uses."
         primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
-        secondaryCta={{ label: 'Omnichannel Inbox', href: '/products/omnichannel-inbox/' }}
+        secondaryCta={{ label: 'Omnichannel Inbox', href: '/products/inbox-and-analytics/omnichannel-inbox/' }}
         visual={<CopilotAheadHero />}
       />
 

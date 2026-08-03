@@ -4,36 +4,238 @@
   "outputDirectory": "dist",
   "trailingSlash": true,
   "redirects": [
-    { "source": "/whatsapp-business-api/", "destination": "/channels/whatsapp/", "permanent": true },
-    { "source": "/rcs-business-messaging/", "destination": "/channels/rcs/", "permanent": true },
-    { "source": "/instagram-messaging-api/", "destination": "/channels/instagram/", "permanent": true },
-    { "source": "/facebook-messenger-api/", "destination": "/channels/messenger/", "permanent": true },
-    { "source": "/ai-agents/voice/", "destination": "/voice-ai-agents/", "permanent": true },
-    { "source": "/ai-agents/sales-sdr/", "destination": "/ai-agents/sales/", "permanent": true },
-    { "source": "/ai-agents/builder/", "destination": "/ai-agents/agent-builder/", "permanent": true },
-    { "source": "/about/", "destination": "/about-us/", "permanent": true },
-    { "source": "/contact/", "destination": "/contact-us/", "permanent": true },
-    { "source": "/partners/", "destination": "/partnerships/", "permanent": true },
-    { "source": "/register/", "destination": "/signup/", "permanent": true },
-    { "source": "/area-code-sitemap.xml", "destination": "/post-sitemap.xml", "permanent": true }
+    {
+      "source": "/whatsapp-business-api/",
+      "destination": "/products/channels/whatsapp/",
+      "permanent": true
+    },
+    {
+      "source": "/rcs-business-messaging/",
+      "destination": "/products/channels/rcs/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-messaging-api/",
+      "destination": "/products/social-and-apps/instagram/",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-messenger-api/",
+      "destination": "/products/social-and-apps/messenger/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/voice/",
+      "destination": "/products/ai-agents/voice/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/sales-sdr/",
+      "destination": "/products/ai-agents/sales/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/builder/",
+      "destination": "/products/ai-agents/agent-builder/",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about-us/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/partners/",
+      "destination": "/partnerships/",
+      "permanent": true
+    },
+    {
+      "source": "/register/",
+      "destination": "/signup/",
+      "permanent": true
+    },
+    {
+      "source": "/area-code-sitemap.xml",
+      "destination": "/post-sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/agentic-ai/",
+      "destination": "/products/ai-agents/agentic-ai/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/",
+      "destination": "/products/ai-agents/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/agent-builder/",
+      "destination": "/products/ai-agents/agent-builder/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/booking/",
+      "destination": "/products/ai-agents/booking/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/customer-service/",
+      "destination": "/products/ai-agents/customer-service/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/sales/",
+      "destination": "/products/ai-agents/sales/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agents/support/",
+      "destination": "/products/ai-agents/support/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/",
+      "destination": "/products/channels/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/apple-messages/",
+      "destination": "/products/social-and-apps/apple-messages/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/email/",
+      "destination": "/products/channels/email/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/instagram/",
+      "destination": "/products/social-and-apps/instagram/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/kakaotalk/",
+      "destination": "/products/social-and-apps/kakaotalk/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/line/",
+      "destination": "/products/social-and-apps/line/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/messenger/",
+      "destination": "/products/social-and-apps/messenger/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/rcs/",
+      "destination": "/products/channels/rcs/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/rcs-broadcasting/",
+      "destination": "/products/channels/rcs-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/sms-broadcasting/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/social/",
+      "destination": "/products/social-and-apps/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/telegram/",
+      "destination": "/products/social-and-apps/telegram/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/viber/",
+      "destination": "/products/social-and-apps/viber/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/voice/",
+      "destination": "/products/channels/voice/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/web-chat/",
+      "destination": "/products/social-and-apps/web-chat/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/whatsapp/",
+      "destination": "/products/channels/whatsapp/",
+      "permanent": true
+    },
+    {
+      "source": "/channels/whatsapp-broadcasting/",
+      "destination": "/products/channels/whatsapp-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/numbers/did/",
+      "destination": "/products/channels/did/",
+      "permanent": true
+    },
+    {
+      "source": "/products/agent-copilot/",
+      "destination": "/products/inbox-and-analytics/agent-copilot/",
+      "permanent": true
+    },
+    {
+      "source": "/products/analytics/",
+      "destination": "/products/inbox-and-analytics/analytics/",
+      "permanent": true
+    },
+    {
+      "source": "/products/omnichannel-inbox/",
+      "destination": "/products/inbox-and-analytics/omnichannel-inbox/",
+      "permanent": true
+    },
+    {
+      "source": "/voice-ai-agents/",
+      "destination": "/products/ai-agents/voice/",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "index, follow" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
       ]
     },
     {
       "source": "/sitemap.xsl",
       "headers": [
-        { "key": "Content-Type", "value": "text/xsl; charset=utf-8" }
+        {
+          "key": "Content-Type",
+          "value": "text/xsl; charset=utf-8"
+        }
       ]
     },
     {
       "source": "/404.html",
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
     }
   ]

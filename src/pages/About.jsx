@@ -21,9 +21,9 @@ const VALUES = [
 ]
 
 const SERVICES = [
-  { icon: <IconMegaphone />, title: 'Messaging channels', desc: 'Bulk SMS, WhatsApp, RCS, email and more — one API for every channel your customers use.', href: '/channels/' },
+  { icon: <IconMegaphone />, title: 'Messaging channels', desc: 'Bulk SMS, WhatsApp, RCS, email and more — one API for every channel your customers use.', href: '/products/channels/' },
   { icon: <IconRobot />, title: 'No-code chatbots', desc: 'Drag-and-drop bots that answer, qualify and convert across every channel, 24/7.', href: '/chatbot/' },
-  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve support, sales and voice conversations end to end.', href: '/ai-agents/' },
+  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve support, sales and voice conversations end to end.', href: '/products/ai-agents/' },
   { icon: <IconGear />, title: 'Developer API', desc: 'A documented REST API and SDKs to wire messaging straight into your own product.', href: '/sms-api/' },
 ]
 

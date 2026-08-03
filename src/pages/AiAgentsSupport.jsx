@@ -52,7 +52,7 @@ function AiAgentsSupport() {
         title={<>An AI support agent that <span className="grad-word">clears the queue</span>, not just watches it</>}
         subtitle="Deflect and resolve tier-one questions by reading your help centre directly, replying on every channel, and escalating only what genuinely needs a person — with full context attached."
         primaryCta={{ label: 'Deploy an Agent', href: '/contact-us/' }}
-        secondaryCta={{ label: 'AI Customer Service Agent', href: '/ai-agents/customer-service/' }}
+        secondaryCta={{ label: 'AI Customer Service Agent', href: '/products/ai-agents/customer-service/' }}
         visual={<SupportQueueDrainHero />}
       />
 

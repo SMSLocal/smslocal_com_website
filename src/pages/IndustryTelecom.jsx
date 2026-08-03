@@ -64,7 +64,7 @@ function IndustryTelecom() {
         title={<>Agentic AI for telecom that ends the <span className="grad-word">IVR maze</span></>}
         subtitle="Resolve billing, plan and outage questions instantly across SMS, RCS, WhatsApp and voice — with proactive alerts that deflect the flood before it hits your queue."
         primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
-        secondaryCta={{ label: 'Voice AI Agent', href: '/voice-ai-agents/' }}
+        secondaryCta={{ label: 'Voice AI Agent', href: '/products/ai-agents/voice/' }}
         visual={<TelecomNetworkHeroMock />}
       />
 

@@ -59,7 +59,7 @@ function Partners() {
         title={<>Partner with SMSLocal on <span className="grad-word">agentic AI</span></>}
         subtitle="Grow with a platform that bundles agentic AI, every messaging channel and broadcasting — refer, resell, integrate or operate, with recurring revenue share."
         primaryCta={{ label: 'Become a Partner', href: '/contact-us/' }}
-        secondaryCta={{ label: 'Explore Agentic AI', href: '/agentic-ai/' }}
+        secondaryCta={{ label: 'Explore Agentic AI', href: '/products/ai-agents/agentic-ai/' }}
       />
 
       <StatBand items={STATS} />

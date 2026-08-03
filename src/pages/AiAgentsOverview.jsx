@@ -19,15 +19,15 @@ const CAPABILITIES = [
 ]
 
 const AGENT_TYPES = [
-  { group: 'Build & assist', icon: <IconCursor />, title: 'AI agent builder', desc: 'Draw the flow, connect your apps and publish — no engineering ticket.', channels: ['Visual builder', 'No-code'], href: '/ai-agents/agent-builder/' },
+  { group: 'Build & assist', icon: <IconCursor />, title: 'AI agent builder', desc: 'Draw the flow, connect your apps and publish — no engineering ticket.', channels: ['Visual builder', 'No-code'], href: '/products/ai-agents/agent-builder/' },
   { group: 'Build & assist', icon: <IconUsers />, title: 'Agent assist', desc: 'Drafts the reply, pulls the order and summarises the thread for your team.', channels: ['Inbox', 'Copilot'], href: '/ai-agents/agent-assist/' },
 
-  { group: 'Support', icon: <IconChat />, title: 'Customer service agent', desc: 'Resolves tickets end to end and escalates with a full handoff summary.', channels: ['WhatsApp', 'SMS', 'Email'], href: '/ai-agents/customer-service/' },
+  { group: 'Support', icon: <IconChat />, title: 'Customer service agent', desc: 'Resolves tickets end to end and escalates with a full handoff summary.', channels: ['WhatsApp', 'SMS', 'Email'], href: '/products/ai-agents/customer-service/' },
   { group: 'Support', icon: <IconChat />, title: 'WhatsApp AI agent', desc: 'Answers, verifies and completes requests on your verified number.', channels: ['WhatsApp'], href: '/ai-agents/whatsapp/' },
   { group: 'Support', icon: <IconLink />, title: 'Omnichannel agents', desc: 'One agent that keeps the same context as the customer switches channel.', channels: ['All channels'], href: '/ai-agents/omnichannel-agent/' },
-  { group: 'Support', icon: <IconMic />, title: 'Voice AI agent', desc: 'Picks up the call already knowing the chat history and account state.', channels: ['Voice', 'IVR'], href: '/voice-ai-agents/' },
+  { group: 'Support', icon: <IconMic />, title: 'Voice AI agent', desc: 'Picks up the call already knowing the chat history and account state.', channels: ['Voice', 'IVR'], href: '/products/ai-agents/voice/' },
 
-  { group: 'Revenue', icon: <IconChart />, title: 'Sales & SDR agent', desc: 'Recovers carts, answers product questions and guides shoppers to checkout.', channels: ['WhatsApp', 'SMS'], href: '/ai-agents/sales/' },
+  { group: 'Revenue', icon: <IconChart />, title: 'Sales & SDR agent', desc: 'Recovers carts, answers product questions and guides shoppers to checkout.', channels: ['WhatsApp', 'SMS'], href: '/products/ai-agents/sales/' },
   { group: 'Revenue', icon: <IconSearch />, title: 'Lead qualification agent', desc: 'Scores inbound leads against your criteria and routes them to the right rep.', channels: ['CRM', 'Email'], href: '/ai-agents/lead-qualification/' },
 
   { group: 'Industry', icon: <IconReceipt />, title: 'Ecommerce agents', desc: 'Tracks orders, processes returns and issues refunds inside the thread.', channels: ['Shopify', 'WhatsApp'], href: '/ai-agents/ecommerce/' },

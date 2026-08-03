@@ -74,7 +74,7 @@ function LineBusinessMessaging() {
         eyebrow="The opportunity"
         heading="A broadcast-only LINE account leaves half the platform unused."
         paragraphs={[
-          <>Most businesses use LINE for one thing — blasting followers. Flex messages, a rich menu, loyalty and two-way chat all sit on the same Official Account, mostly untouched. Run LINE as a real channel beside your <Link to="/bulk-sms/">SMS</Link> and <Link to="/ai-agents/customer-service/">AI</Link>, and it stops being just a broadcast list.</>,
+          <>Most businesses use LINE for one thing — blasting followers. Flex messages, a rich menu, loyalty and two-way chat all sit on the same Official Account, mostly untouched. Run LINE as a real channel beside your <Link to="/bulk-sms/">SMS</Link> and <Link to="/products/ai-agents/customer-service/">AI</Link>, and it stops being just a broadcast list.</>,
         ]}
         caption="What a broadcast-only account actually uses"
         meters={METERS}

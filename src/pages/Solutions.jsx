@@ -79,26 +79,26 @@ const TEAMS = [
     name: 'Customer support',
     icon: <IconChat />,
     items: [
-      { icon: <IconRobot />, title: 'AI Customer Service Agent', tag: 'AI agent', href: '/ai-agents/customer-service/' },
-      { icon: <IconMic />, title: 'AI Voice Agent', tag: 'Voice', href: '/voice-ai-agents/' },
-      { icon: <IconChat />, title: 'Omnichannel Inbox', tag: 'Inbox', href: '/products/omnichannel-inbox/' },
+      { icon: <IconRobot />, title: 'AI Customer Service Agent', tag: 'AI agent', href: '/products/ai-agents/customer-service/' },
+      { icon: <IconMic />, title: 'AI Voice Agent', tag: 'Voice', href: '/products/ai-agents/voice/' },
+      { icon: <IconChat />, title: 'Omnichannel Inbox', tag: 'Inbox', href: '/products/inbox-and-analytics/omnichannel-inbox/' },
     ],
   },
   {
     name: 'Sales & marketing',
     icon: <IconMegaphone />,
     items: [
-      { icon: <IconBriefcase />, title: 'AI Sales / SDR Agent', tag: 'AI agent', href: '/ai-agents/sales/' },
-      { icon: <IconMegaphone />, title: 'WhatsApp Broadcasting', tag: 'Broadcast', href: '/channels/whatsapp-broadcasting/' },
-      { icon: <IconGlobe />, title: 'RCS Broadcasting', tag: 'Broadcast', href: '/channels/rcs-broadcasting/' },
+      { icon: <IconBriefcase />, title: 'AI Sales / SDR Agent', tag: 'AI agent', href: '/products/ai-agents/sales/' },
+      { icon: <IconMegaphone />, title: 'WhatsApp Broadcasting', tag: 'Broadcast', href: '/products/channels/whatsapp-broadcasting/' },
+      { icon: <IconGlobe />, title: 'RCS Broadcasting', tag: 'Broadcast', href: '/products/channels/rcs-broadcasting/' },
     ],
   },
   {
     name: 'Bookings & scheduling',
     icon: <IconCalendar />,
     items: [
-      { icon: <IconCalendar />, title: 'AI Booking Agent', tag: 'AI agent', href: '/ai-agents/booking/' },
-      { icon: <IconGear />, title: 'Agent Builder', tag: 'Build your own', href: '/ai-agents/agent-builder/' },
+      { icon: <IconCalendar />, title: 'AI Booking Agent', tag: 'AI agent', href: '/products/ai-agents/booking/' },
+      { icon: <IconGear />, title: 'Agent Builder', tag: 'Build your own', href: '/products/ai-agents/agent-builder/' },
     ],
   },
 ]
@@ -132,7 +132,7 @@ function Solutions() {
         title={<>One platform, <span className="grad-word">many solutions</span></>}
         subtitle="Messaging, chatbots and AI agents, shaped for your industry and for the exact job your team is trying to do — all from one SMSLocal account."
         primaryCta={{ label: 'Get started', href: '/contact-us/' }}
-        secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents/' }}
+        secondaryCta={{ label: 'Explore AI Agents', href: '/products/ai-agents/' }}
         visual={<SolutionsSplitHero />}
       />
 
@@ -186,7 +186,7 @@ function Solutions() {
         title="Find your solution"
         subtitle="Tell us the industry or the job to be done — we will map it to the right channels, flows and agents."
         cta={{ label: 'Get started', href: '/contact-us/' }}
-        secondaryCta={{ label: 'Explore AI agents', href: '/ai-agents/' }}
+        secondaryCta={{ label: 'Explore AI agents', href: '/products/ai-agents/' }}
         variant="spotlight"
       />
 
