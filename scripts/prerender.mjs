@@ -46,13 +46,32 @@ function buildPage(body) {
 
 // Both lists derive from generated data, so a route added in App.jsx or a post
 // added to the archive flows in without a second list to keep in sync.
-const staticRoutes = Object.keys(
-  JSON.parse(readFileSync(join(root, 'src/data/pageDates.generated.json'), 'utf8')),
-)
-const postRoutes = JSON.parse(
-  readFileSync(join(root, 'src/data/importedPosts.generated.json'), 'utf8'),
-).map((post) => post.routePath ?? `/blog/${post.slug}`)
+const pageDates = JSON.parse(readFileSync(join(root, 'src/data/pageDates.generated.json'), 'utf8'))
+const posts = JSON.parse(readFileSync(join(root, 'src/data/importedPosts.generated.json'), 'utf8'))
+const staticRoutes = Object.keys(pageDates)
+const postRoutes = posts.map((post) => post.routePath ?? `/blog/${post.slug}`)
 const routes = [...staticRoutes, ...postRoutes]
+
+// sitemap.xml — only canonical URLs (posts are listed at the one routePath they
+// were imported under, never at their second reachable path), with real lastmod
+// from the same dates the page's own schema declares. No priority/changefreq:
+// Google ignores both, and inventing them would just be noise.
+const SITE = 'https://smslocal-com-website.vercel.app'
+const lastmodFor = (route) =>
+  pageDates[route] ??
+  (posts.find((p) => (p.routePath ?? `/blog/${p.slug}`) === route)?.modifiedISO ?? '').slice(0, 10)
+
+const urls = routes
+  .map((route) => {
+    const lastmod = lastmodFor(route)
+    return `  <url>\n    <loc>${SITE}${route === '/' ? '/' : route}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+  })
+  .join('\n')
+
+writeFileSync(
+  join(dist, 'sitemap.xml'),
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+)
 
 // dist/index.html stops being a neutral shell once "/" is prerendered into it,
 // so the SPA rewrite gets its own copy to fall back to — otherwise every route

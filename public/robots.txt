@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# /spa.html is the SPA fallback shell. It stays crawlable on purpose — it
+# carries a noindex meta tag, and Google has to fetch it to see that.
+
+Sitemap: https://smslocal-com-website.vercel.app/sitemap.xml
