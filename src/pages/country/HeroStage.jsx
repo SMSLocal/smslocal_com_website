@@ -19,14 +19,21 @@ import styles from './HeroStage.module.css'
  * state so the static HTML is never a half-drawn frame.
  */
 
+/**
+ * Three stops spread across the map rather than clustered — the point of the
+ * moment is global reach, which reads badly if the cursor only travels a few
+ * degrees. Note is a verifiable fact from the country data, not a regulatory
+ * claim: Russia is not one of the researched markets, so a compliance line
+ * here would be invented.
+ */
 const CURSOR_STOPS = [
-  { code: 'IN', name: 'India', dial: '+91', lat: 20.5937, lng: 78.9629, note: 'DLT template registration' },
-  { code: 'AE', name: 'United Arab Emirates', dial: '+971', lat: 24.4539, lng: 54.3773, note: 'TDRA sender ID approval' },
-  { code: 'SG', name: 'Singapore', dial: '+65', lat: 1.3521, lng: 103.8198, note: 'SSIR registered sender' },
+  { code: 'US', name: 'United States', dial: '+1', lat: 39.8283, lng: -98.5795, note: 'ISO US · 310M people' },
+  { code: 'RU', name: 'Russia', dial: '+7', lat: 61.524, lng: 90.5, note: 'ISO RU · 141M people' },
+  { code: 'AU', name: 'Australia', dial: '+61', lat: -25.2744, lng: 133.7751, note: 'ISO AU · 22M people' },
 ]
 
-const MOMENT_MS = { url: 7000, map: 11000, delivery: 5500 }
-const ORDER = ['url', 'map', 'delivery']
+const MOMENT_MS = { url: 7000, map: 11000, format: 8000 }
+const ORDER = ['url', 'map', 'format']
 
 /* ---------------------------------------------------------------- moment 1 */
 function UrlMoment({ countries }) {
@@ -63,7 +70,12 @@ function UrlMoment({ countries }) {
         </span>
       </div>
       <div className={styles.urlMeta}>
-        <span className={styles.urlCountry}>{country.name}</span>
+        <span className={styles.urlCountry}>
+          {/* Real SVG from public/flags/, keyed by ISO code — emoji flags fall
+              back to plain "US" text on Windows. */}
+          <img className={styles.flag} src={`/flags/${country.iso2.toLowerCase()}.svg`} alt="" width="28" height="21" />
+          {country.name}
+        </span>
         <span className={styles.urlDial}>{country.dial}</span>
       </div>
     </div>
@@ -77,7 +89,7 @@ function MapMoment() {
     CURSOR_STOPS.forEach((s) =>
       map.addPin({ lat: s.lat, lng: s.lng, svgOptions: { color: '#4f5bd5', radius: 0.6 }, data: { code: s.code } }),
     )
-    const svgString = map.getSVG({ radius: 0.22, color: '#c7cbd8', shape: 'circle', backgroundColor: 'transparent' })
+    const svgString = map.getSVG({ radius: 0.22, color: '#7c8398', shape: 'circle', backgroundColor: 'transparent' })
     const vb = svgString.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)
     const pts = map.getPoints()
     return {
@@ -146,31 +158,61 @@ function MapMoment() {
 }
 
 /* ---------------------------------------------------------------- moment 3 */
-function DeliveryMoment() {
-  const [lit, setLit] = useState(0)
-  useEffect(() => {
-    if (lit >= 3) return
-    const t = setTimeout(() => setLit((n) => n + 1), 700)
-    return () => clearTimeout(t)
-  }, [lit])
+/**
+ * The rule the whole section exists to explain: drop the national trunk zero,
+ * prefix the country code, and you have E.164. Numbers are the ranges each
+ * regulator reserves for documentation, so none of them can reach a real
+ * person — 07700 900xxx is Ofcom's drama range, 0412 345 678 and 0912 345 6789
+ * are the standard example numbers for their markets.
+ */
+const E164_EXAMPLES = [
+  { iso2: 'GB', name: 'United Kingdom', dial: '+44', national: '7700 900123' },
+  { iso2: 'AU', name: 'Australia', dial: '+61', national: '412 345 678' },
+  { iso2: 'PH', name: 'Philippines', dial: '+63', national: '912 345 6789' },
+]
 
-  const steps = ['Queued', 'Sent to operator', 'Delivered']
+function FormatMoment() {
+  const [i, setI] = useState(0)
+  const [phase, setPhase] = useState('local')
+  const ex = E164_EXAMPLES[i]
+
+  useEffect(() => {
+    const next = { local: ['strip', 1200], strip: ['e164', 900], e164: ['local', 2200] }[phase]
+    const t = setTimeout(() => {
+      if (phase === 'e164') setI((n) => (n + 1) % E164_EXAMPLES.length)
+      setPhase(next[0])
+    }, next[1])
+    return () => clearTimeout(t)
+  }, [phase])
 
   return (
     <div className={styles.moment}>
-      <div className={styles.momentLabel}>What lands on the handset</div>
-      <div className={styles.sms}>
-        <div className={styles.smsFrom}>SMSLOCAL</div>
-        <div className={styles.smsBody}>Your verification code is 4172. It expires in 10 minutes.</div>
+      <div className={styles.momentLabel}>Local number to E.164</div>
+
+      <div className={styles.fmtRow}>
+        <span className={styles.fmtTag}>As dialled locally</span>
+        <span className={styles.fmtNum}>
+          <span className={phase === 'local' ? styles.zero : styles.zeroCut}>0</span>
+          {ex.national}
+        </span>
       </div>
-      <ul className={styles.receipt}>
-        {steps.map((s, i) => (
-          <li key={s} className={i < lit ? styles.receiptOn : ''}>
-            <span className={styles.tick} aria-hidden="true">✓</span>
-            {s}
-          </li>
-        ))}
-      </ul>
+
+      <div className={styles.fmtArrow} aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+          <path d="M12 5v14M6 13l6 6 6-6" />
+        </svg>
+      </div>
+
+      <div className={`${styles.fmtRow} ${styles.fmtRowOut}`}>
+        <span className={styles.fmtTag}>
+          <img className={styles.fmtFlag} src={`/flags/${ex.iso2.toLowerCase()}.svg`} alt="" width="20" height="15" />
+          {ex.name}
+        </span>
+        <span className={styles.fmtNum}>
+          <span className={phase === 'e164' ? styles.codeIn : styles.code}>{ex.dial}</span>
+          <span className={phase === 'e164' ? styles.natOn : styles.nat}> {ex.national}</span>
+        </span>
+      </div>
     </div>
   )
 }
@@ -186,25 +228,15 @@ function HeroStage({ countries }) {
   }, [n, moment])
 
   return (
+    // Unframed: the moments sit directly on the hero surface, no card or
+    // browser chrome around them.
     <div className={styles.stage} aria-hidden="true">
-      <div className={styles.chrome}>
-        <span />
-        <span />
-        <span />
-      </div>
-
       {/* Remounted per moment (key), so each one restarts from its first frame
           instead of resuming wherever it was left. */}
       <div className={styles.screen} key={`${moment}-${n}`}>
         {moment === 'url' && <UrlMoment countries={countries} />}
         {moment === 'map' && <MapMoment />}
-        {moment === 'delivery' && <DeliveryMoment />}
-      </div>
-
-      <div className={styles.dots}>
-        {ORDER.map((m, i) => (
-          <span key={m} className={i === n % ORDER.length ? styles.dotOn : styles.dot} />
-        ))}
+        {moment === 'format' && <FormatMoment />}
       </div>
     </div>
   )
