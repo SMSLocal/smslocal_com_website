@@ -1,4 +1,4 @@
-/* Three hub sections: number anatomy, FAQ, and the closing CTA. */
+/* Three hub sections: number anatomy, encoding ruler, numbering timeline. */
 
 /* ============================================================ anatomy ==== */
 .anatomy {
@@ -101,130 +101,263 @@
   color: var(--text-secondary);
 }
 
-/* ======================================================= 2. encoding ===== */
-.encoding {
+/* ======================================================= 2. ruler ======== */
+.ruler {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  overflow: hidden;
+  padding: 28px 30px 24px;
 }
-.encHead,
-.encRow {
-  display: grid;
-  grid-template-columns: 1.2fr 1.4fr 0.7fr 0.6fr;
-  gap: 18px;
-  align-items: center;
-  padding: 14px 22px;
+.rulerMsg {
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
 }
-.encHead {
-  background: var(--navy);
-  color: #fff;
+.rulerMsgLabel {
+  display: block;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
 }
-.encRow {
-  border-top: 1px solid var(--border);
+.rulerMsgText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 74ch;
 }
-.encRow:nth-child(even) {
-  background: #fbfcfe;
+
+.tracks {
+  display: grid;
+  gap: 26px;
+  padding: 24px 0 4px;
 }
-.right {
-  text-align: right;
-}
-.encScript {
+.trackHead {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.trackName {
   font-size: 14px;
   font-weight: 600;
   color: var(--ink);
 }
-.encLangs {
-  font-size: 11px;
-  font-weight: 400;
+.trackScripts {
+  font-size: 12px;
   color: var(--text-secondary);
-  line-height: 1.4;
 }
-.encExample {
-  font-size: 14px;
+
+/* The bar is the artifact: same message, two rulers. */
+.bar {
+  position: relative;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--muted);
+  overflow: visible;
+}
+.fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(22, 163, 74, 0.85), rgba(22, 163, 74, 0.55));
+}
+.fillCost {
+  background: var(--gradient-brand);
+}
+/* Where the second segment begins — the whole point of the comparison. */
+.split {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 2px;
+  background: var(--ink);
+}
+.splitLabel {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
   color: var(--ink);
+  background: #fff;
+  padding: 0 4px;
+  font-variant-numeric: tabular-nums;
 }
-.tagGood,
-.tagCost {
-  display: inline-block;
+.barCap {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  font-variant-numeric: tabular-nums;
+}
+.trackFoot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.segGood,
+.segCost {
+  font-size: 12px;
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 999px;
 }
-.tagGood {
+.segGood {
   background: rgba(22, 163, 74, 0.1);
   color: var(--success);
 }
-.tagCost {
+.segCost {
   background: var(--cc-surface);
   color: var(--brand-start);
 }
-.encChars {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--navy);
-  font-variant-numeric: tabular-nums;
-}
-.encNote {
-  margin: 0;
-  padding: 18px 22px;
-  border-top: 1px solid var(--border);
-  background: var(--bg-subtle);
-  line-height: 1.65;
+.trackNote {
+  font-size: 12px;
   color: var(--text-secondary);
-  font-size: 14px;
+}
+.rulerNote {
+  margin: 22px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 82ch;
+}
+.rulerNote strong {
+  color: var(--ink);
 }
 
-/* ======================================================== 3. changes ===== */
-.changes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1px;
-  background: var(--border);
+/* ==================================================== 3. timeline ======== */
+.timeline {
+  background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  overflow: hidden;
+  padding: 30px;
 }
-.change {
+.axis {
+  position: relative;
+  height: 300px;
+  margin: 0 12px;
+}
+.axisLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--border), var(--brand-start), var(--border));
+}
+/* Markers alternate above and below the axis so six of them fit without their
+   labels colliding. */
+.marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, 0);
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: #fff;
-  padding: 20px 22px;
+  flex-direction: column-reverse;
+  align-items: center;
+  height: 50%;
+  justify-content: flex-end;
 }
-.changeWhen {
-  flex: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 13px;
-  font-weight: 600;
-  color: #fff;
+.markerDown {
+  flex-direction: column;
+  top: 50%;
+}
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
   background: var(--brand-start);
-  border-radius: 6px;
-  padding: 4px 9px;
-  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px rgba(79, 91, 213, 0.25);
+  flex: none;
+  margin: -5px 0;
 }
-.changeBody {
+.card {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
+  width: 148px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
 }
-.changeWhere {
-  font-size: 15px;
+.markerDown .card {
+  margin-bottom: 0;
+  margin-top: 14px;
+}
+.cardYear {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-start);
+}
+.cardWhere {
+  font-size: 14px;
   font-weight: 600;
   color: var(--ink);
 }
-.changeWhat {
-  font-size: 13px;
-  line-height: 1.6;
+.cardWhat {
+  font-size: 11px;
+  line-height: 1.5;
   color: var(--text-secondary);
+}
+.timelineNote {
+  margin: 8px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 82ch;
+}
+
+@media (max-width: 980px) {
+  /* Six markers cannot share a horizontal axis on a narrow screen — the axis
+     rotates and the cards stack down its left edge. */
+  .axis {
+    height: auto;
+    margin: 0;
+    padding-left: 26px;
+  }
+  .axisLine {
+    left: 5px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--border), var(--brand-start), var(--border));
+  }
+  .marker,
+  .markerDown {
+    position: relative;
+    top: auto;
+    left: auto !important;
+    transform: none;
+    flex-direction: row;
+    align-items: flex-start;
+    height: auto;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .dot {
+    margin: 14px 0 0 -26px;
+  }
+  .card,
+  .markerDown .card {
+    width: auto;
+    flex: 1 1 auto;
+    margin: 0;
+  }
 }
 
 @media (max-width: 860px) {

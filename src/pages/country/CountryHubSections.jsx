@@ -75,77 +75,128 @@ export function NumberAnatomy() {
 }
 
 /* ====================================================== 2. encoding ====== */
-const ENCODING = [
-  { script: 'Latin', example: 'Your code is 4172', langs: 'English, Spanish, Malay, Swahili', enc: 'GSM-7', chars: 160 },
-  { script: 'Latin + accents', example: 'Votre code est 4172', langs: 'French, Polish, Vietnamese, Czech', enc: 'Unicode', chars: 70 },
-  { script: 'Arabic', example: '٤١٧٢ رمزك هو', langs: 'Arabic, Persian, Urdu, Pashto', enc: 'Unicode', chars: 70 },
-  { script: 'Cyrillic', example: 'Ваш код 4172', langs: 'Russian, Ukrainian, Bulgarian', enc: 'Unicode', chars: 70 },
-  { script: 'CJK', example: '您的验证码是 4172', langs: 'Chinese, Japanese, Korean', enc: 'Unicode', chars: 70 },
-]
+const SAMPLE =
+  'Your verification code is 4172. It expires in 10 minutes. Do not share this code with anyone, including our support team.'
 
 /**
- * Why the same message costs differently depending on where it goes. This is
- * the single most common surprise on an international invoice, and it is a
- * property of the alphabet rather than the destination.
+ * One message, measured against both segment rulers.
+ *
+ * Was a five-row comparison table, which is exactly the boxy repeated-row shape
+ * that gets rejected on this project. This shows the actual mechanism instead:
+ * the same 120 characters laid against a 160-character ruler and a 70-character
+ * one, so the split — and the doubled cost — is visible rather than asserted.
  */
-export function EncodingTable() {
+export function EncodingRuler() {
+  const len = SAMPLE.length
+  const gsmSegments = Math.ceil(len / 160)
+  const uniSegments = Math.ceil(len / 70)
+
   return (
-    <div className={styles.encoding}>
-      <div className={styles.encHead}>
-        <span>Script</span>
-        <span>Example</span>
-        <span>Encoding</span>
-        <span className={styles.right}>Per segment</span>
+    <div className={styles.ruler}>
+      <div className={styles.rulerMsg}>
+        <span className={styles.rulerMsgLabel}>One message · {len} characters</span>
+        <p className={styles.rulerMsgText}>{SAMPLE}</p>
       </div>
-      {ENCODING.map((e) => (
-        <div className={styles.encRow} key={e.script}>
-          <span className={styles.encScript}>
-            {e.script}
-            <span className={styles.encLangs}>{e.langs}</span>
-          </span>
-          <span className={styles.encExample}>{e.example}</span>
-          <span>
-            <span className={e.enc === 'GSM-7' ? styles.tagGood : styles.tagCost}>{e.enc}</span>
-          </span>
-          <span className={`${styles.encChars} ${styles.right}`}>{e.chars}</span>
+
+      <div className={styles.tracks}>
+        {/* GSM-7: fits inside a single 160-character segment. */}
+        <div className={styles.track}>
+          <div className={styles.trackHead}>
+            <span className={styles.trackName}>GSM-7</span>
+            <span className={styles.trackScripts}>Latin without accents — English, Malay, Swahili, Indonesian</span>
+          </div>
+          <div className={styles.bar}>
+            <span className={styles.fill} style={{ width: `${(len / 160) * 100}%` }} />
+            <span className={styles.barCap}>160</span>
+          </div>
+          <div className={styles.trackFoot}>
+            <span className={styles.segGood}>{gsmSegments} segment</span>
+            <span className={styles.trackNote}>{160 - len} characters spare</span>
+          </div>
         </div>
-      ))}
-      <p className={styles.encNote}>
-        A single accented character is enough to push an entire message from GSM-7 to unicode, which
-        more than halves what fits in one segment. Transliterating to plain Latin is the usual fix,
-        and it is worth doing deliberately rather than discovering it on a bill.
+
+        {/* Unicode: the same text needs two segments at 70 characters each. */}
+        <div className={styles.track}>
+          <div className={styles.trackHead}>
+            <span className={styles.trackName}>Unicode</span>
+            <span className={styles.trackScripts}>
+              Arabic, Cyrillic, Greek, Hebrew, Thai, CJK — and any accented Latin
+            </span>
+          </div>
+          <div className={styles.bar}>
+            <span className={`${styles.fill} ${styles.fillCost}`} style={{ width: '100%' }} />
+            <span className={styles.split} style={{ left: `${(70 / len) * 100}%` }}>
+              <span className={styles.splitLabel}>70</span>
+            </span>
+            <span className={styles.barCap}>{len}</span>
+          </div>
+          <div className={styles.trackFoot}>
+            <span className={styles.segCost}>{uniSegments} segments</span>
+            <span className={styles.trackNote}>billed as {uniSegments} messages</span>
+          </div>
+        </div>
+      </div>
+
+      <p className={styles.rulerNote}>
+        Nothing about the destination changed — only the alphabet. One accented character is enough
+        to move a message across this line, so <strong>{SAMPLE.length} characters costs twice as
+        much</strong> in Cairo as in Nairobi. Transliterating to plain Latin is the usual fix, and
+        it is worth deciding deliberately rather than discovering it on an invoice.
       </p>
     </div>
   )
 }
 
 /* ======================================================= 3. changes ====== */
+/**
+ * Chronological, and it must stay that way: markers are positioned along the
+ * axis by year but alternate above and below it by array index. Out of order,
+ * two adjacent years land on the same side and their labels overlap.
+ */
 const CHANGES = [
-  { where: 'Mexico', when: '2019', what: 'Dropped the 1 and 045 mobile prefixes for a uniform ten digits.' },
-  { where: 'Ivory Coast', when: '2021', what: 'Moved from eight digits to ten. Older numbers do not deliver at all.' },
-  { where: 'Benin', when: '2020', what: 'Eight digits to ten, following the same regional pattern.' },
   { where: 'Guinea', when: '2016', what: 'Renumbered to nine digits.' },
-  { where: 'Türkiye', when: '2022', what: 'Renamed from Turkey. Breaks name-based matching, not the numbers.' },
   { where: 'Eswatini', when: '2018', what: 'Renamed from Swaziland. Still listed under the old name in many datasets.' },
+  { where: 'Mexico', when: '2019', what: 'Dropped the 1 and 045 mobile prefixes for a uniform ten digits.' },
+  { where: 'Benin', when: '2020', what: 'Eight digits to ten, following the same regional pattern.' },
+  { where: 'Ivory Coast', when: '2021', what: 'Moved from eight digits to ten. Older numbers do not deliver at all.' },
+  { where: 'Türkiye', when: '2022', what: 'Renamed from Turkey. Breaks name-based matching, not the numbers.' },
 ]
 
 /**
- * Concrete failures rather than general advice. Every entry here is a change
- * that silently invalidates stored contact data — the numbers look plausible
- * and simply never arrive.
+ * A single timeline rather than six cards. Was a repeated-tile grid, which is
+ * the shape this project consistently rejects; chronology is also the honest
+ * structure here, since the point is that these keep happening.
  */
 export function NumberingChanges() {
+  const years = CHANGES.map((c) => Number(c.when))
+  const min = Math.min(...years)
+  const max = Math.max(...years)
+  const at = (y) => ((Number(y) - min) / (max - min)) * 100
+
   return (
-    <div className={styles.changes}>
-      {CHANGES.map((c) => (
-        <div className={styles.change} key={c.where}>
-          <span className={styles.changeWhen}>{c.when}</span>
-          <span className={styles.changeBody}>
-            <span className={styles.changeWhere}>{c.where}</span>
-            <span className={styles.changeWhat}>{c.what}</span>
+    <div className={styles.timeline}>
+      <div className={styles.axis}>
+        <span className={styles.axisLine} />
+        {CHANGES.map((c, i) => (
+          <span
+            key={c.where}
+            className={`${styles.marker} ${i % 2 ? styles.markerDown : ''}`}
+            style={{ left: `${at(c.when)}%` }}
+          >
+            <span className={styles.dot} />
+            <span className={styles.card}>
+              <span className={styles.cardYear}>{c.when}</span>
+              <span className={styles.cardWhere}>{c.where}</span>
+              <span className={styles.cardWhat}>{c.what}</span>
+            </span>
           </span>
-        </div>
-      ))}
+        ))}
+      </div>
+      <p className={styles.timelineNote}>
+        Six in seven years, and none of them announced to the people holding the old numbers. A list
+        gathered before any of these still looks valid — right digit count, right prefix — and
+        simply never arrives.
+      </p>
     </div>
   )
 }
