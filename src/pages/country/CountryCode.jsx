@@ -3,6 +3,7 @@ import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import { getCountry, relatedCountries, variantOf, fmt } from '../../lib/countries.js'
+import CountryHeroVisual from './CountryHeroVisual.jsx'
 import styles from './CountryCode.module.css'
 
 /**
@@ -170,21 +171,15 @@ function CountryCode() {
     </section>
   )
 
-  const Unresearched = !c.researched && (
-    <section key="note" className={styles.section}>
-      <div className={styles.wrap}>
-        <div className={styles.note}>
-          We publish sender ID and regulatory detail for {c.name} only once we have verified it with
-          the operators. The dialling and country data above is accurate today; for current sending
-          rules in this market, <Link to="/contact-us/">talk to our team</Link>.
-        </div>
-      </div>
-    </section>
-  )
+  // No "not yet researched" notice. It was identical on all 175 pages apart
+  // from the country name — the most templated thing here — and it claimed the
+  // rules had been "verified with the operators", which is not how any of this
+  // was produced. A false claim repeated 175 times is worse than no claim; the
+  // regulatory sections simply don't render where there is nothing to say.
 
   // Fixed hero and CTA; the middle rotates so no two countries present in the
   // same order. Rotation is by slug hash, so it is stable across builds.
-  const middle = [Facts, SenderId, Rules, Operators, UseCases, Dialling, Unresearched].filter(Boolean)
+  const middle = [Facts, SenderId, Rules, Operators, UseCases, Dialling].filter(Boolean)
   const pivot = v % middle.length
   const ordered = [...middle.slice(pivot), ...middle.slice(0, pivot)]
 
@@ -229,20 +224,7 @@ function CountryCode() {
                   `${c.name} dials on ${c.dial} and carries ISO codes ${c.iso2}/${c.iso3 ?? c.iso2}, across ${fmt(c.areaKm2)} km² and ${fmt(c.population)} people in ${c.region ?? 'the region'}. Here is how to format a number for ${c.name}, and what to confirm before you send to it.`}
               </p>
             </div>
-            <div className={styles.dialCard}>
-              <div className={styles.dialCode}>{c.dial}</div>
-              <div className={styles.dialLabel}>{c.name} country code</div>
-              <div className={styles.dialMeta}>
-                <div>
-                  <span className={styles.k}>ISO</span>
-                  <span className={styles.v}>{c.iso2} / {c.iso3 ?? '—'}</span>
-                </div>
-                <div>
-                  <span className={styles.k}>Population</span>
-                  <span className={styles.v}>{fmt(c.population)}</span>
-                </div>
-              </div>
-            </div>
+            <CountryHeroVisual country={c} />
           </div>
         </div>
       </div>

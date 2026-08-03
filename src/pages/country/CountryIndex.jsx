@@ -62,7 +62,7 @@ function CountryIndex() {
           <div className={styles.kicker}>Researched markets</div>
           <h2 className={styles.h2}>Full SMS guides</h2>
           <p className={styles.sub}>
-            These markets have verified sender ID, operator and regulatory detail. Hover a card to
+            These markets have researched sender ID, operator and regulatory detail. Hover a card to
             see its number format and networks.
           </p>
           <PopularStrip countries={researchedCountries} />

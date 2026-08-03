@@ -9,7 +9,7 @@
  *
  * A country with no entry here still gets a page from the generated facts, but
  * without the regulatory sections. Add a market only once its rules have
- * actually been checked. `verified` records when that happened.
+ * actually been researched. `researched` records when that was written.
  *
  * Fields:
  *   intro      one paragraph, specific to this market — not a template
@@ -21,7 +21,7 @@
  */
 export const COUNTRY_CONTENT = {
   'united-states': {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'The United States is the largest A2P SMS market in the world by revenue, and also the most heavily gated. Since 10DLC registration became mandatory, every business sending from a standard ten-digit number must register a brand and a campaign with The Campaign Registry before carriers will deliver at scale. Unregistered traffic is not merely throttled — it is increasingly blocked outright.',
     operators: ['AT&T', 'Verizon', 'T-Mobile', 'US Cellular'],
@@ -42,7 +42,7 @@ export const COUNTRY_CONTENT = {
   },
 
   india: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'India runs the strictest A2P framework of any major market. TRAI requires every commercial message to pass through a blockchain-based DLT registry: the sender, the header and the exact template must all be pre-registered, and anything that does not match a registered template is rejected by the operator rather than delivered late.',
     operators: ['Reliance Jio', 'Bharti Airtel', 'Vodafone Idea', 'BSNL'],
@@ -63,7 +63,7 @@ export const COUNTRY_CONTENT = {
   },
 
   'united-kingdom': {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'The UK is a mature alphanumeric-sender-ID market with light registration compared to India or the US, but heavy enforcement on consent. The ICO polices PECR actively and fines are public, so the practical constraint on a UK campaign is rarely deliverability — it is whether your opt-in record would survive a complaint.',
     operators: ['EE', 'O2', 'Vodafone', 'Three'],
@@ -84,7 +84,7 @@ export const COUNTRY_CONTENT = {
   },
 
   'united-arab-emirates': {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'The UAE is a registration-first market. The TDRA requires sender IDs to be approved, and both operators run their own commercial approval on top, so lead time on a new UAE sender is measured in days rather than minutes. In exchange, delivery on approved routes is reliable and the market has unusually high smartphone penetration.',
     operators: ['Etisalat (e&)', 'du'],
@@ -105,7 +105,7 @@ export const COUNTRY_CONTENT = {
   },
 
   'saudi-arabia': {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Saudi Arabia routes commercial SMS through a centralised framework overseen by the CST, and sender IDs are tied to a registered commercial entity. For international senders the practical hurdle is documentation: a CR number and local sponsorship are usually needed before a sender ID is approved at all.',
     operators: ['STC', 'Mobily', 'Zain KSA'],
@@ -122,7 +122,7 @@ export const COUNTRY_CONTENT = {
   },
 
   nigeria: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Nigeria is the largest mobile market in Africa and one where SMS still carries traffic that has moved to data elsewhere — bank alerts in particular. The NCC mandates a Do-Not-Disturb short code, and 2442 opt-outs are honoured at network level, which means a list bought rather than built will quietly stop delivering.',
     operators: ['MTN Nigeria', 'Airtel Nigeria', 'Glo', '9mobile'],
@@ -139,7 +139,7 @@ export const COUNTRY_CONTENT = {
   },
 
   indonesia: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Indonesia is a high-volume, price-sensitive market spread across thousands of islands and four major networks, which makes route quality more variable than in a single-operator country. Masking rules differ by operator, so a sender ID that works on Telkomsel may be rewritten on another network.',
     operators: ['Telkomsel', 'Indosat Ooredoo Hutchison', 'XL Axiata', 'Smartfren'],
@@ -156,7 +156,7 @@ export const COUNTRY_CONTENT = {
   },
 
   philippines: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'The Philippines was once the texting capital of the world and SMS remains central to how businesses reach customers. Since the SIM Registration Act, unregistered SIMs are deactivated, and the NTC now requires commercial senders to register — a direct response to the scale of smishing the market experienced.',
     operators: ['Globe Telecom', 'Smart Communications', 'DITO Telecommunity'],
@@ -173,7 +173,7 @@ export const COUNTRY_CONTENT = {
   },
 
   brazil: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Brazil combines a large mobile base with an active consumer-protection regime. Anatel runs the "Não Perturbe" registry for telemarketing, and LGPD applies to messaging data the way GDPR does in Europe, so consent handling matters as much as routing.',
     operators: ['Vivo', 'Claro', 'TIM', 'Oi'],
@@ -190,7 +190,7 @@ export const COUNTRY_CONTENT = {
   },
 
   germany: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Germany is a strict-consent market where the practical risk is legal rather than technical. Under UWG, sending marketing SMS without documented prior consent exposes you to competitor-initiated Abmahnung claims, which is a faster and more expensive route to trouble than a regulator would be.',
     operators: ['Telekom', 'Vodafone', 'O2 Telefónica'],
@@ -206,7 +206,7 @@ export const COUNTRY_CONTENT = {
   },
 
   france: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'France separates marketing from service messaging clearly, and the distinction is enforced through timing rules as well as consent. Marketing SMS may not be sent on Sundays, public holidays, or outside daytime hours — a constraint that catches international senders scheduling in their own time zone.',
     operators: ['Orange', 'SFR', 'Bouygues Telecom', 'Free Mobile'],
@@ -222,7 +222,7 @@ export const COUNTRY_CONTENT = {
   },
 
   australia: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Australia is governed by the Spam Act, which ACMA enforces with real penalties, and the compliance bar is specific: consent, identification of the sender, and a functional unsubscribe in every commercial message. There is no grace for "we assumed they wanted it".',
     operators: ['Telstra', 'Optus', 'Vodafone (TPG)'],
@@ -238,7 +238,7 @@ export const COUNTRY_CONTENT = {
   },
 
   canada: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       "Canada's CASL is among the strictest anti-spam laws anywhere, and unusually it carries a private right of action alongside regulatory penalties. Consent must be express or fall into a narrow implied category, and the burden of proving it sits with the sender.",
     operators: ['Rogers', 'Bell', 'Telus', 'Freedom Mobile'],
@@ -255,7 +255,7 @@ export const COUNTRY_CONTENT = {
   },
 
   'south-africa': {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'South Africa pairs a mature mobile market with POPIA, which took full effect recently and reshaped how marketing lists are handled. Direct marketing to someone who is not an existing customer generally requires prior consent, and the regulator has been willing to act.',
     operators: ['Vodacom', 'MTN South Africa', 'Cell C', 'Telkom Mobile'],
@@ -271,7 +271,7 @@ export const COUNTRY_CONTENT = {
   },
 
   kenya: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Kenya is the market that made mobile money mainstream, and SMS is the transaction layer underneath it. M-Pesa confirmations alone represent enormous message volume, which means Kenyan users read SMS in a way users in saturated markets no longer do.',
     operators: ['Safaricom', 'Airtel Kenya', 'Telkom Kenya'],
@@ -288,7 +288,7 @@ export const COUNTRY_CONTENT = {
   },
 
   singapore: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Singapore responded to SMS impersonation fraud faster than most regulators: alphanumeric sender IDs must be registered with the SMS Sender ID Registry, and unregistered IDs are labelled "Likely-SCAM" on the recipient handset. That makes registration a brand-trust question, not just a deliverability one.',
     operators: ['Singtel', 'StarHub', 'M1', 'SIMBA'],
@@ -305,7 +305,7 @@ export const COUNTRY_CONTENT = {
   },
 
   malaysia: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Malaysia is a multilingual market where the same campaign may need Malay, English, Chinese and Tamil variants — and the moment Chinese or Tamil script appears, the message becomes unicode and the segment length drops from 160 characters to 70. That single fact drives most Malaysian campaign design.',
     operators: ['Maxis', 'Celcom', 'Digi', 'U Mobile'],
@@ -321,7 +321,7 @@ export const COUNTRY_CONTENT = {
   },
 
   pakistan: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Pakistan runs sender-ID approval through the PTA alongside the operators, and the market skews heavily toward transactional traffic: banking alerts, mobile wallet confirmations and telco notifications make up the bulk of legitimate A2P volume.',
     operators: ['Jazz', 'Zong', 'Telenor Pakistan', 'Ufone'],
@@ -337,7 +337,7 @@ export const COUNTRY_CONTENT = {
   },
 
   bangladesh: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Bangladesh has one of the densest mobile subscriber bases in South Asia and a mobile financial services sector — bKash above all — that runs on SMS confirmation. BTRC oversees masking approval, and unapproved senders do not reach the network.',
     operators: ['Grameenphone', 'Robi', 'Banglalink', 'Teletalk'],
@@ -353,7 +353,7 @@ export const COUNTRY_CONTENT = {
   },
 
   egypt: {
-    verified: '2026-08',
+    researched: '2026-08',
     intro:
       'Egypt is the largest mobile market in North Africa, and Arabic-language messaging is the default rather than the exception. That makes unicode segment maths central to campaign cost here: a 160-character English message and a 70-character Arabic one cost the same per segment.',
     operators: ['Vodafone Egypt', 'Orange Egypt', 'Etisalat Misr', 'WE (Telecom Egypt)'],
