@@ -75,74 +75,53 @@ export function NumberAnatomy() {
 }
 
 /* ====================================================== 2. encoding ====== */
-const SAMPLE =
-  'Your verification code is 4172. It expires in 10 minutes. Do not share this code with anyone, including our support team.'
+const COST_CARDS = [
+  {
+    stat: '160',
+    unit: 'characters',
+    title: 'GSM-7',
+    body: 'The default alphabet. Plain Latin with no accents — English, Malay, Swahili, Indonesian — fits 160 characters in one billable segment.',
+  },
+  {
+    stat: '70',
+    unit: 'characters',
+    title: 'Unicode',
+    body: 'Arabic, Cyrillic, Greek, Hebrew, Thai and CJK have no GSM-7 equivalent, so a segment drops to 70 characters. The same message can cost twice as much.',
+    cost: true,
+  },
+  {
+    stat: '1',
+    unit: 'character',
+    title: 'That is all it takes',
+    body: 'A single é, ñ, ł or ș tips an entire message from GSM-7 to unicode. Transliterating to plain Latin is the usual fix — decide it deliberately, not on an invoice.',
+    cost: true,
+  },
+  {
+    stat: '~7',
+    unit: 'characters lost',
+    title: 'Long messages',
+    body: 'Past one segment, each part carries a header so handsets can reassemble them. That leaves 153 usable characters per part on GSM-7, and 67 on unicode.',
+  },
+]
 
 /**
- * One message, measured against both segment rulers.
- *
- * Was a five-row comparison table, which is exactly the boxy repeated-row shape
- * that gets rejected on this project. This shows the actual mechanism instead:
- * the same 120 characters laid against a 160-character ruler and a 70-character
- * one, so the split — and the doubled cost — is visible rather than asserted.
+ * Four cards. Deliberately the plain shape — the earlier comparison table and
+ * segment-ruler artifact were both rejected here, and the content is four
+ * discrete facts rather than one thing worth diagramming.
  */
-export function EncodingRuler() {
-  const len = SAMPLE.length
-  const gsmSegments = Math.ceil(len / 160)
-  const uniSegments = Math.ceil(len / 70)
-
+export function EncodingCards() {
   return (
-    <div className={styles.ruler}>
-      <div className={styles.rulerMsg}>
-        <span className={styles.rulerMsgLabel}>One message · {len} characters</span>
-        <p className={styles.rulerMsgText}>{SAMPLE}</p>
-      </div>
-
-      <div className={styles.tracks}>
-        {/* GSM-7: fits inside a single 160-character segment. */}
-        <div className={styles.track}>
-          <div className={styles.trackHead}>
-            <span className={styles.trackName}>GSM-7</span>
-            <span className={styles.trackScripts}>Latin without accents — English, Malay, Swahili, Indonesian</span>
-          </div>
-          <div className={styles.bar}>
-            <span className={styles.fill} style={{ width: `${(len / 160) * 100}%` }} />
-            <span className={styles.barCap}>160</span>
-          </div>
-          <div className={styles.trackFoot}>
-            <span className={styles.segGood}>{gsmSegments} segment</span>
-            <span className={styles.trackNote}>{160 - len} characters spare</span>
-          </div>
+    <div className={styles.costCards}>
+      {COST_CARDS.map((c) => (
+        <div className={styles.costCard} key={c.title}>
+          <span className={`${styles.costStat} ${c.cost ? styles.costStatWarn : ''}`}>
+            {c.stat}
+            <span className={styles.costUnit}>{c.unit}</span>
+          </span>
+          <span className={styles.costTitle}>{c.title}</span>
+          <span className={styles.costBody}>{c.body}</span>
         </div>
-
-        {/* Unicode: the same text needs two segments at 70 characters each. */}
-        <div className={styles.track}>
-          <div className={styles.trackHead}>
-            <span className={styles.trackName}>Unicode</span>
-            <span className={styles.trackScripts}>
-              Arabic, Cyrillic, Greek, Hebrew, Thai, CJK — and any accented Latin
-            </span>
-          </div>
-          <div className={styles.bar}>
-            <span className={`${styles.fill} ${styles.fillCost}`} style={{ width: '100%' }} />
-            <span className={styles.split} style={{ left: `${(70 / len) * 100}%` }}>
-              <span className={styles.splitLabel}>70</span>
-            </span>
-            <span className={styles.barCap}>{len}</span>
-          </div>
-          <div className={styles.trackFoot}>
-            <span className={styles.segCost}>{uniSegments} segments</span>
-            <span className={styles.trackNote}>billed as {uniSegments} messages</span>
-          </div>
-        </div>
-      </div>
-
-      <p className={styles.rulerNote}>
-        Nothing about the destination changed — only the alphabet. One accented character is enough
-        to move a message across this line, so <strong>{SAMPLE.length} characters costs twice as
-        much</strong> in Cairo as in Nairobi. Transliterating to plain Latin is the usual fix, and
-        it is worth deciding deliberately rather than discovering it on an invoice.
-      </p>
+      ))}
     </div>
   )
 }

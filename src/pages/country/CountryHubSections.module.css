@@ -101,138 +101,66 @@
   color: var(--text-secondary);
 }
 
-/* ======================================================= 2. ruler ======== */
-.ruler {
+/* ======================================================= 2. cost ========= */
+.costCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  /* Equal-height cards even though the copy lengths differ — uneven boxes in a
+     row is a recurring complaint on this project. */
+  align-items: stretch;
+}
+.costCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 28px 30px 24px;
+  padding: 24px 22px;
 }
-.rulerMsg {
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--border);
-}
-.rulerMsgLabel {
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-}
-.rulerMsgText {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--ink);
-  max-width: 74ch;
-}
-
-.tracks {
-  display: grid;
-  gap: 26px;
-  padding: 24px 0 4px;
-}
-.trackHead {
+.costStat {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+  gap: 7px;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
 }
-.trackName {
-  font-size: 14px;
+.costStatWarn {
+  color: var(--brand-start);
+}
+.costUnit {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.costTitle {
+  font-size: 15px;
   font-weight: 600;
   color: var(--ink);
+  margin-top: 4px;
 }
-.trackScripts {
-  font-size: 12px;
+.costBody {
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--text-secondary);
 }
 
-/* The bar is the artifact: same message, two rulers. */
-.bar {
-  position: relative;
-  height: 34px;
-  border-radius: 8px;
-  background: var(--muted);
-  overflow: visible;
+@media (max-width: 1000px) {
+  .costCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-.fill {
-  position: absolute;
-  inset: 0 auto 0 0;
-  border-radius: 8px;
-  background: linear-gradient(90deg, rgba(22, 163, 74, 0.85), rgba(22, 163, 74, 0.55));
-}
-.fillCost {
-  background: var(--gradient-brand);
-}
-/* Where the second segment begins — the whole point of the comparison. */
-.split {
-  position: absolute;
-  top: -6px;
-  bottom: -6px;
-  width: 2px;
-  background: var(--ink);
-}
-.splitLabel {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--ink);
-  background: #fff;
-  padding: 0 4px;
-  font-variant-numeric: tabular-nums;
-}
-.barCap {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  font-variant-numeric: tabular-nums;
-}
-.trackFoot {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 10px;
-}
-.segGood,
-.segCost {
-  font-size: 12px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 999px;
-}
-.segGood {
-  background: rgba(22, 163, 74, 0.1);
-  color: var(--success);
-}
-.segCost {
-  background: var(--cc-surface);
-  color: var(--brand-start);
-}
-.trackNote {
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-.rulerNote {
-  margin: 22px 0 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
-  line-height: 1.7;
-  color: var(--text-secondary);
-  max-width: 82ch;
-}
-.rulerNote strong {
-  color: var(--ink);
+@media (max-width: 560px) {
+  .costCards {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ==================================================== 3. timeline ======== */

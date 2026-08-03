@@ -6,7 +6,7 @@ import { researchedCountries, allCountries } from '../../lib/countries.js'
 import HeroStage from './HeroStage.jsx'
 import PopularStrip from './PopularStrip.jsx'
 import CountryDirectory from './CountryDirectory.jsx'
-import { NumberAnatomy, EncodingRuler, NumberingChanges, FAQS } from './CountryHubSections.jsx'
+import { NumberAnatomy, EncodingCards, NumberingChanges, FAQS } from './CountryHubSections.jsx'
 // The shared inner-page FAQ and CTA, in the order every other page uses them.
 import { FAQ, CTABanner } from '../../components/sections/Sections.jsx'
 import styles from './CountryCode.module.css'
@@ -120,7 +120,7 @@ function CountryIndex() {
             Rarely the country code itself. Usually the alphabet — which decides how much text fits
             in one billable segment.
           </p>
-          <EncodingRuler />
+          <EncodingCards />
         </div>
       </section>
 
