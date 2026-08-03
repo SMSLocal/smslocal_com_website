@@ -129,6 +129,11 @@ function Footer() {
             <Link to="/privacy-policy" className="inline-block py-1 hover:text-primary">
               Privacy
             </Link>
+            {/* A real file in dist/, not a route — an <a> so the browser fetches
+                it directly instead of the router trying to match it. */}
+            <a href="/sitemap.xml" className="inline-block py-1 hover:text-primary">
+              Sitemap
+            </a>
           </div>
         </div>
       </div>

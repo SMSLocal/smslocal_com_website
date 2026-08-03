@@ -52,26 +52,56 @@ const staticRoutes = Object.keys(pageDates)
 const postRoutes = posts.map((post) => post.routePath ?? `/blog/${post.slug}`)
 const routes = [...staticRoutes, ...postRoutes]
 
-// sitemap.xml — only canonical URLs (posts are listed at the one routePath they
-// were imported under, never at their second reachable path), with real lastmod
-// from the same dates the page's own schema declares. No priority/changefreq:
-// Google ignores both, and inventing them would just be noise.
+// Sitemaps: an index at /sitemap.xml pointing at one sub-sitemap per content
+// type, matching how the pages are actually grouped. Only canonical URLs go in
+// — posts are listed at the one routePath they were imported under, never at
+// their second reachable path — and lastmod reuses the dates each page already
+// declares in its own schema. No priority/changefreq: Google ignores both, so
+// inventing values would only add noise.
+//
+// Each file carries an <?xml-stylesheet?> pointing at /sitemap.xsl, which makes
+// browsers render a styled page. Crawlers ignore it and read the raw XML.
 const SITE = 'https://smslocal-com-website.vercel.app'
+const STYLE = '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
 const lastmodFor = (route) =>
   pageDates[route] ??
   (posts.find((p) => (p.routePath ?? `/blog/${p.slug}`) === route)?.modifiedISO ?? '').slice(0, 10)
 
-const urls = routes
-  .map((route) => {
-    const lastmod = lastmodFor(route)
-    return `  <url>\n    <loc>${SITE}${route === '/' ? '/' : route}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
+const isAreaCode = (p) => /area\s*code/i.test(p.category ?? '')
+
+const groups = [
+  { file: 'page-sitemap.xml', routes: staticRoutes },
+  { file: 'post-sitemap.xml', routes: posts.filter((p) => !isAreaCode(p)).map(routeOf) },
+  { file: 'area-code-sitemap.xml', routes: posts.filter(isAreaCode).map(routeOf) },
+].filter((g) => g.routes.length)
+
+const urlsetFor = (list) =>
+  `<?xml version="1.0" encoding="UTF-8"?>\n${STYLE}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  list
+    .map((route) => {
+      const lastmod = lastmodFor(route)
+      return `  <url>\n    <loc>${SITE}${route}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+    })
+    .join('\n') +
+  `\n</urlset>\n`
+
+for (const g of groups) writeFileSync(join(dist, g.file), urlsetFor(g.routes))
+
+// The index's lastmod per sub-sitemap is the newest page inside it, so it moves
+// only when something in that group actually changed.
+const indexEntries = groups
+  .map((g) => {
+    const newest = g.routes.map(lastmodFor).filter(Boolean).sort().pop()
+    return `  <sitemap>\n    <loc>${SITE}/${g.file}</loc>${newest ? `\n    <lastmod>${newest}</lastmod>` : ''}\n  </sitemap>`
   })
   .join('\n')
 
 writeFileSync(
   join(dist, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n${STYLE}\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexEntries}\n</sitemapindex>\n`,
 )
+console.log(`sitemaps — index + ${groups.length} groups: ${groups.map((g) => `${g.file} (${g.routes.length})`).join(', ')}`)
 
 // dist/index.html stops being a neutral shell once "/" is prerendered into it,
 // so the SPA rewrite gets its own copy to fall back to — otherwise every route
