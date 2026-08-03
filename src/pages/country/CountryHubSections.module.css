@@ -1,4 +1,4 @@
-/* Three hub sections: number anatomy, encoding ruler, numbering timeline. */
+/* Three hub sections: number anatomy, encoding cards, numbering-change cards. */
 
 /* ============================================================ anatomy ==== */
 .anatomy {
@@ -163,153 +163,26 @@
   }
 }
 
-/* ==================================================== 3. timeline ======== */
-.timeline {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 30px;
+/* ==================================================== 3. changes ========= */
+/* Same card shape as the cost section, three across — six items do not need a
+   different treatment from four. */
+.changeCards {
+  grid-template-columns: repeat(3, 1fr);
 }
-.axis {
-  position: relative;
-  height: 300px;
-  margin: 0 12px;
-}
-.axisLine {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--border), var(--brand-start), var(--border));
-}
-/* Markers alternate above and below the axis so six of them fit without their
-   labels colliding. */
-.marker {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, 0);
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  height: 50%;
-  justify-content: flex-end;
-}
-.markerDown {
-  flex-direction: column;
-  top: 50%;
-}
-.dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--brand-start);
-  box-shadow: 0 0 0 4px #fff, 0 0 0 6px rgba(79, 91, 213, 0.25);
-  flex: none;
-  margin: -5px 0;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  width: 148px;
-  padding: 12px 14px;
-  margin-bottom: 14px;
-  border-radius: var(--radius-md);
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-}
-.markerDown .card {
-  margin-bottom: 0;
-  margin-top: 14px;
-}
-.cardYear {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--brand-start);
-}
-.cardWhere {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-}
-.cardWhat {
-  font-size: 11px;
-  line-height: 1.5;
-  color: var(--text-secondary);
-}
-.timelineNote {
-  margin: 8px 0 0;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+.changesNote {
+  margin: 20px 0 0;
   line-height: 1.7;
   color: var(--text-secondary);
   max-width: 82ch;
 }
 
-@media (max-width: 980px) {
-  /* Six markers cannot share a horizontal axis on a narrow screen — the axis
-     rotates and the cards stack down its left edge. */
-  .axis {
-    height: auto;
-    margin: 0;
-    padding-left: 26px;
-  }
-  .axisLine {
-    left: 5px;
-    right: auto;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    height: auto;
-    background: linear-gradient(180deg, var(--border), var(--brand-start), var(--border));
-  }
-  .marker,
-  .markerDown {
-    position: relative;
-    top: auto;
-    left: auto !important;
-    transform: none;
-    flex-direction: row;
-    align-items: flex-start;
-    height: auto;
-    gap: 16px;
-    margin-bottom: 12px;
-  }
-  .dot {
-    margin: 14px 0 0 -26px;
-  }
-  .card,
-  .markerDown .card {
-    width: auto;
-    flex: 1 1 auto;
-    margin: 0;
+@media (max-width: 1000px) {
+  .changeCards {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-
-@media (max-width: 860px) {
-  .anatomy {
-    padding: 22px;
-  }
-  .part {
-    padding: 12px 14px;
-  }
-  /* The four-column grid collapses to stacked rows; a table this wide cannot
-     shrink usefully on a phone. */
-  .encHead {
-    display: none;
-  }
-  .encRow {
-    grid-template-columns: 1fr auto;
-    gap: 8px 14px;
-    padding: 16px 18px;
-  }
-  .encExample {
-    grid-column: 1 / -1;
-    color: var(--text-secondary);
-  }
-  .encChars {
-    text-align: right;
+@media (max-width: 560px) {
+  .changeCards {
+    grid-template-columns: 1fr;
   }
 }

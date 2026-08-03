@@ -142,41 +142,32 @@ const CHANGES = [
 ]
 
 /**
- * A single timeline rather than six cards. Was a repeated-tile grid, which is
- * the shape this project consistently rejects; chronology is also the honest
- * structure here, since the point is that these keep happening.
+ * Plain cards, matching the cost section above.
+ *
+ * This was an absolutely-positioned timeline: markers placed along an axis by
+ * year, alternating above and below it. It measured as non-overlapping but
+ * looked broken — the alternation did not read, and the fixed axis height left
+ * a large empty band above the cards. Absolute positioning against a
+ * percentage axis is not worth it for six items.
  */
 export function NumberingChanges() {
-  const years = CHANGES.map((c) => Number(c.when))
-  const min = Math.min(...years)
-  const max = Math.max(...years)
-  const at = (y) => ((Number(y) - min) / (max - min)) * 100
-
   return (
-    <div className={styles.timeline}>
-      <div className={styles.axis}>
-        <span className={styles.axisLine} />
-        {CHANGES.map((c, i) => (
-          <span
-            key={c.where}
-            className={`${styles.marker} ${i % 2 ? styles.markerDown : ''}`}
-            style={{ left: `${at(c.when)}%` }}
-          >
-            <span className={styles.dot} />
-            <span className={styles.card}>
-              <span className={styles.cardYear}>{c.when}</span>
-              <span className={styles.cardWhere}>{c.where}</span>
-              <span className={styles.cardWhat}>{c.what}</span>
-            </span>
-          </span>
+    <>
+      <div className={`${styles.costCards} ${styles.changeCards}`}>
+        {CHANGES.map((c) => (
+          <div className={styles.costCard} key={c.where}>
+            <span className={`${styles.costStat} ${styles.costStatWarn}`}>{c.when}</span>
+            <span className={styles.costTitle}>{c.where}</span>
+            <span className={styles.costBody}>{c.what}</span>
+          </div>
         ))}
       </div>
-      <p className={styles.timelineNote}>
-        Six in seven years, and none of them announced to the people holding the old numbers. A list
-        gathered before any of these still looks valid — right digit count, right prefix — and
-        simply never arrives.
+      <p className={styles.changesNote}>
+        Six in seven years, and none announced to the people holding the old numbers. A list
+        gathered before any of them still looks valid — right digit count, right prefix — and simply
+        never arrives.
       </p>
-    </div>
+    </>
   )
 }
 
