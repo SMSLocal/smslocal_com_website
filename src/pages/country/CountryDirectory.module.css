@@ -1,0 +1,183 @@
+/* A–Z country index. One dense artifact across the full measure, not a table
+   of mostly-empty rows. */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.search {
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+}
+.search:focus {
+  outline: 2px solid var(--brand-start);
+  outline-offset: 1px;
+}
+.count {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.count strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* --- alphabet bar ------------------------------------------------------ */
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+.letter,
+.letterOff {
+  flex: 1 1 auto;
+  min-width: 28px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.letter {
+  color: var(--brand-start);
+}
+.letter:hover {
+  background: var(--cc-surface);
+}
+.letterOff {
+  color: var(--border);
+}
+
+/* --- the index --------------------------------------------------------- */
+.index {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 6px 20px 20px;
+}
+
+/* Letters flow as columns, so a short group doesn't leave a band of dead
+   space across the full width. break-inside keeps a group whole. */
+.group {
+  break-inside: avoid;
+  padding-top: 16px;
+  /* Clears the sticky header when jumping from the alphabet bar. */
+  scroll-margin-top: 96px;
+}
+.groupLetter {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brand-start);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 4;
+  column-gap: 28px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  /* Rows are inside a multi-column flow; without this a row can be split
+     across the column boundary. */
+  break-inside: avoid;
+}
+.rowLink:hover {
+  background: var(--cc-surface);
+}
+.rowLink .name {
+  color: var(--navy);
+  font-weight: 500;
+}
+.rowLink:hover .name {
+  color: var(--brand-end);
+}
+
+.flag {
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+  flex: none;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.1);
+}
+.name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.iso {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  flex: none;
+}
+.dial {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+.rowLink .dial {
+  color: var(--brand-start);
+}
+
+.empty {
+  color: var(--text-secondary);
+  padding: 24px 0;
+}
+
+@media (max-width: 1100px) {
+  .rows {
+    columns: 3;
+  }
+}
+@media (max-width: 820px) {
+  .rows {
+    columns: 2;
+  }
+}
+@media (max-width: 560px) {
+  .rows {
+    columns: 1;
+  }
+  .index {
+    padding: 6px 12px 16px;
+  }
+  .letter,
+  .letterOff {
+    min-width: 24px;
+    font-size: 11px;
+  }
+}

@@ -1,13 +1,12 @@
-import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
 import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
-import { publishedCountries, allCountries, fmt } from '../../lib/countries.js'
+import { publishedCountries, allCountries } from '../../lib/countries.js'
 import HeroStage from './HeroStage.jsx'
 import PopularStrip from './PopularStrip.jsx'
+import CountryDirectory from './CountryDirectory.jsx'
 import styles from './CountryCode.module.css'
-import index from './CountryIndex.module.css'
 
 /**
  * The /country-code/ hub. Lists every country's dialling code from the
@@ -16,20 +15,7 @@ import index from './CountryIndex.module.css'
  * exists rather than linking to pages that aren't there.
  */
 function CountryIndex() {
-  const [query, setQuery] = useState('')
   const published = useMemo(() => new Set(publishedCountries.map((c) => c.slug)), [])
-
-  const rows = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    if (!q) return allCountries
-    return allCountries.filter(
-      (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.dial.includes(q) ||
-        c.iso2.toLowerCase() === q ||
-        (c.iso3 ?? '').toLowerCase() === q,
-    )
-  }, [query])
 
   return (
     <div>
@@ -86,45 +72,11 @@ function CountryIndex() {
         <div className={styles.wrap}>
           <div className={styles.kicker}>Reference</div>
           <h2 className={styles.h2}>All country calling codes</h2>
-          <div className={index.searchRow}>
-            <input
-              className={index.search}
-              type="text"
-              placeholder="Search country, code or ISO…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <span className={index.count}>{rows.length} of {allCountries.length}</span>
-          </div>
-          <div className={index.tableWrap}>
-            <table className={index.table}>
-              <thead>
-                <tr>
-                  <th>Country</th>
-                  <th>Code</th>
-                  <th>ISO</th>
-                  <th className={index.num}>Population</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((c) => (
-                  <tr key={c.slug}>
-                    <td>
-                      {published.has(c.slug) ? (
-                        <Link to={`/country-code/${c.slug}/`}>{c.name}</Link>
-                      ) : (
-                        c.name
-                      )}
-                    </td>
-                    <td>{c.dial}</td>
-                    <td>{c.iso2} / {c.iso3 ?? '—'}</td>
-                    <td className={index.num}>{fmt(c.population)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          {rows.length === 0 && <p className={styles.sub}>No country matches “{query}”.</p>}
+          <p className={styles.sub}>
+            Every calling code, A–Z. Countries with a published guide link through; the rest are
+            listed for reference.
+          </p>
+          <CountryDirectory countries={allCountries} published={published} />
         </div>
       </section>
     </div>
