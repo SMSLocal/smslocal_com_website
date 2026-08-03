@@ -4,6 +4,7 @@ import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import { publishedCountries, allCountries, fmt } from '../../lib/countries.js'
+import HeroStage from './HeroStage.jsx'
 import styles from './CountryCode.module.css'
 import index from './CountryIndex.module.css'
 
@@ -32,8 +33,8 @@ function CountryIndex() {
   return (
     <div>
       <Seo
-        title="Country Codes — International Dialling Codes & SMS Guide"
-        description="Every international country calling code, with ISO codes, population and mobile number formats. Plus what A2P SMS senders need in each market: sender ID rules, operators and regulations."
+        title="Country Codes — International Dialling Codes"
+        description="Every international country calling code with ISO codes, population and number formats, plus the sender ID rules and operators SMS senders need."
         canonical={`${SITE_ORIGIN}/country-code/`}
       />
       <JsonLd
@@ -48,17 +49,23 @@ function CountryIndex() {
       />
 
       <div className={styles.heroBand}>
+        <span className={styles.heroDots} aria-hidden="true" />
         <span className={styles.heroGlow} aria-hidden="true" />
         <div className={styles.wrap}>
-          <span className={styles.badge}>Country codes</span>
-          <h1 style={{ margin: '0 0 14px', fontSize: 'clamp(30px,4vw,44px)', fontWeight: 600, letterSpacing: '-0.02em' }}>
-            Every international <span className="serifItalic">dialling code</span>
-          </h1>
-          <p className={styles.lede}>
-            {allCountries.length} countries with their calling code, ISO codes and population. For
-            the markets we have researched, each page also covers sender ID rules, operators and
-            what regulators require before you can send.
-          </p>
+          <div className={styles.heroGrid}>
+            <div>
+              <span className={styles.badge}>Country codes</span>
+              <h1 className={styles.hubTitle}>
+                Every international <span className="serifItalic">dialling code</span>
+              </h1>
+              <p className={styles.lede}>
+                {allCountries.length} countries with their calling code, ISO codes and population.
+                For the markets we have researched, each page also covers sender ID rules, operators
+                and what regulators require before you can send.
+              </p>
+            </div>
+            <HeroStage countries={publishedCountries} />
+          </div>
         </div>
       </div>
 

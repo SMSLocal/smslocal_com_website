@@ -9,27 +9,67 @@
 }
 
 /* --- hero ------------------------------------------------------------- */
+/* Soft purple surface shared with the breadcrumb strip above it (see
+   Breadcrumbs.css) so the two read as one band rather than a strip sitting on
+   top of a hero. --cc-surface is defined in theme.css because both files need
+   the same value. */
+/* One frame tall: viewport minus the TopBar + Navbar + breadcrumb strip above
+   it. min-height, not height — on a short window the content still grows rather
+   than being cropped, which is the rule that matters. svh so mobile browser
+   chrome collapsing doesn't leave a gap. */
 .heroBand {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(128deg, var(--navy) 0%, var(--brand-start) 62%, var(--brand-end) 145%);
-  color: #fff;
-  padding: 56px 0 64px;
+  background: var(--cc-surface);
+  color: var(--ink);
+  padding: 40px 0 48px;
+  min-height: calc(100svh - 172px);
+  display: flex;
+  align-items: center;
 }
+.heroBand > .wrap {
+  width: 100%;
+}
+
+/* Grey dots drifting at a constant speed. The translate distance equals one
+   tile of the background-size, so the loop is seamless — any other value would
+   visibly jump on repeat. */
+.heroDots {
+  position: absolute;
+  inset: -40px;
+  background-image: radial-gradient(circle, rgba(71, 85, 105, 0.15) 1.6px, transparent 1.7px);
+  background-size: 24px 24px;
+  animation: ccDrift 20s linear infinite;
+  pointer-events: none;
+}
+@keyframes ccDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(24px, 24px, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heroDots {
+    animation: none;
+  }
+}
+
 .heroGlow {
   position: absolute;
   inset: auto -10% -60% auto;
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 245, 160, 0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(79, 91, 213, 0.16), transparent 70%);
   pointer-events: none;
 }
 .heroGrid {
   position: relative;
   display: grid;
-  gap: 40px;
-  grid-template-columns: 1.35fr 1fr;
+  gap: 56px;
+  grid-template-columns: 1.15fr 1fr;
   align-items: center;
 }
 .badge {
@@ -38,47 +78,57 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #fff;
+  color: var(--brand-start);
+  border: 1px solid rgba(79, 91, 213, 0.28);
   padding: 5px 11px;
   border-radius: 999px;
   margin-bottom: 16px;
 }
-.heroGrid h1 {
-  margin: 0 0 14px;
-  font-size: clamp(30px, 4vw, 44px);
+/* Geist for the sentence, Instrument Serif italic for the accent — the same
+   two-family headline the homepage heroes use. */
+.heroGrid h1,
+.hubTitle {
+  margin: 0 0 18px;
+  font-size: clamp(34px, 4.8vw, 56px);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   font-weight: 600;
+  color: var(--ink);
+}
+.heroGrid h1 :global(.serifItalic),
+.hubTitle :global(.serifItalic) {
+  color: var(--brand-start);
 }
 .lede {
   margin: 0;
   font-size: 16px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--ink);
   max-width: 62ch;
 }
 
 /* The dial code, treated as the page's one hero artifact. */
 .dialCard {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #fff;
+  border: 1px solid rgba(79, 91, 213, 0.2);
   border-radius: var(--radius-lg);
-  padding: 28px;
-  backdrop-filter: blur(6px);
+  padding: 34px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 26px 60px -30px rgba(79, 91, 213, 0.6);
 }
 .dialCode {
-  font-size: clamp(44px, 6vw, 64px);
+  font-size: clamp(52px, 7vw, 82px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
+  color: var(--navy);
 }
 .dialLabel {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   margin-top: 8px;
 }
 .dialMeta {
@@ -87,7 +137,7 @@
   gap: 14px;
   margin-top: 22px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--border);
 }
 .dialMeta div span {
   display: block;
@@ -96,12 +146,103 @@
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--text-secondary);
 }
 .dialMeta .v {
   font-size: 15px;
   font-weight: 500;
   margin-top: 2px;
+  color: var(--ink);
+}
+
+/* --- animated URL artifact (hub hero) --------------------------------- */
+.urlCard {
+  background: #fff;
+  border: 1px solid rgba(79, 91, 213, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 26px 60px -30px rgba(79, 91, 213, 0.6);
+}
+.urlChrome {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+.urlChrome span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.urlBar {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 15px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.urlBar::-webkit-scrollbar {
+  display: none;
+}
+.lock {
+  color: var(--success);
+  flex: none;
+}
+.urlText {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(13px, 1.15vw, 16px);
+  white-space: nowrap;
+  color: var(--ink);
+}
+.urlSlug {
+  color: var(--brand-start);
+  font-weight: 600;
+}
+/* Caret blinks on its own clock so it keeps ticking while the slug pauses. */
+.caret {
+  display: inline-block;
+  width: 1.5px;
+  height: 1em;
+  background: var(--brand-end);
+  vertical-align: -0.15em;
+  margin-left: 1px;
+  animation: ccBlink 1s steps(2, start) infinite;
+}
+@keyframes ccBlink {
+  to {
+    visibility: hidden;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}
+.urlMeta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.urlCountry {
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 600;
+  color: var(--ink);
+}
+.urlDial {
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 600;
+  color: var(--brand-start);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 /* --- shared section chrome -------------------------------------------- */
@@ -387,6 +528,13 @@
 @media (max-width: 900px) {
   .heroGrid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  /* Stacked, the two blocks are taller than a phone frame. Release the
+     one-frame height rather than crop or force a scroll inside the hero. */
+  .heroBand {
+    min-height: 0;
+    padding: 32px 0 40px;
   }
 }
 @media (max-width: 640px) {

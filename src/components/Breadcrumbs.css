@@ -2,6 +2,14 @@
   padding: 0.85rem 0;
 }
 
+/* Layout stamps the first path segment onto the shell, so a section can carry
+   its background up through the breadcrumb strip. The country-code hero uses
+   the same --cc-surface, which makes the strip and the hero one band instead of
+   a white gap above a coloured block. */
+[data-section='country-code'] .breadcrumbs {
+  background: var(--cc-surface);
+}
+
 .breadcrumbs-list {
   list-style: none;
   margin: 0;

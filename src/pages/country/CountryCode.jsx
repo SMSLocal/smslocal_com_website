@@ -173,8 +173,10 @@ function CountryCode() {
   return (
     <div>
       <Seo
-        title={`${c.name} Country Code ${c.dial} — Dialling & SMS Guide`}
-        description={`${c.name} country code is ${c.dial} (ISO ${c.iso2}/${c.iso3 ?? c.iso2}). How to dial ${c.name}, mobile number format, operators, and what A2P SMS senders need to know.`}
+        title={`${c.name} Country Code ${c.dial} — SMS Guide`}
+        // Kept under ~155 characters so Google shows it whole rather than
+        // truncating mid-sentence. Longest published name is United Arab Emirates.
+        description={`${c.name} country code is ${c.dial} (ISO ${c.iso2}). How to dial ${c.name}, mobile number format, operators and SMS sender ID rules.`}
         canonical={url}
       />
 
@@ -192,6 +194,7 @@ function CountryCode() {
       />
 
       <div className={styles.heroBand}>
+        <span className={styles.heroDots} aria-hidden="true" />
         <span className={styles.heroGlow} aria-hidden="true" />
         <div className={styles.wrap}>
           <div className={styles.heroGrid}>
