@@ -5,6 +5,7 @@
   "iso2": "AF",
   "iso3": "AFG",
   "dial": "+93",
+  "region": "Asia",
   "population": 29121286,
   "areaKm2": 647500,
   "gdpUsd": "20.65 Billion"
@@ -15,6 +16,7 @@
   "iso2": "AL",
   "iso3": "ALB",
   "dial": "+355",
+  "region": "Europe",
   "population": 2986952,
   "areaKm2": 28748,
   "gdpUsd": "12.8 Billion"
@@ -25,6 +27,7 @@
   "iso2": "DZ",
   "iso3": "DZA",
   "dial": "+213",
+  "region": "Africa",
   "population": 34586184,
   "areaKm2": 2381740,
   "gdpUsd": "215.7 Billion"
@@ -35,6 +38,7 @@
   "iso2": "AD",
   "iso3": "AND",
   "dial": "+376",
+  "region": "Europe",
   "population": 84000,
   "areaKm2": 468,
   "gdpUsd": "4.8 Billion"
@@ -45,6 +49,7 @@
   "iso2": "AO",
   "iso3": "AGO",
   "dial": "+244",
+  "region": "Africa",
   "population": 13068161,
   "areaKm2": 1246700,
   "gdpUsd": "124 Billion"
@@ -55,6 +60,7 @@
   "iso2": "AG",
   "iso3": "ATG",
   "dial": "+1268",
+  "region": "Americas",
   "population": 86754,
   "areaKm2": 443,
   "gdpUsd": "1.22 Billion"
@@ -65,6 +71,7 @@
   "iso2": "AR",
   "iso3": "ARG",
   "dial": "+54",
+  "region": "Americas",
   "population": 41343201,
   "areaKm2": 2766890,
   "gdpUsd": "484.6 Billion"
@@ -75,6 +82,7 @@
   "iso2": "AM",
   "iso3": "ARM",
   "dial": "+374",
+  "region": "Asia",
   "population": 2968000,
   "areaKm2": 29800,
   "gdpUsd": "10.44 Billion"
@@ -85,6 +93,7 @@
   "iso2": "AU",
   "iso3": "AUS",
   "dial": "+61",
+  "region": "Oceania",
   "population": 21515754,
   "areaKm2": 7686850,
   "gdpUsd": "1.488 Trillion"
@@ -95,6 +104,7 @@
   "iso2": "AT",
   "iso3": "AUT",
   "dial": "+43",
+  "region": "Europe",
   "population": 8205000,
   "areaKm2": 83858,
   "gdpUsd": "417.9 Billion"
@@ -105,6 +115,7 @@
   "iso2": "AZ",
   "iso3": "AZE",
   "dial": "+994",
+  "region": "Asia",
   "population": 8303512,
   "areaKm2": 86600,
   "gdpUsd": "76.01 Billion"
@@ -115,6 +126,7 @@
   "iso2": "BS",
   "iso3": "BHS",
   "dial": "+1242",
+  "region": "Americas",
   "population": 301790,
   "areaKm2": 13940,
   "gdpUsd": "8.373 Billion"
@@ -125,6 +137,7 @@
   "iso2": "BH",
   "iso3": "BHR",
   "dial": "+973",
+  "region": "Asia",
   "population": 738004,
   "areaKm2": 665,
   "gdpUsd": "28.36 Billion"
@@ -135,6 +148,7 @@
   "iso2": "BD",
   "iso3": "BGD",
   "dial": "+880",
+  "region": "Asia",
   "population": 156118464,
   "areaKm2": 144000,
   "gdpUsd": "140.2 Billion"
@@ -145,6 +159,7 @@
   "iso2": "BB",
   "iso3": "BRB",
   "dial": "+1246",
+  "region": "Americas",
   "population": 285653,
   "areaKm2": 431,
   "gdpUsd": "4.262 Billion"
@@ -155,6 +170,7 @@
   "iso2": "BY",
   "iso3": "BLR",
   "dial": "+375",
+  "region": "Europe",
   "population": 9685000,
   "areaKm2": 207600,
   "gdpUsd": "69.24 Billion"
@@ -165,6 +181,7 @@
   "iso2": "BE",
   "iso3": "BEL",
   "dial": "+32",
+  "region": "Europe",
   "population": 10403000,
   "areaKm2": 30510,
   "gdpUsd": "507.4 Billion"
@@ -175,6 +192,7 @@
   "iso2": "BZ",
   "iso3": "BLZ",
   "dial": "+501",
+  "region": "Americas",
   "population": 314522,
   "areaKm2": 22966,
   "gdpUsd": "1.637 Billion"
@@ -185,6 +203,7 @@
   "iso2": "BJ",
   "iso3": "BEN",
   "dial": "+229",
+  "region": "Africa",
   "population": 9056010,
   "areaKm2": 112620,
   "gdpUsd": "8.359 Billion"
@@ -195,6 +214,7 @@
   "iso2": "BT",
   "iso3": "BTN",
   "dial": "+975",
+  "region": "Asia",
   "population": 699847,
   "areaKm2": 47000,
   "gdpUsd": "2.133 Billion"
@@ -205,6 +225,7 @@
   "iso2": "BO",
   "iso3": "BOL",
   "dial": "+591",
+  "region": "Americas",
   "population": 9947418,
   "areaKm2": 1098580,
   "gdpUsd": "30.79 Billion"
@@ -215,6 +236,7 @@
   "iso2": "BA",
   "iso3": "BIH",
   "dial": "+387",
+  "region": "Europe",
   "population": 4590000,
   "areaKm2": 51129,
   "gdpUsd": "18.87 Billion"
@@ -225,6 +247,7 @@
   "iso2": "BW",
   "iso3": "BWA",
   "dial": "+267",
+  "region": "Africa",
   "population": 2029307,
   "areaKm2": 600370,
   "gdpUsd": "15.53 Billion"
@@ -235,6 +258,7 @@
   "iso2": "BR",
   "iso3": "BRA",
   "dial": "+55",
+  "region": "Americas",
   "population": 201103330,
   "areaKm2": 8511965,
   "gdpUsd": "2.19 Trillion"
@@ -245,6 +269,7 @@
   "iso2": "BN",
   "iso3": "BRN",
   "dial": "+673",
+  "region": "Asia",
   "population": 395027,
   "areaKm2": 5770,
   "gdpUsd": "16.56 Billion"
@@ -255,6 +280,7 @@
   "iso2": "BG",
   "iso3": "BGR",
   "dial": "+359",
+  "region": "Europe",
   "population": 7148785,
   "areaKm2": 110910,
   "gdpUsd": "53.7 Billion"
@@ -265,6 +291,7 @@
   "iso2": "BF",
   "iso3": "BFA",
   "dial": "+226",
+  "region": "Africa",
   "population": 16241811,
   "areaKm2": 274200,
   "gdpUsd": "12.13 Billion"
@@ -275,6 +302,7 @@
   "iso2": "BI",
   "iso3": "BDI",
   "dial": "+257",
+  "region": "Africa",
   "population": 9863117,
   "areaKm2": 27830,
   "gdpUsd": "2.676 Billion"
@@ -285,6 +313,7 @@
   "iso2": "KH",
   "iso3": "KHM",
   "dial": "+855",
+  "region": "Asia",
   "population": 14453680,
   "areaKm2": 181040,
   "gdpUsd": "15.64 Billion"
@@ -295,6 +324,7 @@
   "iso2": "CM",
   "iso3": "CMR",
   "dial": "+237",
+  "region": "Africa",
   "population": 19294149,
   "areaKm2": 475440,
   "gdpUsd": "27.88 Billion"
@@ -305,6 +335,7 @@
   "iso2": "CA",
   "iso3": "CAN",
   "dial": "+1",
+  "region": "Americas",
   "population": 33679000,
   "areaKm2": 9984670,
   "gdpUsd": "1.825 Trillion"
@@ -315,6 +346,7 @@
   "iso2": "CV",
   "iso3": "CPV",
   "dial": "+238",
+  "region": "Africa",
   "population": 508659,
   "areaKm2": 4033,
   "gdpUsd": "1.955 Billion"
@@ -325,6 +357,7 @@
   "iso2": "CF",
   "iso3": "CAF",
   "dial": "+236",
+  "region": "Africa",
   "population": 4844927,
   "areaKm2": 622984,
   "gdpUsd": "2.05 Billion"
@@ -335,6 +368,7 @@
   "iso2": "TD",
   "iso3": "TCD",
   "dial": "+235",
+  "region": "Africa",
   "population": 10543464,
   "areaKm2": 1284000,
   "gdpUsd": "13.59 Billion"
@@ -345,6 +379,7 @@
   "iso2": "CL",
   "iso3": "CHL",
   "dial": "+56",
+  "region": "Americas",
   "population": 16746491,
   "areaKm2": 756950,
   "gdpUsd": "281.7 Billion"
@@ -355,6 +390,7 @@
   "iso2": "CN",
   "iso3": "CHN",
   "dial": "+86",
+  "region": "Asia",
   "population": 1330044000,
   "areaKm2": 9596960,
   "gdpUsd": "9.33 Trillion"
@@ -365,6 +401,7 @@
   "iso2": "CO",
   "iso3": "COL",
   "dial": "+57",
+  "region": "Americas",
   "population": 47790000,
   "areaKm2": 1138910,
   "gdpUsd": "369.2 Billion"
@@ -375,6 +412,7 @@
   "iso2": "KM",
   "iso3": "COM",
   "dial": "+269",
+  "region": "Africa",
   "population": 773407,
   "areaKm2": 2170,
   "gdpUsd": "658 Million"
@@ -385,6 +423,7 @@
   "iso2": "CR",
   "iso3": "CRI",
   "dial": "+506",
+  "region": "Americas",
   "population": 4516220,
   "areaKm2": 51100,
   "gdpUsd": "48.51 Billion"
@@ -395,6 +434,7 @@
   "iso2": "HR",
   "iso3": "HRV",
   "dial": "+385",
+  "region": "Europe",
   "population": 4491000,
   "areaKm2": 56542,
   "gdpUsd": "59.14 Billion"
@@ -405,6 +445,7 @@
   "iso2": "CU",
   "iso3": "CUB",
   "dial": "+53",
+  "region": "Americas",
   "population": 11423000,
   "areaKm2": 110860,
   "gdpUsd": "72.3 Billion"
@@ -415,6 +456,7 @@
   "iso2": "CY",
   "iso3": "CYP",
   "dial": "+357",
+  "region": "Europe",
   "population": 1102677,
   "areaKm2": 9250,
   "gdpUsd": "21.78 Billion"
@@ -425,6 +467,7 @@
   "iso2": "CZ",
   "iso3": "CZE",
   "dial": "+420",
+  "region": "Europe",
   "population": 10476000,
   "areaKm2": 78866,
   "gdpUsd": "194.8 Billion"
@@ -435,6 +478,7 @@
   "iso2": "DK",
   "iso3": "DNK",
   "dial": "+45",
+  "region": "Europe",
   "population": 5484000,
   "areaKm2": 43094,
   "gdpUsd": "324.3 Billion"
@@ -445,6 +489,7 @@
   "iso2": "DJ",
   "iso3": "DJI",
   "dial": "+253",
+  "region": "Africa",
   "population": 740528,
   "areaKm2": 23000,
   "gdpUsd": "1.459 Billion"
@@ -455,6 +500,7 @@
   "iso2": "DM",
   "iso3": "DMA",
   "dial": "+1767",
+  "region": "Americas",
   "population": 72813,
   "areaKm2": 754,
   "gdpUsd": "495 Million"
@@ -465,6 +511,7 @@
   "iso2": "DO",
   "iso3": "DOM",
   "dial": "+1",
+  "region": "Americas",
   "population": 9823821,
   "areaKm2": 48730,
   "gdpUsd": "59.27 Billion"
@@ -475,6 +522,7 @@
   "iso2": "CD",
   "iso3": "COD",
   "dial": "+243",
+  "region": "Africa",
   "population": 70916439,
   "areaKm2": 2345410,
   "gdpUsd": "18.56 Billion"
@@ -485,6 +533,7 @@
   "iso2": "EC",
   "iso3": "ECU",
   "dial": "+593",
+  "region": "Americas",
   "population": 14790608,
   "areaKm2": 283560,
   "gdpUsd": "91.41 Billion"
@@ -495,6 +544,7 @@
   "iso2": "EG",
   "iso3": "EGY",
   "dial": "+20",
+  "region": "Africa",
   "population": 80471869,
   "areaKm2": 1001450,
   "gdpUsd": "262 Billion"
@@ -505,6 +555,7 @@
   "iso2": "SV",
   "iso3": "SLV",
   "dial": "+503",
+  "region": "Americas",
   "population": 6052064,
   "areaKm2": 21040,
   "gdpUsd": "24.67 Billion"
@@ -515,6 +566,7 @@
   "iso2": "GQ",
   "iso3": "GNQ",
   "dial": "+240",
+  "region": "Africa",
   "population": 1014999,
   "areaKm2": 28051,
   "gdpUsd": "17.08 Billion"
@@ -525,6 +577,7 @@
   "iso2": "ER",
   "iso3": "ERI",
   "dial": "+291",
+  "region": "Africa",
   "population": 5792984,
   "areaKm2": 121320,
   "gdpUsd": "3.438 Billion"
@@ -535,6 +588,7 @@
   "iso2": "EE",
   "iso3": "EST",
   "dial": "+372",
+  "region": "Europe",
   "population": 1291170,
   "areaKm2": 45226,
   "gdpUsd": "24.28 Billion"
@@ -545,6 +599,7 @@
   "iso2": "SZ",
   "iso3": "SWZ",
   "dial": "+268",
+  "region": "Africa",
   "population": 1354051,
   "areaKm2": 17363,
   "gdpUsd": "3.807 Billion"
@@ -555,6 +610,7 @@
   "iso2": "ET",
   "iso3": "ETH",
   "dial": "+251",
+  "region": "Africa",
   "population": 88013491,
   "areaKm2": 1127127,
   "gdpUsd": "47.34 Billion"
@@ -565,6 +621,7 @@
   "iso2": "FJ",
   "iso3": "FJI",
   "dial": "+679",
+  "region": "Oceania",
   "population": 875983,
   "areaKm2": 18270,
   "gdpUsd": "4.218 Billion"
@@ -575,6 +632,7 @@
   "iso2": "FI",
   "iso3": "FIN",
   "dial": "+358",
+  "region": "Europe",
   "population": 5244000,
   "areaKm2": 337030,
   "gdpUsd": "259.6 Billion"
@@ -585,6 +643,7 @@
   "iso2": "FR",
   "iso3": "FRA",
   "dial": "+33",
+  "region": "Europe",
   "population": 64768389,
   "areaKm2": 547030,
   "gdpUsd": "2.739 Trillion"
@@ -595,6 +654,7 @@
   "iso2": "GA",
   "iso3": "GAB",
   "dial": "+241",
+  "region": "Africa",
   "population": 1545255,
   "areaKm2": 267667,
   "gdpUsd": "19.97 Billion"
@@ -605,6 +665,7 @@
   "iso2": "GM",
   "iso3": "GMB",
   "dial": "+220",
+  "region": "Africa",
   "population": 1593256,
   "areaKm2": 11300,
   "gdpUsd": "896 Million"
@@ -615,6 +676,7 @@
   "iso2": "GE",
   "iso3": "GEO",
   "dial": "+995",
+  "region": "Asia",
   "population": 4630000,
   "areaKm2": 69700,
   "gdpUsd": "15.95 Billion"
@@ -625,6 +687,7 @@
   "iso2": "DE",
   "iso3": "DEU",
   "dial": "+49",
+  "region": "Europe",
   "population": 81802257,
   "areaKm2": 357021,
   "gdpUsd": "3.593 Trillion"
@@ -635,6 +698,7 @@
   "iso2": "GH",
   "iso3": "GHA",
   "dial": "+233",
+  "region": "Africa",
   "population": 24339838,
   "areaKm2": 239460,
   "gdpUsd": "45.55 Billion"
@@ -645,6 +709,7 @@
   "iso2": "GR",
   "iso3": "GRC",
   "dial": "+30",
+  "region": "Europe",
   "population": 11000000,
   "areaKm2": 131940,
   "gdpUsd": "243.3 Billion"
@@ -655,6 +720,7 @@
   "iso2": "GD",
   "iso3": "GRD",
   "dial": "+1473",
+  "region": "Americas",
   "population": 107818,
   "areaKm2": 344,
   "gdpUsd": "811 Million"
@@ -665,6 +731,7 @@
   "iso2": "GT",
   "iso3": "GTM",
   "dial": "+502",
+  "region": "Americas",
   "population": 13550440,
   "areaKm2": 108890,
   "gdpUsd": "53.9 Billion"
@@ -675,6 +742,7 @@
   "iso2": "GN",
   "iso3": "GIN",
   "dial": "+224",
+  "region": "Africa",
   "population": 10324025,
   "areaKm2": 245857,
   "gdpUsd": "6.544 Billion"
@@ -685,6 +753,7 @@
   "iso2": "GW",
   "iso3": "GNB",
   "dial": "+245",
+  "region": "Africa",
   "population": 1565126,
   "areaKm2": 36120,
   "gdpUsd": "880 Million"
@@ -695,6 +764,7 @@
   "iso2": "GY",
   "iso3": "GUY",
   "dial": "+592",
+  "region": "Americas",
   "population": 748486,
   "areaKm2": 214970,
   "gdpUsd": "3.02 Billion"
@@ -705,6 +775,7 @@
   "iso2": "HT",
   "iso3": "HTI",
   "dial": "+509",
+  "region": "Americas",
   "population": 9648924,
   "areaKm2": 27750,
   "gdpUsd": "8.287 Billion"
@@ -715,6 +786,7 @@
   "iso2": "HN",
   "iso3": "HND",
   "dial": "+504",
+  "region": "Americas",
   "population": 7989415,
   "areaKm2": 112090,
   "gdpUsd": "18.88 Billion"
@@ -725,6 +797,7 @@
   "iso2": "HU",
   "iso3": "HUN",
   "dial": "+36",
+  "region": "Europe",
   "population": 9982000,
   "areaKm2": 93030,
   "gdpUsd": "130.6 Billion"
@@ -735,6 +808,7 @@
   "iso2": "IS",
   "iso3": "ISL",
   "dial": "+354",
+  "region": "Europe",
   "population": 308910,
   "areaKm2": 103000,
   "gdpUsd": "14.59 Billion"
@@ -745,6 +819,7 @@
   "iso2": "IN",
   "iso3": "IND",
   "dial": "+91",
+  "region": "Asia",
   "population": 1173108018,
   "areaKm2": 3287590,
   "gdpUsd": "1.67 Trillion"
@@ -755,6 +830,7 @@
   "iso2": "ID",
   "iso3": "IDN",
   "dial": "+62",
+  "region": "Asia",
   "population": 242968342,
   "areaKm2": 1919440,
   "gdpUsd": "867.5 Billion"
@@ -765,6 +841,7 @@
   "iso2": "IR",
   "iso3": "IRN",
   "dial": "+98",
+  "region": "Asia",
   "population": 76923300,
   "areaKm2": 1648000,
   "gdpUsd": "411.9 Billion"
@@ -775,6 +852,7 @@
   "iso2": "IQ",
   "iso3": "IRQ",
   "dial": "+964",
+  "region": "Asia",
   "population": 29671605,
   "areaKm2": 437072,
   "gdpUsd": "221.8 Billion"
@@ -785,6 +863,7 @@
   "iso2": "IE",
   "iso3": "IRL",
   "dial": "+353",
+  "region": "Europe",
   "population": 4622917,
   "areaKm2": 70280,
   "gdpUsd": "220.9 Billion"
@@ -795,6 +874,7 @@
   "iso2": "IT",
   "iso3": "ITA",
   "dial": "+39",
+  "region": "Europe",
   "population": 60340328,
   "areaKm2": 301230,
   "gdpUsd": "2.068 Trillion"
@@ -805,6 +885,7 @@
   "iso2": "CI",
   "iso3": "CIV",
   "dial": "+225",
+  "region": "Africa",
   "population": 21058798,
   "areaKm2": 322460,
   "gdpUsd": "28.28 Billion"
@@ -815,6 +896,7 @@
   "iso2": "JM",
   "iso3": "JAM",
   "dial": "+1876",
+  "region": "Americas",
   "population": 2847232,
   "areaKm2": 10991,
   "gdpUsd": "14.39 Billion"
@@ -825,6 +907,7 @@
   "iso2": "JP",
   "iso3": "JPN",
   "dial": "+81",
+  "region": "Asia",
   "population": 127288000,
   "areaKm2": 377835,
   "gdpUsd": "5.007 Trillion"
@@ -835,6 +918,7 @@
   "iso2": "JO",
   "iso3": "JOR",
   "dial": "+962",
+  "region": "Asia",
   "population": 6407085,
   "areaKm2": 92300,
   "gdpUsd": "34.08 Billion"
@@ -845,6 +929,7 @@
   "iso2": "KZ",
   "iso3": "KAZ",
   "dial": "+7",
+  "region": "Asia",
   "population": 15340000,
   "areaKm2": 2717300,
   "gdpUsd": "224.9 Billion"
@@ -855,6 +940,7 @@
   "iso2": "KE",
   "iso3": "KEN",
   "dial": "+254",
+  "region": "Africa",
   "population": 40046566,
   "areaKm2": 582650,
   "gdpUsd": "45.31 Billion"
@@ -865,6 +951,7 @@
   "iso2": "KI",
   "iso3": "KIR",
   "dial": "+686",
+  "region": "Oceania",
   "population": 92533,
   "areaKm2": 811,
   "gdpUsd": "173 Million"
@@ -875,6 +962,7 @@
   "iso2": "XK",
   "iso3": "XKX",
   "dial": "+383",
+  "region": "Europe",
   "population": 1800000,
   "areaKm2": 10887,
   "gdpUsd": "7.15 Billion"
@@ -885,6 +973,7 @@
   "iso2": "KW",
   "iso3": "KWT",
   "dial": "+965",
+  "region": "Asia",
   "population": 2789132,
   "areaKm2": 17820,
   "gdpUsd": "179.5 Billion"
@@ -895,6 +984,7 @@
   "iso2": "KG",
   "iso3": "KGZ",
   "dial": "+996",
+  "region": "Asia",
   "population": 5508626,
   "areaKm2": 198500,
   "gdpUsd": "7.234 Billion"
@@ -905,6 +995,7 @@
   "iso2": "LA",
   "iso3": "LAO",
   "dial": "+856",
+  "region": "Asia",
   "population": 6368162,
   "areaKm2": 236800,
   "gdpUsd": "10.1 Billion"
@@ -915,6 +1006,7 @@
   "iso2": "LV",
   "iso3": "LVA",
   "dial": "+371",
+  "region": "Europe",
   "population": 2217969,
   "areaKm2": 64589,
   "gdpUsd": "30.38 Billion"
@@ -925,6 +1017,7 @@
   "iso2": "LB",
   "iso3": "LBN",
   "dial": "+961",
+  "region": "Asia",
   "population": 4125247,
   "areaKm2": 10400,
   "gdpUsd": "43.49 Billion"
@@ -935,6 +1028,7 @@
   "iso2": "LS",
   "iso3": "LSO",
   "dial": "+266",
+  "region": "Africa",
   "population": 1919552,
   "areaKm2": 30355,
   "gdpUsd": "2.457 Billion"
@@ -945,6 +1039,7 @@
   "iso2": "LR",
   "iso3": "LBR",
   "dial": "+231",
+  "region": "Africa",
   "population": 3685076,
   "areaKm2": 111370,
   "gdpUsd": "1.977 Billion"
@@ -955,6 +1050,7 @@
   "iso2": "LY",
   "iso3": "LBY",
   "dial": "+218",
+  "region": "Africa",
   "population": 6461454,
   "areaKm2": 1759540,
   "gdpUsd": "70.92 Billion"
@@ -965,6 +1061,7 @@
   "iso2": "LI",
   "iso3": "LIE",
   "dial": "+423",
+  "region": "Europe",
   "population": 35000,
   "areaKm2": 160,
   "gdpUsd": "5.113 Billion"
@@ -975,6 +1072,7 @@
   "iso2": "LT",
   "iso3": "LTU",
   "dial": "+370",
+  "region": "Europe",
   "population": 2944459,
   "areaKm2": 65200,
   "gdpUsd": "46.71 Billion"
@@ -985,6 +1083,7 @@
   "iso2": "LU",
   "iso3": "LUX",
   "dial": "+352",
+  "region": "Europe",
   "population": 497538,
   "areaKm2": 2586,
   "gdpUsd": "60.54 Billion"
@@ -995,6 +1094,7 @@
   "iso2": "MG",
   "iso3": "MDG",
   "dial": "+261",
+  "region": "Africa",
   "population": 21281844,
   "areaKm2": 587040,
   "gdpUsd": "10.53 Billion"
@@ -1005,6 +1105,7 @@
   "iso2": "MW",
   "iso3": "MWI",
   "dial": "+265",
+  "region": "Africa",
   "population": 15447500,
   "areaKm2": 118480,
   "gdpUsd": "3.683 Billion"
@@ -1015,6 +1116,7 @@
   "iso2": "MY",
   "iso3": "MYS",
   "dial": "+60",
+  "region": "Asia",
   "population": 28274729,
   "areaKm2": 329750,
   "gdpUsd": "312.4 Billion"
@@ -1025,6 +1127,7 @@
   "iso2": "MV",
   "iso3": "MDV",
   "dial": "+960",
+  "region": "Asia",
   "population": 395650,
   "areaKm2": 300,
   "gdpUsd": "2.27 Billion"
@@ -1035,6 +1138,7 @@
   "iso2": "ML",
   "iso3": "MLI",
   "dial": "+223",
+  "region": "Africa",
   "population": 13796354,
   "areaKm2": 1240000,
   "gdpUsd": "11.37 Billion"
@@ -1045,6 +1149,7 @@
   "iso2": "MT",
   "iso3": "MLT",
   "dial": "+356",
+  "region": "Europe",
   "population": 403000,
   "areaKm2": 316,
   "gdpUsd": "9.541 Billion"
@@ -1055,6 +1160,7 @@
   "iso2": "MH",
   "iso3": "MHL",
   "dial": "+692",
+  "region": "Oceania",
   "population": 65859,
   "areaKm2": 181,
   "gdpUsd": "193 Million"
@@ -1065,6 +1171,7 @@
   "iso2": "MR",
   "iso3": "MRT",
   "dial": "+222",
+  "region": "Africa",
   "population": 3205060,
   "areaKm2": 1030700,
   "gdpUsd": "4.183 Billion"
@@ -1075,6 +1182,7 @@
   "iso2": "MU",
   "iso3": "MUS",
   "dial": "+230",
+  "region": "Africa",
   "population": 1294104,
   "areaKm2": 2040,
   "gdpUsd": "11.9 Billion"
@@ -1085,6 +1193,7 @@
   "iso2": "MX",
   "iso3": "MEX",
   "dial": "+52",
+  "region": "Americas",
   "population": 112468855,
   "areaKm2": 1972550,
   "gdpUsd": "1.327 Trillion"
@@ -1095,6 +1204,7 @@
   "iso2": "FM",
   "iso3": "FSM",
   "dial": "+691",
+  "region": "Oceania",
   "population": 107708,
   "areaKm2": 702,
   "gdpUsd": "339 Million"
@@ -1105,6 +1215,7 @@
   "iso2": "MD",
   "iso3": "MDA",
   "dial": "+373",
+  "region": "Europe",
   "population": 4324000,
   "areaKm2": 33843,
   "gdpUsd": "7.932 Billion"
@@ -1115,6 +1226,7 @@
   "iso2": "MC",
   "iso3": "MCO",
   "dial": "+377",
+  "region": "Europe",
   "population": 32965,
   "areaKm2": 2,
   "gdpUsd": "5.748 Billion"
@@ -1125,6 +1237,7 @@
   "iso2": "MN",
   "iso3": "MNG",
   "dial": "+976",
+  "region": "Asia",
   "population": 3086918,
   "areaKm2": 1565000,
   "gdpUsd": "11.14 Billion"
@@ -1135,6 +1248,7 @@
   "iso2": "ME",
   "iso3": "MNE",
   "dial": "+382",
+  "region": "Europe",
   "population": 666730,
   "areaKm2": 14026,
   "gdpUsd": "4.518 Billion"
@@ -1145,6 +1259,7 @@
   "iso2": "MA",
   "iso3": "MAR",
   "dial": "+212",
+  "region": "Africa",
   "population": 31627428,
   "areaKm2": 446550,
   "gdpUsd": "104.8 Billion"
@@ -1155,6 +1270,7 @@
   "iso2": "MZ",
   "iso3": "MOZ",
   "dial": "+258",
+  "region": "Africa",
   "population": 22061451,
   "areaKm2": 801590,
   "gdpUsd": "14.67 Billion"
@@ -1165,6 +1281,7 @@
   "iso2": "MM",
   "iso3": "MMR",
   "dial": "+95",
+  "region": "Asia",
   "population": 53414374,
   "areaKm2": 678500,
   "gdpUsd": "59.43 Billion"
@@ -1175,6 +1292,7 @@
   "iso2": "NA",
   "iso3": "NAM",
   "dial": "+264",
+  "region": "Africa",
   "population": 2128471,
   "areaKm2": 825418,
   "gdpUsd": "12.3 Billion"
@@ -1185,6 +1303,7 @@
   "iso2": "NR",
   "iso3": "NRU",
   "dial": "+674",
+  "region": "Oceania",
   "population": 10065,
   "areaKm2": 21,
   "gdpUsd": null
@@ -1195,6 +1314,7 @@
   "iso2": "NP",
   "iso3": "NPL",
   "dial": "+977",
+  "region": "Asia",
   "population": 28951852,
   "areaKm2": 140800,
   "gdpUsd": "19.34 Billion"
@@ -1205,6 +1325,7 @@
   "iso2": "NL",
   "iso3": "NLD",
   "dial": "+31",
+  "region": "Europe",
   "population": 16645000,
   "areaKm2": 41526,
   "gdpUsd": "722.3 Billion"
@@ -1215,6 +1336,7 @@
   "iso2": "NZ",
   "iso3": "NZL",
   "dial": "+64",
+  "region": "Oceania",
   "population": 4252277,
   "areaKm2": 268680,
   "gdpUsd": "181.1 Billion"
@@ -1225,6 +1347,7 @@
   "iso2": "NI",
   "iso3": "NIC",
   "dial": "+505",
+  "region": "Americas",
   "population": 5995928,
   "areaKm2": 129494,
   "gdpUsd": "11.26 Billion"
@@ -1235,6 +1358,7 @@
   "iso2": "NE",
   "iso3": "NER",
   "dial": "+227",
+  "region": "Africa",
   "population": 15878271,
   "areaKm2": 1267000,
   "gdpUsd": "7.304 Billion"
@@ -1245,6 +1369,7 @@
   "iso2": "NG",
   "iso3": "NGA",
   "dial": "+234",
+  "region": "Africa",
   "population": 154000000,
   "areaKm2": 923768,
   "gdpUsd": "502 Billion"
@@ -1255,6 +1380,7 @@
   "iso2": "KP",
   "iso3": "PRK",
   "dial": "+850",
+  "region": "Asia",
   "population": 22912177,
   "areaKm2": 120540,
   "gdpUsd": "28 Billion"
@@ -1265,6 +1391,7 @@
   "iso2": "MK",
   "iso3": "MKD",
   "dial": "+389",
+  "region": "Europe",
   "population": 2062294,
   "areaKm2": 25333,
   "gdpUsd": "10.65 Billion"
@@ -1275,6 +1402,7 @@
   "iso2": "NO",
   "iso3": "NOR",
   "dial": "+47",
+  "region": "Europe",
   "population": 5009150,
   "areaKm2": 324220,
   "gdpUsd": "515.8 Billion"
@@ -1285,6 +1413,7 @@
   "iso2": "OM",
   "iso3": "OMN",
   "dial": "+968",
+  "region": "Asia",
   "population": 2967717,
   "areaKm2": 212460,
   "gdpUsd": "81.95 Billion"
@@ -1295,6 +1424,7 @@
   "iso2": "PK",
   "iso3": "PAK",
   "dial": "+92",
+  "region": "Asia",
   "population": 184404791,
   "areaKm2": 803940,
   "gdpUsd": "236.5 Billion"
@@ -1305,6 +1435,7 @@
   "iso2": "PW",
   "iso3": "PLW",
   "dial": "+680",
+  "region": "Oceania",
   "population": 19907,
   "areaKm2": 458,
   "gdpUsd": "221 Million"
@@ -1315,6 +1446,7 @@
   "iso2": "PS",
   "iso3": "PSE",
   "dial": "+970",
+  "region": "Asia",
   "population": 3800000,
   "areaKm2": 5970,
   "gdpUsd": "6.641 Billion"
@@ -1325,6 +1457,7 @@
   "iso2": "PA",
   "iso3": "PAN",
   "dial": "+507",
+  "region": "Americas",
   "population": 3410676,
   "areaKm2": 78200,
   "gdpUsd": "40.62 Billion"
@@ -1335,6 +1468,7 @@
   "iso2": "PG",
   "iso3": "PNG",
   "dial": "+675",
+  "region": "Oceania",
   "population": 6064515,
   "areaKm2": 462840,
   "gdpUsd": "16.1 Billion"
@@ -1345,6 +1479,7 @@
   "iso2": "PY",
   "iso3": "PRY",
   "dial": "+595",
+  "region": "Americas",
   "population": 6375830,
   "areaKm2": 406750,
   "gdpUsd": "30.56 Billion"
@@ -1355,6 +1490,7 @@
   "iso2": "PE",
   "iso3": "PER",
   "dial": "+51",
+  "region": "Americas",
   "population": 29907003,
   "areaKm2": 1285220,
   "gdpUsd": "210.3 Billion"
@@ -1365,6 +1501,7 @@
   "iso2": "PH",
   "iso3": "PHL",
   "dial": "+63",
+  "region": "Asia",
   "population": 99900177,
   "areaKm2": 300000,
   "gdpUsd": "272.2 Billion"
@@ -1375,6 +1512,7 @@
   "iso2": "PL",
   "iso3": "POL",
   "dial": "+48",
+  "region": "Europe",
   "population": 38500000,
   "areaKm2": 312685,
   "gdpUsd": "513.9 Billion"
@@ -1385,6 +1523,7 @@
   "iso2": "PT",
   "iso3": "PRT",
   "dial": "+351",
+  "region": "Europe",
   "population": 10676000,
   "areaKm2": 92391,
   "gdpUsd": "219.3 Billion"
@@ -1395,6 +1534,7 @@
   "iso2": "QA",
   "iso3": "QAT",
   "dial": "+974",
+  "region": "Asia",
   "population": 840926,
   "areaKm2": 11437,
   "gdpUsd": "213.1 Billion"
@@ -1405,6 +1545,7 @@
   "iso2": "CG",
   "iso3": "COG",
   "dial": "+242",
+  "region": "Africa",
   "population": 3039126,
   "areaKm2": 342000,
   "gdpUsd": "14.25 Billion"
@@ -1415,6 +1556,7 @@
   "iso2": "RO",
   "iso3": "ROU",
   "dial": "+40",
+  "region": "Europe",
   "population": 21959278,
   "areaKm2": 237500,
   "gdpUsd": "188.9 Billion"
@@ -1425,6 +1567,7 @@
   "iso2": "RU",
   "iso3": "RUS",
   "dial": "+7",
+  "region": "Europe",
   "population": 140702000,
   "areaKm2": 17100000,
   "gdpUsd": "2.113 Trillion"
@@ -1435,6 +1578,7 @@
   "iso2": "RW",
   "iso3": "RWA",
   "dial": "+250",
+  "region": "Africa",
   "population": 11055976,
   "areaKm2": 26338,
   "gdpUsd": "7.7 Billion"
@@ -1445,6 +1589,7 @@
   "iso2": "KN",
   "iso3": "KNA",
   "dial": "+1869",
+  "region": "Americas",
   "population": 51134,
   "areaKm2": 261,
   "gdpUsd": "767 Million"
@@ -1455,6 +1600,7 @@
   "iso2": "LC",
   "iso3": "LCA",
   "dial": "+1758",
+  "region": "Americas",
   "population": 160922,
   "areaKm2": 616,
   "gdpUsd": "1.377 Billion"
@@ -1465,6 +1611,7 @@
   "iso2": "VC",
   "iso3": "VCT",
   "dial": "+1784",
+  "region": "Americas",
   "population": 104217,
   "areaKm2": 389,
   "gdpUsd": "742 Million"
@@ -1475,6 +1622,7 @@
   "iso2": "WS",
   "iso3": "WSM",
   "dial": "+685",
+  "region": "Oceania",
   "population": 192001,
   "areaKm2": 2944,
   "gdpUsd": "705 Million"
@@ -1485,6 +1633,7 @@
   "iso2": "SM",
   "iso3": "SMR",
   "dial": "+378",
+  "region": "Europe",
   "population": 31477,
   "areaKm2": 61,
   "gdpUsd": "1.866 Billion"
@@ -1495,6 +1644,7 @@
   "iso2": "ST",
   "iso3": "STP",
   "dial": "+239",
+  "region": "Africa",
   "population": 175808,
   "areaKm2": 1001,
   "gdpUsd": "311 Million"
@@ -1505,6 +1655,7 @@
   "iso2": "SA",
   "iso3": "SAU",
   "dial": "+966",
+  "region": "Asia",
   "population": 25731776,
   "areaKm2": 1960582,
   "gdpUsd": "718.5 Billion"
@@ -1515,6 +1666,7 @@
   "iso2": "SN",
   "iso3": "SEN",
   "dial": "+221",
+  "region": "Africa",
   "population": 12323252,
   "areaKm2": 196190,
   "gdpUsd": "15.36 Billion"
@@ -1525,6 +1677,7 @@
   "iso2": "RS",
   "iso3": "SRB",
   "dial": "+381",
+  "region": "Europe",
   "population": 7344847,
   "areaKm2": 88361,
   "gdpUsd": "43.68 Billion"
@@ -1535,6 +1688,7 @@
   "iso2": "SC",
   "iso3": "SYC",
   "dial": "+248",
+  "region": "Africa",
   "population": 88340,
   "areaKm2": 455,
   "gdpUsd": "1.271 Billion"
@@ -1545,6 +1699,7 @@
   "iso2": "SL",
   "iso3": "SLE",
   "dial": "+232",
+  "region": "Africa",
   "population": 5245695,
   "areaKm2": 71740,
   "gdpUsd": "4.607 Billion"
@@ -1555,6 +1710,7 @@
   "iso2": "SG",
   "iso3": "SGP",
   "dial": "+65",
+  "region": "Asia",
   "population": 4701069,
   "areaKm2": 693,
   "gdpUsd": "295.7 Billion"
@@ -1565,6 +1721,7 @@
   "iso2": "SK",
   "iso3": "SVK",
   "dial": "+421",
+  "region": "Europe",
   "population": 5455000,
   "areaKm2": 48845,
   "gdpUsd": "96.96 Billion"
@@ -1575,6 +1732,7 @@
   "iso2": "SI",
   "iso3": "SVN",
   "dial": "+386",
+  "region": "Europe",
   "population": 2007000,
   "areaKm2": 20273,
   "gdpUsd": "46.82 Billion"
@@ -1585,6 +1743,7 @@
   "iso2": "SB",
   "iso3": "SLB",
   "dial": "+677",
+  "region": "Oceania",
   "population": 559198,
   "areaKm2": 28450,
   "gdpUsd": "1.099 Billion"
@@ -1595,6 +1754,7 @@
   "iso2": "SO",
   "iso3": "SOM",
   "dial": "+252",
+  "region": "Africa",
   "population": 10112453,
   "areaKm2": 637657,
   "gdpUsd": "2.372 Billion"
@@ -1605,6 +1765,7 @@
   "iso2": "ZA",
   "iso3": "ZAF",
   "dial": "+27",
+  "region": "Africa",
   "population": 49000000,
   "areaKm2": 1219912,
   "gdpUsd": "353.9 Billion"
@@ -1615,6 +1776,7 @@
   "iso2": "KR",
   "iso3": "KOR",
   "dial": "+82",
+  "region": "Asia",
   "population": 48422644,
   "areaKm2": 98480,
   "gdpUsd": "1.198 Trillion"
@@ -1625,6 +1787,7 @@
   "iso2": "SS",
   "iso3": "SSD",
   "dial": "+211",
+  "region": "Africa",
   "population": 8260490,
   "areaKm2": 644329,
   "gdpUsd": "11.77 Billion"
@@ -1635,6 +1798,7 @@
   "iso2": "ES",
   "iso3": "ESP",
   "dial": "+34",
+  "region": "Europe",
   "population": 46505963,
   "areaKm2": 504782,
   "gdpUsd": "1.356 Trillion"
@@ -1645,6 +1809,7 @@
   "iso2": "LK",
   "iso3": "LKA",
   "dial": "+94",
+  "region": "Asia",
   "population": 21513990,
   "areaKm2": 65610,
   "gdpUsd": "65.12 Billion"
@@ -1655,6 +1820,7 @@
   "iso2": "SD",
   "iso3": "SDN",
   "dial": "+249",
+  "region": "Africa",
   "population": 35000000,
   "areaKm2": 1861484,
   "gdpUsd": "52.5 Billion"
@@ -1665,6 +1831,7 @@
   "iso2": "SR",
   "iso3": "SUR",
   "dial": "+597",
+  "region": "Americas",
   "population": 492829,
   "areaKm2": 163270,
   "gdpUsd": "5.009 Billion"
@@ -1675,6 +1842,7 @@
   "iso2": "SE",
   "iso3": "SWE",
   "dial": "+46",
+  "region": "Europe",
   "population": 9555893,
   "areaKm2": 449964,
   "gdpUsd": "552 Billion"
@@ -1685,6 +1853,7 @@
   "iso2": "CH",
   "iso3": "CHE",
   "dial": "+41",
+  "region": "Europe",
   "population": 7581000,
   "areaKm2": 41290,
   "gdpUsd": "646.2 Billion"
@@ -1695,6 +1864,7 @@
   "iso2": "SY",
   "iso3": "SYR",
   "dial": "+963",
+  "region": "Asia",
   "population": 22198110,
   "areaKm2": 185180,
   "gdpUsd": "64.7 Billion"
@@ -1705,6 +1875,7 @@
   "iso2": "TJ",
   "iso3": "TJK",
   "dial": "+992",
+  "region": "Asia",
   "population": 7487489,
   "areaKm2": 143100,
   "gdpUsd": "8.513 Billion"
@@ -1715,6 +1886,7 @@
   "iso2": "TZ",
   "iso3": "TZA",
   "dial": "+255",
+  "region": "Africa",
   "population": 41892895,
   "areaKm2": 945087,
   "gdpUsd": "31.94 Billion"
@@ -1725,6 +1897,7 @@
   "iso2": "TH",
   "iso3": "THA",
   "dial": "+66",
+  "region": "Asia",
   "population": 67089500,
   "areaKm2": 514000,
   "gdpUsd": "400.9 Billion"
@@ -1735,6 +1908,7 @@
   "iso2": "TL",
   "iso3": "TLS",
   "dial": "+670",
+  "region": "Asia",
   "population": 1154625,
   "areaKm2": 15007,
   "gdpUsd": "6.129 Billion"
@@ -1745,6 +1919,7 @@
   "iso2": "TG",
   "iso3": "TGO",
   "dial": "+228",
+  "region": "Africa",
   "population": 6587239,
   "areaKm2": 56785,
   "gdpUsd": "4.299 Billion"
@@ -1755,6 +1930,7 @@
   "iso2": "TO",
   "iso3": "TON",
   "dial": "+676",
+  "region": "Oceania",
   "population": 122580,
   "areaKm2": 748,
   "gdpUsd": "477 Million"
@@ -1765,6 +1941,7 @@
   "iso2": "TT",
   "iso3": "TTO",
   "dial": "+1868",
+  "region": "Americas",
   "population": 1228691,
   "areaKm2": 5128,
   "gdpUsd": "27.13 Billion"
@@ -1775,6 +1952,7 @@
   "iso2": "TN",
   "iso3": "TUN",
   "dial": "+216",
+  "region": "Africa",
   "population": 10589025,
   "areaKm2": 163610,
   "gdpUsd": "48.38 Billion"
@@ -1785,6 +1963,7 @@
   "iso2": "TR",
   "iso3": "TUR",
   "dial": "+90",
+  "region": "Asia",
   "population": 77804122,
   "areaKm2": 780580,
   "gdpUsd": "821.8 Billion"
@@ -1795,6 +1974,7 @@
   "iso2": "TM",
   "iso3": "TKM",
   "dial": "+993",
+  "region": "Asia",
   "population": 4940916,
   "areaKm2": 488100,
   "gdpUsd": "40.56 Billion"
@@ -1805,6 +1985,7 @@
   "iso2": "TV",
   "iso3": "TUV",
   "dial": "+688",
+  "region": "Oceania",
   "population": 10472,
   "areaKm2": 26,
   "gdpUsd": "38 Million"
@@ -1815,6 +1996,7 @@
   "iso2": "UG",
   "iso3": "UGA",
   "dial": "+256",
+  "region": "Africa",
   "population": 33398682,
   "areaKm2": 236040,
   "gdpUsd": "22.6 Billion"
@@ -1825,6 +2007,7 @@
   "iso2": "UA",
   "iso3": "UKR",
   "dial": "+380",
+  "region": "Europe",
   "population": 45415596,
   "areaKm2": 603700,
   "gdpUsd": "175.5 Billion"
@@ -1835,6 +2018,7 @@
   "iso2": "AE",
   "iso3": "ARE",
   "dial": "+971",
+  "region": "Asia",
   "population": 4975593,
   "areaKm2": 82880,
   "gdpUsd": "390 Billion"
@@ -1845,6 +2029,7 @@
   "iso2": "GB",
   "iso3": "GBR",
   "dial": "+44",
+  "region": "Europe",
   "population": 62348447,
   "areaKm2": 244820,
   "gdpUsd": "2.49 Trillion"
@@ -1855,6 +2040,7 @@
   "iso2": "US",
   "iso3": "USA",
   "dial": "+1",
+  "region": "Americas",
   "population": 310232863,
   "areaKm2": 9629091,
   "gdpUsd": "16.72 Trillion"
@@ -1865,6 +2051,7 @@
   "iso2": "UY",
   "iso3": "URY",
   "dial": "+598",
+  "region": "Americas",
   "population": 3477000,
   "areaKm2": 176220,
   "gdpUsd": "57.11 Billion"
@@ -1875,6 +2062,7 @@
   "iso2": "UZ",
   "iso3": "UZB",
   "dial": "+998",
+  "region": "Asia",
   "population": 27865738,
   "areaKm2": 447400,
   "gdpUsd": "55.18 Billion"
@@ -1885,6 +2073,7 @@
   "iso2": "VU",
   "iso3": "VUT",
   "dial": "+678",
+  "region": "Oceania",
   "population": 221552,
   "areaKm2": 12200,
   "gdpUsd": "828 Million"
@@ -1895,6 +2084,7 @@
   "iso2": "VA",
   "iso3": "VAT",
   "dial": "+3",
+  "region": "Europe",
   "population": 921,
   "areaKm2": null,
   "gdpUsd": null
@@ -1905,6 +2095,7 @@
   "iso2": "VE",
   "iso3": "VEN",
   "dial": "+58",
+  "region": "Americas",
   "population": 27223228,
   "areaKm2": 912050,
   "gdpUsd": "367.5 Billion"
@@ -1915,6 +2106,7 @@
   "iso2": "VN",
   "iso3": "VNM",
   "dial": "+84",
+  "region": "Asia",
   "population": 89571130,
   "areaKm2": 329560,
   "gdpUsd": "170 Billion"
@@ -1925,6 +2117,7 @@
   "iso2": "YE",
   "iso3": "YEM",
   "dial": "+967",
+  "region": "Asia",
   "population": 23495361,
   "areaKm2": 527970,
   "gdpUsd": "43.89 Billion"
@@ -1935,6 +2128,7 @@
   "iso2": "ZM",
   "iso3": "ZMB",
   "dial": "+260",
+  "region": "Africa",
   "population": 13460305,
   "areaKm2": 752614,
   "gdpUsd": "22.24 Billion"
@@ -1945,6 +2139,7 @@
   "iso2": "ZW",
   "iso3": "ZWE",
   "dial": "+263",
+  "region": "Africa",
   "population": 11651858,
   "areaKm2": 390580,
   "gdpUsd": "10.48 Billion"

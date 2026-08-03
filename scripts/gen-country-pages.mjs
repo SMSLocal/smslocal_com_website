@@ -12,9 +12,14 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import world from 'world-countries'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const dial = JSON.parse(readFileSync(join(root, 'src/data/dialCodes.generated.json'), 'utf8'))
+
+// Continent per country, from the world-countries package already in the tree.
+// Keyed on ISO alpha-2, which both sides carry, rather than on name.
+const REGION = new Map(world.map((c) => [c.cca2, c.region]))
 
 const slugify = (s) =>
   s
@@ -80,6 +85,7 @@ const countries = dial
       iso2: c.code,
       iso3: s.iso3 ?? null,
       dial: c.dial,
+      region: REGION.get(c.code) ?? null,
       population: s.population ?? null,
       areaKm2: s.areaKm2 ?? null,
       gdpUsd: s.gdpUsd ?? null,

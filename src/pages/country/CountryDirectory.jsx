@@ -2,25 +2,59 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './CountryDirectory.module.css'
 
-const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+/** Largest first, so the sections a visitor most likely wants are nearest. */
+const CONTINENTS = ['Asia', 'Europe', 'Africa', 'Americas', 'Oceania']
 
 /**
- * The full 195-country reference, as an A–Z index rather than a table.
+ * The full 195-country reference, grouped into collapsible continents.
  *
- * A table gives every country a full-width row, so the list runs to a dozen
- * screens and each row carries four columns of mostly whitespace. Grouping by
- * letter and flowing entries into columns fits roughly four times as many on
- * screen, which is what a reference is for — scanning, not reading top to
- * bottom.
+ * A single A–Z run of 195 entries is a wall — everything is on screen whether
+ * you want it or not. Collapsed continents put the whole world in five rows and
+ * let you open only the region you care about.
  *
- * Countries with a published guide are links; the rest are plain entries, so
- * the list never promises a page that isn't there.
+ * Searching overrides the open/closed state: a continent holding a match opens
+ * itself, so results are never hidden behind a collapsed section. That is the
+ * failure this pattern usually has, and the reason `open` is derived rather
+ * than purely stateful.
  */
+function Row({ c, linked }) {
+  const inner = (
+    <>
+      <img
+        className={styles.flag}
+        src={`/flags/${c.iso2.toLowerCase()}.svg`}
+        alt=""
+        width="20"
+        height="15"
+        loading="lazy"
+      />
+      <span className={styles.name}>{c.name}</span>
+      <span className={styles.iso}>{c.iso2}</span>
+      <span className={styles.dial}>{c.dial}</span>
+    </>
+  )
+  return (
+    <li>
+      {linked ? (
+        <Link className={`${styles.row} ${styles.rowLink}`} to={`/country-code/${c.slug}/`}>
+          {inner}
+        </Link>
+      ) : (
+        <span className={styles.row}>{inner}</span>
+      )}
+    </li>
+  )
+}
+
 function CountryDirectory({ countries, published }) {
   const [query, setQuery] = useState('')
+  // Asia open to start, so the section reads as expandable rather than as five
+  // inert bars.
+  const [openSet, setOpenSet] = useState(() => new Set(['Asia']))
+
+  const q = query.trim().toLowerCase()
 
   const { groups, total } = useMemo(() => {
-    const q = query.trim().toLowerCase()
     const matches = q
       ? countries.filter(
           (c) =>
@@ -31,14 +65,20 @@ function CountryDirectory({ countries, published }) {
         )
       : countries
 
-    const byLetter = new Map()
+    const byRegion = new Map(CONTINENTS.map((r) => [r, []]))
     for (const c of matches) {
-      const letter = c.name[0].toUpperCase()
-      if (!byLetter.has(letter)) byLetter.set(letter, [])
-      byLetter.get(letter).push(c)
+      if (byRegion.has(c.region)) byRegion.get(c.region).push(c)
     }
-    return { groups: byLetter, total: matches.length }
-  }, [countries, query])
+    return { groups: byRegion, total: matches.length }
+  }, [countries, q])
+
+  const toggle = (region) =>
+    setOpenSet((prev) => {
+      const next = new Set(prev)
+      if (next.has(region)) next.delete(region)
+      else next.add(region)
+      return next
+    })
 
   return (
     <div>
@@ -56,63 +96,44 @@ function CountryDirectory({ countries, published }) {
         </span>
       </div>
 
-      {/* Jumps rather than filters — the letters stay in place so the index
-          doesn't reflow under the cursor. A letter with no entries is dimmed
-          instead of removed, so the bar never changes width. */}
-      <nav className={styles.alphabet} aria-label="Jump to letter">
-        {ALPHABET.map((l) =>
-          groups.has(l) ? (
-            <a className={styles.letter} href={`#cc-${l}`} key={l}>
-              {l}
-            </a>
-          ) : (
-            <span className={styles.letterOff} key={l} aria-hidden="true">
-              {l}
-            </span>
-          ),
-        )}
-      </nav>
-
       {total === 0 ? (
         <p className={styles.empty}>No country matches “{query}”.</p>
       ) : (
-        <div className={styles.index}>
-          {[...groups.entries()].map(([letter, list]) => (
-            <section className={styles.group} key={letter} id={`cc-${letter}`}>
-              <h3 className={styles.groupLetter}>{letter}</h3>
-              <ul className={styles.rows}>
-                {list.map((c) => {
-                  const has = published.has(c.slug)
-                  const inner = (
-                    <>
-                      <img
-                        className={styles.flag}
-                        src={`/flags/${c.iso2.toLowerCase()}.svg`}
-                        alt=""
-                        width="20"
-                        height="15"
-                        loading="lazy"
-                      />
-                      <span className={styles.name}>{c.name}</span>
-                      <span className={styles.iso}>{c.iso2}</span>
-                      <span className={styles.dial}>{c.dial}</span>
-                    </>
-                  )
-                  return (
-                    <li key={c.slug}>
-                      {has ? (
-                        <Link className={`${styles.row} ${styles.rowLink}`} to={`/country-code/${c.slug}/`}>
-                          {inner}
-                        </Link>
-                      ) : (
-                        <span className={styles.row}>{inner}</span>
-                      )}
-                    </li>
-                  )
-                })}
-              </ul>
-            </section>
-          ))}
+        <div className={styles.stack}>
+          {CONTINENTS.map((region) => {
+            const list = groups.get(region) ?? []
+            if (!list.length) return null
+            // While searching, a section with hits is always open.
+            const open = q ? true : openSet.has(region)
+
+            return (
+              <section className={styles.group} key={region}>
+                <button
+                  type="button"
+                  className={styles.head}
+                  onClick={() => toggle(region)}
+                  aria-expanded={open}
+                  disabled={Boolean(q)}
+                >
+                  <span className={styles.headName}>{region}</span>
+                  <span className={styles.headCount}>{list.length}</span>
+                  <span className={`${styles.chev} ${open ? styles.chevOpen : ''}`} aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </span>
+                </button>
+
+                {open && (
+                  <ul className={styles.rows}>
+                    {list.map((c) => (
+                      <Row key={c.slug} c={c} linked={published.has(c.slug)} />
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )
+          })}
         </div>
       )}
     </div>
