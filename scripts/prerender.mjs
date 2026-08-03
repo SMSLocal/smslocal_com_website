@@ -117,6 +117,7 @@ writeFileSync(
 
 let written = 0
 const failed = []
+const meta = {}
 for (const route of routes) {
   let body
   try {
@@ -126,6 +127,12 @@ for (const route of routes) {
     // falls back to the SPA shell, which is the old behaviour.
     failed.push(`${route}: ${error.message.split('\n')[0]}`)
     continue
+  }
+  // Each page's own title/description, straight off what it just rendered —
+  // llms.txt below is built from these rather than a second hand-kept list.
+  meta[route] = {
+    title: (body.match(/<title[^>]*>([\s\S]*?)<\/title>/) || [])[1] ?? '',
+    description: (body.match(/<meta\s+name="description"\s+content="([^"]*)"/) || [])[1] ?? '',
   }
   const file = route === '/' ? join(dist, 'index.html') : join(dist, route, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
@@ -140,3 +147,77 @@ if (failed.length) {
   console.warn(`prerender — ${failed.length} route(s) fell back to the SPA shell:`)
   for (const f of failed) console.warn(`  ${f}`)
 }
+
+// llms.txt — the AI-crawler counterpart to robots.txt/sitemap.xml. Crawlers that
+// don't execute JavaScript get the same curated map a person would, in markdown
+// rather than XML. Titles and descriptions come from `meta` above, i.e. from the
+// pages themselves, so this cannot describe the site as something it isn't.
+const decode = (s) =>
+  s
+    // Numeric entities in both forms — React escapes apostrophes as &#x27;.
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    // Ampersand last, so "&amp;lt;" cannot decode twice into a tag.
+    .replace(/&amp;/g, '&')
+
+// Titles carry the " | SMSLocal" suffix for search results; it is redundant when
+// every line already sits under an SMSLocal heading.
+const label = (route) => decode(meta[route]?.title ?? route).replace(/\s*\|\s*SMSLocal\s*$/, '')
+const blurb = (route) => decode(meta[route]?.description ?? '')
+
+const link = (route) => {
+  const d = blurb(route)
+  return `- [${label(route)}](${SITE}${route.endsWith('/') ? route : `${route}/`})${d ? `: ${d}` : ''}`
+}
+
+// Grouped by the route prefixes the site is already organised around, so the
+// sections stay right as pages are added.
+const startsWith = (...prefixes) => (r) =>
+  prefixes.some((p) => r === p || r.startsWith(`${p}/`))
+const used = new Set()
+const take = (pred) => {
+  const hit = staticRoutes.filter((r) => !used.has(r) && pred(r))
+  for (const r of hit) used.add(r)
+  return hit
+}
+
+const sections = [
+  ['Core', take((r) => ['/', '/pricing', '/products', '/platform', '/solutions', '/why-smslocal', '/integrations'].includes(r))],
+  ['Channels', take(startsWith('/channels', '/numbers'))],
+  ['AI agents', take(startsWith('/ai-agents', '/agentic-ai', '/voice-ai-agents', '/services'))],
+  ['By industry', take(startsWith('/industry'))],
+  ['Comparisons', take(startsWith('/compare'))],
+  ['Resources', take(startsWith('/resources', '/blog'))],
+  ['Company', take(() => true)],
+]
+
+const postsByCategory = new Map()
+for (const p of posts) {
+  const key = p.category ?? 'Articles'
+  if (!postsByCategory.has(key)) postsByCategory.set(key, [])
+  postsByCategory.get(key).push(p)
+}
+
+const llms = [
+  '# SMSLocal',
+  '',
+  '> Business messaging platform for bulk SMS, WhatsApp Business API, RCS, voice and web chat, with AI agents for support, sales and booking. Send campaigns, alerts and two-way conversations from one dashboard or API.',
+  '',
+  'This file is a map of the site for AI crawlers and assistants. Every link below is a canonical URL; the same pages are listed machine-readably in [the sitemap index](' + SITE + '/sitemap.xml).',
+  '',
+  ...sections.flatMap(([name, list]) => (list.length ? [`## ${name}`, '', ...list.map(link), ''] : [])),
+  ...[...postsByCategory.entries()].flatMap(([category, list]) => [
+    `## ${category}`,
+    '',
+    ...list.map((p) => link(routeOf(p))),
+    '',
+  ]),
+].join('\n')
+
+writeFileSync(join(dist, 'llms.txt'), `${llms.trimEnd()}\n`)
+console.log(
+  `llms.txt — ${staticRoutes.length + posts.length} links across ${sections.filter(([, l]) => l.length).length + postsByCategory.size} sections`,
+)
