@@ -7,6 +7,7 @@ import {
   IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu, IconMail,
 } from './icons.jsx'
 import BrandLogo from './BrandLogo.jsx'
+import { stripSlash } from '../lib/url.js'
 
 // A small static dot in place of the old chevron. Deliberately inert: it never
 // rotates, recolours or moves on hover/open, so the label is the only thing
@@ -47,6 +48,15 @@ const AI_AGENTS = [
   { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/ai-agents/agent-builder/' },
 ]
 
+// The three pages that actually live under /products/. They sat in the Platform
+// dropdown, which put the /products/* slugs in one menu and the Products label
+// on another — the menu a page appears under now follows its URL.
+const PRODUCT_TOOLS = [
+  { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox/' },
+  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/agent-copilot/' },
+  { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/analytics/' },
+]
+
 export const PRODUCT_CATEGORIES = [
   {
     key: 'agents',
@@ -55,7 +65,7 @@ export const PRODUCT_CATEGORIES = [
     icon: <IconBrain />,
     desc: 'Autonomous AI agents that connect to your tools and take action.',
     items: AI_AGENTS,
-    viewAllHref: '/ai-agents',
+    viewAllHref: '/ai-agents/',
     viewAllLabel: 'View all AI Agents',
   },
   {
@@ -65,7 +75,7 @@ export const PRODUCT_CATEGORIES = [
     icon: <IconGlobe />,
     desc: 'Your core broadcasting channels, from one number and one API.',
     items: CHANNELS,
-    viewAllHref: '/channels',
+    viewAllHref: '/channels/',
     viewAllLabel: 'View all Channels',
   },
   {
@@ -75,8 +85,18 @@ export const PRODUCT_CATEGORIES = [
     icon: <IconChat />,
     desc: 'Instagram, Messenger and a customisable web chat widget, answered by AI.',
     items: SOCIAL_APPS,
-    viewAllHref: '/channels',
+    viewAllHref: '/channels/',
     viewAllLabel: 'View all Channels',
+  },
+  {
+    key: 'workspace',
+    label: 'Inbox & Analytics',
+    sub: 'Where your team works',
+    icon: <IconChart />,
+    desc: 'The shared inbox your team replies from, the copilot that drafts for them, and the reporting across every channel.',
+    items: PRODUCT_TOOLS,
+    viewAllHref: '/products/',
+    viewAllLabel: 'View all Products',
   },
 ]
 
@@ -111,7 +131,7 @@ export const SOLUTION_CATEGORIES = [
     icon: <IconGlobe />,
     desc: 'Messaging, AI agents and broadcasting tuned to how your industry works.',
     items: SOL_INDUSTRY,
-    viewAllHref: '/solutions',
+    viewAllHref: '/solutions/',
     viewAllLabel: 'All Solutions',
   },
   {
@@ -121,18 +141,17 @@ export const SOLUTION_CATEGORIES = [
     icon: <IconUsers />,
     desc: 'Start from the job to be done — support, sales, bookings — or get hands-on help taking an AI use case to production.',
     items: SOL_TEAM,
-    viewAllHref: '/solutions',
+    viewAllHref: '/solutions/',
     viewAllLabel: 'All Solutions',
   },
 ]
 
 // --- Simple dropdowns ----------------------------------------------------
+// Platform-level pages only. The /products/* entries that used to sit here moved
+// to the Products mega (PRODUCT_TOOLS), so each menu now matches its URL prefix.
 export const PLATFORM = [
   { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/why-smslocal/' },
   { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform/' },
-  { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox/' },
-  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/agent-copilot/' },
-  { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/analytics/' },
   { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/integrations/' },
   { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security/' },
 ]
@@ -162,9 +181,15 @@ const MENU_ROUTES = {
 }
 
 // startsWith so nested pages count too — /blog/a-post lights up Resources, and
-// /ai-agents/support lights up Products.
+// /ai-agents/support lights up Products. Both sides are compared without their
+// trailing slash: hrefs carry one now, so `${href}/` would build a double slash
+// and never match anything nested.
 function isMenuActive(menu, pathname) {
-  return (MENU_ROUTES[menu] ?? []).some((href) => pathname === href || pathname.startsWith(`${href}/`))
+  const here = stripSlash(pathname)
+  return (MENU_ROUTES[menu] ?? []).some((href) => {
+    const base = stripSlash(href)
+    return here === base || here.startsWith(`${base}/`)
+  })
 }
 
 function ItemLink({ item, onNavigate }) {

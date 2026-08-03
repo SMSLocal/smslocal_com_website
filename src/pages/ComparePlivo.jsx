@@ -59,7 +59,7 @@ function ComparePlivo() {
           <span className="section-kicker">Compare with others</span>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '16px' }}>
             {siblings.map((s) => (
-              <Link className="btn btn-ghost" to={`/compare/${s.slug}`} key={s.slug}>
+              <Link className="btn btn-ghost" to={`/compare/${s.slug}/`} key={s.slug}>
                 <CompareLogo name={s.name} domain={s.domain} /> vs {s.name}
               </Link>
             ))}

@@ -1,3 +1,4 @@
+import { withSlash } from '../../lib/url.js'
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Sparkles } from 'lucide-react'
@@ -92,7 +93,7 @@ function BlogIndex() {
         </div>
 
         <div className={styles.wrap}>
-        <Link to={featured.routePath ?? `/blog/${featured.slug}`} className={styles.featured}>
+        <Link to={withSlash(featured.routePath ?? `/blog/${featured.slug}`)} className={styles.featured}>
           <div className={styles.featuredMedia}>
             {featured.cover && (
               <img className={styles.featuredImage} src={featured.cover} alt="" />

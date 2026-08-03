@@ -289,7 +289,7 @@ const FAQS = [
             <span className="twl-cross-label">Compare with others</span>
             <div className="twl-cross-row">
               {siblings.map((s) => (
-                <Link className="twl-cross-chip" to={`/compare/${s.slug}`} key={s.slug}>
+                <Link className="twl-cross-chip" to={`/compare/${s.slug}/`} key={s.slug}>
                   <CompareLogo name={s.name} domain={s.domain} /> vs {s.name}
                 </Link>
               ))}

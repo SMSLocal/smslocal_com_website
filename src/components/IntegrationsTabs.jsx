@@ -53,7 +53,7 @@ function IntegrationsTabs({ title, subtitle, eyebrow = 'Integrations', alt, id }
           </div>
           <div className="intt-foot">
             <span className="intt-count">{cat.count} apps in {cat.title}</span>
-            <Link to={`/ai-agents/apps/${cat.slug}`} className="intt-link">View all {cat.title} →</Link>
+            <Link to={`/ai-agents/apps/${cat.slug}/`} className="intt-link">View all {cat.title} →</Link>
           </div>
         </div>
       </div>

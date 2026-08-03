@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import { withSlash } from '../lib/url.js'
 import styles from './PostCard.module.css'
 
 function PostCard({ post, compact = false }) {
   return (
-    <Link to={post.routePath ?? `/blog/${post.slug}`} className={styles.card}>
+    // routePath is stored without a trailing slash; the served URL has one, so
+    // linking to it raw would cost a 308 on every card.
+    <Link to={withSlash(post.routePath ?? `/blog/${post.slug}`)} className={styles.card}>
       <div className={`${styles.thumb} ${compact ? styles.thumbCompact : ''}`}>
         {post.cover && (
           <img className={styles.thumbImage} src={post.cover} alt="" loading="lazy" />

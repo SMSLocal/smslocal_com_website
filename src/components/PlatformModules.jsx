@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import './PlatformModules.css'
 
 const MODULES = [
-  { to: '/channels', name: 'All channels', desc: 'SMS, WhatsApp, RCS, Voice, Email and more — one reach layer.' },
-  { to: '/products/omnichannel-inbox', name: 'Omnichannel shared inbox', desc: 'One queue where your whole team replies across every channel.' },
-  { to: '/products/analytics', name: 'Analytics & insights', desc: 'Delivery, replies and resolutions in a single reporting view.' },
-  { to: '/integrations', name: 'Integrations', desc: 'Connect your CRM, helpdesk and store with one-click connectors.' },
-  { to: '/platform/security', name: 'Enterprise security', desc: 'Roles, encryption and a full audit trail across the stack.' },
+  { to: '/channels/', name: 'All channels', desc: 'SMS, WhatsApp, RCS, Voice, Email and more — one reach layer.' },
+  { to: '/products/omnichannel-inbox/', name: 'Omnichannel shared inbox', desc: 'One queue where your whole team replies across every channel.' },
+  { to: '/products/analytics/', name: 'Analytics & insights', desc: 'Delivery, replies and resolutions in a single reporting view.' },
+  { to: '/integrations/', name: 'Integrations', desc: 'Connect your CRM, helpdesk and store with one-click connectors.' },
+  { to: '/platform/security/', name: 'Enterprise security', desc: 'Roles, encryption and a full audit trail across the stack.' },
 ]
 
 function PlatformModules() {

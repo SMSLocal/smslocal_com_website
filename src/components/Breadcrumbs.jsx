@@ -80,7 +80,8 @@ function Breadcrumbs({ lastLabel }) {
   segments.forEach((seg, i) => {
     acc += `/${seg}`
     const isLast = i === segments.length - 1
-    crumbs.push({ label: isLast && finalLabel ? finalLabel : titleize(seg), href: acc })
+    // Slashed once, here, so the visible link and the JSON-LD below can't drift.
+    crumbs.push({ label: isLast && finalLabel ? finalLabel : titleize(seg), href: withSlash(acc) })
   })
 
   const jsonLd = {
@@ -90,7 +91,7 @@ function Breadcrumbs({ lastLabel }) {
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      item: `${SITE_ORIGIN}${withSlash(c.href)}`,
+      item: `${SITE_ORIGIN}${c.href}`,
     })),
   }
 

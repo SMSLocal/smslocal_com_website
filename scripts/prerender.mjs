@@ -68,12 +68,12 @@ const lastmodFor = (route) =>
   (posts.find((p) => (p.routePath ?? `/blog/${p.slug}`) === route)?.modifiedISO ?? '').slice(0, 10)
 
 const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
-const isAreaCode = (p) => /area\s*code/i.test(p.category ?? '')
 
+// Split by page type, not by blog category: area-code posts are blog posts like
+// any other, so two sub-sitemaps for them was a division without a difference.
 const groups = [
   { file: 'page-sitemap.xml', routes: staticRoutes },
-  { file: 'post-sitemap.xml', routes: posts.filter((p) => !isAreaCode(p)).map(routeOf) },
-  { file: 'area-code-sitemap.xml', routes: posts.filter(isAreaCode).map(routeOf) },
+  { file: 'post-sitemap.xml', routes: posts.map(routeOf) },
 ].filter((g) => g.routes.length)
 
 const urlsetFor = (list) =>

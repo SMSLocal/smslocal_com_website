@@ -146,7 +146,7 @@ function CompareHub() {
           <p className="section-subtitle">A deeper, fair breakdown of SMSLocal against each platform.</p>
           <div className="cmp-vs-cards">
             {COMPETITOR_LIST.map((c) => (
-              <Link className="cmp-vs-card" to={`/compare/${c.slug}`} key={c.slug}>
+              <Link className="cmp-vs-card" to={`/compare/${c.slug}/`} key={c.slug}>
                 <div className="cmp-vs-card-top">
                   <SmsLocalMark />
                   <span className="cmp-vs-card-vs">vs</span>

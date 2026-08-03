@@ -223,7 +223,7 @@ const FAQS = [
             <span className="ibp-cross-label">Compare with others</span>
             <div className="ibp-cross-row">
               {SIBLINGS.map((s) => (
-                <Link className="ibp-cross-chip" to={`/compare/${s.slug}`} key={s.slug}>
+                <Link className="ibp-cross-chip" to={`/compare/${s.slug}/`} key={s.slug}>
                   <CompareLogo name={s.name} domain={s.domain} />
                   vs {s.name}
                 </Link>

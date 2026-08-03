@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { headingId } from '../../lib/posts.js'
+import { withSlash } from '../../lib/url.js'
 import styles from './BlogPost.module.css'
 
 /**
@@ -42,8 +43,11 @@ export function RichText({ rich }) {
               </a>
             )
           }
+          // Imported copy carries WordPress-era hrefs, some without the
+          // trailing slash this site serves. Normalised here rather than in
+          // importedPosts.generated.json, which is regenerated from the source.
           return (
-            <Link key={i} to={node.a}>
+            <Link key={i} to={withSlash(node.a)}>
               {label}
             </Link>
           )
