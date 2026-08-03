@@ -52,8 +52,8 @@ function SmsBroadcasting() {
         eyebrow="SMS broadcasting"
         title={<>Broadcast to your whole list, <span className="grad-word">at A2P scale</span></>}
         subtitle="Send segmented, personalized SMS campaigns to your entire opted-in audience — with link tracking, delivery receipts and automatic STOP/HELP handling, and AI answering every reply."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<SmsBroadcastHero />}
       />
 
@@ -86,7 +86,7 @@ function SmsBroadcasting() {
       <CTABanner
         title="Reach your whole list, reliably"
         subtitle="Send a segmented, personalized SMS broadcast with delivery receipts and AI answering the replies."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>SMS broadcasting — frequently asked questions</>} items={FAQS} alt />

@@ -60,12 +60,12 @@ const CHAPTERS = [
 
 /* ---- Popular guides (ranked) ---- */
 const POPULAR = [
-  { title: 'Set up the WhatsApp Business API', desc: 'Connect a number, verify your business and send your first template.', level: 'Intermediate', time: '12 min', reads: 18400, href: '/channels/whatsapp' },
-  { title: 'Send SMS from your own backend', desc: 'Authenticate, POST a message and read the response — in cURL, Node or Python.', level: 'Developer', time: '8 min', reads: 15200, href: '/resources/docs' },
-  { title: 'Build a chatbot flow that converts', desc: 'Branch on replies, collect input and route to the right answer.', level: 'Intermediate', time: '15 min', reads: 11850, href: '/ai-agents/agent-builder' },
-  { title: 'Launch an RCS broadcast campaign', desc: 'Rich cards, carousels and suggested replies on Android — step by step.', level: 'Intermediate', time: '10 min', reads: 8300, href: '/channels/rcs' },
-  { title: 'Deploy your first AI agent', desc: 'Connect a knowledge source, set guardrails and go live in a sandbox first.', level: 'Advanced', time: '18 min', reads: 6900, href: '/ai-agents/agent-builder' },
-  { title: 'Handle delivery receipts with webhooks', desc: 'Receive real-time status events and inbound replies at your endpoint.', level: 'Developer', time: '9 min', reads: 5100, href: '/resources/docs' },
+  { title: 'Set up the WhatsApp Business API', desc: 'Connect a number, verify your business and send your first template.', level: 'Intermediate', time: '12 min', reads: 18400, href: '/channels/whatsapp/' },
+  { title: 'Send SMS from your own backend', desc: 'Authenticate, POST a message and read the response — in cURL, Node or Python.', level: 'Developer', time: '8 min', reads: 15200, href: '/resources/docs/' },
+  { title: 'Build a chatbot flow that converts', desc: 'Branch on replies, collect input and route to the right answer.', level: 'Intermediate', time: '15 min', reads: 11850, href: '/ai-agents/agent-builder/' },
+  { title: 'Launch an RCS broadcast campaign', desc: 'Rich cards, carousels and suggested replies on Android — step by step.', level: 'Intermediate', time: '10 min', reads: 8300, href: '/channels/rcs/' },
+  { title: 'Deploy your first AI agent', desc: 'Connect a knowledge source, set guardrails and go live in a sandbox first.', level: 'Advanced', time: '18 min', reads: 6900, href: '/ai-agents/agent-builder/' },
+  { title: 'Handle delivery receipts with webhooks', desc: 'Receive real-time status events and inbound replies at your endpoint.', level: 'Developer', time: '9 min', reads: 5100, href: '/resources/docs/' },
 ]
 
 /* ---- What's inside every guide ---- */
@@ -103,7 +103,7 @@ function ResourcesGuides() {
             </p>
             <div className="hero-actions">
               <a href="#tracks" className="btn btn-primary">Browse the tracks</a>
-              <Link to="/resources/docs" className="btn btn-ghost">Read the API docs</Link>
+              <Link to="/resources/docs/" className="btn btn-ghost">Read the API docs</Link>
             </div>
             <div className="gd-hero-meta">
               <span><strong>40+</strong> guides</span>
@@ -137,7 +137,7 @@ function ResourcesGuides() {
               <span><IconBook /> 6 chapters</span>
               <span><IconClock /> 10 min read</span>
             </div>
-            <Link to="/resources/docs" className="btn btn-primary">Read the guide</Link>
+            <Link to="/resources/docs/" className="btn btn-primary">Read the guide</Link>
           </div>
 
           {/* A real document preview, not a plain checklist — chapter one is
@@ -261,8 +261,8 @@ function ResourcesGuides() {
       <CTABanner
         title="Prefer a hand walking you through it?"
         subtitle="Tell us what you’re building and our team will guide you the rest of the way."
-        cta={{ label: 'Talk to us', href: '/contact-us' }}
-        secondaryCta={{ label: 'Browse the docs', href: '/resources/docs' }}
+        cta={{ label: 'Talk to us', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Browse the docs', href: '/resources/docs/' }}
       />
 
       <FAQ title={<>Guides — frequently asked questions</>} items={FAQS} />

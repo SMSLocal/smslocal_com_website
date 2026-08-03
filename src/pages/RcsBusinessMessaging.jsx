@@ -32,10 +32,10 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Send verified, branded RCS campaigns to your whole list at once — with SMS fallback built in.', href: '/channels/rcs' },
-  { icon: <IconChat />, title: 'SMS broadcasting', desc: 'The universal safety net — when a device can’t receive RCS, the same send still lands as plain SMS.', href: '/bulk-sms' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The AI layer that reads every reply, grounds its answer in your data, and closes the loop without a human.', href: '/ai-agents/customer-service' },
-  { icon: <IconMail />, title: 'Omnichannel inbox', desc: 'Every RCS reply lands right beside WhatsApp, SMS and social replies — all inside one shared team inbox.', href: '/chatbot/whatsapp' },
+  { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Send verified, branded RCS campaigns to your whole list at once — with SMS fallback built in.', href: '/channels/rcs/' },
+  { icon: <IconChat />, title: 'SMS broadcasting', desc: 'The universal safety net — when a device can’t receive RCS, the same send still lands as plain SMS.', href: '/bulk-sms/' },
+  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The AI layer that reads every reply, grounds its answer in your data, and closes the loop without a human.', href: '/ai-agents/customer-service/' },
+  { icon: <IconMail />, title: 'Omnichannel inbox', desc: 'Every RCS reply lands right beside WhatsApp, SMS and social replies — all inside one shared team inbox.', href: '/chatbot/whatsapp/' },
 ]
 
 const TESTIMONIALS = [
@@ -64,8 +64,8 @@ function RcsBusinessMessaging() {
         eyebrow="RCS"
         title={<>Bring branded RCS messaging to <span className="grad-word">every Android inbox</span></>}
         subtitle="Verified sender badges, rich cards, carousels and quick-reply buttons — with automatic SMS fallback when RCS isn't supported."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<RcsHeroTransform />}
       />
 
@@ -97,7 +97,7 @@ function RcsBusinessMessaging() {
       <CTABanner
         title="Upgrade your SMS to branded RCS"
         subtitle="Verified sender, rich cards and automatic fallback — live in days, not months."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>RCS business messaging — frequently asked questions</>} items={FAQS} />

@@ -845,7 +845,7 @@ export function FAQ({ title, subtitle, items, alt, eyebrow = 'Answers To Your Qu
             <div className="faq-aside-body">
               <p className="faq-aside-title">Still have questions about SMSLocal?</p>
               <p className="faq-aside-sub">Our support team responds within minutes — every day of the week.</p>
-              <Link to="/contact-us" className="faq-aside-btn">Contact Us</Link>
+              <Link to="/contact-us/" className="faq-aside-btn">Contact Us</Link>
             </div>
           </aside>
 

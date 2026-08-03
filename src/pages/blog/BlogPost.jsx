@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
+import { withSlash } from '../../lib/url.js'
 import PostCard from '../../components/PostCard.jsx'
 import { getPostBySlug, getRelatedPosts, richToText, titleParts, utcISO } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
@@ -16,10 +17,10 @@ function BlogPost() {
   const { slug } = useParams()
   const post = getPostBySlug(slug)
 
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) return <Navigate to="/blog/" replace />
 
   const related = getRelatedPosts(post.slug)
-  const url = `${SITE_ORIGIN}${post.routePath ?? `/blog/${post.slug}`}`
+  const url = `${SITE_ORIGIN}${withSlash(post.routePath ?? `/blog/${post.slug}`)}`
 
   return (
     <div className="blog-scope">
@@ -83,7 +84,7 @@ function BlogPost() {
           while the copy inside stays on the shared 1280px measure. */}
       <div className={styles.heroBand}>
         <div className={styles.wrap}>
-          <Link to="/blog" className={styles.breadcrumb}>
+          <Link to="/blog/" className={styles.breadcrumb}>
             <ArrowLeft size={14} strokeWidth={2.5} />
             All Posts
           </Link>
@@ -179,11 +180,11 @@ function BlogPost() {
               code, free to start.
             </p>
             <div className={styles.ctaButtons}>
-              <Link to="/signup" className={styles.ctaPrimary}>
+              <Link to="/signup/" className={styles.ctaPrimary}>
                 Create Free Trial Account
                 <ArrowRight size={15} strokeWidth={2.2} />
               </Link>
-              <Link to="/contact-us" className={styles.ctaGhost}>
+              <Link to="/contact-us/" className={styles.ctaGhost}>
                 Book a demo
               </Link>
             </div>

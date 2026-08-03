@@ -69,8 +69,8 @@ function DidNumbers() {
         eyebrow="DID / Virtual numbers"
         title={<>Virtual phone numbers in <span className="grad-word">100+ countries</span>, live in minutes</>}
         subtitle="Get local, national, toll-free and mobile numbers anywhere, then route inbound voice and SMS to your team, your apps and your CRM — no hardware, and keep your existing numbers."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         stats={[
           { value: '100+', label: 'Countries covered' },
           { value: 'Minutes', label: 'To provision online' },
@@ -113,7 +113,7 @@ function DidNumbers() {
       <CTABanner
         title="Claim your virtual numbers today"
         subtitle="Local presence in 100+ countries, voice and SMS on every number, live in minutes."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>DID & virtual numbers — frequently asked questions</>} items={FAQS} alt />

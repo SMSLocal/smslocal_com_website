@@ -51,8 +51,8 @@ function AiAgentsSupport() {
         eyebrow="AI Agents"
         title={<>An AI support agent that <span className="grad-word">clears the queue</span>, not just watches it</>}
         subtitle="Deflect and resolve tier-one questions by reading your help centre directly, replying on every channel, and escalating only what genuinely needs a person — with full context attached."
-        primaryCta={{ label: 'Deploy an Agent', href: '/contact-us' }}
-        secondaryCta={{ label: 'AI Customer Service Agent', href: '/ai-agents/customer-service' }}
+        primaryCta={{ label: 'Deploy an Agent', href: '/contact-us/' }}
+        secondaryCta={{ label: 'AI Customer Service Agent', href: '/ai-agents/customer-service/' }}
         visual={<SupportQueueDrainHero />}
       />
 
@@ -84,7 +84,7 @@ function AiAgentsSupport() {
       <CTABanner
         title="Clear the routine tickets automatically"
         subtitle="Connect your help centre and go live in days — the agent handles the repetitive volume, your team handles the rest."
-        cta={{ label: 'Deploy an Agent', href: '/contact-us' }}
+        cta={{ label: 'Deploy an Agent', href: '/contact-us/' }}
       />
 
       <FAQ title="AI support agent — frequently asked questions" items={FAQS} alt />

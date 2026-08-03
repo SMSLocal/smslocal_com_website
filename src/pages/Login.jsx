@@ -40,7 +40,7 @@ function Login() {
                   <input type="checkbox" />
                   Remember me
                 </label>
-                <Link to="/contact-us" className="auth-link">Forgot password?</Link>
+                <Link to="/contact-us/" className="auth-link">Forgot password?</Link>
               </div>
 
               <button type="submit" className="btn btn-primary auth-submit">
@@ -53,7 +53,7 @@ function Login() {
             <button type="button" className="auth-social">Continue with Google</button>
 
             <p className="auth-footer-note">
-              Don't have an account? <Link to="/signup" className="auth-link">Get started free</Link>
+              Don't have an account? <Link to="/signup/" className="auth-link">Get started free</Link>
             </p>
           </div>
         </div>

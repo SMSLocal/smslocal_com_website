@@ -56,8 +56,8 @@ function IndustryHealthcare() {
         eyebrow="Healthcare"
         title={<>Agentic AI for healthcare, built <span className="grad-word">consent-aware</span> from the ground up</>}
         subtitle="Handle appointment scheduling, reminders and patient questions automatically, with role-based access control and audit logs that hold up to scrutiny."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'Enterprise Security', href: '/platform/security' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Enterprise Security', href: '/platform/security/' }}
         visual={<VoiceCallMock />}
       />
 
@@ -106,7 +106,7 @@ function IndustryHealthcare() {
       <CTABanner
         title="Automate patient communication without cutting corners"
         subtitle="Deploy an agentic AI healthcare agent with role-based access control, scoped to your compliance requirements."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for healthcare — frequently asked questions" items={FAQS} alt />

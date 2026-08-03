@@ -41,8 +41,8 @@ function VoiceChannel() {
         eyebrow="Voice"
         title={<><span className="grad-word">Cloud voice calling</span>, on the platform that already runs your messages</>}
         subtitle="Programmable inbound and outbound calls, IVR menus, smart routing and recording — with global numbers and a Voice API, right beside your SMS, WhatsApp and RCS."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<VoiceChannelHero />}
       />
 
@@ -89,7 +89,7 @@ function VoiceChannel() {
       <CTABanner
         title="Bring your calls onto one platform"
         subtitle="Programmable voice, IVR and global numbers — beside the messaging you already send."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Cloud voice calling — frequently asked questions</>} items={FAQS} alt />

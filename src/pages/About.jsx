@@ -21,10 +21,10 @@ const VALUES = [
 ]
 
 const SERVICES = [
-  { icon: <IconMegaphone />, title: 'Messaging channels', desc: 'Bulk SMS, WhatsApp, RCS, email and more — one API for every channel your customers use.', href: '/channels' },
-  { icon: <IconRobot />, title: 'No-code chatbots', desc: 'Drag-and-drop bots that answer, qualify and convert across every channel, 24/7.', href: '/chatbot' },
-  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve support, sales and voice conversations end to end.', href: '/ai-agents' },
-  { icon: <IconGear />, title: 'Developer API', desc: 'A documented REST API and SDKs to wire messaging straight into your own product.', href: '/sms-api' },
+  { icon: <IconMegaphone />, title: 'Messaging channels', desc: 'Bulk SMS, WhatsApp, RCS, email and more — one API for every channel your customers use.', href: '/channels/' },
+  { icon: <IconRobot />, title: 'No-code chatbots', desc: 'Drag-and-drop bots that answer, qualify and convert across every channel, 24/7.', href: '/chatbot/' },
+  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve support, sales and voice conversations end to end.', href: '/ai-agents/' },
+  { icon: <IconGear />, title: 'Developer API', desc: 'A documented REST API and SDKs to wire messaging straight into your own product.', href: '/sms-api/' },
 ]
 
 const FAQS = [
@@ -48,8 +48,8 @@ function About() {
         eyebrow="About"
         title={<>One platform to reach customers, <span className="grad-word">everywhere they are</span></>}
         subtitle="We build messaging infrastructure, chatbot tooling and agentic AI so businesses can run every conversation from one place, not five."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Products', href: '/products' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Products', href: '/products/' }}
       />
 
       <StatBand
@@ -102,7 +102,7 @@ function About() {
       <CTABanner
         title="See the platform for yourself"
         subtitle="Talk to us about what you're trying to build."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>About us — frequently asked questions</>} items={FAQS} />

@@ -287,7 +287,7 @@ function Signup() {
                 </form>
 
                 <p className="signup-footer-note">
-                  Already have an account? <Link to="/login" className="auth-link">Log in</Link>
+                  Already have an account? <Link to="/login/" className="auth-link">Log in</Link>
                 </p>
               </>
             )}
@@ -405,8 +405,8 @@ function Signup() {
                       onChange={(e) => setAcceptedTerms(e.target.checked)}
                       required
                     />
-                    By continuing I accept the <Link to="/terms-and-conditions" target="_blank">terms</Link> and{' '}
-                    <Link to="/privacy-policy" target="_blank">privacy policy</Link>
+                    By continuing I accept the <Link to="/terms-and-conditions/" target="_blank">terms</Link> and{' '}
+                    <Link to="/privacy-policy/" target="_blank">privacy policy</Link>
                   </label>
 
                   <CaptchaWidget active={step === 'form'} onToken={setCaptchaToken} />

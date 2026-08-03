@@ -62,8 +62,8 @@ const FAQS = [
               channels, chatbots and AI they actually need â€” one plan, no-code, transparent pricing.
             </p>
             <div className="ibp-hero-actions">
-              <Link to="/contact-us" className="btn btn-primary">Get Started Free</Link>
-              <Link to="/compare" className="btn btn-ghost">Compare all</Link>
+              <Link to="/contact-us/" className="btn btn-primary">Get Started Free</Link>
+              <Link to="/compare/" className="btn btn-ghost">Compare all</Link>
             </div>
             <div className="ibp-hero-stats">
               <div className="ibp-stat"><strong>10+</strong><span>channels</span></div>
@@ -205,8 +205,8 @@ const FAQS = [
         eyebrow="Get Started"
         title="Enterprise-grade channels, right-sized"
         subtitle="Messaging, chatbots and agentic AI in one no-code plan - transparent pricing, managed onboarding."
-        cta={{ label: 'Get Started Free', href: '/contact-us' }}
-        secondaryCta={{ label: 'Talk to sales', href: '/contact-us' }}
+        cta={{ label: 'Get Started Free', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact-us/' }}
       />
 
       <FAQ
@@ -228,7 +228,7 @@ const FAQS = [
                   vs {s.name}
                 </Link>
               ))}
-              <Link className="ibp-cross-chip ibp-cross-all" to="/compare">All comparisons â†’</Link>
+              <Link className="ibp-cross-chip ibp-cross-all" to="/compare/">All comparisons â†’</Link>
             </div>
           </div>
         </div>

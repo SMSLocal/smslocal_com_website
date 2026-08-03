@@ -81,7 +81,10 @@ const urlsetFor = (list) =>
   list
     .map((route) => {
       const lastmod = lastmodFor(route)
-      return `  <url>\n    <loc>${SITE}${route}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+      // Trailing slash: the served form (vercel.json trailingSlash: true). A
+      // sitemap listing the slash-less URL would list a redirect.
+      const loc = route.endsWith('/') ? route : `${route}/`
+      return `  <url>\n    <loc>${SITE}${loc}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
     })
     .join('\n') +
   `\n</urlset>\n`

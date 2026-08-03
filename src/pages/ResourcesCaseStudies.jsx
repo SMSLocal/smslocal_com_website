@@ -217,8 +217,8 @@ function ResourcesCaseStudies() {
         eyebrow="Case Studies"
         title={<><span className="grad-word">Real results</span>, in our customers&rsquo; words</>}
         subtitle="Experience firsthand how SMSLocal is revolutionising the way global enterprises communicate and deliver exceptional customer experiences — told by the companies that did it."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Solutions', href: '/products' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Solutions', href: '/products/' }}
         visual={<CaseStudiesGrowthHero />}
       />
 
@@ -251,7 +251,7 @@ function ResourcesCaseStudies() {
       <CTABanner
         title="See what SMSLocal could do for your team"
         subtitle="Tell us about your use case and the metric you care about — we&rsquo;ll show you the closest customer story we have and a starting point."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Case studies &mdash; frequently asked questions</>} items={FAQS} alt />

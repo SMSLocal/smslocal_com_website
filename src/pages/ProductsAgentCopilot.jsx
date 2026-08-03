@@ -42,8 +42,8 @@ function ProductsAgentCopilot() {
         eyebrow="Platform"
         title={<>An AI copilot that drafts the reply <span className="grad-word">before you finish reading</span></>}
         subtitle="Speed up every conversation with an AI agent copilot that drafts responses, summarises long threads and surfaces knowledge-grounded answers — right inside the reply box your team already uses."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'Omnichannel Inbox', href: '/products/omnichannel-inbox' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Omnichannel Inbox', href: '/products/omnichannel-inbox/' }}
         visual={<CopilotAheadHero />}
       />
 
@@ -76,7 +76,7 @@ function ProductsAgentCopilot() {
       <CTABanner
         title="Give every agent a copilot"
         subtitle="Drafted replies, instant summaries and grounded answers — live inside your shared inbox in days."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title="AI agent copilot — frequently asked questions" items={FAQS} alt />

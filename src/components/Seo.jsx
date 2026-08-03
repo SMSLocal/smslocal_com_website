@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import { SITE_ORIGIN } from './Canonical.jsx'
+import { withSlash } from '../lib/url.js'
 
 /**
  * Head tags rendered as real elements rather than written from an effect, so
@@ -31,7 +32,7 @@ function Seo({
 }) {
   const { pathname } = useLocation()
   const resolved = exactTitle ?? (title ? `${title} | SMSLocal` : null)
-  const url = canonical ?? `${SITE_ORIGIN}${pathname}`
+  const url = canonical ?? `${SITE_ORIGIN}${withSlash(pathname)}`
   const image = ogImage ? new URL(ogImage, SITE_ORIGIN).href : null
   const keywordList = Array.isArray(keywords) ? keywords.join(', ') : keywords
 

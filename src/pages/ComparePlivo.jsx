@@ -22,8 +22,8 @@ function ComparePlivo() {
         eyebrow={`SMSLocal vs ${c.name}`}
         title={c.hero.title}
         subtitle={c.hero.subtitle}
-        primaryCta={{ label: 'Get Started Free', href: '/contact-us' }}
-        secondaryCta={{ label: 'Compare all', href: '/compare' }}
+        primaryCta={{ label: 'Get Started Free', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Compare all', href: '/compare/' }}
         stats={c.hero.stats.map((s) => ({ value: s.value, label: s.label }))}
       />
 
@@ -44,8 +44,8 @@ function ComparePlivo() {
       <CTABanner
         title={c.cta.title}
         subtitle={c.cta.subtitle}
-        cta={{ label: 'Get Started Free', href: '/contact-us' }}
-        secondaryCta={{ label: 'Talk to sales', href: '/contact-us' }}
+        cta={{ label: 'Get Started Free', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact-us/' }}
       />
 
       <FAQ
@@ -63,7 +63,7 @@ function ComparePlivo() {
                 <CompareLogo name={s.name} domain={s.domain} /> vs {s.name}
               </Link>
             ))}
-            <Link className="btn btn-ghost" to="/compare">All comparisons →</Link>
+            <Link className="btn btn-ghost" to="/compare/">All comparisons →</Link>
           </div>
         </div>
       </section>

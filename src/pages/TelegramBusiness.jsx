@@ -80,8 +80,8 @@ function TelegramBusiness() {
         eyebrow="Telegram"
         title={<>Telegram bots and broadcasts, <span className="grad-word">built for business</span></>}
         subtitle="Automate two-way conversations, publish channel broadcasts, and manage every Telegram interaction from one platform — bots, buttons and all."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<TelegramHeroMock />}
       />
 
@@ -201,7 +201,7 @@ function TelegramBusiness() {
       <CTABanner
         title="Launch your Telegram bot without the server"
         subtitle="Bots, buttons and broadcasts — live in days, not months."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Telegram for business — frequently asked questions</>} items={FAQS} />

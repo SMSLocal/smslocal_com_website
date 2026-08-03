@@ -41,8 +41,8 @@ function AiAgentsBuilder() {
         eyebrow="Agent Builder"
         title={<>Build a <span className="grad-word">custom AI agent</span>, no-code or code</>}
         subtitle="Connect your data and tools, set clear guardrails, and deploy the same agent across chat, WhatsApp and voice — from one builder."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<AgentBuilderPrompt />}
       />
 
@@ -57,7 +57,7 @@ function AiAgentsBuilder() {
       <CTABanner
         title="Build your first custom agent"
         subtitle="Connect your tools and set guardrails — live in days."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
         variant="spotlight"
       />
 

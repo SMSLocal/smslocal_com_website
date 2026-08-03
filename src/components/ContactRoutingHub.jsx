@@ -5,7 +5,7 @@ import './ContactRoutingHub.css'
 const DESTINATIONS = [
   { id: 'sales', tint: 'blue', title: 'Talk to Sales', desc: 'A walkthrough of the platform and the right plan.', to: 'sales@smslocal.com', href: 'mailto:sales@smslocal.com', side: 'left' },
   { id: 'support', tint: 'teal', title: 'Get Support', desc: 'Already a customer? Help with your account, fast.', to: 'support@smslocal.com', href: 'mailto:support@smslocal.com', side: 'right' },
-  { id: 'partnerships', tint: 'coral', title: 'Partnerships', desc: "Reselling or integrating with SMSLocal?", to: 'partners@smslocal.com', href: '/partnerships', side: 'left' },
+  { id: 'partnerships', tint: 'coral', title: 'Partnerships', desc: "Reselling or integrating with SMSLocal?", to: 'partners@smslocal.com', href: '/partnerships/', side: 'left' },
   { id: 'general', tint: 'cyan', title: 'General Inquiries', desc: 'Press, feedback, or just a question.', to: 'hello@smslocal.com', href: 'mailto:hello@smslocal.com', side: 'right' },
 ]
 

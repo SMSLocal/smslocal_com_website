@@ -54,8 +54,8 @@ function AiAgentsBooking() {
         eyebrow="AI Agents"
         title={<>An AI agent that fills your calendar <span className="grad-word">while you sleep</span></>}
         subtitle="Let customers book, reschedule and confirm appointments right inside the chat — an agent that checks live availability, prevents double bookings, and reminds so slots don't go empty."
-        primaryCta={{ label: 'Deploy a Booking Agent', href: '/contact-us' }}
-        secondaryCta={{ label: 'See all AI Agents', href: '/ai-agents' }}
+        primaryCta={{ label: 'Deploy a Booking Agent', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See all AI Agents', href: '/ai-agents/' }}
         visual={<BookingTimelineHeroMock />}
       />
 
@@ -91,7 +91,7 @@ function AiAgentsBooking() {
       <CTABanner
         title="Turn every conversation into a confirmed booking"
         subtitle="Connect your calendar, set your rules, and let the agent fill your schedule across every channel — day and night."
-        cta={{ label: 'Deploy a Booking Agent', href: '/contact-us' }}
+        cta={{ label: 'Deploy a Booking Agent', href: '/contact-us/' }}
         variant="spotlight"
       />
 

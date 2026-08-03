@@ -42,8 +42,8 @@ function AiAgentsVoice() {
         eyebrow="Voice AI"
         title={<>An AI voice agent that actually <span className="grad-word">holds a conversation</span></>}
         subtitle="Natural, two-way phone conversations that resolve repetitive calls on the spot, and route the rest to a human — with the transcript, summary and sentiment already attached."
-        primaryCta={{ label: 'Deploy a Voice Agent', href: '/contact-us' }}
-        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
+        primaryCta={{ label: 'Deploy a Voice Agent', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/' }}
         visual={<VoiceAgentMock />}
       />
 
@@ -128,7 +128,7 @@ function AiAgentsVoice() {
       <CTABanner
         title="Put a voice agent on your phone lines"
         subtitle="Connect your number and go live in days, not months."
-        cta={{ label: 'Deploy a Voice Agent', href: '/contact-us' }}
+        cta={{ label: 'Deploy a Voice Agent', href: '/contact-us/' }}
         variant="spotlight"
       />
 

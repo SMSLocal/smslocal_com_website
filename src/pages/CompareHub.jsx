@@ -43,8 +43,8 @@ function CompareHub() {
             teams usually weigh it against. Here's the honest, side-by-side breakdown.
           </p>
           <div className="cmp-hero-actions">
-            <Link to="/contact-us" className="btn btn-primary">Get Started Free</Link>
-            <Link to="/contact-us" className="btn btn-ghost">Talk to sales</Link>
+            <Link to="/contact-us/" className="btn btn-primary">Get Started Free</Link>
+            <Link to="/contact-us/" className="btn btn-ghost">Talk to sales</Link>
           </div>
 
           <div className="cmp-orbit" aria-hidden="true">
@@ -174,8 +174,8 @@ function CompareHub() {
       <CTABanner
         title="See SMSLocal for yourself"
         subtitle="Every channel, no-code chatbots and agentic AI — in one platform, live in days."
-        cta={{ label: 'Get Started Free', href: '/contact-us' }}
-        secondaryCta={{ label: 'Talk to sales', href: '/contact-us' }}
+        cta={{ label: 'Get Started Free', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Comparing SMSLocal — frequently asked questions</>} items={HUB_FAQS} />

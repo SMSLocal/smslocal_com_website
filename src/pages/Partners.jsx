@@ -58,8 +58,8 @@ function Partners() {
         eyebrow="Partners"
         title={<>Partner with SMSLocal on <span className="grad-word">agentic AI</span></>}
         subtitle="Grow with a platform that bundles agentic AI, every messaging channel and broadcasting — refer, resell, integrate or operate, with recurring revenue share."
-        primaryCta={{ label: 'Become a Partner', href: '/contact-us' }}
-        secondaryCta={{ label: 'Explore Agentic AI', href: '/agentic-ai' }}
+        primaryCta={{ label: 'Become a Partner', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Explore Agentic AI', href: '/agentic-ai/' }}
       />
 
       <StatBand items={STATS} />
@@ -108,7 +108,7 @@ function Partners() {
       <CTABanner
         title="Grow your business as an SMSLocal partner"
         subtitle="Tell us about your business and client base, and our partnerships team will map the right track for you."
-        cta={{ label: 'Become a Partner', href: '/contact-us' }}
+        cta={{ label: 'Become a Partner', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Partners — frequently asked questions</>} items={FAQS} />

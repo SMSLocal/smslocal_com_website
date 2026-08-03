@@ -59,8 +59,8 @@ function AiAgentsSalesSdr() {
         eyebrow="AI Sales"
         title={<>An AI SDR that prospects <span className="grad-word">while your team sells</span></>}
         subtitle="Research leads, personalize outreach and book meetings automatically — across email, SMS and WhatsApp."
-        primaryCta={{ label: 'Deploy an AI SDR', href: '/contact-us' }}
-        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents' }}
+        primaryCta={{ label: 'Deploy an AI SDR', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See AI Agents', href: '/ai-agents/' }}
         visual={<SdrProspectPipelineHeroMock />}
       />
 
@@ -82,7 +82,7 @@ function AiAgentsSalesSdr() {
       <CTABanner
         title="Put prospecting on autopilot"
         subtitle="Deploy an AI SDR and start booking meetings automatically."
-        cta={{ label: 'Deploy an AI SDR', href: '/contact-us' }}
+        cta={{ label: 'Deploy an AI SDR', href: '/contact-us/' }}
         variant="spotlight"
       />
 

@@ -22,7 +22,7 @@ function AnalyticsReportIndex() {
             No hunting across dashboards. Delivery, engagement, funnels, agent performance and revenue all live in the
             same workspace — filterable, schedulable and one click from an export or an API pull.
           </p>
-          <Link to="/pricing" className="ari-link">
+          <Link to="/pricing/" className="ari-link">
             See what is included
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </Link>

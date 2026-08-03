@@ -35,8 +35,8 @@ function IndustryFintech() {
         eyebrow="Fintech"
         title={<>Agentic AI for fintech, built for <span className="grad-word">auditable</span> support</>}
         subtitle="Support onboarding, transactions and time-sensitive alerts across SMS and WhatsApp — with every automated action logged, and role-based access built in from day one."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'Enterprise Security', href: '/platform/security' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Enterprise Security', href: '/platform/security/' }}
         visual={<FintechAgentHeroMock />}
       />
 
@@ -66,7 +66,7 @@ function IndustryFintech() {
       <CTABanner
         title="Automate support without losing the audit trail"
         subtitle="Deploy an agentic AI fintech agent with role-based access and full logging, live in weeks."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for fintech — frequently asked questions" items={FAQS} alt />

@@ -58,8 +58,8 @@ function InstagramMessagingApi() {
         eyebrow="Instagram"
         title={<>One <span className="grad-word">Instagram DM</span> API for support, sales and social commerce</>}
         subtitle="Automate replies, turn comments into conversations, and answer every DM from one shared inbox — without ever leaving Instagram."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<InstagramHeroMock />}
       />
 
@@ -208,7 +208,7 @@ function InstagramMessagingApi() {
       <CTABanner
         title="Turn Instagram DMs into a real channel"
         subtitle="Connect your account and start automating replies today."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Instagram messaging API — frequently asked questions</>} items={FAQS} />

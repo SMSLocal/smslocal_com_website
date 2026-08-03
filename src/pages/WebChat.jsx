@@ -50,8 +50,8 @@ function WebChat() {
         eyebrow="Web Chat"
         title={<>A live chat widget that <span className="grad-word">actually answers</span>, on brand</>}
         subtitle="Add a fully customisable chat widget to your site, answered instantly by agentic AI — with proactive triggers, file sharing and an in-app SDK for mobile, all landing in the same shared inbox as your other channels."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<WebsiteWidgetHeroMock />}
       />
 
@@ -95,7 +95,7 @@ function WebChat() {
       <CTABanner
         title="Put a chat widget on your site that actually works"
         subtitle="On-brand, answered instantly by agentic AI, live with one script snippet."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title="Live chat widget — frequently asked questions" items={FAQS} alt />

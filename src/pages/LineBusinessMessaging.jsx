@@ -65,8 +65,8 @@ function LineBusinessMessaging() {
         eyebrow="LINE"
         title={<>Your LINE Official Account, run like <span className="grad-word">a real channel</span></>}
         subtitle="Two-way chat, flex messages and a rich menu — integrated with WhatsApp, SMS and the rest of your channels, not run in isolation."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<LineHeroRoute />}
       />
 
@@ -74,7 +74,7 @@ function LineBusinessMessaging() {
         eyebrow="The opportunity"
         heading="A broadcast-only LINE account leaves half the platform unused."
         paragraphs={[
-          <>Most businesses use LINE for one thing — blasting followers. Flex messages, a rich menu, loyalty and two-way chat all sit on the same Official Account, mostly untouched. Run LINE as a real channel beside your <Link to="/bulk-sms">SMS</Link> and <Link to="/ai-agents/customer-service">AI</Link>, and it stops being just a broadcast list.</>,
+          <>Most businesses use LINE for one thing — blasting followers. Flex messages, a rich menu, loyalty and two-way chat all sit on the same Official Account, mostly untouched. Run LINE as a real channel beside your <Link to="/bulk-sms/">SMS</Link> and <Link to="/ai-agents/customer-service/">AI</Link>, and it stops being just a broadcast list.</>,
         ]}
         caption="What a broadcast-only account actually uses"
         meters={METERS}
@@ -111,8 +111,8 @@ function LineBusinessMessaging() {
         eyebrow="Get Started"
         title="Turn your LINE account into a real channel"
         subtitle="Flex messages, rich menu and one shared inbox — live in days."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
       />
 
       <FAQ

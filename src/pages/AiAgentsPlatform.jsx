@@ -68,7 +68,7 @@ function AiAgentsPlatform() {
       <CTABanner
         title="Give your AI agent the keys to your stack"
         subtitle="Connect your first app, scope it with a custom role, and watch it resolve conversations end to end."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
         variant="spotlight"
       />
 

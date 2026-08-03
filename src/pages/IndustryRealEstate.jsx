@@ -49,8 +49,8 @@ function IndustryRealEstate() {
         eyebrow="Real Estate"
         title={<>Agentic AI that answers a lead <span className="grad-word">before they move on</span></>}
         subtitle="Capture, qualify and respond to every enquiry instantly, recommend the right listings and book viewings — across web chat, WhatsApp, SMS and voice."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<RealEstateLeadScoreHeroMock />}
       />
 
@@ -86,7 +86,7 @@ function IndustryRealEstate() {
       <CTABanner
         title="Never lose a lead to slow response time again"
         subtitle="Deploy an agentic AI real estate agent that qualifies and books viewings automatically."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for real estate — frequently asked questions" items={FAQS} alt />

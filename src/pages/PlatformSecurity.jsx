@@ -43,8 +43,8 @@ function PlatformSecurity() {
         eyebrow="Enterprise security"
         title={<>Enterprise-grade <span className="grad-word">security and compliance</span></>}
         subtitle="Every message runs a gauntlet of controls — authenticated, encrypted, authorized and audited — before it reaches your customers. Security your legal team can sign off on."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         stats={HERO_STATS}
         visual={<SecGatesHero />}
       />
@@ -58,8 +58,8 @@ function PlatformSecurity() {
       <CTABanner
         title="Security your team can trust"
         subtitle="Talk to us about enterprise controls, data residency, a DPA and your security review — we'll meet you where you are."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         variant="spotlight"
       />
 

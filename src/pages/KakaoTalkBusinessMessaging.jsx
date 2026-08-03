@@ -45,8 +45,8 @@ function KakaoTalkBusinessMessaging() {
         eyebrow="KakaoTalk"
         title={<>AlimTalk notices and FriendTalk broadcasts inside your <span className="grad-word">agentic AI platform</span></>}
         subtitle="One inbox for KakaoTalk and everything else — verified notices, two-way replies, and the same AI that already answers your other channels."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<KakaoTalkHeroMock />}
       />
 
@@ -78,7 +78,7 @@ function KakaoTalkBusinessMessaging() {
       <CTABanner
         title="Bring KakaoTalk into the same platform as everything else"
         subtitle="Verified notices, broadcasts and one inbox — live in days, not months."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>KakaoTalk business messaging — frequently asked questions</>} items={FAQS} alt />

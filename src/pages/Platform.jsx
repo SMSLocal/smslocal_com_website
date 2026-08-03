@@ -26,8 +26,8 @@ function Platform() {
         eyebrow="Platform overview"
         title={<>One platform, stacked <span className="grad-word">layer by layer</span></>}
         subtitle="Messaging channels, a shared inbox, AI and automation, integrations, analytics and enterprise security — every layer on one account, resolving to one customer record."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<PlatformStackHero />}
       />
 
@@ -40,8 +40,8 @@ function Platform() {
       <CTABanner
         title="See the whole platform in one call"
         subtitle="We'll map your channels, inbox, automation and reporting onto a single SMSLocal account — and migrate what you already have."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'View pricing', href: '/pricing' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'View pricing', href: '/pricing/' }}
         variant="spotlight"
       />
 

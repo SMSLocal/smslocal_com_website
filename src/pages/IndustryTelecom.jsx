@@ -63,8 +63,8 @@ function IndustryTelecom() {
         eyebrow="Telecom"
         title={<>Agentic AI for telecom that ends the <span className="grad-word">IVR maze</span></>}
         subtitle="Resolve billing, plan and outage questions instantly across SMS, RCS, WhatsApp and voice — with proactive alerts that deflect the flood before it hits your queue."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'Voice AI Agent', href: '/voice-ai-agents' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Voice AI Agent', href: '/voice-ai-agents/' }}
         visual={<TelecomNetworkHeroMock />}
       />
 
@@ -113,7 +113,7 @@ function IndustryTelecom() {
       <CTABanner
         title="Retire the IVR maze"
         subtitle="Deploy an agentic AI telecom agent across SMS, RCS, WhatsApp and voice in weeks."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for telecom — frequently asked questions" items={FAQS} alt />

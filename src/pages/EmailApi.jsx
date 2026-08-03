@@ -22,10 +22,10 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconBolt />, title: 'Bulk SMS', desc: 'Pair email with bulk SMS campaigns from the same account and API.', href: '/bulk-sms' },
-  { icon: <IconMail />, title: 'WhatsApp, too', desc: 'Add WhatsApp Business API as a richer channel alongside email and SMS.', href: '/channels/whatsapp' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'Let AI handle replies to transactional emails and SMS from the same inbox.', href: '/ai-agents/customer-service' },
-  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design multi-channel flows that combine email, SMS and chat, without writing code.', href: '/chatbot/builder' },
+  { icon: <IconBolt />, title: 'Bulk SMS', desc: 'Pair email with bulk SMS campaigns from the same account and API.', href: '/bulk-sms/' },
+  { icon: <IconMail />, title: 'WhatsApp, too', desc: 'Add WhatsApp Business API as a richer channel alongside email and SMS.', href: '/channels/whatsapp/' },
+  { icon: <IconBrain />, title: 'Agentic AI', desc: 'Let AI handle replies to transactional emails and SMS from the same inbox.', href: '/ai-agents/customer-service/' },
+  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design multi-channel flows that combine email, SMS and chat, without writing code.', href: '/chatbot/builder/' },
 ]
 
 const TESTIMONIALS = [
@@ -54,8 +54,8 @@ function EmailApi() {
         eyebrow="Email"
         title={<>Transactional and bulk email, combined with SMS in <span className="grad-word">one API</span></>}
         subtitle="REST or SMTP, high deliverability, and a fallback to SMS when an email bounces — all from the same account as your other channels."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<EmailHeroMock />}
       />
 
@@ -84,7 +84,7 @@ function EmailApi() {
       <CTABanner
         title="Send email that has a backup plan"
         subtitle="One API for email and SMS — set up your first send in minutes."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Email API — frequently asked questions</>} items={FAQS} />

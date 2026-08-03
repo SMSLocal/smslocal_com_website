@@ -52,8 +52,8 @@ function WhatsappBroadcasting() {
         eyebrow="WhatsApp broadcasting"
         title={<>Send one WhatsApp broadcast, <span className="grad-word">reach everyone personally</span></>}
         subtitle="Message your entire opted-in audience at once on the official WhatsApp Business Platform — personalized with their name, delivered to the app they check most, with read receipts and two-way replies in one shared inbox."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<WaBroadcastHero />}
       />
 
@@ -83,7 +83,7 @@ function WhatsappBroadcasting() {
       <CTABanner
         title="Reach your whole list, one person at a time"
         subtitle="Send a personalized WhatsApp broadcast to every opted-in contact — with receipts, replies and one shared inbox."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>WhatsApp broadcasting — frequently asked questions</>} items={FAQS} alt />

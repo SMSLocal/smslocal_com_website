@@ -144,8 +144,8 @@ function AgentLiveRunHero() {
           </p>
 
           <div className="alrh-ctas">
-            <Link to="/contact-us" className="btn btn-primary">Get Started</Link>
-            <Link to="/pricing" className="btn btn-ghost">See Pricing</Link>
+            <Link to="/contact-us/" className="btn btn-primary">Get Started</Link>
+            <Link to="/pricing/" className="btn btn-ghost">See Pricing</Link>
           </div>
 
           <div className="alrh-picker">

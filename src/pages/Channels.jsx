@@ -8,33 +8,33 @@ const GROUPS = [
   {
     label: 'SMS & broadcasting',
     items: [
-      { icon: <IconMegaphone />, title: 'Bulk SMS', desc: 'High-deliverability SMS at scale for marketing, alerts and OTP.', href: '/bulk-sms' },
-      { icon: <IconCode />, title: 'SMS API', desc: 'Programmable SMS for developers — REST API with delivery webhooks.', href: '/sms-api' },
-      { icon: <IconShield />, title: 'OTP & verification', desc: 'Fast, reliable one-time passcodes for signups and logins.', href: '/otp-sms' },
-      { icon: <IconMegaphone />, title: 'WhatsApp broadcasting', desc: 'One broadcast to your whole opted-in list, each in a personal 1:1 thread.', href: '/channels/whatsapp-broadcasting' },
-      { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Branded, verified rich messages at scale — with automatic SMS fallback.', href: '/channels/rcs-broadcasting' },
+      { icon: <IconMegaphone />, title: 'Bulk SMS', desc: 'High-deliverability SMS at scale for marketing, alerts and OTP.', href: '/bulk-sms/' },
+      { icon: <IconCode />, title: 'SMS API', desc: 'Programmable SMS for developers — REST API with delivery webhooks.', href: '/sms-api/' },
+      { icon: <IconShield />, title: 'OTP & verification', desc: 'Fast, reliable one-time passcodes for signups and logins.', href: '/otp-sms/' },
+      { icon: <IconMegaphone />, title: 'WhatsApp broadcasting', desc: 'One broadcast to your whole opted-in list, each in a personal 1:1 thread.', href: '/channels/whatsapp-broadcasting/' },
+      { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Branded, verified rich messages at scale — with automatic SMS fallback.', href: '/channels/rcs-broadcasting/' },
     ],
   },
   {
     label: 'Chat & social apps',
     items: [
-      { icon: <IconChat />, title: 'WhatsApp Business API', desc: 'Official, verified WhatsApp with broadcasts and two-way chat.', href: '/channels/whatsapp' },
-      { icon: <IconGlobe />, title: 'Instagram DM API', desc: 'Automate and manage Instagram DMs for support and sales.', href: '/channels/instagram' },
-      { icon: <IconChat />, title: 'Facebook Messenger', desc: 'Persistent menu, quick replies and AI for your Facebook Page.', href: '/channels/messenger' },
-      { icon: <IconPhone />, title: 'Viber Business', desc: 'Verified broadcasts and two-way chat, plus Viber voice calls.', href: '/channels/viber' },
-      { icon: <IconChat />, title: 'Telegram for Business', desc: 'Bots, buttons and broadcasts on Telegram, fully hosted for you.', href: '/channels/telegram' },
-      { icon: <IconChat />, title: 'Apple Messages', desc: 'Native iMessage chat with list pickers and Apple Pay.', href: '/channels/apple-messages' },
-      { icon: <IconChat />, title: 'LINE Business', desc: 'Flex messages, rich menu and loyalty for your LINE account.', href: '/channels/line' },
-      { icon: <IconBolt />, title: 'KakaoTalk Business', desc: 'AlimTalk notices and FriendTalk broadcasts on a verified Kakao Channel.', href: '/channels/kakaotalk' },
-      { icon: <IconUsers />, title: 'Social media inbox', desc: 'Every social DM and comment in one shared team inbox.', href: '/channels/social' },
+      { icon: <IconChat />, title: 'WhatsApp Business API', desc: 'Official, verified WhatsApp with broadcasts and two-way chat.', href: '/channels/whatsapp/' },
+      { icon: <IconGlobe />, title: 'Instagram DM API', desc: 'Automate and manage Instagram DMs for support and sales.', href: '/channels/instagram/' },
+      { icon: <IconChat />, title: 'Facebook Messenger', desc: 'Persistent menu, quick replies and AI for your Facebook Page.', href: '/channels/messenger/' },
+      { icon: <IconPhone />, title: 'Viber Business', desc: 'Verified broadcasts and two-way chat, plus Viber voice calls.', href: '/channels/viber/' },
+      { icon: <IconChat />, title: 'Telegram for Business', desc: 'Bots, buttons and broadcasts on Telegram, fully hosted for you.', href: '/channels/telegram/' },
+      { icon: <IconChat />, title: 'Apple Messages', desc: 'Native iMessage chat with list pickers and Apple Pay.', href: '/channels/apple-messages/' },
+      { icon: <IconChat />, title: 'LINE Business', desc: 'Flex messages, rich menu and loyalty for your LINE account.', href: '/channels/line/' },
+      { icon: <IconBolt />, title: 'KakaoTalk Business', desc: 'AlimTalk notices and FriendTalk broadcasts on a verified Kakao Channel.', href: '/channels/kakaotalk/' },
+      { icon: <IconUsers />, title: 'Social media inbox', desc: 'Every social DM and comment in one shared team inbox.', href: '/channels/social/' },
     ],
   },
   {
     label: 'Voice, numbers & email',
     items: [
-      { icon: <IconPhone />, title: 'Voice calling', desc: 'Cloud voice — IVR, routing, recording and a programmable API.', href: '/channels/voice' },
-      { icon: <IconGlobe />, title: 'Virtual numbers (DID)', desc: 'Local, toll-free & mobile numbers in 100+ countries, voice + SMS.', href: '/numbers/did' },
-      { icon: <IconMail />, title: 'Email API', desc: 'Transactional and bulk email, combined with SMS in one API.', href: '/channels/email' },
+      { icon: <IconPhone />, title: 'Voice calling', desc: 'Cloud voice — IVR, routing, recording and a programmable API.', href: '/channels/voice/' },
+      { icon: <IconGlobe />, title: 'Virtual numbers (DID)', desc: 'Local, toll-free & mobile numbers in 100+ countries, voice + SMS.', href: '/numbers/did/' },
+      { icon: <IconMail />, title: 'Email API', desc: 'Transactional and bulk email, combined with SMS in one API.', href: '/channels/email/' },
     ],
   },
 ]
@@ -75,8 +75,8 @@ function Channels() {
         eyebrow="Channels"
         title={<>Every messaging channel your customers use, in <span className="grad-word">one platform</span></>}
         subtitle="SMS, WhatsApp, RCS, Voice, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE, KakaoTalk, email and virtual numbers — one account, one inbox, one customer record."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         stats={[
           { value: '12+', label: 'Channels' },
           { value: '1', label: 'Shared inbox' },
@@ -132,7 +132,7 @@ function Channels() {
       <CTABanner
         title="Find the right channel mix for your business"
         subtitle="Tell us who you're trying to reach — we'll suggest a starting point across the channels that fit."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Channels — frequently asked questions</>} items={FAQS} alt />

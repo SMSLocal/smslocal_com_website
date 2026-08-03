@@ -46,8 +46,8 @@ function ViberBusinessMessages() {
         eyebrow="Viber"
         title={<>Viber broadcasts and chat inside your <span className="grad-word">agentic AI platform</span></>}
         subtitle="One inbox for Viber and everything else — verified broadcasts, two-way replies, and the same AI that already answers your other channels."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<ViberHeroMock />}
       />
 
@@ -69,7 +69,7 @@ function ViberBusinessMessages() {
       <CTABanner
         title="Bring Viber into the same platform as everything else"
         subtitle="Verified broadcasts, two-way chat and one inbox — live in days, not months."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Viber business messaging — frequently asked questions</>} items={FAQS} />

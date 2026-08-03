@@ -156,8 +156,8 @@ function Contact() {
               <div className="contact-form-actions">
                 <p className="contact-form-consent">
                   By submitting this form, you agree to our{' '}
-                  <Link to="/terms-and-conditions">Terms of Service</Link> and{' '}
-                  <Link to="/privacy-policy">Privacy Policy</Link>.
+                  <Link to="/terms-and-conditions/">Terms of Service</Link> and{' '}
+                  <Link to="/privacy-policy/">Privacy Policy</Link>.
                 </p>
                 <button type="submit" className="btn btn-primary contact-form-submit" disabled={status === 'sending'}>
                   {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent!' : 'Submit'}

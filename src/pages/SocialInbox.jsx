@@ -42,8 +42,8 @@ function SocialInbox() {
         eyebrow="Social inbox"
         title={<>Every DM and comment in one <span className="grad-word">shared inbox</span></>}
         subtitle="Instagram, Messenger, WhatsApp, Telegram, LINE and more converge into a single team inbox — with one customer record, smart routing and AI-assisted replies."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<SocialInboxHero />}
       />
 
@@ -69,7 +69,7 @@ function SocialInbox() {
       <CTABanner
         title="Bring every conversation into one inbox"
         subtitle="Connect your channels and give your team one shared, context-rich inbox — live in minutes."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Social media inbox — frequently asked questions</>} items={FAQS} alt />

@@ -42,8 +42,8 @@ function IndustryTravel() {
         eyebrow="Travel & Hospitality"
         title={<>Agentic AI that keeps travellers moving, <span className="grad-word">in any language</span></>}
         subtitle="Handle bookings, itinerary changes and guest questions the moment they come in — across WhatsApp, SMS and web chat, with proactive alerts before travellers even have to ask."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<BookingCalendarMock />}
       />
 
@@ -77,7 +77,7 @@ function IndustryTravel() {
       <CTABanner
         title="Give every traveller a 24/7 booking desk"
         subtitle="Deploy an agentic AI travel agent across chat and broadcasting in days, in every language your guests speak."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for travel and hospitality — frequently asked questions" items={FAQS} alt />

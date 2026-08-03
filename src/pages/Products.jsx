@@ -3,9 +3,9 @@ import { Hero, EcosystemGrid, WhyUs, FAQ, CTABanner } from '../components/sectio
 import { IconMail, IconChat, IconBrain, IconGlobe, IconLink, IconChart, IconUsers } from '../components/icons.jsx'
 
 const CHANNELS = [
-  { icon: <IconMail />, title: 'Messaging channels', desc: 'SMS, WhatsApp, RCS, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE and email — one platform, every inbox.', href: '/channels' },
-  { icon: <IconChat />, title: 'No-code chatbots', desc: 'Design bot flows visually and deploy the same bot to WhatsApp, your website, SMS and social.', href: '/chatbot' },
-  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve requests end to end — not just reply — across every channel.', href: '/ai-agents' },
+  { icon: <IconMail />, title: 'Messaging channels', desc: 'SMS, WhatsApp, RCS, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE and email — one platform, every inbox.', href: '/channels/' },
+  { icon: <IconChat />, title: 'No-code chatbots', desc: 'Design bot flows visually and deploy the same bot to WhatsApp, your website, SMS and social.', href: '/chatbot/' },
+  { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve requests end to end — not just reply — across every channel.', href: '/ai-agents/' },
 ]
 
 const WHY_US = [
@@ -35,8 +35,8 @@ function Products() {
         eyebrow="Products"
         title={<>One platform for <span className="grad-word">messaging, chatbots and AI agents</span></>}
         subtitle="Reach customers on any channel, automate conversations with no-code bots, and deploy autonomous AI agents that resolve requests — all from one account."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
       />
 
       <EcosystemGrid
@@ -51,7 +51,7 @@ function Products() {
       <CTABanner
         title="See the whole platform in one call"
         subtitle="We'll walk through messaging, chatbots and AI agents for your use case."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Products — frequently asked questions</>} items={FAQS} alt />

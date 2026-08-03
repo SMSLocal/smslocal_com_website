@@ -41,10 +41,10 @@ const WHY_US = [
 ]
 
 const ECOSYSTEM = [
-  { icon: <IconChat />, title: 'Instagram, too', desc: 'Run Messenger alongside Instagram DMs from the same shared inbox.', href: '/channels/instagram' },
-  { icon: <IconBolt />, title: 'WhatsApp Business API', desc: 'Add WhatsApp as a verified, branded channel next to Messenger.', href: '/channels/whatsapp' },
-  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers Messenger can carry a conversation across every channel.', href: '/ai-agents/customer-service' },
-  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design your persistent menu and reply flows visually, without writing code.', href: '/chatbot/builder' },
+  { icon: <IconChat />, title: 'Instagram, too', desc: 'Run Messenger alongside Instagram DMs from the same shared inbox.', href: '/channels/instagram/' },
+  { icon: <IconBolt />, title: 'WhatsApp Business API', desc: 'Add WhatsApp as a verified, branded channel next to Messenger.', href: '/channels/whatsapp/' },
+  { icon: <IconBrain />, title: 'Agentic AI', desc: 'The same AI that answers Messenger can carry a conversation across every channel.', href: '/ai-agents/customer-service/' },
+  { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design your persistent menu and reply flows visually, without writing code.', href: '/chatbot/builder/' },
 ]
 
 const TESTIMONIALS = [
@@ -73,8 +73,8 @@ function FacebookMessengerApi() {
         eyebrow="Messenger"
         title={<>One <span className="grad-word">Facebook Messenger</span> API for support, sales and marketing</>}
         subtitle="Automate replies, stay inside Meta's messaging window rules, and route every conversation into one shared inbox — without ever leaving Messenger."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<MessengerHeroFlow />}
       />
 
@@ -110,8 +110,8 @@ function FacebookMessengerApi() {
         eyebrow="Get Started"
         title="Turn Messenger into a real support channel"
         subtitle="Connect your Page and start automating replies today."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
       />
 
       <FAQ

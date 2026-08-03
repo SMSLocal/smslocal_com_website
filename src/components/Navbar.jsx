@@ -17,34 +17,34 @@ function Dot() {
 
 // --- Product mega: three sub-divisions -----------------------------------
 const CHANNELS = [
-  { t: 'SMS Broadcasting', d: 'A2P bulk SMS at scale', i: <IconMegaphone />, href: '/channels/sms-broadcasting' },
-  { t: 'WhatsApp Business API', d: 'Official WhatsApp messaging', i: <IconChat />, href: '/channels/whatsapp' },
-  { t: 'WhatsApp Broadcasting', d: 'One broadcast, thousands of chats', i: <IconMegaphone />, href: '/channels/whatsapp-broadcasting' },
-  { t: 'RCS Messaging', d: 'Rich cards & suggested replies', i: <IconBolt />, href: '/channels/rcs' },
-  { t: 'RCS Broadcasting', d: 'Branded rich messages at scale', i: <IconBolt />, href: '/channels/rcs-broadcasting' },
-  { t: 'Voice', d: 'IVR, routing, recording & numbers', i: <IconPhone />, href: '/channels/voice' },
-  { t: 'Virtual Numbers (DID)', d: 'Local & toll-free, 100+ countries', i: <IconGlobe />, href: '/numbers/did' },
-  { t: 'Email', d: 'Transactional & bulk email, one API', i: <IconMail />, href: '/channels/email' },
+  { t: 'SMS Broadcasting', d: 'A2P bulk SMS at scale', i: <IconMegaphone />, href: '/channels/sms-broadcasting/' },
+  { t: 'WhatsApp Business API', d: 'Official WhatsApp messaging', i: <IconChat />, href: '/channels/whatsapp/' },
+  { t: 'WhatsApp Broadcasting', d: 'One broadcast, thousands of chats', i: <IconMegaphone />, href: '/channels/whatsapp-broadcasting/' },
+  { t: 'RCS Messaging', d: 'Rich cards & suggested replies', i: <IconBolt />, href: '/channels/rcs/' },
+  { t: 'RCS Broadcasting', d: 'Branded rich messages at scale', i: <IconBolt />, href: '/channels/rcs-broadcasting/' },
+  { t: 'Voice', d: 'IVR, routing, recording & numbers', i: <IconPhone />, href: '/channels/voice/' },
+  { t: 'Virtual Numbers (DID)', d: 'Local & toll-free, 100+ countries', i: <IconGlobe />, href: '/numbers/did/' },
+  { t: 'Email', d: 'Transactional & bulk email, one API', i: <IconMail />, href: '/channels/email/' },
 ]
 
 const SOCIAL_APPS = [
-  { t: 'Social Inbox', d: 'Every social DM in one inbox', i: <IconUsers />, href: '/channels/social' },
-  { t: 'Instagram', d: 'DMs answered instantly', i: <IconGlobe />, href: '/channels/instagram' },
-  { t: 'Messenger', d: 'Facebook Messenger, 24/7', i: <IconLink />, href: '/channels/messenger' },
-  { t: 'Web Chat', d: 'Customisable widget, answered by AI', i: <IconCode />, href: '/channels/web-chat' },
-  { t: 'Viber', d: 'Verified broadcasts & two-way chat', i: <IconChat />, href: '/channels/viber' },
-  { t: 'Telegram', d: 'Bots & business messaging at scale', i: <IconRobot />, href: '/channels/telegram' },
-  { t: 'LINE', d: 'Official Account, rich messages & menus', i: <IconMenu />, href: '/channels/line' },
-  { t: 'Apple Messages', d: 'Rich links, Apple Pay & reactions', i: <IconMic />, href: '/channels/apple-messages' },
-  { t: 'KakaoTalk', d: 'AlimTalk notices & FriendTalk broadcasts', i: <IconBolt />, href: '/channels/kakaotalk' },
+  { t: 'Social Inbox', d: 'Every social DM in one inbox', i: <IconUsers />, href: '/channels/social/' },
+  { t: 'Instagram', d: 'DMs answered instantly', i: <IconGlobe />, href: '/channels/instagram/' },
+  { t: 'Messenger', d: 'Facebook Messenger, 24/7', i: <IconLink />, href: '/channels/messenger/' },
+  { t: 'Web Chat', d: 'Customisable widget, answered by AI', i: <IconCode />, href: '/channels/web-chat/' },
+  { t: 'Viber', d: 'Verified broadcasts & two-way chat', i: <IconChat />, href: '/channels/viber/' },
+  { t: 'Telegram', d: 'Bots & business messaging at scale', i: <IconRobot />, href: '/channels/telegram/' },
+  { t: 'LINE', d: 'Official Account, rich messages & menus', i: <IconMenu />, href: '/channels/line/' },
+  { t: 'Apple Messages', d: 'Rich links, Apple Pay & reactions', i: <IconMic />, href: '/channels/apple-messages/' },
+  { t: 'KakaoTalk', d: 'AlimTalk notices & FriendTalk broadcasts', i: <IconBolt />, href: '/channels/kakaotalk/' },
 ]
 
 const AI_AGENTS = [
-  { t: 'AI Agents', d: 'AI agents for every conversation', i: <IconRobot />, href: '/ai-agents' },
-  { t: 'Agentic AI', d: 'Takes action, not just answers', i: <IconBrain />, href: '/agentic-ai' },
-  { t: 'AI Support Agent', d: 'Tier-one ticket deflection', i: <IconBook />, href: '/ai-agents/support' },
-  { t: 'Voice AI Agent', d: 'Natural phone agent that resolves calls', i: <IconMic />, href: '/voice-ai-agents' },
-  { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/ai-agents/agent-builder' },
+  { t: 'AI Agents', d: 'AI agents for every conversation', i: <IconRobot />, href: '/ai-agents/' },
+  { t: 'Agentic AI', d: 'Takes action, not just answers', i: <IconBrain />, href: '/agentic-ai/' },
+  { t: 'AI Support Agent', d: 'Tier-one ticket deflection', i: <IconBook />, href: '/ai-agents/support/' },
+  { t: 'Voice AI Agent', d: 'Natural phone agent that resolves calls', i: <IconMic />, href: '/voice-ai-agents/' },
+  { t: 'Agent Builder', d: 'Build once, deploy everywhere', i: <IconGear />, href: '/ai-agents/agent-builder/' },
 ]
 
 export const PRODUCT_CATEGORIES = [
@@ -82,25 +82,25 @@ export const PRODUCT_CATEGORIES = [
 
 // --- Solutions mega: three sub-divisions ----------------------------------
 const SOL_INDUSTRY = [
-  { t: 'Retail & eCommerce', d: 'Orders, cart recovery & returns', i: <IconCart />, href: '/industry/retail' },
-  { t: 'Travel & Hospitality', d: 'Bookings & 24/7 guest support', i: <IconGlobe />, href: '/industry/travel-and-hospitality' },
-  { t: 'Fintech', d: 'Onboarding, alerts & auditable actions', i: <IconDollar />, href: '/industry/fintech' },
-  { t: 'Education', d: 'Admissions & student support', i: <IconBook />, href: '/industry/education' },
-  { t: 'Media & Entertainment', d: 'Ticketing & subscriber care', i: <IconMic />, href: '/industry/media-entertainment' },
-  { t: 'Healthcare', d: 'Scheduling, reminders & patient Q&A', i: <IconCalendar />, href: '/industry/healthcare' },
-  { t: 'Insurance', d: 'Quotes, claims & renewals', i: <IconShield />, href: '/industry/insurance' },
-  { t: 'Mortgage', d: 'Pre-qualification & borrower updates', i: <IconReceipt />, href: '/industry/mortgage' },
-  { t: 'Telecom', d: 'Support, billing & outage alerts', i: <IconPhone />, href: '/industry/telecom' },
-  { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/industry/real-estate' },
+  { t: 'Retail & eCommerce', d: 'Orders, cart recovery & returns', i: <IconCart />, href: '/industry/retail/' },
+  { t: 'Travel & Hospitality', d: 'Bookings & 24/7 guest support', i: <IconGlobe />, href: '/industry/travel-and-hospitality/' },
+  { t: 'Fintech', d: 'Onboarding, alerts & auditable actions', i: <IconDollar />, href: '/industry/fintech/' },
+  { t: 'Education', d: 'Admissions & student support', i: <IconBook />, href: '/industry/education/' },
+  { t: 'Media & Entertainment', d: 'Ticketing & subscriber care', i: <IconMic />, href: '/industry/media-entertainment/' },
+  { t: 'Healthcare', d: 'Scheduling, reminders & patient Q&A', i: <IconCalendar />, href: '/industry/healthcare/' },
+  { t: 'Insurance', d: 'Quotes, claims & renewals', i: <IconShield />, href: '/industry/insurance/' },
+  { t: 'Mortgage', d: 'Pre-qualification & borrower updates', i: <IconReceipt />, href: '/industry/mortgage/' },
+  { t: 'Telecom', d: 'Support, billing & outage alerts', i: <IconPhone />, href: '/industry/telecom/' },
+  { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/industry/real-estate/' },
 ]
 
 // Team/use-case and Services share one category — Services was a single link,
 // too thin to hold its own rail entry.
 const SOL_TEAM = [
-  { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/ai-agents/customer-service' },
-  { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/ai-agents/sales' },
-  { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/ai-agents/booking' },
-  { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/services/ai-consulting' },
+  { t: 'Customer Support', d: 'Deflect & resolve tickets 24/7', i: <IconChat />, href: '/ai-agents/customer-service/' },
+  { t: 'Sales & SDR', d: 'Research, outreach & book meetings', i: <IconBriefcase />, href: '/ai-agents/sales/' },
+  { t: 'Booking & Scheduling', d: 'Book against live availability', i: <IconCalendar />, href: '/ai-agents/booking/' },
+  { t: 'AI Consulting & Onboarding', d: 'Scope, build & scale to production', i: <IconBrain />, href: '/services/ai-consulting/' },
 ]
 
 export const SOLUTION_CATEGORIES = [
@@ -128,25 +128,25 @@ export const SOLUTION_CATEGORIES = [
 
 // --- Simple dropdowns ----------------------------------------------------
 export const PLATFORM = [
-  { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/why-smslocal' },
-  { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform' },
-  { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox' },
-  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/agent-copilot' },
-  { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/analytics' },
-  { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/integrations' },
-  { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security' },
+  { t: 'Why SMSLocal', d: 'One platform, not a stitched stack', i: <IconBolt />, href: '/why-smslocal/' },
+  { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform/' },
+  { t: 'Omnichannel inbox', d: 'One shared team inbox', i: <IconChat />, href: '/products/omnichannel-inbox/' },
+  { t: 'Agent Copilot', d: 'Drafts replies, summarises threads', i: <IconGear />, href: '/products/agent-copilot/' },
+  { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/analytics/' },
+  { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/integrations/' },
+  { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security/' },
 ]
 
 export const RESOURCES_LEFT = [
-  { t: 'Developer Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs' },
-  { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides' },
-  { t: 'Case studies', d: 'Real customer results', i: <IconChart />, href: '/resources/case-studies' },
+  { t: 'Developer Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs/' },
+  { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides/' },
+  { t: 'Case studies', d: 'Real customer results', i: <IconChart />, href: '/resources/case-studies/' },
 ]
 
 export const RESOURCES_RIGHT = [
-  { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog' },
-  { t: 'Contact Us', d: 'Talk to our team', i: <IconMail />, href: '/contact-us' },
-  { t: 'Compare SMSLocal', d: 'SMSLocal vs Twilio, Bird & more', i: <IconGlobe />, href: '/compare' },
+  { t: 'Blog / Articles', d: 'Guides, tips & product news', i: <IconNewspaper />, href: '/blog/' },
+  { t: 'Contact Us', d: 'Talk to our team', i: <IconMail />, href: '/contact-us/' },
+  { t: 'Compare SMSLocal', d: 'SMSLocal vs Twilio, Bird & more', i: <IconGlobe />, href: '/compare/' },
 ]
 
 // Every route reachable from each top-level menu, so a trigger can highlight
@@ -353,7 +353,7 @@ function Navbar() {
           {/* Pricing — plain link (Company links now live in the footer only) */}
           <div className="nav-item" onMouseEnter={() => setOpenMenu(null)}>
             <Link
-              to="/pricing"
+              to="/pricing/"
               className={pathname === '/pricing' ? 'nav-item-link is-current' : 'nav-item-link'}
               onClick={closeAll}
             >Pricing</Link>
@@ -361,13 +361,13 @@ function Navbar() {
 
           <div className="nav-auth mobile-only">
             <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Log in</a>
-            <Link to="/signup" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
+            <Link to="/signup/" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
           </div>
         </nav>
 
         <div className="nav-auth desktop-only">
           <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Log in</a>
-          <Link to="/signup" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
+          <Link to="/signup/" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
         </div>
       </div>
     </header>

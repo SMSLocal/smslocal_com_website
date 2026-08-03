@@ -37,8 +37,8 @@ function ProductsAnalytics() {
         eyebrow="Analytics & Insights"
         title={<>Every channel, <span className="grad-word">one analytics layer</span></>}
         subtitle="Delivery, engagement, conversion funnels, agent and bot performance and revenue attribution — measured together in real time, exportable, with no data silos to reconcile."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<AnalyticsPulseHero />}
       />
 
@@ -51,7 +51,7 @@ function ProductsAnalytics() {
       <CTABanner
         title="Turn every message into measurable insight"
         subtitle="See delivery, engagement, conversion and revenue for every channel in one live workspace."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
         variant="spotlight"
       />
 

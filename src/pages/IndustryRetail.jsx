@@ -42,8 +42,8 @@ function IndustryRetail() {
         eyebrow="Retail & eCommerce"
         title={<>Agentic AI for retail that <span className="grad-word">closes the loop</span>, not just chats</>}
         subtitle="Answer product questions, recover abandoned carts and resolve order issues automatically — across WhatsApp, SMS, RCS and web chat, with a human handoff when it truly matters."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<StoreAgentHeroMock />}
       />
 
@@ -82,7 +82,7 @@ function IndustryRetail() {
       <CTABanner
         title="Turn support into a revenue channel"
         subtitle="Deploy an agentic AI retail agent across your storefront, WhatsApp and SMS in days, not months."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for retail — frequently asked questions" items={FAQS} alt />

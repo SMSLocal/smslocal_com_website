@@ -61,8 +61,8 @@ function WhatsappBusinessApi() {
         eyebrow="WhatsApp"
         title={<>Official <span className="grad-word">WhatsApp Business API</span> for growing teams</>}
         subtitle="Send broadcasts, templates and two-way conversations at scale — with fast onboarding, an agentic AI that answers, and transparent per-conversation pricing."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         stats={[
           { value: '190+', label: 'Countries reached' },
           { value: '99.9%', label: 'Platform uptime' },
@@ -92,7 +92,7 @@ function WhatsappBusinessApi() {
       <CTABanner
         title="Start messaging on WhatsApp"
         subtitle="Apply for WhatsApp Business API access today."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>WhatsApp Business API — frequently asked questions</>} items={FAQS} />

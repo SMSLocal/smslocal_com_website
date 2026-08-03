@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getPostBySlug } from '../lib/posts.js'
+import { stripSlash, withSlash } from '../lib/url.js'
 
 // Production domain this site deploys to (see deployment-flow-rule memory —
 // `main` builds to this exact host). Canonicals must be absolute URLs.
@@ -11,6 +12,9 @@ export const SITE_ORIGIN = 'https://smslocal-com-website.vercel.app'
  * Layout), not per-page, so canonical tags never depend on a page remembering
  * to render <Seo> correctly. Rendered rather than written from an effect so it
  * lands in the prerendered HTML too.
+ *
+ * Emits the trailing-slash form, which is what the server serves: without it
+ * the canonical would name a URL that 308-redirects.
  *
  * Posts resolve under both /blog/:slug and /resources/insights/:slug, so they
  * canonicalize to the single routePath they were imported under instead of to
@@ -28,16 +32,14 @@ function Canonical() {
     for (const tag of document.head.querySelectorAll('[data-prerendered]')) tag.remove()
   }, [])
 
-  // Strip a trailing slash (except the root) so "/pricing/" and "/pricing"
-  // never canonicalize to two different URLs.
-  const clean = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
-
+  // Match against the slash-less form: route paths and post slugs carry none.
+  const clean = stripSlash(pathname)
   const segments = clean.split('/').filter(Boolean)
   const post = /^\/(blog|resources\/insights)\/[^/]+$/.test(clean)
     ? getPostBySlug(segments[segments.length - 1])
     : null
 
-  return <link rel="canonical" href={`${SITE_ORIGIN}${post?.routePath ?? clean}`} />
+  return <link rel="canonical" href={`${SITE_ORIGIN}${withSlash(post?.routePath ?? clean)}`} />
 }
 
 export default Canonical

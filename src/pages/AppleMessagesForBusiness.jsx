@@ -238,8 +238,8 @@ function AppleMessagesForBusiness() {
         eyebrow="Apple Messages"
         title={<>Native <span className="grad-word">iMessage</span> business chat, sent through an approved provider</>}
         subtitle="Rich links, list pickers, Apple Pay and reactions — delivered to the Messages app customers already trust, with Apple's required approval handled for you."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<AppleMessagesHeroMock />}
       />
 
@@ -378,7 +378,7 @@ function AppleMessagesForBusiness() {
       <CTABanner
         title="Bring your brand into iMessage the right way"
         subtitle="We handle Apple's approval — you handle the conversation."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Apple Messages for Business — frequently asked questions</>} items={FAQS} />

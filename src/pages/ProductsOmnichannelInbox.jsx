@@ -26,8 +26,8 @@ function ProductsOmnichannelInbox() {
         eyebrow="Omnichannel Inbox"
         title={<>One <span className="grad-word">shared inbox</span> for every channel</>}
         subtitle="WhatsApp, SMS, email, voice and social land in a single team inbox. Conversations follow the customer across channels, keep full context, and your whole team works them together."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<InboxThreadHero />}
       />
 
@@ -42,8 +42,8 @@ function ProductsOmnichannelInbox() {
       <CTABanner
         title="Bring every conversation into one inbox"
         subtitle="Give your team a single place to see, assign and resolve every customer conversation — across every channel."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         variant="spotlight"
       />
 

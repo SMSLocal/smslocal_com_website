@@ -12,7 +12,7 @@ const AGENTS = [
     example: 'Refunds a delivered order and closes the ticket.',
     stat: '62%',
     statLabel: 'tickets resolved with no human',
-    href: '/ai-agents/customer-service',
+    href: '/ai-agents/customer-service/',
   },
   {
     icon: <IconMic />,
@@ -21,7 +21,7 @@ const AGENTS = [
     example: 'Takes an after-hours booking and confirms by SMS.',
     stat: '<1s',
     statLabel: 'to pick up, any hour',
-    href: '/voice-ai-agents',
+    href: '/voice-ai-agents/',
   },
   {
     icon: <IconGlobe />,
@@ -30,7 +30,7 @@ const AGENTS = [
     example: 'Checks the CRM, then offers three real calendar slots.',
     stat: '4×',
     statLabel: 'faster first response',
-    href: '/ai-agents/sales',
+    href: '/ai-agents/sales/',
   },
   {
     icon: <IconBrain />,
@@ -39,7 +39,7 @@ const AGENTS = [
     example: 'A renewals agent that reads your billing database.',
     stat: '1 day',
     statLabel: 'from prompt to live',
-    href: '/ai-agents/agent-builder',
+    href: '/ai-agents/agent-builder/',
   },
 ]
 

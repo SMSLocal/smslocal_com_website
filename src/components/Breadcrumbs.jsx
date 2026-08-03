@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import JsonLd from './JsonLd.jsx'
 import { SITE_ORIGIN } from './Canonical.jsx'
 import { getPostBySlug } from '../lib/posts.js'
+import { stripSlash, withSlash } from '../lib/url.js'
 import './Breadcrumbs.css'
 
 // Friendly labels for path segments that a naive "un-hyphenate + capitalize"
@@ -61,14 +62,16 @@ function titleize(segment) {
 function Breadcrumbs({ lastLabel }) {
   const { pathname } = useLocation()
 
-  if (pathname === '/') return null
+  if (stripSlash(pathname) === '/') return null
 
-  const segments = pathname.split('/').filter(Boolean)
+  // Match against the slash-less form; route paths and post slugs carry none.
+  const clean = stripSlash(pathname)
+  const segments = clean.split('/').filter(Boolean)
 
   // On /blog/:slug and /resources/insights/:slug the final segment is a post
   // slug — titleizing it would put a mangled title in both the visible trail and
   // the JSON-LD below, where it wouldn't match the article's own schema.
-  const isPost = /^\/(blog|resources\/insights)\/[^/]+$/.test(pathname)
+  const isPost = /^\/(blog|resources\/insights)\/[^/]+$/.test(clean)
   const postTitle = isPost ? getPostBySlug(segments[segments.length - 1])?.title : null
   const finalLabel = lastLabel ?? postTitle
 
@@ -87,7 +90,7 @@ function Breadcrumbs({ lastLabel }) {
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      item: `${SITE_ORIGIN}${c.href}`,
+      item: `${SITE_ORIGIN}${withSlash(c.href)}`,
     })),
   }
 

@@ -49,8 +49,8 @@ function IndustryEducation() {
         eyebrow="Education"
         title={<>Agentic AI that guides students from <span className="grad-word">enquiry to enrolled</span></>}
         subtitle="Answer admissions questions, send deadline reminders and follow up on every application — around the clock, in the applicant's own language."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<EducationAdmissionsHeroMock />}
       />
 
@@ -91,7 +91,7 @@ function IndustryEducation() {
       <CTABanner
         title="Give every applicant a 24/7 admissions office"
         subtitle="Deploy an agentic AI education agent before your next application cycle starts."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for education — frequently asked questions" items={FAQS} alt />

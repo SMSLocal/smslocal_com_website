@@ -26,8 +26,8 @@ function IntegrationsPage() {
         eyebrow="Integrations"
         title={<>Connect SMSLocal to the tools you <span className="grad-word">already use</span></>}
         subtitle="One-click OAuth links your CRM, store, helpdesk and finance apps to SMSLocal. Sync contacts and events both ways, trigger messages from any tool, or build your own with the REST API and webhooks."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<IntgConnectHero />}
       />
 
@@ -46,7 +46,7 @@ function IntegrationsPage() {
       <CTABanner
         title="Connect your first app in minutes"
         subtitle="Authorize with one click and watch contacts, events and messages start flowing between your tools and SMSLocal."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
         variant="spotlight"
       />
 

@@ -169,8 +169,8 @@ function ResourcesDocs() {
         eyebrow="Docs"
         title={<>Ship your first message <span className="grad-word">in an afternoon</span></>}
         subtitle="A plain REST API for sending, tracking and receiving SMS — token auth, real-time webhooks and SDKs, with nothing exotic to learn."
-        primaryCta={{ label: 'Get API Key', href: '/contact-us' }}
-        secondaryCta={{ label: 'View Guides', href: '/resources/guides' }}
+        primaryCta={{ label: 'Get API Key', href: '/contact-us/' }}
+        secondaryCta={{ label: 'View Guides', href: '/resources/guides/' }}
         visual={<PayloadFieldAnatomy />}
       />
 
@@ -271,7 +271,7 @@ function ResourcesDocs() {
       <CTABanner
         title="Get your API key"
         subtitle="Start integrating in minutes with our REST API."
-        cta={{ label: 'Get API Key', href: '/contact-us' }}
+        cta={{ label: 'Get API Key', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Developer docs — frequently asked questions</>} items={FAQS} />

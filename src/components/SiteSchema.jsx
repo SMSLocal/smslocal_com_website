@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import JsonLd from './JsonLd.jsx'
 import { SITE_ORIGIN } from './Canonical.jsx'
+import { stripSlash, withSlash } from '../lib/url.js'
 import pageDates from '../data/pageDates.generated.json'
 
 /**
@@ -16,7 +17,9 @@ import pageDates from '../data/pageDates.generated.json'
  */
 function SiteSchema() {
   const { pathname } = useLocation()
-  const dateModified = pageDates[pathname]
+  // pageDates is keyed off App.jsx's route paths, which carry no trailing slash.
+  const dateModified = pageDates[stripSlash(pathname)]
+  const url = `${SITE_ORIGIN}${withSlash(pathname)}`
 
   return (
     <JsonLd
@@ -41,8 +44,8 @@ function SiteSchema() {
             ? [
                 {
                   '@type': 'WebPage',
-                  '@id': `${SITE_ORIGIN}${pathname}#webpage`,
-                  url: `${SITE_ORIGIN}${pathname}`,
+                  '@id': `${url}#webpage`,
+                  url,
                   isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
                   dateModified,
                 },

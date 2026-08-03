@@ -78,8 +78,8 @@ function IndustryMortgage() {
         eyebrow="Mortgage"
         title={<>Agentic AI that moves borrowers from <span className="grad-word">enquiry to close</span></>}
         subtitle="Pre-qualify leads, chase documents automatically and answer status questions instantly — across SMS and WhatsApp, so files stop stalling on silence."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<SdrCampaignMock />}
       />
 
@@ -115,7 +115,7 @@ function IndustryMortgage() {
       <CTABanner
         title="Stop losing loans to silence"
         subtitle="Deploy an agentic AI mortgage agent that pre-qualifies, reminds and updates borrowers automatically."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for mortgage — frequently asked questions" items={FAQS} alt />

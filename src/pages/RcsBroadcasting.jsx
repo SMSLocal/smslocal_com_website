@@ -78,8 +78,8 @@ function RcsBroadcasting() {
         eyebrow="RCS broadcasting"
         title={<>Broadcast branded RCS to your whole audience — <span className="grad-word">at scale</span></>}
         subtitle="Send verified, rich RCS campaigns to every Android inbox with automatic per-recipient SMS fallback, so your message reaches everyone."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<RcsBroadcastHero />}
       />
 
@@ -109,7 +109,7 @@ function RcsBroadcasting() {
       <CTABanner
         title="Broadcast branded RCS to everyone"
         subtitle="Verified sender, rich campaigns and automatic SMS fallback — reach your whole list without leaving anyone behind."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
       <FAQ title={<>RCS broadcasting — frequently asked questions</>} items={FAQS} alt />

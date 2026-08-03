@@ -48,8 +48,8 @@ function IndustryMedia() {
         eyebrow="Media & Entertainment"
         title={<>Agentic AI that handles <span className="grad-word">premiere-night volume</span> like any other day</>}
         subtitle="Support ticketing, billing and subscriber questions instantly across every channel — and turn recommendation and renewal messaging into a growth engine, not an afterthought."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<MediaBroadcastHeroMock />}
       />
 
@@ -103,7 +103,7 @@ function IndustryMedia() {
       <CTABanner
         title="Support your audience at their busiest moment"
         subtitle="Deploy an agentic AI media and entertainment agent before your next big release."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for media and entertainment — frequently asked questions" items={FAQS} alt />

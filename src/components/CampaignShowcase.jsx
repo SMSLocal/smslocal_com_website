@@ -34,8 +34,8 @@ function CampaignShowcase() {
           <h2>{hl('Reach more customers with a single click.')}</h2>
           <p>Send your campaign to every carrier and region through SMSLocal&rsquo;s messaging platform — without the manual work.</p>
           <div className="hero-actions">
-            <Link to="/contact-us" className="btn btn-primary">Start sending</Link>
-            <Link to="/pricing" className="btn btn-ghost">See how it works</Link>
+            <Link to="/contact-us/" className="btn btn-primary">Start sending</Link>
+            <Link to="/pricing/" className="btn btn-ghost">See how it works</Link>
           </div>
         </div>
       </div>

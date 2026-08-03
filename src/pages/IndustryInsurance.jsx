@@ -65,8 +65,8 @@ function IndustryInsurance() {
         eyebrow="Insurance"
         title={<>Agentic AI for insurance, from <span className="grad-word">first quote to renewal</span></>}
         subtitle="Guide quotes, resolve claims status questions and send renewal reminders automatically — across SMS and WhatsApp, with every action logged for compliance."
-        primaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
-        secondaryCta={{ label: 'See Pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
         visual={<AgentWorkflowMock />}
       />
 
@@ -111,7 +111,7 @@ function IndustryInsurance() {
       <CTABanner
         title="Turn claims and renewals into a retention advantage"
         subtitle="Deploy an agentic AI insurance agent that quotes, updates and reminds automatically."
-        cta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Talk to Sales', href: '/contact-us/' }}
       />
 
       <FAQ title="Agentic AI for insurance — frequently asked questions" items={FAQS} alt />

@@ -34,8 +34,8 @@ function Careers() {
         eyebrow="Careers"
         title={<>Help build the platform teams actually run <span className="grad-word">their business</span> on</>}
         subtitle="We're a remote-friendly team working on messaging, chatbots and agentic AI — moving fast, close to customers."
-        primaryCta={{ label: 'Get in Touch', href: '/contact-us' }}
-        secondaryCta={{ label: 'About Us', href: '/about-us' }}
+        primaryCta={{ label: 'Get in Touch', href: '/contact-us/' }}
+        secondaryCta={{ label: 'About Us', href: '/about-us/' }}
       />
 
       <WhyUs title={<>How we work</>} items={VALUES} alt />
@@ -49,7 +49,7 @@ function Careers() {
       <CTABanner
         title="Interested in joining?"
         subtitle="Reach out and tell us where you'd fit in."
-        cta={{ label: 'Get in Touch', href: '/contact-us' }}
+        cta={{ label: 'Get in Touch', href: '/contact-us/' }}
       />
 
       <FAQ title={<>Careers — frequently asked questions</>} items={FAQS} alt />

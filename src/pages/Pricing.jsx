@@ -44,8 +44,8 @@ function Pricing() {
       <CTABanner
         title="Start sending for less than a cup of coffee"
         subtitle="Top up in USD or EUR, pick your destination, and send your first message in minutes — no card required to see your rate."
-        cta={{ label: 'Start Free', href: '/signup' }}
-        secondaryCta={{ label: 'Talk to Sales', href: '/contact-us' }}
+        cta={{ label: 'Start Free', href: '/signup/' }}
+        secondaryCta={{ label: 'Talk to Sales', href: '/contact-us/' }}
         variant="spotlight"
       />
 

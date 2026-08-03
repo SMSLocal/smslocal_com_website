@@ -34,8 +34,8 @@ function WhySmslocal() {
         eyebrow="Why SMSLocal"
         title={<>One platform instead of <span className="grad-word">a tangle of tools</span></>}
         subtitle="Most teams bolt a CPaaS API to a chatbot tool, a campaign tool, an inbox and a number vendor - then spend months keeping them in sync. SMSLocal is all of it, on one account."
-        primaryCta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'See pricing', href: '/pricing' }}
+        primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
         stats={[
           { value: '5→1', label: 'tools consolidated' },
           { value: '1', label: 'bill & one login' },
@@ -62,8 +62,8 @@ function WhySmslocal() {
       <CTABanner
         title="Replace the stack with one platform"
         subtitle="Bring your channels, contacts and automations onto one account. We'll help you migrate what you already run."
-        cta={{ label: 'Get Started', href: '/contact-us' }}
-        secondaryCta={{ label: 'View pricing', href: '/pricing' }}
+        cta={{ label: 'Get Started', href: '/contact-us/' }}
+        secondaryCta={{ label: 'View pricing', href: '/pricing/' }}
         variant="spotlight"
       />
 

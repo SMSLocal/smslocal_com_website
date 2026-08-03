@@ -89,8 +89,8 @@ const FAQS = [
               no-code platform â€” managed onboarding, a shared inbox and AI included.
             </p>
             <div className="twl-hero-actions">
-              <Link to="/contact-us" className="btn btn-primary">Get Started Free</Link>
-              <Link to="/compare" className="btn btn-ghost">Compare all</Link>
+              <Link to="/contact-us/" className="btn btn-primary">Get Started Free</Link>
+              <Link to="/compare/" className="btn btn-ghost">Compare all</Link>
             </div>
             <div className="twl-hero-stats">
               <span className="twl-stat">10+ channels</span>
@@ -271,8 +271,8 @@ const FAQS = [
         eyebrow="Get Started"
         title="Get the same reach without the code"
         subtitle="Every channel, a shared inbox and agentic AI in one no-code platform - onboarding managed for you."
-        cta={{ label: 'Get Started Free', href: '/contact-us' }}
-        secondaryCta={{ label: 'Talk to sales', href: '/contact-us' }}
+        cta={{ label: 'Get Started Free', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Talk to sales', href: '/contact-us/' }}
       />
 
       <FAQ
@@ -293,7 +293,7 @@ const FAQS = [
                   <CompareLogo name={s.name} domain={s.domain} /> vs {s.name}
                 </Link>
               ))}
-              <Link className="twl-cross-chip all" to="/compare">All comparisons â†’</Link>
+              <Link className="twl-cross-chip all" to="/compare/">All comparisons â†’</Link>
             </div>
           </div>
         </div>

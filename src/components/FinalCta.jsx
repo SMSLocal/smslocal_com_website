@@ -30,8 +30,8 @@ function FinalCta() {
           </p>
 
           <div className="final-cta-actions">
-            <Link to="/contact-us" className="btn btn-primary">Start Free →</Link>
-            <Link to="/contact-us" className="btn btn-ghost">Book a Demo</Link>
+            <Link to="/contact-us/" className="btn btn-primary">Start Free →</Link>
+            <Link to="/contact-us/" className="btn btn-ghost">Book a Demo</Link>
           </div>
         </div>
 

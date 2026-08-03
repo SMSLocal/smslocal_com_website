@@ -17,10 +17,10 @@ const COLUMNS = [
   {
     title: 'Products',
     links: [
-      { t: 'AI Agents', href: '/ai-agents' },
-      { t: 'WhatsApp Business API', href: '/channels/whatsapp' },
-      { t: 'SMS Broadcasting', href: '/channels/sms-broadcasting' },
-      { t: 'Voice', href: '/channels/voice' },
+      { t: 'AI Agents', href: '/ai-agents/' },
+      { t: 'WhatsApp Business API', href: '/channels/whatsapp/' },
+      { t: 'SMS Broadcasting', href: '/channels/sms-broadcasting/' },
+      { t: 'Voice', href: '/channels/voice/' },
     ],
   },
   {
@@ -30,10 +30,10 @@ const COLUMNS = [
   {
     title: 'Solutions',
     links: [
-      { t: 'All Solutions', href: '/solutions' },
-      { t: 'Retail & eCommerce', href: '/industry/retail' },
-      { t: 'Customer Support', href: '/ai-agents/customer-service' },
-      { t: 'Booking & Scheduling', href: '/ai-agents/booking' },
+      { t: 'All Solutions', href: '/solutions/' },
+      { t: 'Retail & eCommerce', href: '/industry/retail/' },
+      { t: 'Customer Support', href: '/ai-agents/customer-service/' },
+      { t: 'Booking & Scheduling', href: '/ai-agents/booking/' },
     ],
   },
   {
@@ -43,9 +43,9 @@ const COLUMNS = [
   {
     title: 'Company',
     links: [
-      { t: 'About Us', href: '/about-us' },
-      { t: 'Careers', href: '/careers' },
-      { t: 'Partners', href: '/partnerships' },
+      { t: 'About Us', href: '/about-us/' },
+      { t: 'Careers', href: '/careers/' },
+      { t: 'Partners', href: '/partnerships/' },
     ],
   },
 ]
@@ -123,10 +123,10 @@ function Footer() {
           <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>
           {/* py-1 clears the 24px WCAG 2.5.8 tap minimum */}
           <div className="flex gap-6">
-            <Link to="/terms-and-conditions" className="inline-block py-1 hover:text-primary">
+            <Link to="/terms-and-conditions/" className="inline-block py-1 hover:text-primary">
               Terms and Conditions
             </Link>
-            <Link to="/privacy-policy" className="inline-block py-1 hover:text-primary">
+            <Link to="/privacy-policy/" className="inline-block py-1 hover:text-primary">
               Privacy
             </Link>
             {/* A real file in dist/, not a route — an <a> so the browser fetches

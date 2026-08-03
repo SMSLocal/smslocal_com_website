@@ -32,7 +32,7 @@ function IntgBuildYourOwn() {
           ))}
         </div>
 
-        <Link to="/contact-us" className="intg-build-link">See what you can build &rarr;</Link>
+        <Link to="/contact-us/" className="intg-build-link">See what you can build &rarr;</Link>
       </div>
     </section>
   )

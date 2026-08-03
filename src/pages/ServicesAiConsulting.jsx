@@ -72,8 +72,8 @@ function ServicesAiConsulting() {
         eyebrow="AI Consulting & Onboarding"
         title={<>From proof of concept to <span className="grad-word">production AI</span></>}
         subtitle="Expert, hands-on consulting and onboarding. We scope the right use case, build it against your systems, enable your team, and scale it into production."
-        primaryCta={{ label: 'Book a scoping call', href: '/contact-us' }}
-        secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents' }}
+        primaryCta={{ label: 'Book a scoping call', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents/' }}
         stats={[
           { value: '4–6 wks', label: 'POC to first result' },
           { value: '100%', label: 'Yours to keep' },
@@ -137,8 +137,8 @@ function ServicesAiConsulting() {
       <CTABanner
         title="From proof of concept to production"
         subtitle="Book a scoping call and we will map the highest-ROI place to start."
-        cta={{ label: 'Book a scoping call', href: '/contact-us' }}
-        secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents' }}
+        cta={{ label: 'Book a scoping call', href: '/contact-us/' }}
+        secondaryCta={{ label: 'Explore AI Agents', href: '/ai-agents/' }}
         variant="spotlight"
       />
 

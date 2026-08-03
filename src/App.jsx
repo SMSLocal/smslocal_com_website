@@ -155,18 +155,18 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
           {/* old paths -> sheet canonical URLs */}
-          <Route path="/whatsapp-business-api" element={<Navigate to="/channels/whatsapp" replace />} />
-          <Route path="/rcs-business-messaging" element={<Navigate to="/channels/rcs" replace />} />
-          <Route path="/instagram-messaging-api" element={<Navigate to="/channels/instagram" replace />} />
-          <Route path="/facebook-messenger-api" element={<Navigate to="/channels/messenger" replace />} />
-          <Route path="/ai-agents/voice" element={<Navigate to="/voice-ai-agents" replace />} />
-          <Route path="/ai-agents/sales-sdr" element={<Navigate to="/ai-agents/sales" replace />} />
-          <Route path="/ai-agents/builder" element={<Navigate to="/ai-agents/agent-builder" replace />} />
-          <Route path="/about" element={<Navigate to="/about-us" replace />} />
-          <Route path="/contact" element={<Navigate to="/contact-us" replace />} />
-          <Route path="/partners" element={<Navigate to="/partnerships" replace />} />
+          <Route path="/whatsapp-business-api" element={<Navigate to="/channels/whatsapp/" replace />} />
+          <Route path="/rcs-business-messaging" element={<Navigate to="/channels/rcs/" replace />} />
+          <Route path="/instagram-messaging-api" element={<Navigate to="/channels/instagram/" replace />} />
+          <Route path="/facebook-messenger-api" element={<Navigate to="/channels/messenger/" replace />} />
+          <Route path="/ai-agents/voice" element={<Navigate to="/voice-ai-agents/" replace />} />
+          <Route path="/ai-agents/sales-sdr" element={<Navigate to="/ai-agents/sales/" replace />} />
+          <Route path="/ai-agents/builder" element={<Navigate to="/ai-agents/agent-builder/" replace />} />
+          <Route path="/about" element={<Navigate to="/about-us/" replace />} />
+          <Route path="/contact" element={<Navigate to="/contact-us/" replace />} />
+          <Route path="/partners" element={<Navigate to="/partnerships/" replace />} />
           {/* Imported posts link their CTA at the WordPress signup path */}
-          <Route path="/register" element={<Navigate to="/signup" replace />} />
+          <Route path="/register" element={<Navigate to="/signup/" replace />} />
 
           <Route path="*" element={<ComingSoon />} />
         </Route>
