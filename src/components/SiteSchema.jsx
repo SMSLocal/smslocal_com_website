@@ -32,6 +32,9 @@ function SiteSchema() {
             name: 'SMSLocal',
             url: SITE_ORIGIN,
             logo: `${SITE_ORIGIN}/smslocal-logo-v2.svg`,
+            // The number shown in the TopBar and footer. E.164, which is what
+            // schema.org expects.
+            telephone: '+1-559-549-5149',
           },
           {
             '@type': 'WebSite',

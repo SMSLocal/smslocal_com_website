@@ -115,8 +115,14 @@ function Footer() {
         {/* Registered office, full width directly under the link columns rather
             than in the brand column — it reads as one line here instead of
             wrapping to three inside a max-w-xs column. */}
+        {/* Same tel: target as the TopBar, so the number is tappable on mobile
+            rather than plain text. */}
         <address className="mt-1 max-w-xs text-sm not-italic leading-relaxed text-white/60">
           8 Temasek Boulevard, #32-01 Suntec Tower Three, Singapore
+          <br />
+          <a href="tel:+15595495149" className="inline-block py-1 hover:text-primary">
+            +1 559-549-5149
+          </a>
         </address>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
