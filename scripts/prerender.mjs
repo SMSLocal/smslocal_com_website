@@ -106,14 +106,18 @@ writeFileSync(
 )
 console.log(`sitemaps — index + ${groups.length} groups: ${groups.map((g) => `${g.file} (${g.routes.length})`).join(', ')}`)
 
-// dist/index.html stops being a neutral shell once "/" is prerendered into it,
-// so the SPA rewrite gets its own copy to fall back to — otherwise every route
-// without a file would serve homepage markup to anything that doesn't run JS.
-// noindex because it's a real URL with no real content.
-writeFileSync(
-  join(dist, 'spa.html'),
-  template.replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>'),
-)
+// Every real route is a file on disk, so vercel.json no longer rewrites unknown
+// paths to a shell — they fall through to this, which Vercel serves with a real
+// 404 status instead of the 200 a rewrite would have given. Rendering the app's
+// own catch-all keeps the nav, footer and styling; a path that matches no route
+// is exactly what a visitor hitting a dead URL sees.
+try {
+  writeFileSync(join(dist, '404.html'), buildPage(render('/404')))
+} catch (error) {
+  // A plain shell still beats Vercel's default page if the app can't render.
+  console.warn(`prerender — 404 page fell back to the bare shell: ${error.message.split('\n')[0]}`)
+  writeFileSync(join(dist, '404.html'), template)
+}
 
 let written = 0
 const failed = []
