@@ -14,8 +14,19 @@ export function getCountry(slug) {
   return { ...base, ...content, researched: Boolean(content) }
 }
 
-/** Only researched markets get a page for now — see countryContent.js. */
-export const publishedCountries = FEATURED.map(getCountry).filter(Boolean)
+/**
+ * Markets with authored operator/regulatory content. These are the ones the
+ * hero and the popular strip feature, because they have something to say.
+ */
+export const researchedCountries = FEATURED.map(getCountry).filter(Boolean)
+
+/**
+ * Every country gets a page. The 175 without authored content show verified
+ * facts only — dial code, ISO, population, area, GDP — and say plainly that
+ * their sending rules have not been verified. They never carry an invented
+ * regulatory claim; see countryContent.js.
+ */
+export const publishedCountries = countries.map((c) => getCountry(c.slug))
 
 export const allCountries = countries
 

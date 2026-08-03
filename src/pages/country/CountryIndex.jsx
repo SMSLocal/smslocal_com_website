@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
-import { publishedCountries, allCountries } from '../../lib/countries.js'
+import { researchedCountries, allCountries } from '../../lib/countries.js'
 import HeroStage from './HeroStage.jsx'
 import PopularStrip from './PopularStrip.jsx'
 import CountryDirectory from './CountryDirectory.jsx'
@@ -15,7 +15,8 @@ import styles from './CountryCode.module.css'
  * exists rather than linking to pages that aren't there.
  */
 function CountryIndex() {
-  const published = useMemo(() => new Set(publishedCountries.map((c) => c.slug)), [])
+  // Every country has a page now, so every name in the directory links.
+  const published = useMemo(() => new Set(allCountries.map((c) => c.slug)), [])
 
   return (
     <div>
@@ -51,7 +52,7 @@ function CountryIndex() {
                 and what regulators require before you can send.
               </p>
             </div>
-            <HeroStage countries={publishedCountries} />
+            <HeroStage countries={researchedCountries} />
           </div>
         </div>
       </div>
@@ -64,7 +65,7 @@ function CountryIndex() {
             These markets have verified sender ID, operator and regulatory detail. Hover a card to
             see its number format and networks.
           </p>
-          <PopularStrip countries={publishedCountries} />
+          <PopularStrip countries={researchedCountries} />
         </div>
       </section>
 

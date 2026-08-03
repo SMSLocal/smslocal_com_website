@@ -51,13 +51,12 @@ const posts = JSON.parse(readFileSync(join(root, 'src/data/importedPosts.generat
 const staticRoutes = Object.keys(pageDates)
 const postRoutes = posts.map((post) => post.routePath ?? `/blog/${post.slug}`)
 
-// Country pages are a dynamic route, so they aren't in pageDates. Only markets
-// with authored content get a page — countryContent.js is the source of truth
-// for which those are, so this list can't drift from what the pages can show.
-const countryContent = readFileSync(join(root, 'src/data/countryContent.js'), 'utf8')
-const countryRoutes = [...countryContent.matchAll(/^ {2}'?([a-z-]+)'?: \{$/gm)].map(
-  (m) => `/country-code/${m[1]}`,
-)
+// Country pages are a dynamic route, so they aren't in pageDates. Every country
+// in the generated data gets one; the ones without authored content render
+// verified facts only and say so.
+const countryRoutes = JSON.parse(
+  readFileSync(join(root, 'src/data/countryPages.generated.json'), 'utf8'),
+).map((c) => `/country-code/${c.slug}`)
 
 const routes = [...staticRoutes, ...postRoutes, ...countryRoutes]
 

@@ -22,6 +22,20 @@ function CountryCode() {
   if (!c) return <Navigate to="/country-code/" replace />
 
   const url = `${SITE_ORIGIN}/country-code/${c.slug}/`
+
+  // Long names ("Saint Vincent and the Grenadines") push both past Google's
+  // display limits, so each drops its optional tail rather than being cut
+  // mid-word in the SERP. SUFFIX is what Seo appends.
+  const SUFFIX = ' | SMSLocal'.length
+  const titleLong = `${c.name} Country Code ${c.dial} — SMS Guide`
+  const title = titleLong.length + SUFFIX <= 65 ? titleLong : `${c.name} Country Code ${c.dial}`
+
+  const descHead = `${c.name} country code is ${c.dial} (ISO ${c.iso2}).`
+  const descLong = `${descHead} How to dial ${c.name}, mobile number format, operators and SMS sender ID rules.`
+  const description =
+    descLong.length <= 155
+      ? descLong
+      : `${descHead} How to dial it, number format and what SMS senders need to know.`
   const related = relatedCountries(c.slug)
   const v = variantOf(c.slug)
 
@@ -140,12 +154,16 @@ function CountryCode() {
         <h2 className={styles.h2}>How to dial {c.name}</h2>
         <div className={styles.dialExample}>
           <code>
-            {c.dial} — {c.format ?? 'national number, leading zero removed'}
+            {c.dial} — {c.format ?? `${c.dial} followed by the national number`}
           </code>
+          {/* "Drop the leading zero" is true for most of the world but not for
+              +1, which has no trunk prefix — so the rule is stated as
+              conditional rather than asserted for every country. */}
           <p>
             From abroad, replace your exit code with <strong>+</strong>, then {c.dial.replace('+', '')},
-            then the national number without its leading zero. Store numbers in E.164
-            ({c.dial}…) and they will work from any country and any API.
+            then the national number — dropping the national trunk prefix if the country uses one
+            (a leading <strong>0</strong> in most, though not in {c.dial === '+1' ? 'this' : 'the +1'} numbering
+            plan). Store numbers in E.164 ({c.dial}…) and they work from any country and any API.
           </p>
         </div>
       </div>
@@ -173,10 +191,10 @@ function CountryCode() {
   return (
     <div>
       <Seo
-        title={`${c.name} Country Code ${c.dial} — SMS Guide`}
+        title={title}
         // Kept under ~155 characters so Google shows it whole rather than
         // truncating mid-sentence. Longest published name is United Arab Emirates.
-        description={`${c.name} country code is ${c.dial} (ISO ${c.iso2}). How to dial ${c.name}, mobile number format, operators and SMS sender ID rules.`}
+        description={description}
         canonical={url}
       />
 
@@ -204,8 +222,11 @@ function CountryCode() {
                 Sending SMS to <span className="serifItalic">{c.name}</span>
               </h1>
               <p className={styles.lede}>
+                {/* Fallback is built from this country's own figures, so an
+                    unresearched market still reads as its own page rather than
+                    one sentence with the name swapped. */}
                 {c.intro ??
-                  `${c.name} uses the country code ${c.dial}. Below: how to dial it, how mobile numbers are formatted, and what you need in place before sending business SMS into this market.`}
+                  `${c.name} dials on ${c.dial} and carries ISO codes ${c.iso2}/${c.iso3 ?? c.iso2}, across ${fmt(c.areaKm2)} km² and ${fmt(c.population)} people in ${c.region ?? 'the region'}. Here is how to format a number for ${c.name}, and what to confirm before you send to it.`}
               </p>
             </div>
             <div className={styles.dialCard}>
