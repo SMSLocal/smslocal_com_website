@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getPostBySlug } from '../lib/posts.js'
 import { stripSlash, withSlash } from '../lib/url.js'
+import { useLocale } from '../lib/LocaleContext.jsx'
 
 // Production domain this site deploys to (see deployment-flow-rule memory —
 // `main` builds to this exact host). Canonicals must be absolute URLs.
@@ -19,9 +20,15 @@ export const SITE_ORIGIN = 'https://smslocal-com-website.vercel.app'
  * Posts resolve under both /blog/:slug and /resources/insights/:slug, so they
  * canonicalize to the single routePath they were imported under instead of to
  * whichever of the two URLs was requested.
+ *
+ * `pathname` here is already locale-stripped (App.jsx's <Routes location>
+ * override) — the locale prefix is added back from LocaleContext, so a
+ * translated page self-canonicalizes to its own /fr/... URL rather than
+ * pointing at the English original.
  */
 function Canonical() {
   const { pathname } = useLocation()
+  const locale = useLocale()
 
   useEffect(() => {
     // Prerendered pages ship static <title>/<meta>/<link> so crawlers that
@@ -39,7 +46,8 @@ function Canonical() {
     ? getPostBySlug(segments[segments.length - 1])
     : null
 
-  return <link rel="canonical" href={`${SITE_ORIGIN}${withSlash(post?.routePath ?? clean)}`} />
+  const localePrefix = locale !== 'en' ? `/${locale}` : ''
+  return <link rel="canonical" href={`${SITE_ORIGIN}${localePrefix}${withSlash(post?.routePath ?? clean)}`} />
 }
 
 export default Canonical

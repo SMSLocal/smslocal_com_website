@@ -1,4 +1,7 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { getLocaleFromPathname, stripLocaleFromPathname } from './lib/locale.js'
+import { LocaleProvider } from './lib/LocaleContext.jsx'
+import LocaleTranslator from './i18n/LocaleTranslator.jsx'
 import Layout from './components/Layout.jsx'
 import Home from './pages/Home.jsx'
 import WhatsappBusinessApi from './pages/WhatsappBusinessApi.jsx'
@@ -71,14 +74,25 @@ import EmailApi from './pages/EmailApi.jsx'
 import KakaoTalkBusinessMessaging from './pages/KakaoTalkBusinessMessaging.jsx'
 
 /**
- * `router` lets the prerender entry swap in StaticRouter, which renders without
- * browser history; the browser keeps the BrowserRouter default. Remaining props
- * pass through to it (StaticRouter needs `location`).
+ * Locale lives purely as a URL prefix (/fr/pricing/), parsed the same way on
+ * the server (StaticRouter's `location` string) and the client
+ * (BrowserRouter's real URL). `<Routes location>` re-establishes the location
+ * context for everything it renders — so stripping the prefix here means
+ * every existing absolute route path below, and every `useLocation()` call
+ * deeper in the tree (Layout, Canonical, Breadcrumbs, Navbar…), sees the
+ * plain unprefixed pathname automatically. Locale itself is exposed
+ * separately via LocaleProvider, for the one place that needs it: the
+ * canonical/hreflang URLs.
  */
-function App({ router: Router = BrowserRouter, ...routerProps }) {
+function RoutedApp() {
+  const location = useLocation()
+  const locale = getLocaleFromPathname(location.pathname)
+  const strippedLocation = { ...location, pathname: stripLocaleFromPathname(location.pathname) }
+
   return (
-    <Router {...routerProps}>
-      <Routes>
+    <LocaleProvider value={locale}>
+      <LocaleTranslator />
+      <Routes location={strippedLocation}>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
 
@@ -176,6 +190,19 @@ function App({ router: Router = BrowserRouter, ...routerProps }) {
           <Route path="*" element={<ComingSoon />} />
         </Route>
       </Routes>
+    </LocaleProvider>
+  )
+}
+
+/**
+ * `router` lets the prerender entry swap in StaticRouter, which renders without
+ * browser history; the browser keeps the BrowserRouter default. Remaining props
+ * pass through to it (StaticRouter needs `location`).
+ */
+function App({ router: Router = BrowserRouter, ...routerProps }) {
+  return (
+    <Router {...routerProps}>
+      <RoutedApp />
     </Router>
   )
 }

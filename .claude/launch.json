@@ -14,6 +14,12 @@
       "runtimeArgs": ["run", "dev"],
       "port": 3007,
       "autoPort": true
+    },
+    {
+      "name": "smslocal-dist-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "preview", "--port", "4500", "--strictPort"],
+      "port": 4500
     }
   ]
 }

@@ -26,7 +26,7 @@ const { render } = await import(new URL('../dist-ssr/entry-server.js', import.me
 const HEAD_TAGS =
   /<title>[\s\S]*?<\/title>|<meta\s+(?:name|property)="[^"]*"[^>]*>|<link\s+rel="canonical"[^>]*>/g
 
-function buildPage(body) {
+function buildPage(body, htmlAttrs = 'lang="en"') {
   // Marked so the client can drop them once React has rendered its own copies —
   // React hoists its tags into <head> without noticing these, and two <title>
   // elements is invalid HTML with no defined winner. See Canonical.jsx.
@@ -40,6 +40,7 @@ function buildPage(body) {
     ? template.replace(/<title>[\s\S]*?<\/title>/, '')
     : template
   return base
+    .replace(/<html[^>]*>/, `<html ${htmlAttrs}>`)
     .replace('</head>', () => `${lifted.join('')}</head>`)
     .replace(MOUNT, () => `<div id="root">${rest}</div>`)
 }
@@ -169,6 +170,52 @@ console.log(
 if (failed.length) {
   console.warn(`prerender — ${failed.length} route(s) fell back to the SPA shell:`)
   for (const f of failed) console.warn(`  ${f}`)
+}
+
+// Multilingual pilot: every PILOT_ROUTES page, in every language. Body text
+// is translated post-render (most component text is hardcoded English, the
+// same reason the reference implementation this was adapted from chose
+// post-render HTML translation over per-component i18n) via the free Google
+// endpoint, cached to disk so repeat builds are fast. The head — canonical,
+// title, hreflang — is already correct because render() is called with the
+// locale-prefixed URL, so Canonical.jsx/Seo.jsx (locale-aware via
+// LocaleContext) produce it directly; the HTML translator only touches body
+// text and <meta content> attributes, matching that same split of
+// responsibility.
+const { LANGUAGES } = await import(new URL('../src/data/languages.js', import.meta.url))
+const { PILOT_ROUTES } = await import(new URL('../src/data/pilotRoutes.js', import.meta.url))
+const { translatePageHtml } = await import('./i18n/html-translator.mjs')
+
+const translatedRoutes = new Set(PILOT_ROUTES)
+let i18nWritten = 0
+const i18nFailed = []
+
+for (const route of PILOT_ROUTES) {
+  for (const { code: locale, rtl } of LANGUAGES) {
+    const localeUrl = route === '/' ? `/${locale}` : `/${locale}${route}`
+    let body
+    try {
+      body = render(localeUrl)
+    } catch (error) {
+      i18nFailed.push(`${localeUrl}: ${error.message.split('\n')[0]}`)
+      continue
+    }
+    const { html: translated } = await translatePageHtml(body, locale, translatedRoutes)
+    const htmlAttrs = rtl ? `lang="${locale}" dir="rtl"` : `lang="${locale}"`
+    const file =
+      route === '/' ? join(dist, locale, 'index.html') : join(dist, locale, route, 'index.html')
+    mkdirSync(dirname(file), { recursive: true })
+    writeFileSync(file, buildPage(translated, htmlAttrs))
+    i18nWritten += 1
+  }
+}
+
+console.log(
+  `prerender i18n — ${i18nWritten}/${PILOT_ROUTES.length * LANGUAGES.length} translated pages (${PILOT_ROUTES.length} routes × ${LANGUAGES.length} languages)`,
+)
+if (i18nFailed.length) {
+  console.warn(`prerender i18n — ${i18nFailed.length} page(s) failed:`)
+  for (const f of i18nFailed) console.warn(`  ${f}`)
 }
 
 // llms.txt — the AI-crawler counterpart to robots.txt/sitemap.xml. Crawlers that

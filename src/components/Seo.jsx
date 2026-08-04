@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import { SITE_ORIGIN } from './Canonical.jsx'
 import { withSlash } from '../lib/url.js'
+import { useLocale } from '../lib/LocaleContext.jsx'
 
 /**
  * Head tags rendered as real elements rather than written from an effect, so
@@ -31,8 +32,10 @@ function Seo({
   modifiedTime,
 }) {
   const { pathname } = useLocation()
+  const locale = useLocale()
+  const localePrefix = locale !== 'en' ? `/${locale}` : ''
   const resolved = exactTitle ?? (title ? `${title} | SMSLocal` : null)
-  const url = canonical ?? `${SITE_ORIGIN}${withSlash(pathname)}`
+  const url = canonical ?? `${SITE_ORIGIN}${localePrefix}${withSlash(pathname)}`
   const image = ogImage ? new URL(ogImage, SITE_ORIGIN).href : null
   const keywordList = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
