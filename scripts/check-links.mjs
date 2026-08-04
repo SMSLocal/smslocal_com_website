@@ -3,8 +3,15 @@
 // first page each offender was found on.
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const DIST = new URL('../dist/', import.meta.url).pathname.replace(/^\//, '')
+// fileURLToPath, not `.pathname` with the leading slash stripped: that strip
+// is a Windows fix (pathname there is "/C:/…") but on Linux it turns the
+// absolute "/vercel/path0/dist/" into a relative path that doesn't exist, so
+// the script only worked on the machine it was written on. It went unnoticed
+// while this was run by hand; wiring it into `npm run build` made every
+// Vercel deploy fail here, after a fully successful build.
+const DIST = fileURLToPath(new URL('../dist/', import.meta.url))
 const offenders = new Map()
 let pages = 0
 let links = 0
