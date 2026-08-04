@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
+import { CTABanner } from '../../components/sections/Sections.jsx'
 import { getCountry, relatedCountries, variantOf, fmt, allCountries } from '../../lib/countries.js'
 import CountryHeroVisual from './CountryHeroVisual.jsx'
 import CountryDirectory from './CountryDirectory.jsx'
@@ -687,22 +688,16 @@ function CountryCode() {
         </section>
       )}
 
-      <section className={styles.section}>
-        <div className={styles.wrap}>
-          <div className={styles.cta}>
-            <span className={styles.ctaGlow} aria-hidden="true" />
-            <h2>Start sending to {c.name}</h2>
-            <p>
-              Direct routes, per-operator delivery reporting and sender ID handling for {c.dial} —
-              from one dashboard or one API call.
-            </p>
-            <div className={styles.ctaRow}>
-              <Link className={styles.btnPrimary} to="/signup/">Create free account</Link>
-              <Link className={styles.btnGhost} to="/pricing/">See {c.name} pricing</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* The shared closing CTA every other page uses, rather than this
+          page's own near-copy of it — that one had drifted (no badge, plain
+          buttons, different glow), so country pages ended on a block that
+          didn't match the rest of the site. Copy stays country-specific. */}
+      <CTABanner
+        title={`Start sending to ${c.name}`}
+        subtitle={`Direct routes, per-operator delivery reporting and sender ID handling for ${c.dial} — from one dashboard or one API call.`}
+        cta={{ label: 'Create free account', href: '/signup/' }}
+        secondaryCta={{ label: `See ${c.name} pricing`, href: '/pricing/' }}
+      />
     </div>
   )
 }

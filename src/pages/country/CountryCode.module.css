@@ -1093,61 +1093,9 @@
 }
 
 
-/* --- CTA --------------------------------------------------------------- */
-.cta {
-  position: relative;
-  overflow: hidden;
-  background: var(--ink);
-  color: #fff;
-  border-radius: var(--radius-lg);
-  padding: 44px 40px;
-  text-align: center;
-}
-.ctaGlow {
-  position: absolute;
-  inset: -40% -20% auto auto;
-  width: 460px;
-  height: 460px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(79, 91, 213, 0.45), transparent 70%);
-  pointer-events: none;
-}
-.cta h2 {
-  position: relative;
-  margin: 0 0 10px;
-  font-size: clamp(22px, 3vw, 30px);
-  font-weight: 600;
-}
-.cta p {
-  position: relative;
-  margin: 0 auto 24px;
-  max-width: 56ch;
-  color: rgba(255, 255, 255, 0.72);
-  line-height: 1.65;
-}
-.ctaRow {
-  position: relative;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btnPrimary,
-.btnGhost {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  font-weight: 500;
-  text-decoration: none;
-}
-.btnPrimary {
-  background: var(--gradient-brand);
-  color: #fff;
-}
-.btnGhost {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-}
+/* The CTA styles that used to live here are gone with the markup: the page
+   now renders the shared <CTABanner> (components/sections/Sections.jsx), so
+   this file no longer carries a second, drifting copy of it. */
 
 @media (max-width: 900px) {
   .heroGrid {
@@ -1167,8 +1115,5 @@
   }
   .section {
     padding: 40px 0;
-  }
-  .cta {
-    padding: 32px 22px;
   }
 }
