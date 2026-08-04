@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useLocale } from '../lib/LocaleContext.jsx'
 import { addLocaleToPath } from '../lib/locale.js'
@@ -5,43 +6,84 @@ import { LANGUAGES } from '../data/languages.js'
 import { PILOT_ROUTES } from '../data/pilotRoutes.js'
 import { stripSlash, withSlash } from '../lib/url.js'
 
+// English isn't in LANGUAGES (that list is the 19 translation targets), but
+// needs the same {code, native, country} shape to sit in the same list here.
+const ALL = [{ code: 'en', native: 'English', country: 'us' }, ...LANGUAGES]
+
 /**
- * A native <select>, not a custom dropdown — no widget code, no extra CSS,
- * fully keyboard-accessible for free. Only shows on PILOT_ROUTES pages, since
- * every other page genuinely has nowhere to send a non-English visitor yet.
- * Always a real navigation (never client-side routing): picking a language
- * has to fetch that page's own static translated file, not repaint the
- * current one — see applyTranslations.js for why that distinction matters.
+ * <details>/<summary> instead of a custom popover — native disclosure
+ * behaviour (toggle, Escape, focus handling) for free. A plain <select>
+ * can't show a flag next to each name (no browser renders <img> inside
+ * <option>), which is the one thing a native select couldn't do here.
+ * Only shows on PILOT_ROUTES pages, since every other page genuinely has
+ * nowhere to send a non-English visitor yet. Always a real navigation
+ * (never client-side routing) — picking a language has to fetch that page's
+ * own static translated file, not repaint the current one, see
+ * applyTranslations.js for why that distinction matters.
  */
-function LanguageSwitcher() {
+const VARIANTS = {
+  dark: 'text-white/70 [&_summary]:border-white/20 [&_ul]:bg-[#0b0b12] [&_ul]:border-white/10 [&_li:hover]:bg-white/10',
+  light:
+    'text-foreground [&_summary]:border-border [&_ul]:bg-white [&_ul]:border-border [&_li:hover]:bg-muted',
+}
+
+function LanguageSwitcher({ variant = 'light' }) {
   const { pathname } = useLocation()
   const locale = useLocale()
+  const detailsRef = useRef(null)
   const clean = stripSlash(pathname) || '/'
   if (!PILOT_ROUTES.includes(clean)) return null
 
-  function handleChange(e) {
-    const target = e.target.value
-    window.location.href = target === 'en' ? withSlash(clean) : addLocaleToPath(clean, target)
+  const current = ALL.find((l) => l.code === locale) ?? ALL[0]
+
+  function goTo(code) {
+    if (detailsRef.current) detailsRef.current.open = false
+    window.location.href = code === 'en' ? withSlash(clean) : addLocaleToPath(clean, code)
+  }
+
+  // Closes on a click or focus move outside the whole widget — <details>
+  // only closes natively on Escape or re-clicking <summary>.
+  function handleBlur(e) {
+    if (!detailsRef.current?.contains(e.relatedTarget)) detailsRef.current.open = false
   }
 
   return (
-    <label className="flex items-center gap-2 text-sm text-white/50">
-      <span className="sr-only">Language</span>
-      <select
-        className="rounded-md border border-white/20 bg-transparent px-2 py-1 text-white/70"
-        value={locale}
-        onChange={handleChange}
-      >
-        <option value="en" className="text-black">
-          English
-        </option>
-        {LANGUAGES.map(({ code, native }) => (
-          <option key={code} value={code} className="text-black">
-            {native}
-          </option>
+    <details ref={detailsRef} onBlur={handleBlur} className={`relative text-sm ${VARIANTS[variant]}`}>
+      <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md border px-2 py-1 [&::-webkit-details-marker]:hidden">
+        <img
+          src={`/flags/${current.country}.svg`}
+          alt=""
+          width="16"
+          height="12"
+          className="rounded-[2px]"
+        />
+        {current.native}
+      </summary>
+      <ul className="absolute right-0 z-20 m-0 mt-1 max-h-72 w-48 list-none overflow-y-auto rounded-md border p-0 py-1 shadow-lg">
+        {ALL.map(({ code, native, country }) => (
+          <li key={code} className="m-0 p-0">
+            {/* [font:inherit] / text-inherit: this renders inside the
+                plain-CSS navbar, outside the `home-tw` Tailwind reset, so a
+                <button> would otherwise fall back to the browser default
+                (Arial 13px, black) instead of the site's own type. */}
+            <button
+              type="button"
+              onClick={() => goTo(code)}
+              className="flex w-full cursor-pointer items-center gap-2 border-0 bg-transparent px-3 py-1.5 text-left text-inherit [font:inherit]"
+            >
+              <img
+                src={`/flags/${country}.svg`}
+                alt=""
+                width="16"
+                height="12"
+                className="rounded-[2px]"
+              />
+              {native}
+            </button>
+          </li>
         ))}
-      </select>
-    </label>
+      </ul>
+    </details>
   )
 }
 

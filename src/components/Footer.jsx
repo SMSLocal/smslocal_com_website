@@ -129,7 +129,7 @@ function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>
-          <LanguageSwitcher />
+          <LanguageSwitcher variant="dark" />
           {/* py-1 clears the 24px WCAG 2.5.8 tap minimum */}
           <div className="flex gap-6">
             <Link to="/terms-and-conditions/" className="inline-block py-1 hover:text-primary">

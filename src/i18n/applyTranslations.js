@@ -73,6 +73,52 @@ function rewriteLinks(locale) {
   })
 }
 
+// Dev only. The dev server has no prerendered locale files, so there's no
+// baked-in window.__LD_TX__ to apply — without this, /fr/ would render in
+// English in dev and translations could only ever be checked by running a
+// full build. Asks the dev-server endpoint (scripts/i18n/vite-dev-translate)
+// for whatever strings this page actually contains; that shares the build's
+// on-disk cache, so already-translated strings come back instantly.
+//
+// `translatedValues` is the guard the reference implementation calls out as
+// essential: once text has been replaced, the MutationObserver re-collects
+// it, and sending an already-translated string back to the translator
+// corrupts it. Anything we've produced is never re-submitted.
+const translatedValues = new Set()
+
+async function fetchDevTranslations(locale, dict) {
+  const needed = []
+  for (const node of collectTextNodes(document.body)) {
+    const text = (node.textContent ?? '').trim()
+    if (!text || dict[text] || translatedValues.has(text)) continue
+    needed.push(text)
+  }
+  if (needed.length === 0) return false
+
+  try {
+    const res = await fetch('/__i18n/translate', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ texts: [...new Set(needed)], targetLang: locale }),
+    })
+    if (!res.ok) return false
+    const { translations } = await res.json()
+    const unique = [...new Set(needed)]
+    let added = false
+    unique.forEach((src, i) => {
+      const tr = translations[i]
+      if (tr && tr !== src) {
+        dict[src] = tr
+        translatedValues.add(tr)
+        added = true
+      }
+    })
+    return added
+  } catch {
+    return false
+  }
+}
+
 let observer = null
 
 /** Re-applies the injected dictionary and internal-link prefixes to the
@@ -84,17 +130,34 @@ export function applyTranslations() {
   observer = null
   if (locale === 'en') return
 
-  const dict = window.__LD_TX__
+  // In production this is the dictionary the build injected; in dev it starts
+  // empty and is filled in by fetchDevTranslations below.
+  const dict = window.__LD_TX__ ?? (window.__LD_TX__ = {})
   const run = () => {
-    if (dict && typeof dict === 'object') applyDict(dict, collectTextNodes(document.body))
+    applyDict(dict, collectTextNodes(document.body))
     rewriteLinks(locale)
   }
+  // In dev, also pick up text React renders after the first pass. This can't
+  // loop: fetchDevTranslations skips both strings already in the dictionary
+  // and strings it previously produced, so once everything is translated it
+  // returns false without fetching and the cycle stops.
+  const syncDev = () => {
+    if (!import.meta.env.DEV) return
+    fetchDevTranslations(locale, dict).then((added) => {
+      if (added) applyDict(dict, collectTextNodes(document.body))
+    })
+  }
+
   run()
+  syncDev()
 
   let debounce = null
   observer = new MutationObserver(() => {
     if (debounce) clearTimeout(debounce)
-    debounce = setTimeout(run, 15)
+    debounce = setTimeout(() => {
+      run()
+      syncDev()
+    }, 15)
   })
   observer.observe(document.body, { childList: true, subtree: true, characterData: true })
 }

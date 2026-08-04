@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import i18nDevTranslate from './scripts/i18n/vite-dev-translate.mjs'
 
 // https://vite.dev/config/
 // (config touched to force a full dev-server restart so postcss.config.js is picked up)
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), i18nDevTranslate()],
   build: {
     // Route-level React.lazy() isn't safe here: scripts/prerender.mjs calls
     // renderToString synchronously for all 293 routes and regex-extracts

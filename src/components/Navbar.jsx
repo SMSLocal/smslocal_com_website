@@ -7,6 +7,7 @@ import {
   IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu, IconMail,
 } from './icons.jsx'
 import BrandLogo from './BrandLogo.jsx'
+import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { stripSlash } from '../lib/url.js'
 
 // A small static dot in place of the old chevron. Deliberately inert: it never
@@ -392,6 +393,7 @@ function Navbar() {
         </nav>
 
         <div className="nav-auth desktop-only">
+          <LanguageSwitcher />
           <a href="https://secure.smslocal.com" className="nav-login" onClick={closeAll}>Log in</a>
           <Link to="/signup/" className="btn btn-primary" onClick={closeAll}>Sign up</Link>
         </div>
