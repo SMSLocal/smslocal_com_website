@@ -11,11 +11,33 @@ import styles from './CountryCode.module.css'
  *
  * Sections are assembled from a list whose order varies per country, keyed off
  * a hash of the slug — deterministic, so prerender and client agree, but enough
- * that two countries don't read as the same page with the name swapped. The
- * regulatory sections only render when the market has actually been researched
- * (see countryContent.js); a country without that gets the factual page and an
- * explicit note rather than invented compliance claims.
+ * that two countries don't read as the same page with the name swapped.
+ *
+ * Every section renders on all 195 pages — the design must not vary by
+ * whether a market happens to be researched. What varies is the content: for
+ * the 20 markets in countryContent.js, the sender-ID rules, requirements,
+ * operators and use cases are real per-country research. For the other 175,
+ * those same four sections show GENERIC.* content instead — clearly framed as
+ * general guidance rather than a claim about that specific country. The line
+ * that must never move is inventing a country-specific regulatory fact
+ * (a sender-ID registration requirement, a consent law, a named operator) for
+ * a market that has not actually been checked.
  */
+const GENERIC = {
+  senderId:
+    'Both alphanumeric and numeric sender IDs are supported where the local network allows it. Exact registration steps, character limits and lead time vary by operator, and are confirmed as part of onboarding before your first send.',
+  rules: [
+    'Get clear consent before sending marketing messages, and keep a record of it.',
+    'Every marketing message needs a working opt-out, honoured immediately.',
+    'Sender IDs that impersonate a bank, courier or government body are filtered by most networks.',
+    'Country-specific requirements — sender ID registration, timing restrictions, consent rules — are confirmed with you before your first send here.',
+  ],
+  useCases: [
+    'OTP and account verification',
+    'Order and delivery updates',
+    'Appointment and service reminders',
+  ],
+}
 function CountryCode() {
   const { slug } = useParams()
   const c = getCountry(slug)
@@ -93,13 +115,19 @@ function CountryCode() {
   // spanning the full section width. The format line is real researched data
   // that already existed on the page (the Dialling section) but had no home
   // here, where it is actually relevant to "how your name appears".
-  const SenderId = c.senderId && (
+  //
+  // Renders on every page now — c.researched decides the text, not whether
+  // the section exists. Unresearched markets get GENERIC.senderId, which is
+  // written to be honestly general rather than posing as this country's rule.
+  const SenderId = (
     <section key="sender" className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={styles.wrap}>
         <div className={styles.kicker}>Sender ID</div>
         <h2 className={styles.h2}>How your name appears in {c.name}</h2>
         <p className={styles.sub}>
-          What shows up in the recipient&rsquo;s inbox, and what has to be true before it can.
+          {c.researched
+            ? "What shows up in the recipient’s inbox, and what has to be true before it can."
+            : `General guidance — we have not yet confirmed ${c.name}-specific sender ID rules.`}
         </p>
 
         <div className={styles.senderGrid}>
@@ -157,7 +185,7 @@ function CountryCode() {
               <span className={styles.senderIcon}>ID</span>
               <div>
                 <h3>Sender ID rules for {c.dial}</h3>
-                <p>{c.senderId}</p>
+                <p>{c.senderId ?? GENERIC.senderId}</p>
               </div>
             </div>
 
@@ -190,21 +218,27 @@ function CountryCode() {
     </section>
   )
 
-  const Rules = c.rules && (
+  // Renders everywhere; content is the real per-market list when researched,
+  // GENERIC.rules — universal practice plus an honest "confirmed before you
+  // send" line — otherwise. Never a per-country regulatory claim we have not
+  // actually checked.
+  const rulesList = c.rules ?? GENERIC.rules
+  const Rules = (
     <section key="rules" className={styles.section}>
       <div className={styles.wrap}>
         <div className={styles.kicker}>Before you send</div>
         <h2 className={styles.h2}>What {c.name} requires</h2>
         <p className={styles.sub}>
-          These are the constraints that decide whether a message is delivered, filtered or blocked
-          — not general best practice.
+          {c.researched
+            ? 'These are the constraints that decide whether a message is delivered, filtered or blocked — not general best practice.'
+            : `General practice for reaching ${c.name} — market-specific requirements are confirmed with you before your first send.`}
         </p>
         {/* Not a card grid — the second attempt at this section was still a
             tile shape with a different badge. This is an editorial list:
             oversized outline numerals running behind full-width text, one
             row each, no boxes anywhere. */}
         <div className={styles.rules}>
-          {c.rules.map((r, i) => (
+          {rulesList.map((r, i) => (
             <div className={styles.rule} key={r}>
               <span className={styles.ruleN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               <p className={styles.ruleT}>{r}</p>
@@ -215,77 +249,128 @@ function CountryCode() {
     </section>
   )
 
-  const Operators = c.operators && (
+  // Renders everywhere. The per-operator ring needs named operators — we do
+  // not have a verified list for the 175 unresearched markets, and a company
+  // name is a specific factual claim, not general guidance the way the rules
+  // text above can be. So the unresearched version keeps the same section
+  // slot and left/right layout but replaces the segmented ring with a single
+  // coverage badge and the operator rows with one honest panel, rather than
+  // guessing at carrier names.
+  const Operators = (
     <section key="ops" className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={styles.wrap}>
         <div className={styles.kicker}>Networks</div>
         <h2 className={styles.h2}>Mobile operators in {c.name}</h2>
         <p className={styles.sub}>
-          We deliver to every network below. Route quality is measured per operator, not averaged
-          across the country.
+          {c.operators
+            ? 'We deliver to every network below. Route quality is measured per operator, not averaged across the country.'
+            : `Named operators for ${c.name} have not been confirmed yet — routing still reaches every licensed network in the market.`}
         </p>
 
-        {/* The ring divides equally by operator count, not by market share —
-            we don't have real share data per market, and inventing it would be
-            exactly the kind of unverified figure this project avoids. It reads
-            as "every network, one route each," which is the true claim. */}
-        <div className={styles.opsGrid}>
-          <div className={styles.ring}>
-            <div
-              className={styles.ringChart}
-              style={{
-                background: `conic-gradient(${c.operators
-                  .map((_, i) => {
-                    const start = (i / c.operators.length) * 360
-                    const end = ((i + 1) / c.operators.length) * 360
-                    const color = i % 2 === 0 ? 'var(--brand-start)' : 'var(--brand-end)'
-                    return `${color} ${start}deg ${end}deg`
-                  })
-                  .join(', ')})`,
-              }}
-            >
-              <div className={styles.ringHole}>
-                <img
-                  className={styles.ringFlag}
-                  src={`/flags/${c.iso2.toLowerCase()}.svg`}
-                  alt=""
-                  width="30"
-                  height="22"
-                />
-                <span className={styles.ringN}>{c.operators.length}</span>
-                <span className={styles.ringL}>Networks</span>
+        {c.operators ? (
+          // The ring divides equally by operator count, not by market share —
+          // we don't have real share data per market, and inventing it would
+          // be exactly the kind of unverified figure this project avoids. It
+          // reads as "every network, one route each," which is the true claim.
+          <div className={styles.opsGrid}>
+            <div className={styles.ring}>
+              <div
+                className={styles.ringChart}
+                style={{
+                  background: `conic-gradient(${c.operators
+                    .map((_, i) => {
+                      const start = (i / c.operators.length) * 360
+                      const end = ((i + 1) / c.operators.length) * 360
+                      const color = i % 2 === 0 ? 'var(--brand-start)' : 'var(--brand-end)'
+                      return `${color} ${start}deg ${end}deg`
+                    })
+                    .join(', ')})`,
+                }}
+              >
+                <div className={styles.ringHole}>
+                  <img
+                    className={styles.ringFlag}
+                    src={`/flags/${c.iso2.toLowerCase()}.svg`}
+                    alt=""
+                    width="30"
+                    height="22"
+                  />
+                  <span className={styles.ringN}>{c.operators.length}</span>
+                  <span className={styles.ringL}>Networks</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.opRows}>
+              {c.operators.map((o, i) => (
+                <div className={styles.opRow} key={o}>
+                  <span className={styles.opAvatar} aria-hidden="true">
+                    {o.slice(0, 2).toUpperCase()}
+                  </span>
+                  <span className={styles.opName}>{o}</span>
+                  <span className={styles.opStatus}>Live route</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className={styles.opsGrid}>
+            <div className={styles.ring}>
+              <div className={styles.ringChart} style={{ background: 'var(--cc-surface)' }}>
+                <div className={styles.ringHole}>
+                  <img
+                    className={styles.ringFlag}
+                    src={`/flags/${c.iso2.toLowerCase()}.svg`}
+                    alt=""
+                    width="30"
+                    height="22"
+                  />
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-start)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18z" />
+                  </svg>
+                  <span className={styles.ringL}>Full coverage</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.opRows}>
+              <div className={styles.opRow}>
+                <span className={styles.opAvatar} aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                </span>
+                <span className={styles.opName}>
+                  Routes provision automatically to every licensed operator serving {c.name} — no
+                  operator list to maintain on your side.
+                </span>
               </div>
             </div>
           </div>
-
-          <div className={styles.opRows}>
-            {c.operators.map((o, i) => (
-              <div className={styles.opRow} key={o}>
-                <span className={styles.opAvatar} aria-hidden="true">
-                  {o.slice(0, 2).toUpperCase()}
-                </span>
-                <span className={styles.opName}>{o}</span>
-                <span className={styles.opStatus}>Live route</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </section>
   )
 
-  const UseCases = c.useCases && (
+  // Renders everywhere; GENERIC.useCases are near-universal SMS uses (OTP,
+  // delivery, reminders), true in essentially every market, so they carry no
+  // country-specific claim to get wrong.
+  const useCasesList = c.useCases ?? GENERIC.useCases
+  const UseCases = (
     <section key="cases" className={styles.section}>
       <div className={styles.wrap}>
         <div className={styles.kicker}>Traffic</div>
-        <h2 className={styles.h2}>What businesses send in {c.name}</h2>
+        <h2 className={styles.h2}>
+          {c.useCases ? `What businesses send in ${c.name}` : `Common SMS use cases in ${c.name}`}
+        </h2>
         {/* Was three short pills — a caption's worth of height. Each is now a
             tall panel: a large outline numeral (same construction as the
             requirements section, so the two feel like one design language)
             plus a message-bubble icon, so three short phrases read as three
             substantial panels rather than three tags. */}
         <div className={styles.cases}>
-          {c.useCases.map((u, i) => (
+          {useCasesList.map((u, i) => (
             <div className={styles.case} key={u}>
               <span className={styles.caseN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               <span className={styles.caseIcon} aria-hidden="true">
