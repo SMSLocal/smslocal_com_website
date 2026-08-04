@@ -21,11 +21,25 @@ const EXCLUDED = new Set([
   '/privacy-policy',
 ])
 
+/**
+ * Whole sections held back for now, purely on build cost: the 195 country
+ * detail pages and the 32 blog posts are ~4,200 extra pages across 19
+ * languages, all fresh translations against a rate-limited free endpoint,
+ * which is hours of build time. The marketing pages ship translated first;
+ * these follow in a later pass once their translations are cached.
+ *
+ * Prefixes, not exact paths — the /country-code hub itself is a marketing
+ * page and stays translated; only its per-country children are held back.
+ */
+const EXCLUDED_PREFIXES = ['/country-code/', '/blog/', '/resources/insights/']
+
 const stripTrailing = (path) =>
   path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path || '/'
 
 export function isTranslatedRoute(path) {
-  return !EXCLUDED.has(stripTrailing(path))
+  const clean = stripTrailing(path)
+  if (EXCLUDED.has(clean)) return false
+  return !EXCLUDED_PREFIXES.some((p) => clean.startsWith(p))
 }
 
 export { EXCLUDED }

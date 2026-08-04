@@ -25,3 +25,4 @@ dist-ssr
 
 .vercel
 .env*
+scripts/.cache/i18n-translations.json
