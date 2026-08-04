@@ -15,7 +15,33 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { COVER_SPECS, coverPath } from './lib/cover-specs.mjs'
 import { applyInnerImageCuration } from './lib/inner-image-specs.mjs'
-import { CONTENT_OVERRIDES } from './lib/content-overrides.mjs'
+import { CONTENT_OVERRIDES, TEXT_REPLACEMENTS } from './lib/content-overrides.mjs'
+
+/**
+ * Applies a post's TEXT_REPLACEMENTS to every string anywhere in its blocks
+ * and FAQs. Recursive because body text isn't flat: a paragraph's `rich` is
+ * an array mixing bare strings with {b:[…]}/{a:{…}} nodes, and FAQ answers
+ * nest arrays again — a replace over only top-level `text` would silently
+ * miss most of the copy.
+ */
+function applyTextReplacements(slug, value) {
+  const pairs = TEXT_REPLACEMENTS[slug]
+  if (!pairs) return value
+
+  const walk = (node) => {
+    if (typeof node === 'string') {
+      let out = node
+      for (const [from, to] of pairs) out = out.split(from).join(to)
+      return out
+    }
+    if (Array.isArray(node)) return node.map(walk)
+    if (node && typeof node === 'object') {
+      return Object.fromEntries(Object.entries(node).map(([k, v]) => [k, walk(v)]))
+    }
+    return node
+  }
+  return walk(value)
+}
 import { applyLinkCuration } from './lib/link-specs.mjs'
 import { decodeEntities, hasClass, parseHtml, textOf } from './lib/mini-html.mjs'
 
@@ -811,6 +837,9 @@ async function main() {
     // lands on exactly 7 (client requirement), same pattern as COVER_SPECS
     // overriding the hero banner. No-op for any post without an entry.
     blocks = applyInnerImageCuration(slug, blocks, { warn: ctx.warn })
+    // Last, so it also covers text introduced by the overrides above.
+    blocks = applyTextReplacements(slug, blocks)
+    faqs = applyTextReplacements(slug, faqs)
     const meta = metaFromPage(pageHtml)
     if (override) {
       if (override.metaTitle) meta.metaTitle = override.metaTitle
@@ -861,7 +890,10 @@ async function main() {
       modifiedISO: api.modified,
       readTime: rt,
       words,
-      excerpt: excerpt.length > 260 ? `${excerpt.slice(0, 257).trimEnd()}…` : excerpt,
+      excerpt: applyTextReplacements(
+        slug,
+        excerpt.length > 260 ? `${excerpt.slice(0, 257).trimEnd()}…` : excerpt,
+      ),
       cover,
       sourceCover,
       coverAlt: COVER_SPECS[slug]?.title ?? decodeEntities(api.title.rendered).replace(/\s+/g, ' ').trim(),

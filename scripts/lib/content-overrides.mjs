@@ -15,6 +15,37 @@
  * anything scraped from a competitor.
  */
 
+/**
+ * Exact in-body string replacements, applied after the body is built.
+ *
+ * Deliberately a list of exact strings per post rather than a blanket
+ * /2025/ -> /2026/ sweep: a global year replace would also rewrite genuine
+ * historical references ("the code was introduced in 2025"), turning a true
+ * statement false. Every entry below was read in context first and is a
+ * "current year" usage — a title reference or an example — not a fact about
+ * when something happened.
+ *
+ * Post dates are untouched by this; those are real timestamps.
+ */
+export const TEXT_REPLACEMENTS = {
+  'what-does-dw-mean-in-text': [
+    // Refers to the emoji post, whose own title now says 2026.
+    ['Emoji Meaning in Text: A Guide to 230+ Emoji Meanings for 2025',
+     'Emoji Meaning in Text: A Guide to 230+ Emoji Meanings for 2026'],
+  ],
+  'what-does-mb-mean': [
+    ['In 2025, “MB” has become', 'In 2026, “MB” has become'],
+  ],
+  'what-does-wyll-mean': [
+    ['Incredible Advantages & How It Works in 2025?',
+     'Incredible Advantages & How It Works in 2026?'],
+  ],
+  'what-does-wyf-mean': [
+    // An example message: a concert "in 2025" reads as the past now.
+    ['tour concert in 2025!', 'tour concert in 2026!'],
+  ],
+}
+
 export const CONTENT_OVERRIDES = {
   // Year-rollover only. The source headlines say 2025 and the scraped pages
   // won't be updated, so the year is refreshed here rather than by editing
