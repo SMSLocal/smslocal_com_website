@@ -349,55 +349,255 @@
   color: var(--ink);
 }
 
-/* --- sender ID callout ------------------------------------------------- */
-.callout {
+/* --- sender ID: phone mockup + info panel -------------------------------
+   Two panels spanning the full section width, not one narrow bordered box —
+   the phone shows what the rule text describes, so the section carries an
+   artifact as well as a paragraph. */
+.senderGrid {
+  display: grid;
+  grid-template-columns: 272px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* A real phone aspect ratio (~9:19.5), not a square-ish tablet — fixed width
+   and height rather than letting content stretch it. Side buttons via
+   ::before/::after are what actually reads as "phone" rather than "rounded
+   rectangle". */
+.phone {
+  position: relative;
+  width: 260px;
+  height: 560px;
+  margin: 0 auto;
+  background: linear-gradient(155deg, #2a2f3a, var(--ink));
+  border-radius: 46px;
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 34px 64px -28px rgba(15, 23, 42, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.06);
+}
+.phone::before,
+.phone::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  width: 3px;
+  border-radius: 2px 0 0 2px;
+  background: #1c2028;
+}
+.phone::before {
+  /* volume rocker */
+  top: 108px;
+  height: 56px;
+}
+.phone::after {
+  /* ring/silent switch */
+  top: 80px;
+  height: 20px;
+}
+.phoneNotch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 24px;
+  background: var(--ink);
+  border-radius: 14px;
+  z-index: 2;
+}
+.phoneScreen {
+  position: relative;
+  height: 100%;
+  background: #fff;
+  border-radius: 38px;
+  padding: 16px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.phoneStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.phoneStatusIcons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink);
+}
+
+.phoneSender {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 4px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.phoneAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--gradient-brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  flex: none;
+}
+.phoneSenderName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.phoneSenderSub {
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.phoneThread {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 2px 0;
+}
+.phoneBubble {
+  max-width: 86%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 16px 16px 16px 4px;
+  padding: 11px 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.phoneTime {
+  font-size: 10px;
+  color: var(--text-secondary);
+  padding-left: 4px;
+}
+.phoneMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 2px 6px;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+.phoneFlag {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12);
+}
+.phoneHomeBar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.senderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.senderRule {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 26px;
-  align-items: center;
+  gap: 22px;
   background: #fff;
   border: 1px solid var(--border);
   border-left: 5px solid var(--brand-end);
   border-radius: var(--radius-lg);
-  padding: 38px 42px;
+  padding: 30px 34px;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 24px 50px -32px rgba(79, 91, 213, 0.5);
+  flex: 1;
 }
-.calloutIcon {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
+.senderIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
   color: #fff;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   flex: none;
 }
-.calloutBody h3 {
+.senderRule h3 {
   margin: 0 0 10px;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
   color: var(--heading);
 }
-.calloutBody p {
+.senderRule p {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.75;
   color: var(--text-secondary);
-  max-width: 68ch;
 }
 
-@media (max-width: 640px) {
-  .callout {
+.senderFormat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--cc-surface);
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  flex-wrap: wrap;
+}
+.senderFormatLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-start);
+}
+.senderFormatValue {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* Deliberately unboxed: no border, no background, no card — plain running
+   text under the panel rather than a third bordered strip on the page. */
+.senderPlain {
+  margin: 0;
+  padding: 0 4px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .senderGrid {
     grid-template-columns: 1fr;
-    padding: 28px 26px;
-    gap: 18px;
   }
-  .calloutIcon {
-    width: 52px;
-    height: 52px;
-    font-size: 17px;
+}
+@media (max-width: 640px) {
+  .senderRule {
+    grid-template-columns: 1fr;
+    padding: 26px 24px;
+    gap: 16px;
+  }
+  .senderIcon {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
   }
 }
 

@@ -88,16 +88,102 @@ function CountryCode() {
     </section>
   )
 
+  // Not confined to one narrow box: a phone mockup on one side (what the
+  // recipient actually sees) and the rule text at real size on the other,
+  // spanning the full section width. The format line is real researched data
+  // that already existed on the page (the Dialling section) but had no home
+  // here, where it is actually relevant to "how your name appears".
   const SenderId = c.senderId && (
     <section key="sender" className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={styles.wrap}>
         <div className={styles.kicker}>Sender ID</div>
         <h2 className={styles.h2}>How your name appears in {c.name}</h2>
-        <div className={styles.callout}>
-          <div className={styles.calloutIcon}>ID</div>
-          <div className={styles.calloutBody}>
-            <h3>Sender ID rules for {c.dial}</h3>
-            <p>{c.senderId}</p>
+        <p className={styles.sub}>
+          What shows up in the recipient&rsquo;s inbox, and what has to be true before it can.
+        </p>
+
+        <div className={styles.senderGrid}>
+          <div className={styles.phone}>
+            <div className={styles.phoneNotch} />
+            <div className={styles.phoneScreen}>
+              <div className={styles.phoneStatusBar}>
+                <span>9:41</span>
+                <span className={styles.phoneStatusIcons}>
+                  <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" aria-hidden="true">
+                    <rect x="0" y="7" width="2.5" height="4" rx="0.5" />
+                    <rect x="4" y="5" width="2.5" height="6" rx="0.5" />
+                    <rect x="8" y="3" width="2.5" height="8" rx="0.5" />
+                    <rect x="12" y="0" width="2.5" height="11" rx="0.5" />
+                  </svg>
+                  <svg width="16" height="11" viewBox="0 0 16 11" fill="none" aria-hidden="true">
+                    <rect x="0.5" y="0.5" width="13" height="10" rx="2.5" stroke="currentColor" />
+                    <rect x="2" y="2" width="10" height="7" rx="1.2" fill="currentColor" />
+                    <rect x="14" y="3.5" width="1.5" height="4" rx="0.7" fill="currentColor" />
+                  </svg>
+                </span>
+              </div>
+
+              <div className={styles.phoneSender}>
+                <span className={styles.phoneAvatar}>S</span>
+                <div>
+                  <div className={styles.phoneSenderName}>SMSLOCAL</div>
+                  <div className={styles.phoneSenderSub}>Text Message</div>
+                </div>
+              </div>
+
+              <div className={styles.phoneThread}>
+                <div className={styles.phoneBubble}>
+                  Your verification code is 4172. Valid for 10 minutes.
+                </div>
+                <span className={styles.phoneTime}>now</span>
+              </div>
+
+              <div className={styles.phoneMeta}>
+                <img
+                  className={styles.phoneFlag}
+                  src={`/flags/${c.iso2.toLowerCase()}.svg`}
+                  alt=""
+                  width="16"
+                  height="12"
+                />
+                Delivered on {c.dial}
+              </div>
+            </div>
+            <div className={styles.phoneHomeBar} />
+          </div>
+
+          <div className={styles.senderInfo}>
+            <div className={styles.senderRule}>
+              <span className={styles.senderIcon}>ID</span>
+              <div>
+                <h3>Sender ID rules for {c.dial}</h3>
+                <p>{c.senderId}</p>
+              </div>
+            </div>
+
+            {c.format && (
+              <div className={styles.senderFormat}>
+                <span className={styles.senderFormatLabel}>Number format</span>
+                <code className={styles.senderFormatValue}>{c.format}</code>
+              </div>
+            )}
+
+            {/* Plain text, no card — real data already researched for this
+                market (operators, useCases), given a home here instead of
+                repeating the boxed-panel pattern a third time on the page. */}
+            {c.operators && (
+              <p className={styles.senderPlain}>
+                Delivers across every major network in {c.name}: {c.operators.join(', ')}.
+              </p>
+            )}
+            {c.useCases && (
+              // Lead the sentence with the phrase as written rather than
+              // forcing lowercase — several entries carry acronyms (OTP, NHS)
+              // that .toLowerCase() would mangle.
+              <p className={styles.senderPlain}>
+                What people send most: {c.useCases.join(' · ')}.
+              </p>
+            )}
           </div>
         </div>
       </div>
