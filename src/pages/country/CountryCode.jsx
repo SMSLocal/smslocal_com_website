@@ -60,20 +60,34 @@ const GENERIC = {
 // buys a fresh 5s window instead of jumping again immediately.
 function RulesCarousel({ rules, countryName }) {
   const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
+    if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const id = setInterval(() => setIndex((i) => (i + 1) % rules.length), 5000)
     return () => clearInterval(id)
-  }, [index, rules.length])
+  }, [index, rules.length, paused])
 
   const go = (delta) => setIndex((i) => (i + delta + rules.length) % rules.length)
 
   return (
-    <div className={styles.rulesCarousel}>
+    <div
+      className={styles.rulesCarousel}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
+      {/* Visible slides are decorative duplicates of this — screen readers get
+          one clean announcement per change instead of reading all four slides
+          in document order regardless of which is on screen. */}
+      <p className={styles.srOnly} aria-live="polite">
+        Requirement {index + 1} of {rules.length}: {rules[index]}
+      </p>
       <div className={styles.rulesViewport}>
         <div className={styles.rulesTrack} style={{ transform: `translateX(-${index * 100}%)` }}>
           {rules.map((r, i) => (
-            <div className={styles.ruleSlide} key={r}>
+            <div className={styles.ruleSlide} key={r} aria-hidden={i !== index}>
               <span className={styles.ruleN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               <div className={styles.ruleBody}>
                 <div className={styles.ruleEyebrow}>Requirement {i + 1} of {rules.length}</div>
@@ -334,9 +348,10 @@ function CountryCode() {
                 about {c.name} — genuinely useful and not said anywhere else
                 on the page, so it earns its place rather than padding. */}
             <p className={styles.senderPlain}>
-              Message length: a single segment holds 160 GSM-7 characters, or 70 once a message
-              uses Unicode — Arabic, Chinese, Cyrillic, emoji. Longer messages split into several
-              segments automatically and are billed per segment.
+              Message length: under the standard SMS encoding, a segment typically holds 160
+              GSM-7 characters, or 70 once a message uses Unicode — Arabic, Chinese, Cyrillic,
+              emoji. Longer messages split into several segments automatically and are billed per
+              segment; exact limits are confirmed for {c.name} as part of onboarding.
             </p>
           </div>
         </div>

@@ -8,6 +8,18 @@
   padding: 0 24px;
 }
 
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* --- hero ------------------------------------------------------------- */
 /* Soft purple surface shared with the breadcrumb strip above it (see
    Breadcrumbs.css) so the two read as one band rather than a strip sitting on

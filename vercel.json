@@ -292,7 +292,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/((?!404\\.html).*)",
       "headers": [
         {
           "key": "X-Robots-Tag",

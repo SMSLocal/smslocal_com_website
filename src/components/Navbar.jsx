@@ -301,7 +301,7 @@ function Navbar() {
         <nav className={mobileOpen ? 'nav-links open' : 'nav-links'}>
           {/* Products — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('products')}>
-            <button type="button" className={triggerClass('products')} onClick={() => toggleMenu('products')}>
+            <button type="button" className={triggerClass('products')} onClick={() => toggleMenu('products')} aria-haspopup="true" aria-expanded={openMenu === 'products'}>
               Products <Dot />
             </button>
             {openMenu === 'products' && (
@@ -316,7 +316,7 @@ function Navbar() {
 
           {/* Platform — simple grid dropdown */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('platform')}>
-            <button type="button" className={triggerClass('platform')} onClick={() => toggleMenu('platform')}>
+            <button type="button" className={triggerClass('platform')} onClick={() => toggleMenu('platform')} aria-haspopup="true" aria-expanded={openMenu === 'platform'}>
               Platform <Dot />
             </button>
             {openMenu === 'platform' && (
@@ -334,7 +334,7 @@ function Navbar() {
 
           {/* Solutions — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('solutions')}>
-            <button type="button" className={triggerClass('solutions')} onClick={() => toggleMenu('solutions')}>
+            <button type="button" className={triggerClass('solutions')} onClick={() => toggleMenu('solutions')} aria-haspopup="true" aria-expanded={openMenu === 'solutions'}>
               Solutions <Dot />
             </button>
             {openMenu === 'solutions' && (
@@ -349,7 +349,7 @@ function Navbar() {
 
           {/* Resources — two-panel flyout (now includes Pricing) */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('resources')}>
-            <button type="button" className={triggerClass('resources')} onClick={() => toggleMenu('resources')}>
+            <button type="button" className={triggerClass('resources')} onClick={() => toggleMenu('resources')} aria-haspopup="true" aria-expanded={openMenu === 'resources'}>
               Resources <Dot />
             </button>
             {openMenu === 'resources' && (
