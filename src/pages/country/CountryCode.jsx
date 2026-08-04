@@ -1,10 +1,16 @@
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Seo from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
-import { getCountry, relatedCountries, variantOf, fmt } from '../../lib/countries.js'
+import { getCountry, relatedCountries, variantOf, fmt, allCountries } from '../../lib/countries.js'
 import CountryHeroVisual from './CountryHeroVisual.jsx'
+import CountryDirectory from './CountryDirectory.jsx'
 import styles from './CountryCode.module.css'
+
+// Every generated country gets a page (GENERIC.* fills the unresearched
+// ones), so the directory below links through for all 195, same as the hub.
+const PUBLISHED = new Set(allCountries.map((c) => c.slug))
 
 /**
  * One country's dialling and A2P page.
@@ -26,6 +32,14 @@ import styles from './CountryCode.module.css'
 const GENERIC = {
   senderId:
     'Both alphanumeric and numeric sender IDs are supported where the local network allows it. Exact registration steps, character limits and lead time vary by operator, and are confirmed as part of onboarding before your first send.',
+  // Industry-standard facts about how sender IDs work in general — true
+  // everywhere, not a claim about this specific market — so unresearched
+  // pages have something concrete to show instead of just the paragraph above.
+  idTypes: [
+    { label: 'Alphanumeric ID', value: 'Your brand name instead of a number, typically up to 11 characters, where the network allows it.' },
+    { label: 'Numeric ID', value: 'A long code or short code — falls back to this wherever alphanumeric isn’t supported.' },
+    { label: 'Approval time', value: 'Same-day to a few business days, depending on the operator and ID type.' },
+  ],
   rules: [
     'Get clear consent before sending marketing messages, and keep a record of it.',
     'Every marketing message needs a working opt-out, honoured immediately.',
@@ -38,6 +52,96 @@ const GENERIC = {
     'Appointment and service reminders',
   ],
 }
+// Auto-advancing card carousel for the "what this market requires" rules.
+// One rule per slide, but each slide carries an eyebrow + the rule text +
+// an honest platform note (true for every market, not a per-country claim)
+// so a single slide doesn't read as one bare line. Autoplay restarts on
+// every index change — including manual arrow clicks — so a manual nudge
+// buys a fresh 5s window instead of jumping again immediately.
+function RulesCarousel({ rules, countryName }) {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % rules.length), 5000)
+    return () => clearInterval(id)
+  }, [index, rules.length])
+
+  const go = (delta) => setIndex((i) => (i + delta + rules.length) % rules.length)
+
+  return (
+    <div className={styles.rulesCarousel}>
+      <div className={styles.rulesViewport}>
+        <div className={styles.rulesTrack} style={{ transform: `translateX(-${index * 100}%)` }}>
+          {rules.map((r, i) => (
+            <div className={styles.ruleSlide} key={r}>
+              <span className={styles.ruleN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <div className={styles.ruleBody}>
+                <div className={styles.ruleEyebrow}>Requirement {i + 1} of {rules.length}</div>
+                <p className={styles.ruleT}>{r}</p>
+                <p className={styles.ruleSub}>
+                  Checked automatically on every message we send to {countryName} — nothing for you to
+                  track by hand.
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.rulesNav}>
+        <button type="button" className={styles.rulesArrow} onClick={() => go(-1)} aria-label="Previous requirement">
+          <svg width="9" height="15" viewBox="0 0 9 15" fill="none" aria-hidden="true">
+            <path d="M8 1.5 1.5 7.5 8 13.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <div className={styles.rulesDots}>
+          {rules.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`${styles.rulesDot} ${i === index ? styles.rulesDotActive : ''}`}
+              onClick={() => setIndex(i)}
+              aria-label={`Go to requirement ${i + 1}`}
+            />
+          ))}
+        </div>
+        <button type="button" className={styles.rulesArrow} onClick={() => go(1)} aria-label="Next requirement">
+          <svg width="9" height="15" viewBox="0 0 9 15" fill="none" aria-hidden="true">
+            <path d="M1 1.5 7.5 7.5 1 13.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// One honest, general sentence per use case — keyed off words that already
+// appear in the use-case phrase itself (OTP, delivery, appointment, bank...),
+// never a per-country claim. Every research phrase in countryContent.js
+// matches one of these; anything that doesn't falls through to the default.
+function describeUseCase(text) {
+  const t = text.toLowerCase()
+  if (/otp|verification|authentication|2fa|two-factor/.test(t)) {
+    return 'Time-critical — it has to land in seconds, which is the reason SMS still wins here over push or email.'
+  }
+  if (/delivery|order|logistics|shipping/.test(t)) {
+    return "Keeps the recipient's attention without needing an app open, for the moment they actually care about the update."
+  }
+  if (/appointment|reminder|booking|service/.test(t)) {
+    return 'Cuts no-shows more effectively than email — most people notice a text within minutes of it arriving.'
+  }
+  if (/bank|payment|financial|transaction|alert|insurance|wallet|remittance|pix|bkash|m-pesa/.test(t)) {
+    return 'Sent the instant the triggering event happens — trusted for anything time-sensitive tied to money.'
+  }
+  if (/promotion|marketing|retail|campaign|loyalty|hospitality/.test(t)) {
+    return 'Needs clear consent and a working opt-out — the requirements above apply directly to this traffic.'
+  }
+  if (/government|utility|public|municipal|emergency|weather/.test(t)) {
+    return 'Typically exempt from marketing consent rules, but still expected to identify the sender clearly.'
+  }
+  return 'One of the use cases we see repeatedly in this market — SMS still outperforms other channels for anything that needs to be read quickly.'
+}
+
 function CountryCode() {
   const { slug } = useParams()
   const c = getCountry(slug)
@@ -187,6 +291,20 @@ function CountryCode() {
                 <h3>Sender ID rules for {c.dial}</h3>
                 <p>{c.senderId ?? GENERIC.senderId}</p>
               </div>
+
+              {/* Unresearched markets get this instead of the researched
+                  page's format/operators detail — general facts about how
+                  sender IDs work rather than a claim about {c.name} itself. */}
+              {!c.senderId && (
+                <div className={styles.senderChecklist}>
+                  {GENERIC.idTypes.map((t) => (
+                    <div key={t.label}>
+                      <div className={styles.senderChecklistLabel}>{t.label}</div>
+                      <div className={styles.senderChecklistValue}>{t.value}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {c.format && (
@@ -204,14 +322,22 @@ function CountryCode() {
                 Delivers across every major network in {c.name}: {c.operators.join(', ')}.
               </p>
             )}
-            {c.useCases && (
-              // Lead the sentence with the phrase as written rather than
-              // forcing lowercase — several entries carry acronyms (OTP, NHS)
-              // that .toLowerCase() would mangle.
-              <p className={styles.senderPlain}>
-                What people send most: {c.useCases.join(' · ')}.
-              </p>
-            )}
+            {/* Lead the sentence with the phrase as written rather than
+                forcing lowercase — several entries carry acronyms (OTP, NHS)
+                that .toLowerCase() would mangle. Falls back to GENERIC.useCases
+                (universal SMS use cases, not a country-specific claim) so
+                unresearched markets aren't left with a half-empty panel. */}
+            <p className={styles.senderPlain}>
+              What people send most: {(c.useCases ?? GENERIC.useCases).join(' · ')}.
+            </p>
+            {/* A universal SMS-technical fact (segment length), not a claim
+                about {c.name} — genuinely useful and not said anywhere else
+                on the page, so it earns its place rather than padding. */}
+            <p className={styles.senderPlain}>
+              Message length: a single segment holds 160 GSM-7 characters, or 70 once a message
+              uses Unicode — Arabic, Chinese, Cyrillic, emoji. Longer messages split into several
+              segments automatically and are billed per segment.
+            </p>
           </div>
         </div>
       </div>
@@ -233,18 +359,9 @@ function CountryCode() {
             ? 'These are the constraints that decide whether a message is delivered, filtered or blocked — not general best practice.'
             : `General practice for reaching ${c.name} — market-specific requirements are confirmed with you before your first send.`}
         </p>
-        {/* Not a card grid — the second attempt at this section was still a
-            tile shape with a different badge. This is an editorial list:
-            oversized outline numerals running behind full-width text, one
-            row each, no boxes anywhere. */}
-        <div className={styles.rules}>
-          {rulesList.map((r, i) => (
-            <div className={styles.rule} key={r}>
-              <span className={styles.ruleN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <p className={styles.ruleT}>{r}</p>
-            </div>
-          ))}
-        </div>
+        {/* Auto-advancing carousel, keyed by slug so the slide index resets
+            when navigating between country pages. */}
+        <RulesCarousel key={c.slug} rules={rulesList} countryName={c.name} />
       </div>
     </section>
   )
@@ -314,38 +431,55 @@ function CountryCode() {
             </div>
           </div>
         ) : (
-          <div className={styles.opsGrid}>
-            <div className={styles.ring}>
-              <div className={styles.ringChart} style={{ background: 'var(--cc-surface)' }}>
-                <div className={styles.ringHole}>
-                  <img
-                    className={styles.ringFlag}
-                    src={`/flags/${c.iso2.toLowerCase()}.svg`}
-                    alt=""
-                    width="30"
-                    height="22"
-                  />
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--brand-start)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18z" />
-                  </svg>
-                  <span className={styles.ringL}>Full coverage</span>
-                </div>
-              </div>
+          // Not a card grid — three bordered tiles side by side is the same
+          // "repeated boxes" shape as the ring+panel version it replaced,
+          // just three of them instead of one. This is one unboxed artifact:
+          // a connecting line with three annotated stops on it, the same
+          // no-card construction as the requirements carousel's numerals and
+          // the sender-ID panel's plain text. Content is platform behaviour
+          // already stated in this page's own CTA ("direct routes,
+          // per-operator delivery reporting"), not a claim about {c.name}.
+          <div className={styles.routeFlow}>
+            <div className={styles.routeFlowLine} aria-hidden="true" />
+            <div className={styles.routeStep}>
+              <span className={styles.routeStepDot} aria-hidden="true">
+                <img
+                  className={styles.routeStepFlag}
+                  src={`/flags/${c.iso2.toLowerCase()}.svg`}
+                  alt=""
+                  width="20"
+                  height="15"
+                />
+              </span>
+              <h3>Full network coverage</h3>
+              <p>
+                Routes provision automatically to every licensed operator serving {c.name} — no
+                operator list for you to maintain.
+              </p>
             </div>
-
-            <div className={styles.opRows}>
-              <div className={styles.opRow}>
-                <span className={styles.opAvatar} aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                </span>
-                <span className={styles.opName}>
-                  Routes provision automatically to every licensed operator serving {c.name} — no
-                  operator list to maintain on your side.
-                </span>
-              </div>
+            <div className={styles.routeStep}>
+              <span className={styles.routeStepDot} aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 2 3 14h8l-1 8 10-12h-8l1-8z" />
+                </svg>
+              </span>
+              <h3>One route per message</h3>
+              <p>
+                Each send is evaluated in real time and placed on the best-performing path
+                available at that moment.
+              </p>
+            </div>
+            <div className={styles.routeStep}>
+              <span className={styles.routeStepDot} aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <h3>Delivery reporting either way</h3>
+              <p>
+                Per-message delivery status, the same whether an operator is named on this page or
+                not.
+              </p>
             </div>
           </div>
         )}
@@ -364,21 +498,26 @@ function CountryCode() {
         <h2 className={styles.h2}>
           {c.useCases ? `What businesses send in ${c.name}` : `Common SMS use cases in ${c.name}`}
         </h2>
-        {/* Was three short pills — a caption's worth of height. Each is now a
-            tall panel: a large outline numeral (same construction as the
-            requirements section, so the two feel like one design language)
-            plus a message-bubble icon, so three short phrases read as three
-            substantial panels rather than three tags. */}
-        <div className={styles.cases}>
+        {/* Neither a card grid nor a stacked row list — one artifact: a
+            message thread down the left, each bubble a real use case, with
+            an annotation leader-line running out to the explanation on the
+            right. Same "phone" visual language as the sender-ID section
+            above, applied here instead of a third construction on the
+            page. */}
+        <div className={styles.stream}>
           {useCasesList.map((u, i) => (
-            <div className={styles.case} key={u}>
-              <span className={styles.caseN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <span className={styles.caseIcon} aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                </svg>
-              </span>
-              <div className={styles.caseT}>{u}</div>
+            <div className={styles.streamRow} key={u}>
+              <div className={styles.streamMsg}>
+                <span className={styles.streamAvatar} aria-hidden="true">S</span>
+                <div className={styles.streamBubble}>{u}</div>
+              </div>
+              <span className={styles.streamLine} aria-hidden="true" />
+              <p className={styles.streamNote}>{describeUseCase(u)}</p>
+              {/* Fills the space the note's max-width leaves on wide
+                  screens — the same oversized outline numeral used in the
+                  requirements section, so it reads as this page's shared
+                  mark rather than an empty margin. */}
+              <span className={styles.streamN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             </div>
           ))}
         </div>
@@ -502,6 +641,18 @@ function CountryCode() {
       </div>
 
       {ordered}
+
+      <section className={`${styles.section} ${styles.sectionAlt}`}>
+        <div className={styles.wrap}>
+          <div className={styles.kicker}>Reference</div>
+          <h2 className={styles.h2}>All country calling codes</h2>
+          <p className={styles.sub}>
+            Looking for a different country? Pick a continent, or search by name, code or ISO —
+            no need to go back to the directory page.
+          </p>
+          <CountryDirectory countries={allCountries} published={PUBLISHED} defaultRegion={c.region} />
+        </div>
+      </section>
 
       {related.length > 0 && (
         <section className={styles.section}>

@@ -20,7 +20,7 @@
  *   format     local number shape, for the "how to dial" section
  */
 export const COUNTRY_CONTENT = {
-  'united-states': {
+  usa: {
     researched: '2026-08',
     intro:
       'The United States is the largest A2P SMS market in the world by revenue, and also the most heavily gated. Since 10DLC registration became mandatory, every business sending from a standard ten-digit number must register a brand and a campaign with The Campaign Registry before carriers will deliver at scale. Unregistered traffic is not merely throttled — it is increasingly blocked outright.',
@@ -62,7 +62,7 @@ export const COUNTRY_CONTENT = {
     format: '+91 XXXXX XXXXX — ten digits, mobile numbers starting 6, 7, 8 or 9.',
   },
 
-  'united-kingdom': {
+  uk: {
     researched: '2026-08',
     intro:
       'The UK is a mature alphanumeric-sender-ID market with light registration compared to India or the US, but heavy enforcement on consent. The ICO polices PECR actively and fines are public, so the practical constraint on a UK campaign is rarely deliverability — it is whether your opt-in record would survive a complaint.',
@@ -83,7 +83,7 @@ export const COUNTRY_CONTENT = {
     format: '+44 7XXX XXXXXX — mobile numbers begin 07 nationally, 7 in E.164.',
   },
 
-  'united-arab-emirates': {
+  uae: {
     researched: '2026-08',
     intro:
       'The UAE is a registration-first market. The TDRA requires sender IDs to be approved, and both operators run their own commercial approval on top, so lead time on a new UAE sender is measured in days rather than minutes. In exchange, delivery on approved routes is reliable and the market has unusually high smartphone penetration.',

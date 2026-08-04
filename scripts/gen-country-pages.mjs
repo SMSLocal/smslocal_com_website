@@ -21,6 +21,12 @@ const dial = JSON.parse(readFileSync(join(root, 'src/data/dialCodes.generated.js
 // Keyed on ISO alpha-2, which both sides carry, rather than on name.
 const REGION = new Map(world.map((c) => [c.cca2, c.region]))
 
+// world-countries follows the UN geoscheme, which files Russia under Europe
+// (its Eastern-Europe subregion) despite most of its territory and the
+// directory's own dial-code neighbours sitting in Asia. Overridden to match
+// how this directory is actually browsed.
+const REGION_OVERRIDES = { RU: 'Asia' }
+
 const slugify = (s) =>
   s
     .toLowerCase()
@@ -28,6 +34,15 @@ const slugify = (s) =>
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
+
+// A handful of countries are known by their initialism, not their slugified
+// name — URLs, COUNTRY_CONTENT keys and the redirects in vercel.json all
+// depend on these exact values, so they must survive a re-run of this script.
+const SLUG_OVERRIDES = {
+  'united-states': 'usa',
+  'united-kingdom': 'uk',
+  'united-arab-emirates': 'uae',
+}
 
 // Names differ between sources ("Korea, South" vs "South Korea"); compare on a
 // stripped form so the join doesn't silently drop rows.
@@ -80,12 +95,12 @@ const countries = dial
     const k = key(c.name)
     const s = stats.get(k) ?? stats.get(ALIASES[k]) ?? {}
     return {
-      slug: slugify(c.name),
+      slug: SLUG_OVERRIDES[slugify(c.name)] ?? slugify(c.name),
       name: c.name,
       iso2: c.code,
       iso3: s.iso3 ?? null,
       dial: c.dial,
-      region: REGION.get(c.code) ?? null,
+      region: REGION_OVERRIDES[c.code] ?? REGION.get(c.code) ?? null,
       population: s.population ?? null,
       areaKm2: s.areaKm2 ?? null,
       gdpUsd: s.gdpUsd ?? null,

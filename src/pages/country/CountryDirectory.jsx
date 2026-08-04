@@ -43,9 +43,9 @@ function Row({ c, linked }) {
   )
 }
 
-function CountryDirectory({ countries, published }) {
+function CountryDirectory({ countries, published, defaultRegion = 'Asia' }) {
   const [query, setQuery] = useState('')
-  const [region, setRegion] = useState('Asia')
+  const [region, setRegion] = useState(defaultRegion)
   const q = query.trim().toLowerCase()
 
   const matches = useMemo(() => {
@@ -53,6 +53,7 @@ function CountryDirectory({ countries, published }) {
     return countries.filter(
       (c) =>
         c.name.toLowerCase().includes(q) ||
+        c.slug.includes(q) ||
         c.dial.includes(q) ||
         c.iso2.toLowerCase() === q ||
         (c.iso3 ?? '').toLowerCase() === q,

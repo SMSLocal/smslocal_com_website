@@ -1567,7 +1567,7 @@
   "iso2": "RU",
   "iso3": "RUS",
   "dial": "+7",
-  "region": "Europe",
+  "region": "Asia",
   "population": 140702000,
   "areaKm2": 17100000,
   "gdpUsd": "2.113 Trillion"
@@ -2013,7 +2013,7 @@
   "gdpUsd": "175.5 Billion"
  },
  {
-  "slug": "united-arab-emirates",
+  "slug": "uae",
   "name": "United Arab Emirates",
   "iso2": "AE",
   "iso3": "ARE",
@@ -2024,7 +2024,7 @@
   "gdpUsd": "390 Billion"
  },
  {
-  "slug": "united-kingdom",
+  "slug": "uk",
   "name": "United Kingdom",
   "iso2": "GB",
   "iso3": "GBR",
@@ -2035,7 +2035,7 @@
   "gdpUsd": "2.49 Trillion"
  },
  {
-  "slug": "united-states",
+  "slug": "usa",
   "name": "United States",
   "iso2": "US",
   "iso3": "USA",

@@ -273,6 +273,21 @@
       "source": "/why-smslocal/",
       "destination": "/platform/why-smslocal/",
       "permanent": true
+    },
+    {
+      "source": "/country-code/united-states/",
+      "destination": "/country-code/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/united-kingdom/",
+      "destination": "/country-code/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/united-arab-emirates/",
+      "destination": "/country-code/uae/",
+      "permanent": true
     }
   ],
   "headers": [
