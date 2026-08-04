@@ -796,7 +796,10 @@ async function main() {
     // researched copy instead. No-op for any post without an entry.
     const override = CONTENT_OVERRIDES[slug]
     if (override) {
-      blocks = override.body
+      // Each field is optional: an entry may replace only the title or meta
+      // and leave the scraped body alone. Assigning override.body
+      // unconditionally blanked the body for those entries.
+      if (override.body) blocks = override.body
       faqs = override.faqs ?? faqs
     }
     // Per-post override: trim/remap/add internal & external content links so
@@ -838,7 +841,11 @@ async function main() {
       routePath: urlPath.replace(/\/$/, ''),
       sourceUrl: raw.url,
       sourceType: type,
-      title: decodeEntities(api.title.rendered).replace(/\s+/g, ' ').trim(),
+      // `title` is overridable for the same reason metaTitle is: a scraped
+      // headline can carry a year that has since rolled over, and the source
+      // page won't be updated. Falls through to the API title otherwise.
+      title:
+        override?.title ?? decodeEntities(api.title.rendered).replace(/\s+/g, ' ').trim(),
       metaTitle: meta.metaTitle,
       metaDescription: meta.metaDescription,
       keywords: meta.keywords,

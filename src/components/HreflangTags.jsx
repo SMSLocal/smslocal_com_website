@@ -2,18 +2,17 @@ import { useLocation } from 'react-router-dom'
 import { SITE_ORIGIN } from './Canonical.jsx'
 import { withSlash, stripSlash } from '../lib/url.js'
 import { LANGUAGES } from '../data/languages.js'
-import { PILOT_ROUTES } from '../data/pilotRoutes.js'
+import { isTranslatedRoute } from '../data/i18nScope.js'
 
 /**
- * Only rendered for routes that actually have a translated static page in
- * every locale (PILOT_ROUTES, shared with scripts/prerender.mjs) — pointing
- * hreflang at a URL that doesn't exist yet would be worse than not declaring
+ * Skipped on routes with no translated page (see i18nScope) — pointing
+ * hreflang at a URL that doesn't exist would be worse than declaring no
  * alternates at all.
  */
 function HreflangTags() {
   const { pathname } = useLocation()
   const clean = stripSlash(pathname) || '/'
-  if (!PILOT_ROUTES.includes(clean)) return null
+  if (!isTranslatedRoute(clean)) return null
 
   const englishUrl = `${SITE_ORIGIN}${withSlash(clean)}`
 

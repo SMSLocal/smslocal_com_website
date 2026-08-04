@@ -16,6 +16,21 @@
  */
 
 export const CONTENT_OVERRIDES = {
+  // Year-rollover only. The source headlines say 2025 and the scraped pages
+  // won't be updated, so the year is refreshed here rather than by editing
+  // the generated JSON (which the next import would overwrite). Titles only:
+  // the posts' publish/modified dates are left exactly as they are, because
+  // those are real timestamps and rewriting them to imply fresh publication
+  // is precisely the kind of fabricated date signal this project avoids.
+  'what-does-dw-mean-in-text': {
+    title: 'What Does DW Mean in Text ? The Trending Slang of 2026',
+    metaTitle: 'What Does DW Mean in Text? Understanding the Trending Slang of 2026',
+  },
+  'emoji-meaning-in-text': {
+    title: 'Emoji Meaning in Text: A Guide to 230+ Emoji Meanings for 2026',
+    metaTitle: 'Complete Guide to 230+ Emoji Meaning in text for 2026',
+  },
+
   'how-to-send-a-system-generated-sms': {
     metaTitle: 'How to Send a System-Generated SMS: Setup Guide + API Steps',
     metaDescription:

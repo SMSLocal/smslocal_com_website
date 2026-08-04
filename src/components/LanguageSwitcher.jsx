@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useLocale } from '../lib/LocaleContext.jsx'
 import { addLocaleToPath } from '../lib/locale.js'
 import { LANGUAGES } from '../data/languages.js'
-import { PILOT_ROUTES } from '../data/pilotRoutes.js'
+import { isTranslatedRoute } from '../data/i18nScope.js'
 import { stripSlash, withSlash } from '../lib/url.js'
 
 // English isn't in LANGUAGES (that list is the 19 translation targets), but
@@ -31,7 +31,7 @@ function LanguageSwitcher() {
   const locale = useLocale()
   const detailsRef = useRef(null)
   const clean = stripSlash(pathname) || '/'
-  if (!PILOT_ROUTES.includes(clean)) return null
+  if (!isTranslatedRoute(clean)) return null
 
   const current = ALL.find((l) => l.code === locale) ?? ALL[0]
 

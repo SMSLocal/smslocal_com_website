@@ -66,8 +66,12 @@ const routes = [...staticRoutes, ...postRoutes, ...countryRoutes]
 // path to a translated page is the hreflang tags on its English counterpart,
 // which is a much weaker discovery signal than being listed outright.
 const { LANGUAGES } = await import(new URL('../src/data/languages.js', import.meta.url))
-const { PILOT_ROUTES } = await import(new URL('../src/data/pilotRoutes.js', import.meta.url))
-const localeRoutes = PILOT_ROUTES.flatMap((route) =>
+const { isTranslatedRoute } = await import(new URL('../src/data/i18nScope.js', import.meta.url))
+// Every route the site has, minus the handful that opt out — the same
+// predicate the client uses, so the pages that exist and the pages the
+// switcher/hreflang advertise can't drift apart.
+const TRANSLATED_ROUTES = routes.filter(isTranslatedRoute)
+const localeRoutes = TRANSLATED_ROUTES.flatMap((route) =>
   LANGUAGES.map(({ code }) => (route === '/' ? `/${code}` : `/${code}${route}`)),
 )
 
@@ -191,7 +195,7 @@ if (failed.length) {
   for (const f of failed) console.warn(`  ${f}`)
 }
 
-// Multilingual pilot: every PILOT_ROUTES page, in every language. Body text
+// Every translated route, in every language. Body text
 // is translated post-render (most component text is hardcoded English, the
 // same reason the reference implementation this was adapted from chose
 // post-render HTML translation over per-component i18n) via the free Google
@@ -203,7 +207,7 @@ if (failed.length) {
 // responsibility.
 const { translatePageHtml } = await import('./i18n/html-translator.mjs')
 
-const translatedRoutes = new Set(PILOT_ROUTES)
+const translatedRoutes = new Set(TRANSLATED_ROUTES)
 let i18nWritten = 0
 const i18nFailed = []
 // Every string translated for a locale, across all its pages. Each page still
@@ -214,7 +218,7 @@ const i18nFailed = []
 // possible here instead of forcing a full reload on every locale link.
 const localeDicts = new Map(LANGUAGES.map(({ code }) => [code, {}]))
 
-for (const route of PILOT_ROUTES) {
+for (const route of TRANSLATED_ROUTES) {
   for (const { code: locale, rtl } of LANGUAGES) {
     const localeUrl = route === '/' ? `/${locale}` : `/${locale}${route}`
     let body
@@ -241,7 +245,7 @@ for (const [locale, dict] of localeDicts) {
 }
 
 console.log(
-  `prerender i18n — ${i18nWritten}/${PILOT_ROUTES.length * LANGUAGES.length} translated pages (${PILOT_ROUTES.length} routes × ${LANGUAGES.length} languages), ${localeDicts.size} locale dictionaries`,
+  `prerender i18n — ${i18nWritten}/${TRANSLATED_ROUTES.length * LANGUAGES.length} translated pages (${TRANSLATED_ROUTES.length} routes × ${LANGUAGES.length} languages), ${localeDicts.size} locale dictionaries`,
 )
 if (i18nFailed.length) {
   console.warn(`prerender i18n — ${i18nFailed.length} page(s) failed:`)

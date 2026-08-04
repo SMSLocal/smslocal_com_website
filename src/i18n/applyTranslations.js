@@ -8,7 +8,7 @@
 // MutationObserver for anything React re-renders afterward.
 import { getLocaleFromPathname } from '../lib/locale.js'
 import { isRTL } from '../data/languages.js'
-import { PILOT_ROUTES } from '../data/pilotRoutes.js'
+import { isTranslatedRoute } from '../data/i18nScope.js'
 
 const SKIP_TAGS = new Set([
   'script', 'style', 'code', 'pre', 'noscript', 'svg', 'canvas', 'textarea', 'input',
@@ -126,8 +126,10 @@ function rewriteLinks(locale) {
     const href = a.getAttribute('href') ?? ''
     if (href.startsWith(`${prefix}/`) || href === prefix) return
     const bare = href.split(/[?#]/)[0]
+    // Only page URLs: a file (/sitemap.xml, /assets/…) has no locale copy.
+    if (/\.[a-z0-9]+$/i.test(bare) || bare.startsWith('/assets/')) return
     const clean = bare.length > 1 && bare.endsWith('/') ? bare.slice(0, -1) : bare || '/'
-    if (!PILOT_ROUTES.includes(clean)) return
+    if (!isTranslatedRoute(clean)) return
     const suffix = href.slice(bare.length)
     if (!originalHref.has(a)) originalHref.set(a, href)
     a.setAttribute('href', `${prefix}${bare}${suffix}`)
