@@ -723,19 +723,28 @@
   }
 }
 
-/* --- use cases --------------------------------------------------------- */
+/* --- use cases -----------------------------------------------------------
+   Was three pills a caption tall. Each panel now carries a large outline
+   numeral (same construction as the requirements section — one design
+   language across the page) plus an icon, with real height instead of
+   padding sized to one short phrase. */
 .cases {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 16px;
+  gap: 20px;
+  align-items: stretch;
 }
 .case {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 22px;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
   position: relative;
   overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
 }
 .case::before {
   content: '';
@@ -744,30 +753,110 @@
   height: 3px;
   background: var(--gradient-brand);
 }
+.caseN {
+  position: absolute;
+  top: 6px;
+  right: 18px;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(79, 91, 213, 0.16);
+  pointer-events: none;
+}
+.caseIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--cc-surface);
+  color: var(--brand-start);
+  margin-bottom: auto;
+}
 .caseT {
-  font-weight: 500;
+  margin-top: 22px;
+  font-size: 17px;
+  font-weight: 600;
   color: var(--ink);
   line-height: 1.5;
+  position: relative;
 }
 
-/* --- dialling example -------------------------------------------------- */
+/* --- dialling: parts row + example --------------------------------------
+   The three-part breakdown reuses the hub's number-anatomy construction,
+   personalised with this country's own code and format — the section was one
+   dark card; this gives it a second, taller artifact above that card. */
+.dialParts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.dialPart {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.dialPartExit {
+  flex: 0 1 110px;
+}
+.dialPartCode {
+  border-color: rgba(79, 91, 213, 0.35);
+  background: var(--cc-surface);
+}
+.dialPartV {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  word-break: break-word;
+}
+.dialPartCode .dialPartV {
+  color: var(--brand-start);
+}
+.dialPartL {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
 .dialExample {
   background: var(--ink);
   color: #fff;
   border-radius: var(--radius-lg);
-  padding: 30px;
+  padding: 36px 34px;
   font-variant-numeric: tabular-nums;
 }
 .dialExample code {
   display: block;
   font-size: clamp(18px, 2.4vw, 26px);
   letter-spacing: 0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 .dialExample p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.6;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.75;
+  max-width: 78ch;
+}
+
+@media (max-width: 560px) {
+  .dialParts {
+    flex-direction: column;
+  }
+  .dialPartExit {
+    flex-basis: auto;
+  }
 }
 
 /* --- related rail ------------------------------------------------------ */

@@ -279,9 +279,20 @@ function CountryCode() {
       <div className={styles.wrap}>
         <div className={styles.kicker}>Traffic</div>
         <h2 className={styles.h2}>What businesses send in {c.name}</h2>
+        {/* Was three short pills — a caption's worth of height. Each is now a
+            tall panel: a large outline numeral (same construction as the
+            requirements section, so the two feel like one design language)
+            plus a message-bubble icon, so three short phrases read as three
+            substantial panels rather than three tags. */}
         <div className={styles.cases}>
-          {c.useCases.map((u) => (
+          {c.useCases.map((u, i) => (
             <div className={styles.case} key={u}>
+              <span className={styles.caseN} aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <span className={styles.caseIcon} aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+              </span>
               <div className={styles.caseT}>{u}</div>
             </div>
           ))}
@@ -290,11 +301,45 @@ function CountryCode() {
     </section>
   )
 
+  // The national-number pattern, split out of the format string that already
+  // exists for every country — not a new fact, just the same string
+  // re-presented as its own part rather than folded into one line. Plain
+  // string ops rather than a RegExp built from c.dial: the dial code itself
+  // contains "+", which needs escaping to be used as a regex literal, and an
+  // unescaped "+62" is "one or more of '6'" — not the string "+62".
+  const dialHead = c.format ? c.format.split('—')[0].trim() : ''
+  const nsnPattern = dialHead
+    ? (dialHead.startsWith(c.dial) ? dialHead.slice(c.dial.length).trim() : dialHead)
+    : 'national number'
+
   const Dialling = (
     <section key="dial" className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={styles.wrap}>
         <div className={styles.kicker}>Dialling</div>
         <h2 className={styles.h2}>How to dial {c.name}</h2>
+        <p className={styles.sub}>
+          Every part of the number, laid out separately, then the same thing written the way an
+          API expects it.
+        </p>
+
+        {/* Same three-part construction as the hub's number-anatomy section,
+            personalised to this country's own code and format — real values,
+            not a second invented example. */}
+        <div className={styles.dialParts}>
+          <div className={`${styles.dialPart} ${styles.dialPartExit}`}>
+            <span className={styles.dialPartV}>+</span>
+            <span className={styles.dialPartL}>Exit</span>
+          </div>
+          <div className={`${styles.dialPart} ${styles.dialPartCode}`}>
+            <span className={styles.dialPartV}>{c.dial.replace('+', '')}</span>
+            <span className={styles.dialPartL}>Country code</span>
+          </div>
+          <div className={`${styles.dialPart} ${styles.dialPartNsn}`}>
+            <span className={styles.dialPartV}>{nsnPattern}</span>
+            <span className={styles.dialPartL}>National number</span>
+          </div>
+        </div>
+
         <div className={styles.dialExample}>
           <code>
             {c.dial} — {c.format ?? `${c.dial} followed by the national number`}
