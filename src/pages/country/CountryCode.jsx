@@ -199,11 +199,20 @@ function CountryCode() {
           These are the constraints that decide whether a message is delivered, filtered or blocked
           — not general best practice.
         </p>
+        {/* Two-column checklist grid rather than one full-width numbered
+            rail — each requirement is its own card with a check badge, so
+            four short rules read as four things confirmed, not a list to
+            scroll past. */}
         <div className={styles.rules}>
           {c.rules.map((r, i) => (
             <div className={styles.rule} key={r}>
-              <span className={styles.ruleN}>{i + 1}</span>
-              <span className={styles.ruleT}>{r}</span>
+              <span className={styles.ruleBadge}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <span className={styles.ruleN}>Requirement {i + 1}</span>
+              <p className={styles.ruleT}>{r}</p>
             </div>
           ))}
         </div>
