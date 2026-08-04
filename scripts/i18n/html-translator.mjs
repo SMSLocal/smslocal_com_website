@@ -75,15 +75,20 @@ async function translateMetaAttrs(html, locale) {
     const decoded = decodeEntities(m[1]).trim()
     if (decoded) originals.add(decoded)
   }
-  if (originals.size === 0) return html
+  if (originals.size === 0) return { html, map: new Map() }
 
   const map = await translateBatch([...originals], locale)
-  return html.replace(re, (full, content) => {
+  const out = html.replace(re, (full, content) => {
     const decoded = decodeEntities(content).trim()
     const translated = map.get(decoded)
     if (!translated) return full
     return full.replace(`content="${content}"`, `content="${encodeText(translated)}"`)
   })
+  // Returned so these land in the injected dictionary too: React re-renders
+  // <Seo> on the client with the English meta and Canonical.jsx drops the
+  // prerendered tags, so the client needs these strings to put the
+  // translation back (see src/i18n/applyTranslations.js).
+  return { html: out, map }
 }
 
 /**
@@ -93,7 +98,7 @@ async function translateMetaAttrs(html, locale) {
 export async function translatePageHtml(html, locale, translatedRoutes) {
   if (locale === 'en') return { html, count: 0 }
 
-  const withMetaTranslated = await translateMetaAttrs(html, locale)
+  const { html: withMetaTranslated, map: metaMap } = await translateMetaAttrs(html, locale)
 
   const parts = withMetaTranslated.split(/(<[^>]+>)/)
   const skipStack = []
@@ -134,8 +139,8 @@ export async function translatePageHtml(html, locale, translatedRoutes) {
     unique.add(core)
   }
 
-  if (unique.size === 0) return { html: withMetaTranslated, count: 0 }
-
+  // No early return when there's no body text: the meta strings still need
+  // to reach the client dictionary. translateBatch([]) is a no-op.
   const map = await translateBatch([...unique], locale)
 
   for (const job of jobs) {
@@ -144,10 +149,12 @@ export async function translatePageHtml(html, locale, translatedRoutes) {
     parts[job.index] = job.lead + encodeText(tr) + job.trail
   }
 
-  const dict = Object.fromEntries(map)
+  // Body text and <meta content> strings go into one dictionary — the client
+  // has to restore both after React re-renders the page in English.
+  const dict = Object.fromEntries([...metaMap, ...map])
   const json = JSON.stringify(dict).replace(/<\/script>/gi, '<\\/script>')
   const inlineScript =
     `<script>window.__LD_TX__=${json};window.__LD_LOCALE__=${JSON.stringify(locale)};</script>`
 
-  return { html: parts.join('') + inlineScript, count: map.size }
+  return { html: parts.join('') + inlineScript, count: Object.keys(dict).length, dict }
 }

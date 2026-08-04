@@ -7,6 +7,7 @@
 // (window.__LD_TX__) right after that commit, then keeps re-applying via a
 // MutationObserver for anything React re-renders afterward.
 import { getLocaleFromPathname } from '../lib/locale.js'
+import { isRTL } from '../data/languages.js'
 import { PILOT_ROUTES } from '../data/pilotRoutes.js'
 
 const SKIP_TAGS = new Set([
@@ -38,6 +39,15 @@ function collectTextNodes(root) {
   return nodes
 }
 
+// What each node said before we touched it. The chrome (navbar, footer)
+// isn't re-created when React Router changes route, so its nodes survive a
+// navigation with our translated text still in them — navigating from a
+// translated page to an English one left a Korean navbar above English page
+// content until this restored them. Keyed weakly so nodes React discards are
+// not retained.
+const originalText = new WeakMap()
+const originalHref = new WeakMap()
+
 function applyDict(dict, nodes) {
   for (const node of nodes) {
     const raw = node.textContent ?? ''
@@ -45,11 +55,61 @@ function applyDict(dict, nodes) {
     if (!trimmed) continue
     const translated = dict[trimmed]
     if (!translated || translated === trimmed) continue
+    if (!originalText.has(node)) originalText.set(node, raw)
     const lead = raw.slice(0, raw.length - raw.trimStart().length)
     const trail = raw.slice(raw.trimEnd().length)
     const next = lead + translated + trail
     if (node.textContent !== next) node.textContent = next
   }
+}
+
+/** Puts back everything we translated, for when the route goes back to English. */
+function restoreOriginal() {
+  for (const node of collectTextNodes(document.body)) {
+    const original = originalText.get(node)
+    if (original !== undefined && node.textContent !== original) node.textContent = original
+  }
+  for (const a of document.querySelectorAll('a[href]')) {
+    const href = originalHref.get(a)
+    if (href !== undefined && a.getAttribute('href') !== href) a.setAttribute('href', href)
+  }
+}
+
+// The prerendered file ships a translated <title> and <meta>, but they don't
+// survive the client: Seo.jsx re-renders them from its English props and
+// Canonical.jsx deletes the prerendered copies on mount, so without this the
+// tab title and social/search preview revert to English even though the page
+// body is translated. <title> is a text node so it's in the dictionary from
+// the body pass; the <meta content> strings are merged in by the build (see
+// html-translator.mjs).
+const HEAD_TARGETS = [
+  { selector: 'title', attr: null },
+  { selector: 'meta[name="description"]', attr: 'content' },
+  { selector: 'meta[property="og:title"]', attr: 'content' },
+  { selector: 'meta[property="og:description"]', attr: 'content' },
+]
+
+function applyHead(dict) {
+  for (const { selector, attr } of HEAD_TARGETS) {
+    for (const el of document.querySelectorAll(selector)) {
+      const current = (attr ? el.getAttribute(attr) : el.textContent) ?? ''
+      const translated = dict[current.trim()]
+      if (!translated || translated === current) continue
+      if (attr) el.setAttribute(attr, translated)
+      else el.textContent = translated
+    }
+  }
+}
+
+function headStrings() {
+  const out = []
+  for (const { selector, attr } of HEAD_TARGETS) {
+    for (const el of document.querySelectorAll(selector)) {
+      const value = ((attr ? el.getAttribute(attr) : el.textContent) ?? '').trim()
+      if (value) out.push(value)
+    }
+  }
+  return out
 }
 
 // The static file's own hrefs were already rewritten to /<locale>/... at
@@ -69,6 +129,7 @@ function rewriteLinks(locale) {
     const clean = bare.length > 1 && bare.endsWith('/') ? bare.slice(0, -1) : bare || '/'
     if (!PILOT_ROUTES.includes(clean)) return
     const suffix = href.slice(bare.length)
+    if (!originalHref.has(a)) originalHref.set(a, href)
     a.setAttribute('href', `${prefix}${bare}${suffix}`)
   })
 }
@@ -87,12 +148,13 @@ function rewriteLinks(locale) {
 const translatedValues = new Set()
 
 async function fetchDevTranslations(locale, dict) {
-  const needed = []
-  for (const node of collectTextNodes(document.body)) {
-    const text = (node.textContent ?? '').trim()
-    if (!text || dict[text] || translatedValues.has(text)) continue
-    needed.push(text)
-  }
+  const candidates = [
+    ...collectTextNodes(document.body).map((n) => (n.textContent ?? '').trim()),
+    ...headStrings(),
+  ]
+  const needed = candidates.filter(
+    (text) => text && !dict[text] && !translatedValues.has(text),
+  )
   if (needed.length === 0) return false
 
   try {
@@ -119,7 +181,40 @@ async function fetchDevTranslations(locale, dict) {
   }
 }
 
+// The whole-locale dictionary the build publishes (dist/i18n/<locale>.json).
+// Fetched at most once per locale per session; `loaded` also stops a failed
+// fetch from being retried on every route change.
+const loadedLocales = new Set()
+
+async function loadLocaleDict(locale, dict) {
+  if (loadedLocales.has(locale)) return false
+  loadedLocales.add(locale)
+  try {
+    const res = await fetch(`/i18n/${locale}.json`)
+    if (!res.ok) return false
+    const full = await res.json()
+    let added = false
+    for (const [src, tr] of Object.entries(full)) {
+      if (!dict[src]) {
+        dict[src] = tr
+        added = true
+      }
+    }
+    return added
+  } catch {
+    return false
+  }
+}
+
 let observer = null
+let pending = null
+// Bumped on every route change. Disconnecting the observer stops new
+// mutations firing, but anything already scheduled — the debounce timer, an
+// in-flight translation fetch — still runs and would re-translate the page
+// we just left. That's what put a Korean navbar above an English page after
+// navigating from a translated route to an untranslated one. Callbacks
+// compare against this and drop out if they belong to a previous route.
+let generation = 0
 
 /** Re-applies the injected dictionary and internal-link prefixes to the
  *  current DOM, and keeps doing so for anything React re-renders afterward
@@ -128,13 +223,26 @@ export function applyTranslations() {
   const locale = getLocaleFromPathname(window.location.pathname)
   observer?.disconnect()
   observer = null
-  if (locale === 'en') return
+  if (pending) clearTimeout(pending)
+  pending = null
+  const mine = ++generation
+
+  if (locale === 'en') {
+    // Not a no-op: the persistent chrome may still be holding the previous
+    // route's translation.
+    restoreOriginal()
+    document.documentElement.lang = 'en'
+    document.documentElement.removeAttribute('dir')
+    return
+  }
 
   // In production this is the dictionary the build injected; in dev it starts
   // empty and is filled in by fetchDevTranslations below.
   const dict = window.__LD_TX__ ?? (window.__LD_TX__ = {})
   const run = () => {
+    if (mine !== generation) return
     applyDict(dict, collectTextNodes(document.body))
+    applyHead(dict)
     rewriteLinks(locale)
   }
   // In dev, also pick up text React renders after the first pass. This can't
@@ -142,55 +250,37 @@ export function applyTranslations() {
   // and strings it previously produced, so once everything is translated it
   // returns false without fetching and the cycle stops.
   const syncDev = () => {
-    if (!import.meta.env.DEV) return
+    if (!import.meta.env.DEV || mine !== generation) return
     fetchDevTranslations(locale, dict).then((added) => {
-      if (added) applyDict(dict, collectTextNodes(document.body))
+      if (added) run()
     })
   }
 
+  // The dev server serves the plain shell, so <html lang>/dir aren't set by
+  // the build the way they are on a prerendered locale file.
+  document.documentElement.lang = locale
+  if (isRTL(locale)) document.documentElement.dir = 'rtl'
+
   run()
   syncDev()
+  // Covers pages this page's own embedded dictionary doesn't know about, so a
+  // client-side route change can be translated without a full page load. One
+  // fetch per locale per session; the browser caches the file after that.
+  loadLocaleDict(locale, dict).then((added) => {
+    if (added) run()
+  })
 
-  let debounce = null
-  observer = new MutationObserver(() => {
-    if (debounce) clearTimeout(debounce)
-    debounce = setTimeout(() => {
+  const onMutate = () => {
+    if (pending) clearTimeout(pending)
+    pending = setTimeout(() => {
       run()
       syncDev()
     }, 15)
-  })
+  }
+  observer = new MutationObserver(onMutate)
   observer.observe(document.body, { childList: true, subtree: true, characterData: true })
+  // React hoists <title>/<meta> into <head> after the body render, so the
+  // head needs watching too or the title reverts and never comes back.
+  observer.observe(document.head, { childList: true, subtree: true, characterData: true })
 }
 
-const SKIP_HREF_RE = /^(?:#|mailto:|tel:|javascript:)/i
-let clickHandlerBound = false
-
-/**
- * Client-side SPA navigation between two locale pages would leave window.__LD_TX__
- * pointing at the PREVIOUS page's dictionary — it's only injected once, at the
- * static file's initial load, and doesn't know the new page's page-specific text.
- * A full reload is the only way the new page's own translated file (and its own
- * dictionary) actually gets fetched, so locale-prefixed link clicks force one
- * instead of a client-side transition — the same trade the reference
- * implementation's GlobalTranslator makes for exactly this reason.
- */
-export function forceReloadOnLocaleLinks() {
-  if (clickHandlerBound || typeof document === 'undefined') return
-  clickHandlerBound = true
-
-  document.addEventListener(
-    'click',
-    (e) => {
-      const locale = getLocaleFromPathname(window.location.pathname)
-      if (locale === 'en') return
-      const anchor = e.target.closest?.('a[href]')
-      if (!anchor) return
-      const href = anchor.getAttribute('href') ?? ''
-      if (!href.startsWith(`/${locale}/`) && href !== `/${locale}`) return
-      if (SKIP_HREF_RE.test(href)) return
-      e.preventDefault()
-      window.location.href = href
-    },
-    { capture: true },
-  )
-}

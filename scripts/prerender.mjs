@@ -61,6 +61,16 @@ const countryRoutes = JSON.parse(
 
 const routes = [...staticRoutes, ...postRoutes, ...countryRoutes]
 
+// Translated pages (the i18n block further down writes the files). Imported
+// here rather than there so they can go in a sitemap — without one, the only
+// path to a translated page is the hreflang tags on its English counterpart,
+// which is a much weaker discovery signal than being listed outright.
+const { LANGUAGES } = await import(new URL('../src/data/languages.js', import.meta.url))
+const { PILOT_ROUTES } = await import(new URL('../src/data/pilotRoutes.js', import.meta.url))
+const localeRoutes = PILOT_ROUTES.flatMap((route) =>
+  LANGUAGES.map(({ code }) => (route === '/' ? `/${code}` : `/${code}${route}`)),
+)
+
 // Sitemaps: an index at /sitemap.xml pointing at one sub-sitemap per content
 // type, matching how the pages are actually grouped. Only canonical URLs go in
 // — posts are listed at the one routePath they were imported under, never at
@@ -86,6 +96,13 @@ function lastmodFor(route) {
   return ''
 }
 
+// A locale page changes when its English source does, so it inherits that
+// page's date rather than carrying one of its own.
+const localeLastmod = (route) => {
+  const stripped = route.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/'
+  return lastmodFor(stripped)
+}
+
 const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
 
 // Split by page type, not by blog category: area-code posts are blog posts like
@@ -94,13 +111,14 @@ const groups = [
   { file: 'page-sitemap.xml', routes: staticRoutes },
   { file: 'post-sitemap.xml', routes: posts.map(routeOf) },
   { file: 'country-code-sitemap.xml', routes: countryRoutes },
+  { file: 'i18n-sitemap.xml', routes: localeRoutes },
 ].filter((g) => g.routes.length)
 
-const urlsetFor = (list) =>
+const urlsetFor = (list, dateFor = lastmodFor) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n${STYLE}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   list
     .map((route) => {
-      const lastmod = lastmodFor(route)
+      const lastmod = dateFor(route)
       // Trailing slash: the served form (vercel.json trailingSlash: true). A
       // sitemap listing the slash-less URL would list a redirect.
       const loc = route.endsWith('/') ? route : `${route}/`
@@ -109,13 +127,14 @@ const urlsetFor = (list) =>
     .join('\n') +
   `\n</urlset>\n`
 
-for (const g of groups) writeFileSync(join(dist, g.file), urlsetFor(g.routes))
+const dateForGroup = (g) => (g.file === 'i18n-sitemap.xml' ? localeLastmod : lastmodFor)
+for (const g of groups) writeFileSync(join(dist, g.file), urlsetFor(g.routes, dateForGroup(g)))
 
 // The index's lastmod per sub-sitemap is the newest page inside it, so it moves
 // only when something in that group actually changed.
 const indexEntries = groups
   .map((g) => {
-    const newest = g.routes.map(lastmodFor).filter(Boolean).sort().pop()
+    const newest = g.routes.map(dateForGroup(g)).filter(Boolean).sort().pop()
     return `  <sitemap>\n    <loc>${SITE}/${g.file}</loc>${newest ? `\n    <lastmod>${newest}</lastmod>` : ''}\n  </sitemap>`
   })
   .join('\n')
@@ -182,13 +201,18 @@ if (failed.length) {
 // LocaleContext) produce it directly; the HTML translator only touches body
 // text and <meta content> attributes, matching that same split of
 // responsibility.
-const { LANGUAGES } = await import(new URL('../src/data/languages.js', import.meta.url))
-const { PILOT_ROUTES } = await import(new URL('../src/data/pilotRoutes.js', import.meta.url))
 const { translatePageHtml } = await import('./i18n/html-translator.mjs')
 
 const translatedRoutes = new Set(PILOT_ROUTES)
 let i18nWritten = 0
 const i18nFailed = []
+// Every string translated for a locale, across all its pages. Each page still
+// embeds its own dictionary (so the first paint needs no fetch), but a
+// client-side route change renders a page whose strings that dictionary
+// doesn't have. Publishing one dictionary per locale lets the client cover
+// any page it navigates to, which is what makes normal SPA navigation
+// possible here instead of forcing a full reload on every locale link.
+const localeDicts = new Map(LANGUAGES.map(({ code }) => [code, {}]))
 
 for (const route of PILOT_ROUTES) {
   for (const { code: locale, rtl } of LANGUAGES) {
@@ -200,7 +224,8 @@ for (const route of PILOT_ROUTES) {
       i18nFailed.push(`${localeUrl}: ${error.message.split('\n')[0]}`)
       continue
     }
-    const { html: translated } = await translatePageHtml(body, locale, translatedRoutes)
+    const { html: translated, dict } = await translatePageHtml(body, locale, translatedRoutes)
+    Object.assign(localeDicts.get(locale), dict)
     const htmlAttrs = rtl ? `lang="${locale}" dir="rtl"` : `lang="${locale}"`
     const file =
       route === '/' ? join(dist, locale, 'index.html') : join(dist, locale, route, 'index.html')
@@ -210,8 +235,13 @@ for (const route of PILOT_ROUTES) {
   }
 }
 
+mkdirSync(join(dist, 'i18n'), { recursive: true })
+for (const [locale, dict] of localeDicts) {
+  writeFileSync(join(dist, 'i18n', `${locale}.json`), JSON.stringify(dict))
+}
+
 console.log(
-  `prerender i18n — ${i18nWritten}/${PILOT_ROUTES.length * LANGUAGES.length} translated pages (${PILOT_ROUTES.length} routes × ${LANGUAGES.length} languages)`,
+  `prerender i18n — ${i18nWritten}/${PILOT_ROUTES.length * LANGUAGES.length} translated pages (${PILOT_ROUTES.length} routes × ${LANGUAGES.length} languages), ${localeDicts.size} locale dictionaries`,
 )
 if (i18nFailed.length) {
   console.warn(`prerender i18n — ${i18nFailed.length} page(s) failed:`)

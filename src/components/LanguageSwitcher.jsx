@@ -21,13 +21,12 @@ const ALL = [{ code: 'en', native: 'English', country: 'us' }, ...LANGUAGES]
  * own static translated file, not repaint the current one, see
  * applyTranslations.js for why that distinction matters.
  */
-const VARIANTS = {
-  dark: 'text-white/70 [&_summary]:border-white/20 [&_ul]:bg-[#0b0b12] [&_ul]:border-white/10 [&_li:hover]:bg-white/10',
-  light:
-    'text-foreground [&_summary]:border-border [&_ul]:bg-white [&_ul]:border-border [&_li:hover]:bg-muted',
-}
+// Navbar-only, so it styles for that one light surface — there was a dark
+// variant while this also sat in the footer; that went with it.
+const STYLES =
+  'text-foreground [&_summary]:border-border [&_ul]:bg-white [&_ul]:border-border [&_li:hover]:bg-muted'
 
-function LanguageSwitcher({ variant = 'light' }) {
+function LanguageSwitcher() {
   const { pathname } = useLocation()
   const locale = useLocale()
   const detailsRef = useRef(null)
@@ -48,7 +47,7 @@ function LanguageSwitcher({ variant = 'light' }) {
   }
 
   return (
-    <details ref={detailsRef} onBlur={handleBlur} className={`relative text-sm ${VARIANTS[variant]}`}>
+    <details ref={detailsRef} onBlur={handleBlur} className={`relative text-sm ${STYLES}`}>
       <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md border px-2 py-1 [&::-webkit-details-marker]:hidden">
         <img
           src={`/flags/${current.country}.svg`}
