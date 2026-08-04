@@ -205,31 +205,99 @@
   line-height: 1.65;
 }
 
-/* --- facts strip ------------------------------------------------------- */
-.facts {
+/* --- facts bento --------------------------------------------------------
+   Asymmetric grid: the dial code is the page's subject, so it gets the tall
+   featured cell rather than sitting in a row of five equal boxes. A 2-row,
+   3-column frame with the hero cell spanning both rows in column 1, and
+   population spanning two columns in row 1 — the classic "1 large + rest"
+   bento shape, sized to what each fact is worth rather than uniform tiles. */
+.bento {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: 1.15fr 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 14px;
 }
-.fact {
+.cell {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 20px;
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.factN {
-  font-size: 24px;
+.cellHero {
+  grid-row: 1 / 3;
+  background: linear-gradient(155deg, #fff 0%, var(--cc-surface) 130%);
+  border-color: rgba(79, 91, 213, 0.28);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 20px 44px -28px rgba(79, 91, 213, 0.55);
+  padding: 26px;
+}
+.cellWide {
+  grid-column: span 2;
+}
+.cellFlag {
+  width: 40px;
+  height: 30px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.12);
+  margin-bottom: 14px;
+}
+.cellDial {
+  font-size: clamp(38px, 4.4vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--brand-start);
+}
+.cellDialLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+.cellIso {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.cellIso strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.cellN {
+  font-size: clamp(22px, 2.6vw, 28px);
   font-weight: 600;
   color: var(--navy);
   line-height: 1.15;
+  font-variant-numeric: tabular-nums;
 }
-.factL {
+.cellL {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-secondary);
   margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .bento {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cellHero {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+  .cellWide {
+    grid-column: 1 / 3;
+  }
 }
 
 /* --- operators --------------------------------------------------------- */
@@ -285,33 +353,52 @@
 .callout {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 18px;
-  align-items: start;
+  gap: 26px;
+  align-items: center;
   background: #fff;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--brand-end);
-  border-radius: var(--radius-md);
-  padding: 24px 26px;
+  border-left: 5px solid var(--brand-end);
+  border-radius: var(--radius-lg);
+  padding: 38px 42px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 24px 50px -32px rgba(79, 91, 213, 0.5);
 }
 .calloutIcon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
   color: #fff;
   font-weight: 700;
+  font-size: 20px;
+  flex: none;
 }
 .calloutBody h3 {
-  margin: 0 0 6px;
-  font-size: 16px;
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 600;
   color: var(--heading);
 }
 .calloutBody p {
   margin: 0;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.75;
   color: var(--text-secondary);
+  max-width: 68ch;
+}
+
+@media (max-width: 640px) {
+  .callout {
+    grid-template-columns: 1fr;
+    padding: 28px 26px;
+    gap: 18px;
+  }
+  .calloutIcon {
+    width: 52px;
+    height: 52px;
+    font-size: 17px;
+  }
 }
 
 /* --- use cases --------------------------------------------------------- */

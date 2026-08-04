@@ -49,29 +49,40 @@ function CountryCode() {
           The figures below come from public country data and set the context for how much SMS
           traffic {c.name} actually carries.
         </p>
-        <div className={styles.facts}>
-          <div className={styles.fact}>
-            <div className={styles.factN}>{c.dial}</div>
-            <div className={styles.factL}>Country code</div>
-          </div>
-          <div className={styles.fact}>
-            <div className={styles.factN}>{c.iso2} / {c.iso3 ?? '—'}</div>
-            <div className={styles.factL}>ISO codes</div>
-          </div>
-          <div className={styles.fact}>
-            <div className={styles.factN}>{fmt(c.population)}</div>
-            <div className={styles.factL}>Population</div>
-          </div>
-          <div className={styles.fact}>
-            <div className={styles.factN}>{fmt(c.areaKm2)}</div>
-            <div className={styles.factL}>Area km²</div>
-          </div>
-          {c.gdpUsd && (
-            <div className={styles.fact}>
-              <div className={styles.factN}>{c.gdpUsd}</div>
-              <div className={styles.factL}>GDP (USD)</div>
+        {/* Bento: the dial code is the page's subject, so it gets the large
+            cell and carries the ISO codes as a footnote rather than competing
+            with them for a slot of equal size. */}
+        <div className={styles.bento}>
+          <div className={`${styles.cell} ${styles.cellHero}`}>
+            <img
+              className={styles.cellFlag}
+              src={`/flags/${c.iso2.toLowerCase()}.svg`}
+              alt=""
+              width="40"
+              height="30"
+            />
+            <div className={styles.cellDial}>{c.dial}</div>
+            <div className={styles.cellDialLabel}>{c.name} country code</div>
+            <div className={styles.cellIso}>
+              <span>ISO</span>
+              <strong>{c.iso2} / {c.iso3 ?? '—'}</strong>
             </div>
-          )}
+          </div>
+
+          <div className={`${styles.cell} ${styles.cellWide}`}>
+            <div className={styles.cellN}>{fmt(c.population)}</div>
+            <div className={styles.cellL}>People</div>
+          </div>
+
+          <div className={styles.cell}>
+            <div className={styles.cellN}>{fmt(c.areaKm2)}</div>
+            <div className={styles.cellL}>Area km²</div>
+          </div>
+
+          <div className={styles.cell}>
+            <div className={styles.cellN}>{c.gdpUsd ?? '—'}</div>
+            <div className={styles.cellL}>GDP (USD)</div>
+          </div>
         </div>
       </div>
     </section>
