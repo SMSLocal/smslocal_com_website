@@ -316,51 +316,55 @@
   color: var(--ink);
 }
 
-/* --- rules: checklist grid -----------------------------------------------
-   Two columns of independent cards rather than one full-width numbered rail —
-   each requirement reads as a thing confirmed, not a row in a list. */
+/* --- rules: editorial numeral list -----------------------------------
+   No boxes anywhere, and not a grid of tiles — an oversized outline numeral
+   sits behind each requirement's text, full width, one per row, divided by a
+   hairline. Third attempt at this section: first was a plain numbered rail,
+   second a checklist card grid — still a tile shape with a different badge.
+   This is a structurally different construction, not a restyle of either. */
 .rules {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-.rule {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 24px 26px;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
 }
-.ruleBadge {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
+.rule {
+  position: relative;
   display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, var(--brand-start), var(--brand-end));
-  color: #fff;
-  flex: none;
+  grid-template-columns: 84px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 30px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.rule:first-child {
+  border-top: 1px solid var(--border);
 }
 .ruleN {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--brand-start);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(79, 91, 213, 0.35);
 }
 .ruleT {
-  margin: -6px 0 0;
-  font-size: 15px;
-  line-height: 1.65;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
   color: var(--ink);
+  max-width: 68ch;
 }
 
-@media (max-width: 720px) {
-  .rules {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .rule {
+    grid-template-columns: 52px 1fr;
+    padding: 22px 2px;
+    gap: 4px;
+  }
+  .ruleN {
+    font-size: 38px;
+  }
+  .ruleT {
+    font-size: 15px;
   }
 }
 
