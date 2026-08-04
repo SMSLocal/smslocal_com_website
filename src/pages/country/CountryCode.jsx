@@ -224,10 +224,51 @@ function CountryCode() {
           We deliver to every network below. Route quality is measured per operator, not averaged
           across the country.
         </p>
-        <div className={styles.ops}>
-          {c.operators.map((o) => (
-            <span className={styles.op} key={o}>{o}</span>
-          ))}
+
+        {/* The ring divides equally by operator count, not by market share —
+            we don't have real share data per market, and inventing it would be
+            exactly the kind of unverified figure this project avoids. It reads
+            as "every network, one route each," which is the true claim. */}
+        <div className={styles.opsGrid}>
+          <div className={styles.ring}>
+            <div
+              className={styles.ringChart}
+              style={{
+                background: `conic-gradient(${c.operators
+                  .map((_, i) => {
+                    const start = (i / c.operators.length) * 360
+                    const end = ((i + 1) / c.operators.length) * 360
+                    const color = i % 2 === 0 ? 'var(--brand-start)' : 'var(--brand-end)'
+                    return `${color} ${start}deg ${end}deg`
+                  })
+                  .join(', ')})`,
+              }}
+            >
+              <div className={styles.ringHole}>
+                <img
+                  className={styles.ringFlag}
+                  src={`/flags/${c.iso2.toLowerCase()}.svg`}
+                  alt=""
+                  width="30"
+                  height="22"
+                />
+                <span className={styles.ringN}>{c.operators.length}</span>
+                <span className={styles.ringL}>Networks</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.opRows}>
+            {c.operators.map((o, i) => (
+              <div className={styles.opRow} key={o}>
+                <span className={styles.opAvatar} aria-hidden="true">
+                  {o.slice(0, 2).toUpperCase()}
+                </span>
+                <span className={styles.opName}>{o}</span>
+                <span className={styles.opStatus}>Live route</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
