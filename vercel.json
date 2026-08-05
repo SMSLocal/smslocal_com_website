@@ -5,8 +5,12 @@
   "trailingSlash": true,
   "rewrites": [
     {
-      "source": "^/(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)(/.*)?$",
-      "destination": "/api/i18n-ssr?locale=$1&path=$2"
+      "source": "/:locale(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)",
+      "destination": "/api/i18n-ssr?locale=:locale&path=/"
+    },
+    {
+      "source": "/:locale(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/:path*",
+      "destination": "/api/i18n-ssr?locale=:locale&path=/:path*"
     }
   ],
   "redirects": [
