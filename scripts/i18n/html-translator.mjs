@@ -27,7 +27,7 @@ const VOID_TAGS = new Set([
 const SKIP_HREF_RE = /^(?:#|mailto:|tel:|javascript:|data:|https?:|\/\/|\/api\/|\/favicon|\/icon|\/robots|\/sitemap|\/assets\/)/i
 const HAS_EXTENSION_RE = /\.[a-z0-9]+$/i
 
-const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' }
+const NAMED_ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: '\u00A0' }
 
 function decodeEntities(s) {
   return s.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]*);/g, (m, ent) => {

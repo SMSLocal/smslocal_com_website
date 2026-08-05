@@ -22,14 +22,14 @@ const EXCLUDED = new Set([
 ])
 
 /**
- * Whole sections held back for now, purely on build cost: the 195 country
- * detail pages and the 32 blog posts are ~4,200 extra pages across 19
- * languages, all fresh translations against a rate-limited free endpoint,
- * which is hours of build time. The marketing pages ship translated first;
- * these follow in a later pass once their translations are cached.
+ * Country detail pages and blog posts are temporarily held back again.
  *
- * Prefixes, not exact paths — the /country-code hub itself is a marketing
- * page and stays translated; only its per-country children are held back.
+ * Not a design decision — a scheduling one. Their ~4,300 pages are all fresh
+ * translations, and the cache for them is only ~65% warm; shipping now would
+ * make Vercel fetch the remainder during its own build and risk a timeout.
+ * The marketing pages are fully cached and ship immediately. Delete this
+ * prefix list and rebuild once the country/blog cache is complete — nothing
+ * else needs to change.
  */
 const EXCLUDED_PREFIXES = ['/country-code/', '/blog/', '/resources/insights/']
 

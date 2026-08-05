@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 import { SITE_ORIGIN } from './Canonical.jsx'
 import { withSlash } from '../lib/url.js'
 import { useLocale } from '../lib/LocaleContext.jsx'
+import { LANGUAGES } from '../data/languages.js'
 
 /**
  * Head tags rendered as real elements rather than written from an effect, so
@@ -34,6 +35,12 @@ function Seo({
   const { pathname } = useLocation()
   const locale = useLocale()
   const localePrefix = locale !== 'en' ? `/${locale}` : ''
+  // og:locale wants language_TERRITORY. The territory comes from the same
+  // `country` each language already carries for its flag, so there's no
+  // second mapping to keep in sync. Without this, social platforms guess the
+  // language of a translated page from its English-looking URL structure.
+  const lang = LANGUAGES.find((l) => l.code === locale)
+  const ogLocale = lang ? `${lang.code}_${lang.country.toUpperCase()}` : 'en_US'
   const resolved = exactTitle ?? (title ? `${title} | SMSLocal` : null)
   const url = canonical ?? `${SITE_ORIGIN}${localePrefix}${withSlash(pathname)}`
   const image = ogImage ? new URL(ogImage, SITE_ORIGIN).href : null
@@ -47,6 +54,7 @@ function Seo({
       {resolved && <meta property="og:title" content={resolved} />}
       {description && <meta property="og:description" content={description} />}
       <meta property="og:type" content={ogType ?? 'website'} />
+      <meta property="og:locale" content={ogLocale} />
       <meta property="og:url" content={url} />
       {image && <meta property="og:image" content={image} />}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}

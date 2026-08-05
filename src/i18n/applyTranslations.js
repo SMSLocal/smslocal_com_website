@@ -8,7 +8,7 @@
 // MutationObserver for anything React re-renders afterward.
 import { getLocaleFromPathname } from '../lib/locale.js'
 import { isRTL } from '../data/languages.js'
-import { isTranslatedRoute } from '../data/i18nScope.js'
+import { hasTranslatedPage } from '../data/translatedRoutes.js'
 
 const SKIP_TAGS = new Set([
   'script', 'style', 'code', 'pre', 'noscript', 'svg', 'canvas', 'textarea', 'input',
@@ -48,11 +48,29 @@ function collectTextNodes(root) {
 const originalText = new WeakMap()
 const originalHref = new WeakMap()
 
+// Everything the dictionary can produce. Some dictionaries chain — Italian
+// has "Ecommerce"→"E-commerce" and separately "E-commerce"→"Commercio
+// elettronico" — so text the server already translated correctly is itself a
+// key, and the MutationObserver re-collects it and translates it a second
+// time. The page then disagrees with the HTML that was served. Anything that
+// is already a translation output is left alone.
+let outputs = new WeakMap()
+function outputsOf(dict) {
+  let set = outputs.get(dict)
+  if (!set) {
+    set = new Set(Object.values(dict))
+    outputs.set(dict, set)
+  }
+  return set
+}
+
 function applyDict(dict, nodes) {
+  const produced = outputsOf(dict)
   for (const node of nodes) {
     const raw = node.textContent ?? ''
     const trimmed = raw.trim()
     if (!trimmed) continue
+    if (produced.has(trimmed)) continue
     const translated = dict[trimmed]
     if (!translated || translated === trimmed) continue
     if (!originalText.has(node)) originalText.set(node, raw)
@@ -129,7 +147,10 @@ function rewriteLinks(locale) {
     // Only page URLs: a file (/sitemap.xml, /assets/…) has no locale copy.
     if (/\.[a-z0-9]+$/i.test(bare) || bare.startsWith('/assets/')) return
     const clean = bare.length > 1 && bare.endsWith('/') ? bare.slice(0, -1) : bare || '/'
-    if (!isTranslatedRoute(clean)) return
+    // Must be a page that was actually generated, not merely "in scope":
+    // /register/ is in scope but only exists in English via a redirect, so
+    // /fr/register/ would 404.
+    if (!hasTranslatedPage(clean)) return
     const suffix = href.slice(bare.length)
     if (!originalHref.has(a)) originalHref.set(a, href)
     a.setAttribute('href', `${prefix}${bare}${suffix}`)

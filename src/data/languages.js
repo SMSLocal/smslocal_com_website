@@ -1,7 +1,15 @@
 /**
  * The 19-language set this system supports, matching the reference
  * implementation this was adapted from. `country` is a 2-letter ISO used for
- * flag icons; `rtl` drives the `dir="rtl"` attribute on translated pages.
+ * flag icons and to derive og:locale; `rtl` drives the `dir="rtl"` attribute
+ * on translated pages.
+ *
+ * `hreflang` overrides the code used in alternate links, for languages where
+ * the bare code is ambiguous. Only `zh` needs it: bare "zh" doesn't say
+ * Simplified or Traditional, and the endpoint returns Simplified, so
+ * "zh-Hans" is what the pages actually are. Left alone for `pt` — Brazilian
+ * vs European Portuguese is a market decision, not a technical one, and
+ * guessing would mistarget a whole region.
  */
 export const LANGUAGES = [
   { code: 'es', native: 'Español', country: 'es', rtl: false },
@@ -15,7 +23,7 @@ export const LANGUAGES = [
   { code: 'tr', native: 'Türkçe', country: 'tr', rtl: false },
   { code: 'ar', native: 'العربية', country: 'sa', rtl: true },
   { code: 'hi', native: 'हिन्दी', country: 'in', rtl: false },
-  { code: 'zh', native: '简体中文', country: 'cn', rtl: false },
+  { code: 'zh', native: '简体中文', country: 'cn', rtl: false, hreflang: 'zh-Hans' },
   { code: 'ja', native: '日本語', country: 'jp', rtl: false },
   { code: 'ko', native: '한국어', country: 'kr', rtl: false },
   { code: 'vi', native: 'Tiếng Việt', country: 'vn', rtl: false },

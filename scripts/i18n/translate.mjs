@@ -130,8 +130,20 @@ export async function translateBatch(texts, targetLang) {
   }
   if (needed.length === 0) return result
 
-  const CHUNK = 30
-  const CONCURRENCY = 4
+  // Tuned up from 30/4. The original numbers were a guess made when this only
+  // had to translate four pages; at whole-site scope they were the build's
+  // bottleneck — the work is almost entirely waiting on the network, not CPU,
+  // so more requests in flight is close to a linear speedup. Overridable
+  // without a code change so it can be dialled back if the free endpoint
+  // starts refusing: I18N_CHUNK / I18N_CONCURRENCY.
+  //
+  // The endpoint is unofficial and does rate-limit. requestChunk already
+  // retries with backoff and, failing that, keeps the English text — so the
+  // downside of pushing too hard is untranslated strings, not a broken build.
+  // Watch the build log for "giving up on a chunk"; that's the signal these
+  // are too high.
+  const CHUNK = Number(process.env.I18N_CHUNK) || 60
+  const CONCURRENCY = Number(process.env.I18N_CONCURRENCY) || 12
   const chunks = []
   for (let i = 0; i < needed.length; i += CHUNK) chunks.push(needed.slice(i, i + CHUNK))
 

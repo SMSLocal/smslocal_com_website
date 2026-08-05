@@ -36,8 +36,11 @@ function LocaleTranslator() {
       const href = anchor.getAttribute('href') ?? ''
       if (href !== `/${locale}` && !href.startsWith(`/${locale}/`)) return
 
+      // preventDefault alone is enough: React Router's <Link> checks
+      // defaultPrevented and bails. stopPropagation was also swallowing the
+      // click before other document-level listeners saw it, so on a locale
+      // page an open nav dropdown stayed open after navigating.
       e.preventDefault()
-      e.stopPropagation()
       navigate(href)
     }
 
