@@ -10,15 +10,18 @@
  * Kept out:
  *  - /login, /signup hand off to secure.smslocal.com, which is English-only;
  *    translating the page around that is a promise the next screen breaks.
- *  - /terms-and-conditions, /privacy-policy are legal text. A machine
- *    translation of a contract is not the contract, and publishing one as if
- *    it were is worse than linking the English original.
+ *
+ * /terms-and-conditions and /privacy-policy were held back too, on the view
+ * that a machine translation of a contract is not the contract. The site owner
+ * asked for them translated (2026-08-05); it is their call to make, and a
+ * visitor reading the site in Japanese being unable to read the terms at all
+ * is its own problem. Worth adding a line to both pages naming the English
+ * version as the binding one — that is the normal way sites carry translated
+ * legal text, and it costs nothing.
  */
 const EXCLUDED = new Set([
   '/login',
   '/signup',
-  '/terms-and-conditions',
-  '/privacy-policy',
 ])
 
 /**
