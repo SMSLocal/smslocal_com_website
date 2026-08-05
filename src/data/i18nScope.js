@@ -22,24 +22,18 @@ const EXCLUDED = new Set([
 ])
 
 /**
- * Country detail pages and blog posts are temporarily held back again.
- *
- * Not a design decision — a scheduling one. Their ~4,300 pages are all fresh
- * translations, and the cache for them is only ~65% warm; shipping now would
- * make Vercel fetch the remainder during its own build and risk a timeout.
- * The marketing pages are fully cached and ship immediately. Delete this
- * prefix list and rebuild once the country/blog cache is complete — nothing
- * else needs to change.
+ * Nothing is held back by section. Country pages and blog posts were excluded
+ * for two builds while their translations were being fetched, and the cost of
+ * that showed: switching to Korean on the homepage and opening a blog post
+ * dropped the visitor back to English with the switcher gone, because that
+ * page had no Korean version to offer. Every page now exists in every
+ * language, so the language survives wherever you click.
  */
-const EXCLUDED_PREFIXES = ['/country-code/', '/blog/', '/resources/insights/']
-
 const stripTrailing = (path) =>
   path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path || '/'
 
 export function isTranslatedRoute(path) {
-  const clean = stripTrailing(path)
-  if (EXCLUDED.has(clean)) return false
-  return !EXCLUDED_PREFIXES.some((p) => clean.startsWith(p))
+  return !EXCLUDED.has(stripTrailing(path))
 }
 
 export { EXCLUDED }
