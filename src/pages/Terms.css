@@ -122,6 +122,19 @@
   margin: 0 0 2.2rem;
 }
 
+/* Which language version governs. Set apart from the body copy by a rule and
+   a lighter weight rather than a coloured callout box — it is a qualification
+   on the document, not a warning, and a box would read louder than the terms
+   it qualifies. */
+.terms-lang-note {
+  margin: -1.4rem 0 2.2rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--border);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
 .terms-prose h2 {
   font-size: 1.4rem;
   color: var(--navy);

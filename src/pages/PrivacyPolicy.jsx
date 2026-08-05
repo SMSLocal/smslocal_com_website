@@ -57,6 +57,13 @@ function PrivacyPolicy() {
           <div className="privacy-container">
           <h1 className="privacy-title">SmsLocal Privacy Policy</h1>
 
+          {/* See the matching note in Terms.jsx for why this is here and why
+              it also shows on the English page. */}
+          <p className="privacy-lang-note">
+            This policy is published in several languages. The English text is the authoritative
+            one — translations are provided to make it easier to read, not to change what it says.
+          </p>
+
           <div className="privacy-prose">
             <p>SmsLocal recognizes the importance of protecting privacy. Our Privacy Policy describes what personal information we may collect and how we may use and protect any personal information that is made available to us.</p>
 

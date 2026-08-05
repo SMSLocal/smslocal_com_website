@@ -63,6 +63,17 @@ function Terms() {
           <div className="terms-container">
           <h1 className="terms-title">Terms And Conditions</h1>
 
+          {/* Shown in every language, including English. The translated copies
+              are machine-translated at request time (api/i18n-ssr.js), and a
+              machine translation of a contract is not the contract — so the
+              page has to say which text governs. Deliberately not hidden on
+              the English page: a reader who arrived from a translated one
+              should be able to see the same statement here. */}
+          <p className="terms-lang-note">
+            This page is published in several languages. Where a translation differs from the
+            English text, the English version of these Terms and Conditions is the one that applies.
+          </p>
+
           <div className="terms-prose">
             <h2 id="general-terms">General Terms And Conditions</h2>
             <p>These General terms and conditions outline the rules and regulations for the use of SMS LOCAL's website located at www.smslocal.com.</p>
