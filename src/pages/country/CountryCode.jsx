@@ -581,9 +581,21 @@ function CountryCode() {
         </div>
 
         <div className={styles.dialExample}>
-          <code>
-            {c.dial} — {c.format ?? `${c.dial} followed by the national number`}
-          </code>
+          {/* Only the literal dial string belongs in <code>. The fallback
+              wording is prose, and the translator skips everything inside
+              <code> — correctly, since translating a code sample would break
+              it. With the prose in there too, "followed by the national
+              number" stayed English on all 195 country pages in all 19
+              languages. Rendering is unchanged: .dialLine carries the styling
+              <code> used to, and code inherits it. */}
+          <p className={styles.dialLine}>
+            <code>{c.dial}</code> —{' '}
+            {c.format ? (
+              <code>{c.format}</code>
+            ) : (
+              <>{c.dial} followed by the national number</>
+            )}
+          </p>
           {/* "Drop the leading zero" is true for most of the world but not for
               +1, which has no trunk prefix — so the rule is stated as
               conditional rather than asserted for every country. */}

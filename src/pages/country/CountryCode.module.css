@@ -1040,11 +1040,18 @@
   padding: 36px 34px;
   font-variant-numeric: tabular-nums;
 }
-.dialExample code {
+/* Was .dialExample code. The styling moved up to the line so the prose beside
+   the dial code could leave the <code> element and become translatable; `font:
+   inherit` on the code keeps the line rendering exactly as it did. */
+.dialExample .dialLine {
   display: block;
+  font-family: monospace;
   font-size: clamp(18px, 2.4vw, 26px);
   letter-spacing: 0.02em;
-  margin-bottom: 14px;
+  margin: 0 0 14px;
+}
+.dialExample .dialLine code {
+  font: inherit;
 }
 .dialExample p {
   margin: 0;
