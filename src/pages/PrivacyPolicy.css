@@ -125,8 +125,8 @@
 /* Matches .terms-lang-note — same qualification, same treatment. */
 .privacy-lang-note {
   margin: -1.4rem 0 2.2rem;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--border);
+  padding-inline-start: 0.9rem;
+  border-inline-start: 2px solid var(--border);
   font-size: 0.92rem;
   line-height: 1.65;
   color: var(--muted-foreground);
