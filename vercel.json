@@ -3,16 +3,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "trailingSlash": true,
-  "rewrites": [
-    {
-      "source": "/:locale(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)",
-      "destination": "/api/i18n-ssr?locale=:locale&path=/"
-    },
-    {
-      "source": "/:locale(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/:path*",
-      "destination": "/api/i18n-ssr?locale=:locale&path=/:path*"
-    }
-  ],
   "redirects": [
     {
       "source": "/whatsapp-business-api/",

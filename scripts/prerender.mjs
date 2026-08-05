@@ -67,19 +67,19 @@ const countryRoutes = JSON.parse(
 
 const routes = [...staticRoutes, ...postRoutes, ...countryRoutes]
 
-// Translated pages (the i18n block further down writes the files). Imported
-// here rather than there so they can go in a sitemap — without one, the only
-// path to a translated page is the hreflang tags on its English counterpart,
-// which is a much weaker discovery signal than being listed outright.
+// Translated pages are not listed in any sitemap, deliberately. They are not
+// separate pages: /fr/pricing/ is the French rendering of /pricing/, produced
+// at request time from that same file. Listing 5,491 of them declared each one
+// as its own unique URL and inflated the sitemap by 19×. The hreflang
+// alternates on every English page still tell Google that /fr/pricing/ is the
+// French version of /pricing/, which is the signal that actually matters — and
+// the one that stops the translations reading as duplicate content.
 const { LANGUAGES } = await import(new URL('../src/data/languages.js', import.meta.url))
 const { isTranslatedRoute } = await import(new URL('../src/data/i18nScope.js', import.meta.url))
 // Every route the site has, minus the handful that opt out — the same
-// predicate the client uses, so the pages that exist and the pages the
-// switcher/hreflang advertise can't drift apart.
+// predicate the client uses, so the pages the switcher and hreflang advertise
+// can't drift from the ones api/i18n-ssr will actually serve.
 const TRANSLATED_ROUTES = routes.filter(isTranslatedRoute)
-const localeRoutes = TRANSLATED_ROUTES.flatMap((route) =>
-  LANGUAGES.map(({ code }) => (route === '/' ? `/${code}` : `/${code}${route}`)),
-)
 
 // Sitemaps: an index at /sitemap.xml pointing at one sub-sitemap per content
 // type, matching how the pages are actually grouped. Only canonical URLs go in
@@ -106,13 +106,6 @@ function lastmodFor(route) {
   return ''
 }
 
-// A locale page changes when its English source does, so it inherits that
-// page's date rather than carrying one of its own.
-const localeLastmod = (route) => {
-  const stripped = route.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/'
-  return lastmodFor(stripped)
-}
-
 const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
 
 // Split by page type, not by blog category: area-code posts are blog posts like
@@ -121,7 +114,6 @@ const groups = [
   { file: 'page-sitemap.xml', routes: staticRoutes },
   { file: 'post-sitemap.xml', routes: posts.map(routeOf) },
   { file: 'country-code-sitemap.xml', routes: countryRoutes },
-  { file: 'i18n-sitemap.xml', routes: localeRoutes },
 ].filter((g) => g.routes.length)
 
 const urlsetFor = (list, dateFor = lastmodFor) =>
@@ -137,14 +129,13 @@ const urlsetFor = (list, dateFor = lastmodFor) =>
     .join('\n') +
   `\n</urlset>\n`
 
-const dateForGroup = (g) => (g.file === 'i18n-sitemap.xml' ? localeLastmod : lastmodFor)
-for (const g of groups) writeFileSync(join(dist, g.file), urlsetFor(g.routes, dateForGroup(g)))
+for (const g of groups) writeFileSync(join(dist, g.file), urlsetFor(g.routes))
 
 // The index's lastmod per sub-sitemap is the newest page inside it, so it moves
 // only when something in that group actually changed.
 const indexEntries = groups
   .map((g) => {
-    const newest = g.routes.map(dateForGroup(g)).filter(Boolean).sort().pop()
+    const newest = g.routes.map(lastmodFor).filter(Boolean).sort().pop()
     return `  <sitemap>\n    <loc>${SITE}/${g.file}</loc>${newest ? `\n    <lastmod>${newest}</lastmod>` : ''}\n  </sitemap>`
   })
   .join('\n')
