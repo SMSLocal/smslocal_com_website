@@ -102,9 +102,12 @@ async function requestChunk(texts, targetLang, attempt = 1) {
   } catch (err) {
     // The free endpoint is unofficial and rate-limits under bulk load — back
     // off and retry a couple of times before giving up and keeping originals.
+    // null, not `texts`: the caller has to be able to tell "translated to the
+    // same string" from "never got an answer", because it caches the first
+    // and must not cache the second.
     if (attempt >= 3) {
       console.warn(`  translate: giving up on a chunk after ${attempt} attempts (${err.message})`)
-      return texts
+      return null
     }
     await new Promise((r) => setTimeout(r, attempt * 1000))
     return requestChunk(texts, targetLang, attempt + 1)
@@ -151,10 +154,18 @@ export async function translateBatch(texts, targetLang) {
     const batch = chunks.slice(i, i + CONCURRENCY)
     const results = await Promise.all(batch.map((c) => requestChunk(c, targetLang)))
     batch.forEach((chunk, ci) => {
+      const out = results[ci]
       chunk.forEach((src, si) => {
-        const translated = results[ci][si]
+        const translated = out?.[si] || src
         result.set(src, translated)
-        if (translated && translated !== src) {
+        // Cache the answer even when it equals the English — "SMS", "API",
+        // "24/7", product names. While those were skipped they missed the
+        // cache forever, so every page paid a round-trip to the endpoint for
+        // them on every build: ~20 strings/page × 5,491 pages = one request
+        // per page, which was the build's entire 20-minute i18n phase.
+        // A failed chunk (out === null) still isn't cached — that would
+        // freeze a rate-limit into the cache as if it were a translation.
+        if (out) {
           store.set(src, translated)
           dirtyLangs.add(targetLang)
         }

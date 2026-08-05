@@ -42,7 +42,16 @@ function Seo({
   const lang = LANGUAGES.find((l) => l.code === locale)
   const ogLocale = lang ? `${lang.code}_${lang.country.toUpperCase()}` : 'en_US'
   const resolved = exactTitle ?? (title ? `${title} | SMSLocal` : null)
-  const url = canonical ?? `${SITE_ORIGIN}${localePrefix}${withSlash(pathname)}`
+  // A page that passes its own `canonical` (posts do, because they resolve
+  // under two paths) was handing og:url the English address even on a
+  // translated page — so a shared Dutch article previewed as the English one.
+  // The prefix is inserted into the supplied URL rather than ignoring it,
+  // which keeps the post's own choice of path.
+  const localizedCanonical =
+    canonical && localePrefix
+      ? canonical.replace(SITE_ORIGIN, `${SITE_ORIGIN}${localePrefix}`)
+      : canonical
+  const url = localizedCanonical ?? `${SITE_ORIGIN}${localePrefix}${withSlash(pathname)}`
   const image = ogImage ? new URL(ogImage, SITE_ORIGIN).href : null
   const keywordList = Array.isArray(keywords) ? keywords.join(', ') : keywords
 

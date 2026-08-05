@@ -94,9 +94,14 @@ function EmailEcosystemOrbit({ eyebrow, title, subtitle, items = [] }) {
               <div className="eco-detail-text">
                 <h3>{current.title}</h3>
                 <p>{current.desc}</p>
-                <Link to={current.href || '/'} className="eco-detail-link">
-                  Explore <span aria-hidden="true">→</span>
-                </Link>
+                {/* Dropped entirely when there's no href. The `|| '/'`
+                    fallback this replaced offered "Explore →" and delivered
+                    the homepage. */}
+                {current.href && (
+                  <Link to={current.href} className="eco-detail-link">
+                    Explore <span aria-hidden="true">→</span>
+                  </Link>
+                )}
               </div>
             </div>
 

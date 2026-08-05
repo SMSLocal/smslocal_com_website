@@ -4,7 +4,7 @@ import { IconMail, IconChat, IconBrain, IconGlobe, IconLink, IconChart, IconUser
 
 const CHANNELS = [
   { icon: <IconMail />, title: 'Messaging channels', desc: 'SMS, WhatsApp, RCS, Instagram, Messenger, Viber, Telegram, Apple Messages, LINE and email — one platform, every inbox.', href: '/products/channels/' },
-  { icon: <IconChat />, title: 'No-code chatbots', desc: 'Design bot flows visually and deploy the same bot to WhatsApp, your website, SMS and social.', href: '/chatbot/' },
+  { icon: <IconChat />, title: 'No-code chatbots', desc: 'Design bot flows visually and deploy the same bot to WhatsApp, your website, SMS and social.' },
   { icon: <IconBrain />, title: 'Agentic AI agents', desc: 'Autonomous agents that resolve requests end to end — not just reply — across every channel.', href: '/products/ai-agents/' },
 ]
 

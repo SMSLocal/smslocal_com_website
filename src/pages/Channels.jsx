@@ -8,9 +8,9 @@ const GROUPS = [
   {
     label: 'SMS & broadcasting',
     items: [
-      { icon: <IconMegaphone />, title: 'Bulk SMS', desc: 'High-deliverability SMS at scale for marketing, alerts and OTP.', href: '/bulk-sms/' },
-      { icon: <IconCode />, title: 'SMS API', desc: 'Programmable SMS for developers — REST API with delivery webhooks.', href: '/sms-api/' },
-      { icon: <IconShield />, title: 'OTP & verification', desc: 'Fast, reliable one-time passcodes for signups and logins.', href: '/otp-sms/' },
+      { icon: <IconMegaphone />, title: 'Bulk SMS', desc: 'High-deliverability SMS at scale for marketing, alerts and OTP.' },
+      { icon: <IconCode />, title: 'SMS API', desc: 'Programmable SMS for developers — REST API with delivery webhooks.' },
+      { icon: <IconShield />, title: 'OTP & verification', desc: 'Fast, reliable one-time passcodes for signups and logins.' },
       { icon: <IconMegaphone />, title: 'WhatsApp broadcasting', desc: 'One broadcast to your whole opted-in list, each in a personal 1:1 thread.', href: '/products/channels/whatsapp-broadcasting/' },
       { icon: <IconBolt />, title: 'RCS broadcasting', desc: 'Branded, verified rich messages at scale — with automatic SMS fallback.', href: '/products/channels/rcs-broadcasting/' },
     ],

@@ -23,8 +23,14 @@ const { render } = await import(new URL('../dist-ssr/entry-server.js', import.me
 // Seo/Canonical render their tags inside the tree, and renderToString of a
 // partial tree emits them where they sit rather than in <head>. React hoists
 // them once the client takes over; for the static file they have to be moved.
+// rel="alternate" is in here for the same reason canonical is, and it matters
+// more: Google only reads hreflang annotations from <head>. Left in the body
+// (where renderToString puts them) all 21 alternates per page were ignored
+// outright, so the 19 translated copies of every page were never linked to
+// their English original. Matched on rel=, not on the attribute name — React
+// emits it as hrefLang.
 const HEAD_TAGS =
-  /<title>[\s\S]*?<\/title>|<meta\s+(?:name|property)="[^"]*"[^>]*>|<link\s+rel="canonical"[^>]*>/g
+  /<title>[\s\S]*?<\/title>|<meta\s+(?:name|property)="[^"]*"[^>]*>|<link\s+rel="(?:canonical|alternate)"[^>]*>/g
 
 function buildPage(body, htmlAttrs = 'lang="en"') {
   // Marked so the client can drop them once React has rendered its own copies —
@@ -195,62 +201,16 @@ if (failed.length) {
   for (const f of failed) console.warn(`  ${f}`)
 }
 
-// Every translated route, in every language. Body text
-// is translated post-render (most component text is hardcoded English, the
-// same reason the reference implementation this was adapted from chose
-// post-render HTML translation over per-component i18n) via the free Google
-// endpoint, cached to disk so repeat builds are fast. The head — canonical,
-// title, hreflang — is already correct because render() is called with the
-// locale-prefixed URL, so Canonical.jsx/Seo.jsx (locale-aware via
-// LocaleContext) produce it directly; the HTML translator only touches body
-// text and <meta content> attributes, matching that same split of
-// responsibility.
-const { translatePageHtml } = await import('./i18n/html-translator.mjs')
-
-const translatedRoutes = new Set(TRANSLATED_ROUTES)
-let i18nWritten = 0
-const i18nFailed = []
-// Every string translated for a locale, across all its pages. Each page still
-// embeds its own dictionary (so the first paint needs no fetch), but a
-// client-side route change renders a page whose strings that dictionary
-// doesn't have. Publishing one dictionary per locale lets the client cover
-// any page it navigates to, which is what makes normal SPA navigation
-// possible here instead of forcing a full reload on every locale link.
-const localeDicts = new Map(LANGUAGES.map(({ code }) => [code, {}]))
-
-for (const route of TRANSLATED_ROUTES) {
-  for (const { code: locale, rtl } of LANGUAGES) {
-    const localeUrl = route === '/' ? `/${locale}` : `/${locale}${route}`
-    let body
-    try {
-      body = render(localeUrl)
-    } catch (error) {
-      i18nFailed.push(`${localeUrl}: ${error.message.split('\n')[0]}`)
-      continue
-    }
-    const { html: translated, dict } = await translatePageHtml(body, locale, translatedRoutes)
-    Object.assign(localeDicts.get(locale), dict)
-    const htmlAttrs = rtl ? `lang="${locale}" dir="rtl"` : `lang="${locale}"`
-    const file =
-      route === '/' ? join(dist, locale, 'index.html') : join(dist, locale, route, 'index.html')
-    mkdirSync(dirname(file), { recursive: true })
-    writeFileSync(file, buildPage(translated, htmlAttrs))
-    i18nWritten += 1
-  }
-}
-
-mkdirSync(join(dist, 'i18n'), { recursive: true })
-for (const [locale, dict] of localeDicts) {
-  writeFileSync(join(dist, 'i18n', `${locale}.json`), JSON.stringify(dict))
-}
-
+// Translated pages are NOT written here. Every /<locale>/... URL is rendered
+// at request time by api/i18n-ssr and cached at the edge for 7 days, which is
+// how the reference implementation this was adapted from does it. Writing them
+// at build time meant 5,491 routes × 19 languages = 104,329 files per build,
+// almost all of which are never requested; a crawler receives the same HTML
+// either way. The English pages written above are the origin that function
+// fetches and translates, so they stay.
 console.log(
-  `prerender i18n — ${i18nWritten}/${TRANSLATED_ROUTES.length * LANGUAGES.length} translated pages (${TRANSLATED_ROUTES.length} routes × ${LANGUAGES.length} languages), ${localeDicts.size} locale dictionaries`,
+  `prerender i18n — ${TRANSLATED_ROUTES.length} routes × ${LANGUAGES.length} languages served at request time by api/i18n-ssr (none prerendered)`,
 )
-if (i18nFailed.length) {
-  console.warn(`prerender i18n — ${i18nFailed.length} page(s) failed:`)
-  for (const f of i18nFailed) console.warn(`  ${f}`)
-}
 
 // llms.txt — the AI-crawler counterpart to robots.txt/sitemap.xml. Crawlers that
 // don't execute JavaScript get the same curated map a person would, in markdown

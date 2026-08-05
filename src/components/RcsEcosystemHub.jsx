@@ -18,11 +18,23 @@ function RcsEcosystemHub({ eyebrow, title, subtitle, items = [] }) {
           {items.map((it, i) => (
             <div className="rchain-node" key={it.title}>
               {i > 0 && <span className="rchain-link" aria-hidden="true" />}
-              <Link className="rchain-item" to={it.href || '/'}>
-                <span className="rchain-icon">{it.icon}</span>
-                <h3 className="rchain-title">{it.title}</h3>
-                <p className="rchain-desc">{it.desc}</p>
-              </Link>
+              {/* No href, no link. The `|| '/'` fallback this replaced sent
+                  anyone clicking a card whose page was never built to the
+                  homepage, which reads as a broken link rather than a card
+                  that simply isn't clickable. */}
+              {it.href ? (
+                <Link className="rchain-item" to={it.href}>
+                  <span className="rchain-icon">{it.icon}</span>
+                  <h3 className="rchain-title">{it.title}</h3>
+                  <p className="rchain-desc">{it.desc}</p>
+                </Link>
+              ) : (
+                <div className="rchain-item">
+                  <span className="rchain-icon">{it.icon}</span>
+                  <h3 className="rchain-title">{it.title}</h3>
+                  <p className="rchain-desc">{it.desc}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>

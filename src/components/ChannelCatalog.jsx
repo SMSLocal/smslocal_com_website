@@ -27,20 +27,30 @@ function ChannelCatalog({ eyebrow, title, subtitle, groups, alt }) {
               </div>
 
               <div className="chcat-rows">
-                {group.items.map((item) => (
-                  <Link to={item.href} className="chcat-row" key={item.title}>
-                    <span className="chcat-icon">{item.icon}</span>
-                    <span className="chcat-text">
-                      <span className="chcat-name">{item.title}</span>
-                      <span className="chcat-desc">{item.desc}</span>
-                    </span>
-                    <span className="chcat-go" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </span>
-                  </Link>
-                ))}
+                {group.items.map((item) => {
+                  // A row whose page was never built renders as a plain div.
+                  // <Link to={undefined}> is not inert — react-router falls
+                  // back to the current path, so every one of those rows
+                  // became a link to the page it was already on. The arrow
+                  // goes with the link: it promises a destination.
+                  const Row = item.href ? Link : 'div'
+                  return (
+                    <Row {...(item.href ? { to: item.href } : {})} className="chcat-row" key={item.title}>
+                      <span className="chcat-icon">{item.icon}</span>
+                      <span className="chcat-text">
+                        <span className="chcat-name">{item.title}</span>
+                        <span className="chcat-desc">{item.desc}</span>
+                      </span>
+                      {item.href && (
+                        <span className="chcat-go" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                          </svg>
+                        </span>
+                      )}
+                    </Row>
+                  )
+                })}
               </div>
             </div>
           ))}

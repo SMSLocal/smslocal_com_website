@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './IntegrationsTabs.css'
 import AppLogo, { colorFor } from './AppLogo.jsx'
 import { APP_CATEGORIES } from '../data/appCategories.jsx'
@@ -52,8 +51,10 @@ function IntegrationsTabs({ title, subtitle, eyebrow = 'Integrations', alt, id }
             ))}
           </div>
           <div className="intt-foot">
+            {/* No "View all" link: none of the 16 /products/ai-agents/apps/<slug>/
+                pages exist, so every tab shipped a 404. Only one tab renders
+                server-side, which is why a dist scan only ever caught one. */}
             <span className="intt-count">{cat.count} apps in {cat.title}</span>
-            <Link to={`/products/ai-agents/apps/${cat.slug}/`} className="intt-link">View all {cat.title} →</Link>
           </div>
         </div>
       </div>

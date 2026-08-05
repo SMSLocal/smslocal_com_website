@@ -87,7 +87,9 @@ for (const file of pages) {
   else if (h1Count > 1) warn('multiple-h1', route, `${h1Count}`)
 
   // ── hreflang: every advertised alternate must actually exist ───────────────
-  for (const m of html.matchAll(/<link[^>]*hreflang="([^"]*)"[^>]*href="([^"]*)"/g)) {
+  // Case-insensitive: React emits the attribute as hrefLang, so a case-
+  // sensitive match found nothing and this check silently passed everything.
+  for (const m of html.matchAll(/<link[^>]*hreflang="([^"]*)"[^>]*href="([^"]*)"/gi)) {
     const href = m[2]
     const path = href.replace(/^https?:\/\/[^/]+/, '')
     if (!servable.has(path)) err('hreflang-target-missing', route, `${m[1]} -> ${path}`)

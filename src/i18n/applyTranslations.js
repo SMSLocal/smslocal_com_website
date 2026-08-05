@@ -1,11 +1,15 @@
-// Client-side companion to the build-time translator (scripts/i18n/). The
-// static HTML for a locale page is already fully translated — this exists
+// Client-side companion to the request-time translator (api/i18n-ssr.js). The
+// HTML served for a locale page is already fully translated — this exists
 // only because main.jsx does a fresh createRoot().render() rather than
 // hydrateRoot(), so the moment React's client render commits, it repaints
 // the DOM from the (English) JSX and would otherwise silently discard the
-// translation. Re-applies the dictionary the build injected
+// translation. Re-applies the dictionary the server injected
 // (window.__LD_TX__) right after that commit, then keeps re-applying via a
 // MutationObserver for anything React re-renders afterward.
+//
+// It only ever covers the page that was actually served. Navigating within a
+// locale is a full page load (see LocaleTranslator.jsx), so every page arrives
+// with its own dictionary and there is no cross-page dictionary to fetch.
 import { getLocaleFromPathname } from '../lib/locale.js'
 import { isRTL } from '../data/languages.js'
 import { hasTranslatedPage } from '../data/translatedRoutes.js'
@@ -204,31 +208,6 @@ async function fetchDevTranslations(locale, dict) {
   }
 }
 
-// The whole-locale dictionary the build publishes (dist/i18n/<locale>.json).
-// Fetched at most once per locale per session; `loaded` also stops a failed
-// fetch from being retried on every route change.
-const loadedLocales = new Set()
-
-async function loadLocaleDict(locale, dict) {
-  if (loadedLocales.has(locale)) return false
-  loadedLocales.add(locale)
-  try {
-    const res = await fetch(`/i18n/${locale}.json`)
-    if (!res.ok) return false
-    const full = await res.json()
-    let added = false
-    for (const [src, tr] of Object.entries(full)) {
-      if (!dict[src]) {
-        dict[src] = tr
-        added = true
-      }
-    }
-    return added
-  } catch {
-    return false
-  }
-}
-
 let observer = null
 let pending = null
 // Bumped on every route change. Disconnecting the observer stops new
@@ -286,12 +265,6 @@ export function applyTranslations() {
 
   run()
   syncDev()
-  // Covers pages this page's own embedded dictionary doesn't know about, so a
-  // client-side route change can be translated without a full page load. One
-  // fetch per locale per session; the browser caches the file after that.
-  loadLocaleDict(locale, dict).then((added) => {
-    if (added) run()
-  })
 
   const onMutate = () => {
     if (pending) clearTimeout(pending)

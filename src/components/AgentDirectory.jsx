@@ -56,9 +56,15 @@ function AgentDirectory({ eyebrow, title, subtitle, items, alt }) {
               const isGhost = Math.abs(off) === 1
               const state = isMain ? 'main' : isGhost ? 'ghost' : 'hidden'
 
+              // Cards without an href render as a plain element: several
+              // pointed at pages that were never built and 404'd. The card
+              // still carries its content and still drives the carousel.
+              const Card = item.href ? Link : 'div'
+              const linkProps = item.href ? { to: item.href } : {}
+
               return (
-                <Link
-                  to={item.href}
+                <Card
+                  {...linkProps}
                   key={item.title}
                   className={`agd-card agd-card--${state} agd-hue--${i % 7}`}
                   style={{ '--agd-off': off }}
@@ -87,7 +93,7 @@ function AgentDirectory({ eyebrow, title, subtitle, items, alt }) {
                     Explore this agent
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                   </span>
-                </Link>
+                </Card>
               )
             })}
           </div>

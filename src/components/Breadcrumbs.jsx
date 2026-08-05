@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import JsonLd from './JsonLd.jsx'
 import { SITE_ORIGIN } from './Canonical.jsx'
 import { getPostBySlug } from '../lib/posts.js'
+import { isRealRoute } from '../data/translatedRoutes.js'
 import { stripSlash, withSlash } from '../lib/url.js'
 import './Breadcrumbs.css'
 
@@ -82,6 +83,13 @@ function Breadcrumbs({ lastLabel }) {
   segments.forEach((seg, i) => {
     acc += `/${seg}`
     const isLast = i === segments.length - 1
+    // An ancestor segment isn't necessarily a page. /solutions/industry/,
+    // /resources/, /products/inbox-and-analytics/ and /solutions/services/ are
+    // groupings with children but no page of their own, and deriving the trail
+    // from the path alone linked all four — every child page shipped a crumb
+    // that 404s, in the visible trail and in the BreadcrumbList schema. Dropped
+    // from both together, so the markup keeps matching what's on the page.
+    if (!isLast && !isRealRoute(acc)) return
     // Slashed once, here, so the visible link and the JSON-LD below can't drift.
     crumbs.push({ label: isLast && finalLabel ? finalLabel : titleize(seg), href: withSlash(acc) })
   })

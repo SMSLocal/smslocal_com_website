@@ -36,3 +36,16 @@ const stripTrailing = (path) =>
 export function hasTranslatedPage(path) {
   return TRANSLATED_ROUTES.has(stripTrailing(path))
 }
+
+/**
+ * Every English route that has a file, translated or not — the superset
+ * TRANSLATED_ROUTES is filtered out of. Breadcrumbs needs this one: /login has
+ * a page but no translations, so asking hasTranslatedPage() whether to link a
+ * crumb would call a page that exists a 404.
+ */
+const ROUTES = new Set(ALL_ROUTES)
+
+/** True when `path` is a page this build actually writes. */
+export function isRealRoute(path) {
+  return ROUTES.has(stripTrailing(path))
+}
