@@ -1,10 +1,16 @@
-// Build-time translation via the free, unofficial Google Translate endpoint —
-// no API key, no paid service. Adapted from the reference implementation's
-// lib/server-translator.ts, but persisted to disk (not just in-memory)
-// because this runs fresh in every `npm run build`, not in a long-lived
-// server process: without a disk cache, every build would re-translate every
-// string from scratch, which is slow and risks the free endpoint rate-limiting
-// this unofficial, bulk, non-traffic-driven usage pattern.
+// Dev-server translation via the free, unofficial Google Translate endpoint —
+// no API key, no paid service.
+//
+// This is no longer on the deploy path. The build stopped translating anything
+// when locale pages moved to request time (middleware.js → api/i18n-ssr.js,
+// which carries its own in-process cache behind the CDN). What still uses this
+// is scripts/i18n/vite-dev-translate.mjs, so that /fr/ renders translated on
+// the dev server instead of only after a deploy.
+//
+// The on-disk cache is what makes that usable: the dev server restarts
+// constantly, and without it every restart would re-translate every string
+// from scratch and risk the free endpoint rate-limiting a bulk,
+// non-traffic-driven usage pattern.
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
