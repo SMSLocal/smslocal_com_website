@@ -9,17 +9,26 @@ import {
   Users,
   Headset,
   ShoppingBag,
-  ChartColumn,
   Bot,
   Sparkles,
   CreditCard,
+  Phone,
+  Calendar,
 } from "lucide-react";
 
+// Scenes 2 and 3 (AI Agent, Campaign Automation) are the two the client
+// approved and asked to keep untouched. The other four — really three moments,
+// since 0 and 1 share one phone and read as a single beat — were generic
+// messaging-platform claims (bulk SMS, analytics, a REST API) that said
+// nothing about what the AI agent itself does. Retold around receptionist
+// specialties instead: answering calls, texting back the ones it misses,
+// covering the hours a human team can't, and booking straight into the tools
+// a business already runs on.
 const SCENES = [
-  { title: "Bulk SMS", desc: "Send to thousands in one click" },
+  { title: "AI Voice Receptionist", desc: "Answers every call, day or night" },
   {
-    title: "Two-Way Messaging",
-    desc: "Customers reply — managed in a shared inbox",
+    title: "Missed-Call Text-Back",
+    desc: "No answer? We text them back instantly",
   },
   {
     title: "AI Agent",
@@ -30,10 +39,13 @@ const SCENES = [
     desc: "Triggered messages and multi-step flows",
   },
   {
-    title: "Reporting & Analytics",
-    desc: "Real-time delivery, clicks and carrier data",
+    title: "24/7 Call Coverage",
+    desc: "Never miss a call — even after hours",
   },
-  { title: "API & Integrations", desc: "REST API plus pre-built integrations" },
+  {
+    title: "Works With Your Tools",
+    desc: "Books straight into your calendar and CRM",
+  },
 ];
 
 /** `scene-pop` and `scene-fade` both share the carousel's 19.2s clock, so an
@@ -42,40 +54,43 @@ const SCENES = [
  *  Scenes 1-3 pop (scale + opacity); scenes 4+ fade (opacity only). */
 const sceneDelay = (sceneId, stagger) => `${sceneId * 3.2 + stagger}s`;
 
-/** Delivery confirmations that pop out around the phone, then retract as
- *  scene 2 takes over. */
+/** Call outcomes that pop out around the phone, then retract as scene 2 takes
+ *  over. Was four delivered-SMS phone numbers; a receptionist's actual job is
+ *  the four things happening here. */
 const POPUPS = [
-  { text: "+1 555 0134", pos: "left-[2%] top-[14%]", stagger: 0.05 },
-  { text: "+44 7700 9001", pos: "right-[1%] top-[14%]", stagger: 0.15 },
-  { text: "+61 400 12 345", pos: "left-[5%] bottom-[15%]", stagger: 0.25 },
-  { text: "+49 151 2345 67", pos: "right-[4%] bottom-[15%]", stagger: 0.35 },
+  { text: "Call answered", pos: "left-[2%] top-[14%]", stagger: 0.05 },
+  { text: "Appointment booked", pos: "right-[1%] top-[14%]", stagger: 0.15 },
+  { text: "After-hours ✓", pos: "left-[5%] bottom-[15%]", stagger: 0.25 },
+  { text: "FAQ resolved", pos: "right-[4%] bottom-[15%]", stagger: 0.35 },
 ];
 
-/** Scene 2's two-way conversation. Bubbles hug their text, so each is anchored
- *  by its CENTRE — horizontally on a phone edge (34% / 66% of the 560px stage)
- *  to keep the half-on/half-off straddle, and vertically so the group sits
- *  evenly on the handset. Anchoring by top edge instead skewed the group upward,
- *  because the bubbles differ in height (60/45/60/30px). */
+/** Scene 2's two-way conversation — a missed call the AI recovers by texting
+ *  first, rather than waiting for the caller to try again. Bubbles hug their
+ *  text, so each is anchored by its CENTRE — horizontally on a phone edge
+ *  (34% / 66% of the 560px stage) to keep the half-on/half-off straddle, and
+ *  vertically so the group sits evenly on the handset. Anchoring by top edge
+ *  instead skewed the group upward, because the bubbles differ in height
+ *  (60/45/60/30px). */
 const CHATS = [
   {
-    id: "shipped",
-    text: "Is my order shipped?",
-    out: false,
-    pos: "left-[34%] top-[23%]",
+    id: "sorry",
+    text: "Sorry we missed your call — want to book instead?",
+    out: true,
+    pos: "left-[66%] top-[23%]",
     stagger: 0.05,
   },
   {
-    id: "arriving",
-    text: "Yes — arriving today 🚚",
-    out: true,
-    pos: "left-[66%] top-[42.25%]",
+    id: "friday",
+    text: "Yes! Anytime after 3pm Friday?",
+    out: false,
+    pos: "left-[34%] top-[42.25%]",
     stagger: 0.17,
   },
   {
-    id: "thanks",
-    text: "Perfect, thanks!",
-    out: false,
-    pos: "left-[34%] top-[61.5%]",
+    id: "booked",
+    text: "You're booked for 3:15pm Friday ✅",
+    out: true,
+    pos: "left-[66%] top-[61.5%]",
     stagger: 0.29,
   },
 ];
@@ -134,16 +149,19 @@ const FLOW_ACTIONS = [
   },
 ];
 
+// Was "By carrier" — the same three-bar layout now shows WHEN calls come in,
+// because that is what proves 24/7 coverage rather than just claiming it: an
+// "After hours" bar that isn't zero is the point of this scene.
 const CARRIERS = [
-  { n: "Verizon", p: 41 },
-  { n: "Vodafone", p: 28 },
-  { n: "T-Mobile", p: 19 },
+  { n: "Business hours", p: 52 },
+  { n: "Evenings", p: 31 },
+  { n: "After hours", p: 17 },
 ];
 
-/** Scene 6's connected apps — one per integration category, and one per ring.
- *  Generic icons rather than third-party logos; we don't ship those marks.
- *  Positions are centres on the 560x400 stage, solved to sit exactly on each
- *  ring while clearing the card stack and each other. */
+/** Scene 6's connected apps — one per tool the AI books or logs into, and one
+ *  per ring. Generic icons rather than third-party logos; we don't ship those
+ *  marks. Positions are centres on the 560x400 stage, solved to sit exactly on
+ *  each ring while clearing the card stack and each other. */
 const INTEGRATION_MARKS = [
   {
     icon: Users,
@@ -162,16 +180,16 @@ const INTEGRATION_MARKS = [
     stagger: 0.15,
   },
   {
-    icon: ShoppingBag,
-    label: "E-commerce",
+    icon: Calendar,
+    label: "Calendar",
     pos: "left-[22.6%] top-[45%]", // ring R=195 -> (126,180)
     size: "h-[50px] w-[50px]",
     tint: "text-brand-start",
     stagger: 0.2,
   },
   {
-    icon: ChartColumn,
-    label: "Analytics",
+    icon: CreditCard,
+    label: "Payments",
     pos: "left-[38.7%] top-[41%]", // ring R=150 -> (217,164)
     size: "h-[46px] w-[46px]",
     tint: "text-brand-end",
@@ -189,7 +207,7 @@ const INTEGRATION_MARKS = [
 const API_CARDS = [
   {
     method: "POST",
-    path: "/v1/messages",
+    path: "/v1/appointments",
     pos: "left-[73.75%] top-[19%]", // centre (413,76) -> spans x 263-563
     active: true,
     bar: "",
@@ -200,7 +218,7 @@ const API_CARDS = [
   },
   {
     method: "GET",
-    path: "/v1/reports",
+    path: "/v1/availability",
     pos: "left-[73.75%] top-[44%]", // centre (413,176) — 12px below card 1
     active: false,
     bar: "w-full",
@@ -210,7 +228,7 @@ const API_CARDS = [
   },
   {
     method: "POST",
-    path: "/v1/contacts",
+    path: "/v1/reminders",
     pos: "left-[73.75%] top-[69%]", // centre (413,276) — tucks behind the request card
     active: false,
     bar: "w-4/5",
@@ -414,14 +432,14 @@ function SceneVisual({ id }) {
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500">
                 <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
               </span>
-              <span className="font-mono text-[12px] font-semibold text-foreground">
+              <span className="text-[12px] font-semibold text-foreground">
                 {text}
               </span>
             </span>
           </span>
         ))}
 
-        {/* the message itself — centring on the wrapper so the pop's scale()
+        {/* the call itself — centring on the wrapper so the pop's scale()
             doesn't fight the -translate-y-1/2 */}
         <div className="absolute left-1/2 top-1/2 z-20 w-[64%] -translate-x-1/2 -translate-y-1/2">
           <div
@@ -429,26 +447,25 @@ function SceneVisual({ id }) {
             style={{ animationDelay: sceneDelay(0, 0) }}
           >
             <span className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-[13px] font-bold text-white">
-                M
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white">
+                <Phone className="h-4 w-4" strokeWidth={2.25} />
               </span>
               <span className="text-[15px] font-semibold text-foreground">
-                Maple & Thread
+                Bright Smile Dental
               </span>
               <span className="ml-auto flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
-                <Check className="h-3 w-3" strokeWidth={3} /> Delivered
+                <Check className="h-3 w-3" strokeWidth={3} /> Answered
               </span>
             </span>
             <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-              Flash sale — 50% off everything today! Shop now before it ends.{" "}
-              <span className="font-medium text-primary">…More</span>
+              "Thanks for calling Bright Smile Dental — I can book, reschedule
+              or answer questions. How can I help today?"
             </p>
             <span className="mt-3 flex items-center gap-2 border-t border-border pt-3">
-              <Send className="h-3.5 w-3.5 text-primary" />
+              <Phone className="h-3.5 w-3.5 text-primary" />
               <span className="text-[12px] text-muted-foreground">
-                Sent to{" "}
-                <span className="font-semibold text-heading">12,480</span>{" "}
-                contacts in one click
+                Answered by AI Receptionist in{" "}
+                <span className="font-semibold text-heading">&lt;1s</span>
               </span>
               <span className="animate-pulse-soft ml-auto h-1.5 w-1.5 rounded-full bg-emerald-500" />
             </span>
@@ -681,10 +698,11 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 5 — Analytics. Sparse composition, but with real numbers on it: two cards,
-  // a soft panel and a big lens, placed by CENTRE on the 560x400 stage:
-  //   dashboard (150,92) · report (168,298) · panel (408,196) · lens (250,190)
-  // The lens straddles all three, which is what gives the composition depth.
+  // 5 — 24/7 Call Coverage. Sparse composition, but with real numbers on it:
+  // two cards, a soft panel and a big lens, placed by CENTRE on the 560x400
+  // stage: dashboard (150,92) · report (168,298) · panel (408,196) · lens
+  // (250,190). The lens straddles all three, which is what gives the
+  // composition depth.
   if (id === 4) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
@@ -728,14 +746,14 @@ function SceneVisual({ id }) {
             <span className="animate-float-slower relative block h-[232px] w-[252px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-start/[0.09] to-brand-end/[0.09] ring-1 ring-black/[0.04]">
               <span className="absolute left-5 top-5 text-left">
                 <span className="block text-[11px] font-medium text-muted-foreground">
-                  Clicks this week
+                  Calls answered this week
                 </span>
                 <span className="mt-1 block text-[24px] font-bold leading-none text-heading">
-                  3,204
+                  1,842
                 </span>
               </span>
               <span className="absolute right-5 top-5 rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-semibold text-emerald-600 shadow-sm">
-                +2.4%
+                +18%
               </span>
               <svg
                 viewBox="0 0 252 232"
@@ -792,23 +810,23 @@ function SceneVisual({ id }) {
 
               <span className="mt-3.5 flex items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white opacity-85">
-                  <ChartColumn className="h-4.5 w-4.5" strokeWidth={2.25} />
+                  <Headset className="h-4.5 w-4.5" strokeWidth={2.25} />
                 </span>
                 <span className="min-w-0 flex-1 text-left">
                   <span className="block text-[13px] font-semibold text-heading">
-                    Delivery report
+                    Call coverage
                   </span>
                   <span className="mt-0.5 block text-[10px] text-muted-foreground">
-                    Last 7 days · all campaigns
+                    Last 7 days · every call
                   </span>
                 </span>
               </span>
 
               <span className="mt-3.5 flex border-t border-slate-100 pt-3">
                 {[
-                  { v: "12,480", l: "Sent" },
-                  { v: "99.7%", l: "Delivered" },
-                  { v: "1.2s", l: "Avg speed" },
+                  { v: "1,842", l: "Answered" },
+                  { v: "100%", l: "Answer rate" },
+                  { v: "<1s", l: "Avg wait" },
                 ].map((s) => (
                   <span key={s.l} className="flex-1 text-left">
                     <span className="block text-[13px] font-bold text-heading">
@@ -832,7 +850,7 @@ function SceneVisual({ id }) {
           >
             <span className="animate-float-slower block w-[212px] rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5">
               <span className="block text-left text-[12px] font-semibold text-heading">
-                By carrier
+                By time of day
               </span>
               <span className="mt-3 block space-y-2.5">
                 {CARRIERS.map((c, i) => (
@@ -872,10 +890,10 @@ function SceneVisual({ id }) {
               <span className="relative flex h-[132px] w-[132px] items-center justify-center rounded-full bg-white/75 shadow-2xl shadow-slate-900/20 ring-[9px] ring-slate-300 backdrop-blur-[2px]">
                 <span className="text-center">
                   <span className="block text-[26px] font-bold leading-none text-heading">
-                    99.7%
+                    100%
                   </span>
                   <span className="mt-1 block text-[10px] text-muted-foreground">
-                    delivered
+                    answered
                   </span>
                 </span>
               </span>
@@ -886,9 +904,10 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 6 — API & Integrations: connected apps on the left, long sweeping arcs into
-  // a stack of endpoint cards, and a request card overlapping the stack.
-  // Only the top card carries detail; the two behind it fall back to
+  // 6 — Works With Your Tools: connected apps on the left, long sweeping arcs
+  // into a stack of endpoint cards, and a request card overlapping the stack —
+  // the AI booking into a calendar, not just sending a message. Only the top
+  // card carries detail; the two behind it fall back to
   // placeholders so the eye lands on the live request.
   return (
     <div className="relative mx-auto h-full w-full max-w-[560px]">
@@ -1091,13 +1110,13 @@ function SceneVisual({ id }) {
 
             <span className="block text-left font-mono text-[13px] font-semibold">
               <span className="text-brand-end">POST</span>{" "}
-              <span className="text-heading">/v1/messages</span>
+              <span className="text-heading">/v1/appointments</span>
             </span>
             <span className="mt-3.5 block space-y-2.5">
               {[
-                "Authenticated with API key",
-                "Message queued for 12,480 contacts",
-                "Delivered in 42ms",
+                "Checked calendar availability",
+                "Booked the 2:30 PM slot",
+                "Confirmed via SMS in 180ms",
               ].map((t) => (
                 <span key={t} className="flex items-center gap-2.5">
                   <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-50">
