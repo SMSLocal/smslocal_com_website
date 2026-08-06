@@ -25,6 +25,11 @@
   --cc-surface: #e4dcf8;
   --bg-subtle-2: #f1f5f9;
   --success: #16a34a;
+  /* Text-selection highlight. One step darker than a pastel lavender —
+     pale enough to read as "soft", saturated enough that the highlight
+     itself is visible on white. */
+  --selection: #a78bfa;
+  --selection-foreground: #1e1b3a;
   --radius-md: 12px;
   --radius-lg: 20px;
   /* Single sitewide content boundary. Must match the Tailwind `max-w-7xl`
@@ -41,6 +46,14 @@
   --font-instrument: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-sans: var(--font-geist);
   --font-serif: var(--font-instrument);
+}
+
+/* ::selection can't inherit a custom property from an ancestor selection
+   rule the way normal text does, so this has to be one unscoped, sitewide
+   rule rather than something set per-section. */
+::selection {
+  background-color: var(--selection);
+  color: var(--selection-foreground);
 }
 
 * {
