@@ -32,7 +32,14 @@ function collectTextNodes(root) {
     let el = n.parentElement
     let skip = false
     while (el) {
-      if (SKIP_TAGS.has(el.tagName.toLowerCase())) {
+      // data-no-translate mirrors the same check the server-side translator
+      // makes (html-translator.mjs) — the language switcher carries it so its
+      // own-language names ("Deutsch", "हिन्दी") never get treated as
+      // ordinary page text. The server never sends a dictionary entry for
+      // them, but checking here too means a coincidental match elsewhere in
+      // the dictionary (or a future consumer of this attribute) can't leak
+      // through the MutationObserver's continuous re-application.
+      if (SKIP_TAGS.has(el.tagName.toLowerCase()) || el.hasAttribute('data-no-translate')) {
         skip = true
         break
       }

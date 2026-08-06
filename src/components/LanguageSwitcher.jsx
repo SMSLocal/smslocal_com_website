@@ -47,7 +47,22 @@ function LanguageSwitcher() {
   }
 
   return (
-    <details ref={detailsRef} onBlur={handleBlur} className={`relative text-sm ${STYLES}`}>
+    <details
+      ref={detailsRef}
+      onBlur={handleBlur}
+      className={`relative text-sm ${STYLES}`}
+      // Each name here is already in its OWN language — "Español", "Deutsch",
+      // "हिन्दी" — that's the point, it's how a reader finds their language in
+      // a list of ones they can't read. The translator can't tell that from
+      // any other text node on the page, so on a French page it was
+      // translating "Deutsch" to "Allemand" and "Español" to "Espagnol" — the
+      // one part of the site where a visitor most needs their own language
+      // untouched became the one part where it kept changing under them.
+      // data-no-translate is the escape hatch both translators already
+      // check (see html-translator.mjs and applyTranslations.js); nothing
+      // used it until now.
+      data-no-translate
+    >
       <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md border px-2 py-1 [&::-webkit-details-marker]:hidden">
         <img
           src={`/flags/${current.country}.svg`}
