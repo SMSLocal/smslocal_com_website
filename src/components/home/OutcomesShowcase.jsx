@@ -8,8 +8,8 @@ import {
   Megaphone,
   Mail,
   Sparkles,
-  ArrowRight,
-  Clock,
+  Check,
+  BarChart2,
   Grip,
 } from "lucide-react";
 import Reveal from "./Reveal";
@@ -83,9 +83,17 @@ const BADGES = [
 ];
 
 const CARD_SECTIONS = [
-  { label: "Message", widths: ["w-full", "w-[94%]", "w-[86%]", "w-[68%]"] },
-  { label: "Audience", widths: ["w-full", "w-[90%]", "w-[74%]"] },
-  { label: "Schedule", widths: ["w-full", "w-[80%]"] },
+  { label: "Delivered", widths: ["w-full", "w-[94%]", "w-[86%]", "w-[68%]"] },
+  { label: "Clicked", widths: ["w-full", "w-[90%]", "w-[74%]"] },
+  { label: "Replied", widths: ["w-full", "w-[80%]"] },
+];
+
+// Quiet proof points instead of the buttons this section used to end on —
+// informational, not an ask.
+const STATS = [
+  { value: "99.7%", label: "Delivery rate" },
+  { value: "42ms", label: "Avg. send time" },
+  { value: "24/7", label: "Live monitoring" },
 ];
 
 export default function OutcomesShowcase() {
@@ -133,25 +141,24 @@ export default function OutcomesShowcase() {
 
           {/* campaign card */}
           <div className="relative z-0 ml-auto w-[72%] overflow-hidden rounded-2xl border border-border bg-white shadow-2xl">
-            {/* header */}
+            {/* header — a status badge, not an action button: this card
+                reports on campaigns already sent, it doesn't send one */}
             <div className="flex items-center justify-between border-b border-border px-4 py-3">
               <div className="flex items-center gap-2.5">
                 <Grip className="h-5 w-5 text-slate-400" />
                 <div className="leading-tight">
                   <p className="text-sm font-semibold tracking-tight text-foreground">
-                    SMSLocal Campaigns
+                    SMSLocal Analytics
                   </p>
                   <p className="text-[10px] text-muted-foreground">
-                    Global • Bulk SMS • Instant
+                    Global • All Channels • Real-time
                   </p>
                 </div>
               </div>
-              <button
-                type="button"
-                className="flex items-center gap-1 rounded-full bg-slate-900 px-4 py-1.5 text-xs font-semibold text-white"
-              >
-                Send Now <ArrowRight className="h-3 w-3" />
-              </button>
+              <span className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-600">
+                <span className="animate-pulse-soft h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                Live
+              </span>
             </div>
 
             {/* body */}
@@ -159,7 +166,7 @@ export default function OutcomesShowcase() {
               <div className="space-y-6">
                 <div>
                   <p className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
-                    Flash Sale Blast
+                    Campaign Performance
                   </p>
                   <div className="mt-3 flex gap-2">
                     <span className="h-2 w-16 rounded-full bg-slate-200" />
@@ -186,22 +193,25 @@ export default function OutcomesShowcase() {
               </div>
 
               <div className="flex flex-col gap-4">
+                {/* a number and a rate, not a form and a submit button —
+                    this panel is reporting what already happened */}
                 <div className="rounded-xl border border-border p-3.5">
                   <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-brand text-white">
-                    <Send className="h-4 w-4" />
+                    <BarChart2 className="h-4 w-4" />
                   </span>
-                  <p className="mt-3 text-xs font-semibold text-foreground">
-                    Northside Coffee
+                  <p className="mt-3 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+                    This week
                   </p>
-                  <div className="mt-2.5 space-y-1.5">
-                    <span className="block h-1.5 w-full rounded-full bg-slate-200" />
-                    <span className="block h-1.5 w-2/3 rounded-full bg-slate-200" />
-                  </div>
-                  <button
-                    type="button"
-                    aria-label="Deliver"
-                    className="mt-4 h-7 w-full rounded-full bg-primary"
-                  />
+                  <p className="mt-0.5 text-xl font-bold leading-none text-heading">
+                    12,480
+                  </p>
+                  <p className="mt-1.5 text-[10px] text-muted-foreground">
+                    messages sent
+                  </p>
+                  <span className="mt-4 flex h-7 w-full items-center justify-center gap-1 rounded-full bg-emerald-50 text-[11px] font-semibold text-emerald-600">
+                    <Check className="h-3 w-3" strokeWidth={3} />
+                    99.7% delivered
+                  </span>
                 </div>
 
                 <div>
@@ -224,46 +234,39 @@ export default function OutcomesShowcase() {
         </div>
       </Reveal>
 
-      {/* RIGHT — heading + CTAs, each element on its own beat */}
+      {/* RIGHT — heading + proof points. Was a heading and two CTAs pitching
+          "send a campaign", which duplicated the Mass Texting / SMS
+          Marketing cards already in the feature slider above. Retold as
+          reporting instead: it's the one thing this page didn't already say,
+          and it reads as information rather than an ask, so no buttons. */}
       <div className="min-w-0">
         <Reveal delay={120}>
           <span className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wide text-primary">
-            <Clock className="h-4 w-4" />
-            Driving Business Outcomes
+            <BarChart2 className="h-4 w-4" />
+            Real-Time Insights
           </span>
         </Reveal>
         <Reveal delay={200}>
           <h3 className="mt-4 text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
-            Reach more customers{" "}
-            <span className="grad-word">with a single click.</span>
+            Every message,{" "}
+            <span className="grad-word">tracked as it lands.</span>
           </h3>
         </Reveal>
         <Reveal delay={280}>
           <p className="mt-5 max-w-md text-muted-foreground">
-            Send your campaign to every carrier and region through
-            SMSLocal&apos;s messaging platform — without the manual work.
+            Delivery, clicks and replies broken down by campaign, channel and
+            carrier — updated in real time, not the next morning.
           </p>
         </Reveal>
-        <Reveal delay={360} className="mt-8 flex items-center gap-5">
-          {/* Gradient ring around a white fill — the same light-bordered
-              primary the Hero and navbar use. It belongs on light sections
-              like this one; on the dark CTA band it flattened into a white
-              block, which is why that one stays filled. */}
-          <a
-            href="#signup"
-            className="rounded-full bg-gradient-brand p-[1.5px] transition hover:shadow-md hover:shadow-secondary/25"
-          >
-            <span className="flex items-center gap-1.5 rounded-full bg-white px-6 py-3 text-sm font-semibold">
-              <span className="grad-word">Start sending</span>
-              <ArrowRight className="h-4 w-4 text-brand-end" />
-            </span>
-          </a>
-          <a
-            href="#how"
-            className="inline-block py-1.5 text-sm font-semibold text-foreground transition hover:text-primary"
-          >
-            See how it works
-          </a>
+        <Reveal delay={360} className="mt-8 flex flex-wrap gap-x-10 gap-y-5">
+          {STATS.map(({ value, label }) => (
+            <div key={label}>
+              <p className="text-2xl font-bold leading-none text-heading">
+                {value}
+              </p>
+              <p className="mt-1.5 text-sm text-muted-foreground">{label}</p>
+            </div>
+          ))}
         </Reveal>
       </div>
     </div>
