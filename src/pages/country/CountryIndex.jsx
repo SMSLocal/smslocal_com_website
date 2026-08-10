@@ -25,7 +25,7 @@ function CountryIndex() {
     <div>
       <Seo
         title="Country Codes — International Dialling Codes"
-        description="Every international country calling code with ISO codes, population and number formats, plus the sender ID rules and operators SMS senders need."
+        description="Every international country calling code, with ISO codes, number formats and SMS sender ID rules."
         canonical={`${SITE_ORIGIN}/country-code/`}
       />
       <JsonLd

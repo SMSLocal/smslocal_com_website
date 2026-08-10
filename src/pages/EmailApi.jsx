@@ -46,7 +46,7 @@ function EmailApi() {
     <>
       <Seo
         title="Email API & Bulk Email Sending Platform"
-        description="Send transactional and bulk email from one platform with REST or SMTP, high deliverability and analytics, combined with SMS in a single unified API."
+        description="Send transactional and bulk email via REST or SMTP, combined with SMS in one unified API."
         keywords={['bulk email API', 'transactional email API', 'bulk email service', 'SMTP relay API', 'mass email service']}
       />
 

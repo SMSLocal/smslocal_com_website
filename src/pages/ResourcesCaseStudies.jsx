@@ -209,7 +209,7 @@ function ResourcesCaseStudies() {
     <>
       <Seo
         title="Customer Case Studies & Success Stories"
-        description="Real SMSLocal customers in their own words — how Check Point, Applimore and Jenny Fashion use SMS to reach customers, lift engagement and grow sales."
+        description="Real SMSLocal customers in their own words — how they use SMS to grow engagement and sales."
         keywords={['SMSLocal case studies', 'SMS marketing case study', 'bulk SMS success stories', 'Check Point SMSLocal', 'Jenny Fashion SMS marketing']}
       />
 

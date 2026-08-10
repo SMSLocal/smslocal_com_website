@@ -41,7 +41,7 @@ function IndustryEducation() {
     <>
       <Seo
         title="Agentic AI for Education Admissions Teams"
-        description="Guide students from first enquiry to enrolment with agentic AI for education, covering admissions, fee reminders and round-the-clock support."
+        description="Agentic AI for education: admissions, fee reminders and round-the-clock student support."
         keywords={['AI for education', 'agentic AI education', 'admissions AI agent', 'student support AI']}
       />
 

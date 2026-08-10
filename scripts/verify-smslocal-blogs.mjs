@@ -10,6 +10,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { decodeEntities, hasClass, parseHtml } from './lib/mini-html.mjs'
+import { CONTENT_OVERRIDES } from './lib/content-overrides.mjs'
 
 const ROOT = path.join(import.meta.dirname, '..')
 const CACHE = path.join(import.meta.dirname, '.cache', 'raw')
@@ -148,9 +149,15 @@ async function main() {
       const m = raw.pageHtml.match(re)
       return m ? decodeEntities(m[1]).trim() : null
     }
+    // A metaTitle/metaDescription override is a deliberate divergence from
+    // source (year-rollover, or trimmed to fit Google's length limits once
+    // translated) — compare against the override value, not the scrape, so
+    // this stays a signal for real import regressions instead of permanently
+    // red on every post that was ever intentionally edited.
+    const override = CONTENT_OVERRIDES[post.slug] ?? {}
     const metaOk =
-      post.metaTitle === srcMeta(/<title>([\s\S]*?)<\/title>/) &&
-      post.metaDescription === srcMeta(/<meta name="description" content="([^"]*)"/)
+      post.metaTitle === (override.metaTitle ?? srcMeta(/<title>([\s\S]*?)<\/title>/)) &&
+      post.metaDescription === (override.metaDescription ?? srcMeta(/<meta name="description" content="([^"]*)"/))
     // The byline must match the date the live page prints, not the API's
     // `date` — the theme labels the last-modified date as "Published:".
     const shown = raw.pageHtml

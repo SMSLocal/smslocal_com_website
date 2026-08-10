@@ -172,12 +172,13 @@ function CountryCode() {
   const titleLong = `${c.name} Country Code ${c.dial} — SMS Guide`
   const title = titleLong.length + SUFFIX <= 65 ? titleLong : `${c.name} Country Code ${c.dial}`
 
+  // Tail deliberately doesn't repeat the country name (descHead already has
+  // it) and stays short — translated into ru/pl/fr/it this still runs up to
+  // 1.5x English length, so English has to leave that headroom to land under
+  // Google's ~160-char cutoff once translated. Verified against the live
+  // translate endpoint for the two longest country names on the site.
   const descHead = `${c.name} country code is ${c.dial} (ISO ${c.iso2}).`
-  const descLong = `${descHead} How to dial ${c.name}, mobile number format, operators and SMS sender ID rules.`
-  const description =
-    descLong.length <= 155
-      ? descLong
-      : `${descHead} How to dial it, number format and what SMS senders need to know.`
+  const description = `${descHead} Dialing format, operators and SMS sender ID rules.`
   const related = relatedCountries(c.slug)
   const v = variantOf(c.slug)
 

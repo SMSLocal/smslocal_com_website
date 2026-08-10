@@ -34,7 +34,7 @@ function IndustryTravel() {
     <>
       <Seo
         title="Agentic AI for Travel and Hospitality Teams"
-        description="Handle bookings, itinerary changes and multilingual support around the clock with agentic AI for travel and hospitality, plus omnichannel broadcasting."
+        description="Agentic AI for travel and hospitality: bookings, itinerary changes and multilingual support."
         keywords={['AI for travel and hospitality', 'agentic AI travel', 'hospitality AI agent', 'travel booking AI']}
       />
 

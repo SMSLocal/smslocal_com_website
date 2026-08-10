@@ -57,7 +57,7 @@ function IndustryInsurance() {
     <>
       <Seo
         title="Agentic AI for Insurance Quotes and Claims"
-        description="Guide quotes, claims and renewals with agentic AI for insurance, plus reminders and omnichannel campaigns that lift retention and cross-sell."
+        description="Agentic AI for insurance: quotes, claims and renewals, plus reminders that lift retention."
         keywords={['AI for insurance', 'agentic AI insurance', 'insurance claims AI', 'insurance AI agent']}
       />
 

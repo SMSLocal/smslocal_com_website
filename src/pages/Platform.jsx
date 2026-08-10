@@ -18,7 +18,7 @@ function Platform() {
     <>
       <Seo
         title="SMSLocal Platform Overview and Feature Guide"
-        description="SMSLocal unifies messaging channels, a shared inbox, AI automation, analytics and enterprise security in one customer-engagement platform and account."
+        description="SMSLocal unifies messaging, a shared inbox, AI automation and analytics in one platform."
         keywords={['customer engagement platform', 'CPaaS platform', 'unified messaging platform', 'omnichannel platform', 'one customer record']}
       />
 

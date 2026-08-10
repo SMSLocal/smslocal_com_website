@@ -55,7 +55,7 @@ function IndustryTelecom() {
     <>
       <Seo
         title="Agentic AI for Telecom Support & Billing"
-        description="Handle support, billing and outage alerts at scale with agentic AI for telecom, plus omnichannel broadcasting across SMS, RCS, WhatsApp and voice."
+        description="Agentic AI for telecom: support, billing and outage alerts, broadcast across SMS, RCS and voice."
         keywords={['AI for telecom', 'agentic AI telecom', 'telecom customer support AI', 'telecom AI agent']}
       />
 

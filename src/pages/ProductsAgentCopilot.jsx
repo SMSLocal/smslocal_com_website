@@ -34,7 +34,7 @@ function ProductsAgentCopilot() {
     <>
       <Seo
         title="AI Agent Copilot for Support & Sales Replies"
-        description="Speed up every reply with an AI agent copilot that drafts responses, summarises long threads and surfaces knowledge-grounded answers in the reply box."
+        description="Speed up replies with an AI copilot that drafts responses and summarises long threads."
         keywords={['AI agent copilot', 'AI reply assistant', 'support copilot', 'AI drafted replies']}
       />
 

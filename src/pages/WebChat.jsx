@@ -42,7 +42,7 @@ function WebChat() {
     <>
       <Seo
         title="Website Live Chat Widget with Agentic AI"
-        description="Add a customisable live chat widget with agentic AI that answers visitors instantly, plus proactive triggers, file sharing and an in-app SDK for mobile."
+        description="A live chat widget with agentic AI that answers visitors instantly, plus file sharing and a mobile SDK."
         keywords={['live chat widget', 'website chat widget', 'web chat AI', 'live chat with AI']}
       />
 

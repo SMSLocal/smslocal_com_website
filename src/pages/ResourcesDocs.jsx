@@ -162,7 +162,7 @@ function ResourcesDocs() {
     <>
       <Seo
         title="SMSLocal Developer Docs & API Reference"
-        description="API and developer reference for SMSLocal — authentication, SMS endpoints, delivery status, webhooks and SDKs, with code samples in cURL and Node."
+        description="API and developer reference for SMSLocal — authentication, endpoints and SDKs, with code samples."
       />
 
       <Hero

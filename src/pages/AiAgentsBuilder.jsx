@@ -33,7 +33,7 @@ function AiAgentsBuilder() {
     <>
       <Seo
         title="AI Agent Builder — Build & Deploy Agents"
-        description="Build custom AI agents with no-code flows and code when needed. Connect your data and tools, set guardrails, and deploy across chat, WhatsApp and voice."
+        description="Build custom AI agents with no-code flows. Connect your data and deploy across every channel."
         keywords={['build AI agents', 'no-code AI agent builder', 'custom AI agent', 'deploy AI agents']}
       />
 

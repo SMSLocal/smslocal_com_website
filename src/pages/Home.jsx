@@ -18,7 +18,7 @@ function Home() {
     <div className="home-tw">
       <Seo
         title="Bulk SMS Marketing & Business Messaging Platform"
-        description="Launch SMS campaigns, alerts, and promotions in seconds. No apps, no coding, no integration needed. Connect effortlessly and grow with SMSLocal."
+        description="Launch SMS campaigns, alerts and promotions in seconds — no apps, no coding. Grow with SMSLocal."
         keywords={['bulk SMS', 'SMS API', 'business SMS', 'SMS marketing', 'SMS campaigns', 'text message marketing']}
       />
 

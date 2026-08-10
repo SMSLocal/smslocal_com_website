@@ -57,7 +57,7 @@ function LineBusinessMessaging() {
     <>
       <Seo
         title="LINE Business Messaging and Official Account API"
-        description="Engage customers on LINE with your Official Account, two-way chat, rich flex messages and a rich menu, integrated with WhatsApp, SMS and other channels."
+        description="Engage customers on LINE with two-way chat and rich flex messages, integrated with WhatsApp and SMS."
         keywords={['LINE Messaging API', 'LINE Official Account', 'LINE for business', 'LINE bot API']}
       />
 

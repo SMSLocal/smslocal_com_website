@@ -41,7 +41,7 @@ function IndustryRealEstate() {
     <>
       <Seo
         title="Agentic AI for Real Estate and Property Teams"
-        description="Capture leads, recommend listings and book viewings with agentic AI for real estate that works around the clock across chat, WhatsApp, SMS and voice."
+        description="Agentic AI for real estate: capture leads, recommend listings and book viewings, around the clock."
         keywords={['AI for real estate', 'agentic AI real estate', 'real estate lead AI', 'property AI agent']}
       />
 

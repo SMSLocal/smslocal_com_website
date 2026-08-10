@@ -61,7 +61,7 @@ function DidNumbers() {
     <>
       <Seo
         title="DID & Virtual Phone Numbers, 100+ Countries"
-        description="Get local, national, toll-free and mobile virtual numbers in 100+ countries in minutes. Route inbound voice and SMS to your team, apps and CRM."
+        description="Get local, toll-free and mobile virtual numbers in 100+ countries. Route calls and SMS to your team."
         keywords={['DID numbers', 'virtual phone numbers', 'virtual numbers', 'toll-free numbers', 'local phone numbers', 'number porting', 'inbound voice and SMS', 'local presence dialing']}
       />
 

@@ -44,7 +44,7 @@ function WhatsappBroadcasting() {
     <>
       <Seo
         title="WhatsApp Broadcasting for Businesses & Brands"
-        description="Send one WhatsApp broadcast to your whole opted-in audience and reach each person in a personal thread, with templates, media and read receipts."
+        description="Send WhatsApp broadcasts to your opted-in audience with templates, media and read receipts."
         keywords={['WhatsApp broadcasting', 'WhatsApp broadcast', 'WhatsApp Business Platform', 'bulk WhatsApp messages', 'WhatsApp message templates', 'WhatsApp marketing']}
       />
 

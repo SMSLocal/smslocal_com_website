@@ -24,7 +24,7 @@ const COMPETITORS = {
     seo: {
       title: 'SMSLocal vs Bird: Omnichannel Messaging & AI',
       description:
-        'SMSLocal vs Bird (formerly MessageBird): all-in-one messaging with no-code chatbots and agentic AI, versus Bird’s marketing and CX messaging suite.',
+        'SMSLocal vs Bird: all-in-one messaging and agentic AI, versus Bird’s marketing and CX messaging suite.',
       keywords: ['SMSLocal vs Bird', 'Bird alternative', 'MessageBird alternative', 'Bird competitor', 'CX messaging comparison'],
     },
     hero: {
@@ -68,7 +68,7 @@ const COMPETITORS = {
     seo: {
       title: 'SMSLocal vs Twilio: No-Code Messaging & AI',
       description:
-        'SMSLocal vs Twilio: an all-in-one, no-code messaging platform with managed onboarding and agentic AI, versus Twilio’s developer-first communications APIs.',
+        'SMSLocal vs Twilio: a no-code messaging platform with agentic AI, versus Twilio’s developer-first APIs.',
       keywords: ['SMSLocal vs Twilio', 'Twilio alternative', 'no-code Twilio alternative', 'CPaaS comparison', 'Twilio without code'],
     },
     hero: {
@@ -112,7 +112,7 @@ const COMPETITORS = {
     seo: {
       title: 'SMSLocal vs Plivo: No-Code Messaging & AI',
       description:
-        'SMSLocal vs Plivo: an all-in-one, no-code messaging and agentic AI platform that ships ready to use, versus Plivo’s developer-first communications APIs.',
+        'SMSLocal vs Plivo: a ready-to-use, no-code messaging and AI platform, versus Plivo’s developer-first APIs.',
       keywords: ['SMSLocal vs Plivo', 'Plivo alternative', 'Plivo competitor', 'CPaaS comparison', 'no-code Plivo alternative'],
     },
     hero: {
@@ -156,7 +156,7 @@ const COMPETITORS = {
     seo: {
       title: 'SMSLocal vs Infobip: No-Code Messaging & AI',
       description:
-        'SMSLocal vs Infobip: an all-in-one, no-code messaging and AI platform with transparent pricing for growing teams, versus Infobip’s enterprise-scale CPaaS.',
+        'SMSLocal vs Infobip: a no-code messaging and AI platform for growing teams, versus Infobip’s enterprise CPaaS.',
       keywords: ['SMSLocal vs Infobip', 'Infobip alternative', 'Infobip competitor', 'CPaaS comparison', 'omnichannel messaging alternative'],
     },
     hero: {

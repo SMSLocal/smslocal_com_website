@@ -37,7 +37,7 @@ function BlogIndex() {
     <div className="blog-scope">
       <Seo
         title="SMSLocal Blog — SMS & Messaging Insights"
-        description="Playbooks, product updates and best practices on SMS marketing and customer messaging to help you reach more customers over text and grow your business."
+        description="Playbooks and product updates on SMS marketing and customer messaging, to help you grow your business."
       />
 
       <main>

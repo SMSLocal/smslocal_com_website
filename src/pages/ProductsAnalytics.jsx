@@ -29,7 +29,7 @@ function ProductsAnalytics() {
     <>
       <Seo
         title="Analytics & Insights Across Every Channel"
-        description="One source of truth for delivery, engagement, conversion and revenue across SMS, WhatsApp, chatbots and AI agents — real-time, exportable and silo-free."
+        description="One source of truth for delivery, engagement and revenue across SMS, WhatsApp and AI agents."
         keywords={['messaging analytics', 'campaign analytics', 'conversion tracking', 'customer engagement analytics']}
       />
 

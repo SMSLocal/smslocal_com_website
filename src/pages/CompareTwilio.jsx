@@ -74,7 +74,7 @@ const FAQS = [
     <>
       <Seo
         title="SMSLocal vs Twilio: Messaging & AI Compared"
-        description="SMSLocal vs Twilio: an all-in-one, no-code platform with a shared inbox, managed onboarding and a REST API, versus Twilio's developer-first API."
+        description="SMSLocal vs Twilio: a no-code platform with managed onboarding, versus Twilio's developer-first API."
         keywords={['SMSLocal vs Twilio', 'Twilio alternative', 'no-code Twilio alternative', 'CPaaS comparison']}
       />
 

@@ -70,7 +70,7 @@ function RcsBroadcasting() {
     <>
       <Seo
         title="RCS Broadcasting at Scale for Every Brand"
-        description="Broadcast verified, branded RCS rich messages to your whole Android audience at scale — with automatic per-recipient SMS fallback so no one is missed."
+        description="Broadcast branded RCS rich messages at scale, with automatic SMS fallback so no one is missed."
         keywords={['RCS broadcasting', 'RCS broadcast', 'bulk RCS', 'RCS campaigns', 'RCS with SMS fallback', 'branded RCS messaging at scale']}
       />
 

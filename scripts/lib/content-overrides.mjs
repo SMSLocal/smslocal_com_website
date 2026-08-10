@@ -56,10 +56,105 @@ export const CONTENT_OVERRIDES = {
   'what-does-dw-mean-in-text': {
     title: 'What Does DW Mean in Text ? The Trending Slang of 2026',
     metaTitle: 'What Does DW Mean in Text? Understanding the Trending Slang of 2026',
+    metaDescription: 'What does DW mean in text? The meaning of this trending slang, with examples.',
   },
   'emoji-meaning-in-text': {
     title: 'Emoji Meaning in Text: A Guide to 230+ Emoji Meanings for 2026',
     metaTitle: 'Complete Guide to 230+ Emoji Meaning in text for 2026',
+    metaDescription: 'Over 230+ emoji meanings decoded, for texting, social media and professional messages.',
+  },
+
+  // Meta descriptions only, added below — the scraped originals ran
+  // 140-175 chars in English, already brushing Google's ~160-char cutoff,
+  // and every locale that translates longer than English (ru, pl, fr, de,
+  // it) pushed them past 200-250 once localized. Shortened, not rewritten:
+  // same facts, tighter wording, same pattern as the two overrides above.
+  '626-area-code': {
+    metaDescription: 'The 626 area code covers the San Gabriel Valley, California — how it shapes SMS and local business.',
+  },
+  'message-blocking-is-active': {
+    metaDescription: "Why the 'Message Blocking is Active' error happens, and how to fix it on Android and iPhone.",
+  },
+  'what-does-ts-mean-in-text': {
+    metaDescription: 'What does TS mean in text? "True Story," "Timestamp" and more, on Snapchat, WhatsApp and TikTok.',
+  },
+  '801-area-code': {
+    metaDescription: "The 801 area code serves Utah's urban core — its history and impact on local business.",
+  },
+  '469-area-code': {
+    metaDescription: 'The 469 area code in northeastern Texas: uses, dialing rules and business opportunities.',
+  },
+  'what-does-smh-mean-in-text': {
+    metaDescription: 'What does SMH mean in text? Its meaning and use in messages and social media, with examples.',
+  },
+  'unlocking-the-770-area-code': {
+    metaDescription: "The 770 area code serves Atlanta's suburbs in Georgia — its history and role in local business.",
+  },
+  'exploring-the-808-area-code': {
+    metaDescription: "Hawaii's 808 area code covers all islands. Its history, usage and SMS safety tips.",
+  },
+  'what-does-mk-mean': {
+    metaDescription: 'What does MK mean in text? "Mmm, okay" — agreement, hesitation or sarcasm, on Snapchat and TikTok.',
+  },
+  'what-does-wyll-mean': {
+    metaDescription: "What does WYLL mean in texting and social media? Its definition and why it's trending.",
+  },
+  '913-area-code': {
+    metaDescription: 'Get a 913 area code number for Kansas City with SMS features, for businesses targeting the metro.',
+  },
+  'what-does-istg-mean': {
+    metaDescription: 'What does ISTG mean? "I Swear to God" — how to use this popular slang in texts and social media.',
+  },
+  '22395-short-code': {
+    metaDescription: 'The 22395 short code: its use in two-factor authentication and secure SMS banking alerts.',
+  },
+  'what-does-mb-mean': {
+    metaDescription: 'What does MB mean in text? "My Bad" — how it\'s used on Snapchat, Instagram and TikTok.',
+  },
+  'what-does-wtw-mean': {
+    metaDescription: 'What does WTW mean? "What\'s the Word," "What the What," or "What to Watch" — every meaning.',
+  },
+  '971-area-code': {
+    metaDescription: 'The 971 area code covers parts of Oregon, including Portland — ideal for local businesses.',
+  },
+  'what-does-nfs-mean-in-text': {
+    metaDescription: 'What does NFS mean in text? "Not For Sale" and "Need For Speed" — how to use it in context.',
+  },
+  'what-does-ty-mean': {
+    metaDescription: 'What does "TY" mean in chats and social media? Its usage and examples, from SMSLocal.',
+  },
+  'what-does-tbh-mean': {
+    metaDescription: 'What does TBH mean in texting? "To Be Honest" — plus related slang like WYLL, WYF and FS.',
+  },
+  'sms-bomber': {
+    metaDescription: "What an SMS bomber is, how it works, and why it's harmful — stay protected with SMSLocal.",
+  },
+  'what-does-ig-mean': {
+    metaDescription: 'What does IG mean? "I guess" or "Instagram," depending on context — usage across chat apps.',
+  },
+  'what-does-otp-mean-in-text': {
+    metaDescription: 'What does OTP mean in a text message? How this abbreviation is used in digital conversation.',
+  },
+  '216-area-code': {
+    metaDescription: 'How the 216 area code supports Cleveland businesses — dialing tips and getting a local number.',
+  },
+  'what-does-lwk-mean-in-text': {
+    metaDescription: 'What does LWK mean in text? From "low-key" to "love with kisses" — modern digital slang.',
+  },
+  'what-does-ttyl-mean': {
+    metaDescription: 'What does TTYL mean in texting? "Talk to You Later" — its usage in messages and chats.',
+  },
+  'what-does-frl-mean-in-text': {
+    metaDescription: 'What does FRL mean in text? "For Real" — usage on Snapchat, Instagram and similar slang.',
+  },
+  '252-area-code': {
+    metaDescription: "The 252 area code's coverage and role in North Carolina's business landscape.",
+  },
+  'what-does-wyf-mean': {
+    metaDescription: 'What does WYF mean? This texting acronym\'s meanings, and how to use it on Snapchat and TikTok.',
+  },
+  '385-area-code': {
+    metaDescription: 'The 385 area code: location, history, dialing rules and common scams to watch for.',
   },
 
   'how-to-send-a-system-generated-sms': {
