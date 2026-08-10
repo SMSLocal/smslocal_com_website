@@ -64,8 +64,12 @@ export const CONTENT_OVERRIDES = {
 
   'how-to-send-a-system-generated-sms': {
     metaTitle: 'How to Send a System-Generated SMS: Setup Guide + API Steps',
+    // Kept under 155 chars deliberately — the unabridged version ran 188,
+    // already over Google's ~160-char cutoff before translation, and every
+    // locale that isn't shorter than English (ru, pl, de, fr, nl) pushed it
+    // past 250.
     metaDescription:
-      'Learn how to send a system-generated SMS: what it is, how SMS APIs trigger it automatically, real OTP/alert/reminder use cases, and a step-by-step setup guide with Python and PHP examples.',
+      'Learn how a system-generated SMS works: automatic triggers, real OTP/alert/reminder use cases, and a step-by-step setup guide with Python and PHP examples.',
     keywords: 'system generated sms, automated text messages, sms api, python sms library, python send message, otp sms, transactional sms',
     body: [
       { type: 'h2', text: 'Introduction', anchor: null },

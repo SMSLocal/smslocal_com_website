@@ -38384,7 +38384,7 @@
   "sourceType": "page",
   "title": "How to Send a System Generated SMS",
   "metaTitle": "How to Send a System-Generated SMS: Setup Guide + API Steps",
-  "metaDescription": "Learn how to send a system-generated SMS: what it is, how SMS APIs trigger it automatically, real OTP/alert/reminder use cases, and a step-by-step setup guide with Python and PHP examples.",
+  "metaDescription": "Learn how a system-generated SMS works: automatic triggers, real OTP/alert/reminder use cases, and a step-by-step setup guide with Python and PHP examples.",
   "keywords": "system generated sms, automated text messages, sms api, python sms library, python send message, otp sms, transactional sms",
   "category": "SMS Insights",
   "categories": [],
