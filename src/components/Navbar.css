@@ -476,10 +476,35 @@
     border-bottom: 1px solid var(--border);
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem 1.5rem;
-    gap: 1rem;
+    padding: 0.5rem 1.5rem;
+    gap: 0;
     max-height: calc(100vh - 60px);
     overflow-y: auto;
+  }
+
+  /* Desktop leaves these unpadded (padding: 0) since they sit inline in a
+     hover-driven bar; the mobile drawer stacks them as full-width rows, so
+     each needs its own tap area rather than relying on inter-row gap — a
+     0.95rem label with no padding measured ~19px tall, well under the
+     44px WCAG 2.5.5 target. .nav-item also needs the explicit width: the
+     drawer's align-items: flex-start sizes every flex child to content, so
+     width: 100% on the label alone still only spans its own shrink-wrapped
+     parent. */
+  .nav-links .nav-item {
+    width: 100%;
+  }
+
+  .nav-links .nav-trigger,
+  .nav-links .nav-item-link {
+    width: 100%;
+    padding: 0.75rem 0;
+  }
+
+  /* nav-item-link is an <a>, inline by default — width: 100% alone is a
+     no-op without a display change. Pricing is the only top-level item that
+     renders bare (not inside a .nav-item wrapper), so it needs this itself. */
+  .nav-links .nav-item-link {
+    display: block;
   }
 
   .nav-links.open {
