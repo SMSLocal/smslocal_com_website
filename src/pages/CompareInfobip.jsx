@@ -44,8 +44,8 @@ const FAQS = [
   return (
     <>
       <Seo
-        title="SMSLocal vs Infobip: Messaging & AI Compared"
-        description="SMSLocal vs Infobip: a no-code messaging platform with agentic AI, versus Infobip's enterprise CPaaS."
+        title="SMSLocal vs Infobip"
+        description="SMSLocal vs Infobip: a no-code messaging platform, versus Infobip's enterprise CPaaS."
         keywords={['SMSLocal vs Infobip', 'Infobip alternative', 'Infobip competitor', 'CPaaS comparison']}
       />
 

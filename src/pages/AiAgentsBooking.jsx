@@ -45,7 +45,7 @@ function AiAgentsBooking() {
   return (
     <>
       <Seo
-        title="AI Booking Agent for Appointments & Reservations"
+        title="AI Booking Agent"
         description="Book appointments inside the chat with an AI agent that checks live availability instantly."
         keywords={['AI booking agent', 'AI appointment scheduling', 'agentic AI booking', 'automated appointment booking', 'AI reservation agent']}
       />

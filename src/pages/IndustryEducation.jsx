@@ -40,7 +40,7 @@ function IndustryEducation() {
   return (
     <>
       <Seo
-        title="Agentic AI for Education Admissions Teams"
+        title="Education AI"
         description="Agentic AI for education: admissions, fee reminders and round-the-clock student support."
         keywords={['AI for education', 'agentic AI education', 'admissions AI agent', 'student support AI']}
       />

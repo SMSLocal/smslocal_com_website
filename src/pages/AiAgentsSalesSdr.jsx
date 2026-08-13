@@ -51,7 +51,7 @@ function AiAgentsSalesSdr() {
   return (
     <>
       <Seo
-        title="AI Sales Agent & AI SDR for Outbound Sales"
+        title="AI Sales Agent & SDR"
         description="Automate outreach with an AI SDR: research leads, personalize messages, and book meetings."
       />
 

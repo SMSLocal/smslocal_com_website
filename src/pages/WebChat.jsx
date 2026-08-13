@@ -41,7 +41,7 @@ function WebChat() {
   return (
     <>
       <Seo
-        title="Website Live Chat Widget with Agentic AI"
+        title="Live Chat with AI"
         description="A live chat widget with agentic AI that answers visitors instantly, plus file sharing and a mobile SDK."
         keywords={['live chat widget', 'website chat widget', 'web chat AI', 'live chat with AI']}
       />

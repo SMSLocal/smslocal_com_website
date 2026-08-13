@@ -43,7 +43,7 @@ function SmsBroadcasting() {
   return (
     <>
       <Seo
-        title="A2P SMS Broadcasting & Bulk Marketing Campaigns"
+        title="A2P SMS Broadcasting"
         description="Run SMS broadcasting at scale with segmentation, link tracking and AI answering replies."
         keywords={['SMS broadcasting', 'A2P SMS', 'bulk SMS marketing', 'SMS broadcast campaigns']}
       />

@@ -26,8 +26,8 @@ function Careers() {
   return (
     <>
       <Seo
-        title="Careers at SMSLocal — Join Our Growing Team"
-        description="Join the team building SMSLocal's messaging and agentic AI platform — remote-friendly and fast-moving."
+        title="Careers at SMSLocal"
+        description="Join the team building SMSLocal's messaging platform — remote-friendly and fast-moving."
       />
 
       <Hero

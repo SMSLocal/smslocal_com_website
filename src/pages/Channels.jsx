@@ -66,7 +66,7 @@ function Channels() {
   return (
     <>
       <Seo
-        title="Business Messaging Channels & APIs List"
+        title="Messaging Channels & APIs"
         description="Reach customers on SMS, WhatsApp, RCS, Voice and email from one platform, one inbox, one API."
         keywords={['business messaging channels', 'omnichannel messaging platform', 'multichannel messaging API', 'communication channels', 'CPaaS platform']}
       />

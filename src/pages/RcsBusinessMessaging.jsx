@@ -55,8 +55,8 @@ function RcsBusinessMessaging() {
   return (
     <>
       <Seo
-        title="RCS Business Messaging for Growing Brands"
-        description="Upgrade SMS to RCS with rich media and automatic SMS fallback. Reach Android at scale with our API."
+        title="RCS Business Messaging"
+        description="Upgrade SMS to RCS with rich media and automatic fallback, at scale."
         keywords={['RCS business messaging', 'RCS API', 'RCS for business', 'rich communication services', 'branded RCS messaging', 'RCS vs SMS']}
       />
 

@@ -50,6 +50,18 @@ function encodeText(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
 
+// Same as encodeText, plus `"` -> `&quot;`. Text nodes never need that escape,
+// but a translated string re-inserted into content="..." does — a source
+// description containing a literal quote (`what does "TY" mean`) translated
+// straight back in terminates the attribute early, spilling the rest of the
+// text as bare, unparsed HTML and making the tag disappear from every
+// selector that expects it. Caught on /th/ and /vi/ for one blog post; the
+// character survives translation in most languages but not all, so this
+// isn't a one-post fix.
+function encodeAttr(s) {
+  return encodeText(s).replace(/"/g, '&quot;')
+}
+
 function hasLetters(s) {
   return /[A-Za-zÀ-ɏͰ-ϿЀ-ӿ؀-ۿऀ-ॿ฀-๿一-鿿぀-ヿ가-힯]/.test(s)
 }
@@ -95,7 +107,7 @@ function applyMetaStrings(html, map) {
     const decoded = decodeEntities(content).trim()
     const translated = map.get(decoded)
     if (!translated) return full
-    return full.replace(`content="${content}"`, `content="${encodeText(translated)}"`)
+    return full.replace(`content="${content}"`, `content="${encodeAttr(translated)}"`)
   })
 }
 

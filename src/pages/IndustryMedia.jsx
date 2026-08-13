@@ -39,7 +39,7 @@ function IndustryMedia() {
   return (
     <>
       <Seo
-        title="Agentic AI for Media and Entertainment Care"
+        title="Agentic AI for Media"
         description="Agentic AI for media and entertainment: ticketing, recommendations and subscriber support."
         keywords={['AI for media and entertainment', 'agentic AI media', 'subscriber care AI', 'entertainment AI agent']}
       />

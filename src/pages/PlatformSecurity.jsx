@@ -34,7 +34,7 @@ function PlatformSecurity() {
   return (
     <>
       <Seo
-        title="Enterprise Security & Compliance Platform"
+        title="Security & Compliance"
         description="See how SMSLocal protects customer data with encryption, SOC 2, GDPR and HIPAA compliance."
         keywords={['enterprise security', 'SOC 2', 'GDPR compliance', 'data security', 'RBAC', 'SSO']}
       />

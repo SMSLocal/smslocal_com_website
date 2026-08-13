@@ -229,7 +229,7 @@ function AppleMessagesForBusiness() {
   return (
     <>
       <Seo
-        title="Apple Messages for Business API and Chat"
+        title="Apple Messages for Business"
         description="Reach customers in Messages on iPhone with rich links, list pickers, Apple Pay and reactions."
         keywords={['iMessage for business', 'Apple Messages for Business API', 'iMessage business API', 'Messages for Business provider']}
       />

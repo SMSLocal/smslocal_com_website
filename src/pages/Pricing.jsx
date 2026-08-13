@@ -22,7 +22,7 @@ function Pricing() {
   return (
     <div className="pricing-page">
       <Seo
-        title="Pricing — Pay Only For The SMS You Send"
+        title="SMSLocal Pricing"
         description="SMSLocal pricing is simple: pay only for messages you send. See live per-country rates."
         keywords={['SMSLocal pricing', 'SMS rates', 'bulk SMS pricing', 'per-SMS pricing', 'SMS cost calculator', 'no contract SMS pricing']}
       />

@@ -88,9 +88,22 @@ function persist() {
   if (existsSync(LEGACY_CACHE_FILE)) rmSync(LEGACY_CACHE_FILE, { force: true })
 }
 
+// The brand name isn't safe left as-is: mid-sentence ("businesses trust
+// SMSLocal to...") the free endpoint leaves it alone, but standalone or
+// trailing after a "|" (exactly how every page title ends) it gets
+// "helpfully" transliterated — "SMSLocal" -> "СМСЛокальный" in Russian,
+// "SMSLokalny" in Polish, both longer than the original and wrong. Swapping
+// it for a token translation engines don't recognize as a dictionary word
+// survives verbatim in every language tested (pl/ru/vi/ar) and is restored
+// after, so the API never sees the brand name at all.
+const BRAND = 'SMSLocal'
+const BRAND_TOKEN = 'XSMSLOCALX'
+const protectBrand = (s) => s.replaceAll(BRAND, BRAND_TOKEN)
+const restoreBrand = (s) => s.replaceAll(BRAND_TOKEN, BRAND)
+
 async function requestChunk(texts, targetLang, attempt = 1) {
   const params = new URLSearchParams({ client: 'gtx', sl: 'en', tl: targetLang })
-  for (const t of texts) params.append('q', t)
+  for (const t of texts) params.append('q', protectBrand(t))
 
   try {
     const res = await fetch(`https://translate.googleapis.com/translate_a/t?${params}`, {
@@ -101,8 +114,8 @@ async function requestChunk(texts, targetLang, attempt = 1) {
     const data = await res.json()
     return texts.map((t, i) => {
       const item = data[i]
-      if (typeof item === 'string') return item
-      if (Array.isArray(item)) return String(item[0] ?? t)
+      if (typeof item === 'string') return restoreBrand(item)
+      if (Array.isArray(item)) return restoreBrand(String(item[0] ?? t))
       return t
     })
   } catch (err) {

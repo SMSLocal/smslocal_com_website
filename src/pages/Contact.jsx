@@ -64,7 +64,7 @@ function Contact() {
   return (
     <>
       <Seo
-        title="Contact SMSLocal — Sales & Support Team"
+        title="Contact SMSLocal"
         description="Get in touch with SMSLocal for sales, support or partnerships. We reply within one business day."
       />
 

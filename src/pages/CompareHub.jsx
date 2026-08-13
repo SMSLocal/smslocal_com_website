@@ -28,7 +28,7 @@ function CompareHub() {
   return (
     <>
       <Seo
-        title="Compare SMSLocal vs Twilio, Infobip, Bird & Plivo"
+        title="Compare SMSLocal vs Competitors"
         description="See how SMSLocal compares with Twilio, Infobip, Bird and Plivo — feature by feature, in one table."
         keywords={['SMSLocal alternatives', 'business messaging comparison', 'CPaaS comparison', 'Twilio alternative', 'Infobip alternative', 'Bird alternative', 'Plivo alternative']}
       />

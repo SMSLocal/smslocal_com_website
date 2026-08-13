@@ -122,7 +122,7 @@ function Solutions() {
   return (
     <>
       <Seo
-        title="Business Messaging Solutions by Industry"
+        title="Business Messaging Solutions"
         description="SMSLocal solutions, organised by industry and by team — support, sales and bookings."
         keywords={['business messaging solutions', 'AI agent solutions by industry', 'chatbot solutions by team', 'customer support automation', 'sales automation solutions']}
       />

@@ -26,7 +26,7 @@ function Products() {
   return (
     <>
       <Seo
-        title="Products — Messaging, Chatbot & AI Agents"
+        title="Products"
         description="Explore SMSLocal: messaging channels, no-code chatbots and autonomous AI agents in one account."
         keywords={['business messaging platform', 'customer engagement platform', 'CPaaS products', 'messaging chatbot AI agents', 'conversational platform']}
       />

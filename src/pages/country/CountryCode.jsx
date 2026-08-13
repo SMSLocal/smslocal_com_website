@@ -165,12 +165,13 @@ function CountryCode() {
 
   const url = `${SITE_ORIGIN}/country-code/${c.slug}/`
 
-  // Long names ("Saint Vincent and the Grenadines") push both past Google's
-  // display limits, so each drops its optional tail rather than being cut
-  // mid-word in the SERP. SUFFIX is what Seo appends.
-  const SUFFIX = ' | SMSLocal'.length
-  const titleLong = `${c.name} Country Code ${c.dial} — SMS Guide`
-  const title = titleLong.length + SUFFIX <= 65 ? titleLong : `${c.name} Country Code ${c.dial}`
+  // No "Country Code" or "— SMS Guide" tail: translated into ru/pl/it/ar this
+  // still runs up to ~1.8x English length, so the English title has to leave
+  // headroom to land under Google's ~60-char cutoff once translated — even
+  // "Country Code" alone was too much for names like "Saint Vincent and the
+  // Grenadines". Verified against the live translate endpoint, longest name
+  // on the site included.
+  const title = `${c.name} ${c.dial}`
 
   // Tail deliberately doesn't repeat the country name (descHead already has
   // it) and stays short — translated into ru/pl/fr/it this still runs up to
@@ -178,7 +179,7 @@ function CountryCode() {
   // Google's ~160-char cutoff once translated. Verified against the live
   // translate endpoint for the two longest country names on the site.
   const descHead = `${c.name} country code is ${c.dial} (ISO ${c.iso2}).`
-  const description = `${descHead} Dialing format, operators and SMS sender ID rules.`
+  const description = `${descHead} Dialing format and SMS sender ID rules.`
   const related = relatedCountries(c.slug)
   const v = variantOf(c.slug)
 

@@ -87,7 +87,7 @@ function ResourcesGuides() {
   return (
     <>
       <Seo
-        title="Guides & Tutorials to Get You Started Fast"
+        title="Guides & Tutorials"
         description="Step-by-step SMSLocal guides — set up channels, build chatbots and deploy AI agents."
       />
 

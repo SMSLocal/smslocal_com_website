@@ -17,8 +17,8 @@ function IntegrationsPage() {
   return (
     <>
       <Seo
-        title="Integrations - Connect SMSLocal to 300+ Apps"
-        description="One-click OAuth to your CRM, e-commerce, helpdesk and finance tools, plus a REST API and webhooks."
+        title="Integrations — 300+ Apps"
+        description="One-click OAuth to your CRM and helpdesk tools, plus a REST API and webhooks."
         keywords={['integrations', 'CRM integration', 'Zapier', 'webhooks', 'API integrations']}
       />
 

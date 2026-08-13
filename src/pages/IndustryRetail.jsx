@@ -33,8 +33,8 @@ function IndustryRetail() {
   return (
     <>
       <Seo
-        title="Agentic AI for Retail and eCommerce Support"
-        description="Agentic AI for retail: order updates, cart recovery, returns and broadcasting across every channel shoppers use."
+        title="Retail AI"
+        description="Agentic AI for retail: order updates, cart recovery and returns."
         keywords={['AI for retail', 'agentic AI retail', 'ecommerce AI support', 'retail AI agent']}
       />
 

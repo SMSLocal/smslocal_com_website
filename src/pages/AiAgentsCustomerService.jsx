@@ -48,8 +48,8 @@ function AiAgentsCustomerService() {
   return (
     <>
       <Seo
-        title="AI Customer Service Agent for Support Teams"
-        description="Resolve customer queries autonomously with an AI agent, 24/7 across chat, email, voice and social."
+        title="AI Customer Service Agent"
+        description="Resolve customer queries autonomously with an AI agent, around the clock on any channel."
         keywords={['AI customer service agent', 'agentic AI support', 'autonomous customer support', 'AI support agent']}
       />
 

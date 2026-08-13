@@ -44,7 +44,7 @@ function AiAgentsPlatform() {
   return (
     <>
       <Seo
-        title="Agentic AI Platform for Customer Experience"
+        title="Agentic AI Platform"
         description="Deploy autonomous AI agents that resolve, not just reply — support, sales and voice in one platform."
         keywords={['AI agent platform', 'autonomous AI agents', 'enterprise AI agents', 'AI agents for customer experience']}
       />

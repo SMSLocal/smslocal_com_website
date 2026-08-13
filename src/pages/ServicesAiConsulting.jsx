@@ -63,8 +63,8 @@ function ServicesAiConsulting() {
   return (
     <>
       <Seo
-        title="AI Consulting & Onboarding Services for Teams"
-        description="Hands-on AI consulting: we scope the right use case, build it on your systems and reach production."
+        title="AI Consulting"
+        description="Hands-on AI consulting: we scope the use case and reach production."
         keywords={['AI consulting', 'AI onboarding', 'AI implementation services', 'proof of concept to production', 'AI agent development', 'AI strategy consulting', 'SMSLocal']}
       />
 

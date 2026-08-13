@@ -49,7 +49,7 @@ function InstagramMessagingApi() {
   return (
     <>
       <Seo
-        title="Instagram Messaging and DM API for Business"
+        title="Instagram Messaging API"
         description="Automate Instagram DMs and comments via the official Messaging API, routed in one shared inbox."
         keywords={['Instagram DM API', 'Instagram messaging API', 'Instagram DM automation', 'Instagram business messaging', 'Instagram inbox API']}
       />

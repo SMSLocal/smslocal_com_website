@@ -22,7 +22,7 @@ const COMPETITORS = {
     domain: 'bird.com',
     category: 'Marketing & CX messaging (formerly MessageBird)',
     seo: {
-      title: 'SMSLocal vs Bird: Omnichannel Messaging & AI',
+      title: 'SMSLocal vs Bird',
       description:
         'SMSLocal vs Bird: all-in-one messaging and agentic AI, versus Bird’s marketing and CX messaging suite.',
       keywords: ['SMSLocal vs Bird', 'Bird alternative', 'MessageBird alternative', 'Bird competitor', 'CX messaging comparison'],
@@ -66,7 +66,7 @@ const COMPETITORS = {
     domain: 'twilio.com',
     category: 'CPaaS / communications APIs',
     seo: {
-      title: 'SMSLocal vs Twilio: No-Code Messaging & AI',
+      title: 'SMSLocal vs Twilio',
       description:
         'SMSLocal vs Twilio: a no-code messaging platform with agentic AI, versus Twilio’s developer-first APIs.',
       keywords: ['SMSLocal vs Twilio', 'Twilio alternative', 'no-code Twilio alternative', 'CPaaS comparison', 'Twilio without code'],
@@ -110,9 +110,9 @@ const COMPETITORS = {
     domain: 'plivo.com',
     category: 'Communications APIs',
     seo: {
-      title: 'SMSLocal vs Plivo: No-Code Messaging & AI',
+      title: 'SMSLocal vs Plivo',
       description:
-        'SMSLocal vs Plivo: a ready-to-use, no-code messaging and AI platform, versus Plivo’s developer-first APIs.',
+        'SMSLocal vs Plivo: a ready-to-use, no-code messaging platform, versus Plivo’s developer-first APIs.',
       keywords: ['SMSLocal vs Plivo', 'Plivo alternative', 'Plivo competitor', 'CPaaS comparison', 'no-code Plivo alternative'],
     },
     hero: {
@@ -154,9 +154,9 @@ const COMPETITORS = {
     domain: 'infobip.com',
     category: 'Global omnichannel CPaaS',
     seo: {
-      title: 'SMSLocal vs Infobip: No-Code Messaging & AI',
+      title: 'SMSLocal vs Infobip',
       description:
-        'SMSLocal vs Infobip: a no-code messaging and AI platform for growing teams, versus Infobip’s enterprise CPaaS.',
+        'SMSLocal vs Infobip: a no-code messaging platform, versus Infobip’s enterprise CPaaS.',
       keywords: ['SMSLocal vs Infobip', 'Infobip alternative', 'Infobip competitor', 'CPaaS comparison', 'omnichannel messaging alternative'],
     },
     hero: {

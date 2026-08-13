@@ -36,7 +36,7 @@ function KakaoTalkBusinessMessaging() {
   return (
     <>
       <Seo
-        title="KakaoTalk Business Messaging and AlimTalk API"
+        title="KakaoTalk Business Messaging"
         description="Send verified AlimTalk and FriendTalk broadcasts, and manage two-way KakaoTalk chats in one inbox."
         keywords={['KakaoTalk Business Messaging', 'AlimTalk API', 'FriendTalk API', 'Kakao Channel', 'KakaoTalk for business']}
       />

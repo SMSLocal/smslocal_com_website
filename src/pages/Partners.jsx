@@ -49,7 +49,7 @@ function Partners() {
   return (
     <>
       <Seo
-        title="The SMSLocal Partner and Reseller Program"
+        title="SMSLocal Partner Program"
         description="Partner with SMSLocal on AI and messaging. Refer, resell or integrate, and earn recurring revenue."
         keywords={['SMSLocal partner program', 'WhatsApp reseller program', 'messaging reseller', 'agentic AI partner']}
       />

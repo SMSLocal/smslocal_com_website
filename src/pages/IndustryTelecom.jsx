@@ -54,8 +54,8 @@ function IndustryTelecom() {
   return (
     <>
       <Seo
-        title="Agentic AI for Telecom Support & Billing"
-        description="Agentic AI for telecom: support, billing and outage alerts, broadcast across SMS, RCS and voice."
+        title="Telecom AI"
+        description="Agentic AI for telecom: support, billing and outage alerts across SMS, RCS and voice."
         keywords={['AI for telecom', 'agentic AI telecom', 'telecom customer support AI', 'telecom AI agent']}
       />
 

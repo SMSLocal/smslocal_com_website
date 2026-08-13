@@ -69,7 +69,7 @@ function IndustryMortgage() {
   return (
     <>
       <Seo
-        title="Agentic AI for Mortgage Lenders and Borrowers"
+        title="Mortgage AI"
         description="Agentic AI for mortgages: pre-qualification, document reminders and status updates on any channel."
         keywords={['AI for mortgage', 'agentic AI mortgage', 'mortgage lending AI', 'mortgage AI agent']}
       />

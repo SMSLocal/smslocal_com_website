@@ -69,7 +69,7 @@ function RcsBroadcasting() {
   return (
     <>
       <Seo
-        title="RCS Broadcasting at Scale for Every Brand"
+        title="RCS Broadcasting"
         description="Broadcast branded RCS rich messages at scale, with automatic SMS fallback so no one is missed."
         keywords={['RCS broadcasting', 'RCS broadcast', 'bulk RCS', 'RCS campaigns', 'RCS with SMS fallback', 'branded RCS messaging at scale']}
       />

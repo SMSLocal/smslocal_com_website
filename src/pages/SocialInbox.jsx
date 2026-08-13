@@ -33,7 +33,7 @@ function SocialInbox() {
   return (
     <>
       <Seo
-        title="Social Media Inbox for Every DM & Comment"
+        title="Social Media Inbox"
         description="Unify Instagram, Messenger, WhatsApp, Telegram and LINE in one shared team inbox."
         keywords={['social media inbox', 'shared social inbox', 'unified social inbox', 'Instagram DM management', 'Messenger inbox', 'omnichannel social support']}
       />

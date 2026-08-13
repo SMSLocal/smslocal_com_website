@@ -32,7 +32,7 @@ function AiAgentsBuilder() {
   return (
     <>
       <Seo
-        title="AI Agent Builder — Build & Deploy Agents"
+        title="AI Agent Builder"
         description="Build custom AI agents with no-code flows. Connect your data and deploy across every channel."
         keywords={['build AI agents', 'no-code AI agent builder', 'custom AI agent', 'deploy AI agents']}
       />
