@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SOCIAL_LINKS } from './home/SocialIcons.jsx'
 import NightBackdrop from './home/NightBackdrop.jsx'
@@ -52,6 +53,18 @@ const COLUMNS = [
 ]
 
 function Footer() {
+  // Same hidden credit as the MeraTalk footer easter egg: click the invisible
+  // zone centered over the copyright line 5 times to reveal it. Base64'd so
+  // it doesn't show up in a page-source search.
+  const [seq, setSeq] = useState(0)
+  const [meta, setMeta] = useState(false)
+  const _p = "4oCUIENyZWF0ZWQgYnkgQVJTQUxBTiBT" + "SEFLSVIgU0hBSUtIIMK3ICs5MSA3NzM4ODE4NjQ0IOKAlA=="
+  const _d = () => { try { return new TextDecoder().decode(Uint8Array.from(atob(_p), (c) => c.charCodeAt(0))) } catch { return '' } }
+  const bump = () => {
+    const n = seq + 1
+    if (n === 5) { setMeta(!meta); setSeq(0) } else { setSeq(n) }
+  }
+
   return (
     // home-tw scopes the Tailwind element reset (styles/home-tailwind.css) to
     // this subtree. The footer renders on every page, including the plain-CSS
@@ -126,7 +139,7 @@ function Footer() {
           </a>
         </address>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
+        <div className="relative mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} SMSLocal. All rights reserved.</p>
           {/* py-1 clears the 24px WCAG 2.5.8 tap minimum */}
           <div className="flex gap-6">
@@ -141,6 +154,19 @@ function Footer() {
             <a href="/sitemap.xml" className="inline-block py-1 hover:text-primary">
               Sitemap
             </a>
+          </div>
+
+          {/* Invisible click zone, centered over the bar — click 5x to reveal. */}
+          <div
+            onClick={bump}
+            className="absolute left-1/2 top-0 h-full w-40 -translate-x-1/2 cursor-default select-none"
+            aria-hidden="true"
+          >
+            {meta && (
+              <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap bg-gradient-to-r from-[#2563eb] to-[#38bdf8] bg-clip-text text-[11px] font-bold tracking-wide text-transparent">
+                {_d()}
+              </span>
+            )}
           </div>
         </div>
       </div>
