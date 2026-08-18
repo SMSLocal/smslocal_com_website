@@ -1,15 +1,10 @@
 import {
   Send,
-  Clock,
   Check,
-  Workflow,
-  Search,
   Users,
   Headset,
-  ShoppingBag,
   Bot,
   Sparkles,
-  CreditCard,
   Calendar,
   ChevronLeft,
   ChevronRight,
@@ -17,16 +12,14 @@ import {
   Mic,
   Globe,
   Database,
+  Inbox,
+  Megaphone,
 } from "lucide-react";
 import AppLogo from "../AppLogo";
 
-// Scenes 2 and 3 (AI Agent, Campaign Automation) are the two the client
-// approved and asked to keep untouched. The other four were generic
-// receptionist-call claims that never showed the product surfaces this
-// platform actually sells. Retold around chatbase-style product moments
-// instead — the website chatbot, its capability toggles, meeting booking,
-// and the tools/data it connects to — each with a cursor performing the
-// action rather than the state just appearing.
+// All six scenes are chatbase-style product moments — each with a cursor
+// performing the action rather than the state just appearing — rather than
+// the generic receptionist-call claims this hero used to make.
 const SCENES = [
   {
     title: "Turn On What You Need",
@@ -37,12 +30,12 @@ const SCENES = [
     desc: "Type a question — get an answer, not a ticket",
   },
   {
-    title: "AI Agent",
-    desc: "Understands, decides, and replies automatically",
+    title: "Unified Inbox",
+    desc: "SMS, RCS and WhatsApp — one thread, one reply",
   },
   {
-    title: "Campaign Automation",
-    desc: "Triggered messages and multi-step flows",
+    title: "Send a Campaign, Watch It Land",
+    desc: "One click out, real delivery numbers back",
   },
   {
     title: "Book Meetings Automatically",
@@ -88,60 +81,6 @@ const CAPABILITIES = [
   },
 ].map((c, i) => ({ ...c, stagger: 0.1 + i * 0.08 }));
 
-
-/** Scene 3's autonomous resolution — a single vertical timeline under the
- *  agent, each step landing in chronological order top-to-bottom. Vertical
- *  order alone carries the sequence, so no per-bubble numbering is needed. */
-const AGENT_STEPS = [
-  { icon: Search, text: "Detected: refund request", top: "30%", stagger: 0.1 },
-  {
-    icon: ShoppingBag,
-    text: "Looked up the order in store",
-    top: "47%",
-    stagger: 0.2,
-  },
-  {
-    icon: CreditCard,
-    text: "Refund issued automatically",
-    top: "64%",
-    stagger: 0.3,
-  },
-  { icon: Send, text: "Customer notified", top: "81%", stagger: 0.4 },
-];
-
-/** Scene 4's automation flow: two triggers feeding one rule, which fans out to
- *  three actions. Positions are centres on the 560x400 stage. */
-const FLOW_TRIGGERS = [
-  { label: "New sign-up", pos: "left-[16.4%] top-[19%]", stagger: 0.12 },
-  { label: "Cart abandoned", pos: "left-[83.6%] top-[19%]", stagger: 0.19 },
-];
-
-const FLOW_ACTIONS = [
-  {
-    icon: Send,
-    label: "Send SMS",
-    sub: "instantly",
-    pos: "left-[19.3%] top-[74%]",
-    chip: "bg-brand-start/10 text-brand-start",
-    stagger: 0.3,
-  },
-  {
-    icon: Clock,
-    label: "Wait 1 hour",
-    sub: "then check",
-    pos: "left-[50%] top-[74%]",
-    chip: "bg-gradient-brand text-white",
-    stagger: 0.38,
-  },
-  {
-    icon: Check,
-    label: "Follow-up",
-    sub: "if no reply",
-    pos: "left-[80.7%] top-[74%]",
-    chip: "bg-brand-end/10 text-brand-end",
-    stagger: 0.46,
-  },
-];
 
 /** Scene 5's meeting picker — mirrors the chatbase reference almost exactly
  *  (a day strip, then a time grid). Monday's pre-selected because the
@@ -420,176 +359,176 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 3 — AI Agent: the agent (hub, centre-top) fans out to the steps it took
-  // resolving one inbound message on its own — each pops in as its own
-  // bubble, in chronological order, closing with the outcome at the bottom.
+  // 3 — Unified Inbox: one thread spanning SMS, RCS and WhatsApp — the
+  // cursor taps the WhatsApp pill, which is what brings the third reply in,
+  // demonstrating it's genuinely one conversation across channels, not three.
   if (id === 2) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
-        {/* the rail — one simple line down the spine, fading in once with the
-            agent rather than redrawing per step */}
-        <svg
-          viewBox="0 0 560 400"
-          className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-          style={{ animationDelay: sceneDelay(2, 0.02) }}
-          aria-hidden
-        >
-          <path
-            d="M280,84 V362"
-            fill="none"
-            stroke="var(--brand-start)"
-            strokeOpacity="0.4"
-            strokeWidth="2.5"
-            strokeDasharray="5 7"
-            strokeLinecap="round"
-          />
-        </svg>
-
-        {/* the agent — head of the timeline, thinking continuously while the
-            scene runs */}
-        <span className="pointer-events-none absolute left-1/2 top-[9%] -translate-x-1/2 -translate-y-1/2">
+        <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <span
-            className="animate-scene-pop flex flex-col items-center gap-1.5"
+            className="animate-scene-pop block w-[330px] rounded-[1.75rem] bg-white p-4 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
             style={{ animationDelay: sceneDelay(2, 0) }}
           >
-            <span className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-brand text-white shadow-xl shadow-primary/25">
-              <span className="animate-pulse-soft absolute -inset-2 rounded-full border-2 border-brand-start/30" />
-              <Bot className="h-6 w-6" strokeWidth={2} />
-              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-black/5">
-                <Sparkles className="h-3 w-3 text-brand-end" />
+            <span className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white">
+                <Inbox className="h-4 w-4" strokeWidth={2.25} />
+              </span>
+              <span>
+                <span className="block text-[13.5px] font-semibold text-heading">
+                  Unified Inbox
+                </span>
+                <span className="block text-[11px] text-muted-foreground">
+                  Every channel, one thread
+                </span>
               </span>
             </span>
-            <span className="text-[12px] font-semibold tracking-tight text-heading">
-              AI Agent
+
+            <span className="mt-3.5 flex items-center gap-1.5">
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10.5px] font-semibold text-muted-foreground">
+                SMS
+              </span>
+              <FlipChip
+                sceneId={2}
+                flip={0.85}
+                className="inline-flex"
+                final={
+                  <span className="rounded-full bg-gradient-brand px-2.5 py-1 text-[10.5px] font-semibold text-white">
+                    WhatsApp
+                  </span>
+                }
+                initial={
+                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10.5px] font-semibold text-muted-foreground">
+                    WhatsApp
+                  </span>
+                }
+              />
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10.5px] font-semibold text-muted-foreground">
+                RCS
+              </span>
+            </span>
+
+            <span className="mt-3.5 block space-y-2 border-t border-slate-100 pt-3.5">
+              <span
+                className="animate-scene-pop flex justify-end"
+                style={{ animationDelay: sceneDelay(2, 0.1) }}
+              >
+                <span className="max-w-[215px] rounded-2xl rounded-br-md bg-gradient-brand px-3.5 py-2 text-[12px] font-medium text-white shadow-md shadow-primary/20">
+                  Is my order ready?
+                  <span className="mt-1 block text-[9px] font-normal text-white/70">
+                    via SMS
+                  </span>
+                </span>
+              </span>
+              <span
+                className="animate-scene-pop flex justify-start"
+                style={{ animationDelay: sceneDelay(2, 0.22) }}
+              >
+                <span className="max-w-[225px] rounded-2xl rounded-bl-md bg-slate-50 px-3.5 py-2 text-[12px] leading-relaxed text-foreground ring-1 ring-black/5">
+                  Yes — ready for pickup 2–6pm today.
+                  <span className="mt-1 block text-[9px] font-normal text-muted-foreground">
+                    via RCS
+                  </span>
+                </span>
+              </span>
+              <span
+                className="animate-scene-pop flex justify-end"
+                style={{ animationDelay: sceneDelay(2, 0.95) }}
+              >
+                <span className="max-w-[215px] rounded-2xl rounded-br-md bg-gradient-brand px-3.5 py-2 text-[12px] font-medium text-white shadow-md shadow-primary/20">
+                  Perfect, thank you! 🙌
+                  <span className="mt-1 block text-[9px] font-normal text-white/70">
+                    via WhatsApp
+                  </span>
+                </span>
+              </span>
             </span>
           </span>
         </span>
 
-        {/* the steps it takes, landing one by one down the timeline — vertical
-            order alone carries the sequence, so nothing needs a number */}
-        {AGENT_STEPS.map(({ icon: Icon, text, top, stagger }) => (
-          <span
-            key={text}
-            className="pointer-events-none absolute left-1/2 w-max -translate-x-1/2 -translate-y-1/2"
-            style={{ top }}
-          >
-            <span
-              className="animate-scene-pop flex items-center gap-2.5 whitespace-nowrap rounded-full bg-white px-4 py-2.5 shadow-xl shadow-emerald-500/10 ring-1 ring-black/5"
-              style={{ animationDelay: sceneDelay(2, stagger) }}
-            >
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500">
-                <Icon className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
-              </span>
-              <span className="text-[12.5px] font-medium leading-snug text-foreground">
-                {text}
-              </span>
-            </span>
-          </span>
-        ))}
-
-        {/* the outcome — foot of the timeline, once every step has landed */}
-        <span className="pointer-events-none absolute left-1/2 top-[95%] -translate-x-1/2 -translate-y-1/2">
-          <span
-            className="animate-scene-pop flex items-center gap-1.5 rounded-full bg-gradient-brand px-4 py-2 text-[12.5px] font-semibold text-white shadow-xl shadow-primary/25"
-            style={{ animationDelay: sceneDelay(2, 0.5) }}
-          >
-            <Check className="h-3.5 w-3.5" strokeWidth={3} /> Auto-resolved
-          </span>
-        </span>
+        <CursorClick
+          sceneId={2}
+          stagger={0.4}
+          from={{ x: -30, y: 26 }}
+          className="left-[44%] top-[40%]"
+        />
       </div>
     );
   }
 
-  // 4 — Automation: triggers feed one rule, which fans out to three actions
+  // 4 — Send a Campaign, Watch It Land: the cursor presses send, the
+  // progress bar fills, and the real stats this hero already backs up
+  // elsewhere on the page (2,418 recipients, 99.7% delivered) land after.
   if (id === 3) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
-        {/* connectors: stem down from the rule, a bus, then three drops.
-            Fade-only (no scale) so the lines don't warp on entry. */}
-        <svg
-          viewBox="0 0 560 400"
-          className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-          style={{ animationDelay: sceneDelay(3, 0.24) }}
-          aria-hidden
-        >
-          <g
-            fill="none"
-            stroke="var(--brand-start)"
-            strokeOpacity="0.45"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          >
-            {/* trigger pills into the rule */}
-            <path d="M150,76 H222" />
-            <path d="M410,76 H338" />
-            {/* rule down to the bus, with rounded corners out to each side.
-                Drops stop at y=210 so the arrowheads (tip y=224) clear the
-                action cards, which start at y=236. */}
-            <path d="M280,120 V178" />
-            <path d="M108,210 V192 Q108,178 122,178 H438 Q452,178 452,192 V210" />
-            <path d="M280,178 V210" />
-          </g>
-          <g fill="var(--brand-start)" fillOpacity="0.55">
-            <path d="M100,212 h16 l-8,12 z" />
-            <path d="M272,212 h16 l-8,12 z" />
-            <path d="M444,212 h16 l-8,12 z" />
-          </g>
-        </svg>
-
-        {/* the two triggers */}
-        {FLOW_TRIGGERS.map(({ label, pos, stagger }) => (
+        <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <span
-            key={label}
-            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
+            className="animate-scene-pop block w-[320px] rounded-[1.75rem] bg-white p-5 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
+            style={{ animationDelay: sceneDelay(3, 0) }}
           >
-            <span
-              className="animate-scene-fade block whitespace-nowrap rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold text-foreground shadow-lg shadow-slate-900/10 ring-1 ring-black/5"
-              style={{ animationDelay: sceneDelay(3, stagger) }}
-            >
-              {label}
+            <span className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white">
+                <Megaphone className="h-4 w-4" strokeWidth={2.25} />
+              </span>
+              <span>
+                <span className="block text-[13.5px] font-semibold text-heading">
+                  Summer Sale Blast
+                </span>
+                <span className="block text-[11px] text-muted-foreground">
+                  2,418 recipients
+                </span>
+              </span>
             </span>
-          </span>
-        ))}
 
-        {/* the rule at the centre */}
-        <span className="pointer-events-none absolute left-1/2 top-[19%] -translate-x-1/2 -translate-y-1/2">
-          <span
-            className="animate-scene-fade flex h-[88px] w-[88px] flex-col items-center justify-center gap-1 rounded-3xl bg-gradient-brand text-white shadow-xl shadow-primary/25"
-            style={{ animationDelay: sceneDelay(3, 0.05) }}
-          >
-            <Workflow className="h-7 w-7" strokeWidth={2} />
-            <span className="text-[11px] font-semibold tracking-tight">
-              Flow
+            <FlipChip
+              sceneId={3}
+              flip={0.85}
+              className="mt-4 block"
+              final={
+                <span className="block h-9 overflow-hidden rounded-xl bg-slate-100">
+                  <span
+                    className="animate-scene-bar block h-full rounded-xl bg-gradient-brand"
+                    style={{ animationDelay: sceneDelay(3, 0.85) }}
+                  />
+                </span>
+              }
+              initial={
+                <span className="flex h-9 items-center justify-center gap-1.5 rounded-xl bg-gradient-brand text-[12.5px] font-semibold text-white shadow-md shadow-primary/20">
+                  <Send className="h-3.5 w-3.5" strokeWidth={2.25} /> Send
+                  Campaign
+                </span>
+              }
+            />
+
+            <span
+              className="animate-scene-pop mt-4 flex border-t border-slate-100 pt-3.5"
+              style={{ animationDelay: sceneDelay(3, 1.15) }}
+            >
+              {[
+                { v: "2,418", l: "Sent" },
+                { v: "99.7%", l: "Delivered" },
+                { v: "312", l: "Replied" },
+              ].map((s) => (
+                <span key={s.l} className="flex-1 text-center">
+                  <span className="block text-[15px] font-bold text-heading">
+                    {s.v}
+                  </span>
+                  <span className="block text-[10px] text-muted-foreground">
+                    {s.l}
+                  </span>
+                </span>
+              ))}
             </span>
           </span>
         </span>
 
-        {/* the three actions it fans out to */}
-        {FLOW_ACTIONS.map(({ icon: Icon, label, sub, pos, chip, stagger }) => (
-          <span
-            key={label}
-            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
-          >
-            <span
-              className="animate-scene-fade flex w-[132px] flex-col items-center gap-2 rounded-2xl bg-white px-3 py-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5"
-              style={{ animationDelay: sceneDelay(3, stagger) }}
-            >
-              <span
-                className={`flex h-11 w-11 items-center justify-center rounded-xl ${chip}`}
-              >
-                <Icon className="h-5 w-5" strokeWidth={2} />
-              </span>
-              <span className="text-center">
-                <span className="block text-[13px] font-semibold text-foreground">
-                  {label}
-                </span>
-                <span className="block text-[11px] text-muted-foreground">
-                  {sub}
-                </span>
-              </span>
-            </span>
-          </span>
-        ))}
+        <CursorClick
+          sceneId={3}
+          stagger={0.4}
+          from={{ x: 0, y: 38 }}
+          className="left-1/2 top-[52%]"
+        />
       </div>
     );
   }
@@ -735,8 +674,8 @@ function SceneVisual({ id }) {
                 className="animate-scene-fade relative flex flex-col items-center gap-1.5"
                 style={{ animationDelay: sceneDelay(5, stagger) }}
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-black/5">
-                  <AppLogo name={name} size={22} />
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-black/5">
+                  <AppLogo name={name} size={34} className="h-9 w-9" />
                 </span>
                 <span className="text-[10px] font-medium text-muted-foreground">
                   {label ?? name}
