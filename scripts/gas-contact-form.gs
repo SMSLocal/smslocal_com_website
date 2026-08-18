@@ -16,8 +16,6 @@ const SHARED_SECRET = '1eb05e496c8866ec93f7826217b780e4caf27935ce08808a'
 const RECIPIENTS = [
   'amrin@mycountrymobile.com',
   'jasmine@mycountrymobile.com',
-  'sk3group@gmail.com',
-  'sk3group1@gmail.com',
   'furkan@mycountrymobile.com',
   'sadik@mycountrymobile.com',
   'akil@mycountrymobile.com',

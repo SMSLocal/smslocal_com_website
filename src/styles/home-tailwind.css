@@ -208,6 +208,12 @@
 }
 .animate-scene { animation: scene 12s ease-in-out infinite both; }
 
+/* The carousel's shared clock: 6 scenes x 4.2s = 25.2s. Bumped up from 3.2s
+   slots because the newer scenes tell a multi-beat story (click -> typing ->
+   reply, question -> answer -> picker) that didn't fit in 3.2s without either
+   rushing the beats or bleeding into the next scene. Every keyframe below is
+   defined in PERCENTAGES of this 25.2s duration, so they all scale together —
+   set animation-delay to (sceneIndex * 4.2s + a small stagger). */
 @keyframes scene5 {
   0% { opacity: 0; transform: translateY(12px); }
   2.5% { opacity: 1; transform: translateY(0); }
@@ -215,7 +221,7 @@
   16.67% { opacity: 0; transform: translateY(-12px); }
   100% { opacity: 0; transform: translateY(-12px); }
 }
-.animate-scene-5 { animation: scene5 19.2s ease-in-out infinite both; }
+.animate-scene-5 { animation: scene5 25.2s ease-in-out infinite both; }
 
 @keyframes dot-fill {
   0%, 72%, 100% { opacity: 0.16; transform: scale(0.7); }
@@ -223,34 +229,9 @@
 }
 .animate-dot-fill { animation: dot-fill 2.6s ease-in-out infinite both; }
 
-/* The handset + orbit + bubbles are shared by scenes 1 and 2, so they must sit
-   perfectly still while only the pop-ups and chat bubbles swap over. This spans
-   both scenes' slots (0.48s -> 6.4s of the 19.2s loop) instead of fading per
-   scene the way `scene5` does. */
-@keyframes stage-1-2 {
-  0% { opacity: 0; transform: translateY(12px); }
-  2.5% { opacity: 1; transform: translateY(0); }
-  30.83% { opacity: 1; transform: translateY(0); }
-  33.33% { opacity: 0; transform: translateY(-12px); }
-  100% { opacity: 0; transform: translateY(-12px); }
-}
-.animate-stage-1-2 { animation: stage-1-2 19.2s ease-in-out infinite both; }
-
-/* Same 19.2s clock as `stage-1-2`, but only visible during scene 2's slot
-   (3.2s -> 6.4s) — for decor that should be absent while scene 1 shows. */
-@keyframes bubble-scene2-only {
-  0%, 16.67% { opacity: 0; }
-  20% { opacity: 1; }
-  30.83% { opacity: 1; }
-  33.33%, 100% { opacity: 0; }
-}
-.animate-bubble-scene2-only { animation: bubble-scene2-only 19.2s ease-in-out infinite both; }
-
 /* Scene pop: an element pops OUT as its scene arrives and pops back IN as the
-   scene hands over to the next one.
-   Runs on the same 19.2s clock as `scene5` on purpose — a shorter period (like
-   bubble-in's 4.8s) drifts against the carousel and makes elements vanish
-   mid-scene. Set animation-delay to (sceneIndex * 3.2s + a small stagger). */
+   scene hands over to the next one. Set animation-delay to
+   (sceneIndex * 4.2s + a small stagger). */
 @keyframes scene-pop {
   0% { opacity: 0; transform: scale(0.4); }
   3.33% { opacity: 1; transform: scale(1.06); }
@@ -259,7 +240,20 @@
   17.5% { opacity: 0; transform: scale(0.35); }
   100% { opacity: 0; transform: scale(0.35); }
 }
-.animate-scene-pop { animation: scene-pop 19.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both; }
+.animate-scene-pop { animation: scene-pop 25.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both; }
+
+/* A fast version of `scene-pop` for a beat that should land and clear again
+   WITHIN a scene — a typing indicator that gets replaced by the reply it was
+   standing in for, rather than something that holds until the scene ends. */
+@keyframes scene-pop-quick {
+  0% { opacity: 0; transform: scale(0.4); }
+  1.5% { opacity: 1; transform: scale(1.06); }
+  2.5% { opacity: 1; transform: scale(1); }
+  4.5% { opacity: 1; transform: scale(1); }
+  6% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
+.animate-scene-pop-quick { animation: scene-pop-quick 25.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite both; }
 
 @keyframes scene-fade {
   0% { opacity: 0; }
@@ -268,19 +262,29 @@
   17.5% { opacity: 0; }
   100% { opacity: 0; }
 }
-.animate-scene-fade { animation: scene-fade 19.2s ease-in-out infinite both; }
+.animate-scene-fade { animation: scene-fade 25.2s ease-in-out infinite both; }
 
 @keyframes scene-wipe {
   0%, 2.5% { transform: scaleX(0); }
   9.17%, 100% { transform: scaleX(1); }
 }
-.animate-scene-wipe { transform-origin: left; animation: scene-wipe 19.2s ease-out infinite both; }
+.animate-scene-wipe { transform-origin: left; animation: scene-wipe 25.2s ease-out infinite both; }
 
 @keyframes scene-bar {
   0%, 4.17% { transform: scaleX(0); }
   14.17%, 100% { transform: scaleX(1); }
 }
-.animate-scene-bar { transform-origin: left; animation: scene-bar 19.2s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both; }
+.animate-scene-bar { transform-origin: left; animation: scene-bar 25.2s cubic-bezier(0.34, 1.4, 0.64, 1) infinite both; }
+
+/* `FlipChip` (HeroScenes.jsx): the "before" face of a two-state element —
+   covers the "after" face rendered underneath it, then disappears fast
+   (within ~0.25s of its own delay) to reveal the flip a click just caused.
+   Set the cover's delay to roughly when the triggering cursor click lands. */
+@keyframes flip-cover {
+  0%, 0.8% { opacity: 1; }
+  1.8%, 100% { opacity: 0; }
+}
+.animate-flip-cover { animation: flip-cover 25.2s ease-out infinite both; }
 
 @keyframes bubble-in {
   0%, 100% { opacity: 0; transform: translateY(10px) scale(0.94); }
@@ -327,6 +331,31 @@
   32%, 86% { stroke-dashoffset: 0; }
 }
 .animate-draw-line { stroke-dasharray: 200; animation: draw-line 3.6s ease-in-out infinite both; }
+
+/* `CursorClick` (HeroScenes.jsx): a pointer that SLIDES in from an offset
+   (--mx/--my, set per instance), presses at the click point, then clears out
+   again quickly — it's a transient actor, not content, so it shouldn't hold
+   for the whole scene the way a chat bubble does. The press lands at ~1.6%
+   (~0.4s after this element's own delay) — whatever the click causes should
+   use a `flipStagger`/reveal a touch after that, not the full scene-pop gap. */
+@keyframes cursor-move-click {
+  0% { opacity: 0; transform: translate(var(--mx, -64px), var(--my, -40px)) scale(0.9); }
+  0.7% { opacity: 1; transform: translate(calc(var(--mx, -64px) * 0.2), calc(var(--my, -40px) * 0.2)) scale(1.03); }
+  1.2% { opacity: 1; transform: translate(0, 0) scale(1); }
+  1.6% { transform: translate(0, 0) scale(0.76); }
+  2.1% { opacity: 1; transform: translate(0, 0) scale(1); }
+  5% { opacity: 1; transform: translate(0, 0) scale(1); }
+  6.5%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+}
+.animate-cursor-move-click { animation: cursor-move-click 25.2s cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
+
+/* The click ripple, timed to fire exactly as the pointer above presses (1.6-2.1%). */
+@keyframes cursor-ripple {
+  0%, 1.2%, 100% { opacity: 0; transform: scale(0.5); }
+  2% { opacity: 0.55; transform: scale(1); }
+  4% { opacity: 0; transform: scale(1.9); }
+}
+.animate-cursor-ripple { animation: cursor-ripple 25.2s ease-out infinite both; }
 
 @keyframes cursor-drag {
   0%, 100% { transform: translate(0, 0); }

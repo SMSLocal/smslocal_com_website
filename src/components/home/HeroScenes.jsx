@@ -3,8 +3,6 @@ import {
   Clock,
   Check,
   Workflow,
-  Code2,
-  Wifi,
   Search,
   Users,
   Headset,
@@ -12,23 +10,31 @@ import {
   Bot,
   Sparkles,
   CreditCard,
-  Phone,
   Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Paperclip,
+  Mic,
+  Globe,
+  Database,
 } from "lucide-react";
+import AppLogo from "../AppLogo";
 
 // Scenes 2 and 3 (AI Agent, Campaign Automation) are the two the client
-// approved and asked to keep untouched. The other four — really three moments,
-// since 0 and 1 share one phone and read as a single beat — were generic
-// messaging-platform claims (bulk SMS, analytics, a REST API) that said
-// nothing about what the AI agent itself does. Retold around receptionist
-// specialties instead: answering calls, texting back the ones it misses,
-// covering the hours a human team can't, and booking straight into the tools
-// a business already runs on.
+// approved and asked to keep untouched. The other four were generic
+// receptionist-call claims that never showed the product surfaces this
+// platform actually sells. Retold around chatbase-style product moments
+// instead — the website chatbot, its capability toggles, meeting booking,
+// and the tools/data it connects to — each with a cursor performing the
+// action rather than the state just appearing.
 const SCENES = [
-  { title: "AI Voice Receptionist", desc: "Answers every call, day or night" },
   {
-    title: "Missed-Call Text-Back",
-    desc: "No answer? We text them back instantly",
+    title: "Turn On What You Need",
+    desc: "Flip on capabilities — booking, RCS, escalation — no code",
+  },
+  {
+    title: "Website Chat, Answered Instantly",
+    desc: "Type a question — get an answer, not a ticket",
   },
   {
     title: "AI Agent",
@@ -39,61 +45,49 @@ const SCENES = [
     desc: "Triggered messages and multi-step flows",
   },
   {
-    title: "24/7 Call Coverage",
-    desc: "Never miss a call — even after hours",
+    title: "Book Meetings Automatically",
+    desc: "Finds a time and books it — no back-and-forth",
   },
   {
-    title: "Works With Your Tools",
-    desc: "Books straight into your calendar and CRM",
+    title: "Connects With Your Stack",
+    desc: "Your tools and your data, in one agent",
   },
 ];
 
-/** `scene-pop` and `scene-fade` both share the carousel's 19.2s clock, so an
- *  element's delay must be its own scene's offset plus a small stagger. Keep
- *  staggers under ~0.4s or the exit lands after the scene has already gone.
- *  Scenes 1-3 pop (scale + opacity); scenes 4+ fade (opacity only). */
-const sceneDelay = (sceneId, stagger) => `${sceneId * 3.2 + stagger}s`;
+/** `scene-pop` and `scene-fade` both share the carousel's 25.2s clock (6
+ *  scenes x 4.2s), so an element's delay must be its own scene's offset plus
+ *  a small stagger. A `CursorClick`'s own click lands ~0.5s after its
+ *  stagger — whatever it triggers (a `FlipChip`, a reply bubble) should use
+ *  roughly stagger+0.5 so cause and effect read in order. */
+const sceneDelay = (sceneId, stagger) => `${sceneId * 4.2 + stagger}s`;
 
-/** Call outcomes that pop out around the phone, then retract as scene 2 takes
- *  over. Was four delivered-SMS phone numbers; a receptionist's actual job is
- *  the four things happening here. */
-const POPUPS = [
-  { text: "Call answered", pos: "left-[2%] top-[14%]", stagger: 0.05 },
-  { text: "Appointment booked", pos: "right-[1%] top-[14%]", stagger: 0.15 },
-  { text: "After-hours ✓", pos: "left-[5%] bottom-[15%]", stagger: 0.25 },
-  { text: "FAQ resolved", pos: "right-[4%] bottom-[15%]", stagger: 0.35 },
-];
+/** Scene 1's capability list — chatbase shows these as literal support
+ *  "procedures"; ours are moments this hero already promises elsewhere
+ *  (booking, RCS, escalation), so the toggles read as one coherent panel
+ *  rather than a random feature grab-bag. Rows 3 and 4 each get flipped
+ *  LIVE by a cursor click (one off, one on) rather than sitting there
+ *  already switched: `initialOn` is the state a row starts in, `cursorStagger`
+ *  is when the click lands on it, and `flip` is when its `FlipChip` cover
+ *  clears to reveal the new state — timed just after the click. */
+const CAPABILITIES = [
+  { icon: Calendar, label: "Book appointments", initialOn: true },
+  { icon: Users, label: "Qualify new leads", initialOn: true },
+  {
+    icon: Headset,
+    label: "Escalate to a human",
+    initialOn: true,
+    cursorStagger: 0.5,
+    flip: 1.5,
+  },
+  {
+    icon: Send,
+    label: "Auto-reply via RCS",
+    initialOn: false,
+    cursorStagger: 1.9,
+    flip: 2.9,
+  },
+].map((c, i) => ({ ...c, stagger: 0.1 + i * 0.08 }));
 
-/** Scene 2's two-way conversation — a missed call the AI recovers by texting
- *  first, rather than waiting for the caller to try again. Bubbles hug their
- *  text, so each is anchored by its CENTRE — horizontally on a phone edge
- *  (34% / 66% of the 560px stage) to keep the half-on/half-off straddle, and
- *  vertically so the group sits evenly on the handset. Anchoring by top edge
- *  instead skewed the group upward, because the bubbles differ in height
- *  (60/45/60/30px). */
-const CHATS = [
-  {
-    id: "sorry",
-    text: "Sorry we missed your call — want to book instead?",
-    out: true,
-    pos: "left-[66%] top-[23%]",
-    stagger: 0.05,
-  },
-  {
-    id: "friday",
-    text: "Yes! Anytime after 3pm Friday?",
-    out: false,
-    pos: "left-[34%] top-[42.25%]",
-    stagger: 0.17,
-  },
-  {
-    id: "booked",
-    text: "You're booked for 3:15pm Friday ✅",
-    out: true,
-    pos: "left-[66%] top-[61.5%]",
-    stagger: 0.29,
-  },
-];
 
 /** Scene 3's autonomous resolution — a single vertical timeline under the
  *  agent, each step landing in chronological order top-to-bottom. Vertical
@@ -149,207 +143,95 @@ const FLOW_ACTIONS = [
   },
 ];
 
-// Was "By carrier" — the same three-bar layout now shows WHEN calls come in,
-// because that is what proves 24/7 coverage rather than just claiming it: an
-// "After hours" bar that isn't zero is the point of this scene.
-const CARRIERS = [
-  { n: "Business hours", p: 52 },
-  { n: "Evenings", p: 31 },
-  { n: "After hours", p: 17 },
+/** Scene 5's meeting picker — mirrors the chatbase reference almost exactly
+ *  (a day strip, then a time grid). Monday's pre-selected because the
+ *  visitor already said "Monday afternoon" in chat; 3:30 PM is NOT
+ *  pre-selected — that's the slot the cursor picks live once the visitor
+ *  names it, via `MEETING_TIME_FLIP` below. */
+const MEETING_DAYS = [
+  { d: "25", w: "Sun", active: false },
+  { d: "26", w: "Mon", active: true },
+  { d: "27", w: "Tue", active: false },
+  { d: "28", w: "Wed", active: false },
 ];
 
-/** Scene 6's connected apps — one per tool the AI books or logs into, and one
- *  per ring. Generic icons rather than third-party logos; we don't ship those
- *  marks. Positions are centres on the 560x400 stage, solved to sit exactly on
- *  each ring while clearing the card stack and each other. */
-const INTEGRATION_MARKS = [
-  {
-    icon: Users,
-    label: "CRM",
-    pos: "left-[30.5%] top-[21.5%]", // ring R=240 -> (171,86)
-    size: "h-[48px] w-[48px]",
-    tint: "text-brand-end",
-    stagger: 0.1,
-  },
-  {
-    icon: Headset,
-    label: "Helpdesk",
-    pos: "left-[6.8%] top-[37.2%]", // ring R=285 -> (38,149)
-    size: "h-[54px] w-[54px]",
-    tint: "text-brand-start",
-    stagger: 0.15,
-  },
-  {
-    icon: Calendar,
-    label: "Calendar",
-    pos: "left-[22.6%] top-[45%]", // ring R=195 -> (126,180)
-    size: "h-[50px] w-[50px]",
-    tint: "text-brand-start",
-    stagger: 0.2,
-  },
-  {
-    icon: CreditCard,
-    label: "Payments",
-    pos: "left-[38.7%] top-[41%]", // ring R=150 -> (217,164)
-    size: "h-[46px] w-[46px]",
-    tint: "text-brand-end",
-    stagger: 0.25,
-  },
+const MEETING_TIMES = ["3:00 PM", "3:30 PM", "4:00 PM", "5:00 PM", "6:00 PM", "6:15 PM"];
+const MEETING_TIME_PICKED = "3:30 PM";
+
+/** Scene 6's connected tools — real logos this time (the user asked for
+ *  them), matching the exact set the site's own Integrations section
+ *  already advertises further down the page, via the shared `AppLogo`
+ *  helper (favicon fetch + monogram fallback, same as the rest of the site). */
+const STACK_TOOLS = [
+  { name: "Salesforce", stagger: 0.1 },
+  { name: "Zendesk", stagger: 0.14 },
+  { name: "Microsoft Teams", stagger: 0.18 },
+  { name: "Google Workspace", stagger: 0.22 },
+  { name: "HubSpot Marketing", label: "HubSpot", stagger: 0.26 },
+  { name: "Shopify", stagger: 0.3 },
 ];
 
-/** The endpoint stack. Only the first card is live; the two behind it drop to
- *  placeholder bars so the eye lands on the live request. 300px wide and
- *  anchored to run off the right edge of the stage, the way the reference
- *  bleeds them out of frame. The cards behind are flat lavender fills, which
- *  makes them recede without looking washed out, and each carries a brand-tinted
- *  border that fades down the stack (16% -> 12% -> 8%). All three share a left
- *  edge (x=263) so the SVG bracket can serve as their leading edge. */
-const API_CARDS = [
-  {
-    method: "POST",
-    path: "/v1/appointments",
-    pos: "left-[73.75%] top-[19%]", // centre (413,76) -> spans x 263-563
-    active: true,
-    bar: "",
-    shell:
-      "bg-white shadow-xl shadow-primary/[0.12] ring-1 ring-brand-start/[0.16]",
-    chip: "bg-gradient-brand text-white shadow-md shadow-primary/25",
-    stagger: 0.12,
-  },
-  {
-    method: "GET",
-    path: "/v1/availability",
-    pos: "left-[73.75%] top-[44%]", // centre (413,176) — 12px below card 1
-    active: false,
-    bar: "w-full",
-    shell: "bg-[#eceffb] ring-1 ring-brand-start/[0.12]",
-    chip: "bg-white text-brand-start/70",
-    stagger: 0.2,
-  },
-  {
-    method: "POST",
-    path: "/v1/reminders",
-    pos: "left-[73.75%] top-[69%]", // centre (413,276) — tucks behind the request card
-    active: false,
-    bar: "w-4/5",
-    shell: "bg-[#f2f4fc] ring-1 ring-brand-start/[0.08]",
-    chip: "bg-white/70 text-brand-start/45",
-    stagger: 0.28,
-  },
-];
-
-/** Inbox rows behind the card. Varied widths so it reads as a real list rather
- *  than a stack of identical bars. */
-const INBOX_ROWS = [
-  { name: "w-16", preview: "w-24", unread: true },
-  { name: "w-12", preview: "w-20", unread: false },
-  { name: "w-20", preview: "w-[6.5rem]", unread: true },
-  { name: "w-14", preview: "w-24", unread: false },
-  { name: "w-16", preview: "w-20", unread: false },
-  { name: "w-12", preview: "w-[6.5rem]", unread: false },
-  { name: "w-[4.5rem]", preview: "w-24", unread: false },
-];
-
-/** The handset. Bezel, dynamic island, status bar and a Messages list — the
- *  list is blurred back because the campaign card is the subject.
- *  Sized to a ~2.1:1 aspect so it reads as a real phone. */
-function PhoneMock() {
+/** The "before" face of a two-state element (a toggle, a time slot) —
+ *  renders on top of `final` and disappears at `flip`'s stagger to reveal
+ *  it, so a cursor click can visibly cause the change instead of the end
+ *  state just being there from the start. */
+function FlipChip({ sceneId, flip, final, initial, className = "inline-flex" }) {
   return (
-    <div className="relative h-[380px] w-[180px] rounded-[2.4rem] bg-slate-900 p-[7px] shadow-2xl shadow-slate-900/30 ring-1 ring-inset ring-white/10">
-      {/* side buttons */}
-      <span className="absolute -left-[2.5px] top-[78px] h-5 w-[2.5px] rounded-l-sm bg-slate-800" />
-      <span className="absolute -left-[2.5px] top-[106px] h-9 w-[2.5px] rounded-l-sm bg-slate-800" />
-      <span className="absolute -left-[2.5px] top-[150px] h-9 w-[2.5px] rounded-l-sm bg-slate-800" />
-      <span className="absolute -right-[2.5px] top-[120px] h-14 w-[2.5px] rounded-r-sm bg-slate-800" />
-
-      <div className="relative h-full w-full overflow-hidden rounded-[1.95rem] bg-white">
-        {/* status bar, wrapping around the island */}
-        <div className="flex items-center justify-between px-4 pt-[7px] text-[7px] font-bold text-slate-900">
-          <span>9:41</span>
-          <span className="flex items-center gap-[3px]">
-            <span className="flex items-end gap-[1.5px]">
-              {[3, 4.5, 6, 7].map((h) => (
-                <span
-                  key={h}
-                  className="w-[2px] rounded-[1px] bg-slate-900"
-                  style={{ height: `${h}px` }}
-                />
-              ))}
-            </span>
-            <Wifi className="h-[8px] w-[8px]" strokeWidth={3} />
-            <span className="flex h-[7px] w-[13px] items-center rounded-[2px] border border-slate-900/70 p-[1px]">
-              <span className="h-full w-[72%] rounded-[1px] bg-slate-900" />
-            </span>
-          </span>
-        </div>
-
-        {/* dynamic island */}
-        <span className="absolute left-1/2 top-[6px] h-[17px] w-[52px] -translate-x-1/2 rounded-full bg-slate-900" />
-
-        {/* app chrome */}
-        <div className="px-3 pt-3">
-          <p className="text-[12px] font-bold tracking-tight text-slate-900">
-            Messages
-          </p>
-          <span className="mt-2 flex h-[19px] items-center gap-1 rounded-md bg-slate-100 px-1.5">
-            <Search className="h-2 w-2 text-slate-400" strokeWidth={3} />
-            <span className="h-1 w-8 rounded-full bg-slate-300" />
-          </span>
-        </div>
-
-        {/* the list, pushed out of focus behind the card */}
-        <div className="mt-2.5 space-y-[11px] px-3 opacity-60 blur-[1.1px]">
-          {INBOX_ROWS.map((r, i) => (
-            <span key={i} className="flex items-center gap-2">
-              <span
-                className={`h-[26px] w-[26px] shrink-0 rounded-full bg-gradient-brand ${
-                  r.unread ? "opacity-80" : "opacity-45"
-                }`}
-              />
-              <span className="min-w-0 flex-1">
-                <span
-                  className={`block h-[5px] rounded-full bg-slate-300 ${r.name}`}
-                />
-                <span
-                  className={`mt-[5px] block h-[5px] rounded-full bg-slate-200 ${r.preview}`}
-                />
-              </span>
-              {r.unread && (
-                <span className="h-[5px] w-[5px] shrink-0 rounded-full bg-primary" />
-              )}
-            </span>
-          ))}
-        </div>
-
-        {/* home indicator */}
-        <span className="absolute bottom-[7px] left-1/2 h-[3px] w-[62px] -translate-x-1/2 rounded-full bg-slate-900/75" />
-      </div>
-    </div>
+    <span className={`relative ${className}`}>
+      {final}
+      <span
+        className="animate-flip-cover absolute inset-0"
+        style={{ animationDelay: sceneDelay(sceneId, flip) }}
+      >
+        {initial}
+      </span>
+    </span>
   );
 }
 
-/** A 3D-ish speech bubble. Rotation sits on the outer span and the float on the
- *  inner one — an animated `transform` would otherwise clobber the rotation. */
-function ChatBubble({ size, className, rotate = 0, delay = 0, slower = false }) {
+function ToggleTrack({ on }) {
   return (
     <span
-      className={`animate-bubble-scene2-only pointer-events-none absolute ${className}`}
-      style={{ transform: `rotate(${rotate}deg)` }}
+      className={`flex h-[18px] w-[32px] items-center rounded-full px-[3px] ${
+        on ? "bg-gradient-brand justify-end" : "bg-slate-200 justify-start"
+      }`}
     >
+      <span className="h-[13px] w-[13px] rounded-full bg-white shadow" />
+    </span>
+  );
+}
+
+/** A pointer performing the click a scene is built around — the ripple fires
+ *  as it presses, and whatever it triggers should land shortly after (see
+ *  `sceneDelay`'s doc comment) so cause and effect read in order. */
+function CursorClick({ sceneId, stagger, className, from = { x: -64, y: -40 } }) {
+  return (
+    <span className={`pointer-events-none absolute z-30 ${className}`}>
       <span
-        className={`block ${slower ? "animate-float-slower" : "animate-float-slow"}`}
-        style={{ animationDelay: `${delay}s` }}
+        className="animate-cursor-move-click relative block"
+        style={{
+          animationDelay: sceneDelay(sceneId, stagger),
+          "--mx": `${from.x}px`,
+          "--my": `${from.y}px`,
+        }}
       >
+        <span
+          className="animate-cursor-ripple absolute -inset-2.5 rounded-full bg-brand-start/25"
+          style={{ animationDelay: sceneDelay(sceneId, stagger) }}
+        />
         <svg
-          width={size}
-          height={size}
-          viewBox="0 0 40 40"
-          className="drop-shadow-md"
+          width="20"
+          height="22"
+          viewBox="0 0 20 22"
+          className="relative drop-shadow-md"
           aria-hidden
         >
           <path
-            d="M9 4h22a6 6 0 0 1 6 6v13a6 6 0 0 1-6 6H19l-9 7v-7H9a6 6 0 0 1-6-6V10a6 6 0 0 1 6-6z"
-            fill="url(#bulkBubbleGrad)"
+            d="M3 1.5 L3 17.5 L7 13.8 L9.7 20 L12.3 18.9 L9.6 12.7 L15 12.7 Z"
+            fill="#0f172a"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeLinejoin="round"
           />
         </svg>
       </span>
@@ -357,167 +239,181 @@ function ChatBubble({ size, className, rotate = 0, delay = 0, slower = false }) 
   );
 }
 
-/** Phone, orbit and bubbles — shared by scenes 1 and 2 and rendered once, above
- *  the carousel, so they hold perfectly still while only the pop-ups and chat
- *  bubbles swap over. Fading these per-scene would cross-fade identical
- *  elements against each other, which reads as a flicker. */
-function PhoneStage() {
-  return (
-    <div className="relative mx-auto h-full w-full max-w-[560px]">
-      {/* dashed orbit + the gradient every bubble references */}
-      <svg
-        viewBox="0 0 585 400"
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id="bulkBubbleGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop
-              offset="0%"
-              stopColor="color-mix(in srgb, var(--brand-start) 32%, white)"
-            />
-            <stop
-              offset="100%"
-              stopColor="color-mix(in srgb, var(--brand-end) 32%, white)"
-            />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <ChatBubble size={28} className="left-[13%] top-[2%]" rotate={-12} />
-      <ChatBubble
-        size={46}
-        className="right-[3%] top-[6%]"
-        rotate={10}
-        delay={0.8}
-        slower
-      />
-      <ChatBubble
-        size={24}
-        className="left-[1%] top-[44%]"
-        rotate={-8}
-        delay={1.6}
-      />
-      <ChatBubble
-        size={40}
-        className="bottom-[4%] right-[6%]"
-        rotate={14}
-        delay={0.4}
-        slower
-      />
-
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <PhoneMock />
-      </div>
-    </div>
-  );
-}
-
 /** Every scene: full-width hero element → strip → detail band → closing stat. */
 function SceneVisual({ id }) {
-  // 1 — Bulk SMS: one message on the phone, multiplying out across the orbit
+  // 1 — Capabilities: a panel of toggles for what the agent can do, the last
+  // one (RCS) switched on live by the cursor.
   if (id === 0) {
-    // capped width: the phone is a fixed size but the pop-ups are positioned in
-    // %, so their alignment would drift as the column grows
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
-        {/* delivery confirmations popping out around the phone, then retracting
-            as scene 2 arrives */}
-        {POPUPS.map(({ text, pos, stagger }) => (
-          <span key={text} className={`pointer-events-none absolute ${pos}`}>
-            <span
-              className="animate-scene-pop flex items-center gap-2.5 whitespace-nowrap rounded-full bg-white/90 px-4 py-2.5 shadow-xl shadow-emerald-500/15 ring-1 ring-black/5 blur-[1.1px]"
-              style={{ animationDelay: sceneDelay(0, stagger) }}
-            >
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500">
-                <Check className="h-3 w-3 text-white" strokeWidth={3.5} />
-              </span>
-              <span className="text-[12px] font-semibold text-foreground">
-                {text}
-              </span>
-            </span>
-          </span>
-        ))}
-
-        {/* the call itself — centring on the wrapper so the pop's scale()
-            doesn't fight the -translate-y-1/2 */}
-        <div className="absolute left-1/2 top-1/2 z-20 w-[64%] -translate-x-1/2 -translate-y-1/2">
-          <div
-            className="animate-scene-pop rounded-2xl bg-white p-4 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
+        <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <span
+            className="animate-scene-pop block w-[320px] rounded-[1.75rem] bg-white p-5 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
             style={{ animationDelay: sceneDelay(0, 0) }}
           >
             <span className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white">
-                <Phone className="h-4 w-4" strokeWidth={2.25} />
+                <Sparkles className="h-4 w-4" strokeWidth={2.25} />
               </span>
-              <span className="text-[15px] font-semibold text-foreground">
-                Bright Smile Dental
-              </span>
-              <span className="ml-auto flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
-                <Check className="h-3 w-3" strokeWidth={3} /> Answered
+              <span>
+                <span className="block text-[13.5px] font-semibold text-heading">
+                  Capabilities
+                </span>
+                <span className="block text-[11px] text-muted-foreground">
+                  Flip on what your agent should handle
+                </span>
               </span>
             </span>
-            <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-              "Thanks for calling Bright Smile Dental — I can book, reschedule
-              or answer questions. How can I help today?"
-            </p>
-            <span className="mt-3 flex items-center gap-2 border-t border-border pt-3">
-              <Phone className="h-3.5 w-3.5 text-primary" />
-              <span className="text-[12px] text-muted-foreground">
-                Answered by AI Receptionist in{" "}
-                <span className="font-semibold text-heading">&lt;1s</span>
-              </span>
-              <span className="animate-pulse-soft ml-auto h-1.5 w-1.5 rounded-full bg-emerald-500" />
+
+            <span className="mt-4 block space-y-2 border-t border-slate-100 pt-4">
+              {CAPABILITIES.map(({ icon: Icon, label, initialOn, flip, stagger }) => (
+                <span
+                  key={label}
+                  className="animate-scene-pop flex items-center gap-3 rounded-xl bg-slate-50/70 px-3 py-2.5"
+                  style={{ animationDelay: sceneDelay(0, stagger) }}
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-black/5">
+                    <Icon
+                      className="h-4 w-4 text-brand-start"
+                      strokeWidth={2.25}
+                    />
+                  </span>
+                  <span className="min-w-0 flex-1 text-[12.5px] font-medium text-foreground">
+                    {label}
+                  </span>
+                  {flip != null ? (
+                    <FlipChip
+                      sceneId={0}
+                      flip={flip}
+                      final={<ToggleTrack on={!initialOn} />}
+                      initial={<ToggleTrack on={initialOn} />}
+                      className="inline-flex shrink-0"
+                    />
+                  ) : (
+                    <ToggleTrack on={initialOn} />
+                  )}
+                </span>
+              ))}
             </span>
-          </div>
-        </div>
+          </span>
+        </span>
+
+        {/* the cursor turns "Escalate to a human" off... */}
+        <CursorClick
+          sceneId={0}
+          stagger={0.5}
+          from={{ x: 44, y: -30 }}
+          className="left-[74%] top-[57%]"
+        />
+        {/* ...then switches "Auto-reply via RCS" on */}
+        <CursorClick
+          sceneId={0}
+          stagger={1.9}
+          from={{ x: 44, y: -30 }}
+          className="left-[74%] top-[69%]"
+        />
       </div>
     );
   }
 
-  // 2 — Two-Way: the conversation straddling the (shared, stationary) handset
+  // 2 — Website chat: the site opens, the visitor clicks in, asks a real
+  // question, watches the agent "type", then gets an actual fix — not a
+  // one-line FAQ answer, a resolved issue.
   if (id === 1) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
-        {/* the conversation, each bubble half on the handset and half off it */}
-        {CHATS.map(({ id: cid, text, out, pos, stagger }) => (
+        {/* the site — chrome bar + a short skeleton of real page content,
+            kept compact so the widget below has clean room to open into */}
+        <span className="pointer-events-none absolute left-1/2 top-[5%] -translate-x-1/2">
           <span
-            key={cid}
-            className={`pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2 ${pos}`}
+            className="animate-scene-fade block w-[330px] overflow-hidden rounded-2xl bg-white shadow-xl shadow-slate-900/10 ring-1 ring-black/5"
+            style={{ animationDelay: sceneDelay(1, 0) }}
           >
-            <span
-              className={`animate-scene-pop flex w-max max-w-[260px] items-center gap-2.5 rounded-2xl px-4 py-3 shadow-xl ${
-                out
-                  ? "rounded-br-md bg-gradient-brand text-white shadow-primary/25"
-                  : "rounded-bl-md bg-white text-foreground shadow-slate-900/10 ring-1 ring-black/5"
-              }`}
-              style={{ animationDelay: sceneDelay(1, stagger) }}
-            >
-              {!out && (
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-[13px] font-bold text-white">
-                  S
-                </span>
-              )}
-              <span className="text-[15px] font-medium leading-snug">
-                {text}
+            <span className="flex items-center gap-1.5 border-b border-slate-100 px-3 py-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-200" />
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-200" />
+              <span className="h-1.5 w-1.5 rounded-full bg-slate-200" />
+              <span className="ml-2 flex flex-1 items-center gap-1.5 rounded-full bg-slate-50 px-2 py-0.5 text-[9.5px] font-medium text-muted-foreground">
+                <Globe
+                  className="h-2.5 w-2.5 text-brand-start"
+                  strokeWidth={2.5}
+                />
+                yoursite.com
               </span>
             </span>
+            <span className="block space-y-2 p-3.5">
+              <span className="block h-2 w-16 rounded-full bg-slate-200" />
+              <span className="block h-9 w-full rounded-lg bg-gradient-to-br from-brand-start/[0.08] to-brand-end/[0.08]" />
+            </span>
           </span>
-        ))}
+        </span>
 
-        {/* the reply being typed — same centre-on-the-edge anchoring */}
-        <span className="pointer-events-none absolute left-[66%] top-[80.75%] z-20 -translate-x-1/2 -translate-y-1/2">
+        {/* the launcher, floating over the page — this is what the cursor clicks */}
+        <span className="pointer-events-none absolute right-[16%] top-[27%]">
           <span
-            className="animate-scene-pop inline-flex items-center gap-1 rounded-full bg-white px-3.5 py-3 shadow-xl shadow-slate-900/10 ring-1 ring-black/5"
-            style={{ animationDelay: sceneDelay(1, 0.41) }}
+            className="animate-scene-pop flex items-center gap-1.5 rounded-full bg-slate-900 px-3.5 py-2 text-[11.5px] font-semibold text-white shadow-lg shadow-slate-900/25"
+            style={{ animationDelay: sceneDelay(1, 0.12) }}
           >
-            {[0, 0.2, 0.4].map((d) => (
-              <span
-                key={d}
-                className="animate-typing-dot h-1.5 w-1.5 rounded-full bg-muted-foreground/60"
-                style={{ animationDelay: `${d}s` }}
+            <Bot className="h-3.5 w-3.5" strokeWidth={2.25} /> Ask AI
+          </span>
+        </span>
+
+        <CursorClick
+          sceneId={1}
+          stagger={0.3}
+          from={{ x: 52, y: 26 }}
+          className="right-[17.5%] top-[24.5%]"
+        />
+
+        {/* the widget the click opens */}
+        <span className="pointer-events-none absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2">
+          <span
+            className="animate-scene-pop block w-[320px] rounded-[1.75rem] bg-white p-4 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
+            style={{ animationDelay: sceneDelay(1, 0.62) }}
+          >
+            <span
+              className="animate-scene-pop flex justify-end"
+              style={{ animationDelay: sceneDelay(1, 0.78) }}
+            >
+              <span className="max-w-[240px] rounded-2xl rounded-br-md bg-gradient-brand px-3.5 py-2.5 text-[12.5px] font-medium text-white shadow-md shadow-primary/20">
+                My last SMS campaign never sent — can you check?
+              </span>
+            </span>
+
+            {/* typing, then swapped for the reply the instant it lands */}
+            <span
+              className="animate-scene-pop-quick mt-2.5 flex w-max items-center gap-1 rounded-full bg-slate-50 px-3.5 py-3 ring-1 ring-black/5"
+              style={{ animationDelay: sceneDelay(1, 0.98) }}
+            >
+              {[0, 0.15, 0.3].map((d) => (
+                <span
+                  key={d}
+                  className="animate-typing-dot h-1.5 w-1.5 rounded-full bg-muted-foreground/60"
+                  style={{ animationDelay: `${d}s` }}
+                />
+              ))}
+            </span>
+            <span
+              className="animate-scene-pop mt-2.5 block max-w-[260px] rounded-2xl rounded-bl-md bg-slate-50 px-3.5 py-2.5 text-[12.5px] leading-relaxed text-foreground ring-1 ring-black/5"
+              style={{ animationDelay: sceneDelay(1, 1.15) }}
+            >
+              Found it — your sender ID needed re-verification. Resubmitted
+              and resent over RCS with SMS fallback. ✓
+            </span>
+
+            <span className="mt-3.5 flex items-center gap-2 rounded-full bg-slate-100 px-3.5 py-2.5">
+              <Paperclip
+                className="h-3.5 w-3.5 shrink-0 text-muted-foreground"
+                strokeWidth={2.25}
               />
-            ))}
+              <span className="flex-1 text-[11.5px] text-muted-foreground/70">
+                Ask a question…
+              </span>
+              <Mic
+                className="h-3.5 w-3.5 shrink-0 text-muted-foreground"
+                strokeWidth={2.25}
+              />
+            </span>
           </span>
         </span>
       </div>
@@ -698,446 +594,181 @@ function SceneVisual({ id }) {
     );
   }
 
-  // 5 — 24/7 Call Coverage. Sparse composition, but with real numbers on it:
-  // two cards, a soft panel and a big lens, placed by CENTRE on the 560x400
-  // stage: dashboard (150,92) · report (168,298) · panel (408,196) · lens
-  // (250,190). The lens straddles all three, which is what gives the
-  // composition depth.
+  // 5 — Book Meetings Automatically: the visitor asks, the agent asks back
+  // for a time, the visitor names one, and the cursor is what actually
+  // puts it on the calendar — the slot isn't pre-selected before that.
   if (id === 4) {
     return (
       <div className="relative mx-auto h-full w-full max-w-[560px]">
-        {/* thin decorative thread, top-left */}
-        <svg
-          viewBox="0 0 560 400"
-          className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-          style={{ animationDelay: sceneDelay(4, 0.04) }}
-          aria-hidden
-        >
-          <defs>
-            <clipPath id="threadReveal">
-              <rect
-                x="0"
-                y="0"
-                width="560"
-                height="400"
-                className="animate-scene-wipe"
-                style={{ animationDelay: sceneDelay(4, 0.04) }}
-              />
-            </clipPath>
-          </defs>
-          <g clipPath="url(#threadReveal)">
-            <path
-              d="M-10,64 C40,26 74,96 118,62"
-              fill="none"
-              stroke="var(--brand-start)"
-              strokeOpacity="0.35"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </g>
-        </svg>
-
-        {/* soft panel, right */}
-        <span className="pointer-events-none absolute left-[72.9%] top-[49%] -translate-x-1/2 -translate-y-1/2">
+        {/* the exchange that gets to a time */}
+        <span className="pointer-events-none absolute left-1/2 top-[4%] -translate-x-1/2">
           <span
-            className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(4, 0.02) }}
+            className="animate-scene-fade block max-w-[230px] rounded-2xl rounded-br-md bg-gradient-brand px-3.5 py-2 text-center text-[11.5px] font-medium text-white shadow-md shadow-primary/20"
+            style={{ animationDelay: sceneDelay(4, 0) }}
           >
-            <span className="animate-float-slower relative block h-[232px] w-[252px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-start/[0.09] to-brand-end/[0.09] ring-1 ring-black/[0.04]">
-              <span className="absolute left-5 top-5 text-left">
-                <span className="block text-[11px] font-medium text-muted-foreground">
-                  Calls answered this week
-                </span>
-                <span className="mt-1 block text-[24px] font-bold leading-none text-heading">
-                  1,842
-                </span>
-              </span>
-              <span className="absolute right-5 top-5 rounded-full bg-white/85 px-2.5 py-1 text-[11px] font-semibold text-emerald-600 shadow-sm">
-                +18%
-              </span>
-              <svg
-                viewBox="0 0 252 232"
-                className="absolute inset-0 h-full w-full"
-                aria-hidden
-              >
-                <defs>
-                  <linearGradient id="wave4" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="var(--brand-start)" />
-                    <stop offset="100%" stopColor="var(--brand-end)" />
-                  </linearGradient>
-                  <clipPath id="wave4Reveal">
-                    <rect
-                      x="0"
-                      y="0"
-                      width="252"
-                      height="232"
-                      className="animate-scene-wipe"
-                      style={{ animationDelay: sceneDelay(4, 0.14) }}
-                    />
-                  </clipPath>
-                </defs>
-                {/* One path: the rising curve, then the two arrowhead strokes
-                    as trailing subpaths. A dash-offset draw walks the path in
-                    order, so the head can only appear once the line has
-                    finished — no second timer to keep in sync. */}
-                <g clipPath="url(#wave4Reveal)">
-                  <path
-                    d="M10,196 C50,190 68,156 104,144 S168,118 226,76 M226,76 L207,79 M226,76 L217,93"
-                    fill="none"
-                    stroke="url(#wave4)"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </g>
-              </svg>
-            </span>
+            Can I book a meeting with Sales?
           </span>
         </span>
 
-        {/* dashboard window, top-left */}
-        <span className="pointer-events-none absolute left-[26.8%] top-[23%] -translate-x-1/2 -translate-y-1/2">
+        <span className="pointer-events-none absolute left-1/2 top-[15%] -translate-x-1/2">
           <span
-            className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(4, 0.08) }}
-          >
-            <span className="animate-float-slow block w-[252px] rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5">
-              <span className="flex gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-slate-200" />
-                <span className="h-2 w-2 rounded-full bg-slate-200" />
-                <span className="h-2 w-2 rounded-full bg-slate-200" />
-              </span>
-
-              <span className="mt-3.5 flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-brand text-white opacity-85">
-                  <Headset className="h-4.5 w-4.5" strokeWidth={2.25} />
-                </span>
-                <span className="min-w-0 flex-1 text-left">
-                  <span className="block text-[13px] font-semibold text-heading">
-                    Call coverage
-                  </span>
-                  <span className="mt-0.5 block text-[10px] text-muted-foreground">
-                    Last 7 days · every call
-                  </span>
-                </span>
-              </span>
-
-              <span className="mt-3.5 flex border-t border-slate-100 pt-3">
-                {[
-                  { v: "1,842", l: "Answered" },
-                  { v: "100%", l: "Answer rate" },
-                  { v: "<1s", l: "Avg wait" },
-                ].map((s) => (
-                  <span key={s.l} className="flex-1 text-left">
-                    <span className="block text-[13px] font-bold text-heading">
-                      {s.v}
-                    </span>
-                    <span className="block text-[9px] text-muted-foreground">
-                      {s.l}
-                    </span>
-                  </span>
-                ))}
-              </span>
-            </span>
-          </span>
-        </span>
-
-        {/* carrier report, bottom-left */}
-        <span className="pointer-events-none absolute left-[30%] top-[74.5%] -translate-x-1/2 -translate-y-1/2">
-          <span
-            className="animate-scene-fade block"
+            className="animate-scene-pop block whitespace-nowrap rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-[11.5px] font-medium text-foreground shadow-md shadow-slate-900/10 ring-1 ring-black/5"
             style={{ animationDelay: sceneDelay(4, 0.16) }}
           >
-            <span className="animate-float-slower block w-[212px] rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 ring-1 ring-black/5">
-              <span className="block text-left text-[12px] font-semibold text-heading">
-                By time of day
-              </span>
-              <span className="mt-3 block space-y-2.5">
-                {CARRIERS.map((c, i) => (
-                  <span key={c.n} className="flex items-center gap-2">
-                    <span className="w-[52px] text-left text-[10px] text-muted-foreground">
-                      {c.n}
-                    </span>
-                    <span className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100">
-                      <span
-                        className="animate-scene-bar block h-full rounded-full bg-gradient-brand"
-                        style={{
-                          width: `${c.p + 45}%`,
-                          animationDelay: sceneDelay(4, 0.22 + i * 0.08),
-                        }}
-                      />
-                    </span>
-                    <span className="w-7 text-right text-[10px] font-semibold text-foreground">
-                      {c.p}%
-                    </span>
+            Sure — what time works best for you?
+          </span>
+        </span>
+
+        <span className="pointer-events-none absolute left-1/2 top-[26%] -translate-x-1/2">
+          <span
+            className="animate-scene-pop block max-w-[230px] rounded-2xl rounded-br-md bg-gradient-brand px-3.5 py-2 text-center text-[11.5px] font-medium text-white shadow-md shadow-primary/20"
+            style={{ animationDelay: sceneDelay(4, 0.32) }}
+          >
+            Monday afternoon, around 3:30?
+          </span>
+        </span>
+
+        {/* the picker — Monday's already filtered in, but 3:30 isn't picked
+            yet; that only happens once the cursor clicks it below */}
+        <span className="pointer-events-none absolute left-1/2 top-[68%] -translate-x-1/2 -translate-y-1/2">
+          <span
+            className="animate-scene-pop block w-[340px] rounded-[1.75rem] bg-white p-5 text-left shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
+            style={{ animationDelay: sceneDelay(4, 0.55) }}
+          >
+            <span className="flex items-center gap-1.5">
+              <ChevronLeft className="h-3.5 w-3.5 shrink-0 text-muted-foreground/50" />
+              {MEETING_DAYS.map(({ d, w, active }) => (
+                <span
+                  key={d}
+                  className={`flex flex-1 flex-col items-center rounded-xl py-1.5 text-center ${
+                    active ? "ring-2 ring-brand-start" : "ring-1 ring-black/5"
+                  }`}
+                >
+                  <span
+                    className={`text-[13px] font-semibold ${active ? "text-heading" : "text-foreground"}`}
+                  >
+                    {d}
                   </span>
-                ))}
-              </span>
+                  <span className="text-[9.5px] text-muted-foreground">
+                    {w}
+                  </span>
+                </span>
+              ))}
+              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground/50" />
+            </span>
+
+            <span className="mt-3.5 grid grid-cols-3 gap-2">
+              {MEETING_TIMES.map((t) =>
+                t === MEETING_TIME_PICKED ? (
+                  <FlipChip
+                    key={t}
+                    sceneId={4}
+                    flip={1.2}
+                    className="block"
+                    final={
+                      <span className="block rounded-xl py-2 text-center text-[11.5px] font-medium bg-gradient-brand text-white shadow-md shadow-primary/20 ring-2 ring-brand-start">
+                        {t}
+                      </span>
+                    }
+                    initial={
+                      <span className="block rounded-xl py-2 text-center text-[11.5px] font-medium bg-white text-foreground ring-1 ring-black/5">
+                        {t}
+                      </span>
+                    }
+                  />
+                ) : (
+                  <span
+                    key={t}
+                    className="rounded-xl py-2 text-center text-[11.5px] font-medium text-foreground ring-1 ring-black/5"
+                  >
+                    {t}
+                  </span>
+                ),
+              )}
+            </span>
+
+            <span className="mt-3.5 flex items-center gap-1.5 border-t border-slate-100 pt-3 text-[10.5px] font-medium text-muted-foreground">
+              <Bot className="h-3.5 w-3.5 text-brand-start" strokeWidth={2.25} />{" "}
+              AI Agent
             </span>
           </span>
         </span>
 
-        {/* the lens — focal point, straddling all three */}
-        <span className="pointer-events-none absolute left-[44.6%] top-[47.5%] -translate-x-1/2 -translate-y-1/2">
+        {/* the click, then the confirmation it causes */}
+        <span className="pointer-events-none absolute left-1/2 top-[95%] -translate-x-1/2">
           <span
-            className="animate-scene-fade block"
-            style={{ animationDelay: sceneDelay(4, 0.26) }}
+            className="animate-scene-pop flex items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-brand px-4 py-2 text-[12px] font-semibold text-white shadow-xl shadow-primary/25"
+            style={{ animationDelay: sceneDelay(4, 1.35) }}
           >
-            <span className="animate-float-slow relative block h-[132px] w-[132px]">
-              {/* handle: -rotate-45 points down-RIGHT (plain rotate-45 swings it
-                  down-left, back under the lens). Behind the rim on purpose. */}
-              <span className="absolute left-[103px] top-[106px] h-[58px] w-[14px] origin-top -rotate-45 rounded-full bg-slate-300 shadow-md shadow-slate-900/15" />
-              <span className="relative flex h-[132px] w-[132px] items-center justify-center rounded-full bg-white/75 shadow-2xl shadow-slate-900/20 ring-[9px] ring-slate-300 backdrop-blur-[2px]">
-                <span className="text-center">
-                  <span className="block text-[26px] font-bold leading-none text-heading">
-                    100%
-                  </span>
-                  <span className="mt-1 block text-[10px] text-muted-foreground">
-                    answered
-                  </span>
-                </span>
-              </span>
-            </span>
+            <Check className="h-3.5 w-3.5" strokeWidth={3} /> Booked for Mon,
+            3:30 PM
           </span>
         </span>
+
+        <CursorClick
+          sceneId={4}
+          stagger={0.75}
+          from={{ x: -34, y: 46 }}
+          className="left-[58%] top-[76%]"
+        />
       </div>
     );
   }
 
-  // 6 — Works With Your Tools: connected apps on the left, long sweeping arcs
-  // into a stack of endpoint cards, and a request card overlapping the stack —
-  // the AI booking into a calendar, not just sending a message. Only the top
-  // card carries detail; the two behind it fall back to
-  // placeholders so the eye lands on the live request.
+  // 6 — Connects With Your Stack: a flat integration grid, like chatbase's
+  // panel, plus a line naming the data it also draws on.
   return (
     <div className="relative mx-auto h-full w-full max-w-[560px]">
-      {/* arcs + the bracket running down the stack and into the request card */}
-      <svg
-        viewBox="0 0 560 400"
-        className="animate-scene-fade pointer-events-none absolute inset-0 h-full w-full"
-        style={{ animationDelay: sceneDelay(5, 0.06) }}
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id="arcGrad" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="var(--brand-start)" />
-            <stop offset="100%" stopColor="var(--brand-end)" />
-          </linearGradient>
-          <clipPath id="arcReveal">
-            <rect
-              x="0"
-              y="0"
-              width="560"
-              height="400"
-              className="animate-scene-wipe"
-              style={{ animationDelay: sceneDelay(5, 0.06) }}
-            />
-          </clipPath>
-        </defs>
-
-        <g
-          clipPath="url(#arcReveal)"
-          fill="none"
-          stroke="var(--brand-start)"
-          strokeOpacity="0.4"
-          strokeWidth="2"
-          strokeLinecap="round"
-        >
-          {/* CONCENTRIC rings — quarter arcs sharing one centre (280,300) at
-              radii 150/195/240/285, so they nest like ripples. The app tiles
-              sit ON these rings. Independent curves read as loose diagonals. */}
-          <path d="M130,300 C130,217 197,150 280,150" strokeOpacity="0.18" />
-          <path d="M85,300 C85,192 172,105 280,105" strokeOpacity="0.26" />
-          <path d="M40,300 C40,167 147,60 280,60" strokeOpacity="0.34" />
-          <path d="M-5,300 C-5,143 123,15 280,15" strokeOpacity="0.18" />
-        </g>
-
-        <g clipPath="url(#arcReveal)" fill="var(--brand-end)" fillOpacity="0.8">
-          <circle cx="129" cy="58" r="3.5" />
-          <circle cx="197" cy="124" r="3.5" />
-        </g>
-      </svg>
-
-      {/* connected apps */}
-      {INTEGRATION_MARKS.map(
-        ({ icon: Icon, label, pos, size, tint, stagger }) => (
-          <span
-            key={label}
-            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
-          >
-            <span
-              className="animate-scene-fade block"
-              style={{ animationDelay: sceneDelay(5, stagger) }}
-            >
-              {/* The float wrapper is `relative` and the caption is absolute, so
-                the tile itself stays centred on its ring — letting the caption
-                affect layout would push every tile off its radius. */}
-              <span className="animate-float-slower relative block">
-                <span
-                  className={`flex items-center justify-center rounded-2xl bg-white shadow-lg shadow-slate-900/10 ring-1 ring-brand-start/[0.14] ${size}`}
-                >
-                  <Icon className={`h-6 w-6 ${tint}`} strokeWidth={2} />
-                </span>
-                <span className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap text-[10px] font-semibold tracking-tight text-muted-foreground">
-                  {label}
-                </span>
-              </span>
-            </span>
-          </span>
-        ),
-      )}
-
-      {/* endpoint stack — top card live, the two behind it are placeholders */}
-      {API_CARDS.map(
-        ({ method, path, pos, active, stagger, bar, shell, chip }) => (
-          <span
-            key={path}
-            className={`pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 ${pos}`}
-          >
-            <span
-              className="animate-scene-fade block"
-              style={{ animationDelay: sceneDelay(5, stagger) }}
-            >
-              <span
-                className={`relative flex w-[300px] items-center gap-4 overflow-hidden rounded-2xl px-5 py-5 ${shell} ${
-                  active ? "animate-float-slow" : ""
-                }`}
-              >
-                {/* Accent on the LEFT + BOTTOM edges, drawn as ONE path so it
-                  follows the 16px corner radius. Two straight bars got clipped
-                  by overflow-hidden and left a notch at the corner.
-                  Lives inside the card so it floats with it — an SVG outside
-                  stayed put while the card bobbed and the border drifted off. */}
-                {active && (
-                  <svg
-                    viewBox="0 0 300 88"
-                    preserveAspectRatio="none"
-                    className="pointer-events-none absolute inset-0 h-full w-full"
-                    aria-hidden
-                  >
-                    <defs>
-                      <linearGradient id="liveEdge" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stopColor="var(--brand-start)" />
-                        <stop offset="55%" stopColor="var(--brand-end)" />
-                        <stop
-                          offset="100%"
-                          stopColor="var(--brand-end)"
-                          stopOpacity="0"
-                        />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M2.5,0 V72 A13.5,13.5 0 0 0 16,85.5 H240"
-                      fill="none"
-                      stroke="url(#liveEdge)"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                )}
-                <span
-                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${chip}`}
-                >
-                  <Code2 className="h-5 w-5" strokeWidth={2.5} />
-                </span>
-
-                {active ? (
-                  <>
-                    <span className="min-w-0 flex-1 text-left font-mono text-[13px] font-semibold leading-snug">
-                      <span className="text-brand-end">{method}</span>{" "}
-                      <span className="text-heading">{path}</span>
-                    </span>
-                    <span className="shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
-                      200
-                    </span>
-                  </>
-                ) : (
-                  /* two bars, like the reference — one long, one short */
-                  <span className="min-w-0 flex-1 space-y-2">
-                    <span
-                      className={`block h-2.5 rounded-full bg-white/75 ${bar}`}
-                    />
-                    <span className="block h-2.5 w-1/2 rounded-full bg-white/55" />
-                  </span>
-                )}
-              </span>
-            </span>
-          </span>
-        ),
-      )}
-
-      {/* The request. Seated at centre y=311 so its top (228) clears card2's
-          bottom (220) — it previously overlapped card2 by 12px and ran off the
-          bottom of the stage. It still tucks over card3, which is intended. */}
-      <span className="pointer-events-none absolute left-[31%] top-[77.75%] -translate-x-1/2 -translate-y-1/2">
+      <span className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <span
-          className="animate-scene-fade block"
-          style={{ animationDelay: sceneDelay(5, 0.3) }}
+          className="animate-scene-fade block w-[360px] rounded-[1.75rem] bg-white p-6 text-center shadow-2xl shadow-slate-900/10 ring-1 ring-black/5"
+          style={{ animationDelay: sceneDelay(5, 0) }}
         >
-          <span className="animate-float-slower relative block w-[310px] overflow-hidden rounded-2xl bg-white p-4 shadow-2xl shadow-slate-900/10 ring-1 ring-brand-start/[0.14]">
-            {/* Accent on the TOP + RIGHT edges, mirroring the live card's
-                left+bottom. One path so it follows the 16px corner radius, and
-                it fades at both ends. Inside the card so it floats with it. */}
-            <svg
-              viewBox="0 0 310 164"
-              preserveAspectRatio="none"
-              className="pointer-events-none absolute inset-0 h-full w-full"
-              aria-hidden
-            >
-              <defs>
-                <linearGradient id="reqEdge" x1="0" y1="0" x2="1" y2="1">
-                  <stop
-                    offset="0%"
-                    stopColor="var(--brand-start)"
-                    stopOpacity="0"
-                  />
-                  <stop offset="45%" stopColor="var(--brand-start)" />
-                  <stop
-                    offset="100%"
-                    stopColor="var(--brand-end)"
-                    stopOpacity="0"
-                  />
-                </linearGradient>
-              </defs>
-              <path
-                d="M70,2.5 H294 A13.5,13.5 0 0 1 307.5,16 V120"
-                fill="none"
-                stroke="url(#reqEdge)"
-                strokeWidth="5"
-                strokeLinecap="round"
-              />
-            </svg>
+          <p className="text-[13.5px] font-semibold text-heading">
+            Integrate with the tools you already use
+          </p>
 
-            <span className="block text-left font-mono text-[13px] font-semibold">
-              <span className="text-brand-end">POST</span>{" "}
-              <span className="text-heading">/v1/appointments</span>
-            </span>
-            <span className="mt-3.5 block space-y-2.5">
-              {[
-                "Checked calendar availability",
-                "Booked the 2:30 PM slot",
-                "Confirmed via SMS in 180ms",
-              ].map((t) => (
-                <span key={t} className="flex items-center gap-2.5">
-                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-50">
-                    <Check
-                      className="h-2.5 w-2.5 text-emerald-600"
-                      strokeWidth={3.5}
-                    />
-                  </span>
-                  <span className="text-left text-[12px] text-muted-foreground">
-                    {t}
-                  </span>
+          <span className="mt-4 grid grid-cols-3 gap-3">
+            {STACK_TOOLS.map(({ name, label, stagger }) => (
+              <span
+                key={name}
+                className="animate-scene-fade relative flex flex-col items-center gap-1.5"
+                style={{ animationDelay: sceneDelay(5, stagger) }}
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50 ring-1 ring-black/5">
+                  <AppLogo name={name} size={22} />
                 </span>
-              ))}
-            </span>
+                <span className="text-[10px] font-medium text-muted-foreground">
+                  {label ?? name}
+                </span>
+                {name === "Shopify" && (
+                  <span
+                    className="animate-scene-pop absolute -right-1 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 shadow-sm"
+                    style={{ animationDelay: sceneDelay(5, 0.78) }}
+                  >
+                    <Check className="h-2.5 w-2.5 text-white" strokeWidth={3.5} />
+                  </span>
+                )}
+              </span>
+            ))}
+          </span>
 
-            {/* one trailing placeholder — suggests more below without pushing
-                the card off the bottom of the stage */}
-            <span className="mt-3.5 block h-2.5 w-2/3 rounded-full bg-slate-100" />
+          <span
+            className="animate-scene-fade mt-4 flex items-center justify-center gap-1.5 rounded-full bg-slate-50 px-3 py-1.5 text-[10.5px] font-medium text-muted-foreground ring-1 ring-black/5"
+            style={{ animationDelay: sceneDelay(5, 0.9) }}
+          >
+            <Database className="h-3 w-3 text-brand-end" strokeWidth={2.25} />{" "}
+            + your docs, website &amp; CRM data
           </span>
         </span>
       </span>
+
+      <CursorClick
+        sceneId={5}
+        stagger={0.28}
+        from={{ x: 36, y: 42 }}
+        className="left-[64%] top-[52%]"
+      />
     </div>
   );
 }
@@ -1175,16 +806,11 @@ export default function HeroScenes() {
             lg    1024+  column 464  -> 560*0.82 = 459   (two-column grid)
             xl    1280+  column 592  -> 560*1.00 = 560 */}
       <div className="relative mx-auto -my-[84px] flex h-[400px] w-[560px] shrink-0 origin-left scale-[0.58] items-center justify-center sm:my-0 sm:scale-100 lg:-my-[36px] lg:scale-[0.82] xl:my-0 xl:scale-100">
-        {/* stationary across scenes 1 and 2 — only the pop-ups and chats change */}
-        <div className="animate-stage-1-2 pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-          <PhoneStage />
-        </div>
-
         {SCENES.map(({ title }, i) => {
           // Scenes 1-5 are driven entirely by `scene-pop`/`scene-fade` on their
-          // own elements, so their wrapper must NOT fade: the wrapper's fade-out
-          // finishes at 6.40s while the pops are still retracting until ~6.9s,
-          // which clipped the pop-in and left it looking like a plain fade.
+          // own elements, so their wrapper must NOT fade: fading the wrapper
+          // on the scene boundary clips the last elements' pop-out mid-retract
+          // and leaves it looking like a plain fade.
           const popDriven = i <= 4;
           return (
             <div
@@ -1192,7 +818,7 @@ export default function HeroScenes() {
               className={`absolute inset-0 flex items-center justify-center text-center ${
                 popDriven ? "pointer-events-none" : "animate-scene-5"
               }`}
-              style={popDriven ? undefined : { animationDelay: `${i * 3.2}s` }}
+              style={popDriven ? undefined : { animationDelay: `${i * 4.2}s` }}
             >
               <SceneVisual id={i} />
             </div>
@@ -1206,7 +832,7 @@ export default function HeroScenes() {
           <div
             key={title}
             className="animate-scene-5 absolute inset-0 text-center"
-            style={{ animationDelay: `${i * 3.2}s` }}
+            style={{ animationDelay: `${i * 4.2}s` }}
           >
             <p className="text-lg font-semibold tracking-tight text-heading sm:text-xl">
               {title}
