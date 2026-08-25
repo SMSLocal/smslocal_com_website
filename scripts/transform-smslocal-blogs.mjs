@@ -816,7 +816,18 @@ async function main() {
 
     const tree = parseHtml(api.content.rendered)
     const widgets = collectWidgets(tree)
-    let { blocks, faqs } = buildBody(widgets, ctx)
+    // A handful of posts were authored in the plain WordPress editor, not
+    // Elementor, so they carry no `data-widget_type` markup at all — walking
+    // them as widgets finds nothing and silently yields an empty post. Fall
+    // back to reading the rendered HTML as plain prose (same walker used
+    // for prose *inside* Elementor text-editor widgets) instead.
+    let blocks, faqs
+    if (widgets.length === 0) {
+      blocks = proseBlocks(tree, ctx)
+      faqs = []
+    } else {
+      ;({ blocks, faqs } = buildBody(widgets, ctx))
+    }
     // Full-content override: some source pages are too thin to reshape (a
     // couple of boilerplate paragraphs, no FAQ) — swap in original,
     // researched copy instead. No-op for any post without an entry.
