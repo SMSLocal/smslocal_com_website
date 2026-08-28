@@ -6,6 +6,10 @@
   "functions": {
     "api/contact.js": {
       "maxDuration": 30
+    },
+    "api/i18n-ssr.js": {
+      "maxDuration": 30,
+      "includeFiles": "scripts/.cache/i18n/**"
     }
   },
   "redirects": [
