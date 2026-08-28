@@ -101,14 +101,51 @@ const BRAND_TOKEN = 'XSMSLOCALX'
 const protectBrand = (s) => s.replaceAll(BRAND, BRAND_TOKEN)
 const restoreBrand = (s) => s.replaceAll(BRAND_TOKEN, BRAND)
 
+// MyMemory has no batch endpoint (one `q` per request), so this fans out
+// with limited concurrency instead of one request per chunk. Mirrors the
+// same fallback in api/i18n-ssr.js — kept as a separate copy rather than a
+// shared import so this build script has no dependency on the Vercel
+// function's module, and vice versa.
+async function requestChunkMyMemory(texts, targetLang) {
+  const CONCURRENCY = 8
+  const out = new Array(texts.length).fill(null)
+  let next = 0
+  async function worker() {
+    while (next < texts.length) {
+      const i = next++
+      const params = new URLSearchParams({ q: protectBrand(texts[i]), langpair: `en|${targetLang}` })
+      try {
+        const res = await fetch(`https://api.mymemory.translated.net/get?${params}`, {
+          signal: AbortSignal.timeout(4000),
+        })
+        if (!res.ok) continue
+        const data = await res.json()
+        const text = data?.responseData?.translatedText
+        if (typeof text === 'string' && text) out[i] = restoreBrand(text)
+      } catch {
+        // Leave null; the caller treats it the same as a Google miss.
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, texts.length) }, worker))
+  return out
+}
+
 async function requestChunk(texts, targetLang, attempt = 1) {
   const params = new URLSearchParams({ client: 'gtx', sl: 'en', tl: targetLang })
   for (const t of texts) params.append('q', protectBrand(t))
 
   try {
+    // 2026-08-28: the free endpoint now throttles this traffic pattern hard
+    // enough that a successful response typically takes ~0.8-1.5s (was
+    // sub-200ms when this was tuned), and a bad response used to eat up to
+    // 10s before even starting the retry/backoff below. Capped much lower so
+    // a stalled attempt fails fast onto either a retry or the MyMemory
+    // fallback, instead of one slow chunk stalling an entire build phase (or,
+    // via vite-dev-translate.mjs, a live page waiting on a dev-server request).
     const res = await fetch(`https://translate.googleapis.com/translate_a/t?${params}`, {
       headers: { 'user-agent': 'Mozilla/5.0' },
-      signal: AbortSignal.timeout(10000),
+      signal: AbortSignal.timeout(3000),
     })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const data = await res.json()
@@ -119,16 +156,18 @@ async function requestChunk(texts, targetLang, attempt = 1) {
       return t
     })
   } catch (err) {
-    // The free endpoint is unofficial and rate-limits under bulk load — back
-    // off and retry a couple of times before giving up and keeping originals.
-    // null, not `texts`: the caller has to be able to tell "translated to the
-    // same string" from "never got an answer", because it caches the first
-    // and must not cache the second.
-    if (attempt >= 3) {
-      console.warn(`  translate: giving up on a chunk after ${attempt} attempts (${err.message})`)
+    // The free endpoint is unofficial and rate-limits under bulk load. One
+    // quick retry (not the old three) before falling to MyMemory, which by
+    // 2026-08 answers more reliably than a second/third Google attempt does.
+    if (attempt >= 2) {
+      const fallback = await requestChunkMyMemory(texts, targetLang)
+      if (fallback.some((t) => t !== null)) {
+        return texts.map((t, i) => fallback[i] ?? t)
+      }
+      console.warn(`  translate: giving up on a chunk after Google + MyMemory both failed (${err.message})`)
       return null
     }
-    await new Promise((r) => setTimeout(r, attempt * 1000))
+    await new Promise((r) => setTimeout(r, 500))
     return requestChunk(texts, targetLang, attempt + 1)
   }
 }

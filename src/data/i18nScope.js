@@ -8,8 +8,16 @@
  * ended the moment you clicked almost anything.
  *
  * Kept out:
- *  - /login, /signup hand off to secure.smslocal.com, which is English-only;
+ *  - /login hands off to secure.smslocal.com, which is English-only;
  *    translating the page around that is a promise the next screen breaks.
+ *
+ * /signup was held back for the same reason as /login (its final step also
+ * talks to an external, English-only backend), but the site owner asked for
+ * it translated (2026-08-28) anyway — it's their call. Two things stay
+ * English even with this on: whatever secure.smslocal.com itself shows after
+ * signup, and any error message the WordPress AJAX backend returns at
+ * runtime (only the static React-rendered labels/copy are translatable —
+ * a server response isn't known ahead of time to put in a dictionary).
  *
  * /terms-and-conditions and /privacy-policy were held back too, on the view
  * that a machine translation of a contract is not the contract. The site owner
@@ -21,7 +29,6 @@
  */
 const EXCLUDED = new Set([
   '/login',
-  '/signup',
 ])
 
 /**
