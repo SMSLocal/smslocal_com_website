@@ -65813,7 +65813,7 @@
     "rich": [
      "Select a reputable SMS gateway service to handle delivering your messages. Some highly-rated options include Twilio, SmsLocal, and Plivo. These providers offer ",
      {
-      "a": "/Pricing/",
+      "a": "/pricing/",
       "x": false,
       "c": [
        "competitive pricing"
