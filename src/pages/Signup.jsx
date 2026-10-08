@@ -257,9 +257,9 @@ function Signup() {
           <span className="signup-info-glow" aria-hidden="true" />
           <div className="signup-info-inner">
             <span className="signup-info-badge">Free Trial · No Card Required</span>
-            <h1 className="signup-info-title">
+            <h2 className="signup-info-title">
               Everything you need to <span className="grad-word">talk to customers</span>, in one platform
-            </h1>
+            </h2>
             <p className="signup-info-sub">
               SMS, WhatsApp, RCS, voice and AI agents — one account, one API, no juggling vendors.
             </p>
