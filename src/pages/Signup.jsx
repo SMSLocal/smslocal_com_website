@@ -84,7 +84,13 @@ function CaptchaWidget({ active, onToken }) {
       if (cancelled || !containerRef.current || !window.turnstile) return
       widgetId.current = window.turnstile.render(containerRef.current, {
         sitekey: TURNSTILE_SITEKEY,
+        // Managed, background check: the widget stays hidden and only shows a
+        // challenge to visitors Cloudflare can't verify on its own.
+        appearance: 'interaction-only',
         callback: (token) => onToken(token),
+        'expired-callback': () => onToken(''),
+        'timeout-callback': () => onToken(''),
+        'error-callback': () => onToken(''),
       })
     })
 
@@ -125,6 +131,20 @@ function Signup() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [captchaToken, setCaptchaToken] = useState('')
+  const captchaTokenRef = useRef('')
+  useEffect(() => {
+    captchaTokenRef.current = captchaToken
+  }, [captchaToken])
+
+  // The check runs invisibly, so a fast submit can beat it. Give it a few
+  // seconds to finish before telling the user anything.
+  async function waitForCaptcha(timeoutMs = 8000) {
+    const start = Date.now()
+    while (!captchaTokenRef.current && Date.now() - start < timeoutMs) {
+      await new Promise((r) => setTimeout(r, 150))
+    }
+    return Boolean(captchaTokenRef.current)
+  }
 
   const [email, setEmail] = useState('')
   const [code, setCode] = useState('')
@@ -148,8 +168,8 @@ function Signup() {
   async function handleEmailSubmit(e) {
     e.preventDefault()
     setError('')
-    if (!captchaToken) {
-      setError('Please complete the CAPTCHA verification first.')
+    if (!(await waitForCaptcha())) {
+      setError('Security check did not finish. Please complete it if shown, or reload and try again.')
       return
     }
     setLoading(true)
@@ -189,8 +209,8 @@ function Signup() {
   async function handleFinalSubmit(e) {
     e.preventDefault()
     setError('')
-    if (!captchaToken) {
-      setError('Please complete the CAPTCHA verification first.')
+    if (!(await waitForCaptcha())) {
+      setError('Security check did not finish. Please complete it if shown, or reload and try again.')
       return
     }
     if (!acceptedTerms) {
