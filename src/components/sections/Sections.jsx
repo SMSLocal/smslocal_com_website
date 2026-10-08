@@ -642,9 +642,9 @@ export function EcosystemGrid({ title, subtitle, items, alt, variant, eyebrow = 
               <p>{item.desc}</p>
               {item.href && (
                 item.href.startsWith('mailto:') || item.href.startsWith('http') ? (
-                  <a href={item.href} className="ecosystem-link">Learn more →</a>
+                  <a href={item.href} className="ecosystem-link">Explore {item.title} →</a>
                 ) : (
-                  <Link to={item.href} className="ecosystem-link">Learn more →</Link>
+                  <Link to={item.href} className="ecosystem-link">Explore {item.title} →</Link>
                 )
               )}
             </div>
