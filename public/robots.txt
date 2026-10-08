@@ -3,4 +3,4 @@ Allow: /
 
 # AI crawlers and assistants: /llms.txt is a markdown map of the same pages.
 
-Sitemap: https://smslocal-com-website.vercel.app/sitemap.xml
+Sitemap: https://www.smslocal.com/sitemap.xml

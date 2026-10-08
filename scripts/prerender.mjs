@@ -90,7 +90,7 @@ const TRANSLATED_ROUTES = routes.filter(isTranslatedRoute)
 //
 // Each file carries an <?xml-stylesheet?> pointing at /sitemap.xsl, which makes
 // browsers render a styled page. Crawlers ignore it and read the raw XML.
-const SITE = 'https://smslocal-com-website.vercel.app'
+const SITE = 'https://www.smslocal.com'
 const STYLE = '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
 // Country pages have no per-page date of their own; they change when the
 // authored content does, so they inherit that file's mtime.

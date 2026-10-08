@@ -6,7 +6,7 @@ import { useLocale } from '../lib/LocaleContext.jsx'
 
 // Production domain this site deploys to (see deployment-flow-rule memory —
 // `main` builds to this exact host). Canonicals must be absolute URLs.
-export const SITE_ORIGIN = 'https://smslocal-com-website.vercel.app'
+export const SITE_ORIGIN = 'https://www.smslocal.com'
 
 /**
  * The single canonical emitter — lives in Layout.jsx (every route goes through
