@@ -208,7 +208,25 @@ export async function translatePageHtml(
   collectMetaStrings(html, unique)
   const ldParsed = collectJsonLd(html, unique)
 
-  const parts = html.split(/(<[^>]+>)/)
+  // Script and style bodies are raw text, not markup, so they have to be set
+  // aside before the tag split below. Inline JS routinely contains a bare `<`
+  // — the PostHog loader's `n<o.length` was enough — and the split read it as
+  // the start of a tag running on to the next `>`, swallowing the real
+  // </script>. The skip stack then never closed, and every text node after it
+  // was skipped as "inside a script": the body of every translated page shipped
+  // in English, while still reporting itself fully translated. NUL-delimited
+  // index placeholders contain neither `<` nor `>`, and source HTML never
+  // carries NULs.
+  const rawBodies = []
+  const tokenizable = html.replace(
+    /(<(script|style)\b[^>]*>)([\s\S]*?)(<\/\2\s*>)/gi,
+    (_m, open, _name, body, close) => {
+      rawBodies.push(body)
+      return `${open}\u0000${rawBodies.length - 1}\u0000${close}`
+    },
+  )
+
+  const parts = tokenizable.split(/(<[^>]+>)/)
   const skipStack = []
   const skipNow = () => skipStack.length > 0 && skipStack[skipStack.length - 1]
 
@@ -257,7 +275,8 @@ export async function translatePageHtml(
 
   // Body was translated in `parts`; meta and JSON-LD are applied over the
   // reassembled document, since both live in tags the body pass skips.
-  let out = parts.join('')
+  // eslint-disable-next-line no-control-regex -- NUL is the placeholder delimiter
+  let out = parts.join('').replace(/\u0000(\d+)\u0000/g, (_m, i) => rawBodies[i])
   out = applyMetaStrings(out, map)
   out = applyJsonLd(out, map, ldParsed, locale)
   if (localizeHead) out = localizeHeadUrls(out, locale, rtl)

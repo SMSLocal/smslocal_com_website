@@ -82,6 +82,19 @@ const { html: build } = await translatePageHtml(EN, 'fr', isTranslated, translat
 assert.match(build, /rel="canonical" href="https:\/\/smslocal\.com\/pricing\/"/, 'build path rewrote the head')
 assert.match(build, /<html lang="en">/, 'build path rewrote html lang')
 
+// ── a `<` inside an inline script must not swallow the page ─────────────────
+// The PostHog loader's `n<o.length` split as the start of a tag that ate the
+// real </script>, and everything after it shipped untranslated.
+const WITH_LT = `<html lang="en"><head>
+<script>for(var n=0;n<o.length;n++)g(u,o[n]);</script>
+<style>a<b{}</style>
+</head><body><h1>Simple pricing</h1><p>Pay per message</p></body></html>`
+const { html: lt } = await translatePageHtml(WITH_LT, 'fr', isTranslated, translate)
+assert.match(lt, />SIMPLE PRICING</, 'text after an inline script with "<" was skipped')
+assert.match(lt, />PAY PER MESSAGE</, 'body after an inline script with "<" was skipped')
+assert.match(lt, /for\(var n=0;n<o\.length;n\+\+\)g\(u,o\[n\]\);/, 'script body was altered')
+assert.match(lt, /<style>a<b\{\}<\/style>/, 'style body was altered')
+
 // ── English is a passthrough ────────────────────────────────────────────────
 const { html: en, count } = await translatePageHtml(EN, 'en', isTranslated, translate)
 assert.equal(en, EN, 'English document was modified')
