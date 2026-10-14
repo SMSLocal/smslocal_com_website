@@ -19,7 +19,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang([a-z]{2,3})/local-numbers/kentucky/270-area-code/",
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/kentucky/270-area-code/",
       "destination": "/",
       "permanent": true
     },
@@ -29,7 +29,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang([a-z]{2,3})/local-numbers/oregon/458-area-code/",
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/oregon/458-area-code/",
       "destination": "/",
       "permanent": true
     },
@@ -39,7 +39,7 @@
       "permanent": true
     },
     {
-      "source": "/:lang([a-z]{2,3})/local-numbers/ohio/330-area-code/",
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/ohio/330-area-code/",
       "destination": "/",
       "permanent": true
     },
