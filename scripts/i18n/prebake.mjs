@@ -28,6 +28,12 @@ const REPORT = join(root, 'scripts/.cache/i18n-untranslated.json')
 // identity translations, and exempt from the echo purge below.
 const KEEP_ENGLISH = join(root, 'scripts/i18n/keep-english.json')
 const keepEnglish = existsSync(KEEP_ENGLISH) ? JSON.parse(readFileSync(KEEP_ENGLISH, 'utf8')) : {}
+// Ambiguous strings translated through an unambiguous English phrasing; see
+// the comment in aliases.json. Re-translated on every run so an edit there
+// takes effect.
+const ALIASES_FILE = join(root, 'scripts/i18n/aliases.json')
+const aliases = existsSync(ALIASES_FILE) ? JSON.parse(readFileSync(ALIASES_FILE, 'utf8')) : {}
+delete aliases._comment
 
 const prefix = process.argv[2] || '/'
 const langs = process.argv[3]
@@ -40,6 +46,8 @@ const isEcho = (src, tr) => tr.trim() === src.trim() && ECHO_RE.test(src)
 
 const BRAND = 'SMSLocal'
 const BRAND_TOKEN = 'XSMSLOCALX'
+// Same list as api/i18n-ssr.js: forms the placeholder comes back as.
+const MANGLED_BRAND_RE = /XSMS本地计算X?|X?XMSS?LOCALX|XSMSローカルX|एक्सएसएमएसलोकलएक्स/g
 
 // Every index.html under dist/<prefix>.
 function pagesUnder(dir) {
@@ -68,7 +76,7 @@ async function collectStrings() {
 
 async function googleChunk(texts, lang) {
   const params = new URLSearchParams({ client: 'gtx', sl: 'en', tl: lang })
-  for (const t of texts) params.append('q', t.replaceAll(BRAND, BRAND_TOKEN))
+  for (const t of texts) params.append('q', (aliases[t] ?? t).replaceAll(BRAND, BRAND_TOKEN))
   const res = await fetch(`https://translate.googleapis.com/translate_a/t?${params}`, {
     headers: { 'user-agent': 'Mozilla/5.0' },
     signal: AbortSignal.timeout(20000),
@@ -78,7 +86,7 @@ async function googleChunk(texts, lang) {
   const items = typeof data === 'string' ? [data] : data
   return texts.map((_t, i) => {
     const item = Array.isArray(items[i]) ? items[i][0] : items[i]
-    return typeof item === 'string' && item ? item.replaceAll(BRAND_TOKEN, BRAND) : null
+    return typeof item === 'string' && item ? item.replaceAll(BRAND_TOKEN, BRAND).replace(MANGLED_BRAND_RE, BRAND) : null
   })
 }
 
@@ -89,6 +97,7 @@ async function bakeLanguage(lang, strings) {
   const cache = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : {}
 
   const keep = new Set(keepEnglish[lang] || [])
+  for (const k of Object.keys(aliases)) if (!keep.has(k)) delete cache[k]
   for (const k of keep) cache[k] = k
 
   let purged = 0

@@ -1,0 +1,20 @@
+{
+  "_comment": "Source strings that machine translation gets wrong out of context, mapped to an unambiguous English phrasing that prebake.mjs translates instead. The translation is stored under the original string, so the English page keeps its wording. 'Carrier' alone came back as a freight carrier, a courier or a 'vector' in most languages; 'Text Free' as 'no text'.",
+  "Carrier": "Mobile operator",
+  "carrier": "mobile operator",
+  "Look up carrier": "Look up the mobile operator",
+  "Carrier Lookup": "Mobile operator lookup",
+  "Carrier lookup": "Mobile operator lookup",
+  "Free carrier lookup": "Free mobile operator lookup",
+  "Free Carrier Lookup: Find Any Number's Carrier | SMSLocal": "Free Mobile Operator Lookup: Find Any Number's Operator | SMSLocal",
+  "Free carrier lookup: identify any phone number's": "Free mobile operator lookup: identify any phone number's",
+  "What is a carrier lookup?": "What is a mobile operator lookup?",
+  "Is the carrier lookup free?": "Is the mobile operator lookup free?",
+  "Why use a carrier lookup tool?": "Why use a mobile operator lookup tool?",
+  "How SMSLocal's carrier lookup": "How SMSLocal's mobile operator lookup",
+  "Common uses for carrier lookup": "Common uses for mobile operator lookup",
+  "Number portability and carrier lookup": "Number portability and mobile operator lookup",
+  "Text Free": "Free SMS",
+  "Text Free - Test Your Mobile Network Online | SMSLocal": "Free SMS - Test Your Mobile Network Online | SMSLocal",
+  "Send text free – test your mobile network": "Send free SMS – test your mobile network"
+}

@@ -99,7 +99,11 @@ function persist() {
 const BRAND = 'SMSLocal'
 const BRAND_TOKEN = 'XSMSLOCALX'
 const protectBrand = (s) => s.replaceAll(BRAND, BRAND_TOKEN)
-const restoreBrand = (s) => s.replaceAll(BRAND_TOKEN, BRAND)
+// Some languages translate the placeholder itself (zh: "XSMS本地计算", ja:
+// "XSMSローカルX", hi in Devanagari, es/de/ar with letters dropped). Seen in
+// the cache, 735 strings; map every known form back to the brand.
+const MANGLED_BRAND_RE = /XSMS本地计算X?|X?XMSS?LOCALX|XSMSローカルX|एक्सएसएमएसलोकलएक्स/g
+const restoreBrand = (s) => s.replaceAll(BRAND_TOKEN, BRAND).replace(MANGLED_BRAND_RE, BRAND)
 
 // MyMemory has no batch endpoint (one `q` per request), so this fans out
 // with limited concurrency instead of one request per chunk. Mirrors the
