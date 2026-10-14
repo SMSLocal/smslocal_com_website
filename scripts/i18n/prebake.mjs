@@ -23,6 +23,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '../..')
 const DIST = join(root, 'dist')
 const CACHE_DIR = join(root, 'scripts/.cache/i18n')
 const REPORT = join(root, 'scripts/.cache/i18n-untranslated.json')
+// Strings reviewed by hand and confirmed correct in English for that language
+// (names, addresses, acronym expansions): lang -> [source]. Stored as
+// identity translations, and exempt from the echo purge below.
+const KEEP_ENGLISH = join(root, 'scripts/i18n/keep-english.json')
+const keepEnglish = existsSync(KEEP_ENGLISH) ? JSON.parse(readFileSync(KEEP_ENGLISH, 'utf8')) : {}
 
 const prefix = process.argv[2] || '/'
 const langs = process.argv[3]
@@ -83,9 +88,12 @@ async function bakeLanguage(lang, strings) {
   const file = join(CACHE_DIR, `${lang}.json`)
   const cache = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : {}
 
+  const keep = new Set(keepEnglish[lang] || [])
+  for (const k of keep) cache[k] = k
+
   let purged = 0
   for (const [k, v] of Object.entries(cache)) {
-    if (typeof v !== 'string' || isEcho(k, v)) {
+    if (typeof v !== 'string' || (isEcho(k, v) && !keep.has(k))) {
       delete cache[k]
       purged++
     }
@@ -113,7 +121,18 @@ async function bakeLanguage(lang, strings) {
   let next = 0
   let limit = 0
   let backoff = 0
-  const save = () => writeFileSync(file, JSON.stringify(cache))
+  // Windows can briefly lock the file (antivirus, an editor's watcher) and
+  // fail the write with UNKNOWN/EBUSY; a short retry is enough.
+  const save = async () => {
+    for (let attempt = 1; ; attempt++) {
+      try {
+        return writeFileSync(file, JSON.stringify(cache))
+      } catch (err) {
+        if (attempt >= 5) throw err
+        await sleep(1000 * attempt)
+      }
+    }
+  }
 
   async function worker() {
     while (next < limit) {
@@ -144,10 +163,10 @@ async function bakeLanguage(lang, strings) {
   while (next < total) {
     limit = Math.min(total, next + ROUND)
     await Promise.all(Array.from({ length: CONCURRENCY }, worker))
-    save()
+    await save()
     process.stdout.write(`  ${lang}: ${Math.min(next, total)}/${total} chunks, +${added}\n`)
   }
-  save()
+  await save()
 
   const missing = strings.filter((s) => cache[s] === undefined && ECHO_RE.test(s))
   return { lang, needed: needed.length, added, purged, missing }
