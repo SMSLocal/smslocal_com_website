@@ -44,6 +44,46 @@
       "permanent": true
     },
     {
+      "source": "/local-numbers/kansas/316-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/kansas/316-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/new-jersey/848-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/new-jersey/848-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/michigan/586-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/michigan/586-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/pennsylvania/215-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/pennsylvania/215-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/blog/understanding-the-469-area-code-a-guide-to-northeastern-texas-copy/",
       "destination": "/blog/469-area-code/",
       "permanent": true
