@@ -14,6 +14,16 @@
   },
   "redirects": [
     {
+      "source": "/local-numbers/kentucky/270-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang([a-z]{2,3})/local-numbers/kentucky/270-area-code/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/whatsapp-business-api/",
       "destination": "/products/channels/whatsapp/",
       "permanent": true
