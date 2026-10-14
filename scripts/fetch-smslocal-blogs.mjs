@@ -121,7 +121,6 @@ export const SOURCE_URLS = [
   '/blog/tracking-sms-in-google-analytics/',
   '/blog/transactional-sms/',
   '/blog/uifn-vs-itfs/',
-  '/blog/understanding-the-469-area-code-a-guide-to-northeastern-texas-copy/',
   '/blog/unlock-business-with-effective-sms-blasting/',
   '/blog/what-are-sms-and-mms-messaging/',
   '/blog/what-does-bulk-mean-in-text/',

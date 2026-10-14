@@ -44,6 +44,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/understanding-the-469-area-code-a-guide-to-northeastern-texas-copy/",
+      "destination": "/blog/469-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/blog/understanding-the-469-area-code-a-guide-to-northeastern-texas-copy/",
+      "destination": "/:lang/blog/469-area-code/",
+      "permanent": true
+    },
+    {
       "source": "/whatsapp-business-api/",
       "destination": "/products/channels/whatsapp/",
       "permanent": true
