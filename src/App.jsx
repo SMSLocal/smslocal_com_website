@@ -66,6 +66,9 @@ import WebChat from './pages/WebChat.jsx'
 import CompareBird from './pages/CompareBird.jsx'
 import ComparePlivo from './pages/ComparePlivo.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
+import ToolSendText from './pages/tools/ToolSendText.jsx'
+import ToolTextFree from './pages/tools/ToolTextFree.jsx'
+import ToolCarrierLookup from './pages/tools/ToolCarrierLookup.jsx'
 import ViberBusinessMessages from './pages/ViberBusinessMessages.jsx'
 import TelegramBusiness from './pages/TelegramBusiness.jsx'
 import LineBusinessMessaging from './pages/LineBusinessMessaging.jsx'
@@ -166,6 +169,9 @@ function RoutedApp() {
           <Route path="/resources/case-studies" element={<ResourcesCaseStudies />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/tools/send-text" element={<ToolSendText />} />
+          <Route path="/tools/text-free" element={<ToolTextFree />} />
+          <Route path="/tools/carrier-lookup" element={<ToolCarrierLookup />} />
           <Route path="/partnerships" element={<Partners />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/login" element={<Login />} />

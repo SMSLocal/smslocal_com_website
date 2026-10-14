@@ -64,5 +64,8 @@
   "/login": "2026-08-03",
   "/signup": "2026-08-03",
   "/terms-and-conditions": "2026-08-10",
-  "/privacy-policy": "2026-08-10"
+  "/privacy-policy": "2026-08-10",
+  "/tools/send-text": "2026-10-14",
+  "/tools/text-free": "2026-10-14",
+  "/tools/carrier-lookup": "2026-10-14"
 }

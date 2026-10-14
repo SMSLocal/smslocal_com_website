@@ -13,6 +13,8 @@
   "dependencies": {
     "@vercel/functions": "^3.7.7",
     "dotted-map": "^3.1.0",
+    "libphonenumber-geo-carrier": "2.0.0",
+    "libphonenumber-js": "1.12.31",
     "lucide-react": "^1.25.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

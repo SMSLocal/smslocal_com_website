@@ -1,0 +1,244 @@
+/* Free tools (/tools/send-text/, /tools/text-free/, /tools/carrier-lookup/).
+   Hero layout and form fields come from Contact.css (contact-hero-*,
+   contact-field, contact-phone-row); this file adds the tool card. */
+
+/* The forms keep every step and message in the DOM (so locale pages translate
+   them) and toggle `hidden`; make sure no display rule below overrides it. */
+.tool-card [hidden] {
+  display: none !important;
+}
+
+.tool-card {
+  /* A grid item won't shrink below its content's min width by default, and the
+     phone row's country trigger + input pushed the page past 375px. */
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.5rem 1.5rem;
+  box-shadow:
+    0 0 0 1px rgba(79, 91, 213, 0.04),
+    0 0 60px rgba(79, 91, 213, 0.12),
+    0 20px 50px rgba(16, 35, 63, 0.08);
+}
+
+.tool-card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.tool-step-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.tool-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--muted);
+  overflow: hidden;
+}
+
+.tool-progress span {
+  display: block;
+  height: 100%;
+  background: var(--gradient-brand);
+  transition: width 0.25s ease;
+}
+
+.tool-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.tool-step-title {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--heading);
+}
+
+.tool-step-sub {
+  margin: -0.4rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.tool-step-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.tool-step-actions .tool-submit {
+  flex: 1;
+}
+
+.tool-submit {
+  justify-content: center;
+}
+
+.tool-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tool-summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.45rem 1rem;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.tool-summary dt {
+  color: var(--text-secondary);
+}
+
+.tool-summary dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.tool-template {
+  padding: 0.8rem 0.95rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border);
+}
+
+.tool-template-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.tool-template p {
+  margin: 0;
+  color: var(--ink);
+}
+
+.tool-captcha:empty {
+  display: none;
+}
+
+.tool-note {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.tool-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+
+.tool-result-ok {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+  text-align: center;
+  align-items: center;
+}
+
+.tool-result-ok h3 {
+  margin: 0;
+  color: var(--success);
+}
+
+.tool-result-ok p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.tool-result-number {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.tool-badge {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+}
+
+.tool-badge-bad {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.tool-errors:empty {
+  display: none;
+}
+
+.tool-error {
+  margin: 1rem 0 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-md);
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 0.88rem;
+}
+
+/* Long-form content below the tool. */
+.tool-content {
+  max-width: 820px;
+}
+
+.tool-content h2 {
+  margin: 2.2rem 0 0.7rem;
+  color: var(--heading);
+}
+
+.tool-content h2:first-child {
+  margin-top: 0;
+}
+
+.tool-content h3 {
+  margin: 1.4rem 0 0.4rem;
+  color: var(--heading);
+  font-size: 1.1rem;
+}
+
+.tool-content p,
+.tool-content li {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.tool-content ul {
+  padding-left: 1.2rem;
+}
+
+.tool-content li + li {
+  margin-top: 0.35rem;
+}
+
+.tool-content strong {
+  color: var(--ink);
+}
+
+.tool-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+}

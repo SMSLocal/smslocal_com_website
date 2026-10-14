@@ -10,9 +10,31 @@
     "api/i18n-ssr.js": {
       "maxDuration": 30,
       "includeFiles": "scripts/.cache/i18n/**"
+    },
+    "api/tools/carrier-lookup.js": {
+      "maxDuration": 15,
+      "includeFiles": "node_modules/libphonenumber-geo-carrier/resources/**"
+    },
+    "api/tools/send-test-sms.js": {
+      "maxDuration": 30
     }
   },
   "redirects": [
+    {
+      "source": "/zh-CN/tools/send-text/",
+      "destination": "/zh/tools/send-text/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-CN/tools/text-free/",
+      "destination": "/zh/tools/text-free/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-CN/tools/carrier-lookup/",
+      "destination": "/zh/tools/carrier-lookup/",
+      "permanent": true
+    },
     {
       "source": "/local-numbers/kentucky/270-area-code/",
       "destination": "/",

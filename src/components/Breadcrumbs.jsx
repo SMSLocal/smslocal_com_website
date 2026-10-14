@@ -9,6 +9,10 @@ import './Breadcrumbs.css'
 // Friendly labels for path segments that a naive "un-hyphenate + capitalize"
 // wouldn't get right (abbreviations, brand names, acronyms).
 const LABELS = {
+  tools: 'Free Tools',
+  'send-text': 'Free SMS Online',
+  'text-free': 'Text Free',
+  'carrier-lookup': 'Carrier Lookup',
   'ai-agents': 'AI Agents',
   'agentic-ai': 'Agentic AI',
   'voice-ai-agents': 'Voice AI Agents',
