@@ -16,6 +16,7 @@
     "libphonenumber-geo-carrier": "2.0.0",
     "libphonenumber-js": "1.12.31",
     "lucide-react": "^1.25.0",
+    "nodemailer": "^10.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1",

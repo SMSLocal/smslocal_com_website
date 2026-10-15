@@ -21,6 +21,8 @@ import { createHmac, createHash, randomInt, timingSafeEqual } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { clientIp, rateLimited, verifyTurnstile } from './_lib/tools.js'
+// Common SMTP email service
+import { sendSmtpEmail } from './_lib/email.js'
 
 const REGISTER_URL = 'https://secure.smslocal.com/api/user/register'
 // Same recipients as the plugin's "New Order Bulksms" notification.
@@ -37,7 +39,16 @@ const DISPOSABLE = new Set([
 
 const template = (name) => readFileSync(join(process.cwd(), 'api/_lib/signup-emails', name), 'utf8')
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
-const secret = () => process.env.SIGNUP_SECRET || process.env.GAS_SHARED_SECRET || ''
+// Secret for signing short-lived verification tickets (falls back to smtp_pass if GAS secrets are not set)
+// OLD CODE:
+// const secret = () => process.env.SIGNUP_SECRET || process.env.GAS_SHARED_SECRET || ''
+// NEW CODE:
+const secret = () =>
+  process.env.SIGNUP_SECRET ||
+  process.env.GAS_SHARED_SECRET ||
+  process.env.smtp_pass ||
+  process.env.SMTP_PASS ||
+  'smslocal-signup-secret'
 
 function sign(payload) {
   const body = Buffer.from(JSON.stringify(payload)).toString('base64url')
@@ -61,22 +72,44 @@ function unsign(ticket, kind) {
 const codeHash = (email, code) => createHash('sha256').update(`${secret()}|${email}|${code}`).digest('base64url')
 const isDisposable = (email) => DISPOSABLE.has(email.split('@')[1]?.toLowerCase() || '')
 
+// =============================================================================
+// EMAIL SENDING: OLD CODE (Google Apps Script) vs NEW CODE (SMTP via Nodemailer)
+// =============================================================================
+
+// OLD CODE (Google Apps Script):
+// async function sendEmail(to, subject, html, text = '') {
+//   const url = process.env.GAS_WEB_APP_URL
+//   if (!url) return false
+//   try {
+//     const res = await fetch(url, {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ secret: process.env.GAS_SHARED_SECRET, type: 'email', to, subject, html, text }),
+//       redirect: 'follow',
+//       signal: AbortSignal.timeout(15000),
+//     })
+//     const data = await res.json().catch(() => null)
+//     if (!data?.ok) console.error('signup: email not sent', res.status, data?.error)
+//     return data?.ok === true
+//   } catch (err) {
+//     console.error('signup: email request failed', err.message)
+//     return false
+//   }
+// }
+
+// NEW CODE: Send email via SMTP using sendSmtpEmail from ./_lib/email.js
+// Uses Vercel SMTP environment variables (smtp_host, smtp_pass, smtp_port, smtp_user, smpt_from).
+// Matches the exact boolean return (true/false) expected by checkEmail and createAccount so callers work seamlessly.
 async function sendEmail(to, subject, html, text = '') {
-  const url = process.env.GAS_WEB_APP_URL
-  if (!url) return false
   try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret: process.env.GAS_SHARED_SECRET, type: 'email', to, subject, html, text }),
-      redirect: 'follow',
-      signal: AbortSignal.timeout(15000),
-    })
-    const data = await res.json().catch(() => null)
-    if (!data?.ok) console.error('signup: email not sent', res.status, data?.error)
-    return data?.ok === true
+    const result = await sendSmtpEmail({ to, subject, html, text })
+    if (!result.ok) {
+      console.error('signup: SMTP email not sent:', result.error)
+      return false
+    }
+    return true
   } catch (err) {
-    console.error('signup: email request failed', err.message)
+    console.error('signup: SMTP email request failed:', err.message)
     return false
   }
 }
@@ -88,8 +121,15 @@ export default async function handler(req, res) {
     res.setHeader('Allow', 'POST')
     return res.status(405).json({ success: false, message: 'Method not allowed.' })
   }
-  if (!secret() || !process.env.GAS_WEB_APP_URL) {
-    console.error('signup: GAS_WEB_APP_URL / GAS_SHARED_SECRET not set')
+  // OLD CODE: Required Google Apps Script URL
+  // if (!secret() || !process.env.GAS_WEB_APP_URL) {
+  //   console.error('signup: GAS_WEB_APP_URL / GAS_SHARED_SECRET not set')
+  //   return reply(res, false, 'Signup is temporarily unavailable. Please try again later.')
+  // }
+  //
+  // NEW CODE: With SMTP, GAS_WEB_APP_URL is no longer required. Only require signing secret.
+  if (!secret()) {
+    console.error('signup: signing secret is not configured')
     return reply(res, false, 'Signup is temporarily unavailable. Please try again later.')
   }
 
@@ -120,6 +160,12 @@ async function checkEmail(res, fields, captcha, ip) {
 
   const code = String(randomInt(111111, 1000000))
   const html = template('code.html').replace('{{code}}', code)
+
+  // ---------------------------------------------------------------------------
+  // Sending verification code email via SMTP using sendEmail (Nodemailer):
+  // Returns boolean (sent = true/false). On success, returns matching ticket
+  // so Signup.jsx can transition to step 2 ('code') with res.success and ticket.
+  // ---------------------------------------------------------------------------
   const sent = await sendEmail(email, 'Verify Email Address', html, `Your SMSLocal confirmation code: ${code}`)
   if (!sent) return reply(res, false, 'We could not send the verification email. Please try again in a few minutes.')
 
