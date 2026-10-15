@@ -13,12 +13,11 @@ const BENEFITS = [
   'Pay only for what you send, cancel anytime',
 ]
 
-// This is the real 3-step partner-registration flow shipped in the
-// bulksms-partner-signup WordPress plugin (email -> code -> full form),
-// reimplemented as a React page that talks to the live plugin's AJAX
-// handlers instead of the PHP-rendered shortcode. Requires the plugin to be
-// active on the WordPress backend below.
-const WP_AJAX_URL = 'https://www.smslocal.com/wp-admin/admin-ajax.php'
+// The 3-step partner-registration flow (email -> code -> full form) from the
+// old bulksms-partner-signup WordPress plugin. Its backend now runs on Vercel
+// (api/signup.js) with the same actions and replies; the WordPress/A2 host is
+// no longer involved.
+const SIGNUP_URL = '/api/signup/'
 const TURNSTILE_SITEKEY = '0x4AAAAAABbL2RN0Z6ROmEVU'
 const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
 
@@ -37,39 +36,25 @@ function loadTurnstile() {
   return window.__turnstileLoading
 }
 
-// Posts to WordPress admin-ajax.php the same way the plugin's jQuery does:
-// action + a urlencoded form_data blob that PHP unpacks with parse_str().
-async function callWpAjax(action, fields) {
-  const body = new URLSearchParams({
-    action,
-    form_data: new URLSearchParams(fields).toString(),
-  })
-  const res = await fetch(WP_AJAX_URL, {
+// The plugin kept the email code in a PHP session. api/signup.js returns a
+// signed ticket instead, which is sent back with the next step.
+let signupTicket = ''
+
+async function callSignup(action, fields, captcha = '') {
+  const res = await fetch(SIGNUP_URL, {
     method: 'POST',
-    credentials: 'include', // the verify-code step relies on the PHP session cookie
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString(),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, fields, captcha, ticket: signupTicket }),
   })
   const text = await res.text()
+  let data
   try {
-    return JSON.parse(text)
+    data = JSON.parse(text)
   } catch {
     throw new Error('Unexpected response from server')
   }
-}
-
-// The final step requires a WP nonce (wp_verify_nonce). It can only be
-// generated server-side, so we ask the plugin for one. If the plugin hasn't
-// been updated with this small helper action yet, this fails gracefully and
-// the final submit will surface the server's own "Security check failed"
-// message instead of silently pretending to work.
-async function fetchSignupNonce() {
-  try {
-    const data = await callWpAjax('did_get_signup_nonce', {})
-    return data?.nonce || ''
-  } catch {
-    return ''
-  }
+  if (data.success && data.ticket) signupTicket = data.ticket
+  return data
 }
 
 function CaptchaWidget({ active, onToken }) {
@@ -174,7 +159,7 @@ function Signup() {
     }
     setLoading(true)
     try {
-      const res = await callWpAjax('did_check_email', { email })
+      const res = await callSignup('did_check_email', { email }, captchaTokenRef.current)
       if (res.success) {
         setStep('code')
         setCaptchaToken('')
@@ -193,7 +178,7 @@ function Signup() {
     setError('')
     setLoading(true)
     try {
-      const res = await callWpAjax('did_verify_code', { code })
+      const res = await callSignup('did_verify_code', { code })
       if (res.success) {
         setStep('form')
       } else {
@@ -219,8 +204,7 @@ function Signup() {
     }
     setLoading(true)
     try {
-      const nonce = await fetchSignupNonce()
-      const res = await callWpAjax('did_bulksms_partner_signup', {
+      const res = await callSignup('did_bulksms_partner_signup', {
         companyName,
         shortName,
         firstname,
@@ -231,8 +215,7 @@ function Signup() {
         currency,
         industry,
         form_time: String(formEnteredAt.current || Math.floor(Date.now() / 1000) - 5),
-        bulksms_signup_nonce: nonce,
-      })
+      }, captchaTokenRef.current)
       if (res.success) {
         setStep('done')
       } else {

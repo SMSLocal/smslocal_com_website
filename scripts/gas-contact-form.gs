@@ -33,6 +33,22 @@ function doPost(e) {
       return jsonOutput({ ok: false, error: 'Unauthorized' })
     }
 
+    // Signup emails from /api/signup (site/api/signup.js): the verification
+    // code, the welcome email and the admin notification. Replaces the old
+    // WordPress plugin's wp_mail(). Everything below this block is the
+    // contact form, unchanged.
+    if (data.type === 'email') {
+      const to = String(data.to || '')
+      if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]{2,}(\s*,\s*[^\s@,;]+@[^\s@,;]+\.[^\s@,;]{2,})*$/.test(to) || !data.subject || !data.html) {
+        return jsonOutput({ ok: false, error: 'Invalid email request.' })
+      }
+      GmailApp.sendEmail(to, String(data.subject), String(data.text || ''), {
+        htmlBody: String(data.html),
+        name: 'SMSLocal',
+      })
+      return jsonOutput({ ok: true })
+    }
+
     const { name, email, company, reason, phone, message } = data
     if (!name || !email || !company || !reason || !phone || !message) {
       return jsonOutput({ ok: false, error: 'All fields are required.' })

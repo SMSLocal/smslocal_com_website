@@ -17,6 +17,10 @@
     },
     "api/tools/send-test-sms.js": {
       "maxDuration": 30
+    },
+    "api/signup.js": {
+      "maxDuration": 30,
+      "includeFiles": "api/_lib/signup-emails/**"
     }
   },
   "redirects": [
