@@ -107,7 +107,7 @@
             <span class="eyebrow">Sitemap Index</span>
             <h1>XML <em>Sitemap</em> Index</h1>
             <p class="sub">
-              Generated for <a href="https://smslocal-com-website.vercel.app/">smslocal-com-website.vercel.app</a>
+              Generated for <a href="https://www.smslocal.com/">SMSLocal.com (www.smslocal.com)</a>
               — submit this URL to Google Search Console.
             </p>
           </div>
