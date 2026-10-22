@@ -120,18 +120,6 @@
   color: var(--blue);
 }
 
-/* Static dot replacing the old chevron. It uses a fixed colour rather than
-   currentColor, and carries no transition, so it stays visually identical
-   whether the trigger is hovered, open or current — only the label reacts. */
-.nav-dot {
-  width: 4px;
-  height: 4px;
-  flex: none;
-  border-radius: 50%;
-  background: var(--text-secondary);
-  opacity: 0.55;
-}
-
 /* Soft purple pill marking the menu the current page belongs to. */
 .nav-trigger.is-current,
 .nav-item-link.is-current {
@@ -452,7 +440,37 @@
   gap: 0.15rem 0.5rem;
 }
 
-@media (max-width: 900px) {
+/* Six top-level items (Developers was added) plus the language switcher and two
+   buttons crowd the bar between the mobile breakpoint (1040px) and ~1240px, and the logo
+   was shrinking to fit. Keep the logo at full size and tighten the spacing in
+   that range instead. */
+.brand {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1041px) and (max-width: 1240px) {
+  .navbar-inner {
+    gap: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-auth {
+    gap: 0.6rem;
+  }
+
+  .nav-auth .btn-primary,
+  .nav-login {
+    padding: 0.5rem 0.95rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1040px) {
   .menu-toggle {
     display: flex;
   }
@@ -494,10 +512,18 @@
     width: 100%;
   }
 
+  /* Every row gets the same inset, so labels line up in one column whether or
+     not a row is the highlighted (current) pill. The negative margin lets the
+     pill reach the drawer padding without pushing its label left. */
   .nav-links .nav-trigger,
-  .nav-links .nav-item-link {
-    width: 100%;
-    padding: 0.75rem 0;
+  .nav-links .nav-item-link,
+  .nav-links .nav-trigger.is-current,
+  .nav-links .nav-item-link.is-current {
+    width: calc(100% + 1.5rem);
+    padding: 0.75rem;
+    margin: 0 -0.75rem;
+    border-radius: 14px;
+    box-sizing: border-box;
   }
 
   /* nav-item-link is an <a>, inline by default — width: 100% alone is a
@@ -615,7 +641,7 @@
   gap: 0.1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1040px) {
   .resources-mega {
     grid-template-columns: 1fr;
     min-width: 0;

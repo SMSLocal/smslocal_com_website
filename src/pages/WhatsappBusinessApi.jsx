@@ -1,15 +1,15 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import PageSchema from '../components/PageSchema.jsx'
+import { InLink, OutLink } from '../components/BodyLinks.jsx'
+import { Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import WhatsappWindowHero from '../components/WhatsappWindowHero.jsx'
 import WhatsAppOfficialCompare from '../components/WhatsAppOfficialCompare.jsx'
-import WhatsappSetupRail from '../components/WhatsappSetupRail.jsx'
-import FeatureMasonry from '../components/FeatureMasonry.jsx'
+import { FeatureFlips, MessageFan, MetroSteps } from '../components/WhatsappApiSections.jsx'
 import {
   IconMegaphone, IconChat, IconReceipt,
   IconBrain, IconCursor, IconShield,
 } from '../components/icons.jsx'
-import WhatsappHeroMock from '../components/WhatsappHeroMock.jsx'
 import { TemplateMessageMock, CatalogMessageMock, QuickReplyMock } from '../components/WhatsappMessageTypes.jsx'
-import MessageTypeShowcase from '../components/MessageTypeShowcase.jsx'
 
 const MESSAGE_TYPES = [
   { mock: <TemplateMessageMock />, title: 'Template message', desc: 'Approved order and alert templates with action buttons built in.' },
@@ -18,12 +18,36 @@ const MESSAGE_TYPES = [
 ]
 
 const FEATURES = [
-  { icon: <IconReceipt />, title: 'Approved message templates', desc: 'Marketing, utility and authentication templates get Meta-approved before they ever reach a customer.' },
-  { icon: <IconCursor />, title: 'Rich media & quick replies', desc: 'Send images, PDFs, location pins and tappable quick-reply buttons — not just plain text.' },
-  { icon: <IconChat />, title: 'Two-way shared inbox', desc: 'Live chat and automated replies in one inbox — WhatsApp alongside SMS and web chat, so no reply is missed.' },
-  { icon: <IconMegaphone />, title: 'Broadcasts at scale', desc: 'Send segmented, opt-in campaigns to your customers from your own verified number.' },
-  { icon: <IconBrain />, title: 'Agentic AI built in', desc: 'An AI that reads each message, checks your data, and replies or hands off automatically.' },
-  { icon: <IconShield />, title: 'Sender health, watched', desc: 'We monitor your quality rating and messaging tier so your number stays in good standing.' },
+  {
+    icon: <IconReceipt />, title: 'Approved message templates',
+    desc: 'Marketing, utility and authentication templates get Meta-approved before they ever reach a customer.',
+    points: ['Marketing, utility and authentication categories', 'Submitted for approval from your dashboard', 'Start a chat outside the 24-hour window'],
+  },
+  {
+    icon: <IconCursor />, title: 'Rich media & quick replies',
+    desc: 'Send images, PDFs, location pins and tappable quick-reply buttons — not just plain text.',
+    points: ['Images and PDFs in the chat', 'Location pins', 'One-tap quick-reply buttons'],
+  },
+  {
+    icon: <IconChat />, title: 'Two-way shared inbox',
+    desc: 'Live chat and automated replies in one inbox — WhatsApp alongside SMS and web chat, so no reply is missed.',
+    points: ['WhatsApp next to SMS and web chat', 'Live chat and automated replies together', 'Free-form replies once a customer writes first'],
+  },
+  {
+    icon: <IconMegaphone />, title: 'Broadcasts at scale',
+    desc: 'Send segmented, opt-in campaigns to your customers from your own verified number.',
+    points: ['Segmented, opt-in campaigns', 'Sent from your own verified number', 'Replies land in the same shared inbox'],
+  },
+  {
+    icon: <IconBrain />, title: 'Agentic AI built in',
+    desc: 'An AI that reads each message, checks your data, and replies or hands off automatically.',
+    points: ['Reads each incoming message', 'Checks your knowledge base and connected systems', 'Hands off to a person with full context'],
+  },
+  {
+    icon: <IconShield />, title: 'Sender health, watched',
+    desc: 'We monitor your quality rating and messaging tier so your number stays in good standing.',
+    points: ['Quality rating monitored', 'Messaging tier monitored', 'Meta verification handled for you'],
+  },
 ]
 
 const STEPS = [
@@ -56,36 +80,37 @@ function WhatsappBusinessApi() {
         description="Official WhatsApp Business API for bulk broadcasts and two-way chats, with fast onboarding."
         keywords={['WhatsApp Business API', 'WhatsApp API', 'bulk WhatsApp', 'WhatsApp Business API provider', 'WhatsApp broadcast', 'WhatsApp BSP']}
       />
+      <PageSchema name={'WhatsApp Business API'} description={'Official WhatsApp Business API for bulk broadcasts and two-way chats, with fast onboarding.'} faqs={FAQS} />
 
-      <Hero
+      <WhatsappWindowHero
         eyebrow="WhatsApp"
         title={<>Official <span className="grad-word">WhatsApp Business API</span> for growing teams</>}
         subtitle="Send broadcasts, templates and two-way conversations at scale — with fast onboarding, an agentic AI that answers, and transparent per-conversation pricing."
         primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
-        stats={[
-          { value: '190+', label: 'Countries reached' },
-          { value: '99.9%', label: 'Platform uptime' },
-          { value: '<48h', label: 'Avg. approval time' },
-        ]}
-        visual={<WhatsappHeroMock />}
       />
 
       <WhatsAppOfficialCompare
         eyebrow="Official vs. unofficial"
         title="Running WhatsApp at scale is the hard part"
-        subtitle="SMSLocal handles verification, templates and quality — so it's the real thing, not a workaround."
+        subtitle={<>SMSLocal handles verification, templates and quality under the official <OutLink href="https://developers.facebook.com/docs/whatsapp/">WhatsApp Business Platform</OutLink> — so it's the real thing, not a workaround.</>}
       />
 
-      <FeatureMasonry eyebrow="Features" title={<>Everything you need on WhatsApp</>} items={FEATURES} alt />
+      <FeatureFlips
+        eyebrow="Features"
+        title="Everything you need on WhatsApp"
+        subtitle={<>Click or hover a card to see what is inside. Let <InLink to="/products/ai-agents/agentic-ai/">agentic AI</InLink> answer for you.</>}
+        items={FEATURES}
+      />
 
-      <MessageTypeShowcase
-        title={<>Message types your customers actually tap on</>}
-        subtitle="Templates, catalogs and quick replies — not just plain text bubbles."
+      <MessageFan
+        eyebrow="Message types"
+        title="Message types your customers actually tap on"
+        subtitle={<>Templates, catalogs and quick replies — not just plain text bubbles. Want richer SMS? See <InLink to="/products/channels/rcs/">RCS</InLink>.</>}
         items={MESSAGE_TYPES}
       />
 
-      <WhatsappSetupRail eyebrow="How it works" title={<>Go live on WhatsApp in three steps</>} steps={STEPS} alt />
+      <MetroSteps eyebrow="How it works" title="Go live on WhatsApp in three steps" steps={STEPS} />
 
       <Testimonials title={<>Trusted by growing businesses</>} items={TESTIMONIALS} alt />
 

@@ -1,0 +1,68 @@
+/* Number Lookup extras: format guide (.lf) and who-uses tabs (.lw). Same calm look
+   as the rest of the page. */
+.lf, .lw { padding: clamp(3.25rem, 7vw, 5.5rem) 0; }
+.lf { background: #fff; }
+.lw { background: #fff; }
+
+/* ═════ Format guide ═════ */
+.lf .lx-head { margin-bottom: 2rem; }
+.lf-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(1.4rem, 4vw, 3rem); align-items: start; }
+.lf-anatomy { padding: 1.5rem; border-radius: 20px; background: #fff; border: 1px solid var(--border, #e5e7eb); }
+.lf-label { margin-bottom: 1.6rem; font: 700 .7rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; color: #64748b; }
+.lf-parts { display: flex; align-items: flex-start; gap: .6rem; padding-bottom: 4.8rem; }
+.lf-parts .plus small, .lf-parts .plus i { display: none; }
+.lf-parts span { position: relative; display: grid; gap: .5rem; justify-items: center; }
+.lf-parts b { display: block; padding: .8rem .9rem; border-radius: 12px; font: 800 clamp(1.3rem, 3.4vw, 1.9rem)/1 ui-monospace, Menlo, Consolas, monospace; color: #0f172a; background: #f1f5f9; }
+.lf-parts .plus b { background: #fdeaf3; color: #db2777; }
+.lf-parts .cc b { background: #eef0ff; color: var(--blue, #4f5bd5); }
+.lf-parts .nat b { background: #e3f7f4; color: #0f766e; }
+.lf-parts small { font: 700 .68rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; color: #64748b; white-space: nowrap; }
+.lf-parts i { position: absolute; top: 100%; margin-top: 2.4rem; font: 500 .8rem/1 var(--font-sans, system-ui, sans-serif); font-style: normal; color: #64748b; white-space: nowrap; }
+.lf-parts small { position: absolute; top: 100%; margin-top: .7rem; }
+.lf-rule { display: flex; align-items: center; gap: .6rem; margin: 0; padding: .8rem 1rem; border-radius: 12px; background: var(--bg-subtle, #f8fafc); font-size: .92rem; color: #334155; }
+.lf-rule svg { flex: none; width: 1.1rem; height: 1.1rem; padding: .15rem; border-radius: 50%; background: #22c55e; color: #fff; stroke-width: 3.4; }
+
+.lf-rows { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.lf-rows li { padding: .3rem; border-radius: 18px; background: #fff; border: 1px solid var(--border, #e5e7eb); transition: border-color .25s, box-shadow .25s; }
+.lf-rows li.on { border-color: #c7cdf5; box-shadow: 0 14px 30px -24px rgba(79, 91, 213, .55); }
+.lf-rows button { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .8rem; width: 100%; padding: .8rem .9rem; border: 0; border-radius: 14px; background: transparent; text-align: left; font: inherit; cursor: pointer; }
+.lf-rows button:focus-visible { outline: 2px solid var(--blue, #4f5bd5); outline-offset: 2px; }
+.lf-rows small { display: block; margin-bottom: .35rem; font: 700 .64rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; color: #64748b; }
+.lf-rows code { display: block; overflow-wrap: anywhere; font: 700 .95rem/1.25 ui-monospace, Menlo, Consolas, monospace; }
+.lf-typed code { color: #64748b; text-decoration: line-through; text-decoration-color: #fbcfe8; }
+.lf-std code { color: var(--heading, #154989); }
+.lf-arrow { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: #eef0ff; color: var(--blue, #4f5bd5); font-weight: 700; transition: transform .25s, background .25s, color .25s; }
+.lf-rows li.on .lf-arrow { transform: translateX(3px); background: var(--blue, #4f5bd5); color: #fff; }
+.lf-rows p { max-height: 0; margin: 0; padding: 0 1.2rem; overflow: hidden; opacity: 0; font-size: .9rem; line-height: 1.5; color: var(--text-secondary, #64748b); transition: max-height .35s ease, opacity .3s ease, padding .35s ease; }
+.lf-rows li.on p { max-height: 4rem; padding: 0 1.2rem .9rem; opacity: 1; }
+
+/* ═════ Who uses it ═════ */
+.lw .lx-head { margin-bottom: 2rem; }
+.lw-box { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 1rem; max-width: 52rem; margin: 0 auto; padding: 1rem; border-radius: 24px; background: #fff; border: 1px solid var(--border, #e5e7eb); box-shadow: 0 24px 50px -34px rgba(15, 23, 42, .4); }
+.lw-tabs { display: grid; align-content: start; gap: .35rem; }
+.lw-tabs button { display: flex; align-items: center; gap: .8rem; padding: .8rem .9rem; border: 0; border-radius: 14px; background: transparent; text-align: left; font: 600 .98rem/1 var(--font-sans, system-ui, sans-serif); color: #475569; cursor: pointer; transition: background .2s, color .2s; }
+.lw-tabs button:hover:not(.on) { background: var(--bg-subtle, #f8fafc); color: var(--heading, #154989); }
+.lw-tabs button.on { background: var(--heading, #154989); color: #fff; }
+.lw-tabs button:focus-visible { outline: 2px solid var(--blue, #4f5bd5); outline-offset: 2px; }
+.lw-tabs .ico { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 10px; background: #eef0ff; color: var(--blue, #4f5bd5); transition: background .2s, color .2s; }
+.lw-tabs button.on .ico { background: rgba(255, 255, 255, .18); color: #fff; }
+.lw-tabs .ico svg { width: 55%; height: 55%; }
+.lw-panel { padding: 1.4rem 1.5rem 1.3rem; border-radius: 18px; background: var(--bg-subtle, #f8fafc); animation: lw-in .4s ease both; }
+.lw-panel h3 { margin: 0 0 .5rem; font-size: 1.4rem; line-height: 1.2; color: var(--heading, #154989); }
+.lw-panel p { margin: 0 0 1.1rem; line-height: 1.6; color: var(--text-secondary, #64748b); }
+.lw-panel ul { display: grid; gap: .65rem; margin: 0; padding: 0; list-style: none; }
+.lw-panel li { display: flex; align-items: flex-start; gap: .7rem; color: #334155; }
+.lw-panel li svg { flex: none; width: 1.05rem; height: 1.05rem; margin-top: .2rem; padding: .15rem; border-radius: 50%; background: var(--blue, #4f5bd5); color: #fff; stroke-width: 3.4; }
+@keyframes lw-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) { .lf-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .lw-box { grid-template-columns: 1fr; }
+  .lw-tabs { grid-template-columns: repeat(2, 1fr); }
+  .lf-rows button { grid-template-columns: 1fr; gap: .4rem; }
+  .lf-arrow { transform: rotate(90deg); }
+  .lf-rows li.on .lf-arrow { transform: rotate(90deg); }
+  .lf-parts { gap: .35rem; }
+  .lf-parts i { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .lf *, .lw * { animation: none !important; transition: none !important; } .lf-rows p { max-height: none; opacity: 1; padding: 0 1.2rem .9rem; } }

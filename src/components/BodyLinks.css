@@ -1,0 +1,2 @@
+.body-link { color: var(--blue, #4f5bd5); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(79, 91, 213, .35); text-underline-offset: 3px; transition: text-decoration-color .2s, color .2s; }
+.body-link:hover { color: var(--heading, #154989); text-decoration-color: currentColor; }

@@ -1,10 +1,11 @@
-import './WhatsAppOfficialCompare.css'
+import { WaPhone, WaDay, WaIn, WaOut, WaSys, WaBtn } from './WaPhone.jsx'
+import './WaCompare.css'
 
 /**
- * "Official vs unofficial" section for the WhatsApp Business API page —
- * not paragraphs + bullet lists. Two literal mini WhatsApp screens,
- * side by side with a VS badge between them: one greyed-out and flagged,
- * one verified and AI-handled. The contrast is shown, not explained.
+ * "Official vs unofficial" section for the WhatsApp Business API page: two
+ * real WhatsApp chat screens side by side with a VS badge. One is an unverified,
+ * greyed-out account; the other is a verified business that answers. The
+ * contrast is shown, not explained.
  */
 
 function WhatsAppOfficialCompare({ eyebrow, title, subtitle }) {
@@ -15,43 +16,33 @@ function WhatsAppOfficialCompare({ eyebrow, title, subtitle }) {
         {title && <h2 className="section-title">{title}</h2>}
         {subtitle && <p className="section-subtitle">{subtitle}</p>}
 
-        <div className="waoc-stage">
-          <div className="waoc-side">
-            <div className="waoc-phone waoc-phone--bad">
-              <div className="waoc-phone-head">
-                <span className="waoc-avatar waoc-avatar--bad" />
-                <span className="waoc-name">Unknown Business</span>
-              </div>
-              <div className="waoc-bubble waoc-bubble--bad">
-                Sorry, I can&rsquo;t help with that.
-                <span className="waoc-tick waoc-tick--bad">✓</span>
-              </div>
-            </div>
-            <div className="waoc-tags waoc-tags--bad">
-              <span>✕ No verified badge</span>
-              <span>✕ Flagged &amp; rate-limited</span>
-            </div>
+        <div className="wac-stage">
+          <div className="wac-side bad">
+            <WaPhone name="Unknown Business" unknown className="compact">
+              <WaDay>Today</WaDay>
+              <WaOut ticks="sent">Hi, where is my order?</WaOut>
+              <WaIn>Sorry, I can&rsquo;t help with that.</WaIn>
+              <WaSys>This account is not a verified business.</WaSys>
+            </WaPhone>
+            <ul>
+              <li>✕ No verified badge</li>
+              <li>✕ Flagged &amp; rate-limited</li>
+            </ul>
           </div>
 
-          <span className="waoc-vs">VS</span>
+          <span className="wac-vs" aria-hidden="true">VS</span>
 
-          <div className="waoc-side">
-            <div className="waoc-phone waoc-phone--good">
-              <div className="waoc-phone-head">
-                <span className="waoc-avatar waoc-avatar--good" />
-                <span className="waoc-name">SMSLocal Support</span>
-                <span className="waoc-badge">Verified ✓</span>
-              </div>
-              <div className="waoc-bubble waoc-bubble--good">
-                Found it — shipped today 📦
-                <span className="waoc-tick waoc-tick--good">✓✓</span>
-              </div>
-              <button className="waoc-chip">Track order</button>
-            </div>
-            <div className="waoc-tags waoc-tags--good">
-              <span>✓ Verified sender</span>
-              <span>✓ AI resolves, then hands off</span>
-            </div>
+          <div className="wac-side good">
+            <WaPhone name="SMSLocal Support" status="Business account" className="compact">
+              <WaDay>Today</WaDay>
+              <WaOut>Hi, where is my order?</WaOut>
+              <WaIn>Found it — shipped today 📦</WaIn>
+              <WaBtn icon="link">Track order</WaBtn>
+            </WaPhone>
+            <ul>
+              <li>✓ Verified sender</li>
+              <li>✓ AI resolves, then hands off</li>
+            </ul>
           </div>
         </div>
       </div>

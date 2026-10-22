@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SOCIAL_LINKS } from './home/SocialIcons.jsx'
 import NightBackdrop from './home/NightBackdrop.jsx'
-import { PLATFORM, RESOURCES_LEFT, RESOURCES_RIGHT } from './Navbar.jsx'
+import { PLATFORM, RESOURCES_LEFT, RESOURCES_RIGHT, DEVELOPERS } from './Navbar.jsx'
 
 // A compact footer: the important pages from each header section, not every
 // single one (that made the footer too tall — see the git history for the
@@ -18,6 +18,7 @@ const COLUMNS = [
   {
     title: 'Products',
     links: [
+      { t: 'CPaaS Platform', href: '/products/cpaas/' },
       { t: 'AI Agents', href: '/products/ai-agents/' },
       { t: 'WhatsApp Business API', href: '/products/channels/whatsapp/' },
       { t: 'SMS Broadcasting', href: '/products/channels/sms-broadcasting/' },
@@ -39,7 +40,8 @@ const COLUMNS = [
   },
   {
     title: 'Resources',
-    links: [...RESOURCES_LEFT, ...RESOURCES_RIGHT].map((i) => ({ t: i.t, href: i.href })),
+    // Developer Hub + Docs live in the Developers menu now; keep them reachable from the footer too.
+    links: [...DEVELOPERS.filter((i) => i.href === '/developers/' || i.href === '/resources/docs/'), ...RESOURCES_LEFT, ...RESOURCES_RIGHT].map((i) => ({ t: i.t, href: i.href })),
   },
   {
     title: 'Company',

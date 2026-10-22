@@ -69,6 +69,30 @@ import ComingSoon from './pages/ComingSoon.jsx'
 import ToolSendText from './pages/tools/ToolSendText.jsx'
 import ToolTextFree from './pages/tools/ToolTextFree.jsx'
 import ToolCarrierLookup from './pages/tools/ToolCarrierLookup.jsx'
+import CpaasHub from './pages/cpaas/CpaasHub.jsx'
+import SmsApi from './pages/cpaas/SmsApi.jsx'
+import VerifyApi from './pages/cpaas/VerifyApi.jsx'
+import LookupApi from './pages/cpaas/LookupApi.jsx'
+import CampaignsHub from './pages/cpaas/CampaignsHub.jsx'
+import CampaignManager from './pages/cpaas/CampaignManager.jsx'
+import JourneyBuilder from './pages/cpaas/JourneyBuilder.jsx'
+import CtwaAds from './pages/cpaas/CtwaAds.jsx'
+import DevHub from './pages/cpaas/DevHub.jsx'
+import DevQuickstart from './pages/cpaas/DevQuickstart.jsx'
+import DevApiReference from './pages/cpaas/DevApiReference.jsx'
+import DevSdks from './pages/cpaas/DevSdks.jsx'
+import DevWebhooks from './pages/cpaas/DevWebhooks.jsx'
+import UcOtp from './pages/cpaas/UcOtp.jsx'
+import UcTransactional from './pages/cpaas/UcTransactional.jsx'
+import UcPromotions from './pages/cpaas/UcPromotions.jsx'
+import UcPayments from './pages/cpaas/UcPayments.jsx'
+import UcCommerce from './pages/cpaas/UcCommerce.jsx'
+import UcAppointments from './pages/cpaas/UcAppointments.jsx'
+import PlatformCompliance from './pages/cpaas/PlatformCompliance.jsx'
+import PlatformTrust from './pages/cpaas/PlatformTrust.jsx'
+import PlatformEnterprise from './pages/cpaas/PlatformEnterprise.jsx'
+import ToolsHub from './pages/cpaas/ToolsHub.jsx'
+import ToolWhatsappLink from './pages/tools/ToolWhatsappLink.jsx'
 import ViberBusinessMessages from './pages/ViberBusinessMessages.jsx'
 import TelegramBusiness from './pages/TelegramBusiness.jsx'
 import LineBusinessMessaging from './pages/LineBusinessMessaging.jsx'
@@ -178,6 +202,32 @@ function RoutedApp() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/terms-and-conditions" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+          {/* CPaaS, Developers, use-case and platform pages (template: components/CpaasPage.jsx) */}
+          <Route path="/products/cpaas" element={<CpaasHub />} />
+          <Route path="/products/cpaas/sms-api" element={<SmsApi />} />
+          <Route path="/products/cpaas/verify-api" element={<VerifyApi />} />
+          <Route path="/products/cpaas/lookup-api" element={<LookupApi />} />
+          <Route path="/products/campaigns" element={<CampaignsHub />} />
+          <Route path="/products/campaigns/campaign-manager" element={<CampaignManager />} />
+          <Route path="/products/campaigns/journey-builder" element={<JourneyBuilder />} />
+          <Route path="/products/campaigns/click-to-whatsapp-ads" element={<CtwaAds />} />
+          <Route path="/developers" element={<DevHub />} />
+          <Route path="/developers/quickstart" element={<DevQuickstart />} />
+          <Route path="/developers/api-reference" element={<DevApiReference />} />
+          <Route path="/developers/sdks" element={<DevSdks />} />
+          <Route path="/developers/webhooks" element={<DevWebhooks />} />
+          <Route path="/solutions/use-case/otp-authentication" element={<UcOtp />} />
+          <Route path="/solutions/use-case/transactional-alerts" element={<UcTransactional />} />
+          <Route path="/solutions/use-case/promotions-campaigns" element={<UcPromotions />} />
+          <Route path="/solutions/use-case/payment-collection" element={<UcPayments />} />
+          <Route path="/solutions/use-case/conversational-commerce" element={<UcCommerce />} />
+          <Route path="/solutions/use-case/appointment-reminders" element={<UcAppointments />} />
+          <Route path="/platform/compliance" element={<PlatformCompliance />} />
+          <Route path="/platform/trust-center" element={<PlatformTrust />} />
+          <Route path="/platform/enterprise" element={<PlatformEnterprise />} />
+          <Route path="/resources/tools" element={<ToolsHub />} />
+          <Route path="/tools/whatsapp-link-generator" element={<ToolWhatsappLink />} />
 
           {/* old paths -> sheet canonical URLs */}
           <Route path="/whatsapp-business-api" element={<Navigate to="/products/channels/whatsapp/" replace />} />

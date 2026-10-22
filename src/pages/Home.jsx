@@ -1,12 +1,11 @@
 import Seo from '../components/Seo.jsx'
 import Hero from '../components/home/Hero.jsx'
-import TrustBar from '../components/home/TrustBar.jsx'
 import Stats from '../components/home/Stats.jsx'
 import AppShowcase from '../components/home/AppShowcase.jsx'
 import PlatformFeatures from '../components/home/PlatformFeatures.jsx'
 import ProcessSteps from '../components/home/ProcessSteps.jsx'
 import Audiences from '../components/home/Audiences.jsx'
-import Testimonials from '../components/home/Testimonials.jsx'
+import ChannelsGrid from '../components/home/ChannelsGrid.jsx'
 import CTABanner from '../components/home/CTABanner.jsx'
 import FAQ from '../components/home/FAQ.jsx'
 import Reveal from '../components/home/Reveal.jsx'
@@ -23,13 +22,12 @@ function Home() {
       />
 
       <Hero />
-      <Reveal><TrustBar /></Reveal>
       <Reveal><Stats /></Reveal>
       <Reveal><AppShowcase /></Reveal>
       <Reveal><PlatformFeatures /></Reveal>
       <Reveal><ProcessSteps /></Reveal>
       <Reveal><Audiences /></Reveal>
-      <Reveal><Testimonials /></Reveal>
+      <Reveal><ChannelsGrid /></Reveal>
       <Reveal><CTABanner /></Reveal>
       <Reveal><FAQ /></Reveal>
     </div>

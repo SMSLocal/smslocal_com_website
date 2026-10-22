@@ -5,17 +5,11 @@ import {
   IconMegaphone, IconChat, IconBolt, IconPhone, IconRobot, IconGlobe, IconLink, IconShield,
   IconBrain, IconUsers, IconChart, IconMic, IconGear, IconCalendar, IconReceipt, IconCart, IconDollar,
   IconNewspaper, IconBook, IconCode, IconHandshake, IconBriefcase, IconMenu, IconMail,
+  IconSearch, IconPlug, IconRocket, IconCursor, IconRefresh, IconPackage, IconBell, IconInfo,
 } from './icons.jsx'
 import BrandLogo from './BrandLogo.jsx'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { stripSlash } from '../lib/url.js'
-
-// A small static dot in place of the old chevron. Deliberately inert: it never
-// rotates, recolours or moves on hover/open, so the label is the only thing
-// that reacts. Purely decorative, hence aria-hidden and no state prop.
-function Dot() {
-  return <span className="nav-dot" aria-hidden="true" />
-}
 
 // --- Product mega: three sub-divisions -----------------------------------
 const CHANNELS = [
@@ -57,7 +51,36 @@ const PRODUCT_TOOLS = [
   { t: 'Analytics & insights', d: 'Metrics across every channel', i: <IconChart />, href: '/products/inbox-and-analytics/analytics/' },
 ]
 
+// CPaaS & APIs — the developer-facing building blocks. The channel entries
+// link to the existing channel pages, so each product still has one home URL.
+const CPAAS_APIS = [
+  { t: 'CPaaS Platform', d: 'One platform, every channel API', i: <IconPlug />, href: '/products/cpaas/' },
+  { t: 'SMS API', d: 'Send, track & receive over REST', i: <IconBolt />, href: '/products/cpaas/sms-api/' },
+  { t: 'Verify API', d: 'OTP & verification codes', i: <IconShield />, href: '/products/cpaas/verify-api/' },
+  { t: 'Number Lookup API', d: 'Find the carrier behind a number', i: <IconSearch />, href: '/products/cpaas/lookup-api/' },
+  { t: 'WhatsApp Business API', d: 'Official WhatsApp messaging', i: <IconChat />, href: '/products/channels/whatsapp/' },
+  { t: 'Voice API', d: 'Calls, IVR, routing & recording', i: <IconPhone />, href: '/products/channels/voice/' },
+  { t: 'Email API', d: 'Transactional & bulk, REST or SMTP', i: <IconMail />, href: '/products/channels/email/' },
+  { t: 'Virtual Numbers', d: 'Local & toll-free, 100+ countries', i: <IconGlobe />, href: '/products/channels/did/' },
+]
+
+const CAMPAIGNS = [
+  { t: 'Campaign Manager', d: 'Plan, send & measure campaigns', i: <IconMegaphone />, href: '/products/campaigns/campaign-manager/' },
+  { t: 'Journey Builder', d: 'Automated multichannel flows', i: <IconRefresh />, href: '/products/campaigns/journey-builder/' },
+  { t: 'Click-to-WhatsApp Ads', d: 'Turn ad clicks into chats', i: <IconCursor />, href: '/products/campaigns/click-to-whatsapp-ads/' },
+]
+
 export const PRODUCT_CATEGORIES = [
+  {
+    key: 'cpaas',
+    label: 'CPaaS & APIs',
+    sub: 'Build with our APIs',
+    icon: <IconPlug />,
+    desc: 'Messaging, voice, email and verification APIs behind one account, one key and one wallet.',
+    items: CPAAS_APIS,
+    viewAllHref: '/products/cpaas/',
+    viewAllLabel: 'View the CPaaS Platform',
+  },
   {
     key: 'agents',
     label: 'AI Agents',
@@ -77,6 +100,16 @@ export const PRODUCT_CATEGORIES = [
     items: CHANNELS,
     viewAllHref: '/products/channels/',
     viewAllLabel: 'View all Channels',
+  },
+  {
+    key: 'campaigns',
+    label: 'Campaigns & Journeys',
+    sub: 'Engage & automate',
+    icon: <IconMegaphone />,
+    desc: 'Plan campaigns, automate follow-ups and turn ad clicks into conversations.',
+    items: CAMPAIGNS,
+    viewAllHref: '/products/campaigns/',
+    viewAllLabel: 'View Campaigns & Journeys',
   },
   {
     key: 'social',
@@ -116,6 +149,15 @@ const SOL_INDUSTRY = [
   { t: 'Real Estate', d: 'Leads, listings & viewings', i: <IconHandshake />, href: '/solutions/industry/real-estate/' },
 ]
 
+const SOL_USE_CASE = [
+  { t: 'OTP & Authentication', d: 'Passcodes that arrive in time', i: <IconShield />, href: '/solutions/use-case/otp-authentication/' },
+  { t: 'Transactional Alerts', d: 'Orders, shipping & account notices', i: <IconBell />, href: '/solutions/use-case/transactional-alerts/' },
+  { t: 'Promotions & Campaigns', d: 'Offers that reach and convert', i: <IconMegaphone />, href: '/solutions/use-case/promotions-campaigns/' },
+  { t: 'Payment Collection', d: 'Turn reminders into payments', i: <IconDollar />, href: '/solutions/use-case/payment-collection/' },
+  { t: 'Conversational Commerce', d: 'Turn conversations into orders', i: <IconCart />, href: '/solutions/use-case/conversational-commerce/' },
+  { t: 'Appointment Reminders', d: 'Fewer no-shows, fuller calendars', i: <IconCalendar />, href: '/solutions/use-case/appointment-reminders/' },
+]
+
 // Team/use-case and Services share one category — Services was a single link,
 // too thin to hold its own rail entry.
 const SOL_TEAM = [
@@ -133,6 +175,16 @@ export const SOLUTION_CATEGORIES = [
     icon: <IconGlobe />,
     desc: 'Messaging, AI agents and broadcasting tuned to how your industry works.',
     items: SOL_INDUSTRY,
+    viewAllHref: '/solutions/',
+    viewAllLabel: 'All Solutions',
+  },
+  {
+    key: 'usecase',
+    label: 'By use case',
+    sub: 'Start from the job',
+    icon: <IconBolt />,
+    desc: 'The messages every business sends, set up end to end.',
+    items: SOL_USE_CASE,
     viewAllHref: '/solutions/',
     viewAllLabel: 'All Solutions',
   },
@@ -156,10 +208,24 @@ export const PLATFORM = [
   { t: 'Platform overview', d: 'One platform, every layer', i: <IconGlobe />, href: '/platform/' },
   { t: 'Integrations', d: 'Connect 300+ apps', i: <IconLink />, href: '/platform/integrations/' },
   { t: 'Enterprise security', d: 'SOC 2, GDPR & RBAC', i: <IconShield />, href: '/platform/security/' },
+  { t: 'Compliance & DLT', d: 'DLT, sender IDs & TRAI rules', i: <IconReceipt />, href: '/platform/compliance/' },
+  { t: 'Trust Center', d: 'Security, privacy & policies', i: <IconInfo />, href: '/platform/trust-center/' },
+  { t: 'Enterprise', d: 'Messaging at scale for large teams', i: <IconBriefcase />, href: '/platform/enterprise/' },
+]
+
+// New top-level menu. Developer Docs moved here from Resources so each page
+// lives under exactly one menu (and the footer never repeats an href).
+export const DEVELOPERS = [
+  { t: 'Developer Hub', d: 'APIs, webhooks & docs in one place', i: <IconCode />, href: '/developers/' },
+  { t: 'Quickstart', d: 'Your first message in three steps', i: <IconRocket />, href: '/developers/quickstart/' },
+  { t: 'API Reference', d: 'Endpoints & request formats', i: <IconBook />, href: '/developers/api-reference/' },
+  { t: 'SDKs & Code Samples', d: 'cURL, Node.js, Python & mobile', i: <IconPackage />, href: '/developers/sdks/' },
+  { t: 'Webhooks', d: 'Delivery reports & inbound replies', i: <IconPlug />, href: '/developers/webhooks/' },
+  { t: 'Developer Docs', d: 'The complete API reference', i: <IconNewspaper />, href: '/resources/docs/' },
 ]
 
 export const RESOURCES_LEFT = [
-  { t: 'Developer Docs', d: 'API & developer reference', i: <IconCode />, href: '/resources/docs/' },
+  { t: 'Free tools', d: 'WhatsApp link generator, carrier lookup & more', i: <IconGear />, href: '/resources/tools/' },
   { t: 'Guides', d: 'Step-by-step setup guides', i: <IconBook />, href: '/resources/guides/' },
   { t: 'Case studies', d: 'Real customer results', i: <IconChart />, href: '/resources/case-studies/' },
 ]
@@ -178,6 +244,7 @@ const categoryRoutes = (cats) => cats.flatMap((c) => [c.viewAllHref, ...c.items.
 const MENU_ROUTES = {
   products: categoryRoutes(PRODUCT_CATEGORIES),
   platform: PLATFORM.map((i) => i.href),
+  developers: DEVELOPERS.map((i) => i.href),
   solutions: categoryRoutes(SOLUTION_CATEGORIES),
   resources: [...RESOURCES_LEFT, ...RESOURCES_RIGHT].map((i) => i.href),
 }
@@ -303,7 +370,7 @@ function Navbar() {
           {/* Products — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('products')}>
             <button type="button" className={triggerClass('products')} onClick={() => toggleMenu('products')} aria-haspopup="true" aria-expanded={openMenu === 'products'}>
-              Products <Dot />
+              Products
             </button>
             {openMenu === 'products' && (
               <CategoryMega
@@ -318,7 +385,7 @@ function Navbar() {
           {/* Platform — simple grid dropdown */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('platform')}>
             <button type="button" className={triggerClass('platform')} onClick={() => toggleMenu('platform')} aria-haspopup="true" aria-expanded={openMenu === 'platform'}>
-              Platform <Dot />
+              Platform
             </button>
             {openMenu === 'platform' && (
               <div className="dropdown-wrapper">
@@ -336,7 +403,7 @@ function Navbar() {
           {/* Solutions — sidebar mega with 3 sub-divisions */}
           <div className="nav-item has-mega" onMouseEnter={() => setOpenMenu('solutions')}>
             <button type="button" className={triggerClass('solutions')} onClick={() => toggleMenu('solutions')} aria-haspopup="true" aria-expanded={openMenu === 'solutions'}>
-              Solutions <Dot />
+              Solutions
             </button>
             {openMenu === 'solutions' && (
               <CategoryMega
@@ -348,10 +415,28 @@ function Navbar() {
             )}
           </div>
 
+          {/* Developers — simple grid dropdown */}
+          <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('developers')}>
+            <button type="button" className={triggerClass('developers')} onClick={() => toggleMenu('developers')} aria-haspopup="true" aria-expanded={openMenu === 'developers'}>
+              Developers
+            </button>
+            {openMenu === 'developers' && (
+              <div className="dropdown-wrapper">
+                <div className="dropdown dropdown--grid">
+                  <ul>
+                    {DEVELOPERS.map((item) => (
+                      <li key={item.t}><ItemLink item={item} onNavigate={closeAll} /></li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Resources — two-panel flyout (now includes Pricing) */}
           <div className="nav-item has-dropdown" onMouseEnter={() => setOpenMenu('resources')}>
             <button type="button" className={triggerClass('resources')} onClick={() => toggleMenu('resources')} aria-haspopup="true" aria-expanded={openMenu === 'resources'}>
-              Resources <Dot />
+              Resources
             </button>
             {openMenu === 'resources' && (
               <div className="dropdown-wrapper">

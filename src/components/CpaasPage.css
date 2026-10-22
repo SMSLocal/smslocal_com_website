@@ -1,0 +1,146 @@
+/* Code panel used on the API and Developers pages. Colours come from the site
+   theme tokens so it follows any future palette change. */
+
+.cpaas-code-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.cpaas-code-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cpaas-code-copy .section-kicker {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cpaas-code-copy .section-title,
+.cpaas-code-copy .section-subtitle {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cpaas-code {
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  background: var(--ink, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px -24px rgba(15, 23, 42, 0.55);
+}
+
+.cpaas-code-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cpaas-code-dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.cpaas-code-dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.cpaas-code-label {
+  font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.cpaas-code-body {
+  margin: 0;
+  padding: 20px 22px;
+  overflow-x: auto;
+  font: 500 13.5px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #e2e8f0;
+  white-space: pre;
+}
+
+.cpaas-code-body code {
+  font: inherit;
+  color: inherit;
+}
+
+@media (max-width: 900px) {
+  .cpaas-code-wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Free tool: WhatsApp link generator */
+.cpaas-tool {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-lg, 16px);
+  background: #fff;
+  box-shadow: 0 18px 50px -28px rgba(15, 23, 42, 0.35);
+}
+
+.cpaas-tool label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink, #0f172a);
+}
+
+.cpaas-tool input,
+.cpaas-tool textarea {
+  font: 500 15px/1.4 inherit;
+  padding: 12px 14px;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius-md, 10px);
+  background: #fff;
+  color: var(--ink, #0f172a);
+}
+
+.cpaas-tool input:focus,
+.cpaas-tool textarea:focus {
+  outline: 2px solid var(--blue, #4f5bd5);
+  outline-offset: 1px;
+}
+
+.cpaas-tool-hint {
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-secondary, #64748b);
+}
+
+.cpaas-tool-result {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--radius-md, 10px);
+  background: var(--bg-subtle, #f8fafc);
+  border: 1px dashed var(--border, #e5e7eb);
+}
+
+.cpaas-tool-result code {
+  word-break: break-all;
+  font: 600 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--navy, #154989);
+}
+
+.cpaas-tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

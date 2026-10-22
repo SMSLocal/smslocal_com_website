@@ -1,12 +1,10 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Sections.jsx'
+import PageSchema from '../components/PageSchema.jsx'
+import { InLink, OutLink } from '../components/BodyLinks.jsx'
+import { FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconMail, IconChart, IconRefresh, IconShield, IconLink, IconBolt, IconBrain, IconPencil } from '../components/icons.jsx'
-import EmailHeroMock from '../components/EmailHeroMock.jsx'
-import EmailAloneLedger from '../components/EmailAloneLedger.jsx'
-import EmailSetupJourney from '../components/EmailSetupJourney.jsx'
-import EmailOneApi from '../components/EmailOneApi.jsx'
-import EmailWhyFlip from '../components/EmailWhyFlip.jsx'
-import EmailEcosystemOrbit from '../components/EmailEcosystemOrbit.jsx'
+import EmailBuilderHero from '../components/EmailBuilderHero.jsx'
+import { EmailMerge, EmailTimeline, EmailKinds, EmailSetupRail, EmailColumns, EmailPairs, EmailAuth } from '../components/EmailPageSections.jsx'
 
 const STEPS = [
   { title: 'Verify your domain', desc: 'Add a few DNS records — SPF, DKIM and DMARC — we walk you through it.' },
@@ -28,12 +26,6 @@ const ECOSYSTEM = [
   { icon: <IconPencil />, title: 'Chatbot builder', desc: 'Design multi-channel flows that combine email, SMS and chat, without writing code.' },
 ]
 
-const TESTIMONIALS = [
-  { quote: 'Switching to a combined email + SMS API cut our vendor bill in half and gave us one dashboard instead of two.', name: 'Rhea Kapoor', role: 'Growth Lead, SaaS' },
-  { quote: 'Bounced emails used to just vanish. Now they retry over SMS automatically and we actually reach people.', name: 'Tom Whitfield', role: 'Ecommerce Ops' },
-  { quote: 'Domain verification and deliverability setup that used to take our team a week took an afternoon here.', name: 'Sana Al-Amin', role: 'Marketing Manager' },
-]
-
 const FAQS = [
   { q: 'What is included in the email API?', a: 'Transactional and bulk email sending via REST API or SMTP relay, template design, deliverability monitoring, and reporting — combined with SMS in the same account.' },
   { q: 'Can I use SMTP instead of the REST API?', a: 'Yes — point your existing SMTP relay at us with no code changes, or integrate directly with the REST API for more control.' },
@@ -49,37 +41,51 @@ function EmailApi() {
         description="Send transactional and bulk email via REST or SMTP, combined with SMS in one unified API."
         keywords={['bulk email API', 'transactional email API', 'bulk email service', 'SMTP relay API', 'mass email service']}
       />
+      <PageSchema name={'Email API'} description={'Send transactional and bulk email via REST or SMTP, combined with SMS in one unified API.'} faqs={FAQS} />
 
-      <Hero
+      <EmailBuilderHero
         eyebrow="Email"
         title={<>Transactional and bulk email, combined with SMS in <span className="grad-word">one API</span></>}
         subtitle="REST or SMTP, high deliverability, and a fallback to SMS when an email bounces — all from the same account as your other channels."
         primaryCta={{ label: 'Get Started', href: '/contact-us/' }}
         secondaryCta={{ label: 'See Pricing', href: '/pricing/' }}
-        visual={<EmailHeroMock />}
       />
 
-      <EmailAloneLedger
-        heading={<>Email is the one channel most teams still run alone.</>}
-        paragraphs={[
-          <>SMS, WhatsApp and chat live in one platform — email is the exception. A separate vendor, a separate dashboard, a separate bill, for a message that&rsquo;s often the exact same one.</>,
-        ]}
+      <EmailMerge
+        eyebrow="One account"
+        title="Email is the one channel most teams still run alone."
+        text="SMS, WhatsApp and chat live in one platform — email is the exception. A separate vendor, a separate dashboard, a separate bill, for a message that’s often the exact same one."
+        fix="On SMSLocal, email is one more line on the same account: one vendor, one dashboard, one report."
       />
 
-      <EmailOneApi />
+      <EmailTimeline
+        eyebrow="One API"
+        title="One API for email and SMS"
+        subtitle="Try it: flip the switch, then send, and watch where the message actually lands."
+      />
 
-      <EmailSetupJourney eyebrow="How it works" title={<>Start sending email in three steps</>} steps={STEPS} />
+      <EmailKinds
+        eyebrow="Two kinds of email"
+        title="Transactional and bulk, on one API"
+        subtitle={<>Pick the kind that fits the message. Both send over REST or SMTP, with fallback through the <InLink to="/products/cpaas/sms-api/">SMS API</InLink>.</>}
+      />
 
-      <EmailWhyFlip eyebrow="Why us" title={<>Why teams send email through SMSLocal</>} items={WHY_US} />
+      <EmailSetupRail eyebrow="How it works" title="Start sending email in three steps" steps={STEPS} />
 
-      <EmailEcosystemOrbit
+      <EmailColumns eyebrow="Why us" title="Why teams send email through SMSLocal" items={WHY_US} />
+
+      <EmailPairs
         eyebrow="Ecosystem"
-        title={<>Email fits right into your messaging stack</>}
-        subtitle="Pair email with SMS, WhatsApp and agentic AI across the same customer record."
+        title="Email fits right into your messaging stack"
+        subtitle={<>Pair email with SMS, <InLink to="/products/channels/whatsapp/">WhatsApp</InLink> and agentic AI across the same customer record.</>}
         items={ECOSYSTEM}
       />
 
-      <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
+      <EmailAuth
+        eyebrow="Deliverability"
+        title="Email authentication, explained"
+        subtitle={<>Three DNS records (<OutLink href="https://www.rfc-editor.org/rfc/rfc7208">SPF</OutLink>, DKIM and DMARC) tell inbox providers your mail is really yours. We walk you through adding them.</>}
+      />
 
       <CTABanner
         title="Send email that has a backup plan"

@@ -1,0 +1,14 @@
+/* Two WhatsApp screens side by side with a VS badge. */
+.wac-stage { display: flex; align-items: flex-start; justify-content: center; gap: clamp(1rem, 3vw, 2.4rem); margin-top: 2.2rem; }
+.wac-side { display: grid; justify-items: center; gap: 1.2rem; width: min(15.5rem, 42vw); }
+.wac-side .wap { width: 100%; }
+.wac-side.bad .wap { filter: grayscale(.85); opacity: .88; }
+.wac-side ul { display: grid; gap: .45rem; width: 100%; margin: 0; padding: 0; list-style: none; text-align: center; }
+.wac-side li { padding: .45rem .8rem; border-radius: 99px; font-weight: 700; font-size: .85rem; }
+.wac-side.bad li { background: #fee2e2; color: #b91c1c; }
+.wac-side.good li { background: #dcfce7; color: #15803d; }
+.wac-vs { align-self: center; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--heading, #154989); color: #fff; font: 800 .8rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .06em; box-shadow: 0 8px 20px -8px rgba(15, 23, 42, .5); }
+@media (max-width: 560px) {
+  .wac-side { width: 40vw; }
+  .wac-vs { width: 2.2rem; height: 2.2rem; font-size: .66rem; }
+}

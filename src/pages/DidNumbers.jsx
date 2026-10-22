@@ -1,11 +1,10 @@
 import Seo from '../components/Seo.jsx'
-import { Hero, FAQ, CTABanner } from '../components/sections/Sections.jsx'
-import DidNumberWhySection from '../components/DidNumberWhySection.jsx'
-import NumberCapabilitiesGrid from '../components/NumberCapabilitiesGrid.jsx'
+import PageSchema from '../components/PageSchema.jsx'
+import { InLink, OutLink } from '../components/BodyLinks.jsx'
+import { FAQ, CTABanner } from '../components/sections/Sections.jsx'
 import { IconGlobe, IconBolt, IconLink, IconRefresh, IconChart, IconShield, IconClock, IconChat } from '../components/icons.jsx'
-import DidNumberHero from '../components/DidNumberHero.jsx'
-import StepsProvision from '../components/StepsProvision.jsx'
-import CoverageReasons from '../components/CoverageReasons.jsx'
+import DidReelHero from '../components/DidReelHero.jsx'
+import { DidLineVsNumber, DidTypes, DidBento, DidBuild, DidRouting, DidPort, DidPanels } from '../components/DidPageSections.jsx'
 
 const CAPABILITIES = [
   {
@@ -64,8 +63,9 @@ function DidNumbers() {
         description="Get local, toll-free and mobile virtual numbers in 100+ countries. Route calls and SMS to your team."
         keywords={['DID numbers', 'virtual phone numbers', 'virtual numbers', 'toll-free numbers', 'local phone numbers', 'number porting', 'inbound voice and SMS', 'local presence dialing']}
       />
+      <PageSchema name={'Virtual Phone Numbers'} description={'Get local, toll-free and mobile virtual numbers in 100+ countries. Route calls and SMS to your team.'} faqs={FAQS} />
 
-      <Hero
+      <DidReelHero
         eyebrow="DID / Virtual numbers"
         title={<>Virtual phone numbers in <span className="grad-word">100+ countries</span>, live in minutes</>}
         subtitle="Get local, national, toll-free and mobile numbers anywhere, then route inbound voice and SMS to your team, your apps and your CRM — no hardware, and keep your existing numbers."
@@ -76,39 +76,25 @@ function DidNumbers() {
           { value: 'Minutes', label: 'To provision online' },
           { value: 'Voice + SMS', label: 'On every number' },
         ]}
-        visual={<DidNumberHero />}
       />
 
-      <DidNumberWhySection
+      <DidLineVsNumber
         eyebrow="Why virtual numbers"
-        heading={<>One number that follows your business, not your hardware</>}
-        paragraphs={[
-          <>A phone line meant a physical connection to one desk. A virtual number cuts that cord — provisioned online, routed anywhere, and scaled to thousands <strong>on demand</strong>.</>,
-        ]}
-        alt
+        title="One number that follows your business, not your hardware"
+        text="A phone line meant a physical connection to one desk. A virtual number cuts that cord — provisioned online, routed anywhere, and scaled to thousands on demand."
       />
 
-      <NumberCapabilitiesGrid
-        eyebrow="Capabilities"
-        title={<>Everything a number should do</>}
-        subtitle="One virtual number, and all the routing, tracking and privacy controls you need around it."
-        items={CAPABILITIES}
-      />
+      <DidTypes eyebrow="Number types" title="Pick the kind of number that fits" subtitle={<>Local, national, toll-free and mobile, all from the same account and written in the <OutLink href="https://www.itu.int/rec/T-REC-E.164">E.164</OutLink> format.</>} />
 
-      <StepsProvision
-        eyebrow="How it works"
-        title={<>From search to live routing in four steps</>}
-        subtitle="Watch the number come together — each stage provisions one more piece."
-        steps={STEPS}
-        alt
-      />
+      <DidBento eyebrow="Capabilities" title="Everything a number should do" subtitle={<>One virtual number, and all the routing, tracking and privacy controls you need around it. Every number also receives texts through the <InLink to="/products/cpaas/sms-api/">SMS API</InLink>.</>} items={CAPABILITIES} />
 
-      <CoverageReasons
-        eyebrow="Why us"
-        title={<>Coverage that scales with you</>}
-        subtitle="Local presence anywhere you operate, provisioned in minutes and yours to keep."
-        items={WHY_US}
-      />
+      <DidBuild eyebrow="How it works" title="From search to live routing in four steps" subtitle="Watch the number come together — each stage provisions one more piece." steps={STEPS} />
+
+      <DidRouting eyebrow="Routing" title="Send every call and text where it belongs" subtitle={<>Per-number rules route inbound <InLink to="/products/channels/voice/">voice</InLink> and SMS to your team, apps, webhooks or CRM.</>} />
+
+      <DidPort eyebrow="Porting" title="Keep the number your customers already know" subtitle="Port eligible numbers in and keep them live, so campaigns and relationships tied to that number carry on." />
+
+      <DidPanels eyebrow="Why us" title="Coverage that scales with you" subtitle="Local presence anywhere you operate, provisioned in minutes and yours to keep." items={WHY_US} />
 
       <CTABanner
         title="Claim your virtual numbers today"
@@ -116,7 +102,7 @@ function DidNumbers() {
         cta={{ label: 'Get Started', href: '/contact-us/' }}
       />
 
-      <FAQ title={<>DID & virtual numbers — frequently asked questions</>} items={FAQS} alt />
+      <FAQ title={<>DID & virtual numbers — frequently asked questions</>} items={FAQS} />
     </>
   )
 }

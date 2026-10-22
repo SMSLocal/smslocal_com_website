@@ -1,0 +1,93 @@
+/* SMS API hero: a live globe of message routes, in a dark panel. Lengths use
+   cqw so the whole panel scales as one piece. */
+.sg {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 6cqw;
+  background:
+    radial-gradient(120% 90% at 25% 0%, #1b2570 0%, #0b1131 46%, #05071a 100%);
+  box-shadow: 0 40px 80px -34px rgba(27, 37, 112, .6), 0 0 0 1px rgba(255, 255, 255, .08) inset;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sg.is-drag { cursor: grabbing; }
+
+/* drifting colour behind the globe, and a field of faint stars */
+.sg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, .7), transparent),
+    radial-gradient(1px 1px at 82% 12%, rgba(255, 255, 255, .55), transparent),
+    radial-gradient(1.3px 1.3px at 68% 30%, rgba(255, 255, 255, .5), transparent),
+    radial-gradient(1px 1px at 28% 44%, rgba(255, 255, 255, .45), transparent),
+    radial-gradient(1px 1px at 91% 58%, rgba(255, 255, 255, .6), transparent),
+    radial-gradient(1.2px 1.2px at 8% 72%, rgba(255, 255, 255, .5), transparent),
+    radial-gradient(1px 1px at 54% 8%, rgba(255, 255, 255, .5), transparent),
+    radial-gradient(1px 1px at 76% 84%, rgba(255, 255, 255, .4), transparent),
+    radial-gradient(1px 1px at 38% 90%, rgba(255, 255, 255, .45), transparent);
+  animation: sg-twinkle 6s ease-in-out infinite alternate;
+}
+.sg-blob { position: absolute; border-radius: 50%; filter: blur(40px); pointer-events: none; }
+.sg-blob.b1 { width: 55cqw; aspect-ratio: 1; left: -14%; top: 40%; background: #4f46e5; opacity: .38; animation: sg-drift 16s ease-in-out infinite alternate; }
+.sg-blob.b2 { width: 48cqw; aspect-ratio: 1; right: -12%; top: -10%; background: #ec4899; opacity: .26; animation: sg-drift 20s ease-in-out -8s infinite alternate-reverse; }
+@keyframes sg-drift { to { transform: translate(6cqw, -5cqw) scale(1.15); } }
+@keyframes sg-twinkle { from { opacity: .55; } to { opacity: 1; } }
+
+.sg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* header strip */
+.sg-top { position: absolute; z-index: 2; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 3.6cqw 4.2cqw 0; font: 700 max(9px, 1.9cqw)/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; color: #cbd5e1; pointer-events: none; }
+.sg-top em { font-style: normal; font-weight: 600; letter-spacing: .12em; color: #64748b; }
+.sg-live { display: inline-block; width: 1.5cqw; aspect-ratio: 1; margin-right: 1.6cqw; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 0 rgba(52, 211, 153, .6); animation: sg-pulse 1.8s ease-out infinite; vertical-align: .05cqw; }
+@keyframes sg-pulse { to { box-shadow: 0 0 0 2.2cqw rgba(52, 211, 153, 0); } }
+
+/* event feed */
+.sg-feed {
+  position: absolute;
+  z-index: 2;
+  left: 3.6cqw;
+  bottom: 3.6cqw;
+  width: 52cqw;
+  min-height: 22cqw;
+  margin: 0;
+  padding: 1.2cqw;
+  list-style: none;
+  display: grid;
+  align-content: end;
+  gap: .8cqw;
+  border-radius: 3cqw;
+  background: rgba(8, 12, 36, .62);
+  border: 1px solid rgba(255, 255, 255, .1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+.sg-feed li { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1.6cqw; padding: 1.2cqw 1.6cqw; border-radius: 2cqw; background: rgba(255, 255, 255, .05); animation: sg-in .5s cubic-bezier(.3, 1.3, .5, 1) both; }
+.sg-feed li:first-child { background: rgba(255, 255, 255, .1); }
+.sg-feed i { padding: .7cqw 1.4cqw; border-radius: 99px; background: color-mix(in srgb, var(--c) 22%, transparent); color: var(--c); font: 700 max(8px, 1.55cqw)/1 ui-monospace, Menlo, Consolas, monospace; font-style: normal; letter-spacing: .06em; text-transform: uppercase; }
+.sg-feed b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 max(9px, 2cqw)/1.1 var(--font-sans, system-ui, sans-serif); color: #fff; }
+.sg-feed span { font: 500 max(8px, 1.65cqw)/1 ui-monospace, Menlo, Consolas, monospace; color: #34d399; white-space: nowrap; }
+@keyframes sg-in { from { opacity: 0; transform: translateY(-2.4cqw) scale(.96); } to { opacity: 1; transform: none; } }
+
+/* legend */
+.sg-key { position: absolute; z-index: 2; right: 4cqw; bottom: 4.4cqw; display: grid; gap: 1.2cqw; justify-items: start; font: 600 max(8px, 1.7cqw)/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; color: #94a3b8; pointer-events: none; }
+.sg-key span { display: flex; align-items: center; gap: 1.2cqw; }
+.sg-key i { width: 1.9cqw; aspect-ratio: 1; border-radius: 50%; background: var(--c); box-shadow: 0 0 1.6cqw var(--c); }
+
+@container (max-width: 420px) {
+  .sg-key { display: none; }
+  .sg-feed { width: 62cqw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg::before, .sg-blob, .sg-live, .sg-feed li { animation: none !important; }
+}

@@ -1,0 +1,65 @@
+.cphub {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cphub-cap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: rgba(79, 91, 213, 0.08);
+  border: 1px solid rgba(79, 91, 213, 0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+.cphub-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex: none;
+}
+
+.cphub svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: inherit;
+}
+
+/* request chip */
+.cphub-chip { fill: #fff; stroke: rgba(79, 91, 213, 0.35); stroke-width: 1.5; }
+.cphub-chip-text { text-anchor: middle; font: 700 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: var(--navy); }
+.cphub-stem { stroke: rgba(79, 91, 213, 0.4); stroke-width: 2; stroke-dasharray: 3 4; fill: none; }
+
+/* hub */
+.cphub-hub-label { text-anchor: middle; font-size: 15px; font-weight: 700; fill: #fff; }
+.cphub-hub-sub { text-anchor: middle; font-size: 9.5px; font-weight: 600; fill: rgba(255, 255, 255, 0.85); }
+
+/* paths */
+.cphub-path { transition: opacity 0.3s ease; }
+.cphub-path.is-dim { opacity: 0.18; }
+
+/* channel nodes */
+.cphub-node { cursor: pointer; transition: opacity 0.3s ease; outline: none; }
+.cphub-node.is-dim { opacity: 0.4; }
+.cphub-node:focus-visible .cphub-halo { opacity: 0.28; }
+.cphub-halo { fill: currentColor; opacity: 0.1; transition: opacity 0.3s ease; }
+.cphub-node:hover .cphub-halo { opacity: 0.2; }
+.cphub-disc { fill: #fff; stroke: currentColor; stroke-width: 1.5; }
+.cphub-glyph path { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cphub-node-label { font-size: 14px; font-weight: 700; fill: var(--navy); }
+.cphub-node-sub { font-size: 10.5px; font-weight: 600; fill: var(--text-secondary); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cphub-dot { display: none; }
+}

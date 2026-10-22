@@ -1,0 +1,26 @@
+.cph-hero { background: #fff; padding: clamp(2.5rem, 6vw, 5rem) 0; }
+.cph-inner { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.cph-eyebrow { font: 600 .74rem/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: .16em; text-transform: uppercase; color: var(--cyan, #ec4899); }
+.cph-copy h1 { margin: 1rem 0 1.1rem; font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.05; letter-spacing: -.02em; color: var(--ink, #0f172a); }
+.cph-copy h1 .grad-word { background: none; -webkit-text-fill-color: currentColor; color: var(--cyan, #ec4899); font-style: italic; }
+.cph-copy p { max-width: 32rem; margin: 0 0 1.8rem; font-size: 1.08rem; line-height: 1.65; color: var(--text-secondary, #64748b); }
+.cph-ctas { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+@media (max-width: 900px) { .cph-inner { grid-template-columns: 1fr; } }
+
+/* Feature rows (second section) */
+.cph-feat-head { max-width: 40rem; margin-bottom: 2rem; }
+.cph-feat { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--border, #e5e7eb); }
+.cph-feat li { position: relative; display: grid; grid-template-columns: 3rem 3rem minmax(0, 1fr) minmax(0, 1.4fr); gap: 1.25rem; align-items: center; padding: 1.4rem .5rem; border-bottom: 1px solid var(--border, #e5e7eb); transition: background .25s, padding-left .25s; }
+.cph-feat li::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(var(--blue, #4f5bd5), var(--cyan, #ec4899)); transform: scaleY(0); transition: transform .25s; }
+.cph-feat li:hover { background: var(--bg-subtle, #f8fafc); padding-left: 1.2rem; }
+.cph-feat li:hover::before { transform: scaleY(1); }
+.cph-feat-num { font: 800 .85rem/1 ui-monospace, Menlo, Consolas, monospace; color: var(--cyan, #ec4899); }
+.cph-feat-icon { display: flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 12px; background: rgba(79, 91, 213, .1); color: var(--blue, #4f5bd5); }
+.cph-feat-icon svg { width: 22px; height: 22px; }
+.cph-feat h3 { margin: 0; font-size: 1.15rem; color: var(--navy, #154989); }
+.cph-feat p { margin: 0; color: var(--text-secondary, #64748b); line-height: 1.55; }
+@media (max-width: 760px) {
+  .cph-feat li { grid-template-columns: 2.5rem 2.5rem minmax(0, 1fr); }
+  .cph-feat li p { grid-column: 1 / -1; }
+}
