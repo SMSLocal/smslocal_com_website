@@ -92554,8 +92554,8 @@
     "rich": [
      "When we alert our customers about the last chance to enjoy a ",
      {
-      "a": "https://www.smslocal.com/login/register/",
-      "x": true,
+      "a": "/signup/",
+      "x": false,
       "c": [
        "buy-one-get-one-free"
       ]

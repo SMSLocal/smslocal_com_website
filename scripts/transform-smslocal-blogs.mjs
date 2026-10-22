@@ -180,7 +180,7 @@ function rewriteHref(raw, ctx) {
   if (sameSite.test(href)) {
     const url = new URL(href)
     // /register/ is only a redirect to /signup/ — link straight to the target.
-    const local = (url.pathname === '/register/' ? '/signup/' : url.pathname) + url.search + url.hash
+    const local = (/^\/(login\/)?register\/?$/.test(url.pathname) ? '/signup/' : url.pathname) + url.search + url.hash
     internalLinks.add(url.pathname)
     return { href: local || '/', external: false }
   }
