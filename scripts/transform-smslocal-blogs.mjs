@@ -43,6 +43,7 @@ function applyTextReplacements(slug, value) {
   return walk(value)
 }
 import { applyLinkCuration } from './lib/link-specs.mjs'
+import { applyReadabilityFixes } from './lib/readability-fixes.mjs'
 import { decodeEntities, hasClass, parseHtml, textOf } from './lib/mini-html.mjs'
 
 const ROOT = path.join(import.meta.dirname, '..')
@@ -851,6 +852,7 @@ async function main() {
     // Last, so it also covers text introduced by the overrides above.
     blocks = applyTextReplacements(slug, blocks)
     faqs = applyTextReplacements(slug, faqs)
+    blocks = applyReadabilityFixes(blocks)
     const meta = metaFromPage(pageHtml)
     if (override) {
       if (override.metaTitle) meta.metaTitle = override.metaTitle
