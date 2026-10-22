@@ -31,7 +31,8 @@ function toSentences(rich) {
     }
     let rest = node
     for (;;) {
-      const m = /([.!?]["”’)]?)(\s+)(?=["“‘(]?[A-Z0-9])/.exec(rest)
+      // Also catches sentences glued together with no space ("recipient.Keep").
+      const m = /([.!?]["”’)]?)(\s+(?=["“‘(]?[A-Z0-9])|(?<=[a-z]{3}[.!?])(?=[A-Z][a-z]{2}))/.exec(rest)
       if (!m) break
       const end = m.index + m[1].length
       cur.push(rest.slice(0, end))
