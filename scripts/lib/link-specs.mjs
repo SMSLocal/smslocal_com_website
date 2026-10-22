@@ -25,6 +25,8 @@
  */
 
 export const LINK_SPECS = {
+  // arcee.ai/blog/arcee-meraj-maarj 404s (page removed); point the same anchor at a stable topic page.
+  'flextalk-a2p-svr': { remapExternal: { 1: { href: 'https://en.wikipedia.org/wiki/Machine_translation' } } },
   '469-area-code': { keepInternal: [1, 2] },
   '216-area-code': { keepInternal: [1, 2], keepExternal: [0] },
   'what-does-frl-mean-in-text': { keepInternal: [0, 1] },
