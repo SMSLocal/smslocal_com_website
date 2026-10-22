@@ -179,7 +179,8 @@ function rewriteHref(raw, ctx) {
   const sameSite = /^https?:\/\/(www\.)?smslocal\.com(\/|$)/i
   if (sameSite.test(href)) {
     const url = new URL(href)
-    const local = url.pathname + url.search + url.hash
+    // /register/ is only a redirect to /signup/ — link straight to the target.
+    const local = (url.pathname === '/register/' ? '/signup/' : url.pathname) + url.search + url.hash
     internalLinks.add(url.pathname)
     return { href: local || '/', external: false }
   }
