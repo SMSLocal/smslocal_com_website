@@ -10230,15 +10230,15 @@
    {
     "type": "p",
     "rich": [
-     "iPhone users have multiple methods to recover deleted text messages, including restoring from iCloud backups, using Finder or iTunes backups, and employing third-party iOS recovery apps. Each method has its own steps and requirements, so it’s essential to understand your options. ",
+     "iPhone users have multiple methods to recover deleted text messages, including restoring from iCloud backups, using Finder or iTunes backups, and employing third-party iOS recovery apps. Each method has its own steps and requirements, so it’s essential to understand your options. Apple’s ",
      {
-      "a": "https://www.hostingseekers.com/category/web-servers/cloud-servers",
+      "a": "https://support.apple.com/en-us/118426",
       "x": true,
       "c": [
-       "Cloud hosting providers"
+       "guide to backing up your iPhone"
       ]
      },
-     ", like iCloud, offer backup solutions that can simplify the recovery process."
+     " explains how iCloud and computer backups work, which can simplify the recovery process."
     ]
    },
    {

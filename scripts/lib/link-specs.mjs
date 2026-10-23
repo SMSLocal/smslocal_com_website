@@ -25,6 +25,8 @@
  */
 
 export const LINK_SPECS = {
+  // hostingseekers.com cloud-server directory is a poor fit (and 502s); point at Apple's own backup guide.
+  'deleted-messages': { remapExternal: { 0: { href: 'https://support.apple.com/en-us/118426', text: 'guide to backing up your iPhone' } } },
   // arcee.ai/blog/arcee-meraj-maarj 404s (page removed); point the same anchor at a stable topic page.
   'flextalk-a2p-svr': { remapExternal: { 1: { href: 'https://en.wikipedia.org/wiki/Machine_translation' } } },
   '469-area-code': { keepInternal: [1, 2] },

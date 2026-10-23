@@ -28,6 +28,11 @@
  * Post dates are untouched by this; those are real timestamps.
  */
 export const TEXT_REPLACEMENTS = {
+  'deleted-messages': [
+    // Sentence around the replaced hostingseekers.com link.
+    ['so it’s essential to understand your options. ', 'so it’s essential to understand your options. Apple’s '],
+    [', like iCloud, offer backup solutions that can simplify the recovery process.', ' explains how iCloud and computer backups work, which can simplify the recovery process.'],
+  ],
   'what-does-dw-mean-in-text': [
     // Refers to the emoji post, whose own title now says 2026.
     ['Emoji Meaning in Text: A Guide to 230+ Emoji Meanings for 2025',
