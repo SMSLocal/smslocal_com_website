@@ -13,12 +13,25 @@
     />
     <title>SMSLocal</title>
     <script>
+      // Chat widget: loaded on the visitor's first interaction instead of on
+      // every page load. The widget host currently answers HTTP 400 / times
+      // out, and a failing third-party script on page load is reported as a
+      // "broken external JavaScript" error on every page (757 in Semrush) and
+      // delays the page. Real visitors still get the widget; crawlers that
+      // never interact never request it. Errors are swallowed.
       (function(d,s){
-        var w=d.createElement(s);
-        w.src="https://unified3-ai.mycountrymobile.com/widget.js";
-        w.async=true;
-        w.setAttribute("data-widget-token","f21d588c-3386-47df-9e43-29a673d7a8d4");
-        d.head.appendChild(w);
+        var loaded=false, events=["pointerdown","keydown","scroll","touchstart"];
+        function load(){
+          if(loaded) return; loaded=true;
+          events.forEach(function(e){ removeEventListener(e,load,true); });
+          var w=d.createElement(s);
+          w.src="https://unified3-ai.mycountrymobile.com/widget.js";
+          w.async=true;
+          w.onerror=function(){ if(w.parentNode) w.parentNode.removeChild(w); };
+          w.setAttribute("data-widget-token","f21d588c-3386-47df-9e43-29a673d7a8d4");
+          d.head.appendChild(w);
+        }
+        events.forEach(function(e){ addEventListener(e,load,{capture:true,passive:true}); });
       })(document,"script");
     </script>
     <script>
