@@ -47,6 +47,17 @@ export const TEXT_REPLACEMENTS = {
 }
 
 export const CONTENT_OVERRIDES = {
+  // Restored from the Wayback Machine; the scraped headlines carried a year and odd casing.
+  'what-is-rcs-messaging': {
+    title: 'What Is RCS Messaging? Advantages and How It Works',
+    metaTitle: 'What Is RCS Messaging? Guide',
+    metaDescription: 'What is RCS messaging? Rich media, read receipts and typing indicators over your carrier, and how businesses use it.',
+  },
+  'how-to-change-from-rcs-to-sms': {
+    title: 'How to Change from RCS to SMS: A Step-by-Step Guide',
+    metaTitle: 'How to Change RCS to SMS Guide',
+    metaDescription: 'Switch from RCS to SMS on Android and iPhone in a few steps, plus fixes if RCS messages keep sending.',
+  },
   // Year-rollover only. The source headlines say 2025 and the scraped pages
   // won't be updated, so the year is refreshed here rather than by editing
   // the generated JSON (which the next import would overwrite). Titles only:

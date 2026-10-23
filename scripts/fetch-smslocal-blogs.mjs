@@ -126,6 +126,9 @@ export const SOURCE_URLS = [
   '/blog/what-does-bulk-mean-in-text/',
   '/blog/what-is-an-sms/',
   '/blog/what-is-sms-and-how-is-it-different-from-text-messages/',
+  // Restored from the Wayback Machine (cached by hand; the WP API no longer serves them).
+  '/blog/what-is-rcs-messaging/',
+  '/blog/how-to-change-from-rcs-to-sms/',
 ]
 
 async function get(url, asJson = false) {

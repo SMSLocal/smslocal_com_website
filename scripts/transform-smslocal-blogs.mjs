@@ -45,6 +45,8 @@ function applyTextReplacements(slug, value) {
 import { applyLinkCuration } from './lib/link-specs.mjs'
 import { applyReadabilityFixes } from './lib/readability-fixes.mjs'
 import { applyBlogCta } from './lib/blog-cta.mjs'
+import { swapRestoredImages } from './lib/restored-post-images.mjs'
+import { applyDeadLinkFixes } from './lib/dead-link-remap.mjs'
 import { decodeEntities, hasClass, parseHtml, textOf } from './lib/mini-html.mjs'
 
 const ROOT = path.join(import.meta.dirname, '..')
@@ -851,10 +853,12 @@ async function main() {
     // lands on exactly 7 (client requirement), same pattern as COVER_SPECS
     // overriding the hero banner. No-op for any post without an entry.
     blocks = applyInnerImageCuration(slug, blocks, { warn: ctx.warn })
+    blocks = swapRestoredImages(slug, blocks)
     // Last, so it also covers text introduced by the overrides above.
     blocks = applyTextReplacements(slug, blocks)
     faqs = applyTextReplacements(slug, faqs)
-    blocks = applyBlogCta(applyReadabilityFixes(blocks))
+    blocks = applyBlogCta(applyReadabilityFixes(applyDeadLinkFixes(blocks)))
+    faqs = applyDeadLinkFixes(faqs)
     const meta = metaFromPage(pageHtml)
     if (override) {
       if (override.metaTitle) meta.metaTitle = override.metaTitle
