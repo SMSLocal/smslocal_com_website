@@ -45,6 +45,7 @@ function applyTextReplacements(slug, value) {
 import { applyLinkCuration } from './lib/link-specs.mjs'
 import { applyReadabilityFixes } from './lib/readability-fixes.mjs'
 import { applyBlogCta } from './lib/blog-cta.mjs'
+import { simplifyProse } from './lib/simplify-prose.mjs'
 import { swapRestoredImages } from './lib/restored-post-images.mjs'
 import { applyDeadLinkFixes } from './lib/dead-link-remap.mjs'
 import { decodeEntities, hasClass, parseHtml, textOf } from './lib/mini-html.mjs'
@@ -857,7 +858,7 @@ async function main() {
     // Last, so it also covers text introduced by the overrides above.
     blocks = applyTextReplacements(slug, blocks)
     faqs = applyTextReplacements(slug, faqs)
-    blocks = applyBlogCta(applyReadabilityFixes(applyDeadLinkFixes(blocks, slug)))
+    blocks = applyBlogCta(simplifyProse(slug, applyReadabilityFixes(applyDeadLinkFixes(blocks, slug))))
     faqs = applyDeadLinkFixes(faqs, slug)
     const meta = metaFromPage(pageHtml)
     if (override) {

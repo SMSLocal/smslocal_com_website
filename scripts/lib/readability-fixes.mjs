@@ -16,6 +16,12 @@ const MAX_PARA_WORDS = 70
 const MAX_SENTENCE_WORDS = 24
 const TARGET_PARA_WORDS = 55
 
+const PARTICIPLE = {
+  making: 'makes', allowing: 'allows', ensuring: 'ensures', providing: 'provides', enabling: 'enables',
+  helping: 'helps', leading: 'leads', giving: 'gives', offering: 'offers', reducing: 'reduces',
+  improving: 'improves', increasing: 'increases', creating: 'creates', saving: 'saves', keeping: 'keeps',
+}
+
 const textOf = (n) =>
   typeof n === 'string' ? n : Array.isArray(n) ? n.map(textOf).join('') : n && typeof n === 'object' ? textOf(Object.values(n)) : ''
 const wordCount = (nodes) => textOf(nodes).trim().split(/\s+/).filter(Boolean).length
@@ -54,11 +60,22 @@ function shortenSentence(nodes) {
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i]
     if (typeof node !== 'string') continue
-    const re = /(;\s+|,\s+(?=(?:and|but|so|which|while|whereas|because)\s))/g
+    // Only breaks that leave two real sentences. ", and" is deliberately not
+    // here: it also joins list items ("technology, strategy, and demand"), and
+    // splitting there leaves a dangling "And ...". ", which" / ", while" /
+    // ", because" fragments are likewise avoided; a participle or "which"
+    // clause is turned into "This <verb> ...".
+    const re = new RegExp(`(;\\s+|,\\s+(?=but\\s)|,\\s+(?=(?:${Object.keys(PARTICIPLE).join('|')})\\s)|,\\s+(?=which\\s+(?:is|are|can|will|helps|allows|makes|means|gives|lets)\\s))`, 'g')
     let m
     while ((m = re.exec(node))) {
       const left = [...nodes.slice(0, i), node.slice(0, m.index)]
-      const right = [node.slice(m.index + m[0].length), ...nodes.slice(i + 1)]
+      let rightHead = node.slice(m.index + m[0].length)
+      const first = /^(\w+)/.exec(rightHead)?.[1]?.toLowerCase()
+      // "..., saving time and improving service" would become "This saves time and improving": skip parallel -ing chains.
+      if (first && PARTICIPLE[first] && /(?:and|or)s+w+ing/.test(rightHead)) continue
+      if (first && PARTICIPLE[first]) rightHead = `This ${PARTICIPLE[first]}${rightHead.slice(first.length)}`
+      else if (first === 'which') rightHead = `This${rightHead.slice('which'.length)}`
+      const right = [rightHead, ...nodes.slice(i + 1)]
       const lw = wordCount(left)
       const rw = wordCount(right)
       if (lw < 7 || rw < 7) continue
