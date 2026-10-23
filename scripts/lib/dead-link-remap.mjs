@@ -19,9 +19,30 @@ const DEAD = {
   '/resources/insights/promotional-vs-transactional-texts': '/blog/transactional-sms/',
   '/resources/insights/how-to-send-an-sms-with-a-company-name': '/blog/a2p-messaging/',
 }
+/**
+ * Better-fitting targets for specific anchors, keyed `slug|anchor text`. Only
+ * applied to a link that currently sits on one of the stand-in targets above,
+ * so a genuine link the author chose is never overridden.
+ */
+const BY_ANCHOR = {
+  'receive-sms-online|SMS online': '/tools/text-free/',
+  'best-sms-apis|send and receive text messages': '/products/cpaas/sms-api/',
+  'google-voice-bulk-texter|bulk SMS': '/products/channels/sms-broadcasting/',
+  'send-sms-through-php|authorized': '/developers/api-reference/',
+  'send-bulk-text-messages-from-computer|benefits of using bulk SMS': '/blog/text-messaging-benefits/',
+  'creative-sms-marketing-ideas-for-businesses-texting-your-way-to-success|text messages to communicate promotional': '/solutions/use-case/promotions-campaigns/',
+  'creative-sms-marketing-ideas-for-businesses-texting-your-way-to-success|SMS messages are a great way to send': '/blog/sms-marketing/',
+  'text-message-forwarding-with-our-easy-guide|SMS marketing messages': '/blog/sms-marketing/',
+  'send-sms-messages-on-ipad|Send SMS Messages on an iPad': '/tools/send-text/',
+  'send-sms-via-php|Bulk SMS': '/products/channels/sms-broadcasting/',
+  'communication-how-to-send-an-sms-message|solution for sending SMS': '/products/channels/sms-broadcasting/',
+  'transactional-sms|OTPs': '/solutions/use-case/otp-authentication/',
+}
+const STAND_INS = new Set(Object.values(DEAD))
+const plain = (r) => (typeof r === 'string' ? r : Array.isArray(r) ? r.map(plain).join('') : r && typeof r === 'object' ? plain(Object.values(r)) : '')
 const SAME_SITE = /^https?:\/\/(www\.)?smslocal\.com(\/|$)/i
 
-export function applyDeadLinkFixes(value) {
+export function applyDeadLinkFixes(value, slug = '') {
   const walk = (node) => {
     if (Array.isArray(node)) return node.map(walk)
     if (!node || typeof node !== 'object') return node
@@ -38,6 +59,8 @@ export function applyDeadLinkFixes(value) {
       out.a = DEAD[key] ?? u.pathname + u.search + u.hash
       out.x = false
     }
+    const better = BY_ANCHOR[`${slug}|${plain(out.c)}`]
+    if (better && STAND_INS.has(out.a)) out.a = better
     return out
   }
   return walk(value)

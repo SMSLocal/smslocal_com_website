@@ -857,8 +857,8 @@ async function main() {
     // Last, so it also covers text introduced by the overrides above.
     blocks = applyTextReplacements(slug, blocks)
     faqs = applyTextReplacements(slug, faqs)
-    blocks = applyBlogCta(applyReadabilityFixes(applyDeadLinkFixes(blocks)))
-    faqs = applyDeadLinkFixes(faqs)
+    blocks = applyBlogCta(applyReadabilityFixes(applyDeadLinkFixes(blocks, slug)))
+    faqs = applyDeadLinkFixes(faqs, slug)
     const meta = metaFromPage(pageHtml)
     if (override) {
       if (override.metaTitle) meta.metaTitle = override.metaTitle

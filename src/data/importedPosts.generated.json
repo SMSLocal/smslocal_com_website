@@ -26918,7 +26918,7 @@
     "rich": [
      "Yes, receiving ",
      {
-      "a": "/blog/what-does-otp-mean-in-text/",
+      "a": "/tools/text-free/",
       "x": false,
       "c": [
        "SMS online"
@@ -48435,7 +48435,7 @@
     "rich": [
      "An SMS gateway is a platform that allows businesses to ",
      {
-      "a": "/blog/what-does-otp-mean-in-text/",
+      "a": "/products/cpaas/sms-api/",
       "x": false,
       "c": [
        "send and receive text messages"
@@ -74047,7 +74047,7 @@
     "rich": [
      "Using Google Voice for ",
      {
-      "a": "/signup/",
+      "a": "/products/channels/sms-broadcasting/",
       "x": false,
       "c": [
        "bulk SMS"
@@ -85272,7 +85272,7 @@
      },
      ": A parking app uses ",
      {
-      "a": "/blog/what-does-otp-mean-in-text/",
+      "a": "/solutions/use-case/otp-authentication/",
       "x": false,
       "c": [
        "OTPs"
@@ -86118,7 +86118,7 @@
     "rich": [
      "The API key is included in the request headers to authenticate the call, ensuring the message is ",
      {
-      "a": "/about-us/",
+      "a": "/developers/api-reference/",
       "x": false,
       "c": [
        "authorized"
@@ -86797,7 +86797,7 @@
     "rich": [
      "Here are some additional ",
      {
-      "a": "/products/channels/rcs/",
+      "a": "/blog/text-messaging-benefits/",
       "x": false,
       "c": [
        "benefits of using bulk SMS"
@@ -104032,7 +104032,7 @@
     "rich": [
      "SMS marketing is a form of mobile marketing that uses ",
      {
-      "a": "/blog/transactional-sms/",
+      "a": "/solutions/use-case/promotions-campaigns/",
       "x": false,
       "c": [
        "text messages to communicate promotional"
@@ -104124,7 +104124,7 @@
     "type": "p",
     "rich": [
      {
-      "a": "/products/cpaas/sms-api/",
+      "a": "/blog/sms-marketing/",
       "x": false,
       "c": [
        "SMS messages are a great way to send"
@@ -105480,7 +105480,7 @@
     "rich": [
      "4. Ensure appropriate content: ",
      {
-      "a": "/blog/a2p-messaging/",
+      "a": "/blog/sms-marketing/",
       "x": false,
       "c": [
        "SMS marketing messages"
@@ -106185,7 +106185,7 @@
     "type": "p",
     "rich": [
      {
-      "a": "/products/cpaas/sms-api/",
+      "a": "/tools/send-text/",
       "x": false,
       "c": [
        "Send SMS Messages on an iPad"
@@ -118301,7 +118301,7 @@
     "rich": [
      "SmsLocal’s Mobi ",
      {
-      "a": "/signup/",
+      "a": "/products/channels/sms-broadcasting/",
       "x": false,
       "c": [
        "Bulk SMS"
@@ -121153,7 +121153,7 @@
     "type": "p",
     "rich": [
      {
-      "a": "/resources/case-studies/",
+      "a": "/products/channels/sms-broadcasting/",
       "x": false,
       "c": [
        "solution for sending SMS"
