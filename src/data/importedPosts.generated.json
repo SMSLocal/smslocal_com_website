@@ -30679,7 +30679,15 @@
    {
     "type": "p",
     "rich": [
-     "Adherence to industry regulations, such as 10DLC in the U.S. or GDPR in Europe, is crucial. A good service should automatically manage opt-out requests, ensuring customers who wish to unsubscribe can do so easily."
+     "Adherence to industry regulations, such as ",
+     {
+      "a": "/blog/10dlc-registration/",
+      "x": false,
+      "c": [
+       "10DLC in the U.S."
+      ]
+     },
+     " or GDPR in Europe, is crucial. A good service should automatically manage opt-out requests, ensuring customers who wish to unsubscribe can do so easily."
     ]
    },
    {
@@ -35224,7 +35232,15 @@
    {
     "type": "p",
     "rich": [
-     "10DLC is a standard 10-digit phone number used for both voice calls and A2P texting. Once registered with carriers, it ensures compliant, reliable messaging and supports two-way customer conversations from a familiar business number."
+     "10DLC is a standard 10-digit phone number used for both voice calls and A2P texting. ",
+     {
+      "a": "/blog/10dlc-registration/",
+      "x": false,
+      "c": [
+       "Once registered with carriers"
+      ]
+     },
+     ", it ensures compliant, reliable messaging and supports two-way customer conversations from a familiar business number."
     ]
    },
    {
@@ -103037,7 +103053,15 @@
         "Register for 10DLC Number"
        ]
       },
-      " If you’re a US-based business, be sure to register your 10DLC number to comply with carrier requirements. Unregistered 10DLC numbers will be blocked, and messages won’t be delivered by mobile network operators."
+      " If you’re a US-based business, be sure to ",
+      {
+       "a": "/blog/10dlc-registration/",
+       "x": false,
+       "c": [
+        "register your 10DLC number"
+       ]
+      },
+      " to comply with carrier requirements. Unregistered 10DLC numbers will be blocked, and messages won’t be delivered by mobile network operators."
      ],
      [
       {
@@ -130055,8 +130079,8 @@
   },
   "publishedISO": "2026-10-26T09:00:00",
   "modifiedISO": "2026-10-26T09:00:00",
-  "readTime": "9 min read",
-  "words": 2028,
+  "readTime": "10 min read",
+  "words": 2164,
   "excerpt": "A flower shop sets up business texting the week before Mother's Day. The owner loads the customer list, writes a warm message about pre-orders and presses send. The dashboard says \"sent.\" Half the customers never get it, and the rest arrive hours late.",
   "cover": "/blog/10dlc-registration/cover.svg",
   "sourceCover": "/blog/10dlc-registration/cover.svg",
@@ -130400,7 +130424,15 @@
    {
     "type": "p",
     "rich": [
-     "Choose the one that matches what you really send. Registering as \"customer care\" and then sending promotions can lead to blocked messages later."
+     "Choose the one that matches what you really send. Registering as \"customer care\" and then sending promotions can lead to blocked messages later. Not sure where your messages fit? Our guide to ",
+     {
+      "a": "/blog/transactional-sms/",
+      "x": false,
+      "c": [
+       "transactional SMS"
+      ]
+     },
+     " shows how order, account and security texts differ from promotions."
     ]
    },
    {
@@ -130424,6 +130456,39 @@
     "type": "quote",
     "rich": [
      "Harbor View Dental: Your cleaning is booked for Tue, Apr 8 at 9:30 AM. Reply C to confirm or R to reschedule. Reply STOP to opt out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The same goes for the campaign description. Compare these two:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Too vague:"
+       ]
+      },
+      " \"We send marketing messages to our customers.\""
+     ],
+     [
+      {
+       "b": [
+        "Clear and specific:"
+       ]
+      },
+      " \"Harbor View Dental sends appointment confirmations and reminders to patients who book online or at the front desk and agree to receive texts. Patients can reply STOP at any time.\""
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The second version tells a reviewer who you are, who receives the texts, how they opted in and what you send. That is exactly what they check."
     ]
    },
    {
@@ -130716,7 +130781,15 @@
         "Keep consent records."
        ]
       },
-      " Store the date, time and method of each opt-in."
+      " Store the date, time and method of each opt-in. Our ",
+      {
+       "a": "/blog/sms-marketing/",
+       "x": false,
+       "c": [
+        "SMS marketing guide"
+       ]
+      },
+      " explains how to build a list people actually agree to join."
      ],
      [
       {
@@ -130733,6 +130806,22 @@
        ]
       },
       " Avoid late-night promotions."
+     ],
+     [
+      {
+       "b": [
+        "Plan your sends."
+       ]
+      },
+      " Once you are approved, our guide to running a ",
+      {
+       "a": "/blog/bulk-sms-campaign/",
+       "x": false,
+       "c": [
+        "bulk SMS campaign"
+       ]
+      },
+      " covers choosing features and measuring results."
      ]
     ]
    },
@@ -130744,7 +130833,15 @@
    {
     "type": "p",
     "rich": [
-     "If you send through SMSLocal, sender registration is handled for you during onboarding, so you do not have to work through the carrier process alone. You still know your business best, so have the details from the checklist above ready: your legal business name, tax ID, website, sample messages and opt-in proof. Contact the SMSLocal team if you want help reviewing them before you apply."
+     "If you send through SMSLocal, sender registration is handled for you during onboarding, so you do not have to work through the carrier process alone. You still know your business best, so have the details from the checklist above ready: your legal business name, tax ID, website, sample messages and opt-in proof. ",
+     {
+      "a": "/contact-us/",
+      "x": false,
+      "c": [
+       "Contact the SMSLocal team"
+      ]
+     },
+     " if you want help reviewing them before you apply."
     ]
    },
    {
