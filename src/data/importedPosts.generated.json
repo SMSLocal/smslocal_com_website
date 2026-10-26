@@ -130028,5 +130028,792 @@
     ]
    }
   ]
+ },
+ {
+  "slug": "10dlc-registration",
+  "routePath": "/blog/10dlc-registration",
+  "sourceUrl": "https://www.smslocal.com/blog/10dlc-registration/",
+  "sourceType": "post",
+  "title": "10DLC Registration: How to Register Your Business to Text in the USA",
+  "metaTitle": "10DLC Registration: Step-by-Step Guide for US Businesses",
+  "metaDescription": "Texts blocked or filtered? Learn 10DLC registration step by step: register your brand and campaign, avoid rejections and start sending compliant US texts.",
+  "keywords": "10DLC registration",
+  "category": "SMS API",
+  "categories": [
+   "SMS API"
+  ],
+  "tags": [
+   "10DLC Registration"
+  ],
+  "date": "October 26, 2026",
+  "dateISO": "2026-10-26",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-10-26T09:00:00",
+  "modifiedISO": "2026-10-26T09:00:00",
+  "readTime": "9 min read",
+  "words": 2028,
+  "excerpt": "A flower shop sets up business texting the week before Mother's Day. The owner loads the customer list, writes a warm message about pre-orders and presses send. The dashboard says \"sent.\" Half the customers never get it, and the rest arrive hours late.",
+  "cover": "/blog/10dlc-registration/cover.svg",
+  "sourceCover": "/blog/10dlc-registration/cover.svg",
+  "coverAlt": "10DLC registration: brand, campaign and approval steps for US business texting",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A flower shop sets up business texting the week before Mother's Day. The owner loads the customer list, writes a warm message about pre-orders and presses send. The dashboard says \"sent.\" Half the customers never get it, and the rest arrive hours late."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Nothing is wrong with the message. The shop skipped a step that US carriers now expect from every business that texts from a regular local number: 10DLC registration."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide walks through what 10DLC is, why registration exists, what you need before you start, how the process runs from brand to campaign, and the mistakes that get submissions rejected. We wrote it for small and mid-sized US businesses, and the same steps apply whether you register yourself or through a messaging provider such as SMSLocal."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "10DLC registration tells US carriers who you are and what you plan to text. Unregistered business traffic is filtered more heavily and carries extra carrier fees."
+     ],
+     [
+      "You register twice: a ",
+      {
+       "b": [
+        "brand"
+       ]
+      },
+      " (your business identity) and a ",
+      {
+       "b": [
+        "campaign"
+       ]
+      },
+      " (what you send and why)."
+     ],
+     [
+      "Business names, tax IDs and addresses must match official records exactly."
+     ],
+     [
+      "Clear sample messages, visible opt-in proof, a privacy policy and terms prevent most rejections."
+     ],
+     [
+      "Approval time varies, so register well before a big send."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is 10DLC?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "10DLC stands for ",
+     {
+      "b": [
+       "10-digit long code"
+      ]
+     },
+     ". It is the standard 10-digit phone number, like (559) 555-0123, that businesses can use to send text messages to customers in the United States."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You will often see it written as ",
+     {
+      "b": [
+       "A2P 10DLC"
+      ]
+     },
+     ". A2P means application-to-person: a business sends a text from software to a person, rather than one person typing to another. If that distinction is new to you, our guide to ",
+     {
+      "a": "/blog/a2p-messaging/",
+      "x": false,
+      "c": [
+       "A2P messaging"
+      ]
+     },
+     " explains it in detail."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Unlike a toll-free number or a short code, a 10DLC number looks local. That is its main advantage. Customers in Dallas are more likely to recognize and trust a Texas number than a long string of digits."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Why 10DLC Registration Exists",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Years ago, a business could buy a local number and start texting the same afternoon. That openness also let spammers send huge volumes from numbers that were impossible to trace."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "US carriers responded with a registry. Businesses that send texts from 10DLC numbers now tell the carriers who they are and what they plan to send. In return, their messages receive higher and more predictable delivery. Messages from unregistered traffic may be filtered, slowed down or blocked, and carriers charge extra fees on unregistered traffic."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The registry behind the process is ",
+     {
+      "b": [
+       "The Campaign Registry (TCR)"
+      ]
+     },
+     ". You usually do not deal with it directly. Your messaging provider submits your details to TCR for you."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Brand and Campaign: The Two Pieces of Registration",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Registration has two parts, and people often mix them up."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Brand"
+      ]
+     },
+     " answers \"who are you?\" It covers your legal business name, tax ID, address, website and contact details."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Campaign"
+      ]
+     },
+     " answers \"what are you sending, and to whom?\" It covers your use case, sample messages, and proof that people opted in."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "One brand can have more than one campaign. Standard brands are commonly allowed up to five, while sole proprietor brands are limited to one. A clinic might register one campaign for appointment reminders and another for promotional offers, because each has a different purpose and different rules."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Before You Start: What to Have Ready",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Gather these first. Most delays come from missing or mismatched information, not from the carriers."
+    ]
+   },
+   {
+    "type": "table",
+    "head": [
+     [
+      "What you need"
+     ],
+     [
+      "Why it matters"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Legal business name, exactly as registered"
+      ],
+      [
+       "It must match your official records, including punctuation and suffixes like \"LLC\""
+      ]
+     ],
+     [
+      [
+       "EIN (tax ID) for a business, or personal details for a sole proprietor"
+      ],
+      [
+       "Used to verify the business"
+      ]
+     ],
+     [
+      [
+       "Business address"
+      ],
+      [
+       "Must match official records"
+      ]
+     ],
+     [
+      [
+       "A working website"
+      ],
+      [
+       "Reviewers look for a real business presence"
+      ]
+     ],
+     [
+      [
+       "Privacy policy and terms linked from your site"
+      ],
+      [
+       "Many campaigns are rejected without them"
+      ]
+     ],
+     [
+      [
+       "Description of your texting program"
+      ],
+      [
+       "A clear, specific explanation of what you send and why"
+      ]
+     ],
+     [
+      [
+       "Two or more sample messages"
+      ],
+      [
+       "They must reflect what you will actually send"
+      ]
+     ],
+     [
+      [
+       "Proof of opt-in"
+      ],
+      [
+       "A screenshot or URL showing how customers agree to receive texts"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Register for 10DLC: Step by Step",
+    "anchor": null
+   },
+   {
+    "type": "h3",
+    "text": "Step 1: Pick the right brand type",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Most businesses register as a standard brand with an EIN. Individuals without an EIN can usually register as a sole proprietor, which is faster but comes with lower message volume limits. If you plan to grow, register as a business from the start so you do not need to redo the process."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 2: Submit your brand details",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Enter your legal name, tax ID, address and website. Compare each field against your tax records before you submit. Even a small mismatch, such as \"Smith Plumbing\" versus \"Smith Plumbing LLC,\" can fail verification."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "After submission, your brand receives a status and a ",
+     {
+      "b": [
+       "trust score"
+      ]
+     },
+     ". A higher score usually means higher message throughput. Some businesses can pay for optional extra vetting to improve their score, which can matter if you plan to send high volumes."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 3: Choose a campaign use case",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Campaigns are registered under a use case. Common ones include:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Account notifications"
+     ],
+     [
+      "Customer care"
+     ],
+     [
+      "Delivery notifications"
+     ],
+     [
+      "Two-factor authentication (one-time passcodes)"
+     ],
+     [
+      "Marketing"
+     ],
+     [
+      "Fraud alerts"
+     ],
+     [
+      "Low volume mixed, for businesses that send a few kinds of messages in small amounts"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Choose the one that matches what you really send. Registering as \"customer care\" and then sending promotions can lead to blocked messages later."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 4: Write your campaign description and samples",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Explain in plain language who your customers are, how they sign up and what messages they receive. Then write sample messages that sound like the real thing."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A strong sample usually includes your business name, a clear purpose and opt-out wording. For example:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Harbor View Dental: Your cleaning is booked for Tue, Apr 8 at 9:30 AM. Reply C to confirm or R to reschedule. Reply STOP to opt out."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 5: Show how customers opt in",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Reviewers want to see consent. Provide a link or screenshot of the form, checkbox, keyword sign-up or paper form where customers agree to receive texts. The consent language should name your business and say what kinds of messages they will get and that message and data rates may apply."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 6: Submit and wait for review",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Review times vary by provider and by how complete your submission is. Brand checks are usually quicker than campaign reviews, and a campaign can take from a few days to a few weeks. Ask your provider for its current estimate, and plan your launch around it instead of registering the day before a promotion."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 7: Connect your number and start sending",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Once the campaign is approved, your 10DLC number is linked to it and you can send. Start with a small test group, check delivery reports, and then scale up."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "Why Registrations Get Rejected",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Most rejections follow the same few patterns. Check your submission against this list before you press submit."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Name or EIN mismatch."
+       ]
+      },
+      " The business name on your form differs from official records."
+     ],
+     [
+      {
+       "b": [
+        "No visible opt-in."
+       ]
+      },
+      " There is no screenshot, form or URL showing consent."
+     ],
+     [
+      {
+       "b": [
+        "Missing privacy policy or terms."
+       ]
+      },
+      " Reviewers look for them on your website."
+     ],
+     [
+      {
+       "b": [
+        "Vague descriptions."
+       ]
+      },
+      " \"We send marketing messages\" does not explain anything. Say who, what, how often."
+     ],
+     [
+      {
+       "b": [
+        "Sample messages that do not match the use case."
+       ]
+      },
+      " A promotional sample under an account-notification campaign is a red flag."
+     ],
+     [
+      {
+       "b": [
+        "Missing business name or opt-out language in samples."
+       ]
+      },
+      " Include both."
+     ],
+     [
+      {
+       "b": [
+        "Public link shorteners."
+       ]
+      },
+      " Free shorteners are commonly treated as a spam signal. Use your own domain."
+     ],
+     [
+      {
+       "b": [
+        "Restricted content."
+       ]
+      },
+      " Carriers restrict categories such as cannabis, illegal content and certain high-risk offers like some lending and debt services. Messages in these areas often need special handling or are not allowed."
+     ],
+     [
+      {
+       "b": [
+        "Wrong volume estimates."
+       ]
+      },
+      " Registering for a few hundred messages and sending tens of thousands creates problems."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If a submission is rejected, read the reason code, fix the specific issue and resubmit. A repeated failure for the same reason slows you down more than taking an extra day to get it right the first time."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Registration Costs",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Fees come from two places. Carriers and the registry charge for brand registration and campaign review, and providers may add their own charges. Some of these are one-time fees and some are monthly. Amounts change, so check your provider's current pricing instead of relying on a number from a blog post."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Budget for it as a normal cost of business texting. Unregistered traffic usually costs more per message anyway, and it risks blocked delivery."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "10DLC vs Toll-Free vs Short Code",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Registration is not the only way to text in the US. Which option you choose depends on your volume and goals."
+    ]
+   },
+   {
+    "type": "table",
+    "head": [
+     [],
+     [
+      "10DLC"
+     ],
+     [
+      "Toll-free"
+     ],
+     [
+      "Short code"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Looks like"
+      ],
+      [
+       "Local 10-digit number"
+      ],
+      [
+       "800-style number"
+      ],
+      [
+       "5 or 6 digits"
+      ]
+     ],
+     [
+      [
+       "Best for"
+      ],
+      [
+       "Local businesses, small and mid-sized volume"
+      ],
+      [
+       "Customer support, national brands"
+      ],
+      [
+       "Very high volume and fast throughput"
+      ]
+     ],
+     [
+      [
+       "Setup"
+      ],
+      [
+       "Brand and campaign registration"
+      ],
+      [
+       "Toll-free verification"
+      ],
+      [
+       "Application and carrier approval, usually the longest"
+      ]
+     ],
+     [
+      [
+       "Customer feel"
+      ],
+      [
+       "Local and personal"
+      ],
+      [
+       "Professional"
+      ],
+      [
+       "High-volume campaign"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you are leaning toward the high-volume route, our overview of the ",
+     {
+      "a": "/blog/22395-short-code/",
+      "x": false,
+      "c": [
+       "22395 short code"
+      ]
+     },
+     " shows how short codes work in practice."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "After You Are Approved: Staying Compliant",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Registration is not a one-time finish line. Keep these habits:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Send only what you registered."
+       ]
+      },
+      " If your use case changes, register a new campaign."
+     ],
+     [
+      {
+       "b": [
+        "Honor opt-outs right away."
+       ]
+      },
+      " When someone replies STOP, stop texting them."
+     ],
+     [
+      {
+       "b": [
+        "Keep consent records."
+       ]
+      },
+      " Store the date, time and method of each opt-in."
+     ],
+     [
+      {
+       "b": [
+        "Watch your delivery reports."
+       ]
+      },
+      " A sudden drop in delivery can signal filtering."
+     ],
+     [
+      {
+       "b": [
+        "Respect send times."
+       ]
+      },
+      " Avoid late-night promotions."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Registering Through SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you send through SMSLocal, sender registration is handled for you during onboarding, so you do not have to work through the carrier process alone. You still know your business best, so have the details from the checklist above ready: your legal business name, tax ID, website, sample messages and opt-in proof. Contact the SMSLocal team if you want help reviewing them before you apply."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "10DLC registration feels like paperwork, but it is what lets your texts reach customers reliably. Register your brand with details that match your official records, choose the right use case, write clear sample messages and document how people opt in."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Allow time for review, fix rejection reasons one by one and keep your program aligned with what you registered. A clean registration protects your delivery today and makes it easier to grow your texting later."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Need help getting your business texting-ready?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and reach your customers with registered, reliable messages."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Is 10DLC registration required?",
+    "rich": [
+     "If you send business texts to US recipients from a standard 10-digit local number, carriers expect you to register. Without registration, messages are likely to be filtered, blocked or charged higher fees. Toll-free numbers and short codes follow their own approval processes."
+    ]
+   },
+   {
+    "q": "How long does 10DLC registration take?",
+    "rich": [
+     "It varies. Brand checks are usually quicker, and campaign review can take from a few days to a few weeks. A complete, accurate submission is the best way to speed it up."
+    ]
+   },
+   {
+    "q": "What is the difference between a brand and a campaign?",
+    "rich": [
+     "A brand is your business identity: name, tax ID, address and website. A campaign describes what you send, including the use case, sample messages and opt-in proof. One brand can run several campaigns."
+    ]
+   },
+   {
+    "q": "Can a sole proprietor register for 10DLC?",
+    "rich": [
+     "Yes. Individuals without an EIN can usually register as sole proprietors. This route is simpler but allows only one campaign and lower daily volume, so businesses that expect to grow often register as standard brands."
+    ]
+   },
+   {
+    "q": "Why was my 10DLC campaign rejected?",
+    "rich": [
+     "The most common causes are a business name that does not match official records, missing opt-in proof, no privacy policy or terms, vague descriptions, sample messages that do not fit the use case, and public link shorteners. Review the rejection reason, correct that item and resubmit."
+    ]
+   },
+   {
+    "q": "Does 10DLC change the SMS character limit?",
+    "rich": [
+     "No. Message length works the same on every number type: 160 characters per segment in standard text, and 70 when a message contains an emoji or other special characters."
+    ]
+   }
+  ]
  }
 ]
