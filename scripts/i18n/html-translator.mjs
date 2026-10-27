@@ -85,11 +85,11 @@ function localizeAnchor(tag, locale, isTranslated) {
   })
 }
 
-// <meta name="description"|property="og:title"|property="og:description"
+// <meta name="description"|name="twitter:title"|name="twitter:description"|property="og:title"|property="og:description"
 // content="..."> — the only translatable attribute values in the document;
 // everything else translatable is a text node the tokenizer below handles.
 const META_RE =
-  /<meta\s+[^>]*?(?:name="description"|property="og:(?:title|description)")[^>]*?content="([^"]*)"[^>]*>/gi
+  /<meta\s+[^>]*?(?:name="(?:description|twitter:(?:title|description))"|property="og:(?:title|description)")[^>]*?content="([^"]*)"[^>]*>/gi
 
 function collectMetaStrings(html, into) {
   for (const m of html.matchAll(META_RE)) {

@@ -3,6 +3,7 @@ import { SITE_ORIGIN } from './Canonical.jsx'
 import { withSlash } from '../lib/url.js'
 import { useLocale } from '../lib/LocaleContext.jsx'
 import { LANGUAGES } from '../data/languages.js'
+import { SEO_OVERRIDES } from '../data/seoOverrides.js'
 
 /** 1200x630 share card used when a page has no raster image of its own. */
 export const DEFAULT_OG_IMAGE = '/og-default.jpg'
@@ -46,7 +47,11 @@ function Seo({
   // language of a translated page from its English-looking URL structure.
   const lang = LANGUAGES.find((l) => l.code === locale)
   const ogLocale = lang ? `${lang.code}_${lang.country.toUpperCase()}` : 'en_US'
-  const resolved = exactTitle ?? (title ? `${title} | SMSLocal` : null)
+  // A route listed in seoOverrides.js takes its title and description from
+  // there, whatever the page component passes (see that file for the ranges).
+  const override = SEO_OVERRIDES[withSlash(pathname)]
+  const resolved = override?.title ?? exactTitle ?? (title ? `${title} | SMSLocal` : null)
+  const metaDescription = override?.description ?? description
   // A page that passes its own `canonical` (posts do, because they resolve
   // under two paths) was handing og:url the English address even on a
   // translated page — so a shared Dutch article previewed as the English one.
@@ -68,10 +73,10 @@ function Seo({
   return (
     <>
       {resolved && <title>{resolved}</title>}
-      {description && <meta name="description" content={description} />}
+      {metaDescription && <meta name="description" content={metaDescription} />}
       {keywordList && <meta name="keywords" content={keywordList} />}
       {resolved && <meta property="og:title" content={resolved} />}
-      {description && <meta property="og:description" content={description} />}
+      {metaDescription && <meta property="og:description" content={metaDescription} />}
       <meta property="og:type" content={ogType ?? 'website'} />
       <meta property="og:locale" content={ogLocale} />
       <meta property="og:url" content={url} />
@@ -82,7 +87,7 @@ function Seo({
       {usingDefaultImage && <meta property="og:image:alt" content={DEFAULT_OG_IMAGE_ALT} />}
       <meta name="twitter:card" content="summary_large_image" />
       {resolved && <meta name="twitter:title" content={resolved} />}
-      {description && <meta name="twitter:description" content={description} />}
+      {metaDescription && <meta name="twitter:description" content={metaDescription} />}
       <meta name="twitter:image" content={image} />
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}

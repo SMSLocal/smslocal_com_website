@@ -116,6 +116,8 @@ const HEAD_TARGETS = [
   { selector: 'meta[name="description"]', attr: 'content' },
   { selector: 'meta[property="og:title"]', attr: 'content' },
   { selector: 'meta[property="og:description"]', attr: 'content' },
+  { selector: 'meta[name="twitter:title"]', attr: 'content' },
+  { selector: 'meta[name="twitter:description"]', attr: 'content' },
 ]
 
 function applyHead(dict) {

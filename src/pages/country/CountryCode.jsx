@@ -165,13 +165,14 @@ function CountryCode() {
 
   const url = `${SITE_ORIGIN}/country-code/${c.slug}/`
 
-  // No "Country Code" or "— SMS Guide" tail: translated into ru/pl/it/ar this
-  // still runs up to ~1.8x English length, so the English title has to leave
-  // headroom to land under Google's ~60-char cutoff once translated — even
-  // "Country Code" alone was too much for names like "Saint Vincent and the
-  // Grenadines". Verified against the live translate endpoint, longest name
-  // on the site included.
-  const title = `${c.name} ${c.dial}`
+  // Translated into ru/pl/it/ar a title runs up to ~1.8x English length, so
+  // it has to leave headroom to land under Google's ~60-char cutoff. "Country
+  // Code" is the phrase people actually search for, so it is included wherever
+  // the whole label stays within 28 characters (165 of 195 countries, e.g.
+  // "Afghanistan Country Code +93"); longer names such as "Saint Vincent and
+  // the Grenadines" keep the short "Name +dial" form that was measured to fit.
+  const codeTitle = `${c.name} Country Code ${c.dial}`
+  const title = codeTitle.length <= 28 ? codeTitle : `${c.name} ${c.dial}`
 
   // Tail deliberately doesn't repeat the country name (descHead already has
   // it) and stays short — translated into ru/pl/fr/it this still runs up to
