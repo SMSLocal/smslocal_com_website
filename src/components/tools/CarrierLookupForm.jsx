@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import PhoneCountrySelect from '../PhoneCountrySelect.jsx'
 import { DIAL_CODES } from '../../data/dialCodes.js'
 import { track } from '../../lib/track.js'
+import { guessCountry } from '../../lib/guessCountry.js'
 import ToolTrialCta from './ToolTrialCta.jsx'
 
 // Line types as libphonenumber reports them. Every label is rendered (hidden)
@@ -35,6 +36,14 @@ export default function CarrierLookupForm() {
   const [status, setStatus] = useState('idle') // idle | loading | done | error
   const [code, setCode] = useState('')
   const [result, setResult] = useState(null)
+  const picked = useRef(false)
+
+  // Start on the visitor's own country (from their browser language) instead
+  // of always +1, unless they have already chosen one.
+  useEffect(() => {
+    const guess = guessCountry(DIAL_CODES.map((c) => c.code))
+    if (guess && !picked.current) setCountry(guess)
+  }, [])
 
   async function lookup(e) {
     e.preventDefault()
@@ -75,7 +84,13 @@ export default function CarrierLookupForm() {
         <div className="contact-field">
           <label htmlFor="carrier-number">Phone number</label>
           <div className="contact-phone-row">
-            <PhoneCountrySelect value={country} onChange={setCountry} />
+            <PhoneCountrySelect
+              value={country}
+              onChange={(c) => {
+                picked.current = true
+                setCountry(c)
+              }}
+            />
             <input
               id="carrier-number"
               type="tel"
@@ -87,6 +102,11 @@ export default function CarrierLookupForm() {
               required
             />
           </div>
+        </div>
+        <div className="tool-errors" role="alert">
+          {Object.entries(MESSAGES).map(([key, text]) => (
+            <p key={key} className="tool-error" hidden={status !== 'error' || code !== key}>{text}</p>
+          ))}
         </div>
         <button type="submit" className="btn btn-primary tool-submit" disabled={status === 'loading'}>
           <span hidden={status === 'loading'}>Look up carrier</span>
@@ -128,12 +148,6 @@ export default function CarrierLookupForm() {
           For live carrier checks at volume, talk to our team.
         </p>
         <ToolTrialCta variant="lookup" />
-      </div>
-
-      <div className="tool-errors" role="alert">
-        {Object.entries(MESSAGES).map(([key, text]) => (
-          <p key={key} className="tool-error" hidden={status !== 'error' || code !== key}>{text}</p>
-        ))}
       </div>
     </div>
   )

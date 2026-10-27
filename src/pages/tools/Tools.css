@@ -189,6 +189,10 @@
   display: none;
 }
 
+.tool-step .tool-errors {
+  margin-bottom: 1rem;
+}
+
 .tool-error {
   margin: 1rem 0 0;
   padding: 0.6rem 0.8rem;
