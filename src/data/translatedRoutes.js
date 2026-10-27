@@ -1,5 +1,5 @@
 import pageDates from './pageDates.generated.json'
-import posts from './importedPosts.generated.json'
+import posts from './posts/meta.generated.json'
 import countries from './countryPages.generated.json'
 import { isTranslatedRoute } from './i18nScope.js'
 

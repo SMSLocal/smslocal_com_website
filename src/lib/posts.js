@@ -1,5 +1,5 @@
 
-import importedRaw from "../data/importedPosts.generated.json";
+import importedRaw from "../data/posts/meta.generated.json";
 
 export function slugify(text) {
   return text
@@ -166,7 +166,6 @@ function stripEmptyFaqHeading(body) {
 
 export const importedPosts = importedRaw.map((post) => ({
   ...post,
-  body: stripEmptyFaqHeading(post.body),
   excerpt: cleanExcerpt(post.excerpt, post.title),
   category: derivedCategory(post),
   // Each source page renders its own named byline; fall back only if it has none.
@@ -174,6 +173,40 @@ export const importedPosts = importedRaw.map((post) => ({
   featured: post.slug === FEATURED_SLUG,
   imported: true,
 }));
+
+/* ── Post bodies ───────────────────────────────────────────────────────────
+ * Body blocks and FAQs live in one file per post (scripts/gen-post-bodies.mjs)
+ * so a page only downloads the post it shows. In the browser each file is its
+ * own chunk, fetched on demand; src/main.jsx waits for the current post's chunk
+ * before the first render, so a direct visit never paints an empty article.
+ * During the build's prerender everything is loaded up front (top-level await)
+ * so getPostBody stays synchronous for renderToString.
+ */
+const bodyLoaders = import.meta.glob("../data/posts/bodies/*.json", { import: "default" });
+const bodyCache = new Map();
+
+export function loadPostBody(slug) {
+  const cached = bodyCache.get(slug);
+  if (cached) return Promise.resolve(cached);
+  const load = bodyLoaders[`../data/posts/bodies/${slug}.json`];
+  if (!load) return Promise.resolve(null);
+  return load().then((data) => {
+    const loaded = { body: stripEmptyFaqHeading(data.body), faqs: data.faqs };
+    bodyCache.set(slug, loaded);
+    return loaded;
+  });
+}
+
+/** The post's body and FAQs once loaded, otherwise undefined. */
+export function getPostBody(slug) {
+  return bodyCache.get(slug);
+}
+
+if (import.meta.env.SSR) {
+  await Promise.all(
+    Object.keys(bodyLoaders).map((key) => loadPostBody(key.slice(key.lastIndexOf("/") + 1, -".json".length))),
+  );
+}
 
 /** Orders by the date each post actually shows, so the list matches its labels. */
 function sortKey(post) {

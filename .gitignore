@@ -26,3 +26,6 @@ dist-ssr
 .vercel
 .env*
 scripts/.cache/i18n-translations.json
+
+# Split from importedPosts.generated.json by scripts/gen-post-bodies.mjs
+src/data/posts/

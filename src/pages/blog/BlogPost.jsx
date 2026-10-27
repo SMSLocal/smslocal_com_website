@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react'
 import Seo, { DEFAULT_OG_IMAGE } from '../../components/Seo.jsx'
@@ -5,7 +6,7 @@ import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import { withSlash } from '../../lib/url.js'
 import PostCard from '../../components/PostCard.jsx'
-import { getPostBySlug, getRelatedPosts, richToText, titleParts, utcISO } from '../../lib/posts.js'
+import { getPostBody, getPostBySlug, getRelatedPosts, loadPostBody, richToText, titleParts, utcISO } from '../../lib/posts.js'
 import BodyBlocks from './BodyBlocks.jsx'
 import TableOfContents from './TableOfContents.jsx'
 import SidebarPromos from './SidebarPromos.jsx'
@@ -16,9 +17,19 @@ import styles from './BlogPost.module.css'
 function BlogPost() {
   const { slug } = useParams()
   const post = getPostBySlug(slug)
+  // The body is a separate chunk (see lib/posts.js). On a first load main.jsx has
+  // already fetched it; this covers arriving here from another route in-app.
+  const [, setLoaded] = useState(false)
+  useEffect(() => {
+    if (post && !getPostBody(slug)) loadPostBody(slug).then(() => setLoaded(true))
+  }, [post, slug])
+  const content = getPostBody(slug)
 
   if (!post) return <Navigate to="/blog/" replace />
 
+  if (!content) return <div className="blog-scope" />
+
+  const { body, faqs } = content
   const related = getRelatedPosts(post.slug)
   // Posts whose banner is an SVG keep their original raster image for sharing;
   // Seo falls back to the sitewide card when neither is a raster file.
@@ -67,13 +78,13 @@ function BlogPost() {
         }}
       />
 
-      {post.faqs.length > 0 && (
+      {faqs.length > 0 && (
         <JsonLd
           data={{
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
             '@id': `${url}#faq`,
-            mainEntity: post.faqs.map((faq) => ({
+            mainEntity: faqs.map((faq) => ({
               '@type': 'Question',
               name: faq.q,
               acceptedAnswer: {
@@ -160,14 +171,14 @@ function BlogPost() {
           {/* id is the measuring stick for the TOC's reading-progress bar */}
           <div id="article-body" className={styles.content}>
             <div className={styles.prose}>
-              <BodyBlocks blocks={post.body} />
+              <BodyBlocks blocks={body} />
             </div>
 
-            <FaqSection faqs={post.faqs} />
+            <FaqSection faqs={faqs} />
           </div>
 
           <aside className={styles.sidebar}>
-            <TableOfContents blocks={post.body} hasFaq={post.faqs.length > 0} />
+            <TableOfContents blocks={body} hasFaq={faqs.length > 0} />
             <SidebarPromos />
           </aside>
         </div>
