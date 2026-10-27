@@ -3,6 +3,62 @@ import JsonLd from './JsonLd.jsx'
 import { SITE_ORIGIN } from './Canonical.jsx'
 import { stripSlash, withSlash } from '../lib/url.js'
 import pageDates from '../data/pageDates.generated.json'
+import { SEO_OVERRIDES } from '../data/seoOverrides.js'
+
+// Pages that already emit their own Service node through PageSchema.jsx.
+const HAS_PAGE_SCHEMA = new Set([
+  '/products/cpaas/',
+  '/products/cpaas/lookup-api/',
+  '/products/cpaas/sms-api/',
+  '/products/cpaas/verify-api/',
+  '/products/channels/did/',
+  '/products/channels/email/',
+  '/products/channels/voice/',
+  '/products/channels/whatsapp/',
+])
+
+// The schema.org type that describes what the page actually is. Everything
+// else stays a plain WebPage.
+const PAGE_TYPE = {
+  '/about-us/': 'AboutPage',
+  '/contact-us/': 'ContactPage',
+  '/blog/': 'CollectionPage',
+  '/compare/': 'CollectionPage',
+}
+
+// The company's own profiles, as linked from the site footer.
+const SAME_AS = [
+  'https://www.linkedin.com/company/sms-local',
+  'https://www.facebook.com/smslocal.official',
+  'https://www.instagram.com/sms_local',
+  'https://twitter.com/smslocal01',
+  'https://www.youtube.com/@smslocal',
+]
+
+/**
+ * A product or solution page describes a service the Organization provides.
+ * Name and description come from the page's own search title and description
+ * (seoOverrides.js), so the markup says what the page says. The two index pages
+ * are directories, not services, and are left as WebPage.
+ */
+function serviceFor(path, url) {
+  const isOffering =
+    (path.startsWith('/products/') || path.startsWith('/solutions/')) &&
+    path !== '/products/' &&
+    path !== '/solutions/'
+  const meta = SEO_OVERRIDES[path]
+  if (!isOffering || !meta || HAS_PAGE_SCHEMA.has(path)) return null
+  const name = meta.title.replace(/ \| SMSLocal$/, '').split(':')[0].trim()
+  return {
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name,
+    description: meta.description,
+    url,
+    provider: { '@id': `${SITE_ORIGIN}/#organization` },
+    serviceType: name,
+  }
+}
 
 /**
  * Sitewide identity schema (Organization + WebSite), plus a WebPage node
@@ -20,6 +76,7 @@ function SiteSchema() {
   // pageDates is keyed off App.jsx's route paths, which carry no trailing slash.
   const dateModified = pageDates[stripSlash(pathname)]
   const url = `${SITE_ORIGIN}${withSlash(pathname)}`
+  const service = serviceFor(withSlash(pathname), url)
 
   return (
     <JsonLd
@@ -35,6 +92,7 @@ function SiteSchema() {
             // The number shown in the TopBar and footer. E.164, which is what
             // schema.org expects.
             telephone: '+1-559-549-5149',
+            sameAs: SAME_AS,
           },
           {
             '@type': 'WebSite',
@@ -46,7 +104,7 @@ function SiteSchema() {
           ...(dateModified
             ? [
                 {
-                  '@type': 'WebPage',
+                  '@type': PAGE_TYPE[withSlash(pathname)] ?? 'WebPage',
                   '@id': `${url}#webpage`,
                   url,
                   isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
@@ -54,6 +112,7 @@ function SiteSchema() {
                 },
               ]
             : []),
+          ...(service ? [service] : []),
         ],
       }}
     />

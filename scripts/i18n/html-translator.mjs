@@ -118,7 +118,7 @@ function applyMetaStrings(html, map) {
 // announced the English headline and description. Handled separately here,
 // parsing the JSON and translating only known human-readable fields, so the
 // structure, URLs, dates and @type values are never touched.
-const LD_TEXT_FIELDS = new Set(['headline', 'name', 'description', 'articleSection'])
+const LD_TEXT_FIELDS = new Set(['headline', 'name', 'description', 'articleSection', 'text'])
 
 const LD_RE = /(<script[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/gi
 

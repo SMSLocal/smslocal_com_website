@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PiggyBank, Send, Database, ShieldAlert, Target } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
-import JsonLd from '../../components/JsonLd.jsx'
 import { FAQ, HowItWorks, WhyUs, CTABanner } from '../../components/sections/Sections.jsx'
 import CarrierLookupForm from '../../components/tools/CarrierLookupForm.jsx'
 import '../Contact.css'
@@ -63,14 +62,6 @@ function ToolCarrierLookup() {
         title="Free Carrier Lookup: Find Any Number's Carrier"
         description="Free carrier lookup: find the mobile network, line type (mobile, landline or VoIP), region and time zone of any phone number. No sign-up needed."
       />
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-        }}
-      />
-
       <section className="section contact-hero-section">
         <div className="container contact-hero-grid">
           <div className="contact-hero-content">

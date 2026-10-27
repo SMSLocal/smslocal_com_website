@@ -39,22 +39,6 @@ function CountryIndex() {
         }}
       />
 
-      {/* Built from the same FAQS array the section renders, so the markup and
-          the visible answers cannot drift — mismatched FAQ schema is treated as
-          misleading structured data. */}
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          '@id': `${SITE_ORIGIN}/country-code/#faq`,
-          mainEntity: FAQS.map((f) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
-          })),
-        }}
-      />
-
       <div className={styles.heroBand}>
         <span className={styles.heroDots} aria-hidden="true" />
         <span className={styles.heroGlow} aria-hidden="true" />

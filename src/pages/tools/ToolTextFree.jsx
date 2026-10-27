@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Users, FileText, CalendarClock, BarChart3 } from 'lucide-react'
 import Seo from '../../components/Seo.jsx'
-import JsonLd from '../../components/JsonLd.jsx'
 import { FAQ, HowItWorks, WhyUs, CTABanner } from '../../components/sections/Sections.jsx'
 import SmsTestForm from '../../components/tools/SmsTestForm.jsx'
 import '../Contact.css'
@@ -54,14 +53,6 @@ function ToolTextFree() {
         title="Text Free - Test Your Mobile Network Online"
         description="Send a free text to your own phone and test your mobile network online. No setup fee or app needed. Start a free SMSLocal trial when you're ready."
       />
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-        }}
-      />
-
       <section className="section contact-hero-section">
         <div className="container contact-hero-grid">
           <div className="contact-hero-content">

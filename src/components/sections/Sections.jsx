@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './sections.css'
 import { IconPlug, IconGear, IconRocket, IconCheck } from '../icons.jsx'
 import { hl } from '../../utils/hl.jsx'
+import FaqSchema from '../FaqSchema.jsx'
 
 const STEP_ICONS = [<IconPlug />, <IconGear />, <IconRocket />, <IconCheck />]
 
@@ -826,6 +827,7 @@ export function FAQ({ title, subtitle, items, alt, eyebrow = 'Answers To Your Qu
 
   return (
     <section className={alt ? 'section section-alt' : 'section'}>
+      <FaqSchema items={items} />
       <div className="container">
         <div className="faq-head">
           {eyebrow && <span className="section-kicker">{eyebrow}</span>}

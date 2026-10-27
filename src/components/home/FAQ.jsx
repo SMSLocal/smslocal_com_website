@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MessageCircleQuestion, Plus, Minus } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import FaqSchema from "../FaqSchema.jsx";
 
 const FAQS = [
   {
@@ -35,6 +36,7 @@ export default function FAQ() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
+      <FaqSchema items={FAQS} />
       <SectionHeading
         badge="Answers To Your Questions"
         title="Get Clear Answers On"

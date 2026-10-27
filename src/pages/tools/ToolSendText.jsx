@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import Seo from '../../components/Seo.jsx'
-import JsonLd from '../../components/JsonLd.jsx'
 import { FAQ, HowItWorks, CTABanner } from '../../components/sections/Sections.jsx'
 import SmsTestForm from '../../components/tools/SmsTestForm.jsx'
 import '../Contact.css'
@@ -51,14 +50,6 @@ function ToolSendText() {
         title="Free SMS - Send Text Online Worldwide"
         description="Send a free test SMS online to any country, including India, the US and Canada. No registration or app needed. Try SMSLocal delivery in seconds."
       />
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
-        }}
-      />
-
       <section className="section contact-hero-section">
         <div className="container contact-hero-grid">
           <div className="contact-hero-content">
