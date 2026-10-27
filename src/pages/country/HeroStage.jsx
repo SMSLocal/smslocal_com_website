@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import DottedMap from 'dotted-map'
+import { useEffect, useState } from 'react'
+import map from '../../data/country-hero-map.generated.json'
 import styles from './HeroStage.module.css'
 
 /**
@@ -84,24 +84,10 @@ function UrlMoment({ countries }) {
 
 /* ---------------------------------------------------------------- moment 2 */
 function MapMoment() {
-  const { svg, width, height, stops } = useMemo(() => {
-    const map = new DottedMap({ height: 46, grid: 'diagonal' })
-    CURSOR_STOPS.forEach((s) =>
-      map.addPin({ lat: s.lat, lng: s.lng, svgOptions: { color: '#4f5bd5', radius: 0.6 }, data: { code: s.code } }),
-    )
-    const svgString = map.getSVG({ radius: 0.22, color: '#7c8398', shape: 'circle', backgroundColor: 'transparent' })
-    const vb = svgString.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)
-    const pts = map.getPoints()
-    return {
-      svg: svgString,
-      width: vb ? parseFloat(vb[1]) : 800,
-      height: vb ? parseFloat(vb[2]) : 400,
-      stops: CURSOR_STOPS.map((s) => {
-        const p = pts.find((pt) => pt.data?.code === s.code)
-        return { ...s, x: p ? p.x : 0, y: p ? p.y : 0 }
-      }),
-    }
-  }, [])
+  // The dot map is a static file drawn ahead of time by scripts/gen-broadcast-map.mjs
+  // from CURSOR_STOPS, so the map library never reaches the browser.
+  const { width, height } = map
+  const stops = CURSOR_STOPS.map((s) => ({ ...s, ...(map.points[s.code] ?? { x: 0, y: 0 }) }))
 
   // travel -> click -> read, then on to the next stop.
   const [step, setStep] = useState(0)
@@ -123,7 +109,9 @@ function MapMoment() {
     <div className={styles.moment}>
       <div className={styles.momentLabel}>Researched markets</div>
       <div className={styles.mapWrap}>
-        <div className={styles.mapDots} dangerouslySetInnerHTML={{ __html: svg }} />
+        <div className={styles.mapDots}>
+          <img src="/country-hero-map.svg" width={width} height={height} alt="" draggable={false} />
+        </div>
 
         <svg className={styles.mapOverlay} viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMidYMid meet">
           {stops.map((s, i) => (

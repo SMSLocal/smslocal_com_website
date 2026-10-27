@@ -1,5 +1,4 @@
-import { useMemo } from 'react'
-import DottedMap from 'dotted-map'
+import map from '../data/sms-broadcast-map.generated.json'
 import './SmsBroadcastHero.css'
 
 /**
@@ -30,48 +29,15 @@ const DESTS = [
   { code: 'AU', label: 'Australia', lat: -33.8688, lng: 151.2093, d: 2.75 },
 ]
 
+// The dot-matrix map itself is a static file, drawn ahead of time by
+// scripts/gen-broadcast-map.mjs from the same pins as ORIGIN and DESTS, so the
+// map library never reaches the browser.
+const { width, height } = map
+const at = (code) => map.points[code] ?? { x: 0, y: 0 }
+const hub = { ...ORIGIN, ...at(ORIGIN.code) }
+const points = DESTS.map((m) => ({ ...m, ...at(m.code) }))
+
 function SmsBroadcastHero() {
-  const { svg, width, height, hub, points } = useMemo(() => {
-    const map = new DottedMap({ height: 54, grid: 'diagonal' })
-
-    const all = [ORIGIN, ...DESTS]
-    all.forEach((m) => {
-      map.addPin({
-        lat: m.lat,
-        lng: m.lng,
-        svgOptions: { color: 'transparent', radius: 0.01 },
-        data: { code: m.code },
-      })
-    })
-
-    const svgString = map.getSVG({
-      radius: 0.22,
-      // soft brand purple, kept very faint so the map reads as texture and the
-      // routes/bubbles stay the focus
-      color: '#c9c2ee',
-      shape: 'circle',
-      backgroundColor: 'transparent',
-    })
-
-    const vb = svgString.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)
-    const w = vb ? parseFloat(vb[1]) : 800
-    const h = vb ? parseFloat(vb[2]) : 400
-
-    const pts = map.getPoints()
-    const at = (code) => {
-      const p = pts.find((x) => x.data?.code === code)
-      return p ? { x: p.x, y: p.y } : { x: 0, y: 0 }
-    }
-
-    return {
-      svg: svgString,
-      width: w,
-      height: h,
-      hub: { ...ORIGIN, ...at(ORIGIN.code) },
-      points: DESTS.map((m) => ({ ...m, ...at(m.code) })),
-    }
-  }, [])
-
   // quadratic arc from hub -> destination, lifted perpendicular to the chord
   const arc = (p) => {
     const dx = p.x - hub.x
@@ -95,7 +61,7 @@ function SmsBroadcastHero() {
         {/* geographically accurate dot matrix */}
         <img
           className="sbh-dots"
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
+          src="/sms-broadcast-map.svg"
           alt=""
           draggable={false}
         />

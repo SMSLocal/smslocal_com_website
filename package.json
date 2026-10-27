@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/gen-page-dates.mjs && node scripts/gen-post-bodies.mjs && vite",
-    "build": "node scripts/gen-page-dates.mjs && node scripts/gen-post-bodies.mjs && vite build && npm run build:ssr && node scripts/prerender.mjs && node scripts/check-links.mjs",
+    "dev": "node scripts/gen-page-dates.mjs && node scripts/gen-post-bodies.mjs && node scripts/gen-broadcast-map.mjs && vite",
+    "build": "node scripts/gen-page-dates.mjs && node scripts/gen-post-bodies.mjs && node scripts/gen-broadcast-map.mjs && vite build && npm run build:ssr && node scripts/prerender.mjs && node scripts/check-links.mjs",
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "lint": "oxlint",
     "preview": "vite preview"

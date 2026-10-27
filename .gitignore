@@ -29,3 +29,9 @@ scripts/.cache/i18n-translations.json
 
 # Split from importedPosts.generated.json by scripts/gen-post-bodies.mjs
 src/data/posts/
+
+# Drawn by scripts/gen-broadcast-map.mjs
+public/sms-broadcast-map.svg
+src/data/sms-broadcast-map.generated.json
+public/country-hero-map.svg
+src/data/country-hero-map.generated.json

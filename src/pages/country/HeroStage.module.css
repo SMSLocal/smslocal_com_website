@@ -116,6 +116,7 @@
   width: 100%;
 }
 .mapDots svg,
+.mapDots img,
 .mapOverlay {
   display: block;
   width: 100%;
