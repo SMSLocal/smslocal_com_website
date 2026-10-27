@@ -10,6 +10,7 @@
 // priority in the first place.
 //
 // Runs as part of `npm run build`, so a page edited today ships with today's date.
+import { execFileSync } from 'node:child_process'
 import { readFileSync, statSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
@@ -24,6 +25,28 @@ if (process.env.VERCEL) {
   console.log('pageDates.generated.json — on Vercel, keeping committed dates (checkout mtimes are not real)')
   process.exit(0)
 }
+
+// Country pages have no component of their own, so their sitemap lastmod comes from
+// the authored data file. Use the date of the last commit that touched it: a
+// working-copy mtime resets to the clone time (and to the deploy time on CI),
+// which would stamp all 195 pages as modified on every deploy. Falls back to
+// mtime only when git history is unavailable.
+const countryFile = 'src/data/countryContent.js'
+let countryDate
+try {
+  countryDate = execFileSync('git', ['log', '-1', '--format=%cs', '--', countryFile], {
+    cwd: root,
+    encoding: 'utf8',
+  }).trim()
+} catch {
+  countryDate = ''
+}
+if (!countryDate) countryDate = statSync(join(root, countryFile)).mtime.toISOString().slice(0, 10)
+writeFileSync(
+  join(root, 'src/data/countryContentDate.generated.json'),
+  `${JSON.stringify({ date: countryDate }, null, 2)}
+`,
+)
 
 const app = readFileSync(join(root, 'src/App.jsx'), 'utf8')
 

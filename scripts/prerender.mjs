@@ -5,7 +5,7 @@
 // anything unlisted (the 404) still falls through to the shell.
 //
 // Runs after both `vite build` and the SSR build — see the build script.
-import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
@@ -93,10 +93,12 @@ const TRANSLATED_ROUTES = routes.filter(isTranslatedRoute)
 const SITE = 'https://www.smslocal.com'
 const STYLE = '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>'
 // Country pages have no per-page date of their own; they change when the
-// authored content does, so they inherit that file's mtime.
-const countryContentDate = statSync(join(root, 'src/data/countryContent.js'))
-  .mtime.toISOString()
-  .slice(0, 10)
+// authored content does, so they inherit the date of that file's last commit.
+// gen-page-dates.mjs records it (a checkout mtime would be the deploy date, which
+// made all 195 country pages look modified on every deploy).
+const countryContentDate = JSON.parse(
+  readFileSync(join(root, 'src/data/countryContentDate.generated.json'), 'utf8'),
+).date
 
 function lastmodFor(route) {
   if (pageDates[route]) return pageDates[route]
