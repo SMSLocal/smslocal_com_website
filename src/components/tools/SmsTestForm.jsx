@@ -3,6 +3,7 @@ import PhoneCountrySelect from '../PhoneCountrySelect.jsx'
 import { DIAL_CODES } from '../../data/dialCodes.js'
 import Turnstile from './Turnstile.jsx'
 import { track } from '../../lib/track.js'
+import ToolTrialCta from './ToolTrialCta.jsx'
 
 // The fixed text both SMS tools send. Mirrors TEST_MESSAGE in api/_lib/tools.js
 // (the server never takes message content from the visitor).
@@ -227,6 +228,7 @@ export default function SmsTestForm({ tool }) {
           within a minute.
         </p>
         <button type="button" className="btn btn-ghost" onClick={startOver}>Send another test</button>
+        <ToolTrialCta variant="sms" />
       </div>
 
       <div className="tool-errors" role="alert">

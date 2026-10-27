@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PhoneCountrySelect from '../PhoneCountrySelect.jsx'
 import { DIAL_CODES } from '../../data/dialCodes.js'
 import { track } from '../../lib/track.js'
+import ToolTrialCta from './ToolTrialCta.jsx'
 
 // Line types as libphonenumber reports them. Every label is rendered (hidden)
 // up front so locale pages translate it — see the note in SmsTestForm.jsx.
@@ -126,6 +127,7 @@ export default function CarrierLookupForm() {
           US and Canadian numbers move freely between carriers, so the original network isn't a reliable guide.
           For live carrier checks at volume, talk to our team.
         </p>
+        <ToolTrialCta variant="lookup" />
       </div>
 
       <div className="tool-errors" role="alert">
