@@ -118,15 +118,33 @@ const groups = [
   { file: 'country-code-sitemap.xml', routes: countryRoutes },
 ].filter((g) => g.routes.length)
 
+// The same alternates every page already carries in its <head> (HreflangTags.jsx),
+// repeated here so a crawler reading only the sitemap discovers the 19 translated
+// versions too. These annotate the existing <url> entries; the translated URLs
+// are still not listed as entries of their own (see the note above). Routes
+// that opt out of translation get none, matching the head.
+const TRANSLATED_SET = new Set(TRANSLATED_ROUTES)
+const alternate = (hreflang, href) =>
+  `\n    <xhtml:link rel="alternate" hreflang="${hreflang}" href="${href}"/>`
+function alternatesFor(route, loc) {
+  if (!TRANSLATED_SET.has(route)) return ''
+  const english = `${SITE}${loc}`
+  return (
+    alternate('x-default', english) +
+    alternate('en', english) +
+    LANGUAGES.map(({ code, hreflang }) => alternate(hreflang ?? code, `${SITE}/${code}${loc}`)).join('')
+  )
+}
+
 const urlsetFor = (list, dateFor = lastmodFor) =>
-  `<?xml version="1.0" encoding="UTF-8"?>\n${STYLE}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  `<?xml version="1.0" encoding="UTF-8"?>\n${STYLE}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
   list
     .map((route) => {
       const lastmod = dateFor(route)
       // Trailing slash: the served form (vercel.json trailingSlash: true). A
       // sitemap listing the slash-less URL would list a redirect.
       const loc = route.endsWith('/') ? route : `${route}/`
-      return `  <url>\n    <loc>${SITE}${loc}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`
+      return `  <url>\n    <loc>${SITE}${loc}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}${alternatesFor(route, loc)}\n  </url>`
     })
     .join('\n') +
   `\n</urlset>\n`
