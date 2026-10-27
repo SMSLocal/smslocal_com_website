@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import Seo from '../../components/Seo.jsx'
+import { track } from '../../lib/track.js'
 import { Hero, HowItWorks, FAQ, CTABanner } from '../../components/sections/Sections.jsx'
 import '../../components/CpaasPage.css'
 
@@ -42,6 +43,7 @@ function ToolWhatsappLink() {
       document.body.removeChild(el)
     }
     setCopied(true)
+    track('whatsapp_link_copied')
     setTimeout(() => setCopied(false), 1800)
   }
 

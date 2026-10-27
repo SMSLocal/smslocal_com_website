@@ -4,6 +4,7 @@ import Seo from '../components/Seo.jsx'
 import { FAQ } from '../components/sections/Sections.jsx'
 import { IconMail, IconPhone, IconClock, IconGlobe } from '../components/icons.jsx'
 import PhoneCountrySelect from '../components/PhoneCountrySelect.jsx'
+import { track } from '../lib/track.js'
 import { DIAL_CODES } from '../data/dialCodes.js'
 import TrustBar from '../components/home/TrustBar.jsx'
 import ContactSupportConsole from '../components/ContactSupportConsole.jsx'
@@ -53,10 +54,12 @@ function Contact() {
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Something went wrong.')
       setStatus('sent')
+      track('contact_submitted', { reason: payload.reason })
       form.reset()
       setDialCode(DIAL_CODES[0].code)
     } catch (err) {
       setStatus('error')
+      track('contact_failed')
       setErrorMsg(err.message || 'Something went wrong. Please try again.')
     }
   }

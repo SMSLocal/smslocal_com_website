@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PhoneCountrySelect from '../PhoneCountrySelect.jsx'
 import { DIAL_CODES } from '../../data/dialCodes.js'
+import { track } from '../../lib/track.js'
 
 // Line types as libphonenumber reports them. Every label is rendered (hidden)
 // up front so locale pages translate it — see the note in SmsTestForm.jsx.
@@ -48,10 +49,12 @@ export default function CarrierLookupForm() {
       if (res.ok && data.ok) {
         setResult(data)
         setStatus('done')
+        track('carrier_lookup_used', { success: true })
       } else {
         setResult(null)
         setStatus('error')
         setCode(MESSAGES[data.code] ? data.code : 'network')
+        track('carrier_lookup_used', { success: false })
       }
     } catch {
       setResult(null)

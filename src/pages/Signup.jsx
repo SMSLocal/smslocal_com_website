@@ -4,6 +4,7 @@ import Seo from '../components/Seo.jsx'
 import '../components/SignupFlow.css'
 import { COUNTRIES, CURRENCIES, DIAL_CODES, INDUSTRIES } from '../data/signupOptions.js'
 import { IconCheck } from '../components/icons.jsx'
+import { track } from '../lib/track.js'
 
 const BENEFITS = [
   'Free trial credit included, no card required',
@@ -40,19 +41,34 @@ function loadTurnstile() {
 // signed ticket instead, which is sent back with the next step.
 let signupTicket = ''
 
+// One analytics event per step of the flow, with only the outcome attached.
+const STEP_EVENT = {
+  did_check_email: 'signup_email_submitted',
+  did_verify_code: 'signup_code_submitted',
+  did_bulksms_partner_signup: 'signup_details_submitted',
+}
+
 async function callSignup(action, fields, captcha = '') {
-  const res = await fetch(SIGNUP_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action, fields, captcha, ticket: signupTicket }),
-  })
+  let res
+  try {
+    res = await fetch(SIGNUP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action, fields, captcha, ticket: signupTicket }),
+    })
+  } catch (err) {
+    track(STEP_EVENT[action], { success: false, error: 'network' })
+    throw err
+  }
   const text = await res.text()
   let data
   try {
     data = JSON.parse(text)
   } catch {
+    track(STEP_EVENT[action], { success: false, error: 'bad_response' })
     throw new Error('Unexpected response from server')
   }
+  track(STEP_EVENT[action], { success: Boolean(data.success) })
   if (data.success && data.ticket) signupTicket = data.ticket
   return data
 }
@@ -217,6 +233,7 @@ function Signup() {
         form_time: String(formEnteredAt.current || Math.floor(Date.now() / 1000) - 5),
       }, captchaTokenRef.current)
       if (res.success) {
+        track('signup_completed')
         setStep('done')
       } else {
         setError(res.message || 'Something went wrong')

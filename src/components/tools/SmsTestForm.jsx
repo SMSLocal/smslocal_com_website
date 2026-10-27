@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PhoneCountrySelect from '../PhoneCountrySelect.jsx'
 import { DIAL_CODES } from '../../data/dialCodes.js'
 import Turnstile from './Turnstile.jsx'
+import { track } from '../../lib/track.js'
 
 // The fixed text both SMS tools send. Mirrors TEST_MESSAGE in api/_lib/tools.js
 // (the server never takes message content from the visitor).
@@ -68,9 +69,11 @@ export default function SmsTestForm({ tool }) {
       const data = await res.json().catch(() => ({}))
       if (res.ok && data.ok) {
         setStatus('sent')
+        track('test_sms_sent', { tool })
       } else {
         setStatus('error')
         setCode(MESSAGES[data.code] ? data.code : 'network')
+        track('test_sms_failed', { tool, code: MESSAGES[data.code] ? data.code : 'network' })
         // Bad details or number: send them back to the step that can fix it.
         if (data.code === 'invalid_details') setStep(1)
         if (data.code === 'invalid_number' || data.code === 'not_mobile') setStep(2)
@@ -78,6 +81,7 @@ export default function SmsTestForm({ tool }) {
     } catch {
       setStatus('error')
       setCode('network')
+      track('test_sms_failed', { tool, code: 'network' })
     }
     // Turnstile tokens are single-use.
     setToken('')
