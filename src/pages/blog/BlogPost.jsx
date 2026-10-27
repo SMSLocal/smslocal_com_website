@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react'
-import Seo from '../../components/Seo.jsx'
+import Seo, { DEFAULT_OG_IMAGE } from '../../components/Seo.jsx'
 import JsonLd from '../../components/JsonLd.jsx'
 import { SITE_ORIGIN } from '../../components/Canonical.jsx'
 import { withSlash } from '../../lib/url.js'
@@ -20,6 +20,11 @@ function BlogPost() {
   if (!post) return <Navigate to="/blog/" replace />
 
   const related = getRelatedPosts(post.slug)
+  // Posts whose banner is an SVG keep their original raster image for sharing;
+  // Seo falls back to the sitewide card when neither is a raster file.
+  const shareImage = [post.sourceCover, post.cover].find((src) =>
+    /\.(png|jpe?g|webp|gif)$/i.test(src ?? ''),
+  )
   const url = `${SITE_ORIGIN}${withSlash(post.routePath ?? `/blog/${post.slug}`)}`
 
   return (
@@ -30,7 +35,7 @@ function BlogPost() {
         description={post.metaDescription ?? post.excerpt}
         keywords={post.keywords}
         canonical={url}
-        ogImage={post.cover}
+        ogImage={shareImage}
         ogType="article"
         publishedTime={utcISO(post.publishedISO)}
         modifiedTime={utcISO(post.modifiedISO)}
@@ -47,7 +52,7 @@ function BlogPost() {
           mainEntityOfPage: url,
           headline: post.title,
           description: post.metaDescription ?? post.excerpt,
-          image: post.cover ? `${SITE_ORIGIN}${post.cover}` : undefined,
+          image: `${SITE_ORIGIN}${shareImage ?? DEFAULT_OG_IMAGE}`,
           datePublished: utcISO(post.publishedISO),
           dateModified: utcISO(post.modifiedISO ?? post.publishedISO),
           author: {

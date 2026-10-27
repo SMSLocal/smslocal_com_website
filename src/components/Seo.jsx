@@ -4,6 +4,11 @@ import { withSlash } from '../lib/url.js'
 import { useLocale } from '../lib/LocaleContext.jsx'
 import { LANGUAGES } from '../data/languages.js'
 
+/** 1200x630 share card used when a page has no raster image of its own. */
+export const DEFAULT_OG_IMAGE = '/og-default.jpg'
+const DEFAULT_OG_IMAGE_ALT = 'SMSLocal: every customer conversation, in one place'
+const RASTER_IMAGE = /\.(png|jpe?g|webp|gif)(\?.*)?$/i
+
 /**
  * Head tags rendered as real elements rather than written from an effect, so
  * they exist in the prerendered HTML — effects don't run during renderToString,
@@ -52,7 +57,12 @@ function Seo({
       ? canonical.replace(SITE_ORIGIN, `${SITE_ORIGIN}${localePrefix}`)
       : canonical
   const url = localizedCanonical ?? `${SITE_ORIGIN}${localePrefix}${withSlash(pathname)}`
-  const image = ogImage ? new URL(ogImage, SITE_ORIGIN).href : null
+  // Social scrapers (Facebook, LinkedIn, X, Slack) do not render SVG, and a
+  // page that passes no image would preview as a blank card. Anything that is
+  // not a raster image therefore falls back to the sitewide default.
+  const imagePath = ogImage && RASTER_IMAGE.test(ogImage) ? ogImage : DEFAULT_OG_IMAGE
+  const usingDefaultImage = imagePath === DEFAULT_OG_IMAGE
+  const image = new URL(imagePath, SITE_ORIGIN).href
   const keywordList = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
   return (
@@ -65,7 +75,15 @@ function Seo({
       <meta property="og:type" content={ogType ?? 'website'} />
       <meta property="og:locale" content={ogLocale} />
       <meta property="og:url" content={url} />
-      {image && <meta property="og:image" content={image} />}
+      <meta property="og:site_name" content="SMSLocal" />
+      <meta property="og:image" content={image} />
+      {usingDefaultImage && <meta property="og:image:width" content="1200" />}
+      {usingDefaultImage && <meta property="og:image:height" content="630" />}
+      {usingDefaultImage && <meta property="og:image:alt" content={DEFAULT_OG_IMAGE_ALT} />}
+      <meta name="twitter:card" content="summary_large_image" />
+      {resolved && <meta name="twitter:title" content={resolved} />}
+      {description && <meta name="twitter:description" content={description} />}
+      <meta name="twitter:image" content={image} />
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     </>
