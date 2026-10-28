@@ -497,7 +497,15 @@
    {
     "type": "p",
     "rich": [
-     "Using dedicated landing pages for your SMS marketing provides the following advantages:"
+     "Using dedicated landing pages for your ",
+     {
+      "a": "/blog/what-is-sms-marketing/",
+      "x": false,
+      "c": [
+       "SMS marketing"
+      ]
+     },
+     " provides the following advantages:"
     ]
    },
    {
@@ -2929,7 +2937,15 @@
    {
     "type": "p",
     "rich": [
-     "SMS is limited to 160 characters, so clarity and conciseness are essential. To ensure your messages stand out and drive action, keep these tips in mind:"
+     "SMS is limited to ",
+     {
+      "a": "/blog/sms-character-limit/",
+      "x": false,
+      "c": [
+       "160 characters"
+      ]
+     },
+     ", so clarity and conciseness are essential. To ensure your messages stand out and drive action, keep these tips in mind:"
     ]
    },
    {
@@ -6991,7 +7007,15 @@
    {
     "type": "p",
     "rich": [
-     "Imagine we’re managing a busy dental office with appointments back-to-back. With such a tight schedule, it’s easy to overlook sending appointment reminders. Missing these reminders can cause patients to miss their scheduled times, leading to potential no-shows. Here, scheduling text messages becomes an essential tool for us. We can set reminders to go out automatically, ensuring our patients know about their upcoming visits well in advance."
+     "Imagine we’re managing a busy dental office with appointments back-to-back. With such a tight schedule, it’s easy to overlook sending ",
+     {
+      "a": "/blog/appointment-reminder-text-message/",
+      "x": false,
+      "c": [
+       "appointment reminders"
+      ]
+     },
+     ". Missing these reminders can cause patients to miss their scheduled times, leading to potential no-shows. Here, scheduling text messages becomes an essential tool for us. We can set reminders to go out automatically, ensuring our patients know about their upcoming visits well in advance."
     ]
    },
    {
@@ -11311,7 +11335,15 @@
    {
     "type": "p",
     "rich": [
-     "Tap into the potential of the region with targeted marketing and outreach strategies. Learn how to leverage the power of SMS and bulk SMS marketing to reach customers in the area."
+     "Tap into the potential of the region with targeted marketing and outreach strategies. Learn how to leverage the power of SMS and bulk ",
+     {
+      "a": "/blog/what-is-sms-marketing/",
+      "x": false,
+      "c": [
+       "SMS marketing"
+      ]
+     },
+     " to reach customers in the area."
     ]
    },
    {
@@ -13745,7 +13777,15 @@
    {
     "type": "p",
     "rich": [
-     "SMS meaning, which stands for Short Messaging Service, is a method of sending brief text messages between cell phones. These messages are usually limited to 160 characters. This limit is due to the SMS framework used in the Global System for Mobile Communications (GSM), which was established in the 1980s. If we add special characters or emojis, the limit can reduce to 70 characters."
+     "SMS meaning, which stands for Short Messaging Service, is a method of sending brief text messages between cell phones. These messages are usually limited to ",
+     {
+      "a": "/blog/sms-character-limit/",
+      "x": false,
+      "c": [
+       "160 characters"
+      ]
+     },
+     ". This limit is due to the SMS framework used in the Global System for Mobile Communications (GSM), which was established in the 1980s. If we add special characters or emojis, the limit can reduce to 70 characters."
     ]
    },
    {
@@ -30573,7 +30613,15 @@
        "Example: Appointment Reminders via SMS for Businesses"
       ]
      },
-     "A dentist’s office can send appointment reminders the day before to reduce no-shows. This saves time and improving customer service."
+     "A dentist’s office can send ",
+     {
+      "a": "/blog/appointment-reminder-text-message/",
+      "x": false,
+      "c": [
+       "appointment reminders"
+      ]
+     },
+     " the day before to reduce no-shows. This saves time and improving customer service."
     ]
    },
    {
@@ -30713,7 +30761,14 @@
    {
     "type": "p",
     "rich": [
-     "Two-way texting allows your customers to respond privately, enhancing customer support and fostering more personalized interactions."
+     {
+      "a": "/blog/two-way-texting/",
+      "x": false,
+      "c": [
+       "Two-way texting"
+      ]
+     },
+     " allows your customers to respond privately, enhancing customer support and fostering more personalized interactions."
     ]
    },
    {
@@ -33599,7 +33654,15 @@
        "integration platform"
       ]
      },
-     ", streamline communication, allowing you to focus on what matters most – growing your business. Whether it’s appointment reminders, delivery updates, or marketing campaigns, automation can handle it all."
+     ", streamline communication, allowing you to focus on what matters most – growing your business. Whether it’s ",
+     {
+      "a": "/blog/appointment-reminder-text-message/",
+      "x": false,
+      "c": [
+       "appointment reminders"
+      ]
+     },
+     ", delivery updates, or marketing campaigns, automation can handle it all."
     ]
    },
    {
@@ -34549,7 +34612,15 @@
        "businesses customize texts"
       ]
      },
-     " for a personal touch. Additionally, our two-way messaging allows interactive communication, letting customers reply directly. Through real-time delivery reports and analytics, we can monitor and improve our campaign’s success."
+     " for a personal touch. Additionally, our ",
+     {
+      "a": "/blog/two-way-texting/",
+      "x": false,
+      "c": [
+       "two-way messaging"
+      ]
+     },
+     " allows interactive communication, letting customers reply directly. Through real-time delivery reports and analytics, we can monitor and improve our campaign’s success."
     ]
    },
    {
@@ -104329,7 +104400,15 @@
        "SMSLocal further enhances the messaging capabilities of Send SMS API"
       ]
      },
-     " PHP. This enables seamless integration of transactional bulk SMS. SMSLocal provides businesses with a comprehensive messaging solution, including additional features such as two-way SMS messaging, shortcodes, and longcodes. This allows businesses to cater to a wider audience and personalize their messaging even further."
+     " PHP. This enables seamless integration of transactional bulk SMS. SMSLocal provides businesses with a comprehensive messaging solution, including additional features such as ",
+     {
+      "a": "/blog/two-way-texting/",
+      "x": false,
+      "c": [
+       "two-way SMS messaging"
+      ]
+     },
+     ", shortcodes, and longcodes. This allows businesses to cater to a wider audience and personalize their messaging even further."
     ]
    },
    {
@@ -132381,6 +132460,3170 @@
     "q": "Does 10DLC change the SMS character limit?",
     "rich": [
      "No. Message length works the same on every number type: 160 characters per segment in standard text, and 70 when a message contains an emoji or other special characters."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "sms-character-limit",
+  "routePath": "/blog/sms-character-limit",
+  "sourceUrl": "https://www.smslocal.com/blog/sms-character-limit/",
+  "sourceType": "post",
+  "title": "SMS Character Limit: How Long Can a Text Message Be?",
+  "metaTitle": "SMS Character Limit: 160, 70 and Why Your Text Gets Split",
+  "metaDescription": "Learn the SMS character limit (160 vs 70), how segments work, why emojis raise your cost, and how to write texts that stay in one segment. See examples.",
+  "keywords": "SMS Character Limit",
+  "category": "SMS Insights",
+  "categories": [
+   "SMS Insights"
+  ],
+  "tags": [
+   "SMS Character Limit"
+  ],
+  "date": "October 28, 2026",
+  "dateISO": "2026-10-28",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-28T09:00:00",
+  "readTime": "10 min read",
+  "words": 2186,
+  "excerpt": "You write a clear, friendly 170-character text for your customers. It looks fine on your screen. Then your delivery report shows it went out as two messages, and your bill reflects it.",
+  "cover": "/blog/sms-character-limit/cover.svg",
+  "sourceCover": "/blog/sms-character-limit/cover.svg",
+  "coverAlt": "SMS character limit: 160 characters per standard text, 70 with an emoji, longer messages split into segments",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You write a clear, friendly 170-character text for your customers. It looks fine on your screen. Then your delivery report shows it went out as two messages, and your bill reflects it."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "That surprise comes from the SMS character limit. A single text message has a hard size cap, and the cap changes depending on what you type. A curly apostrophe or one emoji can cut your room by more than half."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide explains the limit in plain terms: what the numbers are, why they exist, how long messages are stitched together, and how to write texts that land in one piece. Examples are based on how businesses in the USA send messages today, whether from a phone or a bulk SMS platform like SMSLocal."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "A standard SMS holds ",
+      {
+       "b": [
+        "160 characters"
+       ]
+      },
+      " when it uses the basic GSM-7 alphabet."
+     ],
+     [
+      "One emoji, or one character outside that alphabet, switches the whole message to Unicode, where the limit is ",
+      {
+       "b": [
+        "70 characters"
+       ]
+      },
+      "."
+     ],
+     [
+      "Longer messages are split into ",
+      {
+       "b": [
+        "segments"
+       ]
+      },
+      " of 153 (GSM-7) or 67 (Unicode) characters, and most platforms bill per segment."
+     ],
+     [
+      "Opt-out wording, links and your business name all count toward the limit, so plan for them first."
+     ],
+     [
+      "You can preview and test your message before a campaign goes out, which is cheaper than finding out afterward."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is the SMS Character Limit?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The SMS character limit is the maximum amount of text that fits in one Short Message Service message. For a message written in plain English letters, numbers and common punctuation, that maximum is 160 characters."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The number goes back to 1985. Engineer Friedhelm Hillebrand, who helped design the SMS standard, reportedly tested typical postcards and telex messages and found that most thoughts fit in about 160 characters. The signalling channel that carries texts had very little spare room, so 160 became the standard and it never moved."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "That is why a text is not like an email. A text travels over a small control channel on the mobile network, not through your data plan. It was built to be short."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Why does the number change?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Because the real limit is not 160 characters. It is ",
+     {
+      "b": [
+       "140 bytes"
+      ]
+     },
+     ". How many characters fit in 140 bytes depends on how each character is encoded:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "GSM-7"
+       ]
+      },
+      " uses 7 bits per character, so 140 bytes holds 160 characters."
+     ],
+     [
+      {
+       "b": [
+        "UCS-2 (Unicode)"
+       ]
+      },
+      " uses 16 bits per character, so 140 bytes holds only 70 characters."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The phone or platform picks the encoding for you. If every character in your message exists in the GSM-7 alphabet, it uses GSM-7. If even one does not, the entire message flips to Unicode."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Character Limits at a Glance",
+    "anchor": null
+   },
+   {
+    "type": "table",
+    "head": [
+     [
+      "Message type"
+     ],
+     [
+      "Single message"
+     ],
+     [
+      "Each part of a longer message"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "GSM-7 (standard letters, numbers, common symbols)"
+      ],
+      [
+       "160 characters"
+      ],
+      [
+       "153 characters"
+      ]
+     ],
+     [
+      [
+       "Unicode / UCS-2 (emojis, curly quotes, non-Latin scripts)"
+      ],
+      [
+       "70 characters"
+      ],
+      [
+       "67 characters"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Why is each part of a longer message shorter than a single message? The network needs a small header to put the pieces back in order, and that header takes up 7 characters' worth of space in GSM-7 (and 3 in Unicode)."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is an SMS Segment?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A segment is one billable unit of a text. If your message fits in one limit, it is one segment. If it does not, it is cut into pieces, and each piece is a segment."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Here is how that looks with real numbers:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "A 140-character GSM-7 message = ",
+      {
+       "b": [
+        "1 segment"
+       ]
+      },
+      "."
+     ],
+     [
+      "A 200-character GSM-7 message = ",
+      {
+       "b": [
+        "2 segments"
+       ]
+      },
+      " (153 + 47)."
+     ],
+     [
+      "A 306-character GSM-7 message = ",
+      {
+       "b": [
+        "2 segments"
+       ]
+      },
+      " (153 + 153). Add one more character and it becomes ",
+      {
+       "b": [
+        "3 segments"
+       ]
+      },
+      "."
+     ],
+     [
+      "A 100-character message that contains one emoji = ",
+      {
+       "b": [
+        "2 segments"
+       ]
+      },
+      ", because the emoji forces Unicode and the single-message limit drops to 70."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The recipient does not see segments. Modern phones glue them into one message. But on your side, each segment is typically a separate charge, so a 10,000-contact campaign at two segments per text is 20,000 billable segments."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Why Emojis and Fancy Punctuation Eat Your Limit",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Most people never realize their message is in Unicode. The usual culprits:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Emojis."
+       ]
+      },
+      " Even one is enough."
+     ],
+     [
+      {
+       "b": [
+        "Curly quotes and apostrophes."
+       ]
+      },
+      " If you draft in Word, Google Docs or Notes, your straight apostrophe (') often becomes a curly one (’). That single character switches the message to Unicode."
+     ],
+     [
+      {
+       "b": [
+        "Long dashes"
+       ]
+      },
+      " such as the em dash."
+     ],
+     [
+      {
+       "b": [
+        "Accented or non-Latin letters"
+       ]
+      },
+      " that are not in the GSM-7 set, including some characters used in Spanish-language messages."
+     ],
+     [
+      {
+       "b": [
+        "Non-English scripts"
+       ]
+      },
+      " such as Chinese, Arabic or Hindi."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "There is a second quirk. A handful of GSM-7 characters, including ^ { } \\ [ ] ~ | and the euro sign, use an escape sequence and count as ",
+     {
+      "b": [
+       "two"
+      ]
+     },
+     " characters each. Both alphabets are defined in the ",
+     {
+      "a": "https://www.etsi.org/deliver/etsi_ts/123000_123099/123038/17.00.00_60/ts_123038v170000p.pdf",
+      "x": true,
+      "c": [
+       "ETSI and 3GPP specification TS 23.038"
+      ]
+     },
+     ", which says the GSM 7-bit alphabet allows up to 160 characters in a message."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A quick example. This is only about 80 characters, but it will send as two segments:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Hi Maria, your table for 4 is ready 🍽️ Come on in — we’ll hold it for 10 minutes."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The emoji, the em dash and the curly apostrophe each trigger Unicode. Rewriting it with plain punctuation and no emoji brings it back to a single segment:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Hi Maria, your table for 4 is ready. Come on in, we'll hold it for 10 minutes."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Do Emojis and Unicode Ever Make Sense?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Yes, when the message earns it. A birthday offer or a restaurant promotion can feel warmer with one well-placed emoji, and Spanish-language campaigns need their accented characters to read correctly."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The trick is to choose on purpose. If your message is already close to 70 characters, Unicode is cheap. If it runs 140 characters or more, adding an emoji can double the segments. Test both versions on a small audience and compare response, not just cost."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "SMS Limits vs MMS Limits",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you need more room, MMS (Multimedia Messaging Service) is the other option. It is built for images, short video, audio and longer text, and it is not constrained by the 160-character rule in the same way."
+    ]
+   },
+   {
+    "type": "table",
+    "head": [
+     [],
+     [
+      "SMS"
+     ],
+     [
+      "MMS"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Text length"
+      ],
+      [
+       "160 (GSM-7) or 70 (Unicode) per segment"
+      ],
+      [
+       "Much longer text, commonly up to about 1,600 characters"
+      ]
+     ],
+     [
+      [
+       "Media"
+      ],
+      [
+       "None"
+      ],
+      [
+       "Images, GIFs, short video, audio"
+      ]
+     ],
+     [
+      [
+       "Delivery"
+      ],
+      [
+       "Works on any mobile phone"
+      ],
+      [
+       "Needs MMS support and a data connection on many devices"
+      ]
+     ],
+     [
+      [
+       "Cost"
+      ],
+      [
+       "Lower"
+      ],
+      [
+       "Typically higher per message"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Limits for media size and text length vary by carrier and by platform, so check your provider's documentation before designing a campaign around a specific file size. A safe habit is to keep images small. For a deeper comparison, read our guide on ",
+     {
+      "a": "/blog/sms-vs-mms/",
+      "x": false,
+      "c": [
+       "SMS vs MMS"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "iMessage, the blue-bubble service between Apple devices, is a different system altogether and does not follow the SMS limit. Your business texts to a customer's iPhone still go out as SMS or MMS unless they are sent through a channel that supports Apple's messaging service."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Counts Toward Your Character Limit",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Everything the customer sees counts. When you budget your message, include:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Your ",
+      {
+       "b": [
+        "business name"
+       ]
+      },
+      ", which US carriers and regulations expect you to identify."
+     ],
+     [
+      "Any ",
+      {
+       "b": [
+        "personalization"
+       ]
+      },
+      " you merge in, like a name or order number. A first name can be 4 characters or 14."
+     ],
+     [
+      {
+       "b": [
+        "Links."
+       ]
+      },
+      " A full URL with tracking can use 60 or more characters by itself."
+     ],
+     [
+      {
+       "b": [
+        "Opt-out wording."
+       ]
+      },
+      " Messages sent to customers should give an easy way to stop, such as \"Reply STOP to opt out.\" That alone is about 22 characters."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A message you plan as 130 characters might grow to 190 after merge fields, a link and opt-out text. Plan for the longest version, not the average one."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "A note about links",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Short links save characters, but be careful with free public link shorteners. Carriers can treat them as a spam signal, and messages containing them may be filtered. A branded short link on your own domain is a safer way to keep a URL short and trusted."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Write Within the Limit: Practical Tips",
+    "anchor": null
+   },
+   {
+    "type": "ol",
+    "items": [
+     [
+      {
+       "b": [
+        "Lead with the point."
+       ]
+      },
+      " Put the offer, the time or the action in the first 100 characters."
+     ],
+     [
+      {
+       "b": [
+        "Cut filler."
+       ]
+      },
+      " \"Just a reminder that\" and \"We wanted to let you know\" are easy deletions."
+     ],
+     [
+      {
+       "b": [
+        "Use plain punctuation."
+       ]
+      },
+      " Type straight quotes and apostrophes, or paste your draft into a plain-text editor first."
+     ],
+     [
+      {
+       "b": [
+        "Count the extras."
+       ]
+      },
+      " Add opt-out text, your business name and the longest likely personalization before you decide the length."
+     ],
+     [
+      {
+       "b": [
+        "Use one clear call to action."
+       ]
+      },
+      " Two requests in one text tend to cost characters and reduce replies."
+     ],
+     [
+      {
+       "b": [
+        "Test at scale."
+       ]
+      },
+      " Send your final version to your own phone and a few colleagues to see how it actually arrives."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Here is how a real edit looks. The original is 203 characters and sends as two segments:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Hello valued customer! We just wanted to remind you that your appointment with Dr. Lee is scheduled for tomorrow, March 14th at 3:00 PM. Please reply to this message if you need to reschedule. Thank you!"
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The tightened version is 126 characters and stays in one segment:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Reminder: your appointment with Dr. Lee is tomorrow, Mar 14 at 3:00 PM. Reply C to confirm or R to reschedule. STOP to opt out"
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "It says the same thing, gives a faster reply path and costs half as much, since it is one segment instead of two."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Check and Send Within the Limit Using SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Whatever platform you choose, the workflow is similar. Here is how it works with SMSLocal."
+    ]
+   },
+   {
+    "type": "ol",
+    "items": [
+     [
+      {
+       "b": [
+        "Create your account."
+       ]
+      },
+      " Register on the SMSLocal website. Signing up takes a few minutes, and you can start with a free trial."
+     ],
+     [
+      {
+       "b": [
+        "Import your contacts."
+       ]
+      },
+      " Upload a list or add numbers manually, and group them so you can send targeted messages."
+     ],
+     [
+      {
+       "b": [
+        "Write your message."
+       ]
+      },
+      " Draft it in a template if you have one, using merge fields for names or order details. Write with the longest likely values in mind."
+     ],
+     [
+      {
+       "b": [
+        "Review the length before sending."
+       ]
+      },
+      " Check your message for emojis, curly punctuation and the opt-out line. Send a test to your own phone."
+     ],
+     [
+      {
+       "b": [
+        "Schedule or send."
+       ]
+      },
+      " Send right away or pick a date and time that suits your audience."
+     ],
+     [
+      {
+       "b": [
+        "Read your delivery reports."
+       ]
+      },
+      " Confirm the messages went out, and note whether any customers replied. Use what you learn to tighten the next message."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Planning your sends also reduces failed or delayed messages. If a text is not reaching anyone, our guide to ",
+     {
+      "a": "/blog/text-messages-not-sending/",
+      "x": false,
+      "c": [
+       "why text messages are not sending"
+      ]
+     },
+     " covers common causes."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Does the Limit Change for Business Messaging?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The character limit itself does not change when you use a business number. A 10DLC number, a toll-free number or a short code all deliver SMS segments of the same size. What changes is the compliance around the message, such as identifying your business, giving opt-out options and sending only to people who agreed to receive texts."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you are new to how business texting works in the US, our overview of ",
+     {
+      "a": "/blog/a2p-messaging/",
+      "x": false,
+      "c": [
+       "A2P messaging"
+      ]
+     },
+     " explains the difference between application-to-person and regular texting."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The SMS character limit is simple on paper: 160 characters in GSM-7, 70 in Unicode. In practice, one curly apostrophe or one emoji decides which number applies, and the answer shows up as segments on your bill."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Write for the limit before you hit send. Keep your lead short, use plain punctuation unless the emoji is worth the cost, and budget room for your business name, link and opt-out text. Test the message, read the report, and adjust."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to send smarter texts with SMSLocal?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and see how easy it is to reach your customers."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is the SMS character limit for a text message?",
+    "rich": [
+     "A standard SMS holds 160 characters when it uses the GSM-7 alphabet. If it includes an emoji or another character outside that alphabet, the limit drops to 70 characters for a single message."
+    ]
+   },
+   {
+    "q": "What happens if I go over the limit?",
+    "rich": [
+     "The message is split into segments and sent as a joined message. Most phones show it as one message, but each segment counts separately for billing. Longer messages use 153 characters (GSM-7) or 67 characters (Unicode) per segment."
+    ]
+   },
+   {
+    "q": "Do emojis count as more than one character?",
+    "rich": [
+     "Yes. An emoji itself can take more than one character of space, and it also switches the entire message to Unicode encoding. That cuts your limit from 160 to 70 per segment. A message with a single emoji can easily double in segments."
+    ]
+   },
+   {
+    "q": "Is there a maximum length for a long text?",
+    "rich": [
+     "It depends on the carrier and your messaging platform. Many platforms allow messages of up to roughly 1,600 characters, but long texts are harder to read and cost more. If you need more than a few sentences, consider linking to a page or using MMS."
+    ]
+   },
+   {
+    "q": "Does the limit apply to iPhone and Android the same way?",
+    "rich": [
+     "SMS works the same on both. If an iPhone user texts another iPhone user through iMessage, that is a separate Apple service and does not follow SMS limits. Messages sent from a business texting platform go out as SMS or MMS."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "what-is-sms-marketing",
+  "routePath": "/blog/what-is-sms-marketing",
+  "sourceUrl": "https://www.smslocal.com/blog/what-is-sms-marketing/",
+  "sourceType": "post",
+  "title": "What Is SMS Marketing? A Plain-English Guide for Businesses",
+  "metaTitle": "What Is SMS Marketing? A Plain-English Guide for Businesses",
+  "metaDescription": "What is SMS marketing? It means texting promotions, reminders and updates to customers who opted in. See how it works, the US rules and how to get started.",
+  "keywords": "What Is SMS Marketing",
+  "category": "Promotional SMS",
+  "categories": [
+   "Promotional SMS"
+  ],
+  "tags": [
+   "SMS Marketing"
+  ],
+  "date": "October 28, 2026",
+  "dateISO": "2026-10-28",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-28T09:00:00",
+  "readTime": "9 min read",
+  "words": 1890,
+  "excerpt": "Think about the last time a business texted you. Maybe a salon confirmed your appointment, a store told you a package was on its way, or a restaurant sent a coupon for the weekend. You probably read it within a few minutes, and you may have acted on it…",
+  "cover": "/blog/what-is-sms-marketing/cover.svg",
+  "sourceCover": "/blog/what-is-sms-marketing/cover.svg",
+  "coverAlt": "What is SMS marketing: customers opt in, a business sends texts, customers reply or opt out",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Think about the last time a business texted you. Maybe a salon confirmed your appointment, a store told you a package was on its way, or a restaurant sent a coupon for the weekend. You probably read it within a few minutes, and you may have acted on it before you put the phone down."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "So what is SMS marketing? At its simplest, a business sends a short text to people who agreed to hear from it, and the message arrives on the screen people check most often."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide explains what SMS marketing is, how it works behind the scenes, what you can send, what the rules are in the USA, and how a small team can get started without a big budget."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "SMS marketing is permission-based texting for promotions, reminders, updates and conversations."
+     ],
+     [
+      "Promotional messages need written consent, and every message needs an opt-out."
+     ],
+     [
+      "Businesses send from registered 10DLC numbers, toll-free numbers or short codes."
+     ],
+     [
+      "Start with one goal, a clean opt-in list and a short, clear message."
+     ],
+     [
+      "Track delivery, replies and opt-outs, and adjust from there."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is SMS Marketing?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "SMS marketing is the practice of sending promotional and customer-focused text messages to people who have given a business permission to contact them. SMS stands for Short Message Service, the same technology behind the ordinary texts on every mobile phone."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The word \"marketing\" can be misleading. Many of the best SMS messages do not sell anything directly. They remind a patient of an appointment, tell a shopper their order shipped, or give a loyal customer early access to a sale. Selling is one use. Keeping customers informed and connected is the bigger one."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Two things separate SMS marketing from a text a friend sends you:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "It is permission-based."
+       ]
+      },
+      " A business may only send marketing texts to people who opted in, and every message needs a clear way to stop receiving them."
+     ],
+     [
+      {
+       "b": [
+        "It is sent at scale."
+       ]
+      },
+      " Instead of typing one message at a time, a business uses a messaging platform to send the same message, or a personalized version of it, to thousands of contacts at once."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How Does SMS Marketing Work?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You do not need to understand the telecom side to use it, but a quick picture helps you make better decisions."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "From your screen to the customer's phone",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You write a message in a platform such as SMSLocal and choose who receives it. The platform passes the text to a network of carriers, and the carriers deliver it to each phone. The platform then sends back a delivery report that shows what arrived, what failed and who replied."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "The numbers businesses send from",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "In the United States, businesses typically send from one of three kinds of number:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "A local 10-digit number (10DLC)"
+       ]
+      },
+      ", which looks like an ordinary phone number and feels familiar to customers. Businesses register their brand and campaign before sending."
+     ],
+     [
+      {
+       "b": [
+        "A toll-free number"
+       ]
+      },
+      ", which is popular for customer service and needs its own verification."
+     ],
+     [
+      {
+       "b": [
+        "A short code"
+       ]
+      },
+      ", a five or six-digit number built for high-volume campaigns."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Which one fits depends on how many messages you send and how quickly you need to start. If you are unsure, our guide to ",
+     {
+      "a": "/blog/a2p-messaging/",
+      "x": false,
+      "c": [
+       "A2P messaging"
+      ]
+     },
+     " explains how business texting differs from texting between friends."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Opt-in comes first",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Before anyone gets a marketing text, they have to say yes. That can happen through a web form, a checkbox at checkout, a keyword text such as \"Text SALE to 12345,\" or a paper sign-up sheet at the front desk. Keep a record of how and when each person agreed."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Kinds of Messages Can You Send?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "SMS marketing covers more than discount codes. The common message types fall into a few groups."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Promotional messages"
+      ]
+     },
+     " are the classic use: flash sales, new arrivals, coupons, loyalty rewards, birthday offers and event invitations. These need prior written consent from the customer."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Transactional messages"
+      ]
+     },
+     " respond to something the customer did: order confirmations, shipping updates, one-time passcodes and receipts. They are expected and useful, which is why customers tend to welcome them. Our post on ",
+     {
+      "a": "/blog/transactional-sms/",
+      "x": false,
+      "c": [
+       "transactional SMS"
+      ]
+     },
+     " goes deeper."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Reminders and alerts"
+      ]
+     },
+     " include appointment reminders, payment due dates, service changes and weather closures."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Conversational messages"
+      ]
+     },
+     " invite a reply. A customer texts a question, and your team texts back. Two-way conversations turn a broadcast channel into a relationship."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Most businesses mix these. A dental office, for example, might send appointment reminders every week, a recall notice twice a year and a seasonal whitening offer to patients who asked for offers."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Why Businesses Use SMS Marketing",
+    "anchor": null
+   },
+   {
+    "type": "h3",
+    "text": "It reaches people where they already are",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Almost everyone in the US carries a mobile phone, and a text does not need an app, a login or a data connection to be read. Compared with email, which can sit unopened among dozens of other messages, a text tends to get noticed faster."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "It is short by design",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A text forces you to say the point in a sentence or two. That discipline helps customers act: a time, a code, a link. If you want to know exactly how long a text can be, read our guide to the ",
+     {
+      "a": "/blog/sms-character-limit/",
+      "x": false,
+      "c": [
+       "SMS character limit"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "It supports every size of business",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A neighborhood bakery and a national retailer can both send a text. Pricing is usually based on how many messages you send, so a small list costs little to start."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "It is measurable",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Delivery reports, link clicks and replies show what worked. You can run two versions of a message and keep the winner."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "It works alongside other channels",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "SMS does not have to replace email or social media. A strong plan uses each channel for what it does best, such as email for longer content and SMS for time-sensitive nudges."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "The Rules You Need to Follow",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Texting customers is regulated, and breaking the rules can be expensive. These are the basics for US businesses. They are a starting point, not legal advice, so talk to a lawyer about your specific situation."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Get consent."
+       ]
+      },
+      " The Telephone Consumer Protection Act (TCPA) and the FCC's rule at ",
+      {
+       "a": "https://www.law.cornell.edu/cfr/text/47/64.1200",
+       "x": true,
+       "c": [
+        "47 CFR 64.1200"
+       ]
+      },
+      " call for prior express written consent for marketing texts sent with an automatic dialing system."
+     ],
+     [
+      {
+       "b": [
+        "Identify yourself."
+       ]
+      },
+      " Every message should make clear who it is from."
+     ],
+     [
+      {
+       "b": [
+        "Offer a simple opt-out."
+       ]
+      },
+      " Include wording like \"Reply STOP to unsubscribe,\" and honor requests promptly."
+     ],
+     [
+      {
+       "b": [
+        "Respect quiet hours."
+       ]
+      },
+      " The FCC rule on telephone solicitations bars them before 8 a.m. or after 9 p.m. in the called party's local time, and many businesses apply the same window to marketing texts."
+     ],
+     [
+      {
+       "b": [
+        "Register your campaigns."
+       ]
+      },
+      " Carriers expect businesses sending from 10DLC numbers to register their brand and use case before sending."
+     ],
+     [
+      {
+       "b": [
+        "Follow carrier and industry guidelines."
+       ]
+      },
+      " Industry groups such as CTIA publish messaging standards that carriers enforce."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you want the carrier side in detail, our ",
+     {
+      "a": "/blog/10dlc-registration/",
+      "x": false,
+      "c": [
+       "10DLC registration guide"
+      ]
+     },
+     " covers brand and campaign registration step by step."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "How to Start SMS Marketing",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You can launch a basic program in an afternoon. Here is a practical path."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "1. Decide what the texts are for."
+      ]
+     },
+     " Pick one goal at first, such as reducing missed appointments or bringing back lapsed customers. A narrow goal makes the first campaign easier to judge."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "2. Build a list the right way."
+      ]
+     },
+     " Add a sign-up box to your website and checkout, put a keyword on a sign in your shop, and ask at the point of service. Tell people what they will receive and how often."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "3. Choose a platform."
+      ]
+     },
+     " Look for contact management, scheduling, personalization, replies and delivery reporting. With SMSLocal you can import your contacts, write and schedule messages, and review delivery results from one dashboard."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "4. Write a message worth reading."
+      ]
+     },
+     " Lead with value, say who you are, keep it short and give one clear action. A good example: \"Maria's Bakery: Fresh sourdough is out of the oven. Show this text for a free cookie today. Reply STOP to opt out.\""
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "5. Pick your timing."
+      ]
+     },
+     " Send when people can act on the message. A lunch offer works at 10:30 a.m., not at 9 p.m."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "6. Send, measure and adjust."
+      ]
+     },
+     " Check delivery, clicks, replies and opt-outs. If opt-outs climb, your messages may be too frequent or off-target."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "For ideas on what to send, see our collection of ",
+     {
+      "a": "/blog/creative-sms-marketing-ideas-for-businesses-texting-your-way-to-success/",
+      "x": false,
+      "c": [
+       "SMS marketing ideas"
+      ]
+     },
+     ". If you plan to message a large list, our guide to a ",
+     {
+      "a": "/blog/bulk-sms-campaign/",
+      "x": false,
+      "c": [
+       "bulk SMS campaign"
+      ]
+     },
+     " covers choosing a provider and the features to look for."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Common Mistakes to Avoid",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Texting people who never opted in."
+       ]
+      },
+      " Buying a list is a fast way to get blocked and fined."
+     ],
+     [
+      {
+       "b": [
+        "Sending too often."
+       ]
+      },
+      " A weekly message is plenty for many businesses. Tell people the expected frequency when they join."
+     ],
+     [
+      {
+       "b": [
+        "Writing like an ad."
+       ]
+      },
+      " A message that sounds like a billboard gets ignored. Write the way you would speak to a regular customer."
+     ],
+     [
+      {
+       "b": [
+        "Forgetting the opt-out."
+       ]
+      },
+      " Missing STOP language causes compliance problems and annoys customers."
+     ],
+     [
+      {
+       "b": [
+        "Ignoring replies."
+       ]
+      },
+      " If a customer answers and no one responds, you lose the benefit of a two-way channel."
+     ],
+     [
+      {
+       "b": [
+        "Skipping the test."
+       ]
+      },
+      " Always send the message to your own phone first. Check the link, the spelling and how it looks."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Marketing vs Email Marketing",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "People often ask which is better. The honest answer is that they do different jobs."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Email suits long content, newsletters, receipts with detail and messages people read at a desk. SMS suits short, urgent, personal messages such as a reminder or a limited-time offer. Email also costs less per message at very large volume, while SMS usually reaches people faster. Many businesses use both and send the same offer by email first, then follow up by text for those who have not opened it."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "What is SMS marketing, in the end? It is a simple idea: send useful, permission-based text messages to your customers, and measure what happens. Done well, it makes your business easier to hear and easier to do business with. Done poorly, it feels like spam."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The difference comes down to a few habits. Ask before you send. Say something worth a customer's time. Keep it short, make it easy to opt out, and learn from every campaign."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to start texting your customers with SMSLocal?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and send your first campaign today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is SMS marketing?",
+    "rich": [
+     "SMS marketing is sending promotional and customer-focused text messages to people who gave a business permission to contact them. It covers offers, reminders, order updates and two-way conversations."
+    ]
+   },
+   {
+    "q": "Is SMS marketing legal?",
+    "rich": [
+     "Yes, when you follow the rules. In the US that means getting prior express written consent for marketing texts, identifying your business, offering a simple opt-out and honoring it promptly. This is general information, not legal advice."
+    ]
+   },
+   {
+    "q": "How much does SMS marketing cost?",
+    "rich": [
+     "Pricing is usually based on the number of messages you send, plus any carrier and registration fees. Check your provider's current pricing, since amounts change."
+    ]
+   },
+   {
+    "q": "How is SMS marketing different from email marketing?",
+    "rich": [
+     "SMS suits short, urgent and personal messages and reaches people quickly. Email suits longer content and newsletters. Many businesses use both channels for different jobs."
+    ]
+   },
+   {
+    "q": "Do I need a special number for SMS marketing?",
+    "rich": [
+     "Businesses typically send from a registered local 10-digit number, a toll-free number or a short code. Which one fits depends on your volume and how quickly you need to start."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "appointment-reminder-text-message",
+  "routePath": "/blog/appointment-reminder-text-message",
+  "sourceUrl": "https://www.smslocal.com/blog/appointment-reminder-text-message/",
+  "sourceType": "post",
+  "title": "Appointment Reminder Text Message: Examples, Timing and Best Practices",
+  "metaTitle": "Appointment Reminder Text Message: Examples & Best Practices",
+  "metaDescription": "Cut no-shows with an appointment reminder text message. Get timing tips, ready-to-use examples for dental, salon, clinic and more, and a simple setup guide.",
+  "keywords": "Appointment Reminder Text Message",
+  "category": "Alert SMS",
+  "categories": [
+   "Alert SMS"
+  ],
+  "tags": [
+   "Appointment Reminders"
+  ],
+  "date": "October 28, 2026",
+  "dateISO": "2026-10-28",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-28T09:00:00",
+  "readTime": "8 min read",
+  "words": 1854,
+  "excerpt": "An empty chair costs more than it looks like. A dental hygienist waits at 2:15 p.m. for a 2:00 patient who simply forgot. The hour cannot be resold, the supplies are set out, and the next patient is already running late because the front desk is busy…",
+  "cover": "/blog/appointment-reminder-text-message/cover.svg",
+  "sourceCover": "/blog/appointment-reminder-text-message/cover.svg",
+  "coverAlt": "Appointment reminder text message: a booking, a timed reminder and a reply to confirm or reschedule",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "An empty chair costs more than it looks like. A dental hygienist waits at 2:15 p.m. for a 2:00 patient who simply forgot. The hour cannot be resold, the supplies are set out, and the next patient is already running late because the front desk is busy making calls."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A short appointment reminder text message fixes most of that. It lands on the screen people look at all day, it asks for one tiny action, and it costs a fraction of a missed visit."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide covers what to say, when to send it, how to handle replies, how to stay compliant in the USA and how to automate the whole thing."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "A good appointment reminder text message names your business, the date, time and place, and asks for one action."
+     ],
+     [
+      "Send one reminder a day or two ahead, and a second one a few hours before if no-shows are common."
+     ],
+     [
+      "Let customers reply to confirm, reschedule or cancel, and make sure someone reads the replies."
+     ],
+     [
+      "Get consent when the customer books, include opt-out wording and honor STOP right away."
+     ],
+     [
+      "Keep private details out. A date, time and location is usually enough."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Why Reminders by Text Work",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "People rarely skip appointments out of disrespect. They forget, they get busy, or the details slip away in a crowded inbox. A text works because of three simple traits:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "It is seen quickly."
+       ]
+      },
+      " Most people check texts within minutes, unlike an email that may sit for a day."
+     ],
+     [
+      {
+       "b": [
+        "It is easy to answer."
+       ]
+      },
+      " One word, \"C\" to confirm or \"R\" to reschedule, takes five seconds."
+     ],
+     [
+      {
+       "b": [
+        "It is saved."
+       ]
+      },
+      " The message stays in the phone, so the date and time are there when the customer looks for them."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A reminder also gives you a chance to refill a slot. If a customer cancels a day ahead instead of simply not showing, you can offer that time to someone else."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What to Put in an Appointment Reminder",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A good reminder answers the questions the customer would otherwise call about. Include:"
+    ]
+   },
+   {
+    "type": "ol",
+    "items": [
+     [
+      {
+       "b": [
+        "Who you are."
+       ]
+      },
+      " Start with your business name."
+     ],
+     [
+      {
+       "b": [
+        "Who it is for."
+       ]
+      },
+      " A first name makes it personal."
+     ],
+     [
+      {
+       "b": [
+        "When."
+       ]
+      },
+      " Day, date and time, written clearly."
+     ],
+     [
+      {
+       "b": [
+        "Where."
+       ]
+      },
+      " Add an address or room if it is not obvious."
+     ],
+     [
+      {
+       "b": [
+        "What to do next."
+       ]
+      },
+      " Confirm, reschedule or call."
+     ],
+     [
+      {
+       "b": [
+        "How to stop."
+       ]
+      },
+      " Add opt-out wording such as \"Reply STOP to opt out.\""
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Leave out everything else. Because a single text holds only so many characters, extra detail can push it into a second segment. Our guide to the ",
+     {
+      "a": "/blog/sms-character-limit/",
+      "x": false,
+      "c": [
+       "SMS character limit"
+      ]
+     },
+     " shows how to check this before you send."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Appointment Reminder Text Message Examples by Industry",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Use these as starting points and rewrite them in your own voice."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Dental or medical office",
+    "anchor": null
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Maple Street Dental: Hi Priya, your visit is Thu, May 8 at 10:30 AM. Reply C to confirm or R to reschedule. STOP to opt out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Keep health details out of the message. Do not mention a diagnosis, treatment or test results in a text."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Salon or spa",
+    "anchor": null
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Luna Salon: Hi Danielle, see you Saturday at 1:00 PM for your color appointment with Mia. Need to move it? Reply R. STOP to opt out."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Auto repair shop",
+    "anchor": null
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Bayside Auto: Your car is booked for drop-off tomorrow at 8:00 AM. Please bring your key and any spare. Reply C to confirm. STOP to opt out."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Home services",
+    "anchor": null
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Northside Plumbing: Our technician Marcus will arrive between 2 and 4 PM today. He will text when he is 20 minutes away. Reply STOP to opt out."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Consulting or professional services",
+    "anchor": null
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Carter & Lee CPA: Your meeting is Tue, Jun 3 at 11:00 AM. Reply C to confirm or call (555) 010-4477 to change it. STOP to opt out."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Fitness class or personal trainer",
+    "anchor": null
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Peak Fit: Your 6:30 AM class tomorrow is booked. Cancel by 8 PM tonight to avoid a late fee. Reply X to cancel. STOP to opt out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Notice that each example uses a different ask. The consulting reminder directs the customer to call, the gym one allows cancellation by text, and the plumber needs no reply at all. Match the action to what your business actually needs."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "When to Send an Appointment Reminder Text Message",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Timing matters as much as wording. A reminder sent too early gets buried, and one sent too late leaves no room to reschedule."
+    ]
+   },
+   {
+    "type": "table",
+    "head": [
+     [
+      "Appointment type"
+     ],
+     [
+      "A sensible rhythm"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Medical or dental"
+      ],
+      [
+       "Confirmation at booking, a reminder 2 days before, a short note the morning of"
+      ]
+     ],
+     [
+      [
+       "Salon or spa"
+      ],
+      [
+       "A reminder 1 day before, and a quick one 2 to 3 hours before"
+      ]
+     ],
+     [
+      [
+       "Home services"
+      ],
+      [
+       "A day before, plus a \"technician on the way\" message"
+      ]
+     ],
+     [
+      [
+       "Long lead time (weeks out)"
+      ],
+      [
+       "Confirmation at booking, a check-in a week before, a final reminder a day before"
+      ]
+     ],
+     [
+      [
+       "Same-day bookings"
+      ],
+      [
+       "One reminder 1 to 2 hours before"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "These are starting points. Review your own no-show patterns to find what works. If most cancellations happen the evening before, a reminder two days out is the one that matters."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Send during daytime hours in the customer's time zone. A text at 11 p.m. feels intrusive even when it is useful."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "Make Reminders Two-Way",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A reminder that only talks is half the value. Invite a reply and let customers confirm or change plans in one step."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Confirm:"
+       ]
+      },
+      " \"Reply C to confirm\" gives you a clear yes."
+     ],
+     [
+      {
+       "b": [
+        "Reschedule:"
+       ]
+      },
+      " \"Reply R\" can trigger a follow-up text with new times, or a staff member can answer."
+     ],
+     [
+      {
+       "b": [
+        "Cancel:"
+       ]
+      },
+      " \"Reply X to cancel\" frees the slot."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Plan for the replies that do not follow the script. Customers will write \"Can I come at 4 instead?\" or \"I'm running late.\" Someone on your team should be able to see and answer these. A reminder program that ignores replies wastes its best feature."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Keep It Compliant",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Reminders are informational, which is why customers usually welcome them. They are still regulated, so follow these basics. This is general guidance, not legal advice."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Get permission."
+       ]
+      },
+      " Collect consent when someone books, for example a checkbox on the booking form or a line on the intake sheet saying you will text appointment reminders."
+     ],
+     [
+      {
+       "b": [
+        "Honor STOP."
+       ]
+      },
+      " If a customer opts out, stop texting them immediately. The FCC's rule at ",
+      {
+       "a": "https://www.law.cornell.edu/cfr/text/47/64.1200",
+       "x": true,
+       "c": [
+        "47 CFR 64.1200"
+       ]
+      },
+      " lets customers revoke consent by any reasonable means, so read replies like \"please stop\" too."
+     ],
+     [
+      {
+       "b": [
+        "Protect private information."
+       ]
+      },
+      " For healthcare practices, keep details to a minimum. A date, time and location is usually enough. Leave out reasons for the visit, and ask your compliance officer how health privacy rules such as HIPAA apply to your messages."
+     ],
+     [
+      {
+       "b": [
+        "Be careful with sending times."
+       ]
+      },
+      " Avoid early-morning and late-night sends."
+     ],
+     [
+      {
+       "b": [
+        "Register your number."
+       ]
+      },
+      " If you send from a standard local number, carriers expect registration. See our guide to ",
+      {
+       "a": "/blog/10dlc-registration/",
+       "x": false,
+       "c": [
+        "10DLC registration"
+       ]
+      },
+      "."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Reminders sit in the same family as other messages triggered by customer actions. Our post on ",
+     {
+      "a": "/blog/transactional-sms/",
+      "x": false,
+      "c": [
+       "transactional SMS"
+      ]
+     },
+     " explains where they fit."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Set Up Appointment Reminders with SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You do not need a developer to start. Here is a simple path."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "1. Create your account."
+      ]
+     },
+     " Sign up at SMSLocal. A free trial lets you test before committing."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "2. Add your customers."
+      ]
+     },
+     " Import a contact list or add numbers one by one. Group them, for example by location or service, so messages stay relevant."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "3. Build your reminder."
+      ]
+     },
+     " Write one message per reminder type and use merge fields for the name, date and time."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "4. Schedule the sends."
+      ]
+     },
+     " Set messages to go out at the right time before each appointment. Our guide to ",
+     {
+      "a": "/blog/how-to-schedule-a-text-message/",
+      "x": false,
+      "c": [
+       "scheduling a text message"
+      ]
+     },
+     " shows how scheduling works step by step."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "5. Watch the replies."
+      ]
+     },
+     " Read confirmations and answer questions the same day."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "6. Check your reports."
+      ]
+     },
+     " Review delivery results and see which reminders produced confirmations or reschedules."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "7. Improve over time."
+      ]
+     },
+     " Adjust timing and wording based on what you see."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you only need a one-off message on an iPhone, our post on ",
+     {
+      "a": "/blog/schedule-text-message-on-iphone/",
+      "x": false,
+      "c": [
+       "scheduling a text on iPhone"
+      ]
+     },
+     " covers a simple workaround, though a messaging platform is better once you have more than a handful of appointments."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Mistakes That Make Reminders Less Effective",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Sending too many."
+       ]
+      },
+      " Three reminders for one appointment feels nagging. One or two is usually plenty."
+     ],
+     [
+      {
+       "b": [
+        "Skipping the business name."
+       ]
+      },
+      " An unnamed text looks like spam."
+     ],
+     [
+      {
+       "b": [
+        "Writing too much."
+       ]
+      },
+      " If it does not fit in a few lines, shorten it."
+     ],
+     [
+      {
+       "b": [
+        "Forgetting time zones."
+       ]
+      },
+      " Check the customer's location if you serve more than one."
+     ],
+     [
+      {
+       "b": [
+        "Ignoring cancellations."
+       ]
+      },
+      " When someone cancels, offer the slot to the next person on your waitlist."
+     ],
+     [
+      {
+       "b": [
+        "No opt-out."
+       ]
+      },
+      " Always include it."
+     ],
+     [
+      {
+       "b": [
+        "Reusing the same message for everything."
+       ]
+      },
+      " A first visit and a regular follow-up deserve different wording."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Measure Whether It Is Working",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Track a few simple numbers for a month:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "No-show rate"
+       ]
+      },
+      " before and after you start reminders."
+     ],
+     [
+      {
+       "b": [
+        "Confirmation rate"
+       ]
+      },
+      ", meaning how many customers reply to confirm."
+     ],
+     [
+      {
+       "b": [
+        "Reschedule and cancel rate"
+       ]
+      },
+      ", which shows how much capacity you recover."
+     ],
+     [
+      {
+       "b": [
+        "Opt-out rate."
+       ]
+      },
+      " A rising number means your messages may be too frequent or poorly timed."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You do not need a perfect study. If the empty-chair hours drop and your front desk makes fewer phone calls, the reminders are paying for themselves."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "An appointment reminder text message is one of the simplest ways to protect your schedule. Say who you are, give the date, time and place, ask for one clear action, and include an opt-out. Send at the right moment, listen for replies and keep private details out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Start with one reminder for your most common appointment, watch the results for a few weeks and add from there."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to cut no-shows with SMSLocal?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and send your first appointment reminder today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What should an appointment reminder text message include?",
+    "rich": [
+     "Include your business name, the customer's first name, the date and time, the location if it is not obvious, one simple action such as confirming or rescheduling, and opt-out wording like \"Reply STOP to opt out.\""
+    ]
+   },
+   {
+    "q": "How far in advance should I send an appointment reminder?",
+    "rich": [
+     "It depends on the appointment. For many businesses, one reminder a day or two before works well, sometimes with a short second message a few hours ahead. Long lead-time appointments benefit from a confirmation at booking and a check-in closer to the date."
+    ]
+   },
+   {
+    "q": "Do I need permission to send appointment reminders by text?",
+    "rich": [
+     "Yes. Collect consent when the customer books, such as a checkbox or a line on your intake form, and keep a record. Always honor STOP requests."
+    ]
+   },
+   {
+    "q": "Can I include medical details in a reminder text?",
+    "rich": [
+     "Keep it minimal. A date, time and location is usually enough. Avoid diagnoses, treatments and results, since texts can be seen on a locked screen or read by someone else."
+    ]
+   },
+   {
+    "q": "Can customers reschedule by replying to the text?",
+    "rich": [
+     "Yes. You can ask them to reply with a letter or word, such as R, and then send new options or have a staff member respond. Make sure someone monitors replies."
+    ]
+   },
+   {
+    "q": "How many reminders is too many?",
+    "rich": [
+     "For most appointments, one or two. If customers begin to opt out or complain, reduce the frequency or tighten your timing."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "two-way-texting",
+  "routePath": "/blog/two-way-texting",
+  "sourceUrl": "https://www.smslocal.com/blog/two-way-texting/",
+  "sourceType": "post",
+  "title": "Two-Way Texting for Business: How It Works, Examples and Rules",
+  "metaTitle": "Two Way Texting for Business: How It Works and Setup Guide",
+  "metaDescription": "Two way texting lets customers reply to your messages and your team answer in one thread. See how it works, use cases, the opt-out rules and a setup guide.",
+  "keywords": "Two-Way Texting",
+  "category": "Two Way SMS",
+  "categories": [
+   "Two Way SMS"
+  ],
+  "tags": [
+   "Two Way Texting"
+  ],
+  "date": "October 28, 2026",
+  "dateISO": "2026-10-28",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-28T09:00:00",
+  "readTime": "10 min read",
+  "words": 2139,
+  "excerpt": "A salon sends a reminder: \"Your appointment is tomorrow at 2 PM. Reply C to confirm.\" A customer replies, \"Can we move it to 4?\" The message lands in a number nobody checks. The customer waits, gives up and books somewhere else.",
+  "cover": "/blog/two-way-texting/cover.svg",
+  "sourceCover": "/blog/two-way-texting/cover.svg",
+  "coverAlt": "Two way texting: a business and a customer exchanging replies in one text thread",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A salon sends a reminder: \"Your appointment is tomorrow at 2 PM. Reply C to confirm.\" A customer replies, \"Can we move it to 4?\" The message lands in a number nobody checks. The customer waits, gives up and books somewhere else."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "That gap is the difference between one-way and two-way texting. One-way messages talk at customers. Two-way texting lets them answer, and lets your team answer back in the same thread."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide explains what two-way texting is, how it works behind the scenes, where it pays off, the rules you must follow and how to set it up step by step."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Two-way texting means customers can reply to your business texts and your team can respond in the same conversation."
+     ],
+     [
+      "It works when your number can receive messages and the replies reach a shared inbox or your own software."
+     ],
+     [
+      "Strong uses include appointment changes, order questions, support, feedback and lead follow-up."
+     ],
+     [
+      "Opt-out replies must be honored. In the US, the FCC lists STOP, QUIT, END, REVOKE, OPT OUT, CANCEL and UNSUBSCRIBE as valid revocation words."
+     ],
+     [
+      "A shared inbox with assignment and notes keeps replies from getting lost or answered twice."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is Two-Way Texting?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Two-way texting, also called two-way SMS, is business texting where the conversation can go both directions. You send a message to a customer, the customer replies from their own phone, and the reply reaches you."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "It looks like a normal text thread on the customer's side. On your side, replies usually appear in a shared inbox or are passed to your software, so a person or a system can read them and respond."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Two-way texting is not the same as mass texting. You can send a campaign to thousands of opted-in contacts, but the moment one of them replies, the exchange becomes a one-to-one conversation."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "One-Way vs Two-Way Texting",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Both have a place. The right choice depends on whether you need an answer."
+    ]
+   },
+   {
+    "type": "table",
+    "head": [
+     [],
+     [
+      "One-way texting"
+     ],
+     [
+      "Two-way texting"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Direction"
+      ],
+      [
+       "Business to customer only"
+      ],
+      [
+       "Business and customer, both ways"
+      ]
+     ],
+     [
+      [
+       "Typical messages"
+      ],
+      [
+       "Alerts, receipts, announcements"
+      ],
+      [
+       "Reminders with replies, support, scheduling, feedback"
+      ]
+     ],
+     [
+      [
+       "Replies"
+      ],
+      [
+       "Not read, or blocked"
+      ],
+      [
+       "Read and answered"
+      ]
+     ],
+     [
+      [
+       "Customer feel"
+      ],
+      [
+       "Broadcast"
+      ],
+      [
+       "Conversation"
+      ]
+     ],
+     [
+      [
+       "Staff effort"
+      ],
+      [
+       "Low once set up"
+      ],
+      [
+       "Needs someone watching the inbox"
+      ]
+     ],
+     [
+      [
+       "Opt-out handling"
+      ],
+      [
+       "Still required"
+      ],
+      [
+       "Still required, and arrives as a reply"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If a message ends with \"Reply to confirm\" or \"Questions? Text us,\" it is already a two-way message. The reply needs somewhere to go."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How Two-Way Texting Works",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Behind a simple text thread there are three moving parts."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "A number that can receive replies."
+      ]
+     },
+     " The number you text from is also the number customers reply to. Business texting commonly uses a local 10-digit number, a toll-free number or a short code. Registration rules differ by type, and our ",
+     {
+      "a": "/blog/10dlc-registration/",
+      "x": false,
+      "c": [
+       "10DLC registration guide"
+      ]
+     },
+     " covers the local number route."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "A way for replies to reach you."
+      ]
+     },
+     " A reply is an inbound message. A platform can show it in a team inbox, or push it to your own system through a callback. SMSLocal's ",
+     {
+      "a": "/products/cpaas/sms-api/",
+      "x": false,
+      "c": [
+       "SMS API"
+      ]
+     },
+     " page, for example, says replies arrive on the same callback as delivery reports and are marked as mobile originated, so developers can tell outbound and inbound messages apart."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Someone or something to answer."
+      ]
+     },
+     " A person reads the reply and responds, or software handles a simple one automatically, such as a \"C\" to confirm an appointment. Anything unusual goes to a person."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Each reply is still a normal text message, so long messages are split into segments and each segment is billed on its own."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Two-Way Texting Use Cases",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Two-way texting earns its keep wherever a customer might answer."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Appointment changes."
+       ]
+      },
+      " Customers confirm, cancel or ask to move a slot by replying. Fewer phone calls, fewer empty chairs."
+     ],
+     [
+      {
+       "b": [
+        "Customer support."
+       ]
+      },
+      " A shopper asks about a delivery or a return and gets an answer without a hold queue."
+     ],
+     [
+      {
+       "b": [
+        "Order and booking questions."
+       ]
+      },
+      " A restaurant, repair shop or hotel can clear up details before they become complaints."
+     ],
+     [
+      {
+       "b": [
+        "Lead follow-up."
+       ]
+      },
+      " A real estate agent or car dealer can reply to a web form inquiry by text while the interest is fresh."
+     ],
+     [
+      {
+       "b": [
+        "Feedback and reviews."
+       ]
+      },
+      " A short \"How was your visit? Reply 1 to 5\" gets more honest answers than a long form."
+     ],
+     [
+      {
+       "b": [
+        "Campaign replies."
+       ]
+      },
+      " A promotion that invites a reply, such as \"Reply YES for the early slot,\" turns a broadcast into a conversation."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "For purely informational texts such as shipping and security alerts, see our guide to ",
+     {
+      "a": "/blog/transactional-sms/",
+      "x": false,
+      "c": [
+       "transactional SMS"
+      ]
+     },
+     ". Customers may still reply to those, so the inbox should be ready for it."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "What to Look for in a Two-Way Texting Setup",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Sending is the easy part. What matters is how well your team can handle the replies. Check for these features."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "A shared inbox."
+       ]
+      },
+      " Everyone sees the same threads, so a customer is never answered twice or not at all."
+     ],
+     [
+      {
+       "b": [
+        "Assignment."
+       ]
+      },
+      " A reply can be given to a named person or team."
+     ],
+     [
+      {
+       "b": [
+        "Internal notes."
+       ]
+      },
+      " Teammates can leave private context that the customer never sees."
+     ],
+     [
+      {
+       "b": [
+        "Collision detection."
+       ]
+      },
+      " Two people cannot answer the same customer at once."
+     ],
+     [
+      {
+       "b": [
+        "Saved replies."
+       ]
+      },
+      " Canned answers for questions you get every day."
+     ],
+     [
+      {
+       "b": [
+        "Routing rules."
+       ]
+      },
+      " Messages about billing go to one team and urgent ones escalate when no one responds."
+     ],
+     [
+      {
+       "b": [
+        "Multi-channel threads."
+       ]
+      },
+      " If customers also reach you on WhatsApp or email, one place to read all of it saves time."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "SMSLocal's ",
+     {
+      "a": "/products/inbox-and-analytics/omnichannel-inbox/",
+      "x": false,
+      "c": [
+       "omnichannel inbox"
+      ]
+     },
+     " page describes these features: a single team inbox for SMS, WhatsApp, email, voice and social channels, assignment and @mentions, private notes, collision detection and routing rules with timers. Teammates are added as seats."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Two-Way Texting Rules You Must Follow",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Two-way texting makes opt-outs easier for customers, so compliance has to be part of the design. These are the key points for the United States. This is general information, not legal advice."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Get consent first."
+      ]
+     },
+     " Text only people who agreed to hear from you, and keep a record of when and how they agreed. The ",
+     {
+      "a": "https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf",
+      "x": true,
+      "c": [
+       "CTIA Messaging Principles and Best Practices"
+      ]
+     },
+     " ask senders to document consent with details such as the time and the way it was collected."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Honor opt-outs in any reasonable form."
+      ]
+     },
+     " Under the FCC's rule at ",
+     {
+      "a": "https://www.law.cornell.edu/cfr/text/47/64.1200",
+      "x": true,
+      "c": [
+       "47 CFR 64.1200"
+      ]
+     },
+     ", a customer can revoke consent by any reasonable method. Replies with the words stop, quit, end, revoke, opt out, cancel or unsubscribe count as valid per se. If a customer words it differently, such as \"please take me off your list,\" you must treat it as a revocation when a reasonable person would understand it that way."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Do not limit how people can opt out."
+      ]
+     },
+     " The rule says senders may not designate an exclusive means to request revocation. A STOP reply must work, and other routes such as a phone call or a web form should too."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Act within the deadline."
+      ]
+     },
+     " Revocation requests must be honored within a reasonable time that does not exceed ten business days. In practice, stop messaging right away."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Send at most one confirmation."
+      ]
+     },
+     " After an opt-out, you may send a single text that confirms it, as long as it has no marketing content. Sent within five minutes, it is presumed to fall within the customer's earlier consent. Send nothing else afterward. CTIA's guidance matches this: one final confirmation per campaign, then no further messages."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Say how to opt out."
+      ]
+     },
+     " CTIA advises stating in the message how and with which words a customer can opt out, using standard STOP wording. Its opt-in confirmation guidance also calls for customer care details, such as HELP instructions."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Register your sender."
+      ]
+     },
+     " US carriers expect businesses to register their messaging programs. The brand and campaign steps are covered in the guide linked earlier in this article."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If a texting setup does not allow replies at all, the FCC rule requires a clear disclosure on each message that two-way texting is not available, plus other ways to opt out. That is one more reason to choose a setup where replies work."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Set Up Two-Way Texting: Step by Step",
+    "anchor": null
+   },
+   {
+    "type": "h3",
+    "text": "Step 1: Pick the use case",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Start with one job, such as appointment confirmations or order questions. A narrow start is easier to staff and measure."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 2: Choose a number and register it",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Decide which number customers will text. If it is a local number, complete registration before you send so your messages are not filtered."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 3: Collect clear consent",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Add a sign-up form, checkbox or keyword that names your business, says what kinds of messages to expect and explains how to opt out."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 4: Decide who answers",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Name the people or team who handle replies and set the hours they are available. A reply that sits for two days is worse than no option to reply."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 5: Write your reply templates",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Draft short answers for the ten questions you hear most. Keep them friendly and specific, and leave room to personalize."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 6: Set up opt-out handling",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Make sure STOP and the other keywords are read and acted on, and that your contact list is updated right away. Ask your provider how this works on its platform before launch."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Step 7: Test and start small",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Send test messages to your own team, reply from different phones and try an opt-out. Then launch to a small group and look at response times."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Two-Way Texting Best Practices",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Answer fast."
+       ]
+      },
+      " Replies are expected to feel like a conversation. If you cannot reply quickly, say when you will."
+     ],
+     [
+      {
+       "b": [
+        "Use an auto-reply outside business hours."
+       ]
+      },
+      " A line such as \"We received your message and will reply tomorrow morning\" sets expectations. Our guide to ",
+      {
+       "a": "/blog/automated-text-messages/",
+       "x": false,
+       "c": [
+        "automated text messages"
+       ]
+      },
+      " shows when automation helps and when it irritates."
+     ],
+     [
+      {
+       "b": [
+        "Sound like a person."
+       ]
+      },
+      " Use the customer's name, avoid jargon and keep each reply to one idea."
+     ],
+     [
+      {
+       "b": [
+        "Keep sensitive details out of texts."
+       ]
+      },
+      " Do not ask customers to text card numbers, passwords or government IDs."
+     ],
+     [
+      {
+       "b": [
+        "Hand off cleanly."
+       ]
+      },
+      " When a chat needs a call or an email, say so and note it in the thread."
+     ],
+     [
+      {
+       "b": [
+        "Review the inbox weekly."
+       ]
+      },
+      " Look for repeated questions that should become a saved reply or a line in your FAQ."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Common Two-Way Texting Mistakes",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Sending \"Reply to confirm\" with no one reading replies."
+       ]
+      }
+     ],
+     [
+      {
+       "b": [
+        "Ignoring opt-out wording."
+       ]
+      },
+      " Customers do not always type STOP in capitals."
+     ],
+     [
+      {
+       "b": [
+        "Using a number that cannot receive replies."
+       ]
+      }
+     ],
+     [
+      {
+       "b": [
+        "Letting two people answer the same customer."
+       ]
+      }
+     ],
+     [
+      {
+       "b": [
+        "Pitching before answering."
+       ]
+      },
+      " If a customer asks a question, answer it first."
+     ],
+     [
+      {
+       "b": [
+        "Not recording consent."
+       ]
+      }
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Two-Way Texting With SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "SMSLocal combines the sending side and the reply side. Developers can receive replies on the same callback as delivery reports, and teams can read and answer them in a shared inbox. If you want to see how it would fit your business, ",
+     {
+      "a": "/contact-us/",
+      "x": false,
+      "c": [
+       "talk to the SMSLocal team"
+      ]
+     },
+     " about your use case, volume and compliance needs."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Two-way texting turns a text from an announcement into a conversation. It cuts phone tag, rescues appointments and gives customers a simple way to reach you."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Start with one use case, make sure someone owns the inbox and build your opt-out handling in from the first day. Do that and two-way texting becomes one of the most useful channels you have."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to start real conversations with your customers?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and manage replies in one shared inbox."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is two-way texting?",
+    "rich": [
+     "Two-way texting is business texting where customers can reply and your team can answer in the same thread. It works like a normal text conversation, but replies usually reach a shared inbox or software instead of one person's phone."
+    ]
+   },
+   {
+    "q": "Is two way SMS the same as two way texting?",
+    "rich": [
+     "Yes. Two way SMS and two way texting mean the same thing: business messaging that supports replies. SMS is the underlying text message technology."
+    ]
+   },
+   {
+    "q": "Do customers have to opt in for two-way texting?",
+    "rich": [
+     "Yes. You should text only people who agreed to receive messages from your business, and you should keep a record of how and when they agreed. Consent also covers only the program the customer agreed to, so a customer who texts you a question has not agreed to promotions."
+    ]
+   },
+   {
+    "q": "How do I handle STOP replies in two-way texting?",
+    "rich": [
+     "Treat STOP, QUIT, END, REVOKE, OPT OUT, CANCEL and UNSUBSCRIBE as opt-outs, plus any clear request to stop. Update your list immediately, and send at most one confirmation text with no marketing in it."
+    ]
+   },
+   {
+    "q": "Can I use my existing business phone number for two-way texting?",
+    "rich": [
+     "Sometimes, but it depends on the number type and your provider. Landlines and some voice-only numbers may not be able to receive text messages. Ask your provider whether your number can be enabled and whether it needs registration."
+    ]
+   },
+   {
+    "q": "Is two-way texting free?",
+    "rich": [
+     "Pricing depends on your provider and plan. Messages are usually billed per segment, and some platforms charge for inbox seats as well. Check your provider's current pricing before you commit."
     ]
    }
   ]

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576" role="img" aria-label="SMS character limit: 160 characters per standard text, 70 with an emoji, longer messages split into segments">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6f8ff"/>
+      <stop offset="100%" stop-color="#e4eafc"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="576" fill="url(#wash)"/>
+  <ellipse cx="760" cy="288" rx="420" ry="380" fill="url(#glow)"/>
+  <text x="68" y="168" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#4f5bd5">SMS BASICS</text>
+  <text x="68" y="268" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="104" fill="#101a33">Character</text>
+  <text x="68" y="360" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="88" font-style="italic" fill="#154989">Limit</text>
+  <rect x="68" y="392" width="132" height="3" rx="1.5" fill="#4f5bd5"/>
+  <text x="68" y="440" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" fill="#5b6478">160 or 70 per segment</text>
+  <rect x="654" y="206" width="3" height="170" fill="#c9d3f3"/>
+  <rect x="600" y="132" width="364" height="96" rx="20" fill="#ffffff" stroke="#d9dfe9" stroke-width="1.5"/>
+  <circle cx="655" cy="180" r="26" fill="#dfe5fa"/>
+  <text x="655" y="190" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" text-anchor="middle" fill="#154989">1</text>
+  <text x="702" y="176" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#101a33">Standard text</text>
+  <text x="702" y="206" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" fill="#5b6478">160 characters</text>
+  <rect x="600" y="240" width="364" height="96" rx="20" fill="#ffffff" stroke="#d9dfe9" stroke-width="1.5"/>
+  <circle cx="655" cy="288" r="26" fill="#dfe5fa"/>
+  <text x="655" y="298" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="32" text-anchor="middle" fill="#154989">2</text>
+  <text x="702" y="284" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#101a33">With an emoji</text>
+  <text x="702" y="314" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" fill="#5b6478">70 characters</text>
+  <rect x="600" y="348" width="364" height="96" rx="20" fill="#4f5bd5"/>
+  <circle cx="655" cy="396" r="26" fill="#ffffff"/>
+  <path d="M643 397 l9 9 l17 -19" fill="none" stroke="#4f5bd5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="702" y="392" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#ffffff">Longer message</text>
+  <text x="702" y="422" font-family="Geist, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="20" fill="#ffffff" fill-opacity="0.9">Split into segments</text>
+</svg>
