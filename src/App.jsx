@@ -3,102 +3,212 @@ import { getLocaleFromPathname, stripLocaleFromPathname } from './lib/locale.js'
 import { LocaleProvider } from './lib/LocaleContext.jsx'
 import LocaleTranslator from './i18n/LocaleTranslator.jsx'
 import Layout from './components/Layout.jsx'
-import Home from './pages/Home.jsx'
-import WhatsappBusinessApi from './pages/WhatsappBusinessApi.jsx'
-import RcsBusinessMessaging from './pages/RcsBusinessMessaging.jsx'
-import InstagramMessagingApi from './pages/InstagramMessagingApi.jsx'
-import FacebookMessengerApi from './pages/FacebookMessengerApi.jsx'
-import AiAgentsCustomerService from './pages/AiAgentsCustomerService.jsx'
-import AiAgentsVoice from './pages/AiAgentsVoice.jsx'
-import AiAgentsSalesSdr from './pages/AiAgentsSalesSdr.jsx'
-import AiAgentsBooking from './pages/AiAgentsBooking.jsx'
-import Products from './pages/Products.jsx'
-import Channels from './pages/Channels.jsx'
-import AiAgentsPlatform from './pages/AiAgentsPlatform.jsx'
-import AiAgentsBuilder from './pages/AiAgentsBuilder.jsx'
-import CompareHub from './pages/CompareHub.jsx'
-import CompareTwilio from './pages/CompareTwilio.jsx'
-import CompareInfobip from './pages/CompareInfobip.jsx'
-import AiAgentsOverview from './pages/AiAgentsOverview.jsx'
-import BlogIndex from './pages/blog/BlogIndex.jsx'
-import BlogPost from './pages/blog/BlogPost.jsx'
-import CountryIndex from './pages/country/CountryIndex.jsx'
-import CountryCode from './pages/country/CountryCode.jsx'
-import ResourcesGuides from './pages/ResourcesGuides.jsx'
-import ResourcesDocs from './pages/ResourcesDocs.jsx'
-import ResourcesCaseStudies from './pages/ResourcesCaseStudies.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import Partners from './pages/Partners.jsx'
-import Careers from './pages/Careers.jsx'
-import Login from './pages/Login.jsx'
-import Signup from './pages/Signup.jsx'
-import Platform from './pages/Platform.jsx'
-import PlatformSecurity from './pages/PlatformSecurity.jsx'
-import ProductsAnalytics from './pages/ProductsAnalytics.jsx'
-import ProductsOmnichannelInbox from './pages/ProductsOmnichannelInbox.jsx'
-import IntegrationsPage from './pages/IntegrationsPage.jsx'
-import WhatsappBroadcasting from './pages/WhatsappBroadcasting.jsx'
-import RcsBroadcasting from './pages/RcsBroadcasting.jsx'
-import VoiceChannel from './pages/VoiceChannel.jsx'
-import SocialInbox from './pages/SocialInbox.jsx'
-import DidNumbers from './pages/DidNumbers.jsx'
-import Pricing from './pages/Pricing.jsx'
-import WhySmslocal from './pages/WhySmslocal.jsx'
-import ServicesAiConsulting from './pages/ServicesAiConsulting.jsx'
-import Solutions from './pages/Solutions.jsx'
-import Terms from './pages/Terms.jsx'
-import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
-import IndustryRetail from './pages/IndustryRetail.jsx'
-import IndustryTravel from './pages/IndustryTravel.jsx'
-import IndustryFintech from './pages/IndustryFintech.jsx'
-import IndustryEducation from './pages/IndustryEducation.jsx'
-import IndustryMedia from './pages/IndustryMedia.jsx'
-import IndustryHealthcare from './pages/IndustryHealthcare.jsx'
-import IndustryInsurance from './pages/IndustryInsurance.jsx'
-import IndustryMortgage from './pages/IndustryMortgage.jsx'
-import IndustryTelecom from './pages/IndustryTelecom.jsx'
-import IndustryRealEstate from './pages/IndustryRealEstate.jsx'
-import AiAgentsSupport from './pages/AiAgentsSupport.jsx'
-import ProductsAgentCopilot from './pages/ProductsAgentCopilot.jsx'
-import SmsBroadcasting from './pages/SmsBroadcasting.jsx'
-import WebChat from './pages/WebChat.jsx'
-import CompareBird from './pages/CompareBird.jsx'
-import ComparePlivo from './pages/ComparePlivo.jsx'
-import ComingSoon from './pages/ComingSoon.jsx'
-import ToolSendText from './pages/tools/ToolSendText.jsx'
-import ToolTextFree from './pages/tools/ToolTextFree.jsx'
-import ToolCarrierLookup from './pages/tools/ToolCarrierLookup.jsx'
-import CpaasHub from './pages/cpaas/CpaasHub.jsx'
-import SmsApi from './pages/cpaas/SmsApi.jsx'
-import VerifyApi from './pages/cpaas/VerifyApi.jsx'
-import LookupApi from './pages/cpaas/LookupApi.jsx'
-import CampaignsHub from './pages/cpaas/CampaignsHub.jsx'
-import CampaignManager from './pages/cpaas/CampaignManager.jsx'
-import JourneyBuilder from './pages/cpaas/JourneyBuilder.jsx'
-import CtwaAds from './pages/cpaas/CtwaAds.jsx'
-import DevHub from './pages/cpaas/DevHub.jsx'
-import DevQuickstart from './pages/cpaas/DevQuickstart.jsx'
-import DevApiReference from './pages/cpaas/DevApiReference.jsx'
-import DevSdks from './pages/cpaas/DevSdks.jsx'
-import DevWebhooks from './pages/cpaas/DevWebhooks.jsx'
-import UcOtp from './pages/cpaas/UcOtp.jsx'
-import UcTransactional from './pages/cpaas/UcTransactional.jsx'
-import UcPromotions from './pages/cpaas/UcPromotions.jsx'
-import UcPayments from './pages/cpaas/UcPayments.jsx'
-import UcCommerce from './pages/cpaas/UcCommerce.jsx'
-import UcAppointments from './pages/cpaas/UcAppointments.jsx'
-import PlatformCompliance from './pages/cpaas/PlatformCompliance.jsx'
-import PlatformTrust from './pages/cpaas/PlatformTrust.jsx'
-import PlatformEnterprise from './pages/cpaas/PlatformEnterprise.jsx'
-import ToolsHub from './pages/cpaas/ToolsHub.jsx'
-import ToolWhatsappLink from './pages/tools/ToolWhatsappLink.jsx'
-import ViberBusinessMessages from './pages/ViberBusinessMessages.jsx'
-import TelegramBusiness from './pages/TelegramBusiness.jsx'
-import LineBusinessMessaging from './pages/LineBusinessMessaging.jsx'
-import AppleMessagesForBusiness from './pages/AppleMessagesForBusiness.jsx'
-import EmailApi from './pages/EmailApi.jsx'
-import KakaoTalkBusinessMessaging from './pages/KakaoTalkBusinessMessaging.jsx'
+import { page, pagesReady } from './lib/lazyPage.js'
+const Home = page(() => import('./pages/Home.jsx'))
+const WhatsappBusinessApi = page(() => import('./pages/WhatsappBusinessApi.jsx'))
+const RcsBusinessMessaging = page(() => import('./pages/RcsBusinessMessaging.jsx'))
+const InstagramMessagingApi = page(() => import('./pages/InstagramMessagingApi.jsx'))
+const FacebookMessengerApi = page(() => import('./pages/FacebookMessengerApi.jsx'))
+const AiAgentsCustomerService = page(() => import('./pages/AiAgentsCustomerService.jsx'))
+const AiAgentsVoice = page(() => import('./pages/AiAgentsVoice.jsx'))
+const AiAgentsSalesSdr = page(() => import('./pages/AiAgentsSalesSdr.jsx'))
+const AiAgentsBooking = page(() => import('./pages/AiAgentsBooking.jsx'))
+const Products = page(() => import('./pages/Products.jsx'))
+const Channels = page(() => import('./pages/Channels.jsx'))
+const AiAgentsPlatform = page(() => import('./pages/AiAgentsPlatform.jsx'))
+const AiAgentsBuilder = page(() => import('./pages/AiAgentsBuilder.jsx'))
+const CompareHub = page(() => import('./pages/CompareHub.jsx'))
+const CompareTwilio = page(() => import('./pages/CompareTwilio.jsx'))
+const CompareInfobip = page(() => import('./pages/CompareInfobip.jsx'))
+const AiAgentsOverview = page(() => import('./pages/AiAgentsOverview.jsx'))
+const BlogIndex = page(() => import('./pages/blog/BlogIndex.jsx'))
+const BlogPost = page(() => import('./pages/blog/BlogPost.jsx'))
+const CountryIndex = page(() => import('./pages/country/CountryIndex.jsx'))
+const CountryCode = page(() => import('./pages/country/CountryCode.jsx'))
+const ResourcesGuides = page(() => import('./pages/ResourcesGuides.jsx'))
+const ResourcesDocs = page(() => import('./pages/ResourcesDocs.jsx'))
+const ResourcesCaseStudies = page(() => import('./pages/ResourcesCaseStudies.jsx'))
+const About = page(() => import('./pages/About.jsx'))
+const Contact = page(() => import('./pages/Contact.jsx'))
+const Partners = page(() => import('./pages/Partners.jsx'))
+const Careers = page(() => import('./pages/Careers.jsx'))
+const Login = page(() => import('./pages/Login.jsx'))
+const Signup = page(() => import('./pages/Signup.jsx'))
+const Platform = page(() => import('./pages/Platform.jsx'))
+const PlatformSecurity = page(() => import('./pages/PlatformSecurity.jsx'))
+const ProductsAnalytics = page(() => import('./pages/ProductsAnalytics.jsx'))
+const ProductsOmnichannelInbox = page(() => import('./pages/ProductsOmnichannelInbox.jsx'))
+const IntegrationsPage = page(() => import('./pages/IntegrationsPage.jsx'))
+const WhatsappBroadcasting = page(() => import('./pages/WhatsappBroadcasting.jsx'))
+const RcsBroadcasting = page(() => import('./pages/RcsBroadcasting.jsx'))
+const VoiceChannel = page(() => import('./pages/VoiceChannel.jsx'))
+const SocialInbox = page(() => import('./pages/SocialInbox.jsx'))
+const DidNumbers = page(() => import('./pages/DidNumbers.jsx'))
+const Pricing = page(() => import('./pages/Pricing.jsx'))
+const WhySmslocal = page(() => import('./pages/WhySmslocal.jsx'))
+const ServicesAiConsulting = page(() => import('./pages/ServicesAiConsulting.jsx'))
+const Solutions = page(() => import('./pages/Solutions.jsx'))
+const Terms = page(() => import('./pages/Terms.jsx'))
+const PrivacyPolicy = page(() => import('./pages/PrivacyPolicy.jsx'))
+const IndustryRetail = page(() => import('./pages/IndustryRetail.jsx'))
+const IndustryTravel = page(() => import('./pages/IndustryTravel.jsx'))
+const IndustryFintech = page(() => import('./pages/IndustryFintech.jsx'))
+const IndustryEducation = page(() => import('./pages/IndustryEducation.jsx'))
+const IndustryMedia = page(() => import('./pages/IndustryMedia.jsx'))
+const IndustryHealthcare = page(() => import('./pages/IndustryHealthcare.jsx'))
+const IndustryInsurance = page(() => import('./pages/IndustryInsurance.jsx'))
+const IndustryMortgage = page(() => import('./pages/IndustryMortgage.jsx'))
+const IndustryTelecom = page(() => import('./pages/IndustryTelecom.jsx'))
+const IndustryRealEstate = page(() => import('./pages/IndustryRealEstate.jsx'))
+const AiAgentsSupport = page(() => import('./pages/AiAgentsSupport.jsx'))
+const ProductsAgentCopilot = page(() => import('./pages/ProductsAgentCopilot.jsx'))
+const SmsBroadcasting = page(() => import('./pages/SmsBroadcasting.jsx'))
+const WebChat = page(() => import('./pages/WebChat.jsx'))
+const CompareBird = page(() => import('./pages/CompareBird.jsx'))
+const ComparePlivo = page(() => import('./pages/ComparePlivo.jsx'))
+const ComingSoon = page(() => import('./pages/ComingSoon.jsx'))
+const ToolSendText = page(() => import('./pages/tools/ToolSendText.jsx'))
+const ToolTextFree = page(() => import('./pages/tools/ToolTextFree.jsx'))
+const ToolCarrierLookup = page(() => import('./pages/tools/ToolCarrierLookup.jsx'))
+const CpaasHub = page(() => import('./pages/cpaas/CpaasHub.jsx'))
+const SmsApi = page(() => import('./pages/cpaas/SmsApi.jsx'))
+const VerifyApi = page(() => import('./pages/cpaas/VerifyApi.jsx'))
+const LookupApi = page(() => import('./pages/cpaas/LookupApi.jsx'))
+const CampaignsHub = page(() => import('./pages/cpaas/CampaignsHub.jsx'))
+const CampaignManager = page(() => import('./pages/cpaas/CampaignManager.jsx'))
+const JourneyBuilder = page(() => import('./pages/cpaas/JourneyBuilder.jsx'))
+const CtwaAds = page(() => import('./pages/cpaas/CtwaAds.jsx'))
+const DevHub = page(() => import('./pages/cpaas/DevHub.jsx'))
+const DevQuickstart = page(() => import('./pages/cpaas/DevQuickstart.jsx'))
+const DevApiReference = page(() => import('./pages/cpaas/DevApiReference.jsx'))
+const DevSdks = page(() => import('./pages/cpaas/DevSdks.jsx'))
+const DevWebhooks = page(() => import('./pages/cpaas/DevWebhooks.jsx'))
+const UcOtp = page(() => import('./pages/cpaas/UcOtp.jsx'))
+const UcTransactional = page(() => import('./pages/cpaas/UcTransactional.jsx'))
+const UcPromotions = page(() => import('./pages/cpaas/UcPromotions.jsx'))
+const UcPayments = page(() => import('./pages/cpaas/UcPayments.jsx'))
+const UcCommerce = page(() => import('./pages/cpaas/UcCommerce.jsx'))
+const UcAppointments = page(() => import('./pages/cpaas/UcAppointments.jsx'))
+const PlatformCompliance = page(() => import('./pages/cpaas/PlatformCompliance.jsx'))
+const PlatformTrust = page(() => import('./pages/cpaas/PlatformTrust.jsx'))
+const PlatformEnterprise = page(() => import('./pages/cpaas/PlatformEnterprise.jsx'))
+const ToolsHub = page(() => import('./pages/cpaas/ToolsHub.jsx'))
+const ToolWhatsappLink = page(() => import('./pages/tools/ToolWhatsappLink.jsx'))
+const ViberBusinessMessages = page(() => import('./pages/ViberBusinessMessages.jsx'))
+const TelegramBusiness = page(() => import('./pages/TelegramBusiness.jsx'))
+const LineBusinessMessaging = page(() => import('./pages/LineBusinessMessaging.jsx'))
+const AppleMessagesForBusiness = page(() => import('./pages/AppleMessagesForBusiness.jsx'))
+const EmailApi = page(() => import('./pages/EmailApi.jsx'))
+const KakaoTalkBusinessMessaging = page(() => import('./pages/KakaoTalkBusinessMessaging.jsx'))
+
+/**
+ * Every page route, declared once. src/main.jsx reads this to fetch the current
+ * route's chunk before the first render, so keep it as the single list of pages.
+ */
+export const ROUTES = [
+  ['/', Home],
+  ['/products', Products],
+  ['/solutions', Solutions],
+  ['/products/channels', Channels],
+  ['/products/channels/sms-broadcasting', SmsBroadcasting],
+  ['/products/channels/whatsapp-broadcasting', WhatsappBroadcasting],
+  ['/products/channels/rcs-broadcasting', RcsBroadcasting],
+  ['/products/channels/voice', VoiceChannel],
+  ['/products/social-and-apps', SocialInbox],
+  ['/products/social-and-apps/web-chat', WebChat],
+  ['/products/channels/did', DidNumbers],
+  ['/platform', Platform],
+  ['/platform/security', PlatformSecurity],
+  ['/products/inbox-and-analytics/analytics', ProductsAnalytics],
+  ['/products/inbox-and-analytics/omnichannel-inbox', ProductsOmnichannelInbox],
+  ['/products/inbox-and-analytics/agent-copilot', ProductsAgentCopilot],
+  ['/platform/integrations', IntegrationsPage],
+  ['/pricing', Pricing],
+  ['/platform/why-smslocal', WhySmslocal],
+  ['/solutions/services/ai-consulting', ServicesAiConsulting],
+  ['/products/channels/whatsapp', WhatsappBusinessApi],
+  ['/products/channels/rcs', RcsBusinessMessaging],
+  ['/products/social-and-apps/instagram', InstagramMessagingApi],
+  ['/products/social-and-apps/messenger', FacebookMessengerApi],
+  ['/products/social-and-apps/viber', ViberBusinessMessages],
+  ['/products/social-and-apps/telegram', TelegramBusiness],
+  ['/products/social-and-apps/line', LineBusinessMessaging],
+  ['/products/social-and-apps/apple-messages', AppleMessagesForBusiness],
+  ['/products/channels/email', EmailApi],
+  ['/products/social-and-apps/kakaotalk', KakaoTalkBusinessMessaging],
+  ['/products/ai-agents/agentic-ai', AiAgentsPlatform],
+  ['/products/ai-agents/customer-service', AiAgentsCustomerService],
+  ['/products/ai-agents/support', AiAgentsSupport],
+  ['/products/ai-agents/voice', AiAgentsVoice],
+  ['/products/ai-agents/sales', AiAgentsSalesSdr],
+  ['/products/ai-agents/booking', AiAgentsBooking],
+  ['/products/ai-agents/agent-builder', AiAgentsBuilder],
+  ['/products/ai-agents', AiAgentsOverview],
+  ['/solutions/industry/retail', IndustryRetail],
+  ['/solutions/industry/travel-and-hospitality', IndustryTravel],
+  ['/solutions/industry/fintech', IndustryFintech],
+  ['/solutions/industry/education', IndustryEducation],
+  ['/solutions/industry/media-entertainment', IndustryMedia],
+  ['/solutions/industry/healthcare', IndustryHealthcare],
+  ['/solutions/industry/insurance', IndustryInsurance],
+  ['/solutions/industry/mortgage', IndustryMortgage],
+  ['/solutions/industry/telecom', IndustryTelecom],
+  ['/solutions/industry/real-estate', IndustryRealEstate],
+  ['/compare', CompareHub],
+  ['/compare/twilio', CompareTwilio],
+  ['/compare/bird', CompareBird],
+  ['/compare/plivo', ComparePlivo],
+  ['/compare/infobip', CompareInfobip],
+  ['/country-code', CountryIndex],
+  ['/country-code/:slug', CountryCode],
+  ['/blog', BlogIndex],
+  ['/blog/:slug', BlogPost],
+  // Imported archive: one article publishes under /resources/insights
+  ['/resources/insights/:slug', BlogPost],
+  ['/resources/guides', ResourcesGuides],
+  ['/resources/docs', ResourcesDocs],
+  ['/resources/case-studies', ResourcesCaseStudies],
+  ['/about-us', About],
+  ['/contact-us', Contact],
+  ['/tools/send-text', ToolSendText],
+  ['/tools/text-free', ToolTextFree],
+  ['/tools/carrier-lookup', ToolCarrierLookup],
+  ['/partnerships', Partners],
+  ['/careers', Careers],
+  ['/login', Login],
+  ['/signup', Signup],
+  ['/terms-and-conditions', Terms],
+  ['/privacy-policy', PrivacyPolicy],
+  // CPaaS, Developers, use-case and platform pages (template: components/CpaasPage.jsx)
+  ['/products/cpaas', CpaasHub],
+  ['/products/cpaas/sms-api', SmsApi],
+  ['/products/cpaas/verify-api', VerifyApi],
+  ['/products/cpaas/lookup-api', LookupApi],
+  ['/products/campaigns', CampaignsHub],
+  ['/products/campaigns/campaign-manager', CampaignManager],
+  ['/products/campaigns/journey-builder', JourneyBuilder],
+  ['/products/campaigns/click-to-whatsapp-ads', CtwaAds],
+  ['/developers', DevHub],
+  ['/developers/quickstart', DevQuickstart],
+  ['/developers/api-reference', DevApiReference],
+  ['/developers/sdks', DevSdks],
+  ['/developers/webhooks', DevWebhooks],
+  ['/solutions/use-case/otp-authentication', UcOtp],
+  ['/solutions/use-case/transactional-alerts', UcTransactional],
+  ['/solutions/use-case/promotions-campaigns', UcPromotions],
+  ['/solutions/use-case/payment-collection', UcPayments],
+  ['/solutions/use-case/conversational-commerce', UcCommerce],
+  ['/solutions/use-case/appointment-reminders', UcAppointments],
+  ['/platform/compliance', PlatformCompliance],
+  ['/platform/trust-center', PlatformTrust],
+  ['/platform/enterprise', PlatformEnterprise],
+  ['/resources/tools', ToolsHub],
+  ['/tools/whatsapp-link-generator', ToolWhatsappLink],
+  ['*', ComingSoon],
+  ['*', ComingSoon],
+]
+
+if (import.meta.env.SSR) await pagesReady()
 
 /**
  * Locale lives purely as a URL prefix (/fr/pricing/), parsed the same way on
@@ -121,114 +231,9 @@ function RoutedApp() {
       <LocaleTranslator />
       <Routes location={strippedLocation}>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/products" element={<Products />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/products/channels" element={<Channels />} />
-          <Route path="/products/channels/sms-broadcasting" element={<SmsBroadcasting />} />
-          <Route path="/products/channels/whatsapp-broadcasting" element={<WhatsappBroadcasting />} />
-          <Route path="/products/channels/rcs-broadcasting" element={<RcsBroadcasting />} />
-          <Route path="/products/channels/voice" element={<VoiceChannel />} />
-          <Route path="/products/social-and-apps" element={<SocialInbox />} />
-          <Route path="/products/social-and-apps/web-chat" element={<WebChat />} />
-          <Route path="/products/channels/did" element={<DidNumbers />} />
-
-          <Route path="/platform" element={<Platform />} />
-          <Route path="/platform/security" element={<PlatformSecurity />} />
-          <Route path="/products/inbox-and-analytics/analytics" element={<ProductsAnalytics />} />
-          <Route path="/products/inbox-and-analytics/omnichannel-inbox" element={<ProductsOmnichannelInbox />} />
-          <Route path="/products/inbox-and-analytics/agent-copilot" element={<ProductsAgentCopilot />} />
-          <Route path="/platform/integrations" element={<IntegrationsPage />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/platform/why-smslocal" element={<WhySmslocal />} />
-          <Route path="/solutions/services/ai-consulting" element={<ServicesAiConsulting />} />
-
-          <Route path="/products/channels/whatsapp" element={<WhatsappBusinessApi />} />
-          <Route path="/products/channels/rcs" element={<RcsBusinessMessaging />} />
-          <Route path="/products/social-and-apps/instagram" element={<InstagramMessagingApi />} />
-          <Route path="/products/social-and-apps/messenger" element={<FacebookMessengerApi />} />
-          <Route path="/products/social-and-apps/viber" element={<ViberBusinessMessages />} />
-          <Route path="/products/social-and-apps/telegram" element={<TelegramBusiness />} />
-          <Route path="/products/social-and-apps/line" element={<LineBusinessMessaging />} />
-          <Route path="/products/social-and-apps/apple-messages" element={<AppleMessagesForBusiness />} />
-          <Route path="/products/channels/email" element={<EmailApi />} />
-          <Route path="/products/social-and-apps/kakaotalk" element={<KakaoTalkBusinessMessaging />} />
-
-          <Route path="/products/ai-agents/agentic-ai" element={<AiAgentsPlatform />} />
-          <Route path="/products/ai-agents/customer-service" element={<AiAgentsCustomerService />} />
-          <Route path="/products/ai-agents/support" element={<AiAgentsSupport />} />
-          <Route path="/products/ai-agents/voice" element={<AiAgentsVoice />} />
-          <Route path="/products/ai-agents/sales" element={<AiAgentsSalesSdr />} />
-          <Route path="/products/ai-agents/booking" element={<AiAgentsBooking />} />
-          <Route path="/products/ai-agents/agent-builder" element={<AiAgentsBuilder />} />
-          <Route path="/products/ai-agents" element={<AiAgentsOverview />} />
-
-          <Route path="/solutions/industry/retail" element={<IndustryRetail />} />
-          <Route path="/solutions/industry/travel-and-hospitality" element={<IndustryTravel />} />
-          <Route path="/solutions/industry/fintech" element={<IndustryFintech />} />
-          <Route path="/solutions/industry/education" element={<IndustryEducation />} />
-          <Route path="/solutions/industry/media-entertainment" element={<IndustryMedia />} />
-          <Route path="/solutions/industry/healthcare" element={<IndustryHealthcare />} />
-          <Route path="/solutions/industry/insurance" element={<IndustryInsurance />} />
-          <Route path="/solutions/industry/mortgage" element={<IndustryMortgage />} />
-          <Route path="/solutions/industry/telecom" element={<IndustryTelecom />} />
-          <Route path="/solutions/industry/real-estate" element={<IndustryRealEstate />} />
-
-          <Route path="/compare" element={<CompareHub />} />
-          <Route path="/compare/twilio" element={<CompareTwilio />} />
-          <Route path="/compare/bird" element={<CompareBird />} />
-          <Route path="/compare/plivo" element={<ComparePlivo />} />
-          <Route path="/compare/infobip" element={<CompareInfobip />} />
-
-          <Route path="/country-code" element={<CountryIndex />} />
-          <Route path="/country-code/:slug" element={<CountryCode />} />
-
-          <Route path="/blog" element={<BlogIndex />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          {/* Imported archive: one article publishes under /resources/insights */}
-          <Route path="/resources/insights/:slug" element={<BlogPost />} />
-          <Route path="/resources/guides" element={<ResourcesGuides />} />
-          <Route path="/resources/docs" element={<ResourcesDocs />} />
-          <Route path="/resources/case-studies" element={<ResourcesCaseStudies />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="/tools/send-text" element={<ToolSendText />} />
-          <Route path="/tools/text-free" element={<ToolTextFree />} />
-          <Route path="/tools/carrier-lookup" element={<ToolCarrierLookup />} />
-          <Route path="/partnerships" element={<Partners />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/terms-and-conditions" element={<Terms />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
-          {/* CPaaS, Developers, use-case and platform pages (template: components/CpaasPage.jsx) */}
-          <Route path="/products/cpaas" element={<CpaasHub />} />
-          <Route path="/products/cpaas/sms-api" element={<SmsApi />} />
-          <Route path="/products/cpaas/verify-api" element={<VerifyApi />} />
-          <Route path="/products/cpaas/lookup-api" element={<LookupApi />} />
-          <Route path="/products/campaigns" element={<CampaignsHub />} />
-          <Route path="/products/campaigns/campaign-manager" element={<CampaignManager />} />
-          <Route path="/products/campaigns/journey-builder" element={<JourneyBuilder />} />
-          <Route path="/products/campaigns/click-to-whatsapp-ads" element={<CtwaAds />} />
-          <Route path="/developers" element={<DevHub />} />
-          <Route path="/developers/quickstart" element={<DevQuickstart />} />
-          <Route path="/developers/api-reference" element={<DevApiReference />} />
-          <Route path="/developers/sdks" element={<DevSdks />} />
-          <Route path="/developers/webhooks" element={<DevWebhooks />} />
-          <Route path="/solutions/use-case/otp-authentication" element={<UcOtp />} />
-          <Route path="/solutions/use-case/transactional-alerts" element={<UcTransactional />} />
-          <Route path="/solutions/use-case/promotions-campaigns" element={<UcPromotions />} />
-          <Route path="/solutions/use-case/payment-collection" element={<UcPayments />} />
-          <Route path="/solutions/use-case/conversational-commerce" element={<UcCommerce />} />
-          <Route path="/solutions/use-case/appointment-reminders" element={<UcAppointments />} />
-          <Route path="/platform/compliance" element={<PlatformCompliance />} />
-          <Route path="/platform/trust-center" element={<PlatformTrust />} />
-          <Route path="/platform/enterprise" element={<PlatformEnterprise />} />
-          <Route path="/resources/tools" element={<ToolsHub />} />
-          <Route path="/tools/whatsapp-link-generator" element={<ToolWhatsappLink />} />
-
+          {ROUTES.map(([path, Component]) => (
+            <Route key={path} path={path} element={<Component />} />
+          ))}
           {/* old paths -> sheet canonical URLs */}
           <Route path="/whatsapp-business-api" element={<Navigate to="/products/channels/whatsapp/" replace />} />
           <Route path="/rcs-business-messaging" element={<Navigate to="/products/channels/rcs/" replace />} />
@@ -242,8 +247,6 @@ function RoutedApp() {
           <Route path="/partners" element={<Navigate to="/partnerships/" replace />} />
           {/* Imported posts link their CTA at the WordPress signup path */}
           <Route path="/register" element={<Navigate to="/signup/" replace />} />
-
-          <Route path="*" element={<ComingSoon />} />
         </Route>
       </Routes>
     </LocaleProvider>

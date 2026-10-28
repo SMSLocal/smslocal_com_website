@@ -7,15 +7,12 @@ import i18nDevTranslate from './scripts/i18n/vite-dev-translate.mjs'
 export default defineConfig({
   plugins: [react(), i18nDevTranslate()],
   build: {
-    // Route-level React.lazy() isn't safe here: scripts/prerender.mjs calls
-    // renderToString synchronously for all 293 routes and regex-extracts
-    // <title>/<meta> from the result — a lazy component would render its
-    // Suspense fallback instead of real content, breaking prerendered SEO
-    // output for every page. This is the fix Vite's own build warning points
-    // at instead: split the heaviest vendor deps into their own cacheable
-    // chunks. Vite 8 bundles with Rolldown, so the option lives under
-    // rolldownOptions.output.codeSplitting, not the classic Rollup
-    // manualChunks — see node_modules/rolldown's own type definitions.
+    // Pages are lazy chunks in the browser build (src/lib/lazyPage.js) and plain
+    // synchronous components in the SSR build, which is what keeps
+    // scripts/prerender.mjs's renderToString output real content. The heaviest
+    // vendor deps also get their own cacheable chunks. Vite 8 bundles with
+    // Rolldown, so the option lives under rolldownOptions.output.codeSplitting,
+    // not the classic Rollup manualChunks.
     rolldownOptions: {
       output: {
         codeSplitting: {

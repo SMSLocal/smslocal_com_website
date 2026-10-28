@@ -50,20 +50,18 @@ writeFileSync(
 
 const app = readFileSync(join(root, 'src/App.jsx'), 'utf8')
 
-// `import Pricing from './pages/Pricing.jsx'`
+// `const Pricing = page(() => import('./pages/Pricing.jsx'))`
 const files = Object.fromEntries(
-  [...app.matchAll(/^import (\w+) from '(\.\/pages\/[^']+)'/gm)].map(([, name, path]) => [
-    name,
-    path,
-  ]),
+  [...app.matchAll(/^const (\w+) = page\(\(\) => import\('(\.\/pages\/[^']+)'\)\)/gm)].map(
+    ([, name, path]) => [name, path],
+  ),
 )
 
-// `<Route path="/pricing" element={<Pricing />} />`. Redirect routes render
-// `<Navigate to=... />`, which doesn't fit the `{<Word />}` shape and so drops
-// out here — as do the `:slug` routes (dated per-post from the post data) and
-// the `*` catch-all.
+// The ROUTES table in App.jsx: `['/pricing', Pricing],`. Redirect routes are
+// `<Navigate />` JSX outside the table and so drop out here, as do the `:slug`
+// routes (dated per-post from the post data) and the `*` catch-all.
 const dates = {}
-for (const [, path, component] of app.matchAll(/<Route path="([^"]+)" element=\{<(\w+) \/>\}/g)) {
+for (const [, path, component] of app.matchAll(/^\s*\['([^']+)', (\w+)\],?$/gm)) {
   const file = files[component]
   if (!file || path.includes(':') || path === '*') continue
   const mtime = statSync(join(root, 'src', file.slice(2))).mtime

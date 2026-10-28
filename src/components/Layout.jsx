@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import TopBar from './TopBar.jsx'
 import Navbar from './Navbar.jsx'
@@ -31,7 +31,10 @@ function Layout() {
       <Navbar />
       <main>
         <Breadcrumbs />
-        <Outlet />
+        {/* Pages are lazy chunks (lib/lazyPage.js); only <main> waits, the chrome stays put. */}
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>
