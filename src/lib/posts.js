@@ -227,13 +227,28 @@ export function getFeaturedPost() {
   return allPosts.find((p) => p.featured) ?? allPosts[0];
 }
 
-/** Same-category posts first, so an area-code piece suggests its neighbours. */
+/**
+ * Posts that should be suggested first on a given post, ahead of the category order
+ * below. The category order only ever surfaces the newest few posts of a category,
+ * so an older post that is closely related to others would otherwise get no link
+ * from them. Keep this to topics that really are neighbours.
+ */
+const PINNED_RELATED = {
+  "how-to-stop-spam-texts": ["sms-bomber"],
+  "how-recognize-and-report-spam-text-messages": ["sms-bomber"],
+  "what-does-wtw-mean": ["introduction-text"],
+  "what-does-wyll-mean": ["introduction-text"],
+};
+
+/** Pinned posts first, then same-category posts, so an area-code piece suggests its neighbours. */
 export function getRelatedPosts(slug, count = 3) {
   const post = getPostBySlug(slug);
   const others = allPosts.filter((p) => p.slug !== slug);
   if (!post) return others.slice(0, count);
+  const pinned = (PINNED_RELATED[slug] ?? []).map(getPostBySlug).filter(Boolean);
   const sameCategory = others.filter((p) => p.category === post.category);
-  return [...sameCategory, ...others.filter((p) => p.category !== post.category)].slice(0, count);
+  const ordered = [...pinned, ...sameCategory, ...others.filter((p) => p.category !== post.category)];
+  return [...new Set(ordered)].slice(0, count);
 }
 
 export const categories = [
