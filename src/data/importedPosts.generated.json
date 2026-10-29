@@ -14821,7 +14821,7 @@
     "rich": [
      "An SMS API (Short Message Service Application Programming Interface) is a tool that allows software systems to ",
      {
-      "a": "/blog/how-to-send-a-system-generated-sms/",
+      "a": "/resources/insights/how-to-send-a-system-generated-sms/",
       "x": false,
       "c": [
        "send and receive SMS messages programmatically"
