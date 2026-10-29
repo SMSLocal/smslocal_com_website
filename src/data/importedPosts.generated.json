@@ -131629,13 +131629,13 @@
    "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
   },
   "publishedISO": "2026-10-26T09:00:00",
-  "modifiedISO": "2026-10-26T09:00:00",
+  "modifiedISO": "2026-10-29T09:00:00",
   "readTime": "10 min read",
   "words": 2164,
   "excerpt": "A flower shop sets up business texting the week before Mother's Day. The owner loads the customer list, writes a warm message about pre-orders and presses send. The dashboard says \"sent.\" Half the customers never get it, and the rest arrive hours late.",
-  "cover": "/blog/10dlc-registration/cover.svg",
-  "sourceCover": "/blog/10dlc-registration/cover.svg",
-  "coverAlt": "10DLC registration: brand, campaign and approval steps for US business texting",
+  "cover": "/blog/10dlc-registration/10dlc-registration-cover.jpg",
+  "sourceCover": "/blog/10dlc-registration/10dlc-registration-cover.jpg",
+  "coverAlt": "10DLC registration: how to register your business to text in the USA",
   "body": [
    {
     "type": "h2",
@@ -131701,6 +131701,13 @@
     "type": "h2",
     "text": "What Is 10DLC?",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/10dlc-registration/10dlc-registration-what-is-10dlc.webp",
+    "alt": "10DLC explained: a business sends text messages to US customers from a 10-digit local number",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -131775,6 +131782,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/10dlc-registration/10dlc-registration-brand-and-campaign.webp",
+    "alt": "Brand (who you are) and campaign (how you text) are the two parts of 10DLC registration",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "Registration has two parts, and people often mix them up."
@@ -131812,6 +131826,13 @@
     "type": "h2",
     "text": "Before You Start: What to Have Ready",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/10dlc-registration/10dlc-registration-before-you-start.webp",
+    "alt": "Checklist of what to have ready: business details, tax ID, business address and messaging plan",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -132076,6 +132097,13 @@
     ]
    },
    {
+    "type": "img",
+    "src": "/blog/10dlc-registration/10dlc-registration-engage-smarter.webp",
+    "alt": "Engage smarter with SMSLocal: personalize messages, send at the right time and build engagement",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "cta",
     "heading": [
      "Engage Smarter with SMSLocal!"
@@ -132204,6 +132232,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/10dlc-registration/10dlc-registration-number-types.webp",
+    "alt": "Comparison of a 10DLC local number, a toll-free number and a short code",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "Registration is not the only way to text in the US. Which option you choose depends on your volume and goals."
@@ -132300,6 +132335,13 @@
     "type": "h2",
     "text": "After You Are Approved: Staying Compliant",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/10dlc-registration/10dlc-registration-staying-compliant.webp",
+    "alt": "After approval: honor consent, keep messages accurate, respect opt-outs and update registration details",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -132489,13 +132531,13 @@
    "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
   },
   "publishedISO": "2026-10-28T09:00:00",
-  "modifiedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-29T09:00:00",
   "readTime": "10 min read",
   "words": 2186,
   "excerpt": "You write a clear, friendly 170-character text for your customers. It looks fine on your screen. Then your delivery report shows it went out as two messages, and your bill reflects it.",
-  "cover": "/blog/sms-character-limit/cover.svg",
-  "sourceCover": "/blog/sms-character-limit/cover.svg",
-  "coverAlt": "SMS character limit: 160 characters per standard text, 70 with an emoji, longer messages split into segments",
+  "cover": "/blog/sms-character-limit/sms-character-limit-cover.jpg",
+  "sourceCover": "/blog/sms-character-limit/sms-character-limit-cover.jpg",
+  "coverAlt": "SMS character limit: how long can a text message be, with a character counter showing 160 characters per message",
   "body": [
    {
     "type": "h2",
@@ -132567,6 +132609,13 @@
     "type": "h2",
     "text": "What Is the SMS Character Limit?",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-character-limit/sms-character-limit-what-is-the-limit.webp",
+    "alt": "A short text split into segments, with a character count showing message length",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -132683,6 +132732,13 @@
     "type": "h2",
     "text": "What Is an SMS Segment?",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-character-limit/sms-character-limit-what-is-a-segment.webp",
+    "alt": "One long text message delivered in three SMS segments",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -132855,6 +132911,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/sms-character-limit/sms-character-limit-emojis-and-unicode.webp",
+    "alt": "A standard text compared with an emoji text, showing that emojis change SMS encoding and length",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "Yes, when the message earns it. A birthday offer or a restaurant promotion can feel warmer with one well-placed emoji, and Spanish-language campaigns need their accented characters to read correctly."
@@ -132882,6 +132945,13 @@
     "type": "h2",
     "text": "SMS Limits vs MMS Limits",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-character-limit/sms-character-limit-sms-vs-mms.webp",
+    "alt": "SMS text messages with character limits compared with MMS media messages with size limits",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -133128,6 +133198,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/sms-character-limit/sms-character-limit-check-and-send.webp",
+    "alt": "Three steps to stay within the limit: review the message, check its length, send",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "Whatever platform you choose, the workflow is similar. Here is how it works with SMSLocal."
@@ -133313,13 +133390,13 @@
    "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
   },
   "publishedISO": "2026-10-28T09:00:00",
-  "modifiedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-29T09:00:00",
   "readTime": "9 min read",
   "words": 1890,
   "excerpt": "Think about the last time a business texted you. Maybe a salon confirmed your appointment, a store told you a package was on its way, or a restaurant sent a coupon for the weekend. You probably read it within a few minutes, and you may have acted on it…",
-  "cover": "/blog/what-is-sms-marketing/cover.svg",
-  "sourceCover": "/blog/what-is-sms-marketing/cover.svg",
-  "coverAlt": "What is SMS marketing: customers opt in, a business sends texts, customers reply or opt out",
+  "cover": "/blog/what-is-sms-marketing/what-is-sms-marketing-cover.jpg",
+  "sourceCover": "/blog/what-is-sms-marketing/what-is-sms-marketing-cover.jpg",
+  "coverAlt": "What is SMS marketing: a plain-English guide to timely, useful text messages for businesses",
   "body": [
    {
     "type": "h2",
@@ -133373,6 +133450,13 @@
     "type": "h2",
     "text": "What Is SMS Marketing?",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/what-is-sms-marketing/what-is-sms-marketing-what-is-sms-marketing.webp",
+    "alt": "SMS marketing examples: order updates, appointment reminders and promotions",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -133504,6 +133588,13 @@
     "type": "h2",
     "text": "What Kinds of Messages Can You Send?",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/what-is-sms-marketing/what-is-sms-marketing-message-types.webp",
+    "alt": "Message types: appointments, promotions, order updates and customer support",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -133643,6 +133734,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/what-is-sms-marketing/what-is-sms-marketing-rules.webp",
+    "alt": "SMS marketing rules: get consent, identify your business, respect opt-outs and follow messaging rules",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "Texting customers is regulated, and breaking the rules can be expensive. These are the basics for US businesses. They are a starting point, not legal advice, so talk to a lawyer about your specific situation."
@@ -133739,6 +133837,13 @@
     "type": "h2",
     "text": "How to Start SMS Marketing",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/what-is-sms-marketing/what-is-sms-marketing-how-to-start.webp",
+    "alt": "Steps to start SMS marketing: define your goal, build your contact list, write your message, send and measure",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -133898,6 +134003,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/what-is-sms-marketing/what-is-sms-marketing-sms-vs-email.webp",
+    "alt": "SMS marketing for short direct messages compared with email marketing for richer content",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "People often ask which is better. The honest answer is that they do different jobs."
@@ -133997,13 +134109,13 @@
    "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
   },
   "publishedISO": "2026-10-28T09:00:00",
-  "modifiedISO": "2026-10-28T09:00:00",
+  "modifiedISO": "2026-10-29T09:00:00",
   "readTime": "8 min read",
   "words": 1854,
   "excerpt": "An empty chair costs more than it looks like. A dental hygienist waits at 2:15 p.m. for a 2:00 patient who simply forgot. The hour cannot be resold, the supplies are set out, and the next patient is already running late because the front desk is busy…",
-  "cover": "/blog/appointment-reminder-text-message/cover.svg",
-  "sourceCover": "/blog/appointment-reminder-text-message/cover.svg",
-  "coverAlt": "Appointment reminder text message: a booking, a timed reminder and a reply to confirm or reschedule",
+  "cover": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-cover.jpg",
+  "sourceCover": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-cover.jpg",
+  "coverAlt": "Appointment reminder text message example: your appointment is tomorrow at 10 AM, reply to confirm",
   "body": [
    {
     "type": "h2",
@@ -134057,6 +134169,13 @@
     "type": "h2",
     "text": "Why Reminders by Text Work",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-why-it-works.webp",
+    "alt": "Why text reminders work: easy to notice, quick to read and simple to respond to",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -134272,6 +134391,13 @@
     "anchor": null
    },
    {
+    "type": "img",
+    "src": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-when-to-send.webp",
+    "alt": "When to send reminders: 24 hours before, 2 to 3 hours before and at appointment time",
+    "width": 1200,
+    "height": 670
+   },
+   {
     "type": "p",
     "rich": [
      "Timing matters as much as wording. A reminder sent too early gets buried, and one sent too late leaves no room to reschedule."
@@ -134358,6 +134484,13 @@
     "type": "h2",
     "text": "Make Reminders Two-Way",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-two-way.webp",
+    "alt": "A two-way reminder: the business sends a reminder, the customer replies confirm and gets a confirmation",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -134490,6 +134623,13 @@
     "type": "h2",
     "text": "How to Set Up Appointment Reminders with SMSLocal",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-set-up.webp",
+    "alt": "Three-step workflow: connect your system, create your message, automate and confirm",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
@@ -134666,6 +134806,13 @@
     "type": "h2",
     "text": "How to Measure Whether It Is Working",
     "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/appointment-reminder-text-message/appointment-reminder-text-message-measure.webp",
+    "alt": "Measure reminders by delivery rate, confirmation rate and no-show rate",
+    "width": 1200,
+    "height": 670
    },
    {
     "type": "p",
