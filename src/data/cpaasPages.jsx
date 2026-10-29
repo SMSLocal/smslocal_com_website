@@ -13,7 +13,7 @@ import CpaasHubVisual from '../components/CpaasHubVisual.jsx'
  * SOC 2 / GDPR / HIPAA); it carries no prices, SLAs or uptime figures.
  */
 
-const f = (icon, title, desc) => ({ icon, title, desc })
+const f = (icon, title, desc, href) => ({ icon, title, desc, ...(href ? { href } : {}) })
 const s = (title, desc) => ({ title, desc })
 const faq = (q, a) => ({ q, a })
 const g = (text) => <span className="grad-word">{text}</span>
@@ -339,6 +339,7 @@ export const CAMPAIGN_MANAGER = {
     eyebrow: 'Related',
     title: <>Pairs well with</>,
     items: [
+      f(<IconBolt />, 'Promotions & campaigns', 'The use case: offers, launches and win-backs.', '/solutions/use-case/promotions-campaigns/'),
       f(<IconRefresh />, 'Journey Builder', 'Automate what happens after the send.', '/products/campaigns/journey-builder/'),
       f(<IconChat />, 'WhatsApp Broadcasting', 'One broadcast, thousands of chats.', '/products/channels/whatsapp-broadcasting/'),
       f(<IconBolt />, 'SMS Broadcasting', 'Bulk SMS at scale.', '/products/channels/sms-broadcasting/'),

@@ -6,6 +6,7 @@ import StepsAnimatedPanel from '../components/StepsAnimatedPanel.jsx'
 import WhyUsDashList from '../components/WhyUsDashList.jsx'
 import { IconCheck, IconClock, IconChart, IconBolt } from '../components/icons.jsx'
 import TelecomNetworkHeroMock from '../components/TelecomNetworkHeroMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { title: 'Connect billing & OSS/BSS', desc: 'Link your billing platform and network systems along with every channel.' },
@@ -109,6 +110,8 @@ function IndustryTelecom() {
         subtitle="Instant, accurate answers across every channel reduce both ticket volume and customer frustration."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/telecom/" />
 
       <CTABanner
         title="Retire the IVR maze"

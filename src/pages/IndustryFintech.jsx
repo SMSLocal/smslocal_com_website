@@ -6,6 +6,7 @@ import DeploymentTimeline from '../components/DeploymentTimeline.jsx'
 import WhyUsSpotlightGrid from '../components/WhyUsSpotlightGrid.jsx'
 import { IconClock, IconShield, IconChart, IconLink } from '../components/icons.jsx'
 import FintechAgentHeroMock from '../components/FintechAgentHeroMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const BENEFITS = [
   { icon: <IconClock />, title: '24/7 coverage', desc: 'Routine account questions answered any hour, without adding to the queue.' },
@@ -62,6 +63,8 @@ function IndustryFintech() {
         title="Why finance teams trust our AI agents"
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/fintech/" />
 
       <CTABanner
         title="Automate support without losing the audit trail"

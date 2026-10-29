@@ -3,6 +3,7 @@ import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Secti
 import { IconChat, IconRefresh, IconMail, IconBrain, IconChart, IconUsers, IconLink, IconShield } from '../components/icons.jsx'
 import InstagramHeroMock from '../components/InstagramHeroMock.jsx'
 import './InstagramMessagingApi.css'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const SURFACES = [
   { icon: <IconChat />, title: 'Direct messages', desc: 'Auto-replies and saved responses handle the routine, and your team picks up whatever needs a human.' },
@@ -204,6 +205,8 @@ function InstagramMessagingApi() {
       </section>
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} alt />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/instagram/" />
 
       <CTABanner
         title="Turn Instagram DMs into a real channel"

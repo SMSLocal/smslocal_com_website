@@ -5,6 +5,7 @@ import MessengerHeroFlow from '../components/MessengerHeroFlow.jsx'
 import MessengerScorecard from '../components/MessengerScorecard.jsx'
 import MessengerUseCases from '../components/MessengerUseCases.jsx'
 import { ProblemSplit, StepFlow } from '../components/MessengerSections.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const HERO_BADGES = [
   { icon: <IconClock />, word: '24/7', desc: 'coverage on Messenger' },
@@ -105,6 +106,8 @@ function FacebookMessengerApi() {
         subtitle="From support teams to lead-gen, growing teams trust SMSLocal to handle Messenger conversations automatically."
         items={TESTIMONIALS}
       />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/messenger/" />
 
       <CTABanner
         eyebrow="Get Started"

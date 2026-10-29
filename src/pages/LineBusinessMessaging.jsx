@@ -9,6 +9,7 @@ import {
   StepTracker,
   CompareVS,
 } from '../components/LineSections.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const METERS = [
   { name: 'Broadcast blasts', pct: 92 },
@@ -106,6 +107,8 @@ function LineBusinessMessaging() {
         subtitle="From ecommerce to support teams, growing brands use SMSLocal to turn their LINE Official Account into a real channel."
         items={TESTIMONIALS}
       />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/line/" />
 
       <CTABanner
         eyebrow="Get Started"

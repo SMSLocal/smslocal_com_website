@@ -6,6 +6,7 @@ import BuilderJourneyPath from '../components/BuilderJourneyPath.jsx'
 import WhyUsSpotlightGrid from '../components/WhyUsSpotlightGrid.jsx'
 import { IconClock, IconCheck, IconBolt, IconUsers, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
 import BookingCalendarMock from '../components/BookingCalendarMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { icon: <IconPlug />, title: 'Connect your booking system', desc: 'Link your PMS or booking platform along with WhatsApp, SMS and web chat.' },
@@ -73,6 +74,8 @@ function IndustryTravel() {
         subtitle="Routine itinerary questions resolve automatically, freeing your team for the bookings that need real judgement."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/travel-and-hospitality/" />
 
       <CTABanner
         title="Give every traveller a 24/7 booking desk"

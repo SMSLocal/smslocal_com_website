@@ -6,6 +6,7 @@ import WhyUsReasonRows from '../components/WhyUsReasonRows.jsx'
 import ProblemInboxSplit from '../components/ProblemInboxSplit.jsx'
 import { IconReceipt, IconBell, IconClock, IconLink, IconMail, IconCalendar } from '../components/icons.jsx'
 import SdrCampaignMock from '../components/SdrCampaignMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const INBOX_ROWS = [
   { icon: <IconClock />, title: 'New Application Waiting', time: '1d' },
@@ -111,6 +112,8 @@ function IndustryMortgage() {
         title="Faster closings, less manual chasing"
         items={REASONS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/mortgage/" />
 
       <CTABanner
         title="Stop losing loans to silence"

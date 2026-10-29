@@ -5,6 +5,7 @@ import KakaoTalkHeroMock from '../components/KakaoTalkHeroMock.jsx'
 import KakaoTalkProblemShift from '../components/KakaoTalkProblemShift.jsx'
 import KakaoTalkCapabilityGrid from '../components/KakaoTalkCapabilityGrid.jsx'
 import KakaoTalkStepsTimeline from '../components/KakaoTalkStepsTimeline.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const WHY_US = [
   { icon: <IconMail />, title: 'One inbox, every channel', desc: 'KakaoTalk sits beside SMS, WhatsApp and every other channel in the same shared inbox.' },
@@ -74,6 +75,8 @@ function KakaoTalkBusinessMessaging() {
       />
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/kakaotalk/" />
 
       <CTABanner
         title="Bring KakaoTalk into the same platform as everything else"

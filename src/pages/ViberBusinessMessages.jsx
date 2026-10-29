@@ -6,6 +6,7 @@ import ViberProblemShift from '../components/ViberProblemShift.jsx'
 import ViberCapabilityGrid from '../components/ViberCapabilityGrid.jsx'
 import ViberStepsTimeline from '../components/ViberStepsTimeline.jsx'
 import WhyUsUnderline from '../components/WhyUsUnderline.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { title: 'Verify your sender', desc: 'We handle Viber Business verification — logo, name and sender ID approved.' },
@@ -65,6 +66,8 @@ function ViberBusinessMessages() {
       <WhyUsUnderline eyebrow="Why us" title={<>Why brands run Viber on SMSLocal</>} items={WHY_US} alt />
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} alt />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/viber/" />
 
       <CTABanner
         title="Bring Viber into the same platform as everything else"

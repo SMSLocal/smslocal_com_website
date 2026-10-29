@@ -6,6 +6,7 @@ import BuilderJourneyPath from '../components/BuilderJourneyPath.jsx'
 import WhyUsChecklist from '../components/WhyUsChecklist.jsx'
 import { IconCalendar, IconShield, IconBell, IconCheck, IconClock, IconUsers, IconBolt, IconChat } from '../components/icons.jsx'
 import VoiceCallMock from '../components/VoiceCallMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { icon: <IconCalendar />, title: 'Connect your scheduling system', desc: 'Link your calendar or EHR platform along with SMS and WhatsApp.' },
@@ -102,6 +103,8 @@ function IndustryHealthcare() {
         subtitle="Automated reminders and instant scheduling reduce missed visits without adding staff."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/healthcare/" />
 
       <CTABanner
         title="Automate patient communication without cutting corners"

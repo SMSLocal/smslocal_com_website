@@ -4,6 +4,7 @@ import { Hero, Testimonials, FAQ, CTABanner } from '../components/sections/Secti
 import { IconCalendar, IconDollar, IconShield, IconChat, IconMail, IconUsers, IconLink } from '../components/icons.jsx'
 import AppleMessagesHeroMock from '../components/AppleMessagesHeroMock.jsx'
 import './AppleMessagesForBusiness.css'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const SLOTS = ['Tomorrow, 11:00 AM', 'Tomorrow, 2:30 PM', 'Friday, 9:00 AM']
 
@@ -374,6 +375,8 @@ function AppleMessagesForBusiness() {
       </section>
 
       <Testimonials title={<>Trusted by growing brands</>} items={TESTIMONIALS} alt />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/apple-messages/" />
 
       <CTABanner
         title="Bring your brand into iMessage the right way"

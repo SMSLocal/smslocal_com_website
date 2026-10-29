@@ -6,6 +6,7 @@ import StepsFlightPath from '../components/StepsFlightPath.jsx'
 import WhyItWorksCarousel from '../components/WhyItWorksCarousel.jsx'
 import { IconBook, IconGlobe, IconBell, IconCheck, IconClock, IconUsers, IconBolt, IconChart } from '../components/icons.jsx'
 import EducationAdmissionsHeroMock from '../components/EducationAdmissionsHeroMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { title: 'Connect your admissions data', desc: 'Link your CRM or SIS so the agent can answer from real programme and deadline data.' },
@@ -87,6 +88,8 @@ function IndustryEducation() {
         subtitle="Automated reminders and instant answers keep applicants engaged through the whole funnel."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/education/" />
 
       <CTABanner
         title="Give every applicant a 24/7 admissions office"

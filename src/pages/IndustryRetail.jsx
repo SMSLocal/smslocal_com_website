@@ -6,6 +6,7 @@ import BuildJourneyStepperIndustry from '../components/BuildJourneyStepperIndust
 import WhyUsChecks from '../components/WhyUsChecks.jsx'
 import { IconCheck, IconClock, IconBolt, IconPackage, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
 import StoreAgentHeroMock from '../components/StoreAgentHeroMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const BENEFITS = [
   { icon: <IconClock />, title: 'Never miss peak traffic', desc: 'Handles Black Friday-level volume the same way it handles a quiet Tuesday — no queue, no dropped chats.' },
@@ -78,6 +79,8 @@ function IndustryRetail() {
         subtitle="Peak traffic stops being a staffing problem — the agent handles the surge, and your team handles the exceptions."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/retail/" />
 
       <CTABanner
         title="Turn support into a revenue channel"

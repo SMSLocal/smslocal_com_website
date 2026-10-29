@@ -5,6 +5,7 @@ import StepsNumberedRows from '../components/StepsNumberedRows.jsx'
 import WhyUsMetrics from '../components/WhyUsMetrics.jsx'
 import { IconShield, IconRefresh, IconBell, IconCheck, IconClock, IconChart, IconBolt, IconReceipt, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
 import AgentWorkflowMock from '../components/AgentWorkflowMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { icon: <IconPlug />, title: 'Connect policy & claims systems', desc: 'Link your policy admin and claims platforms along with SMS and WhatsApp.' },
@@ -107,6 +108,8 @@ function IndustryInsurance() {
         subtitle="Instant claims updates and timely renewal reminders keep policyholders engaged, not frustrated."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/insurance/" />
 
       <CTABanner
         title="Turn claims and renewals into a retention advantage"

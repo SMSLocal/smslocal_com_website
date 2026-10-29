@@ -5,6 +5,7 @@ import { IconRobot, IconMegaphone, IconPlug, IconUsers, IconLink, IconMail } fro
 import TelegramHeroMock from '../components/TelegramHeroMock.jsx'
 import TelegramBotSetup from '../components/TelegramBotSetup.jsx'
 import './TelegramBusiness.css'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const MODES = [
   {
@@ -197,6 +198,8 @@ function TelegramBusiness() {
       </section>
 
       <Testimonials title={<>Trusted by growing teams</>} items={TESTIMONIALS} alt />
+
+      <RelatedPages group="channel" current="/products/social-and-apps/telegram/" />
 
       <CTABanner
         title="Launch your Telegram bot without the server"

@@ -5,6 +5,7 @@ import StepsChevron from '../components/StepsChevron.jsx'
 import WhyUsTiltBadges from '../components/WhyUsTiltBadges.jsx'
 import { IconMic, IconBell, IconChart, IconCheck, IconClock, IconUsers, IconBolt, IconGlobe, IconPlug, IconGear, IconRocket } from '../components/icons.jsx'
 import MediaBroadcastHeroMock from '../components/MediaBroadcastHeroMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { icon: <IconPlug />, title: 'Connect ticketing & billing', desc: 'Link your ticketing platform, billing system and subscriber database.' },
@@ -99,6 +100,8 @@ function IndustryMedia() {
         subtitle="Instant support and timely recommendations turn peak moments into retention, not churn."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/media-entertainment/" />
 
       <CTABanner
         title="Support your audience at their busiest moment"

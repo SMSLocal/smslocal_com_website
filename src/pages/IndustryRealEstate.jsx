@@ -6,6 +6,7 @@ import StepsProgressBuild from '../components/StepsProgressBuild.jsx'
 import WhyUsBenefitRibbon from '../components/WhyUsBenefitRibbon.jsx'
 import { IconHandshake, IconCalendar, IconCheck, IconClock, IconChart, IconBolt, IconChat } from '../components/icons.jsx'
 import RealEstateLeadScoreHeroMock from '../components/RealEstateLeadScoreHeroMock.jsx'
+import RelatedPages from '../components/RelatedPages.jsx'
 
 const STEPS = [
   { title: 'Connect your listings & calendar', desc: 'Link your listing feed and agent calendars along with WhatsApp, SMS and web chat.' },
@@ -82,6 +83,8 @@ function IndustryRealEstate() {
         subtitle="Instant qualification and conversational scheduling turn more enquiries into showings."
         items={BENEFITS}
       />
+
+      <RelatedPages group="industry" current="/solutions/industry/real-estate/" />
 
       <CTABanner
         title="Never lose a lead to slow response time again"
