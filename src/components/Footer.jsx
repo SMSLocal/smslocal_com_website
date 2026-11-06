@@ -22,6 +22,7 @@ const COLUMNS = [
       { t: 'AI Agents', href: '/products/ai-agents/' },
       { t: 'WhatsApp Business API', href: '/products/channels/whatsapp/' },
       { t: 'SMS Broadcasting', href: '/products/channels/sms-broadcasting/' },
+      { t: 'Campaigns', href: '/products/campaigns/' },
       { t: 'Voice', href: '/products/channels/voice/' },
     ],
   },
