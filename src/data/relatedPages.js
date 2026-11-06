@@ -29,6 +29,7 @@ export const RELATED_GROUPS = {
       { title: 'LINE', desc: 'Two-way chat, flex messages and rich menus.', href: '/products/social-and-apps/line/' },
       { title: 'Apple Messages', desc: 'Rich links, list pickers and Apple Pay.', href: '/products/social-and-apps/apple-messages/' },
       { title: 'KakaoTalk', desc: 'Verified notices and two-way replies.', href: '/products/social-and-apps/kakaotalk/' },
+      { title: 'Web Chat', desc: 'A live chat widget with instant AI answers.', href: '/products/social-and-apps/web-chat/' },
     ],
   },
 }
