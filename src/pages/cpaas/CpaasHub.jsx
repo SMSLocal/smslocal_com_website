@@ -66,7 +66,7 @@ function CpaasHub() {
       <ChannelMatrix
         eyebrow="Channels"
         title="Pick the channel that fits the message"
-        subtitle={<>Each channel has its own strengths and its own setup, from SMS to <OutLink href="https://en.wikipedia.org/wiki/Rich_Communication_Services">RCS</OutLink>. You use them all from one account.</>}
+        subtitle={<>Each channel has its own strengths and its own setup, from SMS to <OutLink href="https://developers.google.com/business-communications/rcs-business-messaging">RCS</OutLink>. You use them all from one account.</>}
         columns={['SMS', 'WhatsApp', 'RCS', 'Voice', 'Email']}
         rows={[
           { label: 'Send through the API', values: [true, true, true, true, true] },

@@ -86,7 +86,7 @@ function SmsApi() {
       <IdeasRow
         eyebrow="Built for developers"
         title="Nothing exotic to learn"
-        subtitle={<>Three ideas cover the whole API, which follows plain <OutLink href="https://en.wikipedia.org/wiki/REST">REST</OutLink> conventions.</>}
+        subtitle={<>Three ideas cover the whole API, which follows plain <OutLink href="https://developer.mozilla.org/en-US/docs/Glossary/REST">REST</OutLink> conventions.</>}
         items={[
           { icon: <IconCode />, label: 'Authentication', title: 'Token authentication', desc: 'Send your access key in a Token header on every request, with JSON in and JSON out.', points: ['No SDK required', 'Works from any language', 'Keep the key in an environment variable'] },
           { icon: <IconBolt />, label: 'Response', title: 'Know it was accepted', desc: 'Every send returns a msgid and an errorcode immediately.', points: ['Store the msgid against your own record', 'errorcode 0 means accepted', 'Use the msgid to match reports later'] },
