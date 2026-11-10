@@ -3125,7 +3125,15 @@
    {
     "type": "p",
     "rich": [
-     "In many regions, including the U.S., laws such as the Telephone Consumer Protection Act (TCPA) govern how SMS marketing campaigns should be conducted. Here are the fundamental legal requirements:"
+     "In many regions, including the U.S., laws such as the ",
+     {
+      "a": "/blog/tcpa-compliance/",
+      "x": false,
+      "c": [
+       "Telephone Consumer Protection Act (TCPA)"
+      ]
+     },
+     " govern how SMS marketing campaigns should be conducted. Here are the fundamental legal requirements:"
     ]
    },
    {
@@ -35437,7 +35445,15 @@
    {
     "type": "p",
     "rich": [
-     "The framework for regulating a2p texting primarily involves the Telephone Consumer Protection Act (TCPA) and the guidelines set forth by the ",
+     "The framework for regulating a2p texting primarily involves the ",
+     {
+      "a": "/blog/tcpa-compliance/",
+      "x": false,
+      "c": [
+       "Telephone Consumer Protection Act (TCPA)"
+      ]
+     },
+     " and the guidelines set forth by the ",
      {
       "a": "https://www.fcc.gov/",
       "x": true,
@@ -86713,7 +86729,15 @@
        "may"
       ]
      },
-     " sometimes be sent without explicit opt-in, this depends heavily on local laws (like the TCPA in the US, GDPR in Europe, and other regulations worldwide) and the ",
+     " sometimes be sent without explicit opt-in, this depends heavily on local laws (like the ",
+     {
+      "a": "/blog/tcpa-compliance/",
+      "x": false,
+      "c": [
+       "TCPA"
+      ]
+     },
+     " in the US, GDPR in Europe, and other regulations worldwide) and the ",
      {
       "i": [
        "type"
@@ -135799,6 +135823,704 @@
     "q": "Is two-way texting free?",
     "rich": [
      "Pricing depends on your provider and plan. Messages are usually billed per segment, and some platforms charge for inbox seats as well. Check your provider's current pricing before you commit."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "tcpa-compliance",
+  "routePath": "/blog/tcpa-compliance",
+  "sourceUrl": "https://www.smslocal.com/blog/tcpa-compliance/",
+  "sourceType": "post",
+  "title": "TCPA Compliance for Text Messaging: Everything You Need to Know",
+  "metaTitle": "TCPA Compliance: Text Message Rules and a Simple Checklist",
+  "metaDescription": "TCPA compliance for text messages in plain English: consent, opt-outs, quiet hours, penalties and a checklist you can use today. General info, not legal advice.",
+  "keywords": "TCPA compliance, TCPA text messages, TCPA text message rules, TCPA compliance checklist, TCPA SMS compliance, prior express written consent, TCPA consent, TCPA opt out rules, TCPA quiet hours, TCPA penalties, TCPA compliance for small business, TCPA do not call",
+  "category": "Promotional SMS",
+  "categories": [
+   "Promotional SMS"
+  ],
+  "tags": [
+   "TCPA Compliance",
+   "TCPA Text Messages",
+   "SMS Consent"
+  ],
+  "date": "November 10, 2026",
+  "dateISO": "2026-11-10",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-11-10T09:00:00",
+  "modifiedISO": "2026-11-10T09:00:00",
+  "readTime": "9 min read",
+  "words": 2051,
+  "excerpt": "A gym owner decides to send out a spring offer to everyone on an old sign-up sheet via text message. They send out the message to a few thousand numbers. However, some customers didn't give permission to be contacted via text. A few weeks later a letter…",
+  "cover": "/blog/tcpa-compliance/tcpa-compliance-cover.jpg",
+  "sourceCover": "/blog/tcpa-compliance/tcpa-compliance-cover.jpg",
+  "coverAlt": "TCPA compliance for text messaging: SMS consent requirements, opt-out and STOP rules, and compliant text messaging",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A gym owner decides to send out a spring offer to everyone on an old sign-up sheet via text message. They send out the message to a few thousand numbers. However, some customers didn't give permission to be contacted via text. A few weeks later a letter comes through from a lawyer."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Although this scenario isn't real, there is a real issue. In the US, there are federal regulations in place for contacting customers via text messaging for marketing, and TCPA text messages are a big part of that. TCPA compliance ensures you're on the right side of it."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide explains the TCPA, including what texts fall under it, penalties and how to comply. It's a general overview and we recommend consulting a lawyer to find out how it affects your business. We checked the rules below against the text of 47 CFR 64.1200 and 47 U.S.C. 227 in November 2026."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "The TCPA is a federal law restricting marketing calls and texts. The rules are detailed by the FCC in 47 CFR 64.1200."
+     ],
+     [
+      "Any marketing texts sent using an autodialer require prior express written consent."
+     ],
+     [
+      "Customers can withdraw their permission at any time by using any sensible method. This includes STOP, QUIT, END, REVOKE, OPT OUT, CANCEL and UNSUBSCRIBE."
+     ],
+     [
+      "Under the law, you can owe $500 per violation. However, if you're found to be willfully or knowingly in violation, it can be up to triple that amount."
+     ],
+     [
+      "Make sure you have evidence of permission, respond quickly to withdrawals and text at the correct times."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is TCPA Compliance?",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/tcpa-compliance/tcpa-compliance-what-is-tcpa-compliance.webp",
+    "alt": "What TCPA compliance means: get consent, send messages and honor opt-outs",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The Telephone Consumer Protection Act (TCPA) is a US federal law relating to calls and texts. It can be found in the US Code at 47 U.S.C. 227. The FCC has created detailed rules for it, which can be found here: ",
+     {
+      "a": "https://www.law.cornell.edu/cfr/text/47/64.1200",
+      "x": true,
+      "c": [
+       "47 CFR 64.1200"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "TCPA compliance is making sure you're following these rules. Overall it comes down to getting permission, letting people withdraw, sensible times and having evidence. The rules apply to texts and calls."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The FCC's opt-out rule says this directly. It uses the words \"calls or text messages\"."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "TCPA Text Message Rules at a Glance",
+    "anchor": null
+   },
+   {
+    "type": "table",
+    "head": [
+     [
+      "Rule"
+     ],
+     [
+      "What it asks of you"
+     ],
+     [
+      "Where it comes from"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Consent"
+      ],
+      [
+       "Prior express written consent for marketing texts sent with an autodialer"
+      ],
+      [
+       "47 CFR 64.1200(a)(2)"
+      ]
+     ],
+     [
+      [
+       "Disclosures"
+      ],
+      [
+       "Clear wording that the person agrees to marketing messages and doesn't have to agree to buy anything"
+      ],
+      [
+       "The rule's definition of written consent"
+      ]
+     ],
+     [
+      [
+       "Opt-outs"
+      ],
+      [
+       "Honor any reasonable request to stop, within ten business days at most"
+      ],
+      [
+       "47 CFR 64.1200(a)(10)"
+      ]
+     ],
+     [
+      [
+       "Quiet hours"
+      ],
+      [
+       "No telephone solicitations before 8 a.m. or after 9 p.m. local time"
+      ],
+      [
+       "47 CFR 64.1200(c)(1)"
+      ]
+     ],
+     [
+      [
+       "Do Not Call"
+      ],
+      [
+       "No solicitations to numbers on the National Do Not Call Registry"
+      ],
+      [
+       "47 CFR 64.1200(c)(2)"
+      ]
+     ],
+     [
+      [
+       "Internal policy"
+      ],
+      [
+       "A written do-not-call policy, trained staff and recorded requests"
+      ],
+      [
+       "47 CFR 64.1200(d)"
+      ]
+     ],
+     [
+      [
+       "Penalties"
+      ],
+      [
+       "$500 per violation, up to three times that if willful or knowing"
+      ],
+      [
+       "47 U.S.C. 227(b)(3)"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "TCPA Penalties: Why Compliance Matters",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/tcpa-compliance/tcpa-compliance-tcpa-penalties.webp",
+    "alt": "TCPA penalties: an unwanted text can lead to a complaint and business risk",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "With the TCPA, people can bring a claim in state courts if permitted by state law. Under ",
+     {
+      "a": "https://www.law.cornell.edu/uscode/text/47/227",
+      "x": true,
+      "c": [
+       "the statute"
+      ]
+     },
+     " anyone can claim compensation for their actual loss or $500 per violation. If you're found to be willfully or knowingly in breach, a court can award up to triple the amount."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This can add up quickly when you're reaching out to a lot of people. The FCC can also fine you. Getting permission is central to a good texting strategy."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Which Texts Does the TCPA Apply To?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The most restrictive rules apply to telemarketing. The FCC rule defines telemarketing as a call or message that encourages the purchase or rental of property, goods or services."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This would include any promotions, coupons, flash sales or product announcements. If you're encouraging a sale then you're marketing."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Informational messages such as order updates or appointment reminders are treated differently. There are also exclusions for some health care messages. We explain the differences between transactional SMS and promotions in our ",
+     {
+      "a": "/blog/transactional-sms/",
+      "x": false,
+      "c": [
+       "transactional SMS guide"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If unsure, always go for the stricter option."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "TCPA Compliance Checklist for Texting",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/tcpa-compliance/tcpa-compliance-checklist.webp",
+    "alt": "TCPA compliance checklist for texting: consent, disclosures, evidence, opt-outs, quiet hours and do-not-call policy",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "h3",
+    "text": "1. Prior Express Written Consent",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you're sending a marketing text using an automatic telephone dialing system, you need prior express written consent. This is defined by the FCC as getting permission through a signed written agreement. The agreement needs to give clear permission to send marketing messages. It also needs to include the phone number."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You can use electronic or digital signatures. This could be a checkbox on a website or a keyword reply. Good TCPA consent starts with your SMS opt in form, so it's worth getting that right."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "2. Required Disclosures",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The agreement must make clear to the customer that by signing they are authorizing you to send marketing messages using an autodialer or pre-recorded voice. It also needs to state they are not required to agree to this to purchase anything."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This should be displayed next to the sign-up button. Ask your lawyer to check. Here's wording a lot of businesses start from:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "By checking this box, I agree to receive marketing text messages from Your Business at the number I entered. Messages may be sent with an automatic dialing system. Consent is not a condition of any purchase. Message and data rates may apply. Reply STOP to cancel."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "3. Evidence of Permission",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You'll need evidence if a customer claims they never gave you permission. The CTIA recommends noting down when they gave their permission, how they did so and what they saw. This can be found in their ",
+     {
+      "a": "https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf",
+      "x": true,
+      "c": [
+       "Messaging Principles and Best Practices"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This should be stored for every contact. At a minimum, this should be put into a spreadsheet. Ideally use a messaging platform that tracks this automatically."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "4. Honor TCPA Opt-Out Rules Quickly",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Customers can withdraw their permission to be contacted by any sensible method. Any reply with the words STOP, QUIT, END, REVOKE, OPT OUT, CANCEL or unsubscribe will count. If the customer uses other wording, it still counts if a reasonable person would understand it to be an opt-out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You cannot specify any one method. You must honor requests within a sensible time frame (no longer than 10 business days). Ideally stop texting immediately."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You can send a single confirmation text after they've opted out. This shouldn't be marketing and should be sent within 5 minutes. Add simple SMS opt out language like \"Reply STOP to opt out\" to your messages. See our guide on ",
+     {
+      "a": "/blog/two-way-texting/",
+      "x": false,
+      "c": [
+       "two-way texting"
+      ]
+     },
+     " for more details."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "5. TCPA Quiet Hours and the Do Not Call Registry",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The FCC rule states you shouldn't make telephone solicitations to residential subscribers before 8am or after 9pm in their local time. The TCPA do not call rules also stop you contacting numbers on the National Do Not Call Registry."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Many businesses avoid trouble by texting between 8am and 9pm. They also clean their lists of numbers on the registry. This is an easy habit to get into."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "There's one catch. A federal court in Delaware (King v. Bon Charge, decided April 30, 2026) threw out a quiet hours claim because the person had agreed to get the texts. The same court let a Do Not Call claim carry on, as there was no signed written agreement. That's one court, so it doesn't bind the others. A ",
+     {
+      "a": "https://www.nixonpeabody.com/insights/alerts/2026/05/13/a-loud-decision-on-tcpa-quiet-hours",
+      "x": true,
+      "c": [
+       "law firm's write-up"
+      ]
+     },
+     " says courts may well disagree. Stay inside the window and check the customer's time zone, not yours."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "6. Do Not Call Policy and Training",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Any business making telemarketing calls must have systems in place to manage a Do Not Call list. The FCC rule outlines the minimum standards you must follow. You'll need a written policy that can be provided on request. All staff involved in making telemarketing calls must be trained. You must also log any opt out requests."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This is often overlooked by small teams. Simply write a one-page policy and share it with your team. Update it when your tools change."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Common TCPA Compliance Mistakes",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Using old or purchased lists."
+       ]
+      },
+      " Just because the customer is on the list doesn't mean they've given permission. The CTIA also recommends you don't use rented, sold or shared opt-in lists."
+     ],
+     [
+      {
+       "b": [
+        "Vague permission."
+       ]
+      },
+      " An \"I agree to the terms\" checkbox may not satisfy written permission."
+     ],
+     [
+      {
+       "b": [
+        "No evidence."
+       ]
+      },
+      " If you don't have evidence of when and how they opted in, you won't be able to defend your text."
+     ],
+     [
+      {
+       "b": [
+        "Ignoring \"please stop\"."
+       ]
+      },
+      " Customers may not always type STOP in uppercase."
+     ],
+     [
+      {
+       "b": [
+        "Texting late."
+       ]
+      },
+      " Sending a promotion late at night is a risk, and 7pm in California is 10pm in New York."
+     ],
+     [
+      {
+       "b": [
+        "Opt-outs not applied across all lists."
+       ]
+      },
+      " If a customer opts out on one tool, you must update all lists."
+     ],
+     [
+      {
+       "b": [
+        "Thinking permission carries over."
+       ]
+      },
+      " The CTIA says an opt-in only applies to the program the customer agreed to."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "TCPA Compliance for Small Business: Where to Start",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/tcpa-compliance/tcpa-compliance-small-business.webp",
+    "alt": "TCPA compliance for small business: get consent, set opt-outs, keep records and train staff",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You don't need a legal team to get the basics right. Start with three things this week:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Fix your sign-up form so it has clear written permission wording."
+     ],
+     [
+      "Start a simple consent log. A spreadsheet is fine."
+     ],
+     [
+      "Set a sending window of 8am to 9pm in your customer's time zone."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Then pay a lawyer for an hour to check the wording. It costs far less than a claim."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "TCPA Compliance and 10DLC Registration",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The TCPA is a law and 10DLC registration is a carrier requirement. You'll need to do both, as TCPA SMS compliance and carrier rules are two separate jobs."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Getting your brand and campaign registered will help your messages go through. It still doesn't replace the need for permission. Carriers also want evidence of how people are opting in. See our ",
+     {
+      "a": "/blog/10dlc-registration/",
+      "x": false,
+      "c": [
+       "10DLC registration guide"
+      ]
+     },
+     " for more details."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Are There Extra Rules in Your State?",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Perhaps. Some states have their own texting laws. Check the rules for each state your customers are in. Ask a lawyer if you're planning to send a large campaign."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "TCPA Compliance Using SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Using a messaging platform will help you with delivery and tracking. However it is your responsibility to ensure you have permission, and SMS marketing compliance is down to the sender whichever tool you use. If you're using SMSLocal, you'll need to track this yourself. Set up how you'll handle opt outs before launching your campaign. Speak to the ",
+     {
+      "a": "/contact-us/",
+      "x": false,
+      "c": [
+       "SMSLocal team"
+      ]
+     },
+     " to find out how replies and opt outs work for your account."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "To learn more about texting overall, take a look at our simple guide to ",
+     {
+      "a": "/blog/what-is-sms-marketing/",
+      "x": false,
+      "c": [
+       "what SMS marketing is"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "TCPA compliance is something you should get into the habit of. Make sure you have clear written permission and evidence, respond to opt outs quickly, text at the right times and have a Do Not Call policy in place for your team."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "When it's done, you'll find it's easier to defend your texts and your customers will have more trust in them. If you're ever unsure, ask a lawyer."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to text your customers properly?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and send registered, reliable messages."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is TCPA compliance for text messages?",
+    "rich": [
+     "It means following the TCPA and the FCC's rules when you text people. You need the right permission, an easy way to opt out, sensible sending times and records to back it all up."
+    ]
+   },
+   {
+    "q": "Do TCPA rules apply to text messages?",
+    "rich": [
+     "Yes. The FCC's rules cover texts as well as calls. The opt-out rule even says \"calls or text messages\"."
+    ]
+   },
+   {
+    "q": "What is prior express written consent?",
+    "rich": [
+     "A signed, written agreement that clearly lets a business send marketing messages to a particular number. It has to include a clear disclosure, and the signature can be electronic."
+    ]
+   },
+   {
+    "q": "What are the penalties for breaking the TCPA?",
+    "rich": [
+     "Someone can claim their actual loss or $500 per violation, whichever is more. If it was willful or knowing, a court can award up to triple. The FCC can fine you too."
+    ]
+   },
+   {
+    "q": "What time can I send marketing texts?",
+    "rich": [
+     "Not before 8am or after 9pm in the customer's local time, under the FCC rule. Courts are still arguing over whether that protects people who opted in, so most businesses just stay inside the window."
+    ]
+   },
+   {
+    "q": "How fast do I need to honor an opt-out?",
+    "rich": [
+     "Within a reasonable time, and never more than ten business days under the FCC rule. Realistically, stop straight away."
     ]
    }
   ]
