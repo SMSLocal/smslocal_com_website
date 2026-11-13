@@ -2671,7 +2671,15 @@
    {
     "type": "p",
     "rich": [
-     "First, customers must opt-in to receive messages. They can do this by texting a keyword (e.g., “JOIN”) or using a short code (a five or six-digit number) or filling out an online form in ",
+     "First, customers must ",
+     {
+      "a": "/blog/sms-opt-in/",
+      "x": false,
+      "c": [
+       "opt-in"
+      ]
+     },
+     " to receive messages. They can do this by texting a keyword (e.g., “JOIN”) or using a short code (a five or six-digit number) or filling out an online form in ",
      {
       "a": "/country-code/burkina-faso/",
       "x": false,
@@ -135517,7 +135525,15 @@
        "Say how to opt out."
       ]
      },
-     " CTIA advises stating in the message how and with which words a customer can opt out, using standard STOP wording. Its opt-in confirmation guidance also calls for customer care details, such as HELP instructions."
+     " CTIA advises stating in the message how and with which words a customer can opt out, using standard STOP wording. Its ",
+     {
+      "a": "/blog/sms-opt-in/",
+      "x": false,
+      "c": [
+       "opt-in confirmation"
+      ]
+     },
+     " guidance also calls for customer care details, such as HELP instructions."
     ]
    },
    {
@@ -136141,7 +136157,15 @@
    {
     "type": "p",
     "rich": [
-     "You can use electronic or digital signatures. This could be a checkbox on a website or a keyword reply. Good TCPA consent starts with your SMS opt in form, so it's worth getting that right."
+     "You can use electronic or digital signatures. This could be a checkbox on a website or a keyword reply. Good TCPA consent starts with your ",
+     {
+      "a": "/blog/sms-opt-in/",
+      "x": false,
+      "c": [
+       "SMS opt in form"
+      ]
+     },
+     ", so it's worth getting that right."
     ]
    },
    {
@@ -136521,6 +136545,741 @@
     "q": "How fast do I need to honor an opt-out?",
     "rich": [
      "Within a reasonable time, and never more than ten business days under the FCC rule. Realistically, stop straight away."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "sms-opt-in",
+  "routePath": "/blog/sms-opt-in",
+  "sourceUrl": "https://www.smslocal.com/blog/sms-opt-in/",
+  "sourceType": "post",
+  "title": "SMS Opt In: How to Collect Subscribers the Right Way",
+  "metaTitle": "SMS Opt In: How to Get It Right, With Examples and Wording",
+  "metaDescription": "SMS opt in explained: the main collection methods, copy-and-paste wording, a welcome text and what to record. A simple setup guide for small businesses.",
+  "keywords": "SMS opt in, SMS opt in examples, SMS opt in form, SMS opt in language, SMS opt in compliance, double opt in SMS, how to get SMS opt ins, SMS opt in best practices, SMS opt in keyword, SMS opt in text message, SMS opt in checkbox, SMS consent",
+  "category": "Promotional SMS",
+  "categories": [
+   "Promotional SMS"
+  ],
+  "tags": [
+   "SMS Opt In",
+   "SMS Consent",
+   "SMS Marketing"
+  ],
+  "date": "November 13, 2026",
+  "dateISO": "2026-11-13",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-11-13T09:00:00",
+  "modifiedISO": "2026-11-13T09:00:00",
+  "readTime": "9 min read",
+  "words": 1947,
+  "excerpt": "A coffee shop puts a sign by the till: \"Text COFFEE to 55555 for a free drink.\" Within a week, a few hundred people have signed up. Each one asked for the texts, so each one is happy to get them. Open rates are high and almost nobody replies STOP.",
+  "cover": "/blog/sms-opt-in/sms-opt-in-cover.jpg",
+  "sourceCover": "/blog/sms-opt-in/sms-opt-in-cover.jpg",
+  "coverAlt": "SMS opt in guide: how to collect subscribers the right way with a clear consent checkbox",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A coffee shop puts a sign by the till: \"Text COFFEE to 55555 for a free drink.\" Within a week, a few hundred people have signed up. Each one asked for the texts, so each one is happy to get them. Open rates are high and almost nobody replies STOP."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "That is what a good SMS opt in does. It turns a stranger into a subscriber who wants to hear from you. A bad one does the opposite, and it can get your number blocked."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide explains what an opt-in is, the main ways to collect one and the wording to use. It also covers what to record and the mistakes to avoid. It is general information, not legal advice. The wording and record-keeping advice follows the CTIA Messaging Principles and Best Practices (May 2023)."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "An SMS opt-in is a person saying \"yes, text me\" before you send anything."
+     ],
+     [
+      "Good opt-ins are clear. People should know who you are, what you will send and how often."
+     ],
+     [
+      "You can collect them on a web form, with a keyword, at the till, by QR code or over the phone."
+     ],
+     [
+      "Send a confirmation text straight after sign-up and include how to stop."
+     ],
+     [
+      "Keep a record of when and how each person agreed. It is your proof."
+     ],
+     [
+      "Never use a bought or rented list. Build your own."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What Is an SMS Opt In?",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-opt-in/sms-opt-in-what-is-sms-opt-in.webp",
+    "alt": "What is an SMS opt in: the customer signs up, gives consent and then receives texts",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "An SMS opt-in is the moment a customer agrees to get text messages from your business. It might be a ticked box on a form. It might be a text they send you. It might be a sign-up sheet at your shop."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The CTIA is the trade group for US mobile carriers. Its guidance says messages should be sent only after the person has opted in. It also says opt-in details should be clear and not hidden in terms and conditions."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This post is about the practical side: how to collect opt-ins people understand and that you can prove."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In Compliance: The Short Version",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "For marketing texts, US law sets a higher bar than a simple yes. You need prior express written consent, which means a clear, signed agreement that can be electronic. SMS marketing compliance has more detail than fits here, and we cover it in our ",
+     {
+      "a": "/blog/tcpa-compliance/",
+      "x": false,
+      "c": [
+       "TCPA compliance guide"
+      ]
+     },
+     "."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Ways to Collect SMS Opt Ins",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-opt-in/sms-opt-in-ways-to-collect.webp",
+    "alt": "Ways to collect SMS opt ins: website forms, text-to-join keyword, QR code and in-store sign-ups",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "table",
+    "head": [
+     [
+      "Method"
+     ],
+     [
+      "How it works"
+     ],
+     [
+      "Best for"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Web form"
+      ],
+      [
+       "Customer types their number and ticks a consent box"
+      ],
+      [
+       "Websites and landing pages"
+      ]
+     ],
+     [
+      [
+       "Checkbox at checkout"
+      ],
+      [
+       "An unticked box next to the phone number field"
+      ],
+      [
+       "Online shops"
+      ]
+     ],
+     [
+      [
+       "Keyword"
+      ],
+      [
+       "Customer texts a word like JOIN to your number"
+      ],
+      [
+       "Signs, receipts and social posts"
+      ]
+     ],
+     [
+      [
+       "QR code"
+      ],
+      [
+       "Scan opens a pre-filled text or a form"
+      ],
+      [
+       "Packaging, flyers, store windows"
+      ]
+     ],
+     [
+      [
+       "In store"
+      ],
+      [
+       "Sign-up sheet or tablet at the till"
+      ],
+      [
+       "Shops, salons, restaurants"
+      ]
+     ],
+     [
+      [
+       "By phone"
+      ],
+      [
+       "Customer agrees during a call or on a recorded menu"
+      ],
+      [
+       "Support teams and clinics"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The CTIA lists several ways a person can show opt-in consent. They include entering a number on a website, clicking a button on a mobile page and sending a keyword. Signing up at a point of sale and agreeing over the phone count too. Pick the one that suits your customers. You can use more than one."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In Language: What to Say",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Clear wording protects you and your customers. The ",
+     {
+      "a": "https://api.ctia.org/wp-content/uploads/2023/05/230523-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf",
+      "x": true,
+      "c": [
+       "CTIA Messaging Principles and Best Practices"
+      ]
+     },
+     " say a call-to-action should cover five things. People should know what the program is and which number the messages come from. They should know who you are, what the opt-in terms and any fees are, and how to opt out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "In plain terms, your SMS opt in language should cover:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Your business name."
+     ],
+     [
+      "What kind of texts people will get, such as offers or order updates."
+     ],
+     [
+      "How often you expect to text."
+     ],
+     [
+      "That message and data rates may apply."
+     ],
+     [
+      "How to stop, usually by replying STOP."
+     ],
+     [
+      "A link to your privacy policy and terms."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In Examples You Can Copy",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Your SMS opt in form is the most common place to start, so the first example is for that."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Web form or checkbox (leave the box unticked):"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Yes, text me offers and updates from Your Business at this number. Up to 4 messages a month. Message and data rates may apply. Reply STOP to cancel or HELP for help. Consent is not a condition of purchase. See our Privacy Policy and Terms."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Keyword sign-up on a sign or receipt:"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Text JOIN to 55555 to get offers from Your Business. Up to 4 msgs/month. Msg and data rates may apply. Reply STOP to cancel, HELP for help. Terms and Privacy at yourbusiness.com/sms."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "In store, on paper or a tablet:"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "I agree to receive marketing texts from Your Business at the number above. Frequency varies. Message and data rates may apply. I can reply STOP at any time. Consent is not required to buy anything."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Swap in your own name, number and message frequency. Marketing consent has extra legal requirements, so ask a lawyer to check the final wording."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Double Opt In SMS and the Welcome Text Message",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A double opt-in means two steps. The person signs up, then replies YES to an SMS opt in text message to confirm. It stops people from adding a number that is not theirs and it gives you cleaner proof. The CTIA does not require it. It is a choice, and many businesses use it for exactly those reasons."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Whether or not you use double opt-in, send a welcome text message. For recurring messages, the CTIA says to send a confirmation before any other message. It should include:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "The program name or what the person signed up for."
+     ],
+     [
+      "How to reach customer care, such as HELP."
+     ],
+     [
+      "How to opt out."
+     ],
+     [
+      "That the messages are recurring and how often they will arrive."
+     ],
+     [
+      "Any fees and how they are billed."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A simple welcome text looks like this:"
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Welcome to Your Business texts! Up to 4 msgs/month. Msg and data rates may apply. Reply HELP for help, STOP to cancel."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Make the first text useful too, such as the promised discount code. People who get what you promised stay subscribed."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "How to Get SMS Opt Ins: Step by Step",
+    "anchor": null
+   },
+   {
+    "type": "h3",
+    "text": "1. Choose Where People Will Sign Up",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Start with the place your customers already are. A checkout box suits an online shop. A till sign suits a cafe. You do not need every method on day one."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "2. Write the Offer and the Wording",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Tell people what they get. \"Get a welcome discount and early access to sales\" beats \"Sign up for updates\". Then add the disclosures from the section above."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "3. Do Not Pre-Tick the Box",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The customer should take the action. A pre-ticked box makes the consent harder to defend and it annoys people."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "4. Send the Confirmation Text",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Send it right after sign-up and keep it short. Include your name, how often you will text, how to get help and how to stop."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "5. Record Every SMS Consent",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The CTIA suggests keeping the time of consent, the method used, the wording the person saw, the campaign, the IP address, the phone number and the name or user ID. A spreadsheet works to start. A platform that logs this for you is better."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "6. Honor Opt Outs Fast",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Add simple SMS opt out language like \"Reply STOP to opt out\" to your first message and to regular messages. Handle the reply straight away. See our post on ",
+     {
+      "a": "/blog/two-way-texting/",
+      "x": false,
+      "c": [
+       "two-way texting"
+      ]
+     },
+     " for how replies are handled."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In Best Practices and Common Mistakes",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-opt-in/sms-opt-in-best-practices.webp",
+    "alt": "SMS opt in best practices and common mistakes: clear consent, easy opt-outs, pre-checked boxes and ignored STOP requests",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The best practices are the steps above. These are the mistakes that break them."
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Using a bought list."
+       ]
+      },
+      " The CTIA says senders should not use opt-in lists that have been rented, sold or shared. Build your own SMS subscriber list, even if it grows slowly."
+     ],
+     [
+      {
+       "b": [
+        "Hiding consent in the terms."
+       ]
+      },
+      " The opt-in details should be easy to see, not buried."
+     ],
+     [
+      {
+       "b": [
+        "Vague promises."
+       ]
+      },
+      " If you say \"occasional updates\" and then send three offers a week, expect STOP replies."
+     ],
+     [
+      {
+       "b": [
+        "Reusing consent."
+       ]
+      },
+      " An opt-in covers the program the person agreed to. A yes to order updates is not a yes to promotions."
+     ],
+     [
+      {
+       "b": [
+        "No proof."
+       ]
+      },
+      " If someone says they never signed up and you cannot show when and how they did, you have a problem."
+     ],
+     [
+      {
+       "b": [
+        "Forgetting the confirmation text."
+       ]
+      },
+      " It tells people it worked and how to leave."
+     ],
+     [
+      {
+       "b": [
+        "Sending more than you promised."
+       ]
+      },
+      " Keep to the frequency you stated."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In for Small Business: Where to Start",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You can set this up in an afternoon:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Add an unticked consent box next to the phone number field on your form."
+     ],
+     [
+      "Paste in the wording above and change the details."
+     ],
+     [
+      "Write your welcome text and test it on your own phone."
+     ],
+     [
+      "Start a consent log with a date, source and the wording used."
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Then run your first campaign to a small group and see how people respond."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In and Carrier Registration",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Collecting consent properly also helps with carrier registration. When you register a brand and campaign for 10DLC, you describe how people opt in and often show an example. Clear wording and proof of sign-ups make that easier. Read our ",
+     {
+      "a": "/blog/10dlc-registration/",
+      "x": false,
+      "c": [
+       "10DLC registration guide"
+      ]
+     },
+     " for the steps."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "SMS Opt In Using SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/sms-opt-in/sms-opt-in-using-smslocal.webp",
+    "alt": "SMS opt in flow: collect consent on a form, organize subscribers and send SMS",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A platform helps you send, track and manage replies. It does not collect consent for you. You still need a clear form, honest wording and a record of every sign-up. Before you launch, work out how STOP replies and your consent log will be handled. The ",
+     {
+      "a": "/contact-us/",
+      "x": false,
+      "c": [
+       "SMSLocal team"
+      ]
+     },
+     " can explain how opt-outs and replies work for your account."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If you are new to text marketing, our guide to ",
+     {
+      "a": "/blog/what-is-sms-marketing/",
+      "x": false,
+      "c": [
+       "what SMS marketing is"
+      ]
+     },
+     " is a good place to start."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A good SMS opt in is simple. Ask clearly, say what people will get, send a confirmation and keep a record. Do that and your list will be smaller than a bought one, but it will be full of people who want your texts."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Start with one sign-up point and one clear message, then build from there."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to grow your text list the right way?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and send registered, reliable messages."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is an SMS opt in?",
+    "rich": [
+     "It is when a customer agrees to receive text messages from your business. They might tick a box, text a keyword or sign up in store. You should only text them after they have agreed."
+    ]
+   },
+   {
+    "q": "What is a double opt in for SMS?",
+    "rich": [
+     "It is a two-step sign-up. The person joins, then replies YES to a text to confirm. It is not required by the CTIA, but it helps confirm the number belongs to the person."
+    ]
+   },
+   {
+    "q": "What should an SMS opt in message say?",
+    "rich": [
+     "It should say who you are, what kind of texts people will get, how often, that rates may apply and how to stop. Add links to your privacy policy and terms."
+    ]
+   },
+   {
+    "q": "Can I use an SMS opt in keyword to collect sign-ups?",
+    "rich": [
+     "Yes. The CTIA lists sending a keyword from a mobile device as one way people can show consent. Put the full disclosures next to the keyword on your sign or receipt."
+    ]
+   },
+   {
+    "q": "Should the SMS opt in checkbox be ticked already?",
+    "rich": [
+     "No. Leave it unticked so the customer chooses. It makes the consent clearer and easier to defend."
+    ]
+   },
+   {
+    "q": "What records should I keep for each opt in?",
+    "rich": [
+     "At least the date and time, how the person signed up, the wording they saw and their phone number. The CTIA also suggests the campaign, IP address and the person's name or user ID where they apply."
     ]
    }
   ]
