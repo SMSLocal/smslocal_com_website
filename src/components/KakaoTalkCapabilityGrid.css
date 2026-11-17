@@ -125,7 +125,7 @@
 
 @media (max-width: 860px) {
   .ktcap-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.4rem;
   }
   .ktcap-deck { height: 280px; }

@@ -298,8 +298,9 @@
 
 @media (max-width: 720px) {
   .rcv-stage {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     justify-items: center;
+    width: 100%;
     max-width: 380px;
   }
 

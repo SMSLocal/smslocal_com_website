@@ -125,7 +125,7 @@ function CompareHub() {
             </div>
             <div className="cmp-choose-col them">
               <div className="cmp-choose-head">
-                <span className="cmp-choose-badge">Enterprise</span>
+                <span className="cmp-choose-badge" aria-label="Enterprise">EN</span>
                 <span>{HUB_CHOOSE.them.label}</span>
               </div>
               <ul>

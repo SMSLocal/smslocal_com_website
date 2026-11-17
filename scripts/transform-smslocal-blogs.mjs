@@ -171,6 +171,15 @@ function richText(rich) {
     .join('')
 }
 
+// The scraped WordPress content's CTA buttons ("Register Now", etc.) all
+// point at the old /register/ signup step — vercel.json 308-redirects that
+// to /signup/ already, so every one of these links is a needless extra hop.
+// Rewriting the link itself at import time (rather than just relying on the
+// redirect) is what actually removes that hop for crawlers and visitors.
+function normalizeInternalPath(pathname) {
+  return pathname.replace(/^\/register\/?$/, '/signup/')
+}
+
 function rewriteHref(raw, ctx) {
   if (!raw) return null
   let href = decodeEntities(raw).trim()
@@ -189,8 +198,10 @@ function rewriteHref(raw, ctx) {
     return { href: local || '/', external: false }
   }
   if (href.startsWith('/')) {
-    internalLinks.add(href.split(/[?#]/)[0])
-    return { href, external: false }
+    const pathOnly = href.split(/[?#]/)[0]
+    const rest = href.slice(pathOnly.length)
+    internalLinks.add(pathOnly)
+    return { href: normalizeInternalPath(pathOnly) + rest, external: false }
   }
   if (/^https?:\/\//i.test(href)) {
     externalLinks.add(new URL(href).hostname)

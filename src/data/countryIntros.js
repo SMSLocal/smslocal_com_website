@@ -374,4 +374,76 @@ export const COUNTRY_INTROS = {
 
   'vatican-city':
     'Vatican City dials on +379 in the numbering plan, though in practice its telephony runs through Italian +39 infrastructure. The smallest sovereign state in the world, with a resident population under a thousand — listed for completeness rather than as a commercial market.',
+
+  // ------------------------------------------------- Territories & dependencies
+  // Places with their own dial code and their own search demand that sit
+  // outside the 195 sovereign-state list. Same rule as above: verifiable
+  // facts only (numbering, script, geography, who shares which code) — never
+  // a sender-ID, consent or DND rule.
+  taiwan:
+    'Taiwan dials on +886, and the leading 0 of a domestic number is dropped once the country code goes on — a mobile written 0912 345 678 locally becomes +886 912 345 678. Traditional Chinese is the everyday written language, which means unicode at 70 characters a segment for local-language messages.',
+  'hong-kong':
+    'Hong Kong uses +852 with eight-digit numbers, no area codes and no trunk prefix — the plan is entirely separate from mainland China’s +86, even though Hong Kong is a Special Administrative Region of China. Traditional Chinese and English are both in everyday written use, so a single campaign often needs both versions, and the Chinese one is unicode at 70 characters a segment.',
+  bermuda:
+    'Bermuda is part of the North American Numbering Plan: +1 441, then seven digits. To most systems it looks like a domestic US or Canadian format, but it is a separate British Overseas Territory in the Atlantic, so the full +1 441 prefix has to be present for a number to route there. English only, Latin script, GSM-7 throughout.',
+  'new-caledonia':
+    'New Caledonia dials on +687 with six-digit numbers and no area codes. French is the official language, and it mostly fits GSM-7 — though ê, î, ô and û are outside that character set and push a message into unicode at 70 characters a segment. A French sui generis collectivity in the South Pacific, with its own plan rather than France’s +33.',
+  jersey:
+    'Jersey sits inside the UK numbering plan: +44, with fixed lines under 01534. It is a Crown Dependency, not part of the United Kingdom, so the +44 prefix is shared without the territory being British in the legal sense. English is the working language, Latin script, GSM-7 throughout.',
+  curacao:
+    'Curaçao dials on +599 and kept that code when the Netherlands Antilles dissolved in 2010 — Sint Maarten, its former partner, moved to +1 721, which still catches out senders working from old lists. Papiamento, Dutch and English are all in use, all Latin script, so GSM-7 applies to nearly all traffic.',
+  'american-samoa':
+    'American Samoa is on the North American Numbering Plan as +1 684, then seven digits. A US territory in the South Pacific, roughly halfway between Hawaii and New Zealand, it sits on the same plan as the mainland but a very long way from it. English and Samoan are both Latin script, so messages stay in GSM-7.',
+  reunion:
+    'Réunion shares +262 with Mayotte. It is a French overseas department in the Indian Ocean, so it is part of France and the European Union despite lying nearer to Madagascar than to Europe. Numbers run to nine digits once the leading 0 is dropped, and French text mostly fits GSM-7, apart from letters such as ê and ô.',
+  tokelau:
+    'Tokelau dials on +690, a very short numbering plan, with numbers only a few digits long. It is a group of three atolls, a territory of New Zealand, with a population of around 1,500. Tokelauan and English are both written in Latin script, though macron vowels in Tokelauan fall outside GSM-7.',
+  'sint-maarten':
+    'Sint Maarten is on the North American Numbering Plan as +1 721. It is the Dutch half of an island it shares with French Saint-Martin, which uses +590 — so two numbers a few kilometres apart route through entirely different plans. Dutch and English are both Latin script, so messages stay in GSM-7.',
+  'puerto-rico':
+    'Puerto Rico is on the North American Numbering Plan under +1, with two area codes: 787 and 939. It is a US territory, so numbers look and route like domestic ones. Spanish is the main written language, and á, í, ó and ú all fall outside GSM-7 — a Spanish-language message with those letters is unicode at 70 characters a segment, though ñ, é and ¿ are covered.',
+  'western-sahara':
+    'Western Sahara has no country code of its own: its numbers sit inside Morocco’s +212. Its political status is disputed and unresolved, but for dialling purposes the plan is Morocco’s. Hassaniya Arabic and standard Arabic are written in Arabic script, which means unicode at 70 characters a segment for local-language traffic.',
+  pitcairn:
+    'Pitcairn dials on +64, New Zealand’s country code. A British Overseas Territory in the South Pacific with fewer than fifty residents, it is among the least populated jurisdictions in the world, and the numbering plan reflects that. English is the working language, Latin script, GSM-7 throughout.',
+  'cook-islands':
+    'The Cook Islands dial on +682 with five-digit numbers. A self-governing state in free association with New Zealand, it runs its own numbering plan rather than sharing New Zealand’s +64. English and Cook Islands Māori are both Latin script, though Māori macron vowels fall outside GSM-7 and move a message into unicode.',
+  'saint-barthelemy':
+    'Saint Barthélemy shares +590 with Guadeloupe and Saint-Martin. It is a French overseas collectivity in the Caribbean, so nine-digit numbers follow the French pattern once the leading 0 is dropped. French text mostly fits GSM-7, apart from letters such as ê, î and ô.',
+  mayotte:
+    'Mayotte shares +262 with Réunion. It has been a French overseas department since 2011, in the Comoros archipelago between Madagascar and Africa. Numbers run to nine digits once the leading 0 is dropped. French is official and mostly GSM-7, while Shimaore and Kibushi, when written, are Latin script too.',
+  guernsey:
+    'Guernsey sits inside the UK numbering plan: +44, with fixed lines under 01481. It is a Crown Dependency, not part of the United Kingdom, so +44 is shared without the territory being British in the legal sense. English is the working language, Latin script, GSM-7 throughout.',
+  'cayman-islands':
+    'The Cayman Islands are on the North American Numbering Plan as +1 345, then seven digits. A British Overseas Territory in the Caribbean and a major offshore financial centre. English only, Latin script, GSM-7 throughout.',
+  'falkland-islands':
+    'The Falkland Islands dial on +500 with five-digit numbers; the same code is shared with South Georgia and the South Sandwich Islands. A British Overseas Territory in the South Atlantic, home to only a few thousand people, most of them in Stanley. English is the working language, Latin script, GSM-7 throughout.',
+  'faroe-islands':
+    'The Faroe Islands use +298 with six-digit numbers and no area codes. A self-governing territory within the Kingdom of Denmark, with its own numbering plan rather than Denmark’s +45. Faroese uses the letter ð, which sits outside GSM-7, so local-language messages are unicode at 70 characters a segment.',
+  gibraltar:
+    'Gibraltar dials on +350 with eight-digit numbers. A British Overseas Territory on Spain’s southern coast, it has its own plan rather than sharing the UK’s +44 or Spain’s +34, with a large cross-border workforce. English is the working language, Latin script, GSM-7 throughout.',
+  'saint-martin':
+    'Saint-Martin is the French half of an island it shares with Dutch Sint Maarten, and it uses +590 — the Guadeloupe code — while Sint Maarten sits on +1 721. Two numbers a few kilometres apart therefore route through different plans. French text mostly fits GSM-7, apart from letters such as ê, î and ô.',
+  'svalbard-and-jan-mayen':
+    'Svalbard and Jan Mayen use Norway’s +47, with Svalbard numbers in the 79 range. There is no separate country code: the archipelago is Norwegian territory, with a population of a few thousand centred on Longyearbyen. Norwegian is mostly GSM-7, and æ, ø and å are all inside that set.',
+  'us-virgin-islands':
+    'The US Virgin Islands are on the North American Numbering Plan as +1 340, then seven digits. A US territory in the Caribbean, so numbers look and route like domestic ones, though they are a separate destination from the mainland. English is the main written language, Latin script, GSM-7 throughout.',
+  'french-polynesia':
+    'French Polynesia dials on +689 with eight-digit numbers. A French overseas collectivity spread across an area of ocean roughly the size of Europe, with most people on Tahiti. French is official and mostly GSM-7, apart from letters such as ê and ô, and Tahitian, where written, adds macron vowels that force unicode.',
+  'christmas-island':
+    'Christmas Island is on Australia’s numbering plan as +61, with local numbers under 08 9164. An Australian external territory in the Indian Ocean, closer to Indonesia than to the mainland, with a population of around 1,500. English is the working language, Latin script, GSM-7 throughout.',
+  guam:
+    'Guam is on the North American Numbering Plan as +1 671, then seven digits. A US territory and a major military hub in the western Pacific. English and Chamorro are both Latin script, so messages stay in GSM-7.',
+  'british-virgin-islands':
+    'The British Virgin Islands are on the North American Numbering Plan as +1 284, then seven digits. A British Overseas Territory in the Caribbean, sharing an island chain with the US Virgin Islands (+1 340) — two separate plans a short boat ride apart. English only, Latin script, GSM-7 throughout.',
+  niue:
+    'Niue dials on +683 with four-digit numbers. A self-governing state in free association with New Zealand, and among the smallest countries in the world by population — a couple of thousand people. English and Niuean are both Latin script, though Niuean macron vowels fall outside GSM-7.',
+  'turks-and-caicos-islands':
+    'The Turks and Caicos Islands are on the North American Numbering Plan as +1 649, then seven digits. A British Overseas Territory just south of the Bahamas, with a tourism-led economy and a population of about twenty thousand. English only, Latin script, GSM-7 throughout.',
+  'saint-helena':
+    'Saint Helena dials on +290, a code it shares with Tristan da Cunha; Ascension Island, in the same territory, has its own +247. One of the most remote inhabited places on Earth, in the South Atlantic, with four-digit local numbers and around 7,500 people. English, Latin script, GSM-7 throughout.',
+  'northern-mariana-islands':
+    'The Northern Mariana Islands are on the North American Numbering Plan as +1 670, then seven digits. A US commonwealth in the western Pacific, just north of Guam. English, Chamorro and Carolinian are all written in Latin script.',
+  aruba:
+    'Aruba dials on +297 with seven-digit numbers. A constituent country of the Kingdom of the Netherlands in the southern Caribbean, with its own numbering plan rather than the Netherlands’ +31. Papiamento and Dutch are both Latin script, so messages stay in GSM-7.',
 }

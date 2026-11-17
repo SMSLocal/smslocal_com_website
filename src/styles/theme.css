@@ -205,6 +205,10 @@ img {
 
 .section {
   padding: 5.5rem 0;
+  /* Decorative glows and fanned card decks are positioned past the section edge
+     on purpose. clip (unlike hidden) does not make a scroll container, so
+     sticky children keep working and the page just stops scrolling sideways. */
+  overflow-x: clip;
 }
 
 .section-alt {

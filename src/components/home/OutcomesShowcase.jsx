@@ -129,7 +129,7 @@ export default function OutcomesShowcase() {
             space on the left alone pushed the composition 17px right of the
             column centre. Translate resolves in parent coordinates, so the
             17px is not multiplied by the scale. */}
-        <div className="relative -my-[69px] min-h-[460px] w-[470px] origin-left -translate-x-[17px] scale-[0.7] sm:my-0 sm:w-full sm:translate-x-0 sm:origin-center sm:scale-100 lg:origin-right lg:scale-[1.11]">
+        <div className="relative -my-[69px] min-h-[460px] w-[470px] origin-left -translate-x-[17px] scale-[0.7] max-[360px]:-my-[97px] max-[360px]:translate-x-0 max-[360px]:scale-[0.58] max-sm:rtl:origin-right max-sm:rtl:translate-x-[17px] max-[360px]:rtl:translate-x-0 sm:my-0 sm:w-full sm:translate-x-0 sm:origin-center sm:scale-100 lg:origin-right lg:scale-[1.11]">
           {BADGES.map(({ icon: Icon, cls, size, pos, z = "z-20" }, i) => (
             <span
               key={i}

@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import '../components/SignupFlow.css'
-import { COUNTRIES, CURRENCIES, DIAL_CODES, INDUSTRIES } from '../data/signupOptions.js'
 import { IconCheck } from '../components/icons.jsx'
-import { track } from '../lib/track.js'
 
 const BENEFITS = [
   'Free trial credit included, no card required',
@@ -14,229 +12,37 @@ const BENEFITS = [
   'Pay only for what you send, cancel anytime',
 ]
 
-// The 3-step partner-registration flow (email -> code -> full form) from the
-// old bulksms-partner-signup WordPress plugin. Its backend now runs on Vercel
-// (api/signup.js) with the same actions and replies; the WordPress/A2 host is
-// no longer involved.
-const SIGNUP_URL = '/api/signup/'
-const TURNSTILE_SITEKEY = '0x4AAAAAABbL2RN0Z6ROmEVU'
-const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
-
-function loadTurnstile() {
-  if (window.turnstile) return Promise.resolve()
-  if (window.__turnstileLoading) return window.__turnstileLoading
-  window.__turnstileLoading = new Promise((resolve, reject) => {
-    const script = document.createElement('script')
-    script.src = TURNSTILE_SRC
-    script.async = true
-    script.defer = true
-    script.onload = resolve
-    script.onerror = reject
-    document.head.appendChild(script)
-  })
-  return window.__turnstileLoading
+function tokenStorageKey(email) {
+  return `smslocal_signup_token:${email}`
 }
 
-// The plugin kept the email code in a PHP session. api/signup.js returns a
-// signed ticket instead, which is sent back with the next step.
-let signupTicket = ''
-
-// One analytics event per step of the flow, with only the outcome attached.
-const STEP_EVENT = {
-  did_check_email: 'signup_email_submitted',
-  did_verify_code: 'signup_code_submitted',
-  did_bulksms_partner_signup: 'signup_details_submitted',
-}
-
-async function callSignup(action, fields, captcha = '') {
-  let res
-  try {
-    res = await fetch(SIGNUP_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action, fields, captcha, ticket: signupTicket }),
-    })
-  } catch (err) {
-    track(STEP_EVENT[action], { success: false, error: 'network' })
-    throw err
-  }
-  const text = await res.text()
-  let data
-  try {
-    data = JSON.parse(text)
-  } catch {
-    track(STEP_EVENT[action], { success: false, error: 'bad_response' })
-    throw new Error('Unexpected response from server')
-  }
-  track(STEP_EVENT[action], { success: Boolean(data.success) })
-  if (data.success && data.ticket) signupTicket = data.ticket
-  return data
-}
-
-function CaptchaWidget({ active, onToken }) {
-  const containerRef = useRef(null)
-  const widgetId = useRef(null)
-
-  useEffect(() => {
-    if (!active) return
-    let cancelled = false
-
-    loadTurnstile().then(() => {
-      if (cancelled || !containerRef.current || !window.turnstile) return
-      widgetId.current = window.turnstile.render(containerRef.current, {
-        sitekey: TURNSTILE_SITEKEY,
-        // Managed, background check: the widget stays hidden and only shows a
-        // challenge to visitors Cloudflare can't verify on its own.
-        appearance: 'interaction-only',
-        callback: (token) => onToken(token),
-        'expired-callback': () => onToken(''),
-        'timeout-callback': () => onToken(''),
-        'error-callback': () => onToken(''),
-      })
-    })
-
-    return () => {
-      cancelled = true
-      if (widgetId.current && window.turnstile) {
-        window.turnstile.remove(widgetId.current)
-        widgetId.current = null
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active])
-
-  if (!active) return null
-  return <div className="signup-captcha"><div ref={containerRef} /></div>
-}
-
-function StepDots({ step }) {
-  const order = ['email', 'code', 'form']
-  const idx = order.indexOf(step === 'done' ? 'form' : step)
-  return (
-    <div className="signup-steps">
-      {order.map((s, i) => (
-        <span
-          key={s}
-          className={
-            'signup-step-dot' +
-            (i < idx || step === 'done' ? ' done' : i === idx ? ' active' : '')
-          }
-        />
-      ))}
-    </div>
-  )
-}
-
+// Step 1 of the 3-step partner-registration flow (email -> /verify/ ->
+// /register/), each its own page/URL. Talks to this site's own
+// /api/signup/* functions, which reach WordPress and secure.smslocal.com
+// server-to-server — a browser fetch straight to WordPress hits its CORS
+// block, which is what broke the old single-page version of this flow.
 function Signup() {
-  const [step, setStep] = useState('email')
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [captchaToken, setCaptchaToken] = useState('')
-  const captchaTokenRef = useRef('')
-  useEffect(() => {
-    captchaTokenRef.current = captchaToken
-  }, [captchaToken])
 
-  // The check runs invisibly, so a fast submit can beat it. Give it a few
-  // seconds to finish before telling the user anything.
-  async function waitForCaptcha(timeoutMs = 8000) {
-    const start = Date.now()
-    while (!captchaTokenRef.current && Date.now() - start < timeoutMs) {
-      await new Promise((r) => setTimeout(r, 150))
-    }
-    return Boolean(captchaTokenRef.current)
-  }
-
-  const [email, setEmail] = useState('')
-  const [code, setCode] = useState('')
-
-  const [firstname, setFirstname] = useState('')
-  const [surname, setSurname] = useState('')
-  const [shortName, setShortName] = useState('')
-  const [companyName, setCompanyName] = useState('')
-  const [industry, setIndustry] = useState('')
-  const [country, setCountry] = useState('')
-  const [currency, setCurrency] = useState('')
-  const [dialCode, setDialCode] = useState(DIAL_CODES[0].code)
-  const [phone, setPhone] = useState('')
-  const [acceptedTerms, setAcceptedTerms] = useState(false)
-
-  const formEnteredAt = useRef(null)
-  useEffect(() => {
-    if (step === 'form') formEnteredAt.current = Math.floor(Date.now() / 1000)
-  }, [step])
-
-  async function handleEmailSubmit(e) {
-    e.preventDefault()
-    setError('')
-    if (!(await waitForCaptcha())) {
-      setError('Security check did not finish. Please complete it if shown, or reload and try again.')
-      return
-    }
-    setLoading(true)
-    try {
-      const res = await callSignup('did_check_email', { email }, captchaTokenRef.current)
-      if (res.success) {
-        setStep('code')
-        setCaptchaToken('')
-      } else {
-        setError(res.message || 'Something went wrong')
-      }
-    } catch {
-      setError('There was an error processing the form. Please try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  async function handleCodeSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     setError('')
     setLoading(true)
     try {
-      const res = await callSignup('did_verify_code', { code })
-      if (res.success) {
-        setStep('form')
+      const res = await fetch('/api/signup/request-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        sessionStorage.setItem(tokenStorageKey(email), data.token)
+        navigate(`/verify/?email=${encodeURIComponent(email)}`, { state: { token: data.token } })
       } else {
-        setError(res.message || 'Something went wrong')
-      }
-    } catch {
-      setError('There was an error processing the form. Please try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  async function handleFinalSubmit(e) {
-    e.preventDefault()
-    setError('')
-    if (!(await waitForCaptcha())) {
-      setError('Security check did not finish. Please complete it if shown, or reload and try again.')
-      return
-    }
-    if (!acceptedTerms) {
-      setError('Please accept the terms and privacy policy to continue.')
-      return
-    }
-    setLoading(true)
-    try {
-      const res = await callSignup('did_bulksms_partner_signup', {
-        companyName,
-        shortName,
-        firstname,
-        surname,
-        email,
-        phone: `${dialCode}${phone.replace(/\D/g, '')}`,
-        country,
-        currency,
-        industry,
-        form_time: String(formEnteredAt.current || Math.floor(Date.now() / 1000) - 5),
-      }, captchaTokenRef.current)
-      if (res.success) {
-        track('signup_completed')
-        setStep('done')
-      } else {
-        setError(res.message || 'Something went wrong')
+        setError(data.message || 'Something went wrong')
       }
     } catch {
       setError('There was an error processing the form. Please try again.')
@@ -277,178 +83,38 @@ function Signup() {
 
         <div className="signup-form-panel">
           <div className="signup-form-inner">
-            {step !== 'done' && <StepDots step={step} />}
+            <div className="signup-steps">
+              <span className="signup-step-dot active" />
+              <span className="signup-step-dot" />
+              <span className="signup-step-dot" />
+            </div>
 
-            {step === 'email' && (
-              <>
-                <h1 className="signup-title">Start your free trial</h1>
-                <p className="signup-subtitle">No credit card required — includes free trial credit.</p>
+            <h1 className="signup-title">Start your free trial</h1>
+            <p className="signup-subtitle">No credit card required — includes free trial credit.</p>
 
-                <form className="signup-form" onSubmit={handleEmailSubmit}>
-                  <div className="signup-field">
-                    <label htmlFor="signup-email">Work email <span className="required">*</span></label>
-                    <input
-                      id="signup-email"
-                      type="email"
-                      placeholder="you@company.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <CaptchaWidget active={step === 'email'} onToken={setCaptchaToken} />
-
-                  {error && <p className="signup-message error">{error}</p>}
-
-                  <button type="submit" className="btn btn-primary signup-submit" disabled={loading}>
-                    {loading ? 'Sending…' : 'Verify Email for Free SMS'}
-                  </button>
-                </form>
-
-                <p className="signup-footer-note">
-                  Already have an account? <Link to="/login/" className="auth-link">Log in</Link>
-                </p>
-              </>
-            )}
-
-            {step === 'code' && (
-              <>
-                <h1 className="signup-title">Check your inbox</h1>
-                <p className="signup-subtitle">Your code has been sent to {email}</p>
-
-                <form className="signup-form" onSubmit={handleCodeSubmit}>
-                  <div className="signup-field">
-                    <label htmlFor="signup-code">Paste your code here <span className="required">*</span></label>
-                    <input
-                      id="signup-code"
-                      type="text"
-                      value={code}
-                      onChange={(e) => setCode(e.target.value)}
-                      required
-                    />
-                  </div>
-
-                  {error && <p className="signup-message error">{error}</p>}
-
-                  <button type="submit" className="btn btn-primary signup-submit" disabled={loading}>
-                    {loading ? 'Checking…' : 'Submit'}
-                  </button>
-                  <button type="button" className="signup-back" onClick={() => setStep('email')}>
-                    ← Use a different email
-                  </button>
-                </form>
-              </>
-            )}
-
-            {step === 'form' && (
-              <>
-                <h1 className="signup-title">Tell us about your business</h1>
-                <p className="signup-subtitle">Almost done — this sets up your BulkSMS partner account.</p>
-
-                <form className="signup-form" onSubmit={handleFinalSubmit}>
-                  <div className="signup-split">
-                    <div className="signup-field">
-                      <label htmlFor="signup-firstname">First Name <span className="required">*</span></label>
-                      <input id="signup-firstname" type="text" value={firstname} onChange={(e) => setFirstname(e.target.value)} required />
-                    </div>
-                    <div className="signup-field">
-                      <label htmlFor="signup-surname">Last Name <span className="required">*</span></label>
-                      <input id="signup-surname" type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
-                    </div>
-                  </div>
-
-                  <div className="signup-field">
-                    <label htmlFor="signup-shortname">Short Name <span className="required">*</span></label>
-                    <input id="signup-shortname" type="text" value={shortName} onChange={(e) => setShortName(e.target.value)} required />
-                  </div>
-
-                  <div className="signup-split">
-                    <div className="signup-field">
-                      <label>Email</label>
-                      <input type="email" value={email} disabled />
-                    </div>
-                    <div className="signup-field">
-                      <label htmlFor="signup-phone">Phone Number <span className="required">*</span></label>
-                      <div className="signup-phone-row">
-                        <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} aria-label="Country dial code">
-                          {DIAL_CODES.map((d) => (
-                            <option key={d.iso} value={d.code}>+{d.code}</option>
-                          ))}
-                        </select>
-                        <input
-                          id="signup-phone"
-                          type="tel"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="signup-split">
-                    <div className="signup-field">
-                      <label htmlFor="signup-company">Company Name <span className="required">*</span></label>
-                      <input id="signup-company" type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} required />
-                    </div>
-                    <div className="signup-field">
-                      <label htmlFor="signup-industry">Industry</label>
-                      <select id="signup-industry" value={industry} onChange={(e) => setIndustry(e.target.value)}>
-                        <option value="">Select Industry</option>
-                        {INDUSTRIES.map((i) => <option key={i} value={i}>{i}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="signup-split">
-                    <div className="signup-field">
-                      <label htmlFor="signup-country">Country <span className="required">*</span></label>
-                      <select id="signup-country" value={country} onChange={(e) => setCountry(e.target.value)} required>
-                        <option value="" disabled>Select a country</option>
-                        {COUNTRIES.map((c) => <option key={c} value={c}>{c}</option>)}
-                      </select>
-                    </div>
-                    <div className="signup-field">
-                      <label htmlFor="signup-currency">Currency <span className="required">*</span></label>
-                      <select id="signup-currency" value={currency} onChange={(e) => setCurrency(e.target.value)} required>
-                        <option value="">Payment Currency</option>
-                        {CURRENCIES.map((c) => <option key={c} value={c}>{c}</option>)}
-                      </select>
-                    </div>
-                  </div>
-
-                  <label className="signup-terms">
-                    <input
-                      type="checkbox"
-                      checked={acceptedTerms}
-                      onChange={(e) => setAcceptedTerms(e.target.checked)}
-                      required
-                    />
-                    By continuing I accept the <Link to="/terms-and-conditions/" target="_blank">terms</Link> and{' '}
-                    <Link to="/privacy-policy/" target="_blank">privacy policy</Link>
-                  </label>
-
-                  <CaptchaWidget active={step === 'form'} onToken={setCaptchaToken} />
-
-                  {error && <p className="signup-message error">{error}</p>}
-
-                  <button type="submit" className="btn btn-primary signup-submit" disabled={loading}>
-                    {loading ? 'Submitting…' : 'Submit'}
-                  </button>
-                </form>
-              </>
-            )}
-
-            {step === 'done' && (
-              <div className="signup-done">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-                </svg>
-                <h2>Thanks for signing up with us</h2>
-                <p>You will get a confirmation message in your email shortly.</p>
+            <form className="signup-form" onSubmit={handleSubmit}>
+              <div className="signup-field">
+                <label htmlFor="signup-email">Work email <span className="required">*</span></label>
+                <input
+                  id="signup-email"
+                  type="email"
+                  placeholder="you@company.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
               </div>
-            )}
+
+              {error && <p className="signup-message error">{error}</p>}
+
+              <button type="submit" className="btn signup-submit signup-submit-solid" disabled={loading}>
+                {loading ? 'Sending…' : 'Verify Email for Free SMS'}
+              </button>
+            </form>
+
+            <p className="signup-footer-note">
+              Already have an account? <Link to="/login/" className="auth-link">Log in</Link>
+            </p>
           </div>
         </div>
       </section>

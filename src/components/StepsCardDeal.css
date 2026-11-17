@@ -128,6 +128,12 @@
   }
 }
 
+@media (min-width: 761px) and (max-width: 960px) {
+  .scd-card {
+    width: 190px;
+  }
+}
+
 @media (max-width: 760px) {
   .scd-deck {
     flex-direction: column;

@@ -34,6 +34,9 @@
 .breadcrumbs-item a {
   color: var(--text-secondary);
   text-decoration: none;
+  display: inline-block;
+  padding: 2px 0;
+  margin: -2px 0;
 }
 
 .breadcrumbs-item a:hover {

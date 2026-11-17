@@ -1,6 +1,9 @@
 /* Hero */
 .hero {
   padding: 5rem 0 4rem;
+  /* ambient glows behind hero visuals bleed past the column on purpose; clip
+     keeps them from widening the page without becoming a scroll container */
+  overflow-x: clip;
 }
 
 /* Split heroes pair a visual with the copy — keep both comfortably inside
@@ -3485,6 +3488,7 @@
 }
 
 .testi-arrow {
+  position: relative;
   background: none;
   border: none;
   padding: 0;
@@ -3492,6 +3496,13 @@
   cursor: pointer;
   display: inline-flex;
   transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* 20px icon: extend the touch area to 44px without changing how it looks */
+.testi-arrow::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
 }
 
 .testi-arrow:hover:not(:disabled) {

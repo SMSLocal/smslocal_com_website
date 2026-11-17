@@ -4,8 +4,11 @@ import { getPostBySlug } from '../lib/posts.js'
 import { stripSlash, withSlash } from '../lib/url.js'
 import { useLocale } from '../lib/LocaleContext.jsx'
 
-// Production domain this site deploys to (see deployment-flow-rule memory —
-// `main` builds to this exact host). Canonicals must be absolute URLs.
+// Production domain this site is actually served from. Canonicals must be
+// absolute URLs — this used to point at the raw Vercel deployment host before
+// www.smslocal.com was connected as the custom domain, which meant every
+// canonical/hreflang/og:url tag on the live site told crawlers the "real" URL
+// was the .vercel.app one instead of the domain visitors actually use.
 export const SITE_ORIGIN = 'https://www.smslocal.com'
 
 /**

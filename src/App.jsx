@@ -34,6 +34,8 @@ const Partners = page(() => import('./pages/Partners.jsx'))
 const Careers = page(() => import('./pages/Careers.jsx'))
 const Login = page(() => import('./pages/Login.jsx'))
 const Signup = page(() => import('./pages/Signup.jsx'))
+const Verify = page(() => import('./pages/Verify.jsx'))
+const Register = page(() => import('./pages/Register.jsx'))
 const Platform = page(() => import('./pages/Platform.jsx'))
 const PlatformSecurity = page(() => import('./pages/PlatformSecurity.jsx'))
 const ProductsAnalytics = page(() => import('./pages/ProductsAnalytics.jsx'))
@@ -177,6 +179,10 @@ export const ROUTES = [
   ['/careers', Careers],
   ['/login', Login],
   ['/signup', Signup],
+  // Steps 2 and 3 of signup. /register is also where imported blog posts link
+  // their CTA; Register.jsx sends visitors without an email back to /signup/.
+  ['/verify', Verify],
+  ['/register', Register],
   ['/terms-and-conditions', Terms],
   ['/privacy-policy', PrivacyPolicy],
   // CPaaS, Developers, use-case and platform pages (template: components/CpaasPage.jsx)

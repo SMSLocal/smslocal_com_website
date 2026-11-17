@@ -603,6 +603,7 @@
   gap: 8px;
 }
 .rulesDot {
+  position: relative;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -610,6 +611,11 @@
   padding: 0;
   background: var(--border);
   cursor: pointer;
+}
+.rulesDot::after {
+  content: "";
+  position: absolute;
+  inset: -9px -6px;
 }
 .rulesDotActive {
   background: var(--brand-start);
@@ -889,7 +895,13 @@
 
 @media (max-width: 900px) {
   .senderGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 420px) {
+  .senderChecklist {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
   }
 }
 @media (max-width: 640px) {

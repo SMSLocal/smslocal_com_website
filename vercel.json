@@ -21,6 +21,9 @@
     "api/signup.js": {
       "maxDuration": 30,
       "includeFiles": "api/_lib/signup-emails/**"
+    },
+    "api/signup/*.js": {
+      "maxDuration": 20
     }
   },
   "redirects": [
@@ -407,6 +410,96 @@
     {
       "source": "/country-code/united-arab-emirates/",
       "destination": "/country-code/uae/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/turkey/",
+      "destination": "/country-code/turkiye/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/czech-republic/",
+      "destination": "/country-code/czechia/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/democratic-republic-of-the-congo/",
+      "destination": "/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/swaziland/",
+      "destination": "/country-code/eswatini/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/east-timor/",
+      "destination": "/country-code/timor-leste/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/macedonia/",
+      "destination": "/country-code/north-macedonia/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/vatican/",
+      "destination": "/country-code/vatican-city/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/u.s.-virgin-islands/",
+      "destination": "/country-code/us-virgin-islands/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/united-states-virgin-islands/",
+      "destination": "/country-code/us-virgin-islands/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/turkey/",
+      "destination": "/country-code/turkiye/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/czech-republic/",
+      "destination": "/country-code/czechia/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/democratic-republic-of-the-congo/",
+      "destination": "/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/swaziland/",
+      "destination": "/country-code/eswatini/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/east-timor/",
+      "destination": "/country-code/timor-leste/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/macedonia/",
+      "destination": "/country-code/north-macedonia/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/vatican/",
+      "destination": "/country-code/vatican-city/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/:slug/",
+      "destination": "/country-code/:slug/",
       "permanent": true
     }
   ],

@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.psi-inner > * {
+  min-width: 0;
+}
+
 .psi-inbox {
   background: #fff;
   border: 1px solid var(--border);
@@ -126,9 +130,6 @@
   font-size: 1.15rem;
   line-height: 1.65;
   margin: 0 0 1.6rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .psi-paragraph strong {
@@ -162,7 +163,7 @@
 
 @media (max-width: 900px) {
   .psi-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.4rem;
   }
 }
