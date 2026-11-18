@@ -63754,7 +63754,15 @@
    {
     "type": "p",
     "rich": [
-     "When sending files via MMS, size limits are a crucial consideration. Most carriers impose a maximum file size limit, typically between 300KB and 1MB. Files exceeding this limit may need to be compressed or sent using alternative methods, such as email or cloud storage links."
+     "When sending files via MMS, size limits are a crucial consideration. Most carriers impose a maximum file size limit, typically between 300KB and 1MB. Files exceeding this limit may need to be compressed or sent using alternative methods, such as email or ",
+     {
+      "a": "https://proton.me/drive",
+      "x": true,
+      "c": [
+       "cloud storage"
+      ]
+     },
+     " links."
     ]
    },
    {
