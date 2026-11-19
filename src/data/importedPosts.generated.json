@@ -87436,7 +87436,15 @@
        "Example"
       ]
      },
-     ": A healthcare platform sends Transactional SMS for appointment reminders to reduce no-shows."
+     ": A ",
+     {
+      "a": "/blog/hipaa-compliant-texting/",
+      "x": false,
+      "c": [
+       "healthcare platform"
+      ]
+     },
+     " sends Transactional SMS for appointment reminders to reduce no-shows."
     ]
    },
    {
@@ -137115,7 +137123,15 @@
    {
     "type": "p",
     "rich": [
-     "Informational messages such as order updates or appointment reminders are treated differently. There are also exclusions for some health care messages. We explain the differences between transactional SMS and promotions in our ",
+     "Informational messages such as order updates or appointment reminders are treated differently. There are also exclusions for some ",
+     {
+      "a": "/blog/hipaa-compliant-texting/",
+      "x": false,
+      "c": [
+       "health care messages"
+      ]
+     },
+     ". We explain the differences between transactional SMS and promotions in our ",
      {
       "a": "/blog/transactional-sms/",
       "x": false,
@@ -138281,6 +138297,667 @@
     "q": "What records should I keep for each opt in?",
     "rich": [
      "At least the date and time, how the person signed up, the wording they saw and their phone number. The CTIA also suggests the campaign, IP address and the person's name or user ID where they apply."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "hipaa-compliant-texting",
+  "routePath": "/blog/hipaa-compliant-texting",
+  "sourceUrl": "https://www.smslocal.com/blog/hipaa-compliant-texting/",
+  "sourceType": "post",
+  "title": "HIPAA Compliant Texting: What Healthcare Teams Need to Know",
+  "metaTitle": "HIPAA Compliant Texting: Rules, Examples and a Checklist",
+  "metaDescription": "HIPAA compliant texting explained: what the rules say, safe and unsafe message examples, questions to ask your vendor and a simple checklist. Not legal advice.",
+  "keywords": "healthcare text messaging, appointment reminder software, automated appointment reminders, SMS marketing compliance, HIPAA compliant texting, HIPAA compliant text messaging, HIPAA compliant SMS, is texting HIPAA compliant, HIPAA texting rules, HIPAA texting patients, HIPAA compliant texting for healthcare, HIPAA compliant texting app, HIPAA text message examples, texting PHI, business associate agreement texting, HIPAA texting best practices",
+  "category": "Promotional SMS",
+  "categories": [
+   "Promotional SMS"
+  ],
+  "tags": [
+   "HIPAA Compliant Texting",
+   "Healthcare Texting",
+   "Patient Messaging"
+  ],
+  "date": "November 19, 2026",
+  "dateISO": "2026-11-19",
+  "author": {
+   "name": "Sadik Patel",
+   "role": "Senior Writer",
+   "initials": "SP",
+   "url": "https://in.linkedin.com/in/sadik-patel-1b4a78168"
+  },
+  "publishedISO": "2026-11-19T09:00:00",
+  "modifiedISO": "2026-11-20T09:00:00",
+  "readTime": "8 min read",
+  "words": 1749,
+  "excerpt": "A dental clinic wants to cut no-shows, so the front desk starts texting patients from a personal phone. \"Hi Sam, your root canal follow-up is tomorrow at 9.\" It works, until a patient's phone is shared with a family member who did not know about the…",
+  "cover": "/blog/hipaa-compliant-texting/hipaa-compliant-texting-cover.jpg",
+  "sourceCover": "/blog/hipaa-compliant-texting/hipaa-compliant-texting-cover.jpg",
+  "coverAlt": "HIPAA compliant texting: what healthcare teams need to know about protecting patient information and secure messaging",
+  "body": [
+   {
+    "type": "h2",
+    "text": "Introduction",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "A dental clinic wants to cut no-shows, so the front desk starts texting patients from a personal phone. \"Hi Sam, your root canal follow-up is tomorrow at 9.\" It works, until a patient's phone is shared with a family member who did not know about the procedure."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "HIPAA compliant texting is possible. But it comes with rules, and the clinic above has already stretched them."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "This guide explains HIPAA compliant texting in plain English. It covers what the rules say, which messages are safer, what to ask a texting vendor and how to set up a simple process. It is general information, not legal advice. We checked the rule text on 45 CFR Part 164 in November 2026."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "Key Takeaways",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "HIPAA does not ban texting patients. It requires reasonable safeguards for protected health information."
+     ],
+     [
+      "HIPAA compliant texting depends on how you text, what you include and who handles the messages, not on the word \"SMS\" alone."
+     ],
+     [
+      "Share the minimum. A reminder rarely needs a diagnosis or a treatment name."
+     ],
+     [
+      "If a vendor handles patient information for you, you need a business associate agreement with them."
+     ],
+     [
+      "Healthcare text messaging works best when it is short, scheduled and free of clinical detail."
+     ],
+     [
+      "Marketing and reminder texts also fall under other laws, such as the TCPA."
+     ],
+     [
+      "No tool makes you compliant on its own. Your process matters as much as your software."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Is Texting HIPAA Compliant?",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/hipaa-compliant-texting/hipaa-compliant-texting-is-texting-hipaa-compliant.webp",
+    "alt": "Is texting HIPAA compliant: unsecured texting risks compared with secure texting safeguards",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Texting can be done in a way that fits HIPAA, but plain texting is not automatically compliant. HIPAA is a set of rules for covered entities, such as doctors, clinics, dentists and health plans, and for the business associates who work for them. It is not a stamp you can put on a message type."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Standard SMS was not built as an encrypted channel, so HIPAA compliant SMS depends on how you use it. SMS encryption is not something plain texting gives you by default. Messages pass over carrier networks, stay on phones and can show on lock screens. That makes what you put in the text, and who can see the phone, the main risks."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Protected health information (PHI) is health information that can be tied to a person. Name plus appointment type is a common example. Texting PHI means you need safeguards that match the risk."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "HIPAA Texting Rules at a Glance",
+    "anchor": null
+   },
+   {
+    "type": "table",
+    "head": [
+     [
+      "Topic"
+     ],
+     [
+      "What it asks of you"
+     ],
+     [
+      "Where it comes from"
+     ]
+    ],
+    "rows": [
+     [
+      [
+       "Transmission security"
+      ],
+      [
+       "Technical measures to guard against unauthorized access to PHI sent over a network"
+      ],
+      [
+       {
+        "a": "https://www.law.cornell.edu/cfr/text/45/164.312",
+        "x": true,
+        "c": [
+         "45 CFR 164.312(e)"
+        ]
+       }
+      ]
+     ],
+     [
+      [
+       "Encryption"
+      ],
+      [
+       "Encrypt electronic PHI whenever deemed appropriate (an addressable item)"
+      ],
+      [
+       "45 CFR 164.312(e)(2)(ii)"
+      ]
+     ],
+     [
+      [
+       "Minimum necessary"
+      ],
+      [
+       "Limit PHI to what is needed for the purpose"
+      ],
+      [
+       {
+        "a": "https://www.law.cornell.edu/cfr/text/45/164.502",
+        "x": true,
+        "c": [
+         "45 CFR 164.502(b)"
+        ]
+       }
+      ]
+     ],
+     [
+      [
+       "Business associates"
+      ],
+      [
+       "Get satisfactory assurances from vendors that handle PHI"
+      ],
+      [
+       "45 CFR 164.502(e) and 164.308(b)"
+      ]
+     ],
+     [
+      [
+       "Access control"
+      ],
+      [
+       "Verify who is accessing PHI and limit access"
+      ],
+      [
+       "45 CFR 164.312(a) and (d)"
+      ]
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "\"Addressable\" does not mean optional. It means you assess the risk and either apply the measure or document why something else is just as good."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "HIPAA Texting Patients: What Is Usually Fine and What Is Risky",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/hipaa-compliant-texting/hipaa-compliant-texting-hipaa-texting-patients.webp",
+    "alt": "HIPAA texting patients: lower-risk messages such as generic reminders versus higher-risk messages with medical details",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The safest texts say little. They point the patient to a secure place for details."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Lower risk examples (minimal information):"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Hi Sam, this is a reminder of your appointment at Bright Smile Dental tomorrow at 9:00 AM. Reply C to confirm or call us at the number on your card."
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Your documents are ready. Please log in to the patient portal to view them."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     {
+      "b": [
+       "Higher risk examples (too much information):"
+      ]
+     }
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Hi Sam, your root canal follow-up is tomorrow at 9. Your test results showed an infection."
+    ]
+   },
+   {
+    "type": "quote",
+    "rich": [
+     "Your prescription for [medication name] is ready for your diagnosis of [condition]."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "The first pair gives the minimum. The second pair puts clinical detail in a text that could be seen by anyone holding the phone. This is why we suggest HIPAA text message examples that never include a diagnosis, test result or medication."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Healthcare Text Messaging: Which Texts Teams Send",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Common uses include appointment reminders, booking confirmations, \"we are running late\" notes, payment links, recall reminders and satisfaction surveys. Appointment reminders are the most common. Automated appointment reminders save the front desk hours of phone calls, and our guide to the ",
+     {
+      "a": "/blog/appointment-reminder-text-message/",
+      "x": false,
+      "c": [
+       "appointment reminder text message"
+      ]
+     },
+     " shows how to keep them short and clear."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Texting clinical detail, such as results or treatment plans, needs much more care. In most cases, a secure portal or phone call is the better channel."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What to Ask a HIPAA Compliant Texting App or Vendor",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/hipaa-compliant-texting/hipaa-compliant-texting-vendor-questions.webp",
+    "alt": "What to ask a HIPAA compliant texting vendor: business associate agreement, data security, access controls and audit logs",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "If a texting service will handle PHI for you, the vendor is acting as a business associate. HIPAA says a covered entity may let a business associate create, receive, maintain or transmit PHI only if it obtains satisfactory assurances that the information will be safeguarded. The usual way to do this is a ",
+     {
+      "a": "https://www.law.cornell.edu/cfr/text/45/164.308",
+      "x": true,
+      "c": [
+       "business associate agreement"
+      ]
+     },
+     ", often called a BAA. For business associate agreement texting, that means getting it signed before any patient messages go out."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Before you choose a HIPAA compliant texting app, appointment reminder software or any other texting service, ask:"
+    ]
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      "Will you sign a business associate agreement with us?"
+     ],
+     [
+      "How do you protect messages and data while they are sent and stored?"
+     ],
+     [
+      "Who at your company can see our message content?"
+     ],
+     [
+      "How do you handle logins, passcodes and user access?"
+     ],
+     [
+      "Can we remove staff access quickly when someone leaves?"
+     ],
+     [
+      "How long are messages kept, and how are they deleted?"
+     ],
+     [
+      "What happens if there is a security incident?"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Get the answers in writing. If a vendor will not sign a BAA, do not send PHI through them. This applies to every vendor, including us. Ask any provider directly before you send patient information."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "HIPAA Compliant Texting for Healthcare: A Simple Checklist",
+    "anchor": null
+   },
+   {
+    "type": "img",
+    "src": "/blog/hipaa-compliant-texting/hipaa-compliant-texting-checklist.webp",
+    "alt": "HIPAA compliant texting for healthcare checklist: set rules, use business tools, sign a BAA, limit details, protect access, train staff and review",
+    "width": 1200,
+    "height": 670
+   },
+   {
+    "type": "p",
+    "rich": [
+     "These HIPAA texting best practices are a starting point, not a full compliance program."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "1. Decide What You Will and Will Not Text",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Write a short list. For example: reminders, confirmations and portal links are fine. Diagnoses, test results and medication names are not."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "2. Use Business Tools, Not Personal Phones",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Personal phones are hard to control. If an employee leaves or loses their phone, you lose track of patient messages. Use a business tool where you can manage access."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "3. Sign a Business Associate Agreement",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Do this before you send anything with PHI. Keep a copy."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "4. Limit What Each Text Includes",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Think \"minimum necessary\". Use a first name, the clinic name, the time and a way to reply or call. Leave out the reason for the visit."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "5. Protect Access",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Use unique logins, screen locks and passcodes. Make sure former staff lose access the same day."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "6. Get and Record Patient Preferences",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Ask patients whether they want texts and which number to use. Record their answer. Our guide to ",
+     {
+      "a": "/blog/sms-opt-in/",
+      "x": false,
+      "c": [
+       "SMS opt in"
+      ]
+     },
+     " explains how to ask clearly and keep proof."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "7. Train Your Team",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Everyone who texts patients should know the rules. A one-page guide with safe and unsafe examples is enough to start."
+    ]
+   },
+   {
+    "type": "h3",
+    "text": "8. Review Regularly",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "Check your process twice a year, and again when you change tools or add new types of messages."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Common HIPAA Texting Mistakes",
+    "anchor": null
+   },
+   {
+    "type": "ul",
+    "items": [
+     [
+      {
+       "b": [
+        "Using personal phones for patient texts."
+       ]
+      },
+      " You cannot control or audit them."
+     ],
+     [
+      {
+       "b": [
+        "Putting too much detail in the message."
+       ]
+      },
+      " Diagnoses and results do not belong in a reminder."
+     ],
+     [
+      {
+       "b": [
+        "No agreement with the vendor."
+       ]
+      },
+      " If they handle PHI, you need a BAA."
+     ],
+     [
+      {
+       "b": [
+        "Texting a wrong or shared number."
+       ]
+      },
+      " Confirm numbers and ask patients which number to use."
+     ],
+     [
+      {
+       "b": [
+        "Treating HIPAA as the only law."
+       ]
+      },
+      " Texts that promote services also fall under TCPA rules."
+     ],
+     [
+      {
+       "b": [
+        "Skipping training."
+       ]
+      },
+      " One careless text can undo a good process."
+     ]
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "HIPAA and the TCPA: Two Different Laws",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "HIPAA protects health information. SMS marketing compliance is a separate job. The TCPA controls marketing calls and texts, and it asks for consent, honors opt-outs and sets sending hours. A text can follow one and break the other. Some health care messages are treated differently under the TCPA, and our ",
+     {
+      "a": "/blog/tcpa-compliance/",
+      "x": false,
+      "c": [
+       "TCPA compliance guide"
+      ]
+     },
+     " explains how to tell the difference. When you are unsure, get written advice from a lawyer."
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "HIPAA Compliant Texting Using SMSLocal",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "SMSLocal is a messaging platform for business texting. We do not claim that using any platform makes you HIPAA compliant. If your messages will include PHI, ask us whether a business associate agreement is available for your account before you send anything, and get the answer in writing. For simple reminders that carry no clinical detail, keeping messages minimal reduces your risk. You can speak to the ",
+     {
+      "a": "/contact-us/",
+      "x": false,
+      "c": [
+       "SMSLocal team"
+      ]
+     },
+     " about how replies, opt-outs and access work for your account."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Engage Smarter with SMSLocal!"
+    ],
+    "text": [
+     "Make your messages stand out with reliable, fast and effective communication. Elevate your texting game today."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   },
+   {
+    "type": "h2",
+    "text": "Conclusion",
+    "anchor": null
+   },
+   {
+    "type": "p",
+    "rich": [
+     "HIPAA compliant texting comes down to a few habits. Say less in each message, use business tools, get a business associate agreement when a vendor handles PHI, protect access and train your team."
+    ]
+   },
+   {
+    "type": "p",
+    "rich": [
+     "You do not need to stop texting patients. You need a process you can explain and a vendor who will put their promises in writing."
+    ]
+   },
+   {
+    "type": "cta",
+    "heading": [
+     "Ready to text patients with a clearer process?"
+    ],
+    "text": [
+     "Start your free trial with SMSLocal and send registered, reliable messages."
+    ],
+    "buttonText": "Contact Us",
+    "buttonHref": "/contact-us/",
+    "buttonExternal": false
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Is texting HIPAA compliant?",
+    "rich": [
+     "It can be, if you use reasonable safeguards. HIPAA does not ban texting patients, but standard SMS is not designed to be an encrypted channel. Keep messages minimal and use tools you can control."
+    ]
+   },
+   {
+    "q": "What is HIPAA compliant text messaging?",
+    "rich": [
+     "It is texting that follows HIPAA's safeguards for protected health information. That means sharing the minimum, controlling access, protecting messages in transit and having an agreement with any vendor that handles the information."
+    ]
+   },
+   {
+    "q": "Do I need a business associate agreement for a texting service?",
+    "rich": [
+     "If the service creates, receives, maintains or transmits PHI for you, yes. HIPAA requires satisfactory assurances from business associates, and a business associate agreement is the usual way to get them."
+    ]
+   },
+   {
+    "q": "Can I text patients appointment reminders?",
+    "rich": [
+     "Many practices do. Keep the text short: first name, clinic name, date and time, and how to reply or call. Leave out the reason for the visit and any clinical detail."
+    ]
+   },
+   {
+    "q": "What should I never put in a text to a patient?",
+    "rich": [
+     "Avoid diagnoses, test results, medication names and treatment details. Send patients to a secure portal or ask them to call instead."
+    ]
+   },
+   {
+    "q": "Is there a HIPAA compliant texting app I can just download?",
+    "rich": [
+     "Some apps are built for healthcare, but no app makes you compliant by itself. Ask the vendor for a signed business associate agreement and check how access and message storage are handled."
     ]
    }
   ]
