@@ -5176,7 +5176,15 @@
    {
     "type": "p",
     "rich": [
-     "The APIs are fairly straightforward to work with. But if you get stuck, these services also provide code samples in languages like PHP, Python, Ruby, and Node.js to help get your SMS messaging up and running."
+     "The APIs are fairly straightforward to work with. But if you get stuck, these services also provide code samples in languages like ",
+     {
+      "a": "/blog/send-sms-via-php/",
+      "x": false,
+      "c": [
+       "PHP"
+      ]
+     },
+     ", Python, Ruby, and Node.js to help get your SMS messaging up and running."
     ]
    },
    {
@@ -14826,7 +14834,15 @@
        "160 characters"
       ]
      },
-     ". This limit is due to the SMS framework used in the Global System for Mobile Communications (GSM), which was established in the 1980s. If we add special characters or emojis, the limit can reduce to 70 characters."
+     ". This limit is due to the SMS framework used in the Global System for Mobile Communications (GSM), which was established in the 1980s. If we add ",
+     {
+      "a": "/blog/font-generator/",
+      "x": false,
+      "c": [
+       "special characters"
+      ]
+     },
+     " or emojis, the limit can reduce to 70 characters."
     ]
    },
    {
@@ -32404,7 +32420,15 @@
        "Sign up"
       ]
      },
-     " for a free trial with SMSLocal and choose the type of number that best suits your business—whether it’s a toll-free, local, or short code number. Once you’re signed up, you’ll be ready to start sending messages."
+     " for a free trial with SMSLocal and choose the type of number that best suits your business—whether it’s a ",
+     {
+      "a": "/blog/uifn-vs-itfs/",
+      "x": false,
+      "c": [
+       "toll-free"
+      ]
+     },
+     ", local, or short code number. Once you’re signed up, you’ll be ready to start sending messages."
     ]
    },
    {
@@ -36435,7 +36459,15 @@
    {
     "type": "p",
     "rich": [
-     "When it comes to selecting the right type of number for A2P messaging, businesses have three main options: 10DLC, short codes, and toll-free numbers. Each option has its own benefits and limitations. The right choice depends on the business’s messaging goals, customer volume, budget, and CRM software requirements."
+     "When it comes to selecting the right type of number for A2P messaging, businesses have three main options: 10DLC, short codes, and ",
+     {
+      "a": "/blog/uifn-vs-itfs/",
+      "x": false,
+      "c": [
+       "toll-free numbers"
+      ]
+     },
+     ". Each option has its own benefits and limitations. The right choice depends on the business’s messaging goals, customer volume, budget, and CRM software requirements."
     ]
    },
    {
@@ -50260,7 +50292,15 @@
    {
     "type": "p",
     "rich": [
-     "A2P messaging allows businesses to send automated, real-time messages directly to customers. With platforms like SmsLocal, companies can deliver updates, promotions, alerts, and transactional SMS quickly. This improves communication efficiency and customer engagement."
+     "A2P messaging allows businesses to send automated, real-time messages directly to customers. With ",
+     {
+      "a": "/blog/flextalk-a2p-svr/",
+      "x": false,
+      "c": [
+       "platforms like SmsLocal"
+      ]
+     },
+     ", companies can deliver updates, promotions, alerts, and transactional SMS quickly. This improves communication efficiency and customer engagement."
     ]
    },
    {
@@ -74040,7 +74080,15 @@
    {
     "type": "p",
     "rich": [
-     "Digital communication keeps changing fast. Two kinds of messaging, Application-to-Person (A2P) and Person-to-Person (P2P), shape how people and organizations connect. A2P trends point to businesses using platforms like SmsLocal and ",
+     "Digital communication keeps changing fast. Two kinds of messaging, Application-to-Person (A2P) and Person-to-Person (P2P), shape how people and organizations connect. A2P trends point to businesses using ",
+     {
+      "a": "/blog/flextalk-a2p-svr/",
+      "x": false,
+      "c": [
+       "platforms like SmsLocal"
+      ]
+     },
+     " and ",
      {
       "b": [
        "bulk sms apps"
@@ -129904,7 +129952,15 @@
    {
     "type": "p",
     "rich": [
-     "Telegram also offers a range of customization options that allow users to personalize their messaging experience. For example, users can create custom themes, change the font size and style, and even choose accent colors."
+     "Telegram also offers a range of customization options that allow users to personalize their messaging experience. For example, users can create custom themes, change the ",
+     {
+      "a": "/blog/font-generator/",
+      "x": false,
+      "c": [
+       "font size and style"
+      ]
+     },
+     ", and even choose accent colors."
     ]
    },
    {
@@ -132604,7 +132660,14 @@
    {
     "type": "p",
     "rich": [
-     "PHP's most common route is the built-in ",
+     {
+      "a": "/blog/send-sms-via-php/",
+      "x": false,
+      "c": [
+       "PHP"
+      ]
+     },
+     "'s most common route is the built-in ",
      {
       "b": [
        "cURL"
