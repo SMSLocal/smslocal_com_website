@@ -31892,7 +31892,15 @@
    {
     "type": "p",
     "rich": [
-     "In today’s world, security is a top concern for both businesses and consumers. With data breaches happening more frequently, it’s crucial to choose a mass text service that you can trust."
+     "In today’s world, security is a top concern for both businesses and consumers. With ",
+     {
+      "a": "https://nordlayer.com/intelligence/data-breach-monitoring/",
+      "x": true,
+      "c": [
+       "data breach"
+      ]
+     },
+     "es happening more frequently, it’s crucial to choose a mass text service that you can trust."
     ]
    },
    {
