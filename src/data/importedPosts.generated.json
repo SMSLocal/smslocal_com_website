@@ -326,13 +326,13 @@
   "keywords": "send sms with company name, alphanumeric sender id, sms sender name, sms sender id, company sms, two way sms",
   "category": "SMS Insights",
   "readTime": "6 min read",
-  "words": 1255,
-  "excerpt": "When a text arrives from \"YourBrand\" instead of a phone number, the business has used an alphanumeric sender ID. Here is how it works, where it is allowed and what you give up.",
+  "words": 1196,
+  "excerpt": "A text from \"YourBrand\" instead of a phone number is an alphanumeric sender ID at work. Here is how it works, where it is allowed and what you give up.",
   "body": [
    {
     "type": "p",
     "rich": [
-     "When a text arrives from \"YourBrand\" instead of a phone number, the business has used an alphanumeric sender ID. It is the simplest way to send an SMS with a company name, and customers see who is texting before they open the message. This guide explains how it works, where it is allowed, what you give up and how to set one up."
+     "You get a text and the sender is \"YourBrand\", not a string of digits. That is an alphanumeric sender ID, and it is the easiest way to send an SMS with a company name. People know who is texting before they open the message. Here is how it works, where you can use it, what you give up and how to set one up."
     ]
    },
    {
@@ -350,13 +350,13 @@
    {
     "type": "p",
     "rich": [
-     "A sender ID is the \"from\" field a person sees on a text. Normally that is a phone number, such as a long code or a short code. An alphanumeric sender ID replaces the number with a name of up to 11 characters, made of letters and numbers. A message can then read as coming from \"SMSLOCAL\" instead of \"+1 555 0100\"."
+     "A sender ID is the \"from\" part of a text. Usually it is a phone number, like a long code or a short code. An alphanumeric sender ID swaps that number for a name of up to 11 letters and numbers, so a message shows up from \"SMSLOCAL\" instead of \"+1 555 0100\"."
     ]
    },
    {
     "type": "p",
     "rich": [
-     "You may also see it called an SMS sender name, a company sender ID or company SMS. They all mean the same thing: a brand name in the sender field."
+     "You will also see it called an SMS sender name, a company sender ID or company SMS. It is all the same thing: your brand name in the sender field."
     ]
    },
    {
@@ -449,7 +449,7 @@
    {
     "type": "p",
     "rich": [
-     "Pick the sender type that matches the job. If customers need to answer you, you need a number. If the text is a one-way notice, a name is often the better choice."
+     "Match the sender to the job. If customers need to answer, use a number. If the text is a one-way notice, a name often works better."
     ]
    },
    {
@@ -461,16 +461,16 @@
     "type": "ul",
     "items": [
      [
-      "Instant recognition. People know who the text is from before they read it."
+      "People recognise you straight away, before they read a word."
      ],
      [
-      "More trust than an unfamiliar number, which can help people open the message."
+      "An unfamiliar number is easy to ignore. A name you know feels safer to open."
      ],
      [
-      "A name that belongs to you. Unlike a shared short code, the sender name identifies only your business."
+      "The name is yours alone. A shared short code points to nobody in particular."
      ],
      [
-      "Consistent branding across order updates, reminders and alerts."
+      "Your order updates, reminders and alerts all look like they come from the same place."
      ]
     ]
    },
@@ -482,13 +482,13 @@
    {
     "type": "p",
     "rich": [
-     "This is the most important limit to know before you choose a sender name. A person cannot reply to an alphanumeric sender ID, because there is no number behind the name to receive the reply. It suits one-way messages such as order confirmations, delivery updates, appointment reminders and alerts."
+     "This is the big one. Nobody can reply to an alphanumeric sender ID, because there is no number behind the name to catch the reply. So it fits one-way messages: order confirmations, delivery updates, appointment reminders and alerts."
     ]
    },
    {
     "type": "p",
     "rich": [
-     "For conversations, use a number. Our guide to ",
+     "If you want a conversation, use a number. Our guide to ",
      {
       "a": "/blog/two-way-texting/",
       "x": false,
@@ -496,7 +496,7 @@
        "two-way texting"
       ]
      },
-     " explains how two way SMS works, and why customers expect a quick answer when they text back. Many businesses use both: a sender name for notices and a number for replies."
+     " shows how two way SMS works and why customers expect a fast answer. Plenty of businesses use both: a name for notices and a number for replies."
     ]
    },
    {
@@ -514,13 +514,13 @@
    {
     "type": "p",
     "rich": [
-     "Support for alphanumeric sender IDs depends on the country. Much of Europe, the UK and many markets in Asia and the Middle East allow them. Some countries ask you to register the name first. India, for example, asks businesses to register their sender names before they can use them."
+     "It depends on the country. Much of Europe, the UK and many markets in Asia and the Middle East allow alphanumeric sender IDs. Some ask you to register the name first. India, for example, makes businesses register sender names before use."
     ]
    },
    {
     "type": "p",
     "rich": [
-     "The United States and Canada are different. Carriers there generally do not support alphanumeric sender IDs for standard SMS, and they expect messages to come from a registered number. If you text US customers from a local number, read our ",
+     "The US and Canada are different. Carriers there generally do not support alphanumeric sender IDs for standard SMS and expect messages to come from a registered number. If you text US customers from a local number, read our ",
      {
       "a": "/blog/10dlc-registration/",
       "x": false,
@@ -536,13 +536,13 @@
        "Messaging Principles and Best Practices"
       ]
      },
-     " also say people should know who a message is from, so name your business in the first text even when you send from a number."
+     " also say people should know who a message is from, so put your business name in the first text even when you send from a number."
     ]
    },
    {
     "type": "p",
     "rich": [
-     "Rules change, so check what each country you text allows before you plan a campaign. Our guide on ",
+     "Rules change, so check each country before you plan a campaign. Our guide on ",
      {
       "a": "/resources/insights/how-and-when-do-i-need-to-register-a-sender-id/",
       "x": false,
@@ -561,7 +561,7 @@
    {
     "type": "p",
     "rich": [
-     "These examples show what recipients see. The name in capitals is the sender ID, and the line below it is the message."
+     "Here is what recipients see. The capitals are the sender ID, and the rest is the message."
     ]
    },
    {
@@ -585,7 +585,7 @@
    {
     "type": "p",
     "rich": [
-     "Each message is short, says why it was sent and gives a clear next step. If you are sending offers, add a way to opt out where the local rules ask for it."
+     "Each one is short, says why it was sent and tells the reader what to do next. If you send offers, add a way to opt out where local rules ask for it."
     ]
    },
    {
@@ -603,11 +603,11 @@
    {
     "type": "ol",
     "items": [
-     "Choose a name of up to 11 characters, using letters and numbers only. Pick something people already know, such as your brand name.",
-     "Check which of your destination countries support sender IDs, and whether they ask you to register first.",
-     "Register the sender ID through an SMS platform or gateway that supports it for those countries. Some countries approve it the same day, and others can take a couple of weeks.",
-     "Send a test message to your own phone in each country and check how the name appears.",
-     "Use the name for one-way messages, and keep a number ready for replies."
+     "Choose a name of up to 11 letters and numbers. Something people already know, like your brand name, works best.",
+     "Check which of your destination countries allow sender IDs, and whether they want you to register first.",
+     "Register the name through an SMS platform that supports it in those countries. Some approve it the same day. Others take a couple of weeks.",
+     "Send a test to your own phone in each country and check how the name shows up.",
+     "Use the name for one-way messages and keep a number ready for replies."
     ]
    },
    {
@@ -619,16 +619,16 @@
     "type": "ul",
     "items": [
      [
-      "Use your real brand name. A familiar name builds trust, and a made-up one confuses people."
+      "Use your real brand name. A familiar name builds trust and a made-up one confuses people."
      ],
      [
-      "Keep one name per brand so customers learn to recognise it."
+      "Stick to one name per brand so customers learn it."
      ],
      [
       "Never copy another company's name. Operators block sender IDs that imitate other brands."
      ],
      [
-      "Say who you are in the message body too, in case the name is cut off or replaced."
+      "Say who you are in the message too, in case the name is cut off or replaced."
      ],
      [
       "Get permission before you send marketing messages. Our ",
@@ -642,7 +642,7 @@
       " has wording you can copy."
      ],
      [
-      "Offer a way to opt out where local rules require it."
+      "Give people a way to opt out where local rules require it."
      ]
     ]
    },
@@ -655,19 +655,19 @@
     "type": "ul",
     "items": [
      [
-      "Choosing a sender name for a conversation. People cannot reply, so they call or give up."
+      "Using a sender name for a conversation. People cannot reply, so they call or give up."
      ],
      [
-      "Assuming it works everywhere. It generally does not work for standard SMS in the US or Canada."
+      "Assuming it works everywhere. It generally does not for standard SMS in the US or Canada."
      ],
      [
-      "Skipping registration in countries that require it, which can lead to blocked or relabelled messages."
+      "Skipping registration where it is required, which can get messages blocked or relabelled."
      ],
      [
-      "Using a name that is too long, or one that looks like another brand."
+      "Picking a name that is too long or looks like another brand."
      ],
      [
-      "Using the name for urgent customer support, where people need to answer you."
+      "Using it for urgent support, where people need to answer you."
      ]
     ]
    },
@@ -679,7 +679,7 @@
    {
     "type": "p",
     "rich": [
-     "SMSLocal is a messaging platform for business texting. Which sender types you can use depends on the country, your message type and local registration rules. Ask the ",
+     "SMSLocal is a messaging platform for business texting. Which sender types you can use depends on the country, the kind of message and local registration rules. Ask the ",
      {
       "a": "/contact-us/",
       "x": false,
@@ -687,7 +687,7 @@
        "SMSLocal team"
       ]
      },
-     " which options are available for your account and the countries you text, and get the answer in writing before you launch."
+     " what is available for your account and the countries you text, and get the answer in writing before you launch."
     ]
    }
   ]
