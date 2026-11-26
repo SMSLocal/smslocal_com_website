@@ -120,6 +120,7 @@ function Register() {
         title="Set Up Your SMSLocal Account"
         description="Add your business details to finish creating your SMSLocal partner account and get to your dashboard."
       />
+      <meta name="robots" content="noindex" />
 
       <section className="signup-split-page">
         <div className="signup-info-panel">

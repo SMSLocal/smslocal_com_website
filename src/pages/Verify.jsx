@@ -155,9 +155,10 @@ function Verify() {
   return (
     <>
       <Seo
-        title="Verify Your Email | SMSLocal"
+        title="Verify Your Email"
         description="Enter the verification code sent to your inbox to continue creating your SMSLocal account."
       />
+      <meta name="robots" content="noindex" />
 
       <section className="signup-split-page">
         <div className="signup-info-panel">

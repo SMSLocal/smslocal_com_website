@@ -7,6 +7,9 @@ import i18nDevTranslate from './scripts/i18n/vite-dev-translate.mjs'
 export default defineConfig({
   plugins: [react(), i18nDevTranslate()],
   build: {
+    // scripts/prerender.mjs reads this to link each page's own stylesheets in
+    // its static HTML.
+    manifest: true,
     // Pages are lazy chunks in the browser build (src/lib/lazyPage.js) and plain
     // synchronous components in the SSR build, which is what keeps
     // scripts/prerender.mjs's renderToString output real content. The heaviest

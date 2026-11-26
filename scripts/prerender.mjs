@@ -32,7 +32,43 @@ const { render } = await import(new URL('../dist-ssr/entry-server.js', import.me
 const HEAD_TAGS =
   /<title>[\s\S]*?<\/title>|<meta\s+(?:name|property)="[^"]*"[^>]*>|<link\s+rel="(?:canonical|alternate)"[^>]*>/g
 
-function buildPage(body, htmlAttrs = 'lang="en"') {
+// Each page is its own chunk, with its own stylesheets. The client build only
+// links the shared stylesheet in the template, so without the lines below a
+// static page first painted without its page styles and then jumped as they
+// arrived (poor Cumulative Layout Shift on every page). The route -> component
+// mapping is read from App.jsx so there is no second list to maintain.
+const manifest = JSON.parse(readFileSync(join(dist, '.vite/manifest.json'), 'utf8'))
+const appSource = readFileSync(join(root, 'src/App.jsx'), 'utf8')
+const componentFiles = Object.fromEntries(
+  [...appSource.matchAll(/const (\w+) = page\(\(\) => import\('\.\/([^']+)'\)\)/g)].map((m) => [m[1], `src/${m[2]}`]),
+)
+const routeTable = [...appSource.matchAll(/^\s*\['([^']+)', (\w+)\],/gm)].map(([, path, name]) => ({
+  pattern: path === '*' ? /.*/ : new RegExp(`^${path.replace(/:\w+/g, '[^/]+')}$`),
+  file: componentFiles[name],
+}))
+if (!routeTable.length || routeTable.some((r) => !manifest[r.file])) {
+  throw new Error('prerender: could not map the routes in App.jsx to the build manifest')
+}
+
+function pageStyles(route) {
+  const file = routeTable.find((r) => r.pattern.test(route.replace(/(.)\/$/, '$1')))?.file
+  const css = new Set()
+  const seen = new Set()
+  const visit = (key) => {
+    if (seen.has(key) || !manifest[key]) return
+    seen.add(key)
+    for (const imported of manifest[key].imports ?? []) visit(imported)
+    for (const href of manifest[key].css ?? []) css.add(href)
+  }
+  visit(file)
+  // Vite's runtime skips a stylesheet that is already linked, so none loads twice.
+  return [...css]
+    .filter((href) => !template.includes(href))
+    .map((href) => `<link rel="stylesheet" crossorigin href="/${href}">`)
+    .join('')
+}
+
+function buildPage(body, route, htmlAttrs = 'lang="en"') {
   // Marked so the client can drop them once React has rendered its own copies —
   // React hoists its tags into <head> without noticing these, and two <title>
   // elements is invalid HTML with no defined winner. See Canonical.jsx.
@@ -47,7 +83,7 @@ function buildPage(body, htmlAttrs = 'lang="en"') {
     : template
   return base
     .replace(/<html[^>]*>/, `<html ${htmlAttrs}>`)
-    .replace('</head>', () => `${lifted.join('')}</head>`)
+    .replace('</head>', () => `${pageStyles(route)}${lifted.join('')}</head>`)
     .replace(MOUNT, () => `<div id="root">${rest}</div>`)
 }
 
@@ -56,6 +92,10 @@ function buildPage(body, htmlAttrs = 'lang="en"') {
 const pageDates = JSON.parse(readFileSync(join(root, 'src/data/pageDates.generated.json'), 'utf8'))
 const posts = JSON.parse(readFileSync(join(root, 'src/data/importedPosts.generated.json'), 'utf8'))
 const staticRoutes = Object.keys(pageDates)
+// Signup steps 2 and 3 are built so a refresh works, but they only make sense
+// mid-signup, so they are left out of the sitemaps and llms.txt.
+const UNLISTED = new Set(['/verify', '/register'])
+const listedRoutes = staticRoutes.filter((r) => !UNLISTED.has(r))
 const postRoutes = posts.map((post) => post.routePath ?? `/blog/${post.slug}`)
 
 // Country pages are a dynamic route, so they aren't in pageDates. Every country
@@ -113,7 +153,7 @@ const routeOf = (p) => p.routePath ?? `/blog/${p.slug}`
 // Split by page type, not by blog category: area-code posts are blog posts like
 // any other, so two sub-sitemaps for them was a division without a difference.
 const groups = [
-  { file: 'page-sitemap.xml', routes: staticRoutes },
+  { file: 'page-sitemap.xml', routes: listedRoutes },
   { file: 'post-sitemap.xml', routes: posts.map(routeOf) },
   { file: 'country-code-sitemap.xml', routes: countryRoutes },
 ].filter((g) => g.routes.length)
@@ -172,7 +212,7 @@ console.log(`sitemaps — index + ${groups.length} groups: ${groups.map((g) => `
 // own catch-all keeps the nav, footer and styling; a path that matches no route
 // is exactly what a visitor hitting a dead URL sees.
 try {
-  writeFileSync(join(dist, '404.html'), buildPage(render('/404')))
+  writeFileSync(join(dist, '404.html'), buildPage(render('/404'), '/404'))
 } catch (error) {
   // A plain shell still beats Vercel's default page if the app can't render.
   console.warn(`prerender — 404 page fell back to the bare shell: ${error.message.split('\n')[0]}`)
@@ -200,7 +240,7 @@ for (const route of routes) {
   }
   const file = route === '/' ? join(dist, 'index.html') : join(dist, route, 'index.html')
   mkdirSync(dirname(file), { recursive: true })
-  writeFileSync(file, buildPage(body))
+  writeFileSync(file, buildPage(body, route))
   written += 1
 }
 
@@ -254,7 +294,7 @@ const startsWith = (...prefixes) => (r) =>
   prefixes.some((p) => r === p || r.startsWith(`${p}/`))
 const used = new Set()
 const take = (pred) => {
-  const hit = staticRoutes.filter((r) => !used.has(r) && pred(r))
+  const hit = listedRoutes.filter((r) => !used.has(r) && pred(r))
   for (const r of hit) used.add(r)
   return hit
 }
