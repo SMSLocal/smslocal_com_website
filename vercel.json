@@ -28,11 +28,6 @@
   },
   "redirects": [
     {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/zh-CN/tools/send-text/",
       "destination": "/zh/tools/send-text/",
       "permanent": true
@@ -48,72 +43,27 @@
       "permanent": true
     },
     {
-      "source": "/local-numbers/kentucky/270-area-code/",
+      "source": "/zh-CN/",
+      "destination": "/zh/",
+      "permanent": true
+    },
+    {
+      "source": "/zh-CN/:path+/",
+      "destination": "/zh/:path+/",
+      "permanent": true
+    },
+    {
+      "source": "/:old(haw|ms|tl)/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/kentucky/270-area-code/",
-      "destination": "/",
+      "source": "/:old(haw|ms|tl)/:path+/",
+      "destination": "/:path+/",
       "permanent": true
     },
     {
-      "source": "/local-numbers/oregon/458-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/oregon/458-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/local-numbers/ohio/330-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/ohio/330-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/local-numbers/kansas/316-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/kansas/316-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/local-numbers/new-jersey/848-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/new-jersey/848-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/local-numbers/michigan/586-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/michigan/586-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/local-numbers/pennsylvania/215-area-code/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:lang([a-z]{2,3}(?:-[A-Z]{2})?)/local-numbers/pennsylvania/215-area-code/",
+      "source": "/index.html",
       "destination": "/",
       "permanent": true
     },
@@ -498,8 +448,1223 @@
       "permanent": true
     },
     {
+      "source": "/local-numbers/:state/469-area-code/",
+      "destination": "/blog/469-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/469-area-code/",
+      "destination": "/:lang/blog/469-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/216-area-code/",
+      "destination": "/blog/216-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/216-area-code/",
+      "destination": "/:lang/blog/216-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/808-area-code/",
+      "destination": "/blog/exploring-the-808-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/808-area-code/",
+      "destination": "/:lang/blog/exploring-the-808-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/913-area-code/",
+      "destination": "/blog/913-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/913-area-code/",
+      "destination": "/:lang/blog/913-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/251-area-code/",
+      "destination": "/blog/251-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/251-area-code/",
+      "destination": "/:lang/blog/251-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/703-area-code/",
+      "destination": "/blog/703-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/703-area-code/",
+      "destination": "/:lang/blog/703-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/410-area-code/",
+      "destination": "/blog/410-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/410-area-code/",
+      "destination": "/:lang/blog/410-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/252-area-code/",
+      "destination": "/blog/252-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/252-area-code/",
+      "destination": "/:lang/blog/252-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/770-area-code/",
+      "destination": "/blog/unlocking-the-770-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/770-area-code/",
+      "destination": "/:lang/blog/unlocking-the-770-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/626-area-code/",
+      "destination": "/blog/626-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/626-area-code/",
+      "destination": "/:lang/blog/626-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/971-area-code/",
+      "destination": "/blog/971-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/971-area-code/",
+      "destination": "/:lang/blog/971-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/385-area-code/",
+      "destination": "/blog/385-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/385-area-code/",
+      "destination": "/:lang/blog/385-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:state/801-area-code/",
+      "destination": "/blog/801-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:state/801-area-code/",
+      "destination": "/:lang/blog/801-area-code/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/",
+      "destination": "/products/channels/did/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/",
+      "destination": "/:lang/products/channels/did/",
+      "permanent": true
+    },
+    {
+      "source": "/local-numbers/:path+/",
+      "destination": "/products/channels/did/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/local-numbers/:path+/",
+      "destination": "/:lang/products/channels/did/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/united-states/",
+      "destination": "/country-code/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/united-states/",
+      "destination": "/:lang/country-code/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/united-kingdom/",
+      "destination": "/country-code/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/united-kingdom/",
+      "destination": "/:lang/country-code/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/united-arab-emirates/",
+      "destination": "/country-code/uae/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/united-arab-emirates/",
+      "destination": "/:lang/country-code/uae/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/turkey/",
+      "destination": "/:lang/country-code/turkiye/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/czech-republic/",
+      "destination": "/:lang/country-code/czechia/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/democratic-republic-of-the-congo/",
+      "destination": "/:lang/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/congo-democratic-republic-of-the/",
+      "destination": "/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/congo-democratic-republic-of-the/",
+      "destination": "/:lang/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/congo-brazzaville/",
+      "destination": "/country-code/republic-of-the-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/congo-brazzaville/",
+      "destination": "/:lang/country-code/republic-of-the-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/brunei-darussalam/",
+      "destination": "/country-code/brunei/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/brunei-darussalam/",
+      "destination": "/:lang/country-code/brunei/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/swaziland/",
+      "destination": "/:lang/country-code/eswatini/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/east-timor/",
+      "destination": "/:lang/country-code/timor-leste/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/macedonia/",
+      "destination": "/:lang/country-code/north-macedonia/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/vatican/",
+      "destination": "/:lang/country-code/vatican-city/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/british-indian-ocean-territory/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/british-indian-ocean-territory/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/israel/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/israel/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/macau/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/macau/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/greenland/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/greenland/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/isle-of-man/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/isle-of-man/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/anguilla/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/anguilla/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/countries/netherlands-antilles/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/netherlands-antilles/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/united-states/",
+      "destination": "/:lang/country-code/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/united-kingdom/",
+      "destination": "/:lang/country-code/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/united-arab-emirates/",
+      "destination": "/:lang/country-code/uae/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/turkey/",
+      "destination": "/:lang/country-code/turkiye/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/czech-republic/",
+      "destination": "/:lang/country-code/czechia/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/democratic-republic-of-the-congo/",
+      "destination": "/:lang/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/congo-democratic-republic-of-the/",
+      "destination": "/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/congo-democratic-republic-of-the/",
+      "destination": "/:lang/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/congo-brazzaville/",
+      "destination": "/country-code/republic-of-the-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/congo-brazzaville/",
+      "destination": "/:lang/country-code/republic-of-the-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/brunei-darussalam/",
+      "destination": "/country-code/brunei/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/brunei-darussalam/",
+      "destination": "/:lang/country-code/brunei/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/swaziland/",
+      "destination": "/:lang/country-code/eswatini/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/east-timor/",
+      "destination": "/:lang/country-code/timor-leste/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/macedonia/",
+      "destination": "/:lang/country-code/north-macedonia/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/vatican/",
+      "destination": "/:lang/country-code/vatican-city/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/british-indian-ocean-territory/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/british-indian-ocean-territory/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/israel/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/israel/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/macau/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/macau/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/greenland/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/greenland/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/isle-of-man/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/isle-of-man/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/anguilla/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/anguilla/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/netherlands-antilles/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/netherlands-antilles/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/united-states/",
+      "destination": "/country-code/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/united-states/",
+      "destination": "/:lang/country-code/usa/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/united-kingdom/",
+      "destination": "/country-code/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/united-kingdom/",
+      "destination": "/:lang/country-code/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/united-arab-emirates/",
+      "destination": "/country-code/uae/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/united-arab-emirates/",
+      "destination": "/:lang/country-code/uae/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/turkey/",
+      "destination": "/country-code/turkiye/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/turkey/",
+      "destination": "/:lang/country-code/turkiye/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/czech-republic/",
+      "destination": "/country-code/czechia/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/czech-republic/",
+      "destination": "/:lang/country-code/czechia/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/democratic-republic-of-the-congo/",
+      "destination": "/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/democratic-republic-of-the-congo/",
+      "destination": "/:lang/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/congo-democratic-republic-of-the/",
+      "destination": "/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/congo-democratic-republic-of-the/",
+      "destination": "/:lang/country-code/dr-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/congo-brazzaville/",
+      "destination": "/country-code/republic-of-the-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/congo-brazzaville/",
+      "destination": "/:lang/country-code/republic-of-the-congo/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/brunei-darussalam/",
+      "destination": "/country-code/brunei/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/brunei-darussalam/",
+      "destination": "/:lang/country-code/brunei/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/swaziland/",
+      "destination": "/country-code/eswatini/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/swaziland/",
+      "destination": "/:lang/country-code/eswatini/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/east-timor/",
+      "destination": "/country-code/timor-leste/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/east-timor/",
+      "destination": "/:lang/country-code/timor-leste/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/macedonia/",
+      "destination": "/country-code/north-macedonia/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/macedonia/",
+      "destination": "/:lang/country-code/north-macedonia/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/vatican/",
+      "destination": "/country-code/vatican-city/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/vatican/",
+      "destination": "/:lang/country-code/vatican-city/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/british-indian-ocean-territory/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/british-indian-ocean-territory/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/israel/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/israel/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/macau/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/macau/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/greenland/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/greenland/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/isle-of-man/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/isle-of-man/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/anguilla/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/anguilla/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/netherlands-antilles/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/netherlands-antilles/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/:slug(afghanistan|albania|algeria|andorra|angola|antigua-and-barbuda|argentina|armenia|australia|austria|azerbaijan|bahamas|bahrain|bangladesh|barbados|belarus|belgium|belize|benin|bhutan|bolivia|bosnia-and-herzegovina|botswana|brazil|brunei|bulgaria|burkina-faso|burundi|cambodia|cameroon|canada|cape-verde|central-african-republic|chad|chile|china|colombia|comoros|costa-rica|croatia|cuba|cyprus|czechia|denmark|djibouti|dominica|dominican-republic|dr-congo|ecuador|egypt|el-salvador|equatorial-guinea|eritrea|estonia|eswatini|ethiopia|fiji|finland|france|gabon|gambia|georgia|germany|ghana|greece|grenada|guatemala|guinea|guinea-bissau|guyana|haiti|honduras|hungary|iceland|india|indonesia|iran|iraq|ireland|italy|ivory-coast|jamaica|japan|jordan|kazakhstan|kenya|kiribati|kosovo|kuwait|kyrgyzstan|laos|latvia|lebanon|lesotho|liberia|libya|liechtenstein|lithuania|luxembourg|madagascar|malawi|malaysia|maldives|mali|malta|marshall-islands|mauritania|mauritius|mexico|micronesia|moldova|monaco|mongolia|montenegro|morocco|mozambique|myanmar|namibia|nauru|nepal|netherlands|new-zealand|nicaragua|niger|nigeria|north-korea|north-macedonia|norway|oman|pakistan|palau|palestine|panama|papua-new-guinea|paraguay|peru|philippines|poland|portugal|qatar|republic-of-the-congo|romania|russia|rwanda|saint-kitts-and-nevis|saint-lucia|saint-vincent-and-the-grenadines|samoa|san-marino|sao-tome-and-principe|saudi-arabia|senegal|serbia|seychelles|sierra-leone|singapore|slovakia|slovenia|solomon-islands|somalia|south-africa|south-korea|south-sudan|spain|sri-lanka|sudan|suriname|sweden|switzerland|syria|tajikistan|tanzania|thailand|timor-leste|togo|tonga|trinidad-and-tobago|tunisia|turkiye|turkmenistan|tuvalu|uganda|ukraine|uae|uk|usa|uruguay|uzbekistan|vanuatu|vatican-city|venezuela|vietnam|yemen|zambia|zimbabwe|american-samoa|aruba|bermuda|british-virgin-islands|cayman-islands|christmas-island|cook-islands|curacao|falkland-islands|faroe-islands|french-polynesia|gibraltar|guam|guernsey|hong-kong|jersey|mayotte|new-caledonia|niue|northern-mariana-islands|pitcairn|puerto-rico|reunion|saint-barthelemy|saint-helena|saint-martin|sint-maarten|svalbard-and-jan-mayen|taiwan|tokelau|turks-and-caicos-islands|us-virgin-islands|western-sahara)/",
+      "destination": "/country-code/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/:slug(afghanistan|albania|algeria|andorra|angola|antigua-and-barbuda|argentina|armenia|australia|austria|azerbaijan|bahamas|bahrain|bangladesh|barbados|belarus|belgium|belize|benin|bhutan|bolivia|bosnia-and-herzegovina|botswana|brazil|brunei|bulgaria|burkina-faso|burundi|cambodia|cameroon|canada|cape-verde|central-african-republic|chad|chile|china|colombia|comoros|costa-rica|croatia|cuba|cyprus|czechia|denmark|djibouti|dominica|dominican-republic|dr-congo|ecuador|egypt|el-salvador|equatorial-guinea|eritrea|estonia|eswatini|ethiopia|fiji|finland|france|gabon|gambia|georgia|germany|ghana|greece|grenada|guatemala|guinea|guinea-bissau|guyana|haiti|honduras|hungary|iceland|india|indonesia|iran|iraq|ireland|italy|ivory-coast|jamaica|japan|jordan|kazakhstan|kenya|kiribati|kosovo|kuwait|kyrgyzstan|laos|latvia|lebanon|lesotho|liberia|libya|liechtenstein|lithuania|luxembourg|madagascar|malawi|malaysia|maldives|mali|malta|marshall-islands|mauritania|mauritius|mexico|micronesia|moldova|monaco|mongolia|montenegro|morocco|mozambique|myanmar|namibia|nauru|nepal|netherlands|new-zealand|nicaragua|niger|nigeria|north-korea|north-macedonia|norway|oman|pakistan|palau|palestine|panama|papua-new-guinea|paraguay|peru|philippines|poland|portugal|qatar|republic-of-the-congo|romania|russia|rwanda|saint-kitts-and-nevis|saint-lucia|saint-vincent-and-the-grenadines|samoa|san-marino|sao-tome-and-principe|saudi-arabia|senegal|serbia|seychelles|sierra-leone|singapore|slovakia|slovenia|solomon-islands|somalia|south-africa|south-korea|south-sudan|spain|sri-lanka|sudan|suriname|sweden|switzerland|syria|tajikistan|tanzania|thailand|timor-leste|togo|tonga|trinidad-and-tobago|tunisia|turkiye|turkmenistan|tuvalu|uganda|ukraine|uae|uk|usa|uruguay|uzbekistan|vanuatu|vatican-city|venezuela|vietnam|yemen|zambia|zimbabwe|american-samoa|aruba|bermuda|british-virgin-islands|cayman-islands|christmas-island|cook-islands|curacao|falkland-islands|faroe-islands|french-polynesia|gibraltar|guam|guernsey|hong-kong|jersey|mayotte|new-caledonia|niue|northern-mariana-islands|pitcairn|puerto-rico|reunion|saint-barthelemy|saint-helena|saint-martin|sint-maarten|svalbard-and-jan-mayen|taiwan|tokelau|turks-and-caicos-islands|us-virgin-islands|western-sahara)/",
+      "destination": "/:lang/country-code/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/:path+/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/:path+/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/benefits-of-sms/",
+      "destination": "/blog/text-messaging-benefits/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/benefits-of-sms/",
+      "destination": "/:lang/blog/text-messaging-benefits/",
+      "permanent": true
+    },
+    {
+      "source": "/campaigns/",
+      "destination": "/products/campaigns/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/campaigns/",
+      "destination": "/:lang/products/campaigns/",
+      "permanent": true
+    },
+    {
+      "source": "/customer-stories/",
+      "destination": "/resources/case-studies/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/customer-stories/",
+      "destination": "/:lang/resources/case-studies/",
+      "permanent": true
+    },
+    {
+      "source": "/developer/",
+      "destination": "/developers/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/developer/",
+      "destination": "/:lang/developers/",
+      "permanent": true
+    },
+    {
+      "source": "/developers-doc/",
+      "destination": "/developers/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/developers-doc/",
+      "destination": "/:lang/developers/",
+      "permanent": true
+    },
+    {
+      "source": "/xml-api/",
+      "destination": "/developers/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/xml-api/",
+      "destination": "/:lang/developers/",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/api/",
+      "destination": "/developers/api-reference/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/integrations/api/",
+      "destination": "/:lang/developers/api-reference/",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/google-sheets/",
+      "destination": "/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/integrations/google-sheets/",
+      "destination": "/:lang/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/multichannel-api/",
+      "destination": "/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/integrations/multichannel-api/",
+      "destination": "/:lang/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/integrations/shopify/",
+      "destination": "/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/integrations/shopify/",
+      "destination": "/:lang/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/",
+      "destination": "/resources/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/docs/",
+      "destination": "/:lang/resources/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/features/",
+      "destination": "/products/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/features/",
+      "destination": "/:lang/products/",
+      "permanent": true
+    },
+    {
+      "source": "/features/schedule-sms-messages/",
+      "destination": "/blog/how-to-schedule-a-text-message/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/features/schedule-sms-messages/",
+      "destination": "/:lang/blog/how-to-schedule-a-text-message/",
+      "permanent": true
+    },
+    {
+      "source": "/features/long-sms-messages/",
+      "destination": "/blog/the-art-of-sending-long-text-messages-crafting-masterpieces/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/features/long-sms-messages/",
+      "destination": "/:lang/blog/the-art-of-sending-long-text-messages-crafting-masterpieces/",
+      "permanent": true
+    },
+    {
+      "source": "/features/automatic-opt-out/",
+      "destination": "/blog/sms-opt-in/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/features/automatic-opt-out/",
+      "destination": "/:lang/blog/sms-opt-in/",
+      "permanent": true
+    },
+    {
+      "source": "/features/sms-landing-pages/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/features/sms-landing-pages/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/free-trial/",
+      "destination": "/signup/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/free-trial/",
+      "destination": "/:lang/signup/",
+      "permanent": true
+    },
+    {
+      "source": "/login/register/",
+      "destination": "/signup/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/login/register/",
+      "destination": "/:lang/signup/",
+      "permanent": true
+    },
+    {
+      "source": "/login/login/",
+      "destination": "/login/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/login/login/",
+      "destination": "/:lang/login/",
+      "permanent": true
+    },
+    {
+      "source": "/frequently-asked-questions/",
+      "destination": "/resources/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/frequently-asked-questions/",
+      "destination": "/:lang/resources/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/india-terms-and-conditions/",
+      "destination": "/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/india-terms-and-conditions/",
+      "destination": "/:lang/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/products/alert-sms/",
+      "destination": "/solutions/use-case/transactional-alerts/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/alert-sms/",
+      "destination": "/:lang/solutions/use-case/transactional-alerts/",
+      "permanent": true
+    },
+    {
+      "source": "/products/bulk-sms/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/bulk-sms/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/products/bulk-sms-messaging/",
+      "destination": "/blog/bulk-sms-messaging/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/bulk-sms-messaging/",
+      "destination": "/:lang/blog/bulk-sms-messaging/",
+      "permanent": true
+    },
+    {
+      "source": "/products/bulksms-text-messenger/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/bulksms-text-messenger/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/products/web-to-sms/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/web-to-sms/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/bulk-sms-2/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/bulk-sms-2/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/sms/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/sms/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/send-bulk-sms-globally/",
+      "destination": "/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/send-bulk-sms-globally/",
+      "destination": "/:lang/products/channels/sms-broadcasting/",
+      "permanent": true
+    },
+    {
+      "source": "/send-sms-online-with-confidence-try-smslocal/",
+      "destination": "/tools/send-text/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/send-sms-online-with-confidence-try-smslocal/",
+      "destination": "/:lang/tools/send-text/",
+      "permanent": true
+    },
+    {
+      "source": "/products/integration-gateway/",
+      "destination": "/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/integration-gateway/",
+      "destination": "/:lang/platform/integrations/",
+      "permanent": true
+    },
+    {
+      "source": "/products/transactional-sms/",
+      "destination": "/blog/transactional-sms/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/transactional-sms/",
+      "destination": "/:lang/blog/transactional-sms/",
+      "permanent": true
+    },
+    {
+      "source": "/transactional-bulk-sms-revolutionizing-business-communication/",
+      "destination": "/blog/transactional-sms/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/transactional-bulk-sms-revolutionizing-business-communication/",
+      "destination": "/:lang/blog/transactional-sms/",
+      "permanent": true
+    },
+    {
+      "source": "/products/two-way-sms/",
+      "destination": "/blog/two-way-texting/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/two-way-sms/",
+      "destination": "/:lang/blog/two-way-texting/",
+      "permanent": true
+    },
+    {
+      "source": "/sms-api/",
+      "destination": "/products/cpaas/sms-api/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/sms-api/",
+      "destination": "/:lang/products/cpaas/sms-api/",
+      "permanent": true
+    },
+    {
+      "source": "/voice-otp/",
+      "destination": "/solutions/use-case/otp-authentication/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/voice-otp/",
+      "destination": "/:lang/solutions/use-case/otp-authentication/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/",
+      "destination": "/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tools/",
+      "destination": "/:lang/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/sms-character-limit/",
+      "destination": "/blog/sms-character-limit/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tools/sms-character-limit/",
+      "destination": "/:lang/blog/sms-character-limit/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/sms-generator/",
+      "destination": "/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tools/sms-generator/",
+      "destination": "/:lang/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/ai-text-message-generator/",
+      "destination": "/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tools/ai-text-message-generator/",
+      "destination": "/:lang/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/speech-to-text-online/",
+      "destination": "/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tools/speech-to-text-online/",
+      "destination": "/:lang/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/text-to-speech-online-free-unlimited/",
+      "destination": "/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tools/text-to-speech-online-free-unlimited/",
+      "destination": "/:lang/resources/tools/",
+      "permanent": true
+    },
+    {
+      "source": "/tcpa-transactional-messages-compliance-engagement-guide/",
+      "destination": "/blog/tcpa-compliance/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/tcpa-transactional-messages-compliance-engagement-guide/",
+      "destination": "/:lang/blog/tcpa-compliance/",
+      "permanent": true
+    },
+    {
+      "source": "/resources/insights/building-an-sms-database/",
+      "destination": "/blog/create-an-sms-database/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/resources/insights/building-an-sms-database/",
+      "destination": "/:lang/blog/create-an-sms-database/",
+      "permanent": true
+    },
+    {
+      "source": "/resources/insights/how-does-a2p-messaging-work/",
+      "destination": "/blog/a2p-meaning/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/resources/insights/how-does-a2p-messaging-work/",
+      "destination": "/:lang/blog/a2p-meaning/",
+      "permanent": true
+    },
+    {
+      "source": "/resources/insights/how-to-attach-pdfs-to-your-messages/",
+      "destination": "/blog/how-to-attach-a-file-to-a-text-message/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/resources/insights/how-to-attach-pdfs-to-your-messages/",
+      "destination": "/:lang/blog/how-to-attach-a-file-to-a-text-message/",
+      "permanent": true
+    },
+    {
+      "source": "/resources/insights/how-to-send-smses-from-your-computer/",
+      "destination": "/blog/send-bulk-text-messages-from-computer/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/resources/insights/how-to-send-smses-from-your-computer/",
+      "destination": "/:lang/blog/send-bulk-text-messages-from-computer/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/category/:path+/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/blog/category/:path+/",
+      "destination": "/:lang/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/campaigns/:path+/",
+      "destination": "/products/campaigns/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/campaigns/:path+/",
+      "destination": "/:lang/products/campaigns/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/:path+/",
+      "destination": "/resources/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/docs/:path+/",
+      "destination": "/:lang/resources/docs/",
+      "permanent": true
+    },
+    {
+      "source": "/resources-and-regulations/:path+/",
+      "destination": "/resources/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/resources-and-regulations/:path+/",
+      "destination": "/:lang/resources/guides/",
+      "permanent": true
+    },
+    {
       "source": "/countries/:slug/",
       "destination": "/country-code/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/:slug/",
+      "destination": "/:lang/country-code/:slug/",
       "permanent": true
     }
   ],
