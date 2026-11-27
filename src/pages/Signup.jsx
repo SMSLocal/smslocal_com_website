@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Seo from '../components/Seo.jsx'
 import '../components/SignupFlow.css'
 import { IconCheck } from '../components/icons.jsx'
+import { track } from '../lib/track.js'
 
 const BENEFITS = [
   'Free trial credit included, no card required',
@@ -38,6 +39,7 @@ function Signup() {
         body: JSON.stringify({ email }),
       })
       const data = await res.json()
+      track('signup_email_submitted', { success: Boolean(data.success) })
       if (data.success) {
         sessionStorage.setItem(tokenStorageKey(email), data.token)
         navigate(`/verify/?email=${encodeURIComponent(email)}`, { state: { token: data.token } })

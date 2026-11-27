@@ -8,6 +8,7 @@ import FlagSelect from '../components/FlagSelect.jsx'
 const DIAL_CODE_OPTIONS = DIAL_CODES.map((d) => ({ value: d.code, iso: d.iso, label: d.label }))
 const COUNTRY_OPTIONS = COUNTRIES.map((name) => ({ value: name, iso: countryIso(name), label: name }))
 import { IconCheck } from '../components/icons.jsx'
+import { track } from '../lib/track.js'
 
 function tokenStorageKey(email) {
   return `smslocal_signup_token:${email}`
@@ -46,6 +47,9 @@ function Register() {
   // Set once the account is created: the page then thanks the user instead of
   // sending them straight to a login form they have no credentials for yet.
   const [loginUrl, setLoginUrl] = useState('')
+  // Set instead when the platform could not create the account and the team will.
+  const [pendingMessage, setPendingMessage] = useState('')
+  const done = Boolean(loginUrl || pendingMessage)
 
   const [firstname, setFirstname] = useState('')
   const [surname, setSurname] = useState('')
@@ -100,14 +104,18 @@ function Register() {
         }),
       })
       const data = await res.json()
+      track('signup_details_submitted', { success: Boolean(data.success) })
       if (data.success) {
+        track('signup_completed', { pending: Boolean(data.pending) })
         clearStoredToken(email)
-        setLoginUrl(data.redirect || 'https://secure.smslocal.com/cpaas/auth/login?returnUrl=%2Fcpaas%2Fpages')
+        if (data.pending) setPendingMessage(data.message)
+        else setLoginUrl(data.redirect || 'https://secure.smslocal.com/cpaas/auth/login?returnUrl=%2Fcpaas%2Fpages')
         window.scrollTo({ top: 0 })
       } else {
         setError(data.message || 'Something went wrong')
       }
     } catch {
+      track('signup_details_submitted', { success: false })
       setError('There was an error processing the form. Please try again.')
     } finally {
       setLoading(false)
@@ -166,17 +174,23 @@ function Register() {
             <div className="signup-steps">
               <span className="signup-step-dot done" />
               <span className="signup-step-dot done" />
-              <span className={`signup-step-dot ${loginUrl ? 'done' : 'active'}`} />
+              <span className={`signup-step-dot ${done ? 'done' : 'active'}`} />
             </div>
 
-            {loginUrl ? (
+            {done ? (
               <div className="signup-done" role="status">
                 <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                   <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
                 </svg>
                 <h1 className="signup-title">Thanks for signing up with us</h1>
-                <p className="signup-subtitle">You will get a confirmation message in email shortly. Check your spam folder if it doesn’t show up in your inbox within a few minutes.</p>
-                <a className="btn signup-submit signup-submit-solid" href={loginUrl}>Go to login</a>
+                {pendingMessage ? (
+                  <p className="signup-subtitle">{pendingMessage}</p>
+                ) : (
+                  <>
+                    <p className="signup-subtitle">You will get a confirmation message in email shortly. Check your spam folder if it doesn’t show up in your inbox within a few minutes.</p>
+                    <a className="btn signup-submit signup-submit-solid" href={loginUrl}>Go to login</a>
+                  </>
+                )}
               </div>
             ) : (
             <>

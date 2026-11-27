@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-do
 import Seo from '../components/Seo.jsx'
 import '../components/SignupFlow.css'
 import { IconCheck } from '../components/icons.jsx'
+import { track } from '../lib/track.js'
 
 const OTP_LENGTH = 6
 
@@ -112,6 +113,7 @@ function Verify() {
         body: JSON.stringify({ token, code }),
       })
       const data = await res.json()
+      track('signup_code_submitted', { success: Boolean(data.success) })
       if (data.success) {
         writeStoredToken(email, data.token)
         navigate(`/register/?email=${encodeURIComponent(email)}`, { state: { token: data.token } })

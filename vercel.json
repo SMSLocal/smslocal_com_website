@@ -23,7 +23,7 @@
       "includeFiles": "api/_lib/signup-emails/**"
     },
     "api/signup/*.js": {
-      "maxDuration": 20
+      "maxDuration": 30
     }
   },
   "redirects": [
