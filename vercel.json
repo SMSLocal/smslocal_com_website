@@ -130,6 +130,22 @@
     {
       "source": "/register/",
       "destination": "/signup/",
+      "permanent": false,
+      "missing": [
+        {
+          "type": "query",
+          "key": "email"
+        }
+      ]
+    },
+    {
+      "source": "/blog/text-acronyms/",
+      "destination": "/blog/text-acronyms-abbreviations/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/blog/text-acronyms/",
+      "destination": "/:lang/blog/text-acronyms-abbreviations/",
       "permanent": true
     },
     {
