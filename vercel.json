@@ -763,6 +763,16 @@
       "permanent": true
     },
     {
+      "source": "/countries/montserrat/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/countries/montserrat/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
       "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/united-states/",
       "destination": "/:lang/country-code/usa/",
       "permanent": true
@@ -909,6 +919,16 @@
     },
     {
       "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/netherlands-antilles/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/country-code/montserrat/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/country-code/montserrat/",
       "destination": "/:lang/country-code/",
       "permanent": true
     },
@@ -1109,6 +1129,16 @@
     },
     {
       "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/netherlands-antilles/",
+      "destination": "/:lang/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/products/sending-bulk-sms/montserrat/",
+      "destination": "/country-code/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/products/sending-bulk-sms/montserrat/",
       "destination": "/:lang/country-code/",
       "permanent": true
     },
@@ -1518,6 +1548,26 @@
       "permanent": true
     },
     {
+      "source": "/usa-terms-and-conditions/",
+      "destination": "/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/usa-terms-and-conditions/",
+      "destination": "/:lang/terms-and-conditions/",
+      "permanent": true
+    },
+    {
+      "source": "/resources/insights/how-to-send-a-mass-text-from-an-iphone/",
+      "destination": "/blog/how-to-send-a-mass-text-on-iphone/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/resources/insights/how-to-send-a-mass-text-from-an-iphone/",
+      "destination": "/:lang/blog/how-to-send-a-mass-text-on-iphone/",
+      "permanent": true
+    },
+    {
       "source": "/tools/sms-character-limit/",
       "destination": "/blog/sms-character-limit/",
       "permanent": true
@@ -1625,6 +1675,16 @@
     {
       "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/blog/category/:path+/",
       "destination": "/:lang/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/features/:path+/",
+      "destination": "/products/",
+      "permanent": true
+    },
+    {
+      "source": "/:lang(es|fr|de|it|pt|nl|pl|ru|tr|ar|hi|zh|ja|ko|vi|id|th|sv|uk)/features/:path+/",
+      "destination": "/:lang/products/",
       "permanent": true
     },
     {

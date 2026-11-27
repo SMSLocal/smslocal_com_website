@@ -38,13 +38,17 @@
   letter-spacing: -0.045em;
   line-height: 1.15;
   margin: 1rem 0 0;
+  /* Two lines are held from the start: while the web fonts arrive one at a time
+     the title can briefly fit on one line, which moved everything below it. */
+  min-height: 2.3em;
 }
 
 .contact-hero-sub {
   color: var(--text-secondary);
   font-size: 1.02rem;
   line-height: 1.55;
-  max-width: 40ch;
+  /* rem, not ch: ch follows the font, so the width changed when it loaded */
+  max-width: 27rem;
   margin: 0.85rem 0 0;
 }
 
